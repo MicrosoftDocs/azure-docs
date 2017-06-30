@@ -18,7 +18,7 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 
 ---
 # An introduction to Azure Functions  

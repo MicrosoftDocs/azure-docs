@@ -1,114 +1,97 @@
 ---
-title: Service Tiers in Azure Database for MySQL | Microsoft Docs"
-description: Service Tiers in Azure Database for MySQL
+title: "Pricing Tiers in Azure Database for MySQL | Microsoft Docs"
+description: "Pricing Tiers in Azure Database for MySQL"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/23/2017
 ---
-# Azure Database for MySQL options and performance: Understand what’s available in each service tier
-Azure Database for MySQL offers the Basic and Standard service tiers. Premium is not yet available.
+# Azure Database for MySQL options and performance: Understand what’s available in each pricing tier
+When you create an Azure Database for MySQL server, you decide upon three main choices to configure the resources allocated for that server. These choices impact the performance and scale of the server.
+- Pricing tier
+- Compute Units
+- Storage (GB)
 
-Each service tier has multiple performance levels to handle different types of workloads requirements. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change performance levels within a service tier dynamically without application downtime.
-
-In the future, it will be possible to upgrade or downgrade from one service tier to another. 
+Each pricing tier has a range of performance levels (Compute Units) to choose from, depending on your workloads requirements. Higher performance levels provide additional resources for your server designed to deliver higher throughput. You can change the server's performance level within a pricing tier with virtually no application downtime.
 
 > [!IMPORTANT]
-> The service is currently in public preview, and so does not yet provide a Service Level Agreement (SLA).
+> While the service is in public preview, there is not a guaranteed Service Level Agreement (SLA).
 
-You can create single Azure Database for MySQL server with dedicated resources within a service tier at a specific performance level. You can then create one to several databases within the server in which the resources are shared across multiple databases. The resources available for single Azure Database for MySQL server are expressed in terms of Compute Units and Storage Units. For more on Compute Units and Storage, see [Explaining Compute Unit and Storage Unit](concepts-compute-unit-and-storage.md)
+Within an Azure Database for MySQL server, you can have one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. 
 
-## Choosing a service tier
+## Choose a pricing tier
+While in preview, Azure Database for MySQL offers two pricing tiers: Basic and Standard. Premium tier is not yet available, but is coming soon. 
 
-The following table provides examples of the tiers best suited for different application workloads.
+The following table provides examples of the pricing tiers best suited for different application workloads.
 
-| Service tier | Target workloads |
+| Pricing tier | Target workloads |
 | :----------- | :----------------|
 | Basic | Best suited for small workloads that require scalable compute and storage without IOPS guarantee. Examples include servers used for development or testing, or small-scale infrequently used applications. |
-| Standard | The go-to option for cloud applications that need IOPS guarantee with an ability to scale to higher compute and storage independently for high throughput. Examples include web or analytical applications. |
-| Premium | Best suited for workloads that need very brief latencies for transactions and IO, along with high IO and workload throughput. Provides the best support for many concurrent users. Applicable to databases which support mission critical applications.<br />The Premium service tier is not available in preview. |
-| &nbsp; | &nbsp; |
+| Standard | The go-to option for cloud applications that need IOPS guarantee with high throughput. Examples include web or analytical applications. |
+| Premium | Best suited for workloads that need low latency for transactions and IO. Provides the best support for many concurrent users. Applicable to databases that support mission critical applications.<br />The Premium pricing tier is not available in preview. |
 
-To decide on a service tier, first start by determining if your workload need IOPS guarantee. Then determine the minimum features that you need:
+To decide on a pricing tier, first start by determining if your workload needs an IOPS guarantee. If so, use Standard pricing tier.
 
-| **Service tier features** | **Basic** | **Standard** | **Premium** * |
-| :------------------------ | :-------- | :----------- | :------------ |
-| Maximum Compute Units | 100 | 2000 | Not available in preview |
-| Maximum total storage | 1050 GB | 10000 GB | Not available in preview |
-| Storage IOPS guarantee | N/A | Yes | Not available in preview |
-| Maximum storage IOPS | N/A | 30,000 | Not available in preview |
-| Database backup retention period | 7 days | 35 days | 35 days |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| **Pricing tier features** | **Basic** | **Standard** |
+| :------------------------ | :-------- | :----------- |
+| Maximum Compute Units | 100 | 800 | 
+| Maximum total storage | 1 TB | 1 TB | 
+| Storage IOPS guarantee | N/A | Yes | 
+| Maximum storage IOPS | N/A | 3,000 | 
+| Database backup retention period | 7 days | 35 days | 
 
-> [!NOTE]
-> The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1000 GB of storage.
+During the preview timeframe, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
 
-Once you have determined the minimum service tier, you are ready to determine the performance level for the Azure Database for MySQL server (the Compute Units). The standard 200 and 400 Compute Units are often a good starting point for applications that require higher user concurrency for their web or analytical workloads. 
+## Choose a performance level (Compute Units)
+Once you have determined the pricing tier for your Azure Database for MySQL server, you are ready to determine the performance level by selecting the number of Compute Units needed. A good starting point is 200 or 400 Compute Units for applications that require higher user concurrency for their web or analytical workloads, and adjust incrementally as needed. 
 
-However, you can scale up or down the Compute Units independent of Storage Units, based on the requirements of the workload. If the workload needs an adjustment of compute resources, you can dynamically increase or decrease the Compute Units. If your workload needs more IOPS or storage, then you can also scale Storage.
+Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for MySQL server. A Compute Unit is a blended measure of CPU and memory resources.  For more information, see [Explaining Compute Units](concepts-compute-unit-and-storage.md)
 
-> [!NOTE]
-> In preview, the Basic and Standard tiers currently do not support the dynamic scaling of storage. We plan to add the feature in the future.
-
-> [!NOTE]
-> At the Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. If you provision 1000 GB, you will get 3000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
-
-## Service tiers and performance levels
-
-Azure Database for MySQL offers multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands, by using one of the following:
-
-- [Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
-
-Regardless of the number of databases hosted within each MySQL server, your database gets a guaranteed set of resources and the expected performance characteristics of your server are not affected.
-
-Basic service tier:
+### Basic pricing tier performance levels:
 
 | **Performance level** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | Max Compute Units | 50 | 100 |
-| Included Storage size | 50 GB | 50 GB |
-| Max server storage size\* | 1050 GB | 1050 GB |
-| Max concurrent logins | &nbsp; | &nbsp; |
-| Max connections | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; |
+| Included storage size | 50 GB | 50 GB |
+| Max server storage size\* | 1 TB | 1 TB |
 
-Standard service tier:
+### Standard pricing tier performance levels:
 
 | **Performance level** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Max Compute Units | 100 | 200 | 400 | 800 |
-| Included storage size and provisioned IOPS | 125 GB, 375 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| Max server storage size\* | 1 TB | &nbsp; | &nbsp; | &nbsp; |
-| Max server provisioned IOPS | 3000 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| Max server provisioned IOPS per GB | Fixed 3 IOPS per GB | &nbsp; | &nbsp; | &nbsp; |
-| Max concurrent logins | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Max connections | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Included storage size and provisioned IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
+| Max server storage size\* | 1 TB | 1 TB | 1 TB | 1 TB |
+| Max server provisioned IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS |
+| Max server provisioned IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB |
 
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
-## Scaling up or down a single server
+## Storage 
+The storage configuration defines the amount of storage capacity available to an Azure Database for MySQL server. The storage used by the service includes the database files, transaction logs, and the MySQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the storage configuration.
 
-After initially choosing a service tier and performance level, you can scale the server up or down dynamically based on workload requirements. If you need to scale up or down, you can easily change the tier of your database by using the Azure portal or the Azure CLI.
+Some storage capacity is included at a minimum with each pricing tier, noted in the preceding table as "Included storage size." Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
 
-Changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
+The IOPS configuration in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to maximum storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB maximum, to guarantee 3,000 provisioned IOPS.
 
-The duration of the entire scale-up process depends on both the size and service tier of the server before and after the change. For example, a server that is changing Compute Units, to or from or within a Standard service tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
+Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
 
-### Documentation about the steps for scaling up or down
+>[!IMPORTANT]
+> While in preview, choose the amount of storage at the time when the server is created. Changing the storage size on an existing server is not yet supported. 
 
-- [Manage a single server with Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Manage a single server with Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
+## Scaling a server up or down
+You initially choose the pricing tier and performance level when you create your Azure Database for MySQL. Later, you can scale the Compute Units up or down dynamically, within the range of the same pricing tier. In the Azure portal, slide the Compute Units on the server's Pricing tier blade, or script it by following this example: [Monitor and scale an Azure Database for MySQL server using Azure CLI](scripts/sample-scale-server.md)
 
-### Details about scaling up or down
+Scaling the Compute Units is done independently of the maximum storage size you have chosen.
 
-- To downgrade a server, the server Storage Units should be smaller than the maximum allowed size of the target service tier.
-- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [How To Backup and Restore Azure Database for MySQL server using the Azure portal](./howto-restore-server-portal.md)
-- The new properties for the server are not applied until the changes are complete.
+Behind the scenes, changing the performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process. During the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
+
+The duration of the entire scale process depends on both the size and pricing tier of the server before and after the change. For example, a server that is changing Compute Units within the Standard pricing tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
+
+## Next Steps
+- For more on Compute Units, see [Explaining Compute Units](concepts-compute-unit-and-storage.md)
+- Learn how to [Monitor and scale an Azure Database for MySQL server using Azure CLI](scripts/sample-scale-server.md)

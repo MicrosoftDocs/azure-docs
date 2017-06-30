@@ -2,6 +2,7 @@
 documentType: LandingData
 title: Azure Database for PostgreSQL Documentation
 metadata:
+  document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
   title: Azure PostgreSQL Documentation - Tutorials, API Reference
   description: Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.
   services: app-service

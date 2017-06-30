@@ -3,8 +3,8 @@ title: Azure Application Insights for Windows server and worker roles | Microsof
 description: Manually add the Application Insights SDK to your ASP.NET application to analyze usage, availability and performance.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
@@ -12,60 +12,77 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
-ms.author: awills
+ms.date: 05/15/2017
+ms.author: cfreeman
 
 ---
-# Manually configure Application Insights for ASP.NET applications
-[Application Insights](app-insights-overview.md) is an extensible tool for web developers to monitor the performance and usage of your live application. You can manually configure it to monitor Windows server, worker roles, and other ASP.NET applications. For web apps, manual configuration is an alternative to the [automatic set-up](app-insights-asp-net.md) offered by Visual Studio.
+# Manually configure Application Insights for .NET applications
+
+You can configure [Application Insights](app-insights-overview.md) to monitor a wide variety of applications or application roles, components, or microservices. For web apps and services, Visual Studio offers [one-step configuration](app-insights-asp-net.md). For other types of .NET application, such as backend server roles or desktop applications, you can configure Application Insights manually.
 
 ![Example performance monitoring charts](./media/app-insights-windows-services/10-perf.png)
 
 #### Before you start
+
 You need:
 
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
 * Visual Studio 2013 or later.
 
-## <a name="add"></a>1. Create an Application Insights resource
+## <a name="add"></a>1. Choose an Application Insights resource
+
+The 'resource' is where your data is collected and displayed in the Azure portal. You need to decide whether to create a new one, or share an existing one.
+
+### Part of a larger app: Use existing resource
+
+If your web application has several components - for example, a front-end web app and one or more back-end services - then you should send telemetry from all the components to the same resource. This will enable them to be displayed on a single Application Map, and make it possible to trace a request from one component to another.
+
+So, if you're already monitoring other components of this app, then just use the same resource.
+
+Open the resource in the [Azure portal](https://portal.azure.com/). 
+
+### Self-contained app: Create a new resource
+
+If the new app is unrelated to other applications, then it should have its own resource.
+
 Sign in to the [Azure portal](https://portal.azure.com/), and create a new Application Insights resource. Choose ASP.NET as the application type.
 
 ![Click New, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
-A [resource](app-insights-resources-roles-access-control.md) in Azure is an instance of a service. This resource is where telemetry from your app will be analyzed and presented to you.
+The choice of application type sets the default content of the resource blades.
 
-The choice of application type sets the default content of the resource blades and the properties visible in [Metrics Explorer](app-insights-metrics-explorer.md).
-
-#### Copy the Instrumentation Key
-The key identifies the resource, and you'll install it soon in the SDK to direct data to the resource.
+## 2. Copy the Instrumentation Key
+The key identifies the resource. You'll install it soon in the SDK, in order to direct data to the resource.
 
 ![Click Properties, select the key, and press ctrl+C](./media/app-insights-windows-services/02-props-asp.png)
 
-The steps you've just done to create a new resource are a good way to start monitoring any application. Now you can send data to it.
+## <a name="sdk"></a>3. Install the Application Insights package in your application
+Installing and configuring the Application Insights package varies depending on the platform you're working on. 
 
-## <a name="sdk"></a>2. Install the Application Insights package in your application
-Installing and configuring the Application Insights package varies depending on the platform you're working on. For ASP.NET apps, it's easy.
-
-1. In Visual Studio, edit the NuGet packages of your web app project.
+1. In Visual Studio, right-click your project and choose **Manage Nuget Packages**.
    
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-services/03-nuget.png)
-2. Install Application Insights package for Windows server apps.
+2. Install the Application Insights package for Windows server apps, "Microsoft.ApplicationInsights.WindowsServer."
    
     ![Search for "Application Insights"](./media/app-insights-windows-services/04-ai-nuget.png)
    
+    *Which version?*
+
+    Check **Include prerelease** if you want to try our latest features. The relevant documents or blogs note whether you need a prerelease version.
+    
     *Can I use other packages?*
    
-    Yes. Choose the Core API (Microsoft.ApplicationInsights) if you only want to use the API to send your own telemetry. The Windows Server package automatically includes the Core API plus a number of other packages such as performance counter collection and dependency monitoring. 
+    Yes. Choose "Microsoft.ApplicationInsights" if you only want to use the API to send your own telemetry. The Windows Server package includes the API plus a number of other packages such as performance counter collection and dependency monitoring. 
 
-#### To upgrade to future package versions
+### To upgrade to future package versions
 We release a new version of the SDK from time to time.
 
 To upgrade to a [new release of the package](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/), open NuGet package manager again and filter on installed packages. Select **Microsoft.ApplicationInsights.WindowsServer** and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
-## 3. Send telemetry
-**If you installed only the core API package:**
+## 4. Send telemetry
+**If you installed only the API package:**
 
 * Set the instrumentation key in code, for example in `main()`: 
   
@@ -97,7 +114,7 @@ Look for data in the Overview charts. At first, you'll just see one or two point
 
 Click through any chart to see more detailed metrics. [Learn more about metrics.](app-insights-web-monitor-performance.md)
 
-#### No data?
+### No data?
 * Use the application, opening different pages so that it generates some telemetry.
 * Open the [Search](app-insights-diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
 * Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
@@ -110,14 +127,14 @@ Now deploy your application to your server or to Azure and watch the data accumu
 
 When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app in Release configuration, data accumulates more slowly.
 
-#### No data after you publish to your server?
+### No data after you publish to your server?
 Open ports for outgoing traffic in your server's firewall. See [this page](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) for the list of required addresses 
 
-#### Trouble on your build server?
+### Trouble on your build server?
 Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
-> If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
+> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
 > [Learn about sampling](app-insights-sampling.md).
 > 
 > 

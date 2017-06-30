@@ -2,10 +2,11 @@
 documentType: LandingData
 title: Azure Functions Documentation
 metadata:
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
   title: Azure Functions Documentation - Tutorials | Microsoft Docs
-  description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
+  meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
-  author: apexprodleads
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines\linux
   ms.tgt_pltfrm: na
@@ -19,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: media/index/get-started-with-azure-functions.png
+      src: media/index/video-thumb-get-started.png
       width: 250  
     title: Get started with Azure Functions. (2:39)
     href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
@@ -28,26 +29,47 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to create a Hello World function using:'
+    text: 'Learn how to create functions that execute based on events created via:'
   - type: list
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Azure portal
+        src: media/index/http.svg
+      text: HTTP
       href: /azure/azure-functions/functions-create-first-azure-function
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
+        src: media/index/stopwatch.svg
+      text: Timer
+      href: /azure/azure-functions/functions-create-scheduled-function
+    - image: 
+        src: media/index/octokitty.svg
+      text: GitHub webhook
+      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+    - image: 
+        src: media/index/blob.svg
+      text: Blob
+      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+    - image: 
+        src: media/index/storage.svg
+      text: Queue
+      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+  - type: paragraph
+    text: 'Learn how to develop and debug locally:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /media/logos/logo_visual-studio.svg
+      text:  Visual Studio
+      href: /azure-functions/function-create-your-first-function-visual-studio
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to build and manage Azure Functions'
+    text: 'Learn how to build and manage Azure Functions:'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Create a function that integrates with Azure Logic Apps</a>
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
 - title: Samples
   items:
@@ -64,3 +86,7 @@ sections:
     items:
     - title: Command-Line
       html: <p><a href="/cli/azure">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
+    - title: Bindings 
+      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Event Hub</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">External file</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP and webhooks</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Timer</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio output binding</a></p>

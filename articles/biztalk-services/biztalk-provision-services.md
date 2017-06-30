@@ -19,10 +19,12 @@ ms.author: mandia
 ---
 # Create BizTalk Services using the Azure portal
 
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+
 > [!TIP]
 > To sign in to the Azure portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
-> 
-> 
+
 
 ## Create a BizTalk Service
 Depending on the Edition you choose, not all BizTalk Service settings may be available.

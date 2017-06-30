@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: klam
+ms.author: LADocs; klam
 
 ms.custom: H1Hack27Feb2017 
 

@@ -2,8 +2,9 @@
 title: Import your data to Analytics in Azure Application Insights | Microsoft Docs
 description: Import static data to join with app telemetry, or import a separate data stream to query with Analytics.
 services: application-insights
+keywords: "open schema, data import"
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Import data into Analytics
@@ -183,11 +184,11 @@ The data is available in Analytics after a few minutes.
 * **400 bad request**: indicates that the request payload is invalid. Check:
  * Correct instrumentation key.
  * Valid time value. It should be the time now in UTC.
- * Data conforms to the schema.
+ * JSON of the event conforms to the schema.
 * **403 Forbidden**: The blob you've sent is not accessible. Make sure that the shared access key is valid and has not expired.
 * **404 Not Found**:
  * The blob doesn't exist.
- * The data source name is wrong.
+ * The sourceId is wrong.
 
 More detailed information is available in the response error message.
 
@@ -199,8 +200,6 @@ This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.J
 ### Classes
 
 ```C#
-
-
 namespace IngestionClient 
 { 
     using System; 
@@ -353,7 +352,6 @@ namespace IngestionClient
         #endregion Private 
     } 
 } 
-
 ```
 
 ### Ingest data
@@ -361,14 +359,11 @@ namespace IngestionClient
 Use this code for each blob. 
 
 ```C#
-
-
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
-   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "tableId/sourceId", "blobUrlWithSas"); 
+   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
 
    bool success = await client.RequestBlobIngestion(ingestionRequest);
-
 ```
 
 ## Next steps

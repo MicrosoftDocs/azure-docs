@@ -1,11 +1,12 @@
 ---
 title: 'Customizing: Azure AD SSPR | Microsoft Docs'
-description: 
+description: Customization options for Azure AD self service password reset
 services: active-directory
 keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,31 +14,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 06/06/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Customize Azure AD functionality for Self-Service Password Reset
 
-There are many options that can be changed within Azure AD, many are related to Self-Service Password Reset (SSPR), this guide explains what is possible.
+IT Professionals looking to deploy self-service password reset can customize the experience to match their users.
 
 ## Customize the contact your administrator link
 
 Even if SSPR is not enabled users still a "contact your administrator" link on the password reset portal.  Clicking this link emails your administrators asking for assistance in changing the user's password. This email is sent to the following recipients in the following order:
 
-1. If the **Password administrator** role is assigned, those with this role are notified
-2. If no Password administrators are assigned, then those with the **User administrator** role are notified
+1. If the **Password administrator** role is assigned, administrators with this role are notified
+2. If no Password administrators are assigned, then administrators with the **User administrator** role are notified
 3. If neither of the previous roles were assigned, then **Global administrators** are notified
 
 In all cases, up to 100 total recipients are notified.
 
 ### Disable contact your administrator emails
 
-If your organization does not want administrators notified about password reset requests the following configuration can be enabled
+If your organization does not want administrators notified about password reset requests, the following configuration can be enabled
 
 * Enable self-service password reset for all end users. This option is under **Password Reset**, **Properties**
     * If you do not wish users to reset their own passwords, you can scope access to an empty group we do not recommend this option**.
 * Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset**, **Customization**, then **Custom helpdesk email or URL**
+
+## Customize ADFS sign-in page for SSPR
+
+ADFS Administrators can add a link to their sign-in page using the guidance found in the article [Add sign-in page description](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
+
+Using the command that follows on your ADFS server adds a link to the ADFS login page allowing users to enter the self-service password reset workflow directly.
+
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?<A/></p>" ```
 
 ## Customize the sign-in and access panel look and feel
 

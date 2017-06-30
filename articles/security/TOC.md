@@ -10,6 +10,8 @@
 ### [Advanced threat detection](azure-threat-detection.md)
 ### [Logging and auditing](azure-log-audit.md)
 ### [Isolation in the public cloud](azure-isolation.md)
+### [Security technical capabilities](azure-security-technical-capabilities.md)
+### [Governance in Azure](governance-in-azure.md)
 
 # Get Started
 ## [Getting started with Azure security](azure-security-getting-started.md)
@@ -18,6 +20,7 @@
 
 ## Network security
 ### [Network security best practices](azure-security-network-security-best-practices.md)
+###[Azure network security](azure-network-security.md)
 ### [Boundary security](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Secure hybrid network architecture](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
@@ -39,6 +42,7 @@
 #### [Get started with Azure log integration](security-azure-log-integration-get-started.md)
 #### [Integrate Azure Active Directory audit logs](security-azure-log-integration-ad.md)
 #### [Integrate Security Center alerts](security-azure-log-integration-security-center.md)
+#### [Integrate logs from Key Vault using Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 
 ## Identity management
@@ -69,9 +73,10 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Resources
-## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Azure security MVP program](azure-security-mvp.md)
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
+## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Security videos on Channel 9](security-channel-nine.md)
 ## [Threat modeling tool](azure-security-threat-modeling-tool.md)

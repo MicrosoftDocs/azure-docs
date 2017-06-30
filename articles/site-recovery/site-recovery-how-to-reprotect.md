@@ -12,12 +12,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload:
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
 
 ---
 # Reprotect from Azure to an on-premises site
+
+
 
 ## Overview
 This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md).
@@ -39,7 +41,7 @@ Following are the prerequisite steps that you need to take or consider when you 
 
 * If the virtual machines that you want to fail back to are managed by a vCenter server, you need to make sure that you have the required permissions for discovery of virtual machines on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 
-> [!WARNING] 
+> [!WARNING]
 > If snapshots are present on the on-premises mater target or the virtual machine then reprotection will fail. You can delete the snapshots on the master target before you proceed to reprotect. The snapshots on the virtual machine wll be automatically merged during reprotect job.
 
 * Before you fail back you willll need to create two additional components:
@@ -98,6 +100,10 @@ Click the following links to read about how to install a master target server:
 * [How to install Linux master target server](site-recovery-how-to-install-linux-master-target.md)
 
 
+### What datastore types are supported on the on-premises ESXi host during failback?
+
+Currently ASR only supports failing back to a VMFS datastore. A vSAN or NFS datastore is not supported. Note that you can protect virtual machines running on a vSAN or NFS datastore. Due to this limitation, the datastore selection input in the reprotect screen will be empty in case of NFS datastores or show the vSAN datastore but fail during the job. If you intend to failback, then you can create a VMFS datastore on-premises and failback to it. This failback will be cause a full download of the VMDK. We are adding support for NFS and vSAN datastores in the upcoming releases.
+
 #### Common things to check after completing installation of the master target server
 
 * If the virtual machine is present on premises on the vCenter server, the master target server needs access to the on-premises virtual machine's VMDK. Access is needed to write the replicated data to the virtual machine's disks. Ensure that the on-premises virtual machine's datastore is mounted on the master target's host with read/write access.
@@ -124,7 +130,7 @@ Click the following links to read about how to install a master target server:
    * The default retention volume for Windows is R volume.
 
    * The default retention volume for Linux is /mnt/retention.
-   
+
    > [!IMPORTANT]
    > You need to add a new drive in case you are using an existing CS+PS machine or a scale or PS+MT machine. The new drive should meet the above requirements. If the retention drive is not present, none will be listed in the selection drop down on the portal. After you add a drive to the on-premises master target, it takes upto fifteen minutes for the drive to reflect in the selection on the portal. You can also refresh the configuration server if the drive does not appear after fifteen minutes.
 

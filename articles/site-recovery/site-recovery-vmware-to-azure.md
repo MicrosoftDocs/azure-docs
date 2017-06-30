@@ -9,13 +9,14 @@ editor: ''
 
 ms.assetid: dab98aa5-9c41-4475-b7dc-2e07ab1cfd18
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 06/14/2017
 ms.author: raynew
-
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: vmware-walkthrough-overview
 ---
 # Replicate VMware virtual machines to Azure with Site Recovery
 
@@ -220,10 +221,11 @@ The Mobility service must be installed on all VMware VMs that you want to replic
 
 Before you start:
 
+- Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
 - When you add or modify VMs, it can take up to 15 minutes or longer for changes to take effect, and for them to appear in the portal.
 - You can check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**.
 - To add VMs without waiting for the scheduled discovery, highlight the configuration server (don’t click it), and click **Refresh**.
-* If a VM is prepared for push installation, the process server automatically installs the Mobility service when you enable replication.
+- If a VM is prepared for push installation, the process server automatically installs the Mobility service when you enable replication.
 
 
 ### Exclude disks from replication
@@ -268,10 +270,6 @@ Before you start, watch a quick video overview
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
-After you enable replication, the Mobility service will be installed if you set up push installation. After the Mobility service is push installed on a VM, a protection job will start and fail. After the failure you need to manually restart each machine. Then the protection job begins again, and initial replication occurs.
-
-
-
 ### View and manage VM properties
 
 We recommend that you verify the VM properties, and make any changes you need to.
@@ -294,7 +292,24 @@ We recommend that you verify the VM properties, and make any changes you need to
      - For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
    - If the virtual machine has multiple network adapters they will all connect to the same network.
    - If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
-5. In **Disks**, you can see the VM operating system, and the data disks that will be replicated.
+4. In **Disks**, you can see the VM operating system, and the data disks that will be replicated.
+
+#### Managed disks
+
+In **Compute and Network** > **Compute properties**, you can set "Use managed disks" setting to "Yes" for the VM if you want to attach managed disks to your machine on failover to Azure. Managed disks simplifies disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. [Learn More about managed disks.](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview)
+
+   - Managed disks are created and attached to the virtual machine only on a failover to Azure. On enabling protection, data from on-premises machines will continue to replicate to storage accounts.  Managed disks can be created only for virtual machines deployed using the Resource manager deployment model.  
+
+   - When you set "Use managed disks" to "Yes", only availability sets in the resource group with "Use managed disks" set to "Yes" would be available for selection. This is because virtual machines with managed disks can only be part of availability sets with "Use managed disks" property set to "Yes". Make sure that you create availability sets with "Use managed disks" property set based on your intent to use managed disks on failover.  Likewise, when you set "Use managed disks" to "No", only availability sets in the resource group with "Use managed disks" property set to "No" would be available for selection. [Learn more about managed disks and availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > If the storage account used for replication was encrypted with Storage Service Encryption at any
+  > point in time, creation of managed disks during failover will fail. You can either set "Use
+  > managed disks" to "No" and retry failover or disable protection for the virtual machine and
+  > protect it to a storage account which did not have Storage service encryption enabled at any point
+  > in time.
+  > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## Run a test failover
 

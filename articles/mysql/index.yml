@@ -2,6 +2,7 @@
 documentType: LandingData
 title: Azure Database for MySQL Documentation
 metadata:
+  document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
   title: Azure MySQL Documentation - Tutorials, API Reference | Microsoft Docs
   description: Azure Database for MySQL is a relational database service in the Microsoft cloud built for developers based on the open source MySQL database engine.
   services: mysql
@@ -47,4 +48,4 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/azure/mysql/reference-azure-cli">Azure CLI</a></p>
+      html: <p><a href="/cli/azure/mysql">Azure CLI</a></p>

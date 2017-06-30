@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 
 ---
 ## Test your code
@@ -43,7 +44,7 @@ Select the hyperlink to see the user's claims. This leads you to the controller 
 | Subject| {Subject}|A string to uniquely identify the user logon across the web|
 | Tenant ID| {Guid}| A *guid* to uniquely represent the user’s Azure Active Directory organization.|
 
-In addition, you will see a table including all user claims included in authentication request. For a list of all claims in an Id Token and explanation please see this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+In addition, you will see a table including all user claims included in authentication request. For a list of all claims in an Id Token and explanation please see this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "List of Claims in Id Token").
 
 
 ### Test accessing a method that has an *[Authorize]* attribute (Optional)
@@ -77,5 +78,5 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 > To allow users from only a list of specific organizations, set `ValidateIssuer` to true and use the `ValidIssuers` parameter to specify a list of organizations.
 
-> Another option is to implement a custom method to validate the issuers using IssuerValidator parameter. For more information about `TokenValidationParameters`, please see [this](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) MSDN article.
+> Another option is to implement a custom method to validate the issuers using IssuerValidator parameter. For more information about `TokenValidationParameters`, please see [this](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN article") MSDN article.
 

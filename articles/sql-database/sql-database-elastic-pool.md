@@ -10,9 +10,9 @@ editor: ''
 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 04/19/2017
+ms.date: 06/27/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
@@ -124,7 +124,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
 ## eDTU and storage limits for elastic pools
 
-The following table describes the characteristics of Basic, Standard, Premium, and Premium RS elastic pools.
+The following tables describe the resource limits of elastic pools.  Note that the resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier.  For example, the max concurrent workers for an S2 database is 120 workers.  So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -152,11 +152,11 @@ Pooled databases generally support the same [business continuity features](sql-d
 ### Point in time restore
 Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-### Geo-Restore
-Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
+### Geo-restore
+Geo-restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
 
-### Active Geo-Replication
-For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure [Active Geo-Replication](sql-database-geo-replication-overview.md).
+### Active geo-replication
+For applications that have more aggressive recovery requirements than geo-restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
 
 ## Next steps
 

@@ -251,13 +251,13 @@ One way to get the primary domain controller IP address is through the Azure por
 Note the private IP address for this server.
 
 ### Configure the virtual network DNS
-After you create the first domain controller and enable DNS on the first server, configure the virtual network to use this server for DNS. 
+After you create the first domain controller and enable DNS on the first server, configure the virtual network to use this server for DNS.
 
 1. In the Azure portal, click on the virtual network.
 
-2. Under **Settings**, click **DNS Server**. 
+2. Under **Settings**, click **DNS Server**.
 
-3. Click **Custom**, and type the private IP address of the primary domain controller. 
+3. Click **Custom**, and type the private IP address of the primary domain controller.
 
 4. Click **Save**.
 
@@ -350,13 +350,13 @@ Create three additional virtual machines. The solution requires two virtual mach
 
 Before you proceed consider the following deisign decisions.
 
-* **Storage - Azure Managed Disks** 
+* **Storage - Azure Managed Disks**
 
-   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../storage/storage-managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../manage-availability.md#use-managed-disks-for-vms-in-availability-set).
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../storage/storage-managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Network - Private IP addresses in production**
 
-   For the virtual machines, this tutorial uses public IP addresses. This enables remote connection directly to the virtual machine over the internet - it makes configuration steps easier. In production environments, Microsoft recommends only private IP addresses in order to reduce the vulnerability footprint of the SQL Server instance VM resource. 
+   For the virtual machines, this tutorial uses public IP addresses. This enables remote connection directly to the virtual machine over the internet - it makes configuration steps easier. In production environments, Microsoft recommends only private IP addresses in order to reduce the vulnerability footprint of the SQL Server instance VM resource.
 
 ### Create and configure the SQL Server VMs
 Next, create three VMs--two SQL Server VMs and a VM for an additional cluster node. To create each of the VMs, go back to the **SQL-HA-RG** resource group, click **Add**, search for the appropriate gallery item, click **Virtual Machine**, and then click **From Gallery**. Use the information in the following table to help you create the VMs:
@@ -443,7 +443,7 @@ Use the installation account (CORP\install) to configure the availability group.
 
 1. Click **OK**.
 
-Repeat the preceding steps on the other SQL Server VM. 
+Repeat the preceding steps on the other SQL Server VM.
 
 ## Add Failover Clustering features to both SQL Server VMs
 

@@ -69,8 +69,8 @@ The unit eDTU price for an elastic pool is higher than the unit DTU price for a 
 
 To understand the eDTUs and service tiers, see [SQL Database options and performance](sql-database-service-tiers.md).
 
-## How does the use of Active Geo-Replication in an elastic pool show up on my bill?
-Unlike single databases, using [Active Geo-Replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
+## How does the use of active geo-replication in an elastic pool show up on my bill?
+Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
 
 ## How does the use of the auditing feature impact my bill?
 Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, Premium, and Premium RS databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
@@ -95,7 +95,7 @@ Changing the service tier of a database and moving in and out of a pool requires
 In general, elastic pools are designed for a typical [software-as-a-service (SaaS) application pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), where there is one database per customer or tenant. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. Azure's intelligent engine recommends a pool for databases when a usage pattern warrants it. For details, see [Elastic pool guidance](sql-database-elastic-pool.md).
 
 ## What does it mean to have up to 200% of your maximum provisioned database storage for backup storage?
-Backup storage is the storage associated with your automated database backups that are used for [Point-In-Time-Restore](sql-database-recovery-using-backups.md#point-in-time-restore) and [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore). Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you are provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
+Backup storage is the storage associated with your automated database backups that are used for [Point-In-Time-Restore](sql-database-recovery-using-backups.md#point-in-time-restore) and [geo-restore](sql-database-recovery-using-backups.md#geo-restore). Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you are provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
 
 ## I'm moving from Web/Business to the new service tiers, what do I need to know?
 Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, Premium RS, and Elastic tiers replace the retiring Web and Business databases. 
@@ -106,7 +106,7 @@ We are currently supporting an RPO of five seconds and the replication lag has b
 ## What is an expected replication lag when geo-secondary is created in the same region as the primary database?
 Based on empirical data, there is not too much difference between intra-region and inter-region replication lag when the Azure recommended paired region is used. 
 
-## If there is a network failure between two regions, how does the retry logic work when Geo-Replication is set up?
+## If there is a network failure between two regions, how does the retry logic work when geo-replication is set up?
 If there is a disconnect, we retry every 10 seconds to re-establish connections.
 
 ## What can I do to guarantee that a critical change on the primary database is replicated?

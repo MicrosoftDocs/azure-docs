@@ -3,8 +3,8 @@ title: 'Get started with U-SQL language | Microsoft Docs'
 description: Learn the basics of the U-SQL language.
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
+ms.date: 06/23/2017
+ms.author: saveenr
 
 ---
 # Get started with U-SQL
@@ -32,7 +32,7 @@ Before you go through the U-SQL samples in this document, read and complete [Tut
 
 ## Your first U-SQL script
 
-The following U-SQL script is very simple and lets us explore many aspects the U-SQL language.
+The following U-SQL script is simple and lets us explore many aspects the U-SQL language.
 
 ```
 @searchlog =
@@ -64,20 +64,13 @@ Notice the question mark next to the data type in the `Duration` field. It means
 
 The EXTRACT and OUTPUT statements use file paths. File paths can be absolute or relative:
 
-This absolute file path refers to a file in a Data Lake Store named `mystore`:
+This following absolute file path refers to a file in a Data Lake Store named `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-This absolute file path refers to a file in an Azure Blog Storage account named `myblobaccount` and in a container named `mycontainer`:
+This following file path starts with `"/"`. It refers to a file in the default Data Lake Store account:
 
-    wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
- >[!NOTE]
- >Azure Blob storage containers with public blobs or public containers access permissions are not currently supported.
-
-This relative file path starts with `"/"`. It refers to a file in the default Data Lake Store account that is associated with the Data Lake Analytics account:
-
-    TO "/output/SearchLog-first-u-sql.csv"
+    /output/SearchLog-first-u-sql.csv
 
 ## Use scalar variables
 
@@ -187,15 +180,16 @@ U-SQL rowsets do not preserve their order for the next query. Thus, to order an 
     GROUP BY Region;
 
     @res =
-    SELECT *
-    FROM @rs1
-    ORDER BY TotalDuration DESC
-    FETCH 5 ROWS;
+        SELECT *
+        FROM @rs1
+        ORDER BY TotalDuration DESC
+        FETCH 5 ROWS;
 
     OUTPUT @rs1
         TO @out1
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
     OUTPUT @res
         TO @out2
         ORDER BY TotalDuration DESC
@@ -221,58 +215,16 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
             Region,
             SUM(Duration) AS TotalDuration
         FROM @searchlog
-    GROUP BY Region
-    HAVING SUM(Duration) > 200;
+        GROUP BY Region
+        HAVING SUM(Duration) > 200;
 
     OUTPUT @res
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## Join data
-U-SQL provides common join operators such as INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, to join not only tables but any rowsets (even those produced from files).
+For advanced aggregation scenarios, see the The U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
 
-The following script joins the searchlog with an advertisement impression log and gives us the advertisements for the query string for a given date.
-
-    @adlog =
-        EXTRACT UserId int,
-                Ad string,
-                Clicked int
-        FROM "/Samples/Data/AdsLog.tsv"
-        USING Extractors.Tsv();
-
-    @join =
-        SELECT a.Ad, s.Query, s.Start AS Date
-        FROM @adlog AS a JOIN <insert your DB name>.dbo.SearchLog1 AS s
-                        ON a.UserId == s.UserId
-        WHERE a.Clicked == 1;
-
-    OUTPUT @join   
-        TO "/output/Searchlog-join.csv"
-        USING Outputters.Csv();
-
-
-U-SQL supports only the ANSI-compliant join syntax: Rowset1 JOIN Rowset2 ON predicate. The old syntax of FROM Rowset1, Rowset2 WHERE predicate is _not_ supported.
-The predicate in a JOIN has to be an equality join and no expression. If you want to use an expression, add it to a previous rowset's select clause. If you want to do a different comparison, you can move it into the WHERE clause.
-
-## Conclusion
-This tutorial covers only a small part of U-SQL. Because of its limited scope, the tutorial has not discussed many other benefits of U-SQL. For example, you can:
-
-* Use CROSS APPLY to unpack parts of strings, arrays, and maps into rows.
-* Operate partitioned sets of data (file sets and partitioned tables).
-* Develop user-defined operators such as extractors, outputters, processors, and user-defined aggregators in C#.
-* Use U-SQL windowing functions.
-* Manage U-SQL code with views, table-valued functions, and stored procedures.
-* Run arbitrary custom code on your processing nodes.
-* Connect to SQL databases and federate queries across them and your U-SQL and Azure Data Lake data.
-
-## See also
+## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-## Let us know what you think
-* [Submit a feature request](http://aka.ms/adlafeedback)
-* [Get help in the forums](http://aka.ms/adlaforums)
-* [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)

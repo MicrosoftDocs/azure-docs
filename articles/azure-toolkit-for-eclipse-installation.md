@@ -18,9 +18,7 @@ ms.author: robmcm
 
 ---
 # Installing the Azure Toolkit for Eclipse
-The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. The Azure Toolkit for Eclipse is an Open Source project, whose source code is available under the MIT License from the project's site on GitHub at the following URL:
-
-<https://github.com/microsoft/azure-tools-for-java>
+The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. The Azure Toolkit for Eclipse is an Open Source project. The source code is available under the MIT License from <https://github.com/microsoft/azure-tools-for-java>.
 
 The following steps show you how to install the Azure Toolkit for Eclipse.
 
@@ -28,10 +26,10 @@ The following steps show you how to install the Azure Toolkit for Eclipse.
 
 ## To install the Azure Toolkit for Eclipse
 1. Start Eclipse.
-2. When Eclipse opens, click the **Help** menu, and then click **Install New Software**, as shown in the following illustration.
+2. Click the **Help** menu, and then click **Install New Software**, as shown in the following illustration.
    
     ![Installing the Azure Toolkit for Eclipse][01]
-3. In the **Available Software** dialog, within the **Work with** text box, type **http://dl.microsoft.com/eclipse** followed by the **Enter** key.
+3. In the **Available Software** dialog, within the **Work with** text box, type `http://dl.microsoft.com/eclipse` followed by the **Enter** key.
 4. In the **Name** pane, check **Azure Toolkit for Eclipse**, and uncheck **Contact all update sites during install to find required software**. Your screen should appear similar to the following:
    
     ![Installing the Azure Toolkit for Eclipse][02]

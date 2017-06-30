@@ -47,8 +47,7 @@ You can use Azure Import/Export service to copy data to **Block** blobs or **Pag
 To begin the process of importing to or exporting from Blob storage, you first create a job. A job can be an import job or an export job:
 
 * Create an import job when you want to transfer data you have on-premises to blobs in your Azure storage account.
-* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.
-
+* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.s
 When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
 
 * For an import job, you will be shipping hard drives containing your data.
@@ -64,7 +63,7 @@ The journal files store basic information about your job and drive such as drive
 
 The WAImportExport tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
-Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
+Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
@@ -72,7 +71,7 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 >
 
 ### Hard disk drives
-Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A Single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
+Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
 
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS.
 
@@ -80,6 +79,13 @@ For import jobs, only the first data volume on the drive will be processed. The 
 > External hard disk drives that come with a built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs.
 > 
 > 
+
+Below is a list of external USB adaptors used to copy data to internal HDDs. 
+Anker 68UPSATAA-02BU
+Anker 68UPSHHDS-BU
+Startech SATADOCK22UE
+Orico 6628SUS3-C-BK (6628 Series)
+Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
 
 ### Encryption
 The data on the drive must be encrypted using BitLocker Drive Encryption. This protects your data while it is in transit.
@@ -467,9 +473,12 @@ No. All drives are encrypted with BitLocker.
 
 No. You will need to ship your own drives for both import and export jobs.
 
+** How can I access data that is imported by this service**
+The data under your Azure storage account can be accessed via the Azure Portal or using a standalone tool called Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+
 **After the import job completes, what will my data look like in the storage account? Will my directory hierarchy be preserved?**
 
-When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files.
+When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files. 
 
 **If the drive has files that already exist in my storage account, will the service overwrite existing blobs in my storage account?**
 
@@ -494,9 +503,9 @@ Please note that the physical media that you are shipping may need to cross inte
 
 Some storage account locations are mapped to alternate shipping locations. Previously available shipping locations can also be temporarily mapped to alternate locations. Always check the shipping address provided during job creation before shipping your drives.
 
-**When shipping my drive, the carrier asks for the data center contact name and phone number. What should I provide?**
+**When shipping my drive, the carrier asks for the data center contact address and phone number. What should I provide?**
 
-The phone number is provided to you during job creation. If you need a contact name, please contact us at waimportexport@microsoft.com and we will provide you with that information.
+The phone number and DC address is provided as part of job creation.
 
 **Can I use the Azure Import/Export service to copy PST mailboxes and SharePoint data to O365?**
 
@@ -506,13 +515,13 @@ Please refer to [Import PST files or SharePoint data to Office 365](https://tech
 
 Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
-**What is the maximum numbers of HDD for in one shipment?
+**What is the maximum numbers of HDD for in one shipment?**
 
 Any number of HDDs can be in one shipment and if the disks belong to multiple jobs it is recommended to 
 a) Have the disks labeled with the corresponding job names. 
 b) Update the jobs with a tracking number suffixed with -1, -2 etc.
   
-**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?
+**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?**
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
 Max Page Blob size is 1TB.

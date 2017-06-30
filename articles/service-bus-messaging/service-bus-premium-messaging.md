@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/28/2017
-ms.author: darosa;sethm;jotaub
+ms.author: darosa;sethm
 
 ---
 # Service Bus Premium and Standard messaging tiers
@@ -43,11 +43,17 @@ The following sections discuss a few differences between Premium and Standard me
 
 ### Partitioned queues and topics
 
-Partitioned queues and topics are supported in Premium Messaging; in fact these entities are always partitioned (and cannot be disabled). However, Premium partitioned queues and topics do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary to improve performance. Additionally, the partition count has been changed from 16 partitions in Standard Messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
+Partitioned queues and topics are supported in Premium Messaging; in fact these entities are always partitioned (and cannot be disabled). However, Premium partitioned queues and topics do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary to improve performance. Additionally, the partition count has been changed from 16 partitions in Standard Messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. 
+
+With Premium messaging, when you specify the size of an entity with [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), that size is split equally across the 2 partitions, unlike [Standard partitioned entities](service-bus-partitioning.md#standard) in which the total size is 16 times the specified size. 
+
+For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
 
 ### Express entities
 
-Because Premium Messaging runs in a completely isolated run-time environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
+Because Premium messaging runs in a completely isolated run-time environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
+
+If you have code running under Standard messaging and want to port it to the Premium tier, make sure the [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property is set to **false** (the default value).
 
 ## Get started with Premium Messaging
 

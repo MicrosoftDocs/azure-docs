@@ -1,5 +1,5 @@
 ---
-title: Create HBase clusters in a Virtual Network | Microsoft Docs
+title: Create HBase clusters in a Virtual Network - Azure | Microsoft Docs
 description: Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network.
 keywords: ''
 services: hdinsight,virtual-network
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
-# Create HBase clusters in Azure Virtual Network
+# Create HBase clusters on HDInsight in Azure Virtual Network
 Learn how to create Azure HDInsight HBase clusters in an [Azure Virtual Network][1].
 
 With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly. The benefits include:

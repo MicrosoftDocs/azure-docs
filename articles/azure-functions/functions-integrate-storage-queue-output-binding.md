@@ -16,7 +16,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
-
+ms.custom: mvc
 ---
 # Add messages to an Azure Storage queue using Functions
 
@@ -24,13 +24,11 @@ In Azure Functions, input and output bindings provide a declarative way to conne
 
 ![View message in the logs.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-It should take you less than five minutes to complete all the steps in this topic.
-
 ## Prerequisites 
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
-You also need to download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+* Install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
@@ -38,11 +36,11 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
  
 1. Expand both your function app and your function.
 
-2. Click **Integrate** and **+ New output**, then click **Azure Queue storage** and click **Select**.
+2. Select **Integrate** and **+ New output**, then select **Azure Queue storage** and select **Select**.
     
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Use the settings as specified in the table, and then click **Save**: 
+3. Use the settings as specified in the table, and then select **Save**: 
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -56,7 +54,7 @@ Now that you have an output binding defined, you need to update the code to use 
 
 ## Update the function code
 
-1. Click your function to display the function code in the editor. 
+1. Select your function to display the function code in the editor. 
 
 2. For a C# function, update your function definition as follows to add the **outQueueItem** storage binding parameter. Skip this step for a JavaScript function.
 
@@ -79,13 +77,13 @@ Now that you have an output binding defined, you need to update the code to use 
     outQueueItem.Add("Name passed to the function: " + name);     
     ```
 
-4. Click **Save** to save changes.
+4. Select **Save** to save changes.
 
 The value passed to the HTTP trigger is included in a message added to the queue.
  
 ## Test the function 
 
-1. After the code changes are saved, click **Run**. 
+1. After the code changes are saved, select **Run**. 
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
@@ -97,17 +95,17 @@ Next, you can connect to your storage account to verify the new queue and the me
 
 Skip the first three steps if you have already installed Storage Explorer and connected it to your storage account.    
 
-1. In your function, click **Integrate** and the new **Azure Queue storage** output binding, then expand **Documentation**. Copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
+1. In your function, select **Integrate** and the new **Azure Queue storage** output binding, then expand **Documentation**. Copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
  
     ![Get the Storage account connection credentials.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
-2. Run the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
+2. Run the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
 
     ![Run the Storage Account Explorer tool.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. Enter the **Account name** and **Account key** from step 1, click **Next** and then **Connect**. 
+3. Paste the **Account name** and **Account key** from step 1 into their corresponding fields, then select **Next**, and **Connect**. 
   
-    ![Enter the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+    ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 4. Expand the attached storage account, right-click **Queues** and verify that a queue named **myqueue-items** exists. You should also see a message already in the queue.  
  

@@ -155,14 +155,30 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## Run the application
-The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and undeploy the application. To run the application, first build the application with gradle:
+
+The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and remove the
+application. To run the application, first build the application with gradle:
 
 ```bash
 $ gradle
 ```
 
-This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Run the install.sh script to deploy:
+This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI.
+
+### Deploy with XPlat CLI
+
+If using the XPlat CLI, the install.sh script contains the necessary Azure CLI commands to deploy the application 
+package. Run the install.sh script to deploy the application.
 
 ```bash
 $ ./install.sh
 ```
+
+### Deploy with Azure CLI 2.0
+
+If using the Azure CLI 2.0, see the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+
+## Related articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

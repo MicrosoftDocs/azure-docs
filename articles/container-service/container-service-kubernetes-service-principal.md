@@ -101,7 +101,7 @@ The following example shows one way to pass the parameters with the Azure CLI 2.
 
 ## Option 2: Generate a service principal when creating the cluster with `az acs create`
 
-If you run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
+If you run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
 
 As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az acs create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment. 
 

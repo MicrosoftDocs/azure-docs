@@ -1,29 +1,30 @@
 ---
-title: Use Python components in a Storm topology on HDinsight | Microsoft Docs
-description: Learn how you can use Python components with Apache Storm on Azure HDInsight.
+title: Apache Storm with Python comopnents - Azure HDInsight | Microsoft Docs
+description: Learn how to create an Apache Storm topology that uses Python components.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
+keywords: apache storm python
 
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 05/12/2017
 ms.author: larryfr
 
 ---
 # Develop Apache Storm topologies using Python on HDInsight
 
-Learn how to use Python components with Storm on HDInsight. Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. The Flux framework (introduced with Storm 0.10.0) allows you to easily create solutions that use Python components.
+Learn how to create an Apache Storm topology that uses Python components. Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. The Flux framework (introduced with Storm 0.10.0) allows you to easily create solutions that use Python components.
 
 > [!IMPORTANT]
-> The information in this document was tested using Storm on HDInsight 3.5. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight version 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The information in this document was tested using Storm on HDInsight 3.5. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 The code for this project is available at [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
@@ -39,13 +40,13 @@ The code for this project is available at [https://github.com/Azure-Samples/hdin
 
 ## Storm multi-language support
 
-Storm was designed to work with components written using any programming language. The components must understand how to work with the [Thrift definition for Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). For Python, a module is provided as part of the Apache Storm project that allows you to easily interface with Storm. You can find this module at [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm was designed to work with components written using any programming language. The components must understand how to work with the [Thrift definition for Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). For Python, a module is provided as part of the Apache Storm project that allows you to easily interface with Storm. You can find this module at [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
-Apache Storm is a Java process that runs on the Java Virtual Machine (JVM). Components written in other languages are executed as subprocesses. The Storm communicates with these subprocesses using JSON messages sent over stdin/stdout. More details on communication between components can be found in the [Multi-lang Protocol](https://storm.apache.org/documentation/Multilang-protocol.html) documentation.
+Storm is a Java process that runs on the Java Virtual Machine (JVM). Components written in other languages are executed as subprocesses. The Storm communicates with these subprocesses using JSON messages sent over stdin/stdout. More details on communication between components can be found in the [Multi-lang Protocol](https://storm.apache.org/documentation/Multilang-protocol.html) documentation.
 
-## Python and the Flux framework
+## Python with the Flux framework
 
-The Flux framework allows you to define Storm topologies separately from the components. While the components in this example are written using Python, the topology is defined using YAML. The following text is an example of how a Python component is referenced in the YAML document:
+The Flux framework allows you to define Storm topologies separately from the components. The Flux framework uses YAML to define the Storm topology. The following text is an example of how to reference a Python component in the YAML document:
 
 ```yaml
 # Spout definitions
@@ -73,7 +74,7 @@ Flux expects the Python scripts to be in the `/resources` directory inside the j
 </resource>
 ```
 
-As mentioned earlier, there is a `storm.py` file that implements the Thrift definition for Storm. The Flux framework includes this automatically when the project is built, so you don't have to worry about including it.
+As mentioned earlier, there is a `storm.py` file that implements the Thrift definition for Storm. The Flux framework includes `storm.py` automatically when the project is built, so you don't have to worry about including it.
 
 ## Build the project
 
@@ -98,21 +99,21 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 Once the topology starts, it emits information to the local console similar to the following text:
 
-```
-24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
-24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
-24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
-24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
-24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
-24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
-24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
-24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
-^C24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
-```
 
-Use Ctrl+c to stop the topology.
+    24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+    24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
+    24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
+    24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
+    24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+    24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 
-## Run the topology on HDInsight
+
+To stop the topology, use __Ctrl + C__.
+
+## Run the Storm topology on HDInsight
 
 1. Use the following command to copy the `WordCount-1.0-SNAPSHOT.jar` file to your Storm on HDInsight cluster:
 
@@ -141,7 +142,7 @@ Use Ctrl+c to stop the topology.
 > [!NOTE]
 > Once started, a Storm topology runs until stopped. To stop the topology, use one of the following methods:
 >
-> * The `storm kill TOPOLOGYNAME` command from the command-line
+> * The `storm kill TOPOLOGYNAME` command from the command line
 > * The **Kill** button in the Storm UI.
 
 

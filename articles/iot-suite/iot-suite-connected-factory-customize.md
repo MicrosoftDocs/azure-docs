@@ -22,7 +22,7 @@ ms.author: dobett
 
 ## Introduction
 
-The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution.
+The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [FAQ][lnk-faq].
 
 Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
@@ -169,7 +169,7 @@ The **azure-iot-connected-factory** repository includes a **build.ps1** PowerShe
 Learn more about the connected factory preconfigured solution by reading the following articles:
 
 * [Connected factory preconfigured solution walkthrough][lnk-rm-walkthrough]
-* [Connect your device to the Connected factory preconfigured solution][lnk-connect-cf]
+* [Deploy a gateway for connected factory][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 * [FAQ][lnk-faq]
 
@@ -183,7 +183,7 @@ Learn more about the connected factory preconfigured solution by reading the fol
 [img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
 [lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
 
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

@@ -3,7 +3,7 @@ title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Set up Application Insights: Dependency tracking

@@ -5,12 +5,11 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
+ms.custom: mvc
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.topic: overview
-ms.date: 05/10/2017
+ms.date: 05/31/2017
 ---
 # What is Azure Database for PostgreSQL?
 
@@ -47,7 +46,7 @@ Azure's industry leading 99.99% availability (not available in preview) service 
 
 Azure database services have a tradition of data security that Azure Database for PostgreSQL upholds with features that limit access, protect data at-rest and in-motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx) for information about Azure's platform security.
 
-## Next Steps
+## Next steps
 - See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for cost comparisons and calculators.
 - Get started by [creating your first Azure Database for PostgreSQL](./quickstart-create-server-database-portal.md).
 - Build your first app in Python, PHP, Ruby, C\#, Java, Node.js: [Connection libraries](./concepts-connection-libraries.md)

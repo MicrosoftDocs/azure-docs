@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 
 ---
@@ -23,7 +23,7 @@ ms.author: larryfr
 In this document, learn the basics of managing and monitoring Storm topologies running on Storm on HDInsight clusters.
 
 > [!IMPORTANT]
-> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
 >
 > For information on deploying and monitoring topologies on Windows-based HDInsight, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
@@ -81,7 +81,7 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
 2. Use the following command to start an example topology:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
     This command starts the example WordCount topology on the cluster. This topology randomly generate sentences and count the occurrence of each word in the sentences.
 
@@ -150,7 +150,7 @@ Deactivating a topology pauses it until it is killed or reactivated. Use the fol
 
 Storm topologies, once started, continue running until stopped. To stop a topology, use the following command:
 
-    storm stop TOPOLOGYNAME
+    storm kill TOPOLOGYNAME
 
 ### Rebalance
 

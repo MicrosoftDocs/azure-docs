@@ -148,9 +148,9 @@ Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as f
 * Simplify cloud migration, by using Site Recovery to migrate your Citrix XenApp and XenDesktop deployment to Azure.
 * Simplify Citrix XenApp/XenDesktop testing, by creating a production-like copy on-demand for testing and debugging.
 * This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure. 
-[Learn More](https://azure.microsoft.com/en-us/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
+[Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
 
-[Learn more](https://aka.ms/citrix-xenapp-xendesktop-with-asr) about protecting Citrix XenApp and XenDesktop deployments.
+[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about protecting Citrix XenApp and XenDesktop deployments. Alternatively, you can refer the [whitepaper from Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detailing the same. 
 
 ## Next steps
 [Check prerequisites](site-recovery-prereq.md) 

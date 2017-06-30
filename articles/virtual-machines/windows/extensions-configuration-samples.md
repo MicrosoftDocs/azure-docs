@@ -356,6 +356,32 @@ For more details about how to configure diagnostics, see [Azure Diagnostics Exte
           }
           }
 
+### Octopus Deploy Tentacle Agent
+
+For more details about how to configure the Octopus Deploy Tentacle on Azure, see the [Octopus Documentation](https://octopus.com/docs/installation/installing-tentacles/azure-virtual-machines).
+
+          {
+            "publisher": "OctopusDeploy.Tentacle",
+            "type": "OctopusDeployWindowsTentacle",
+            "typeHandlerVersion": "2.0",
+            "autoUpgradeMinorVersion": "true",
+            "settings": {
+              "OctopusServerUrl": "(string, required) The url to the Octopus server portal.",
+              "Environments": [ "(array of strings, required) The environments to which the Tentacle should be added." ],
+              "Roles": [ "(array of strings, required) The roles to assign to the Tentacle." ],
+              "CommunicationMode": "(string, required) Whether the Tentacle should wait for connections from the server ('Listen') or should poll the server ('Poll').",
+              "Port": (int, required) The port to listen on for connections from the server (in 'Listen' mode), or the port on which to connect to the Octopus server ('Poll' mode).,
+              "PublicHostNameConfiguration": "(string, optional) If in listening mode, how the server should contact the Tentacle. Can be 'PublicIP', 'FQDN', 'ComputerName' or 'Custom'. Defaults to 'PublicIp'.",
+              "CustomPublicHostName": "(string, optional) If in listening mode, and 'PublicHostNameConfiguration' is set to 'Custom', the address that the server should use for this Tentacle.",
+              "MachinePolicy": "(string, optional) The Machine Policy to assign to the Tentacle. If not specified, uses the default Machine Policy.",
+              "Tenants": [ "(array of strings, optional) The tenants to assign to the Tentacle. The tenants feature must be enabled on the Octopus Server." ],
+              "TenantTags": [ "(array of strings, optional) The tenant tags to assign to the Tentacle, in the format 'TagSet/TagName'. The tenants feature must be enabled on the Octopus Server." ]
+            },
+            "protectedSettings": {
+              "ApiKey": "(string, required) The Api Key to use to connect to the Octopus server."
+            }
+          }
+
 In the examples above, replace the version number with the latest version number.
 
 Here is an example of a full VM template with Custom Script Extension.

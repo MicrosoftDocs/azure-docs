@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
 
 ---
 # Add users from other directories or partner companies in Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-users-create-external-azure-portal.md)
+> * [Azure portal](active-directory-users-create-external-azure-portal.md )
 > * [Azure classic portal](active-directory-create-users-external.md)
 >
 >
@@ -41,8 +41,7 @@ This article explains how to add users from other directories in Azure Active Di
 > If your organization uses more than one domain, you should know about the following issues when you add a user account:
 >
 > * TO add user accounts with the same user principal name (UPN) across domains, **first** add, for example, geoffgrisso@contoso.onmicrosoft.com, **followed by** geoffgrisso@contoso.com.
-> * **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com. This order is important, and can be cumbersome to undo.
->
+> * **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com.
 >
 
 If you change information for a user whose identity is synchronized with your on-premises Active Directory service, you can't change the user information in the Azure classic portal. To change the user information, use your on-premises Active Directory management tools.
@@ -70,15 +69,7 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 * **Dynamics CRM**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics CRM.
 * **Dynamics AX**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics AX. The limitations for [Azure AD external users](#known-limitations-of-azure-ad-external-users) apply to external users in Dynamics AX as well.
 
-### Known limitations of Azure AD external users
-* External users who are admins can't add users from partner companies to directories (B2B collaboration) outside their home directory
-* External users can't consent to multi-tenant applications in directories outside of their home directory
-* PowerBI doesn't currently support access by external users
-* Office Portal doesn't support licensing external users
-* With respect to Azure AD PowerShell, external users are logged into their home directory and cannot manage directories in which they are external users
-* When configuring Dynamics CRM Outlook plugin, external users may need to manually enter the URL of the Dynamics CRM Online tenant instead of selecting 'CRM Online'
-
-## What's next
+## Next steps
 * [Add new users to Azure Active Directory](active-directory-create-users.md)
 * [Administering Azure AD](active-directory-administer.md)
 * [Manage passwords in Azure AD](active-directory-manage-passwords.md)
