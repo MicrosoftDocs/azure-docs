@@ -18,9 +18,8 @@ ms.date: 06/29/2017
 ms.author: tonguyen
 
 ---
-# Breakdown of your Microsoft Azure invoice
-This reference article breaks down the different components of your
-invoice for Microsoft Azure. The invoice provides a summary of your charges and provides instructions for payment. It’s available for
+# Understand terms on your Microsoft Azure invoice
+The invoice provides a summary of your charges and provides instructions for payment. It’s available for
 download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more
 information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
