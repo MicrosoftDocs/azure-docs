@@ -27,13 +27,13 @@ This article has detailed instructions to install PowerShell for Azure Stack. Ho
 > [!NOTE]
 > The following steps require PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.
 
-PowerShell commands for Azure Stack are installed from the PowerShell Gallery. To verify if PowerShell Gallery is available, open a PowerShell session from the development kit or from a Windows-based external client if you are connected through VPN and run the following command:
+PowerShell commands for Azure Stack are installed through the PowerShell gallery. To regiser the PSGallery repository, open an elevated PowerShell session from the development kit or from a Windows-based external client if you are connected through VPN and run the following command:
 
 ```powershell
-# Returns a list of PowerShell module repositories that are registered for the current user.
-Get-PSRepository
+Set-PSRepository `
+  -Name "PSGallery" `
+  -InstallationPolicy Trusted
 ```
-![GetPSrepository](media/azure-stack-powershell-install/getpsrepository.png)
 
 ## Install the required version of PowerShell modules
 
@@ -57,7 +57,7 @@ required to work with API version profiles. Use the following
 command to install the AzureRM.Bootstrapper module:  
 
   ```powershell
-  # Install the AzureRM.Bootstrapper module
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
   Install-Module `
     -Name AzureRm.BootStrapper
   ```
