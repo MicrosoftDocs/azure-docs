@@ -189,7 +189,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Rightscale test user
 
-In this section, you create a user called Britta Simon in RightScale. Work with [Rightscale Client support team](support@rightscale.com) to add the users in the RightScale platform.
+In this section, you create a user called Britta Simon in RightScale. Work with [Rightscale Client support team](mailto:support@rightscale.com) to add the users in the RightScale platform.
 
 ### Assigning the Azure AD test user
 
