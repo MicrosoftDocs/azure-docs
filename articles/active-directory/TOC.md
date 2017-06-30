@@ -3,6 +3,7 @@
 ## [Choose an edition](active-directory-editions.md)
 ## [About Azure identity management](identity-fundamentals.md)
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
+## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -21,10 +22,7 @@
 ## [FAQs](active-directory-faq.md)
 ## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-## Azure AD Controls
-### [Complete access review](active-directory-azure-ad-controls-complete-an-access-review.md)
-### [Create access review](active-directory-azure-ad-controls-create-an-access-review.md)
-### [How to perform access review](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 
 # How to
@@ -57,9 +55,7 @@
 ### Add users
 #### [Azure portal](active-directory-users-create-azure-portal.md)
 #### [Classic portal](active-directory-create-users.md)
-### Azure AD Controls
-#### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-#### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
 
 ### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
@@ -194,8 +190,7 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
-### Azure AD Controls
-####[Manage programs and their controls](active-directory-azure-ad-controls-manage-programs-and-controls.md)
+
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
 #### Get started

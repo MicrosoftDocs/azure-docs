@@ -63,7 +63,6 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
    | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | Obtained from iothub-explorer                                |
-   | Azure.IoT.IoTHub.DeviceId             | Obtained from iothub-explorer                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
 
    ![Add settings to your web app with key/value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
@@ -76,21 +75,19 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 On GitHub, we've made available a web application that displays real-time sensor data from your IoT hub. All you need to do is configure the web app to work with a Git repository, download the web application from GitHub, and then upload it to Azure for the web app to host.
 
-1. In the web app, click **Deployment options** > **Choose Source** > **Local Git Repository**.
+1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**, and then click **OK**.
 
    ![Configure your web app deployment to use the local Git repository](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. Click **Setup connection**, create a user name and password to use to connect to the Git repository in Azure, and then click **OK**.
+2. Click **Deployment Credentials**, create a user name and password to use to connect to the Git repository in Azure, and then click **OK**.
 
-   ![Set the username and password for the Git repository in Azure for your web app](media/iot-hub-live-data-visualization-in-web-apps/6_web-app-set-user-password-git-repo-azure.png)
-
-3. Click **OK** to finish the configuration.
-4. Click **Overview**, and make a note of the value of **Git clone url**.
+3. Click **Overview**, and note the value of **Git clone url**.
 
    ![Get the Git clone URL of your web app](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
 
-5. Open a command or terminal window on your local computer.
-6. Download the web application from GitHub, and upload it to Azure for the web app to host. To do so, run the following commands:
+4. Open a command or terminal window on your local computer.
+
+5. Download the web app from GitHub, and upload it to Azure for the web app to host. To do so, run the following commands:
 
    ```bash
    git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git

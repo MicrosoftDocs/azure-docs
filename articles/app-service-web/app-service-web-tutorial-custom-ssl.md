@@ -104,7 +104,11 @@ You are ready to upload your SSL certificate to your web app.
 
 ### Merge intermediate certificates
 
-If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order. For example, create a file for the merged certificate, called _mergedcertificate.crt_, and then order your certificates according to the following template:
+If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order. 
+
+To do this, open each certificate you received in a text editor. 
+
+Create a file for the merged certificate, called _mergedcertificate.crt_. In a text editor, copy the content of each certificate into this file. The order of your certificates should look like the following template:
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -130,7 +134,7 @@ Export your merged SSL certificate with the private key that your certificate re
 
 If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_.
 
-```bash
+```
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
@@ -206,9 +210,7 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 
 ## Enforce HTTPS
 
-If you want to allow HTTP access to your web app, skip this step.
-
-App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.
+App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.
 
 > [!NOTE]
 > There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in _web.config_.
@@ -247,6 +249,22 @@ For an existing _web.config_ file, copy the entire `<rule>` element into your _w
 This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
+
+## Enforce HTTPS for Web Apps on Linux
+
+App Service on Linux does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, define a rewrite rule in the _.htaccess_ file for your web app. 
+
+Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
+
+In _/home/site/wwwroot_, create an _.htaccess_ file with the following code:
+
+```
+RewriteEngine On
+RewriteCond %{HTTP:X-ARR-SSL} ^$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+```
+
+This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
 
 ## Automate with scripts
 

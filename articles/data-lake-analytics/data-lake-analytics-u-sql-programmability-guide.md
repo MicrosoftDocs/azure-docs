@@ -1465,8 +1465,8 @@ UDO is typically called explicitly in U-SQL script as part of the following U-SQ
 * COMBINE
 * REDUCE
 
-[!NOTE]  
-UDO’s are limited to consume 0.5Gb memory.  This memory limitation does not apply to local executions.
+> [!NOTE]  
+> UDO’s are limited to consume 0.5Gb memory.  This memory limitation does not apply to local executions.
 
 ## Use user-defined extractors
 U-SQL allows you to import external data by using an EXTRACT statement. An EXTRACT statement can use built-in UDO extractors:  
