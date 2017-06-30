@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 06/30/2017
 ms.author: bradsev
 
 ---
@@ -21,7 +21,7 @@ ms.author: bradsev
 The **end-to-end walkthroughs** itemized here each demonstrate the steps in the Team Data Science Process for **specific scenarios**. They illustrate how to combine cloud, on-premise tools, and services into a workflow or pipeline to create an **intelligent application**. The walkthroughs are grouped by **platform** they use: Spark, HDInsight (Hadoop), Azure Data Lake, and SQL Server.
 
 
-## Scala and Python with Spark
+## HDInsight Spark using PySpark and Scala
 
 ### Data Science using Python with Spark on Azure
 The [Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) walkthrough uses the Team Data Science Process in a scenario using an [Azure HDInsight Spark cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature engineer data from the publicly available NYC taxi trip and fare dataset. 
@@ -45,7 +45,7 @@ The [Team Data Science Process in action: using Azure HDInsight Hadoop Clusters 
 The [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](machine-learning-data-science-process-data-lake-walkthrough.md) shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi dataset to predict whether or not a tip is paid by a customer. 
 
 
-## SQL Server 
+## SQL Server and SQL Data Warehouse 
 
 ### Use SQL Data Warehouse
 The [Team Data Science Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md) walkthrough shows you how to build and deploy machine learning classification and regression models using SQL Data Warehouse (SQL DW) for a publicly available NYC taxi trip and fare dataset.
@@ -60,7 +60,7 @@ The [Data Science End-to-End Walkthrough using SQL Server R Services](https://ms
 The [In-Database Advanced Analytics for SQL Developers](https://msdn.microsoft.com/library/mt683480.aspx) walkthrough provides SQL programmers with experience building an advanced analytics solution with Transact-SQL using SQL Server R Services to operationalize an R solution.
 
 
-### Use Python with SQL Server in a stored procedure
+### Use T-SQL with SQL Server Python Services
 The [In-Database Python Analytics for SQL Developers](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) walkthrough provides SQL programmers with experience building a machine learning solution in SQL Server. It demonstrates how to incorporate Python into an application by adding Python code to stored procedures.
 
 ## What's next?

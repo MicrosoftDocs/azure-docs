@@ -97,10 +97,11 @@ Here are some common identity and access scenarios with recommendations as to wh
   |My organization has made large investments in on-premises Windows Server Active Directory, but we want to extend identity to the cloud.| The most widely used Azure identity solution is [hybrid identity](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). If you’ve already made investments in on-premises AD DS, you can easily extend identity to the cloud using Azure AD Connect.|
   |I need lightweight Azure VM configuration and control to meet on-premises identity requirements for app development and testing.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is a good choice if you need to use AD DS for lightweight Azure VM configuration control or are looking to develop or migrate legacy, directory-aware on-premises applications to the cloud.|
 
-## Next steps
+### Next steps
 
 Now that you understand Azure identity concepts and the options available to you, you can use the following resources to get started implementing the option you’ve chosen:
 
+[Learn more about Azure hybrid identity solutions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
 
