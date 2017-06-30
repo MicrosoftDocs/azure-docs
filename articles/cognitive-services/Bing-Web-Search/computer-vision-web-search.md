@@ -1,18 +1,15 @@
 ---
 title: Azure Computer Vision Search Application Tutorial
-descriptopn: Open Source sample application using the Azure Computer Vision and Bing Web Search APIs to provide a framework for a visual search application written using Xamarin.Forms
-services: bing-web-search, azure-computer-vision
-documentationcenter: dev-center-name (no idea what to put here)
+description: Open Source sample application using the Azure Computer Vision and Bing Web Search APIs to provide a framework for a visual search application written using Xamarin.Forms
+services: bing-web-search, computer-vision
 author: Aristoddle 
 manager: bking
 
-ms.service: multiple
+ms.service: cognitive-services
 ms.devlang: c#
 ms.topic: article
-ms.tgt_pltfrm: may be required
-ms.workload: required
 ms.date: 06/22/2017
-ms.author: t-jolanz@microsoft.com
+ms.author: t-jolanz
 ---
 
 # Bing Web Search And Computer Vision API Tutorial: 
