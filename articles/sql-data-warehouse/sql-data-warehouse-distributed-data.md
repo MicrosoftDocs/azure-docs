@@ -60,7 +60,7 @@ A distribution is the basic unit for storing distributed data and processing par
 ### Can I view the Compute nodes?
 Each Compute node has a node ID and is visible in system views that pertain to SQL Data Warehouse and Parallel Data Warehouse.  You can see the Compute node by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of the system views, see the [MPP system view](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="Replicated"></a>Replicated Tables for Parallel Data Warehouse
+## <a name="Replicated"></a>Replicated Tables
 A table that is replicated has a fully copy of the table stored on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Replicated tables are only feasible with small tables because of the extra storage required to store the full table on each compute node.  
 
 The following diagram shows a replicated table that is stored on each Compute node. For SQL Data Warehouse, the replicated table is maintained by a round-robin table and fully copied to the first distribution database on each Compute node. For Parallel Data Warehouse, the replicated table is stored across all disks assigned to the Compute node.  This disk strategy is implemented by using SQL Server filegroups.  
