@@ -70,7 +70,7 @@ Within the virtual machine object, we need a dependency on the storage account t
             "dataDisks": [
                 {
                     "name": "datadisk1",
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "vhd": {
                         "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'vhds/datadisk1.vhd')]"
@@ -91,7 +91,7 @@ With Azure Managed Disks, the disk becomes a top-level resource and no longer re
 
 ### Default managed disk settings
 
-To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use [Standard LRS storage]((storage-redundancy.md). If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
+To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use [Standard LRS storage](storage-redundancy.md). If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
 
 ```
 {
@@ -118,7 +118,7 @@ To create a VM with managed disks, you no longer need to create the storage acco
             },
             "dataDisks": [
                 {
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "createOption": "Empty"
                 }
@@ -204,8 +204,8 @@ To create managed availability sets with VMs using managed disks, add the `sku` 
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
-        "PlatformUpdateDomainCount": "3",
-        "PlatformFaultDomainCount": "2"
+        "PlatformUpdateDomainCount": 3,
+        "PlatformFaultDomainCount": 2
     },
     "sku": {
         "name": "Aligned"
