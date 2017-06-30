@@ -406,17 +406,17 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 |Join|The suffix being joined must be a verified domain of the resource tenant.|
 
 ### Custom signing key
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. All tokens issued that have been impacted by the policy will be signed with this key. Applications must be configured to accept tokens signed with this key. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy. This protects applications from claims mapping policies created by malicious actors.
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. All tokens issued that have been impacted by the policy are signed with this key. Applications must be configured to accept tokens signed with this key. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy. This protects applications from claims mapping policies created by malicious actors.
 
 ### Cross-tenant scenarios
-Claims mapping policies do not apply to guest users. If a guest user attempts to access an application with a claims mapping policy assigned to its service principal, the default token will be issued (the policy will have no effect).
+Claims mapping policies do not apply to guest users. If a guest user attempts to access an application with a claims mapping policy assigned to its service principal, the default token is issued (the policy has no effect).
 
 ## Claims mapping policy assignment
 Claims mapping policies can only be assigned to service principal objects.
 
 ### Example claims mapping policies
 
-Many scenarios are possible in Azure AD when you can customize claims emitted in tokens for specific Service Principals. In this section, we walk through a few common scenarios that can help you grasp how to use the Claims Mapping Policy type.
+In Azure AD, many scenarios are possible when you can customize claims emitted in tokens for specific service principals. In this section, we walk through a few common scenarios that can help you grasp how to use the claims mapping policy type.
 
 #### Prerequisites
 In the following examples, you create, update, link, and delete policies for service principals. If you are new to Azure AD, we recommend that you learn about how to get an Azure AD tenant before you proceed with these examples. 
@@ -431,17 +431,17 @@ To get started, do the following steps:
 	Connect-AzureAD -Confirm
 	
 	```
-3.	To see all policies that have been created in your organization, run the following command. We recommend that you run this command after most operations in the following scenarios to check that your policies are being created as expected.
+3.	To see all policies that have been created in your organization, run the following command. We recommend that you run this command after most operations in the following scenarios, to check that your policies are being created as expected.
    
     ``` powershell
 		Get-AzureADPolicy
     
 	```
 #### Example: Create and assign a policy to omit the basic claims from tokens issued to a service principal.
-In this example, you create a policy that removes the Basic Claim set from tokens issued to linked Service Principals.
+In this example, you create a policy that removes the basic claim set from tokens issued to linked service principals.
 
 
-1. Create a Claims Mapping policy. This policy, that will be linked to specific Service Principals, removes the basic claim set from tokens.
+1. Create a claims mapping policy. This policy, linked to specific service principals, removes the basic claim set from tokens.
 	1. To create the policy, run this command: 
 	
 	 ``` powershell
@@ -460,9 +460,9 @@ In this example, you create a policy that removes the Basic Claim set from token
 	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
 	```
 #### Example: Create and assign a policy to include the EmployeeID and TenantCountry as claims in tokens issued to a service principal.
-In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked Service Principals. The EmployeeID will be emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry will be emitted as the country claim type in both SAML tokens and JWTs. In this example, we will also choose to continue to include the Basic Claims Set in the tokens.
+In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked service principals. The EmployeeID is emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry is emitted as the country claim type in both SAML tokens and JWTs. In this example, we continue to include the basic claims set in the tokens.
 
-1. Create a Claims Mapping policy. This policy, that will be linked to specific Service Principals, adds the EmployeeID and TenantCountry claims to tokens.
+1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
 	1. To create the policy, run this command:  
 	 
 	 ``` powershell
@@ -481,11 +481,11 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
 	 ``` powershell
 	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
 	```
-#### Example: Create and assign a policy utilizing a claims transformation in tokens issued to a service principal.
-In this example, you create a policy that emits a custom claim “JoinedData” to JWTs issued to linked Service Principals. This claim will contain a value created by joining the data stored in the extensionattribute1 attribute on the user object with “.sandbox”. In this example, we will also choose to exclude the Basic Claims Set in the tokens.
+#### Example: Create and assign a policy that uses a claims transformation in tokens issued to a service principal.
+In this example, you create a policy that emits a custom claim “JoinedData” to JWTs issued to linked service principals. This claim contains a value created by joining the data stored in the extensionattribute1 attribute on the user object with “.sandbox”. In this example, we exclude the basic claims set in the tokens.
 
 
-1. Create a Claims Mapping policy. This policy, that will be linked to specific Service Principals, adds the EmployeeID and TenantCountry claims to tokens.
+1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
 	1. To create the policy, run this command: 
 	 
 	 ``` powershell
