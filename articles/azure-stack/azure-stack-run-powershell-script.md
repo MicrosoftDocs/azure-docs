@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
+ms.date: 7/03/2017
 ms.author: erikje
 
 ---
@@ -44,8 +44,8 @@ To deploy the development kit, you must complete the following steps:
 7. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
 8. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
 9. Select the Destination for the files to be extracted, click **Next**.
-   * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files. This will take some time to complete.
+   * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack
+10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~25 GB) and ThirdPartyLicenses.rtf files. This will take some time to complete.
 
 > [!NOTE]
 > After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
@@ -78,22 +78,24 @@ To deploy the development kit, you must complete the following steps:
 1. Sign in as the Local Administrator to the development kit host. Use the credentials specified in the previous steps.
 
     > [!IMPORTANT]
-    > Azure Stack requires access to the Internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
+    > For Azure Active Directory deployments, Azure Stack requires access to the Internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
     
-2. Run the asdk-installer.ps1 script > click **Install**.
-3. In the **Type** box, and then select **Azure Cloud** or **ADFS**.
-    - **Azure Cloud**: Azure Active Directory is identity provider. You must specify the credentials of an account with the Global Admin role in an Azure Active Directory tenant. This account is used to administer your development kit. If this account is part of multiple active directory tenants, you can override the default TenantID value with the name of the desired directory tenant for the installation.
+2. Open an elevated PowerShell console > navigate to the asdk-installer.ps1 script > execute it > click **Install**.
+3. In the **Type** box select **Azure Cloud** or **ADFS**.
+    - **Azure Cloud**: Azure Active Directory is the identity provider. You must specify the credentials of an account with the Global Admin role in an Azure Active Directory tenant. This account is used to administer your development kit. If this account is part of multiple active directory tenants, you can override the default TenantID value with the name of the desired directory tenant for the installation.
     - **ADFS**: The default stamp Directory Service is the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
 4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
 5. Select a network adapter to use for the development kit and then click **Next**.
 6. Select DHCP or static network configuration for the BGPNAT01 virtual machine.
-    - **DHCP** (default):
+    - **DHCP** (default): The virtual machine gets the IP network configuration from the DHCP server.
     - **Static**: Only use this option if DHCP can’t assign a valid IP address for Azure Stack to access the Internet. A static IP address must be specified with the subnetmask length (e.g. 10.0.0.5/24).
-7. Optional: Set the following:
-    - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and MAS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). 
+7. Optionally, set the following:
+    - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). 
     - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
-    - **Time server**: Sets a specific time server. Default = 
-8. Click **Next** and then click **Deploy**. The deployment process can take a few hours, during which the system automatically reboots once.
+    - **Time server**: Sets a specific time server. 
+8. Click **Next** and then click **Deploy**.
+9. If you're using an AAD deployment, you'll be asked to enter your Azure credentials global account.
+10. The deployment process can take a few hours, during which the system automatically reboots once.
    
    > [!IMPORTANT]
    > If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
@@ -134,5 +136,6 @@ To make sure that the password for the development kit host doesn't expire too s
 
 ## Next steps
 [Register Azure Stack with your Azure subscription](azure-stack-register.md)
+
 [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 

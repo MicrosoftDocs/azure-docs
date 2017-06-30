@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 07/10/2017
 ms.author: helaw
 
 ---
@@ -44,7 +44,7 @@ There are a few pre-requisites to account for before you configure multi-tenancy
 In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure AD directory tenants.
 
 ### Create Azure AD applications
-First, you must publish Azure AD applications to Azure Resource Manager to allow access to Azure Stack.  This step only needs to be completed once, regardless of additional guest tenants in the future.  Run this PowerShell as the Azure Stack Service Administrator from the Azure Stack host or MAS-CON01.
+First, you must publish Azure AD applications to Azure Resource Manager to allow access to Azure Stack.  This step only needs to be completed once, regardless of additional guest tenants in the future.  Run this PowerShell as the Azure Stack Service Administrator from the Azure Stack host.
 
 ````PowerShell 
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"

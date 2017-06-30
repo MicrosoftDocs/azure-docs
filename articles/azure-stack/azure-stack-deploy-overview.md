@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
-description: Learn how to deploy the Azure Stack Proof of Concept
+description: Learn how to deploy the Azure Stack Development Kit
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 07/03/2017
 ms.author: erikje
 ms.custom: mvc
 

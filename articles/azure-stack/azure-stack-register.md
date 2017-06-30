@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: erikje
 
 ---
@@ -45,7 +45,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 >All these steps must be completed on the host computer, not the console computer.
 >
 
-1. Sign in to the Azure Stack POC host computer as an Azure Stack administrator.
+1. Sign in to the Azure Stack Development Kit host administrator portal (https://adminportal.local.azurestack.external).
 2. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
 3. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
 4. Start PowerShell ISE as an administrator.
@@ -68,7 +68,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 
 ## Verify the registration
 
-1. Sign in to the Azure Stack portal as a service administrator.
+1. Sign in to the administrator portal (https://adminportal.local.azurestack.external).
 2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
 3. If you see a list of items available from Azure (such as WordPress), your activation was successful.
 
