@@ -35,11 +35,18 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 Status: June 2017
 
 > [!IMPORTANT]
-> There are schema and sync rule changes introduced in this build. Azure AD Connect Synchronization Service will trigger Full Import and Full Sync steps after upgrade. Details of the changes are described below.
+> There are schema and sync rule changes introduced in this build. Azure AD Connect Synchronization Service will trigger Full Import and Full Synchronization steps after upgrade. Details of the changes are described below. To temporarily defer Full Import and Full Synchronization steps after upgrade, refer to article [How to defer full synchronization after upgrade](active-directory-aadconnect-upgrade-previous-version.md#how-to-defer-full-synchronization-after-upgrade).
 >
 >
 
 ### Azure AD Connect Sync
+
+#### Known issue
+* There is an issue that affects customers who are using [OU-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) with Azure AD Connect sync. When you navigate to the [Domain and OU Filtering page](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the Azure AD Connect wizard, the following behavior is expected:
+  * If OU-based filtering is enabled, the **Sync selected domains and OUs** option is selected.
+  * Otherwise, the **Sync all domains and OUs** option is selected.
+
+The issue it is that the **Sync all domains and OUs** option is selected, even if OU-based filtering is enabled. Before saving any synchronization configuration changes in the wizard, make sure the **Sync selected domains and OUs** option is selected first. Otherwise, OU-based filtering will be disabled.
 
 #### Fixed issues
 

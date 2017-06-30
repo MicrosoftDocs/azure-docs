@@ -9,7 +9,7 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 06/29/2017
 ms.author: Barclayn
 ms.custom: AzLog
 
@@ -45,7 +45,7 @@ Before you can complete the steps in this article you will need the following:
   - Decide if you will be providing telemetry information and leave the box checked or uncheck it if you rather not send usage information to Microsoft.
 4. Check your PowerShell version.
    - If you have Windows Server 2016 installed then you have at least PowerShell 5.0 if you are using any other version of Windows server you may have lower versions of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window.
-   - if you don't have PowerShell 5.0 installed you can download it [here](https://www.microsoft.com/download/details.aspx?id=50395)
+   - If you don't have PowerShell 5.0 installed you can download it [here.](https://www.microsoft.com/download/details.aspx?id=50395)
    - Once that you have at least PowerShell 5.0 you can proceed to install the latest version of Azure PowerShell.
     - Open a PowerShell window and type:
    </br>```Install-Module Azure``` and press the **Enter** key. Run through the installation and when it completes move on to the next step. </br>
@@ -59,7 +59,7 @@ At this point you have the latest version of Azure PowerShell and Azure Log Inte
 
 ## Creating supporting infrastructure elements
 
-1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**
+1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**.
 2. The first step you need to take is to get the AzLog Cmdlets imported. You can do that by running the script LoadAzLogModule.ps1 (notice the “.\” in the following command). Type **.\LoadAzLogModule.ps1** and press ENTER.
 You should see something like what appears in the figure below. </br>
 
@@ -73,32 +73,38 @@ You should see something like what appears in the figure below. </br>
 4. After you decide how to proceed at the data collection prompt and you successfully authenticate you will be logged on and some information will be displayed on the screen as shown below. Take note of the subscription information.
 
     ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
-5. You need to create a few variables to store some values that will be used later
+5. You need to create a few variables to store some values that will be used later.
     - Type each of the PowerShell lines below and hit **Enter** after each one. Pay attention to the comments next to each. You may need to adjust the values to match your environment:
         - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name may be different and you could see it as part of the output of the previous command)
         - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this to be any other location of your choosing)
         - ```$random = Get-Random```
-        - ``` $name = 'AzLogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
+        - ``` $name = 'azlogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
         - ``` $storageName = $name``` (This will be used for the storage account name)
         - ```$rgname = $name ``` (This will be used for the resource group name)
         - ``` $eventHubNameSpaceName = $name``` (This is the event hub name space name)
 6. Next you need to specify the subscription that you will be working with.
     - Type ```Select-AzureRmSubscription -SubscriptionName $subscriptionName``` and hit **Enter**
-7. Next you will create a resource group
-    - Type ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location``` and hit **Enter** This creates a resource group. If at this point you type $rg and hit **Enter** you should see output similar to the information shown below
+7. Next you will create a resource group.
+    - Type ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location``` and hit **Enter** This creates a resource group. If at this point you type $rg and hit **Enter** you should see output similar to the information shown below:
 
         ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
 8. Next you will create a storage account that will be used to keep track of state information.
     - ```$storage = New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
 9. Next the event hub name space. This is required to create an Event Hub.
     - ```$eventHubNameSpace = New-AzureRmEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
-10. Next you will get the rule ID that will be used with the insights provider
+10. Next you will get the rule ID that will be used with the insights provider.
     - ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
-11. Now you will get all possible Azure locations and add the names to a variable that can be used in a later step
+11. Now you will get all possible Azure locations and add the names to a variable that can be used in a later step.
     - ```$locationObjects = Get-AzureRMLocation```
     - ```$locations = @('global') + $locationobjects.location```If you type $locations and hit **Enter** at this point you will see the location names without the additional information returned by get-AzureRmLocation.
 12. Now you can create an Azure Resource Manager log profile. You can get more information on the Azure Log profile in the article [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     - ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
+
+>[!NOTE]
+You may get an error message when attempting to create a log profile. You can review the documentation for Get-AzureRmLogProfile and Remove-AzureRmLogProfile. If you run Get-AzureRmLogProfile you will see information about the log profile. You can delete the existing log profile by typing ```Remove-AzureRmLogProfile -name 'Log Profile Name' ```
+
+
+![Resource Manager profile error](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
 ## Creating a Key Vault
 
@@ -106,7 +112,7 @@ First you will create the Azure Key Vault by typing:
 
 ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
-Next you will configure logging for Key Vault
+Next you will configure logging for Key Vault.
 
 ```Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
 
@@ -132,7 +138,7 @@ Next you will configure logging for Key Vault
 Now that you have configured all of the required elements to have Key Vault logging to an event hub you need to take steps to configure Azure Log Integration.
 
 1. ```$storage = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename```
-2. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace -AuthorizationRuleName RootManageSharedAccessKey```
+2. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 3. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
 4. ``` $storagekey = $storagekeys[0].Value```
 
