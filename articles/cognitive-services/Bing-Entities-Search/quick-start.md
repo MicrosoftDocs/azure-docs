@@ -71,7 +71,7 @@ If it's your first time calling any of the Bing APIs, don't include the client I
 
 ## The response
 
-The following shows the response to the previous request. The example also shows the Bing-specific response headers.
+The following shows the response to the previous request. The example also shows the Bing-specific response headers. For information about the response object, see [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -138,7 +138,7 @@ BingAPIs-Market: en-US
 
 ## Next steps
 
-Try out the API. Go to [Entities Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553). 
+Try out the API. Go to [Entities Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/operations/5954b6a001840c0e983c6ae9). 
 
 For details about consuming the response objects, see [Searching the Web for entities and places](./search-the-web.md).
 

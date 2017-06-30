@@ -6,7 +6,7 @@ These use and display requirements apply to your implementation of the content a
 
 You must not:
 
-•	copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs; or use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.  
+•	copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs; or 
   
 •	use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
@@ -78,7 +78,7 @@ The only exception to the internet search experience requirement is for URL disc
 
 **Advertising.** Advertising (whether provided by Microsoft or another provider) must not be displayed with responses (i) from the Image, News or Video Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video results from other Search APIs.
 
-**Branding.** You may attribute each response (or portion of a response) displayed to Microsoft as described in https://go.microsoft.com/fwlink/?linkid=833278, unless Microsoft specifies otherwise in writing for your particular use.
+**Branding.** You may attribute each response (or portion of a response) displayed to Microsoft as described in https://go.microsoft.com/fwlink/?linkid=833278, unless Microsoft specifies otherwise for your particular use.
 
 ## 5. Transferring responses.
 
