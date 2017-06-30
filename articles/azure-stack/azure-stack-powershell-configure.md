@@ -119,33 +119,6 @@ To sign in to your Azure Stack environment, do the following:
          -TenantId $TenantID `
        ```
 
-## Register resource providers 
-
-After you sign in to the administrator or user portal, you can issue operations against the registered resource providers. By default, all the foundational resource providers are registered in the **Default Provider Subscription (administrator subscription)**. 
-
-When you operate on a newly created user subscription, which doesn’t have any resources deployed through the portal, the resource providers aren't automatically registered. For example, when you look at the output of the following cmdlet, you can see that the registration state is *Unregistered*.
-
-```PowerShell
-  Get-AzureRmResourceProvider `
-    -ListAvailable 
-```
-
-![PowerShell in Unregistered state](media/azure-stack-powershell-configure/unregisteredrps.png)  
-
-Before you use these resource providers, you should explicitly register them in the user subscriptions. To register providers on the current subscription, use the following command:
-
-```PowerShell
-Register-AllAzureRmProviders
-```
-
-![PowerShell in Registering state](media/azure-stack-powershell-configure/registeringrps.png)  
-
-To register all the resource providers on all your subscriptions, use the following command:
-
-```PowerShell
-Register-AllAzureRmProvidersOnAllSubscriptions
-```
-
 ## Next steps
 * [Develop templates for Azure Stack](azure-stack-develop-templates.md)
 * [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
