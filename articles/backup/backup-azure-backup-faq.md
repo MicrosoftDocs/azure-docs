@@ -141,6 +141,15 @@ The following attributes or their combinations are not supported for the cache f
 
 The cache folder and the metadata VHD do not have the necessary attributes for the Azure Backup agent.
 
+### How do I delete a backup?<br/>
+If you no longer need the backups for a server, you must unregister the server using PowerShell with the following commands:
+
+```
+PS C:\>$v = Get-AzureRmRecoveryServicesVault -Name "MyVault"
+PS C:\>Set-AzureRmRecoveryServicesVaultContext -Vault $v
+PS C:\>$c = Get-AzureRmRecoveryServicesBackupContainer -BackupManagementType MARS -ContainerType Windows -Name "MyServer"
+PS C:\>Unregister-AzureRmRecoveryServiceBackupContainer -Container $c
+```
 
 ## Virtual machines
 
