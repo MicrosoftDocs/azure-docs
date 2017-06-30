@@ -313,7 +313,7 @@ In this section you add a new controller that exposes a way for client devices t
         }
 4. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
 
-## Publish the new WebAPI BackendPublish the new WebAPI Backend
+## Publish the new WebAPI Backend
 1. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
 2. Select **Microsoft Azure App Service** as your publish target and click **Publish**. This opens the Create App Service dialog, which helps you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
