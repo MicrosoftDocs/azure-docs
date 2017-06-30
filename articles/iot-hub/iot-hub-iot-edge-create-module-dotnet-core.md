@@ -21,7 +21,7 @@ This tutorial showcases how to create a module for `Azure IoT Edge` using `Visua
 In this tutorial, we walk through environment set-up and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest `Azure IoT Edge NuGet` packages. 
 
 >[!NOTE]
-This tutorial is using the `.NET Core SDK`, which supports cross-platform compatibility, the following tutorial was written using the `Windows 10` operating system. Some of the commands in this tutorial may be different depending on your `development environment`. 
+This tutorial is using the `.NET Core SDK`, which supports cross-platform compatibility. The following tutorial is written using the `Windows 10` operating system, some of the commands in this tutorial may be different depending on your `development environment`. 
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 	b) You see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
  
     >[!NOTE]
-	`.NET Core Tools` are now MSBuild-based. This means a `.csproj` project file is created instead of a `project.json`.
+	`.NET Core Tools` are now MSBuild-based. Which means a `.csproj` project file is created instead of a `project.json`.
 
 	- If `Visual Studio Code` does not prompt you that is ok, we can do it manually. Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal`.
 	- In the `Integrated Terminal` window type **dotnet restore**.
@@ -352,7 +352,7 @@ Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\
 25. Save the file as `binplace.ps1` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.
 
-26. Build the project by pressing the `Ctrl` + `Shift` + `B` keys. When you build the project for the first time `Visual Studio Code` will prompt you with the `No build task defined.` dialog as seen in the following image:
+26. Build the project by pressing the `Ctrl` + `Shift` + `B` keys. When you build the project for the first time, `Visual Studio Code` prompts you with the `No build task defined.` dialog as seen in the following image:
 
 	![Visual Studio Code build task dialog](media/iot-hub-iot-edge-create-module/vscode-build-task.png)
 
