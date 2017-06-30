@@ -22,9 +22,9 @@ ms.author: rclaus
 
 ## Assumptions
 
-- Have existing Oracle database running on-premises and plan to migrate to Azure
+- Planning on mirgrate Oracle database from on-premises to Azure
 - Understanding of various metrics of Oracle AWR reports
-- Having a baseline for application performance and plaform utilization
+- Having a baseline for application performance and platform utilization
 
 ## Goals
 
@@ -47,7 +47,7 @@ Following table listed some of the difference.
 > | **Resource** |Dedicated  |Shared with other clients|
 > | **Regions** |Data centers |[Region pairs](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
 > | **Storage** |SAN/Physical Disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **SCale** |vertical scale |horizontal scale|
+> | **Scale** |vertical scale |horizontal scale|
 
 
 ### Requirements
@@ -203,7 +203,7 @@ For more information, see [Premium Storage for Linux VMs](https://docs.microsoft
 - For SYSTEM, TEMP and UNDO use 'None' for caching
 - For DATA use 'None' for caching, but if your database is Read only or Read intensive, use 'Read-only' caching
 
-Once your data disk setting is saved, the host(AFAIK) cache setting cannot change unless you un-mount the drive at the OS level and then remount it after changed.
+Once your data disk setting is saved, the host(AFAIK) cache setting cannot change unless you unmount the drive at the OS level and then remount it after changed.
 
 
 ## Security

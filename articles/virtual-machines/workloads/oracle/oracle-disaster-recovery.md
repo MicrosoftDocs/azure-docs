@@ -51,7 +51,7 @@ Here is a summary of the Azure setup.
 
 A customer has an on-premises Oracle database setup (primary site). A DR site is on Azure. Oracle Data Guard is used for quick recovery between these sites. The primary site also has a secondary database for reporting and other use. 
 
-There are 2 approachs for this setup.
+There are two approaches for this setup.
 
 ### 1. Direct connections between On-Premises and Azure, required open TCP ports on firewall. This approach is not recommended as it expose the TCP ports to outside world.
 
