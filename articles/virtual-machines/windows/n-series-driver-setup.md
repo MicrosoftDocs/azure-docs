@@ -80,7 +80,6 @@ To install the latest version 1.1 HpcVMDrivers extension on an existing RDMA-cap
 
 The RDMA network supports Message Passing Interface (MPI) traffic for applications running with [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) or Intel MPI 5.x. 
 
-[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
 ## Next steps
 
