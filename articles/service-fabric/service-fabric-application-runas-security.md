@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 06/30/2017
 ms.author: mfussell
 
 ---
 # Configure security policies for your application
-By using Azure Service Fabric, you can help secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
+By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
 
 By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
 
@@ -326,7 +326,7 @@ Test-AdServiceAccount svc-Test$
 ```
 
 ## Assign a security access policy for HTTP and HTTPS endpoints
-If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer3 account to an endpoint called **ServiceEndpointName**, which gives it full access rights.
+If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer1 account to an endpoint called **EndpointName**, which gives it full access rights.
 
 ```xml
 <Policies>
@@ -347,7 +347,12 @@ For the HTTPS endpoint, you also have to indicate the name of the certificate to
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## Upgrading multiple applications with https endpoints
+You need to be careful not to use the **same port** for different instances of the same application when using http**s**. The reason is that Service Fabric won't be able to upgrade the cert for one of the application instances. For example, if application 1 or application 2 both want to upgrade their cert 1 to cert 2. When the upgrade happens, Service Fabric might have cleaned up the cert 1 registration with http.sys even though the other application is still using it. To preventt this, Service Fabric detects that there is already another application instance registered on the port with the certificate (due to http.sys) and fails the operation.
 
+Hence Service Fabric does not support upgrading two different services using **the same port** in different application instances. In other words you cannot use the same certificate on different services on the same port. If you need to have a shared certificate on the same port, you need to ensure that the services are placed on different machines with placement constraints. Or consider using Service Fabric dynamic ports if possible for each service in each application instance. 
+
+If you see an upgrade fail with https, an error warning saying "The Windows HTTP Server API does not support multiple certificates for applications that share a port.”
 
 ## A complete application manifest example
 The following application manifest shows many of the different settings:

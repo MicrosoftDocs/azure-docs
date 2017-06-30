@@ -18,7 +18,8 @@ ms.author: mfussell;mikhegn
 
 ---
 # Deploy a guest executable to Service Fabric
-You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric refers to these types of applications as guest executables.
+You can run any type of code, such as Node.js, Java, or C++ in Azure Service Fabric as a service. Service Fabric refers to these types of services as guest executables.
+
 Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, by using Visual Studio or a command-line utility.
 
 In this article, we cover the steps to package a guest executable and deploy it to Service Fabric.  
@@ -30,6 +31,7 @@ There are several advantages to running a guest executable in a Service Fabric c
 * Health monitoring. Service Fabric health monitoring detects if an application is running, and provides diagnostic information if there is a failure.   
 * Application lifecycle management. Besides providing upgrades with no downtime, Service Fabric provides automatic rollback to the previous version if there is a bad health event reported during an upgrade.    
 * Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.
+* Discoverability: Using REST you can call the Service Fabric Naming service to find other services in the cluster. 
 
 ## Samples
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -75,11 +77,10 @@ The ApplicationPackageRoot contains the ApplicationManifest.xml file that define
 When packaging a guest executable, you can choose either to use a Visual Studio project template or to [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project template for you.
 
 > [!TIP]
-> The easiest way to package an existing Windows executable into a service is to use Visual Studio.
->
+> The easiest way to package an existing Windows executable into a service is to use Visual Studio and on Linux to use Yeoman
 >
 
-## Use Visual Studio to package an existing executable
+## Use Visual Studio to package and deploy an existing executable
 Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
 
 1. Choose **File** > **New Project**, and create a Service Fabric application.
@@ -96,6 +97,16 @@ Visual Studio provides a Service Fabric service template to help you deploy a gu
 5. If your service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. You can now use the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready, you can publish the application to a remote cluster or check in the solution to source control.
 7. Go to the end of this article to see how to view your guest executable service running in Service Fabric Explorer.
+
+## Use Yoeman to package and deploy an existing executable on Linux
+
+The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
+
+1. In a terminal, type `yo azuresfguest`.
+2. Name your application.
+3. Name your service, and provide the details including path of the executable and the parameters it must be invoked with.
+
+Yeoman creates an application package with the appropriate application and manifest files along with install and uninstall scripts.
 
 <a id="manually"></a>
 
@@ -332,16 +343,6 @@ If you navigate to the node and browse to the application, you see the essential
 If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder, as shown in the following screenshot.
 
 ![Location of log](./media/service-fabric-deploy-existing-app/loglocation.png)
-
-## Creating a guest executable using Yeoman for Service Fabric on Linux
-
-The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
-
-1. In a terminal, type `yo azuresfguest`.
-2. Name your application.
-3. Name your service, and provide the details including path of the executable and the parameters it must be invoked with.
-
-Yeoman would have created an application package with the appropriate application and manifest files along with install and uninstall scripts.
 
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. See the following articles for related information and tasks.
