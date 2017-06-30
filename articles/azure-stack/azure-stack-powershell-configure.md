@@ -63,7 +63,7 @@ To configure your Azure Stack environment, do the following:
 
    ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
 
-2. Get the GUID value of the Active Directory tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed, use:  
+2. Get the GUID value of the Active Directory tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed by using:  
 
    * **Azure Active Directory (Azure AD)**
    

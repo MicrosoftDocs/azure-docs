@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/26/2017
+ms.date: 07/10/2017
 ms.author: sngun
 
 ---
@@ -50,6 +50,7 @@ After the download completes, the image it is added to the **Marketplace Managem
 5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md). Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.  
    
 6. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
+
    ```powershell
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
@@ -66,58 +67,44 @@ After the download completes, the image it is added to the **Marketplace Managem
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-    $TenantID = Get-DirectoryTenantID `
+    $TenantID = Get-AzsDirectoryTenantId `
       -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
       -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
-    $TenantID = Get-DirectoryTenantID `
+    $TenantID = Get-AzsDirectoryTenantId `
       -ADFS 
       -EnvironmentName AzureStackAdmin 
     ```
    
-9. Add the Windows Server 2016 image to the Azure Stack marketplace by running the `New-Server2016VMImage` cmdlet. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
+9. Add the Windows Server 2016 image to the Azure Stack marketplace by running the `New-AzsServer2016VMImage` cmdlet. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
 
    ```powershell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"
-  
-   # Store the service administrator account credentials in a variable 
-   $UserName='<Username of the service administrator account>'
-   $Password='<Admin password provided when deploying Azure Stack>'| `
-     ConvertTo-SecureString -Force -AsPlainText
-   $Credential=New-Object PSCredential($UserName,$Password)
 
    # Add a Windows Server 2016 Evaluation VM Image.
-   New-Server2016VMImage `
-     -ISOPath $ISOPath `
-     -TenantId $TenantID `
-     -EnvironmentName "AzureStackAdmin" `
-     -Net35 $True `
-     -AzureStackCredentials $Credential
+   New-AzsServer2016VMImage `
+     -ISOPath $ISOPath
    ```
    To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the previous cmdlet. 
 
-   When you run the `New-Server2016VMImage` cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode: Created” message.
+   When you run the `New-AzsServer2016VMImage` cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode: Created” message.
 
 ## Parameters
 
-|New-Server2016VMImage parameters|Required?|Description|
+|New-AzsServer2016VMImage parameters|Required?|Description|
 |-----|-----|------|
-|ArmEndpoint|No|The Azure Resource Manager endpoint for your Azure Stack environment. The default is the one used by the Proof of Concept (PoC) environment.|
-|AzureStackCredentials|Yes|The credentials provided during deployment that are used to sign in to the Azure Stack Administrator portal. |
-|EnvironmentName|yes|The Azure Stack administrator's PowerShell environment name. |
-|IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
-|ISOPath|Yes|The full path to the downloaded Windows Server 2016 ISO.|
-|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL or MYSQL resource providers. |
-|TenantID|Yes|The GUID value of your Azure Stack Tenant ID.|
-|Version|No|This parameter allows you to choose whether to add a Core or Full (or both) Windows Server 2016 images. Valid values include Full (the default this parameter is not provided), Core, and Both.|
-|VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. Default value is 40960 MB.|
+|ISOPath|Yes|The fully qualified path to the downloaded Windows Server 2016 ISO.|
+|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL and MYSQL resource providers. |
+|Version|No|This parameter allows you to choose whether to add a **Core** or **Full** or **Both** Windows Server 2016 images. By default, this value is set to "Full".|
+|VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. By default, this value is set to 40960 MB.|
 |CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|
-|location |No |Specifies the location to which the Windows Server 2016 image should be published. By default, this value is set to local.|
+|location |No |Specifies the location to which the Windows Server 2016 image should be published.|
+|IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
 |CUUri |No |Set this value to choose the Windows Server 2016 cumulative update from a specific URI. |
-|CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed Azure Stack in a disconnected environment.|
+|CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed the Azure Stack instance in a disconnected environment.|
 
 ## Next Steps
 
