@@ -1,6 +1,7 @@
 ---
 title: Use the Azure Data Lake Tools for Visual Studio Code | Microsoft Docs
 description: 'Learn how to use the Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts. '
+Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview storage file,upload to storage path
 services: data-lake-analytics
 documentationcenter: ''
 author: jejiang
@@ -95,8 +96,9 @@ Before you can compile and run U-SQL scripts in Azure Data Lake Analytics, you m
     ![Data Lake Tools for Visual Studio Code command palette](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
 3.  It generates random code and URL in output pane for login. Copy this code and transfer to webpage.
     ![Data Lake Tools for Visual Studio Code login info](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-4.	Paste code to web page, and click Continue.
-    ![Data Lake Tools for Visual Studio Code login paste code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
+4. Paste code to web page, and click Continue.
+
+   ![Data Lake Tools for Visual Studio Code login paste code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 5.  Follow the instructions to sign in from the web page. Once connected, your account name is shown on the status bar on the bottom of the window.
 
 > [!NOTE] 
