@@ -138,7 +138,7 @@ At this time you can't, but it is coming soon.
 
 ### How much does it cost to replicate my data across Azure regions?
 
-When using Geo-replication, data from the primary linked cache is replicated to the secondary linked cache. If your two Geo-replication linked caches are in different Azure regions, the Geo-Replication data transfer charge is the bandwidth cost of replicating that data to the other Azure region. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+When using Geo-replication, data from the primary linked cache is replicated to the secondary linked cache. If the two linked caches are in the same Azure region, there is no charge for the data transfer. If the two linked caches are in different Azure regions, the Geo-Replication data transfer charge is the bandwidth cost of replicating that data to the other Azure region. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### How does failing over to the secondary linked cache work?
 
