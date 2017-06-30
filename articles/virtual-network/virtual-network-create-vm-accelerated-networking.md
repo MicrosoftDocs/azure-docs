@@ -302,17 +302,17 @@ At this point, the instructions vary based on the distribution you are using.
     ```
 
 3. After running the script, the VM will restart after a 60 second pause.
-4. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
+4. Once the VM is restarted, reconnect to it by completing steps 5-7 of the [Configure Linux](#configure-linux) section again.
 5. Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. 
 
-**Note:** Application using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
+**Note:** Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
 
 #### RHEL/CentOS
 
 ##### Phase one: prepare a base image
 
 1. Provision a non-Accelerated Networking RHEL/CentOS 7.3 VM on Azure
-2. When this base VM started up, disable the Network Manager with:
+2. After the base VM starts up, disable the Network Manager with:
 
     ```bash
     sudo service NetworkManager stop
@@ -332,8 +332,9 @@ At this point, the instructions vary based on the distribution you are using.
     sudo reboot
     ```
     
-        After VM comes up, verify the LIS version by “modinfo hv_vmbus”. The version should be “4.2.1”.
-4. From Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account.
+    After the VM starts, verify the LIS version by “modinfo hv_vmbus”. The version should be “4.2.1”.
+    
+4. From the Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account.
 
 ##### Phase two: Provision SRIOV CentOS 7.3 VMs on Azure
 
@@ -343,19 +344,19 @@ At this point, the instructions vary based on the distribution you are using.
     $vm= Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.ID -Enable Accelerated Networking
     ```
     
-2. After VMs boot up, check the VF device by “lspci” and check the Mellanox entry. For example, we should see this item in the lspci output:
+2. After the VMs boot up, check the VF device by “lspci” and check the Mellanox entry. For example, you see the following line in the lspci output:
 
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
     ```
     
-3. Run the bonding script by:
+3. Run the bonding script:
     
     ```bash
     sudo bondvf.sh
     ```
     
-4. Re-Enable Network Manager on the new VMs by:
+4. Re-Enable Network Manager on the new VMs:
     
     ```bash
     sudo service NetworkManager start
@@ -363,7 +364,7 @@ At this point, the instructions vary based on the distribution you are using.
     sudo chkconfig NetworkManager on
     ```
 
-    After this, we should see Network Manager is running. We can check this by:
+    After this, you see Network Manager is running. You can check this with the following command:
 
     ```bash
     ps -aux | grep NetworkManager
@@ -375,7 +376,7 @@ At this point, the instructions vary based on the distribution you are using.
     sudo reboot
     ```
 
-6. After new VMs come up, check the data path switch to VF by:
+6. After the new VMs come up, check the data path switch to VF:
 
     ```bash
     dmesg | grep switched
