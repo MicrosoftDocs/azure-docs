@@ -27,8 +27,6 @@ If you need more help at any point in this article, you can contact the Azure ex
 ## Top issues
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
-For other VM deployment issues or questions, see [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md).
-
 ## The cluster cannot support the requested VM size
 <properties
 supportTopicIds="123456789"
