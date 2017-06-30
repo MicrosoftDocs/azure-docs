@@ -110,6 +110,7 @@ Allows for the selection of one or more values.
 </ClaimType>
 ```
 
+
 ## Add the claim to the sign up/sign in user journey
 
 1. Add the claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the TechnicalProfile `LocalAccountSignUpWithLogonEmail` (found in the TrustFrameworkBase policy file).  Note this TechnicalProfile uses the SelfAssertedAttributeProvider.
@@ -273,6 +274,15 @@ To skip email verification, the policy author can choose to remove `PartnerClaim
 Verified email is enabled by default in the `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` in the TrustFrameworkBase policy file in the starter pack:
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+```
+
+## Optional: Show the value of a claim to the user without allowing for it to be edited
+
+Sometimes we may want to show the stored value of a claim, but not allow the user the ability to change it.  For example some claims are not meant to be user-editable like an account number, or others may be edited only under special circumstance like the email on the account.
+
+This is achieved by defining the User Input Type as "Readonly"
+```xml
+<UserInputType>Readonly</UserInputType>
 ```
 
 ## Next steps
