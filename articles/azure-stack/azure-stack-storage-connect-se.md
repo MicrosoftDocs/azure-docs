@@ -99,7 +99,7 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
     * **ARM resource id**: Use the same value as **Sign in resource id**.
     * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
 
-        * For cloud administrator: https://adminmanagement.local.azurestack.external   
+        * For cloud operator: https://adminmanagement.local.azurestack.external   
         * For tenant: https://management.local.azurestack.external
  
     * **Tenant Ids**: Optional. The value is given only when the directory must be specified.

@@ -32,7 +32,7 @@ To complete the connection configuration, ensure that you have the following ite
 * Two servers that meet the Azure Stack Development Kit hardware requirements,
   which are defined by the [Azure Stack deployment
   prerequisites](azure-stack-deploy.md). Ensure that the other prerequisites that appear in the [article](azure-stack-deploy.md) are fulfilled too.
-* The [Azure Stack Technical Preview](https://azure.microsoft.com/en-us/overview/azure-stack/try/) deployment package.
+* The [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) deployment package.
 
 ## Deploy the Azure Stack Development Kit environments
 To complete the connection configuration, you must deploy two Azure Stack Development Kit environments.
@@ -71,7 +71,7 @@ The following table summarizes the network configuration for both Azure Stack De
     -AsPlainText `
     -Force
    Get-AzureStackNatServerAddress `
-    -HostComputer "mas-bgpnat01" `
+    -HostComputer "AzS-bgpnat01" `
     -Password $Password
    ```
 3. Add the IP address to the network configuration table that appears in the previous section.
@@ -288,9 +288,9 @@ that the gateways are connected to is not actually external. Instead,
 the VIP network is hidden behind a router that performs network address translation. 
 
 The
-router is a Windows Server virtual machine, called *MAS-BGPNAT01*, that runs the
+router is a Windows Server virtual machine, called *AzS-bgpnat01*, that runs the
 Routing and Remote Access Services (RRAS) role in the Azure Stack Development Kit
-infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to allow
+infrastructure. You must configure NAT on the AzS-bgpnat01 virtual machine to allow
 the site-to-site VPN connection to connect on both ends. 
 
 To configure the VPN connection, you must create a static NAT map route that maps the external interface on the BGPNAT virtual machine to the VIP of the Edge Gateway Pool. A static NAT map route is required for each port in a VPN connection.
@@ -312,14 +312,14 @@ To configure the VPN connection, you must create a static NAT map route that map
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
-    -ComputerName mas-bgpnat01 `
+    -ComputerName AzS-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
       -IPAddress <External BGPNAT address> `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
-    -ComputerName mas-bgpnat01 `
+    -ComputerName AzS-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
       -IPAddress <External BGPNAT address> `
@@ -328,7 +328,7 @@ To configure the VPN connection, you must create a static NAT map route that map
    # create a static NAT mapping to map the external address to the Gateway
    # Public IP Address to map the ISAKMP port 500 for PHASE 1 of the IPSEC tunnel
    Invoke-Command `
-    -ComputerName mas-bgpnat01 `
+    -ComputerName AzS-bgpnat01 `
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
@@ -339,7 +339,7 @@ To configure the VPN connection, you must create a static NAT map route that map
    # Finally, configure NAT traversal which uses port 4500 to
    # successfully establish the complete IPSEC tunnel over NAT devices
    Invoke-Command `
-    -ComputerName mas-bgpnat01 `
+    -ComputerName AzS-bgpnat01 `
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
