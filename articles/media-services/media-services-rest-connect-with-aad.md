@@ -29,7 +29,7 @@ The Azure Media Services team has released Azure Active Directory (Azure AD) aut
 Some customers need to develop their Media Services solutions under the following constraints:
 
 *	They use a programming language that is not Microsoft .NET or C#, or the runtime environment is not Windows.
-*	Azure AD libraries such as Active Directory Authentication Libraries are not available for the programming language or it's can't be used for their runtime environment.
+*	Azure AD libraries such as Active Directory Authentication Libraries are not available for the programming language or can't be used for their runtime environment.
 
 Some customers have developed applications by using REST API for both Access Control authentication and Azure Media Services access. For these customers, you need a way to use only the REST API for Azure AD authentication and subsequent Azure Media Services access. You need to not rely on any of the Azure AD libraries or on the Media Services .NET SDK. In this article, we describe a solution and provide sample code for this scenario. Because the code is all REST API calls, with no dependency on any Azure AD or Azure Media Services library, the code can easily be translated to any other programming language.
 
@@ -51,7 +51,7 @@ A total of four applications or services are involved in the Azure AD authentica
 |---|---|---|
 |Client | Customer app or solution | This app (actually, its proxy) is registered in the Azure AD tenant in which the Azure subscription and the media service account reside. The service principal of the registered app is then granted with Owner or Contributor role in the Access Control (IAM) of the media service account. The service principal is represented by the app client ID and client secret. |
 |Identity Provider (IDP) | Azure AD as IDP | The registered app service principal (client ID and client secret) is authenticated by Azure AD as the IDP. This authentication is performed internally and implicitly. As in client credentials flow, the client is authenticated instead of the user. |
-|Secure Token Service (STS)/OAuth server | Azure AD as STS | After authentication by the IDP (or OAuth Server in OAuth 2.0 terms), an access token or JSON Web Token (JWT) is issued by Azure AD as STS/OAuth Server for access to the middle-tier resource: In our case, the Media Services REST API endpoint. |
+|Secure Token Service (STS)/OAuth server | Azure AD as STS | After authentication by the IDP (or OAuth Server in OAuth 2.0 terms), an access token or JSON Web Token (JWT) is issued by Azure AD as STS/OAuth Server for access to the middle-tier resource: in our case, the Media Services REST API endpoint. |
 |Resource | Media Services REST API | Every Media Services REST API call is authorized by an access token that is issued by Azure AD as STS or the OAuth server. |
 
 If you run the sample code and capture a JWT or an access token, the JWT has the following attributes:
@@ -90,7 +90,7 @@ Here are the mappings between the attributes in the JWT and the four application
 
 ## Steps for setup
 
-To register and set up an Azure AD application for Azure AD authentication, and to obtain an access token for calling Azure Media Services REST API endpoint, complete the following steps:
+To register and set up an Azure AD application for Azure AD authentication, and to obtain an access token for calling the Azure Media Services REST API endpoint, complete the following steps:
 
 1.	In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), register an Azure AD application (for example, wzmediaservice) to the Azure AD tenant (for example, microsoft.onmicrosoft.com). It doesn't matter whether you registered as web app or native app. Also, you can choose any sign-on URL and reply URL (for example, http://wzmediaservice.com for both).
 2. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), go to the **Configure** tab of your application. Note the **client ID**. Then, under **Keys**, generate a **client key** (client secret). 
@@ -98,7 +98,7 @@ To register and set up an Azure AD application for Azure AD authentication, and 
 	> [!NOTE] 
 	> Take note of the client secret. It won't be shown again.
 	
-3.	In the [Azure](http://ms.portal.azure.com) portal, go to the Media Services account. Select the **Access Control** (IAM) pane. Add a new member that has either the Owner or the Contributor role. For the principal, search for the application name you registered in step 1 (in this example, wzmediaservice).
+3.	In the [Azure portal](http://ms.portal.azure.com), go to the Media Services account. Select the **Access Control** (IAM) pane. Add a new member that has either the Owner or the Contributor role. For the principal, search for the application name you registered in step 1 (in this example, wzmediaservice).
 
 ## Info to collect
 
