@@ -33,19 +33,19 @@ When ingesting data from a source system to ADLS, it is important to consider th
 
 It is important to ensure that the data movement is not affected by these factors.
 
-**Source Hardware**
+### Source Hardware
 
 Whether you are using on-premises machines or VMs in Azure, you should carefully select the appropriate hardware. For Source Disk Hardware, prefer SSDs to HDDs and pick disk hardware with faster spindles. For Source Network Hardware, use the fastest NICs possible.  On Azure, we recommend Azure D14 VMs which have the appropriately powerful disk and networking hardware.
 
-**Network Connectivity to Azure Data Lake Store**
+### Network Connectivity to Azure Data Lake Store
 
 The network connectivity between your source data and Azure Data Lake store can sometimes be the bottleneck. When your source data is On-Premises, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . If your source data is in Azure, the performance will be best when the data is in the same Azure region as the Data Lake Store.
 
-**Configure Data Ingestion tools for maximum parallelization**
+### Configure Data Ingestion tools for maximum parallelization
 
 Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios).
 
-| Tool               | Concurrency		| More Details setting                                                                |
+| Tool               | Settings		| More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](data-lake-store-get-started-powershell.md)	|
 | AdlCopy    | Azure Data Lake Analytics units	|	[Link](data-lake-store-copy-data-azure-storage-blob.md)         |
@@ -57,20 +57,28 @@ Once you have addressed the source hardware and network connectivity bottlenecks
 
 When data is stored in Data Lake Store, the file size, number of files, and folder structure have an impact on performance.  The following section describes best practices in these areas.  
 
-**File size**
+### File size
 
 Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead.  If you store your data as many small files, this can negatively affect performance.  
+
 In general, organize your data into larger sized files for better performance.  As a rule of thumb, organize data sets in files of 256MB or larger. In some cases such as images and binary data, it is not possible to process them in parallel.  In these cases, it is recommended to keep individual files under 2GB.
+
 Sometimes, data pipelines have limited control over the raw data which has lots of small files.  It is recommended to have a “cooking” process that generates larger files to use for downstream applications.  
 
-**Organizing Time Series data in folders**
+### Organizing Time Series data in folders
 
 For Hive and ADLA workloads, partition pruning of time-series data can help some queries read only a subset of the data which improves performance.    
+
 Those pipelines that ingest time-series data, often place their files with a very structured naming for files and folders. Below is a very common example we see for data that is structured by date:
-&#92;DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+
+	\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+
 Notice that the datetime information appears both as folders and in the filename.
+
 For date and time, the following is a common pattern
-\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+
+	\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
 ## Optimizing I/O intensive jobs on Hadoop and Spark workloads on HDInsight
@@ -83,7 +91,7 @@ Jobs fall into one of the following three categories:
 
 The following guidance is only applicable to I/O intensive jobs.
 
-**General Considerations for an HDInsight cluster**
+### General Considerations for an HDInsight cluster
 
 * **HDInsight versions.** For best performance, use the latest release of HDInsight.
 * **Regions.** Place the Data Lake Store in the same region as the HDInsight cluster.  
@@ -96,7 +104,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 * **YARN layer**
 * **Workload layer**
 
-**Physical Layer**
+### Physical Layer
 
 **Run cluster with more nodes and/or larger sized VMs.**  A larger cluster will enable you to run more YARN containers as shown in the picture below.
 
@@ -104,7 +112,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Use VMs with more network bandwidth.**  The amount of network bandwidth can be a bottleneck if there is less network bandwidth than Data Lake Store throughput.  Different VMs will have varying network bandwidth sizes.  Choose a VM-type that has the largest possible network bandwidth.
 
-**YARN Layer**
+### YARN Layer
 
 **Use smaller YARN containers.**  Reduce the size of each YARN container to create more containers with the same amount of resources.
 
@@ -114,7 +122,7 @@ NOTE: Depending on your workload, there will always be a minimum YARN container 
 
 **Increase cores per YARN container.**  Increase the number of cores allocated to each container to increase the number of parallel tasks that run in each container.  This works for applications like Spark which run multiple tasks per container.  For applications like Hive which run a single thread in each container, it is better to have more containers rather than more cores per container.   
 
-**Workload Layer**
+### Workload Layer
 
 **Use all available containers.**  Set the number of tasks to be equal or larger than the number of available containers so that all resources are utilized.
 
@@ -124,12 +132,12 @@ NOTE: Depending on your workload, there will always be a minimum YARN container 
 
 In addition to the general guidelines above, each application has different parameters available to tune for that specific application. The table below lists some of the parameters and links to get started with performance tuning for each application.
 
-	| Workload               | Parameter to set tasks                                                         |
-	|--------------------|------------------------------------------------------------------------------------|
-	| [Spark on HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
-	| [Hive on HDInsight](data-lake-store-performance-tuning-hive.md)    | hive.tez.container.size         |
-	| [MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-	| [Storm on HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
+| Workload               | Parameter to set tasks                                                         |
+|--------------------|------------------------------------------------------------------------------------|
+| [Spark on HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+| [Hive on HDInsight](data-lake-store-performance-tuning-hive.md)    | hive.tez.container.size         |
+| [MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [Storm on HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
 
 ## See also
 * [Overview of Azure Data Lake Store](data-lake-store-overview.md)
