@@ -36,19 +36,18 @@ For more information about the services that this tutorial mentions, see:
 
 Before you can complete the steps in this article, you need the following:
 
-1. An Azure subscription and account on that subscription with administrator rights. If you don't have a subscription you can get a [free subscription](https://azure.microsoft.com/free/)
+1. An Azure subscription and account on that subscription with administrator rights. If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/).
 2. A system with access to the Internet that meets the requirements for installing Azure Log Integration. The system can be on a cloud service or hosted on-premises.
-3. [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) Installed.
-  - Use remote desktop to connect to the system mentioned in step 2.
-  - Copy the Azure Log Integration installer to it. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324)
-  - Launch the installer and accept the terms in the License Agreement.
-  - Decide if you will be providing telemetry information and leave the box checked or uncheck it if you rather not send usage information to Microsoft.
+3. [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) installed.
+   1. Use remote desktop to connect to the system mentioned in step 2.
+   2. Copy the Azure Log Integration installer to it. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324).
+   3. Start the installer and accept the terms in the Microsoft Software License Terms.
+   4. If you will be providing telemetry information, leave the check box selected. If you'd rather not send usage information to Microsoft, clear the check box.
 4. Check your PowerShell version.
-   - If you have Windows Server 2016 installed then you have at least PowerShell 5.0 if you are using any other version of Windows server you may have lower versions of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window.
-   - If you don't have PowerShell 5.0 installed you can download it [here.](https://www.microsoft.com/download/details.aspx?id=50395)
-   - Once that you have at least PowerShell 5.0 you can proceed to install the latest version of Azure PowerShell.
-    - Open a PowerShell window and type:
-   </br>```Install-Module Azure``` and press the **Enter** key. Run through the installation and when it completes move on to the next step. </br>
+   - If you have Windows Server 2016 installed, then you have at least PowerShell 5.0. If you're using any other version of Windows Server, you might have an earlier version of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window.
+   - If you don't have PowerShell 5.0 installed, you can [download it](https://www.microsoft.com/download/details.aspx?id=50395).
+   - After you have at least PowerShell 5.0, you can proceed to install the latest version of Azure PowerShell. Open a PowerShell window, type
+   </br>```Install-Module Azure``` and press the Enter key. Run through the installation and when it completes move on to the next step. </br>
    Then type ```Install-Module AzureRM``` and press the **Enter** key. Run through the installation steps.
 
 At this point you have the latest version of Azure PowerShell and Azure Log Integration installed on a system and you are ready to proceed with the later steps in the tutorial.
