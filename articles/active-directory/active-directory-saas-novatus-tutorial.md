@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/02/2017
 ms.author: jeedes
 
 ---
@@ -168,7 +168,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Novatus. Novatus supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user will be created during an attempt to access Novatus if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+There is no action item for you in this section. A new user will be created during an attempt to access Novatus if it doesn't exist yet.
 
 >[!NOTE]
 >If you need to create an user manually, you need to contact the [Novatus support team](mailto:jvinci@novatusinc.com). 
@@ -206,10 +206,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Novatus tile in the Access Panel, you should get login page of Novatus application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the Novatus tile in the Access Panel, you should get automatically signed-on to your Novatus application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
