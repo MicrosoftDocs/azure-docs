@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/16/2017
 ms.author: dobett
 
 ---
@@ -29,7 +29,7 @@ The SKU also determines the throttling limits that IoT Hub enforces on all opera
 ## Operation throttles
 Operation throttles are rate limitations that are applied in the minute ranges, and are intended to avoid abuse. IoT Hub tries to avoid returning errors whenever possible, but it starts returning exceptions if the throttle is violated for too long.
 
-The following is the list of enforced throttles. Values refer to an individual hub.
+The following table shows the enforced throttles. Values refer to an individual hub.
 
 | Throttle | Free and S1 hubs | S2 hubs | S3 hubs | 
 | -------- | ------- | ------- | ------- |
@@ -45,7 +45,7 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Jobs operations <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Jobs per-device operation throughput | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 
-It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
+It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
 
 For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. Therefore, to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry.
 
@@ -66,7 +66,7 @@ IoT Hub enforces other operational limits:
 | Operation | Limit |
 | --------- | ----- |
 | File upload URIs | 10000 SAS URIs can be out for a storage account at one time. <br/> 10 SAS URIs/device can be out at one time. |
-| Jobs | Job history is retained up to 30 days <br/> Max concurrent jobs is 1 (for Free and S1, 5 (for S2), 10 (for S3). |
+| Jobs | Job history is retained up to 30 days <br/> Maximum concurrent jobs is 1 (for Free and S1, 5 (for S2), 10 (for S3). |
 | Additional endpoints | Paid SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
 | Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have five routing rules. |
 | Device-to-cloud messaging | Maximum message size 256 KB |
@@ -74,14 +74,17 @@ IoT Hub enforces other operational limits:
 | Cloud-to-device messaging | Maximum pending messages for delivery is 50 |
 
 > [!NOTE]
-> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## Latency
-IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it cannot guarantee a maximum latency,
-When designing your solution, avoid making any assumptions about the maximum latency of any IoT Hub operation. Provision your IoT hub in the Azure region closest to your devices, and consider using Azure IoT Edge to perform latency-sensitive operations on the device or on a gateway close to the device.
+IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it cannot guarantee a maximum latency. When designing your solution, you should:
+
+* Avoid making any assumptions about the maximum latency of any IoT Hub operation.
+* Provision your IoT hub in the Azure region closest to your devices.
+* Consider using Azure IoT Edge to perform latency-sensitive operations on the device or on a gateway close to the device.
 
 Multiple IoT Hub units affect throttling as described previously, but do not provide any additional latency benefits or guarantees.
-In case of unexpected increases in operation latency, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+If you see unexpected increases in operation latency, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:

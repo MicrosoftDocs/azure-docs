@@ -79,7 +79,7 @@ To connect to your Docker host in Azure, define the appropriate connection setti
 docker-machine env myvmdocker
 ```
 
-The output is similar to following:
+The output is similar to the following example:
 
 ```bash
 export DOCKER_TLS_VERIFY="1"

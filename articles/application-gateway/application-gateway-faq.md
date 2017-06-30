@@ -74,6 +74,10 @@ Only one public IP address is supported on an Application Gateway.
 
 Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
 
+**Q. How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?**
+
+New Application Gateway deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
+
 ## Configuration
 
 **Q. Is Application Gateway always deployed in a virtual network?**
@@ -86,13 +90,13 @@ Application Gateway can talk to instances outside of the virtual network that it
 
 **Q. Can I deploy anything else in the Application Gateway subnet?**
 
-No, but you can deploy other application gateways in the subnet
+No, but you can deploy other application gateways in the subnet.
 
 **Q. Are Network Security Groups supported on the Application Gateway subnet?**
 
 Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
 
-* Exceptions must be put in for ports 65503-65534 for backend health to work correctly.
+* Exceptions must be put in for incoming traffic on ports 65503-65534 for backend health to work correctly.
 
 * Outbound internet connectivity should not be blocked.
 
@@ -124,7 +128,21 @@ Custom probes do not support wildcard or regex on response data.
 
 **Q. What does the Host field for custom probes signify?**
 
-Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>. 
+Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>.
+
+**Q. Can I whitelist Application Gateway access to a few source IPs?**
+
+This can be done using NSGs on Application Gateway subnet. The following restrictions should be put on the subnet in the listed order of priority:
+
+* Allow incoming traffic from source IP/IP range.
+
+* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md).
+
+* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/virtual-networks-nsg.md).
+
+* Block all other incoming traffic with a Deny all rule.
+
+* Allow outbound traffic to the internet for all destinations.
 
 ## Performance
 

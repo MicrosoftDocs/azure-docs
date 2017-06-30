@@ -25,16 +25,15 @@
 ### [Child runbooks](automation-child-runbooks.md)
 ### [Runbook output](automation-runbook-output-and-messages.md)
 ### [Source control integration](automation-source-control-integration.md)
-## Automate runbooks
+## Automate
 ### [Start a runbook](automation-starting-a-runbook.md)
 ### [Start a runbook from a webhook](automation-webhooks.md)
-### [Run runbooks in your datacenter](automation-hybrid-runbook-worker.md)
+### [Run runbooks on Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Configure runbook input parameters](automation-runbook-input-parameters.md)
 ### [Error handling in graphical runbooks](automation-runbook-graphical-error-handling.md)
 ### [Track a runbook job](automation-runbook-execution.md)
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
-### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
@@ -42,7 +41,7 @@
 ### [Compiling DSC configurations](automation-dsc-compile.md)
 ### [Continuous deployment using Chocolatey](automation-dsc-cd-chocolatey.md)
 ### [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md)
-## Manage automation assets
+## Manage assets
 ### [Certificates](automation-certificates.md)
 ### [Connections](automation-connections.md)
 ### [Credentials](automation-credentials.md)
@@ -50,7 +49,7 @@
 ### [Schedules](automation-schedules.md)
 ### [Variables](automation-variables.md)
 ### [Update Azure PowerShell modules](automation-update-azure-modules.md)
-## Automate scenarios
+## Scenarios
 ### [Runbook gallery](automation-runbook-gallery.md)
 ### [Create Amazon Web Service VM](automation-scenario-aws-deployment.md)
 ### [Remediate Azure VM alert](automation-azure-vm-alert-integration.md)
@@ -58,6 +57,7 @@
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ## Solutions
 ### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
@@ -78,12 +78,13 @@
 ## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources
-## [Release notes](https://azure.microsoft.com/updates/?product=automation)
-## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
+## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
+## [Azure Automation training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
+## [Release notes](https://azure.microsoft.com/updates/?product=automation)
+## [Service updates](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=automation)
-## [Service updates](https://azure.microsoft.com/updates/?product=automation)
-## [Azure Automation training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
-## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

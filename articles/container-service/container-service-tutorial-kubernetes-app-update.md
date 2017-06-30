@@ -21,23 +21,21 @@ ms.author: nepeters
 
 # Update an application in Kubernetes
 
-Once an application has been deployed in a Kubernetes cluster, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the deployment is concurrently updated. This staged update allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
+Once an application has been deployed in a Kubernetes, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the deployment is concurrently updated. This staged update allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
 
-In this tutorial, the sample Azure Vote app is updated. Tasks completed in this tutorial include:
+In this tutorial, the sample Azure Vote app is updated. Tasks completed include:
 
 > [!div class="checklist"]
-> * Update the front-end application code
-> * Create update container images
-> * Push container images to ACR
-> * Deploy updated application
+> * Updating the front-end application code
+> * Creating an updated container image
+> * Pushing the container image to ACR
+> * Deploying updated application
 
-## Prerequisites
+## Before you begin
 
-This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-**Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
-
-**App deployed** - This tutorial assumes you’ve deployed the [Azure Voting sample app](container-service-tutorial-kubernetes-deploy-application.md) on the cluster. You can run the commands using another app of your choice.
+At minimum, this tutorial requires a Kubernetes cluster with a running application.
 
 ## Update application
 
@@ -53,7 +51,7 @@ Open the `config_file.cfg` file with any code or text editor. This file is found
  /azure-voting-app/azure-vote/azure-vote/config_file.cfg
 ```
 
-Change the values for `VOTE1VALUE` and `VOTE2VALUES`, and save the file.
+Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and save the file.
 
 ```bash
 # UI Configurations
@@ -63,10 +61,30 @@ VOTE2VALUE = 'Half Empty'
 SHOWHOST = 'false'
 ```
 
-Use `docker-compose` to re-create the front-end image and run the application.
+Use `docker build` to re-create the front-end image.
 
 ```bash
-docker-compose up --build -d
+docker build --no-cache ./azure-voting-app/azure-vote -t azure-vote-front:v2
+```
+
+## Test application
+
+Create a Docker network. This network is used for communication between the containers.  
+
+```bash
+docker network create azure-vote
+```
+
+Run an instance of the back-end container image using the `docker run` command.
+
+```bash
+docker run -p 3306:3306 --name azure-vote-back -d --network azure-vote -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
+```
+
+Run an instance of the front-end container image.
+
+```bash
+docker run -d -p 8080:80 --name azure-vote-front --network=azure-vote -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote -e MYSQL_HOST=azure-vote-back azure-vote-front:v2
 ```
 
 Browse to `http://localhost:8080` to see the updated application. The application takes a few seconds to initialize. If an error is encountered, try again.
@@ -75,35 +93,31 @@ Browse to `http://localhost:8080` to see the updated application. The applicatio
 
 ## Tag and push images
 
-Tag the new image with `v2` to indicate a new version. Replace `<acrLoginServer>` with your ACR login server name.
+Tag the *azure-vote-front* image with the loginServer of the container registry.
+
+If using ACR, get the login server name with the [az acr list](/cli/azure/acr#list) command.
+
+```azurecli-interactive
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+```
+
+Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image, making sure to update the command with your ACR login server or public registry hostname.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Push the image to your registry. Replace `<acrLoginServer>` with your ACR login server name.
+Push the image to your registry. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
-## Deploy updated application
+## Deploy update to Kubernetes
 
-### Verify multiple replicas
+### Verify multiple POD replicas
 
-To ensure a staged deployment, ensure that you have multiple running instances of the azure-vote-front container.
-
-```bash
-kubectl get pod
-```
-
-If needed, scale the front-end deployment so that multiple instances are running.
-
-```bash
-kubectl scale --replicas= deployment/azure-vote-front
-```
-
-In a state where the front-end deployment has been scaled to three, the pods should look like the following.
+To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
 ```bash
 kubectl get pod
@@ -119,15 +133,22 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-### Update application
+If you do not have multiple pods running the azure-vote-front image, scale the *azure-vote-front* deployment.
 
-To update the application, run the following command. Update `<acrLoginServer>` with your ACR logging server name.
 
 ```bash
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2 --record
+kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-To monitor the deployment, run the following command:
+### Update application
+
+To update the application, run the following command. Update `<acrLoginServer>` with the login server or host name of your container registry.
+
+```bash
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
+```
+
+To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command. As the updated application is deployed, you will see pods terminating, and being re-created with the new container image.
 
 ```bash
 kubectl get pod
@@ -143,7 +164,9 @@ azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
 azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 ```
 
-Get the external IP address of the service.
+## Test updated application
+
+Get the external IP address of the *azure-vote-front* service.
 
 ```bash
 kubectl get service
@@ -158,10 +181,10 @@ Browse to the IP address to see the updated application.
 In this tutorial, an application was updated and this update rolled out to a Kubernetes cluster. Tasks completed include:  
 
 > [!div class="checklist"]
-> * Update the front-end application code
-> * Create update container images
-> * Push container images to ACR
-> * Deploy updated application
+> * Updating the front-end application code
+> * Creating an updated container image
+> * Pushing the container image to ACR
+> * Deploying updated application
 
 Advance to the next tutorial to learn about monitoring Kubernetes with Operations Management Suite.
 

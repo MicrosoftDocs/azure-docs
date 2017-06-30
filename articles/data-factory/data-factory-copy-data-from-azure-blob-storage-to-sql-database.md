@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date:06/19/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 
 ---

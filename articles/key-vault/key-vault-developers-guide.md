@@ -2,7 +2,6 @@
 title: Azure Key Vault Developer's Guide | Microsoft Docs
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
-documentationcenter: ''
 author: BrucePerlerMS
 manager: mbaldwin
 
@@ -27,15 +26,6 @@ For more general information on Azure Key Vault, see [What is Key Vault](key-vau
 ## Public Previews
 
 Periodically, we release a public preview of a new Key Vault feature. Please try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
-
-### Storage Account Keys - May 31, 2017
-
->[!NOTE]
->For this update of Azure Key Vault only the **Storage Account Keys** feature is in preview.
-
-This preview includes our new Storage Account Keys feature, available through these interfaces; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) and [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
-
-For more information on the new Storage Account Keys feature, see [Azure Key Vault storage account keys overview](key-vault-ovw-storage-keys.md).
 
 ### Soft-delete - May 10, 2017
 
@@ -131,6 +121,7 @@ These articles are about other scenarios and services that use or integrate with
 ## Key Vault overviews and concepts
 
 - [Key Vault soft-delete behavior](key-vault-ovw-soft-delete.md) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+- [Key Vault client throttling](key-vault-ovw-throttling.md) orients you to the basic concepts of throttling and offers an approach for your app.
 - [Key Vault storage account keys overview](key-vault-ovw-storage-keys.md) describes the Key Vault integration Azure Storage Accounts keys.
 - [Key Vault security worlds](key-vault-ovw-security-worlds.md) describes the relationships between regions and security areas.
 

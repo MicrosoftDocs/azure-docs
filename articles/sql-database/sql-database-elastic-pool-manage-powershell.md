@@ -6,7 +6,6 @@ documentationcenter: ''
 author: srinia
 manager: jhubbard
 editor: ''
-
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
 ms.custom: DBs & servers
@@ -14,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-wms.date: 06/06/2017
+ms.date: 06/06/2017
 ms.author: srinia
 ---
 

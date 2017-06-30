@@ -2,7 +2,7 @@
 title: Azure Active Directory for developers | Microsoft Docs
 description: This article provides an overview of signing in Microsoft work and school accounts using Azure Active Directory.
 services: active-directory
-author: bryanla
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
-ms.author: bryanla
+ms.author: dastrock
 ms.custom: aaddev
 ---
 # Azure Active Directory for developers

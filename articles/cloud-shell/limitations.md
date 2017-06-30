@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/20/2017
 ms.author: juluk
 ---
 
@@ -36,6 +36,9 @@ Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet E
 ## Copy and paste
 Ctrl-v and Ctrl-c do not function as copy/paste on Windows machines, please use Ctrl-insert and Shift-insert to copy/paste.
 Right-click copy paste options are also available, however this is subject to browser-specific clipboard access.
+
+## Editing .bashrc
+Take caution when editing .bashrc as it can cause unexpected errors for Cloud Shell.
 
 ## Usage limits
 Cloud Shell is intended for interactive use cases, as a result any long-running non-interactive sessions are ended without warning.

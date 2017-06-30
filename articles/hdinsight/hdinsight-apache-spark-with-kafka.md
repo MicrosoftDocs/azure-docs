@@ -43,6 +43,11 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**.
 
+    > [!WARNING]
+    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+
+    This template creates an HDInsight 3.6 cluster for both Kafka and Spark.
+
 2. Use the following information to populate the entries on the **Custom deployment** blade:
    
     ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/parameters.png)
@@ -72,87 +77,11 @@ Once the resources have been created, you are redirected to a blade for the reso
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
 
-## <a id="kafkahosts"></a>Kafka host information
-
-The code in this example connects to the Kafka broker and Zookeeper hosts in the Kafka cluster. To find the host information, use the following PowerShell or Bash example:
-
-> [!NOTE]
-> The Kafka broker and Zookeeper hosts are not directly accessible over the Internet. Any application that uses Kafka must either run on the Kafka cluster or within the same Azure Virtual Network as the Kafka cluster. In this case, the example runs on a Spark on HDInsight cluster in the same virtual network.
-
-From your development environment, use the following commands to retrieve the broker and Zookeeper information:
-
-* To get the __Kafka broker__ information:
-
-    ```bash
-    curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
-    ```
-
-    > [!NOTE]
-    > Set `$PASSWORD` to the login (admin) password you used when creating the cluster. Set `$CLUSTERNAME` to the base name you used when creating the cluster.
-
-    ```powershell
-    $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
-        -Credential $creds
-    $respObj = ConvertFrom-Json $resp.Content
-    $brokerHosts = $respObj.host_components.HostRoles.host_name
-    ($brokerHosts -join ":9092,") + ":9092"
-    ```
-
-    > [!NOTE]
-    > Set `$cluterName` to the name of the HDInsight cluster. When prompted, enter the password for the cluster login (admin) account.
-
-* To get the __Zookeeper host__ information:
-
-    ```bash
-    curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
-    ```
-
-    ```powershell
-    $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" `
-        -Credential $creds
-    $respObj = ConvertFrom-Json $resp.Content
-    $zookeeperHosts = $respObj.host_components.HostRoles.host_name
-    ($zookeeperHosts -join ":2181,") + ":2181"
-    ```
-
-Both commands return information similar to the following text:
-
-* __Kafka brokers__: `wn0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092,wn1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092`
-
-* __Zookeeper hosts__: `zk0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk2-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181`
-
-> [!IMPORTANT]
-> Save this information as it is used in several steps in this document.
-
-## Get the notebook
+## Use the notebooks
 
 The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
-## Upload the notebook
-
-To use the example Jupyter notebook, you must upload it to the Jupyter Notebook server on the Spark cluster. Use the following steps to upload the notebook:
-
-1. In your web browser, use the following URL to connect to the Jupyter Notebook server on the Spark cluster. Replace `CLUSTERNAME` with the name of your Spark cluster.
-
-        https://CLUSTERNAME.azurehdinsight.net/jupyter
-
-    When prompted, enter the cluster login (admin) and password used when you created the cluster.
-
-2. From the upper right side of the page, use the __Upload__ button to upload the `KafkaStreaming.ipynb` file. Select the file in the file browser dialog and select __Open__.
-
-    ![Use the upload button to select and upload a notebook](./media/hdinsight-apache-spark-with-kafka/upload-button.png)
-
-    ![Select the KafkaStreaming.ipynb file](./media/hdinsight-apache-spark-with-kafka/select-notebook.png)
-
-3. Find the __KafkaStreaming.ipynb__ entry in the list of notebooks, and select __Upload__ button beside it.
-
-    ![Use the upload button beside the KafkaStreaming.ipynb entry to upload it to the notebook server](./media/hdinsight-apache-spark-with-kafka/upload-notebook.png)
-
-## Load tweets into Kafka
-
-Once the files have been uploaded, select the __Stream-Tweets-To_Kafka.ipynb__ entry to open the notebook. Follow the steps in the notebook to load tweets into Kafka.
+Follow the steps in the `README.md` file to complete this example.
 
 ## Delete the cluster
 

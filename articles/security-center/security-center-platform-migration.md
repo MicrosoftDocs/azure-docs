@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 06/23/2017
 ms.author: yurid
 
 ---
@@ -33,7 +33,7 @@ Going forward, Security Center uses the Microsoft Monitoring Agent – this is t
 
 ## Agent
 
-As part of the transition, the Microsoft Monitoring Agent (for [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md)) are installed on all Azure VMs from which data is currently being collected.  If the VM already has the Microsoft Monitoring Agent installed, Security Center leverages the current installed agent.
+As part of the transition, the Microsoft Monitoring Agent (for [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md)) is installed on all Azure VMs from which data is currently being collected.  If the VM already has the Microsoft Monitoring Agent installed, Security Center leverages the current installed agent.
 
 For a period of time (typically a few days), both agents will run side by side to ensure a smooth transition without any loss of data. This will enable Microsoft to validate that the new data pipeline is operational before discontinuing use of the current pipeline. Once verified, the Azure Monitoring Agent will be removed from your VMs. No work is required on your part. An email will notify you when all customers have been migrated.
  
@@ -70,7 +70,7 @@ In conjunction with the platform migration, we are rolling out some additional m
 
 - Additional OS versions will be supported. See the list [here](security-center-faq.md#virtual-machines).
 - The list of OS vulnerabilities will be expanded. See the list [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
-- Pricing will be pro-rated hourly (previously it was daily), which will result in cost savings for some customers.
+- [Pricing](https://azure.microsoft.com/pricing/details/security-center/) will be pro-rated hourly (previously it was daily), which will result in cost savings for some customers.
 - Data Collection will be required and automatically enabled for customers on the Standard pricing tier.
 - Azure Security Center will begin discovering antimalware solutions that were not deployed via Azure extensions. Discovery of Symantec Endpoint Protection and Defender for Windows 2016 will be available first.
 
