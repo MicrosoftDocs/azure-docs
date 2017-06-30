@@ -75,7 +75,7 @@ You should see something like this:</br>
 4. After successful authentication, you're logged in and you see the information in the following screenshot. Note the subscription ID and subscription name.
 
    ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
-5. Create variables to store values that will be used later. Type each of the following PowerShell lines and press Enter after each one. You may need to adjust the values to match your environment.
+5. Create variables to store values that will be used later. Type each of the following PowerShell lines and press Enter after each one. You might need to adjust the values to match your environment.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name might be different, and you can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any other location of your choosing.)
     - ```$random = Get-Random```
