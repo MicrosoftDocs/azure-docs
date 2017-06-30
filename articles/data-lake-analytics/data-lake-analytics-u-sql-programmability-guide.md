@@ -13,19 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 06/30/2017
 ms.author: mrys
 
 ---
 
 # U-SQL programmability guide
 
-## Azure Data Lake
-Azure Data Lake includes capabilities that make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed. It also enables developers to use many types of processing and analytics across platforms and languages. It removes the complexities of ingesting and storing all your data while making it faster to use batches, streaming, and interactive analytics.
-
-U-SQL is a query language that's designed for big data-type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#. It also provides the ability to access and manipulate schema metadata, and to create custom components such as data processors and reducers.
-
-In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.
+U-SQL is a query language that's designed for big data-type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#. In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.
 
 ## Requirements
 
@@ -36,31 +31,33 @@ The description of U-SQL language is outside the scope of this document. However
 
 Let’s look at the following example:
 
-```sql
+```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
 	EXTRACT
-        guid Guid,
+	    guid Guid,
 	    dt DateTime,
-        user String,
-        des String
+	user String,
+	des String
 	FROM @input_file USING Extractors.Tsv();
 
 @rs1 =
     SELECT
-        MAX(guid) AS start_id,
-	    MIN(dt) AS start_time,
+            MAX(guid) AS start_id,
+            MIN(dt) AS start_time,
         user,
         des
 	FROM @rs0
     GROUP BY user, des;
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 
+	TO @output_file 
+	USING Outputters.Text();
 ```
 
-In this example, we have an **Input File**: file input_file.tsv, defined by **Local Variable** @input_file.
+In this example, we have an **Input File**: `file input_file.tsv`, defined by **Local Variable** @input_file.
 
 The following actions are performed by the U-SQL script show in this example:
 
@@ -582,7 +579,7 @@ public static string GetFiscalPeriod(DateTime dt)
 }
 ```
 
-It simply calculates fiscal month and quarter and returns a string value. For June, the first month of the first fiscal quarter, we use “Q1:P1”. For July, we use “Q1:P2”, and so on.
+It simply calculates fiscal month and quarter and returns a string value. For June, the first month of the first fiscal quarter, we use "Q1:P1". For July, we use "Q1:P2", and so on.
 
 This is a regular C# function that we are going to use in our U-SQL project.
 
