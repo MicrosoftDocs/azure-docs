@@ -1,5 +1,5 @@
 ---
-title: Creating Azure IoT Edge Module with C# | Microsoft Docs
+title: Create an Azure IoT Edge Module with C# | Microsoft Docs
 description: Tutorial on how to build a BLE converter module for Azure IoT Edge with C# and NuGet packages using Visual Studio Code.
 services: iot-hub
 author: jeffreyCline
@@ -336,7 +336,7 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
      </ItemGroup>
    ```
     
-- The updated `IoTEdgeConverterModule.csproj` should look like the following image:
+   - The updated `IoTEdgeConverterModule.csproj` should look like the following image:
 
     ![Visual Studio Code updated .csproj file](media/iot-hub-iot-edge-create-module/vscode-update-csproj.png)
 
@@ -380,6 +380,6 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
     
     - If you want to terminate the application, press the `<Enter>` key.
 
-> [!IMPORTANT]
+>[!IMPORTANT]
 It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (that is, **gw.exe**). As this action may cause the process to terminate abnormally.
 
