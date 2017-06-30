@@ -55,7 +55,7 @@ SQL Data Warehouse is a distributed database system. Each table is distributed o
 - Replicated stores a copy of the table on each Compute node. Replicated tables are performant because they do not require data movement for joins and aggregations. They do require extra storage, and therefore work best for smaller tables.
 - Hash distributed distributes the rows across all the nodes via a hash function. Hash distributed tables are the heart of SQL Data Warehouse since they are designed to provide high query performance on large tables. This option requires some planning to select the best column on which to distribute the data. However, if you don't choose the best column the first time, you can easily re-distribute the data on a different column. 
 
-To choose the best distribution option for each table, see [Distributed tables](sql-data-warehouse-tables-distribute.md)
+To choose the best distribution option for each table, see [Distributed tables](sql-data-warehouse-tables-distribute.md).
 
 
 ## Next steps
