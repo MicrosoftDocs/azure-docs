@@ -45,7 +45,7 @@ invoice and descriptions for each term.
 The account information section of the invoice is on the top of the
 first page and shows information about your profile and subscription.
 
-<kbd>![Account information section of invoice](./media/billing-breakdown-your-invoice/1.png)</kbd>
+![Account information section of invoice](./media/billing-breakdown-your-invoice/1.png)
 
 | Term | Description |
 | --- | --- |
@@ -63,7 +63,7 @@ The **Invoice Summary** section of the invoice lists the total
 transaction amounts since your last billing period, and your current
 usage charges.
 
-<kbd>![Invoice summary section](./media/billing-breakdown-your-invoice/2.png)</kbd>
+![Invoice summary section](./media/billing-breakdown-your-invoice/2.png)
 
 The Subscription name (“Production Storage”) is the name of the
 subscription for this invoice.
@@ -103,7 +103,7 @@ on the second page of your Invoice.
 The Usage charges section of the invoice displays meter level
 information on your charges.
 
-<kbd>![Usage charges section](./media/billing-breakdown-your-invoice/3.png)</kbd>
+![Usage charges section](./media/billing-breakdown-your-invoice/3.png)
 
 The following table describes the usage charges column headers shown on
 your Invoice.
@@ -122,7 +122,7 @@ your Invoice.
 | Sub-Total |The sum of all your charges pre-tax for this billing period |
 | Grand Total |The sum of all your charges after tax for this billing period |
 
-## How do I ensure that the charges in my invoice are correct?
+## How do I make sure that the charges in my invoice are correct?
 If there is a charge on your invoice that you would like more details
 on, see [Understand your bill for Microsoft Azure.](./billing-understand-your-bill.md)
 
