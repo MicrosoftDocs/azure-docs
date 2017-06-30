@@ -14,6 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: chackdan
+redirect_url: /azure/service-fabric/service-fabric-cluster-creation-via-arm
 
 ---
 # Create a Service Fabric cluster by using Azure Resource Manager
