@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon36.png)
     
-16. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provide** dropdown.
+16. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provider** dropdown.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon4.png)
 
@@ -272,13 +272,13 @@ To enable Azure AD users to log in to Kantega SSO for Confluence, they must be p
 
 	![Add Employee](./media/active-directory-saas-kantegassoforconfluence-tutorial/user2.png) 
 
-	a. In the **Username** textbox, type the email of user like Britta Simon.
+	a. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
 
 	b. In the **Full Name** textbox, type the full name of user like Britta Simon.
 
 	c. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
 
-	d. In the **Password** textbox, type the password for Britta Simon.
+	d. In the **Password** textbox, type the password for user.
 
 	e. Click **Confirm Password** reenter the password.
 	
