@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://vault.netvoyage.com/neWeb2/<instancename>`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-on URL and Reply URL. Contact [NetDocuments support team](https://support.netdocuments.com/hc/) to get these values.
