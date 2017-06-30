@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 06/29/2017
 ms.author: kaanan
 
 ---
@@ -113,7 +113,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telus](http://www.telus.com)** |Supported |Supported |Toronto |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Not Supported |London |
-| **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Chicago, Dallas+, London+, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
+| **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Amsterdam, Chicago, Dallas+, London+, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
 
  **+** denotes coming soon
 
