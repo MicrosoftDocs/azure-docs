@@ -69,7 +69,7 @@ The durability tier is used to indicate to the system the privileges that your V
 This privilege is expressed in the following values:
 
 * Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-* Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. Once enabled this will be available on all standard VMs of single core and above).
+* Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is available via PowerShell now and available on all standard VMs of single core and above).
 * Bronze - No privileges. This is the default.
 
 ## The reliability characteristics of the cluster
