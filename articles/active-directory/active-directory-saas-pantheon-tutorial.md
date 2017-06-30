@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -132,7 +132,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_configure.png) 
 
-8. To configure single sign-on on **Pantheon** side, you need to send the downloaded **Metadata XML** and **SAML Entity ID, SAML Single Sign-On Service URL** to [Pantheon support team](https://pantheon.io/docs/getting-support/).
+8. To configure single sign-on on **Pantheon** side, you need to send the downloaded **Metadata XML** and **SAML Single Sign-On Service URL** to [Pantheon support team](https://pantheon.io/docs/getting-support/).
+
+     > [!Note]
+     > You also need to provide the Email Domain(s) information and Date Time when you want to enable this connection. You can find more details about it from [here](https://pantheon.io/docs/sso-organizations/)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
