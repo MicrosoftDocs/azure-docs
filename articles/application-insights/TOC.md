@@ -111,6 +111,7 @@
 ### [Set alerts](app-insights-powershell-alerts.md)
 ### [Get Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
 ### [Automate with Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automate with an Azure Logic App](automate-with-logic-apps.md)
 
 ## Develop
 
