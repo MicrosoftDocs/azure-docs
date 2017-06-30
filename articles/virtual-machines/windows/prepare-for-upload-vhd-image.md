@@ -19,11 +19,11 @@ ms.author: glimoli;genli
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
-To upload a Windows VM from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure only supports generation 1 virtual machines that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation.  For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+To upload a Windows VM from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure only supports generation 1 virtual machines that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation.  For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
-For more information on which are the support policy for Microsoft Azure Virtual Machine, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/en-us/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
+For more information about the support policy for Microsoft Azure Virtual Machine, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/en-us/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
-The instructions in this article applies to 64-bit version of Windows Server 2008 R2 and later Windows server operating system.
+The instructions in this article apply to 64-bit version of Windows Server 2008 R2 and later Windows server operating system.
 
 ## Convert the virtual disk to VHD and fixed size disk 
 If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you run the virtual disk conversion process and make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
@@ -85,7 +85,7 @@ On the virtual machine you plan to upload to Azure, run all the following comman
     Set-Service -Name w32time -StartupType Auto
     ```
 
-## Set services startup to Windows default values
+## Set services start up to Windows default values
 Make sure that each of the following Windows services is set to the **Windows default values**. To reset the startup settings, run the following commands:
    
 ```PowerShell
@@ -235,7 +235,7 @@ Make share that the following settings are configured correctly for remote deskt
    ```PowerShell
     netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
    ``` 
-5. If the VM  will be part of a Domain then all these settings should be checked and make sure that the former settings are not getting revered. The AD policies that needs to be checked are:
+5. If the VM  will be part of a Domain then all these settings should be checked and make sure that the former settings are not getting revered. The AD policies that need to be checked are:
 
     - Enable the Windows Firewall profiles
 
@@ -301,7 +301,7 @@ Make share that the following settings are configured correctly for remote deskt
 
 7. Reboot the VM to make sure that Windows is still healthy can be reached by using the RDP connection. At this point, you may want to create a VM in your local Hyper-V to ensure the VM is booting all the way up and then test if is RDP reachable.
 
-8. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets or extra firewalls. Note that in a later stage after you deploy the VM in azure and you are able to reach the VM. You may want to review to review this item if needed.
+8. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets or extra firewalls. Note that in a later stage after you deploy the VM in azure and you are able to reach the VM. You may want to review this item if needed.
 
 9. Uninstall any other third-party software and driver related to physical components or any other virtualization technology.
 
