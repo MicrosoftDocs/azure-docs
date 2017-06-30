@@ -56,6 +56,7 @@ After the download completes, the image it is added to the **Marketplace Managem
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ```
 7. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
+
    ```powershell
    Add-AzureStackAzureRmEnvironment `
      -Name "AzureStackAdmin" `
