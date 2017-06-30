@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service tutorial - Update Application | Microsoft Docs
+title: Azure Container Service tutorial - Update application | Microsoft Docs
 description: Azure Container Service tutorial - Update Application
 services: container-service
 documentationcenter: ''
@@ -21,9 +21,11 @@ ms.author: nepeters
 
 # Update an application in Kubernetes
 
-Once an application has been deployed in a Kubernetes, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the deployment is concurrently updated. This staged update allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
+After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When you update an application, the update rollout is staged so that only a portion of the deployment is concurrently updated. 
 
-In this tutorial, the sample Azure Vote app is updated. Tasks completed include:
+This staged update enables the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
+
+In this tutorial, the sample Azure Vote app is updated. Tasks that you complete include:
 
 > [!div class="checklist"]
 > * Updating the front-end application code
@@ -33,13 +35,15 @@ In this tutorial, the sample Azure Vote app is updated. Tasks completed include:
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, an application was packaged into container images, the images were uploaded to Azure Container Registry, and a Kubernetes cluster was created. The application was then run on the Kubernetes cluster. 
 
-At minimum, this tutorial requires a Kubernetes cluster with a running application.
+If you haven't taken these steps, and would like to take them now, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+
+At a minimum, this tutorial requires a Kubernetes cluster with a running application.
 
 ## Update application
 
-To complete the steps in this tutorial, you must have cloned a copy of the Azure Vote application. If needed, do so with the following command:
+To complete the steps in this tutorial, you must have cloned a copy of the Azure Vote application. If needed, create this cloned copy with the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app.git
@@ -51,7 +55,7 @@ Open the `config_file.cfg` file with any code or text editor. This file is found
  /azure-voting-app/azure-vote/azure-vote/config_file.cfg
 ```
 
-Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and save the file.
+Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and then save the file.
 
 ```bash
 # UI Configurations
@@ -75,7 +79,7 @@ Create a Docker network. This network is used for communication between the cont
 docker network create azure-vote
 ```
 
-Run an instance of the back-end container image using the `docker run` command.
+Run an instance of the back-end container image by using the `docker run` command.
 
 ```bash
 docker run -p 3306:3306 --name azure-vote-back -d --network azure-vote -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
@@ -87,7 +91,7 @@ Run an instance of the front-end container image.
 docker run -d -p 8080:80 --name azure-vote-front --network=azure-vote -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote -e MYSQL_HOST=azure-vote-back azure-vote-front:v2
 ```
 
-Browse to `http://localhost:8080` to see the updated application. The application takes a few seconds to initialize. If an error is encountered, try again.
+Browse to `http://localhost:8080` to see the updated application. The application takes a few seconds to initialize. If you get an error, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -148,7 +152,7 @@ To update the application, run the following command. Update `<acrLoginServer>` 
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command. As the updated application is deployed, you will see pods terminating, and being re-created with the new container image.
+To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command. As the updated application is deployed, you pods are terminated andre-created with the new container image.
 
 ```bash
 kubectl get pod
@@ -178,13 +182,13 @@ Browse to the IP address to see the updated application.
 
 ## Next steps
 
-In this tutorial, an application was updated and this update rolled out to a Kubernetes cluster. Tasks completed include:  
+In this tutorial, an application was updated and this update was rolled out to a Kubernetes cluster. Tasks that were completed include:  
 
 > [!div class="checklist"]
 > * Updating the front-end application code
 > * Creating an updated container image
 > * Pushing the container image to ACR
-> * Deploying updated application
+> * Deploying the updated application
 
 Advance to the next tutorial to learn about monitoring Kubernetes with Operations Management Suite.
 
