@@ -164,7 +164,7 @@ A place result includes the place's name, address, telephone number, and URL to 
 
 ## Data attribution  
 
-While Bing gathers certain pieces of information from the web, other information is obtained via licensors who place restrictions on the use of their data. In your usage of this API, it is important to realize that while Bing organizes and makes certain inferences or connections with the data, Bing is, in most cases, NOT the owner of this data. As such, partners must ensure that they adhere to fair use, copyright, or other restrictions that may exist on the source data.  
+Bing Entity API responses contain information owned by third parties. You are responsible to ensure your use is appropriate, for example by complying with any creative commons license your user experience may rely on.  
   
 If an answer or result includes the `contractualRules`, `attributions`, or `provider` fields, you must attribute the data. If the answer does not include any of these fields, no attribution is required. If the answer includes the `contractualRules` field and the `attributions` and/or `provider` fields, you must use the contractual rules to attribute the data.  
   
@@ -200,26 +200,7 @@ The following example shows an entity that includes a MediaAttribution contractu
 If a contractual rule includes the `targetPropertyName` field, the rule applies only to the targeted field. Otherwise, the rule applies to the parent object that contains the `contractualRules` field.  
   
   
-In the following example, the `LinkAttribution` and `TextAttribution` rules do NOT include the `targetPropertyName` field, so the rule applies to the entity object. For rules that apply to an entity as a whole, you must include a line immediately following the entity data that lists the providers. The line should be clearly labeled to indicate that the providers are the source of the data. For example, "Data from: Wikipedia &#124; STATS LLC © 2016". For `LinkAttribution` rules, you must create a hyperlink to the provider's website. In this case, make Wikipedia a hyperlink to the Wikipedia webpage that contains information about the entity.  
-  
-```  
-"entities" : {  
-    "value" : [{  
-        . . .  
-                "contractualRules" : [  
-                    {  
-                        "_type" : "ContractualRules\/LinkAttribution",  
-                        "text" : "Wikipedia",  
-                        "url" : "http:\/\/www.bing.com\/cr?IG=B8AD7..."  
-                    },  
-                    {  
-                        "_type" : "ContractualRules\/TextAttribution",  
-                        "text" : "STATS LLC © 2016"  
-                    },  
-  
-```  
-  
-In the following example, the `LinkAttribution` rule DOES include the `targetPropertyName` field, so the rule applies to the `description` field. For rules that apply to specific fields, you must include a line immediately following the targeted data that contains a hyperlink to the provider's website. For example, to attribute the description, include a line immediately following the description text that contains a hyperlink to the data on the provider's website, in this case create a link to en.wikipedia.org.  
+In the following example, the `LinkAttribution` rule includes the `targetPropertyName` field, so the rule applies to the `description` field. For rules that apply to specific fields, you must include a line immediately following the targeted data that contains a hyperlink to the provider's website. For example, to attribute the description, include a line immediately following the description text that contains a hyperlink to the data on the provider's website, in this case create a link to en.wikipedia.org.  
   
 ```  
 "entities" : {  
@@ -250,9 +231,9 @@ The license notice that you display must include a hyperlink to the website that
   
 ### Link and Text Attribution  
 
-The [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) and [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) rules are typically used to identify the provider of the data. If the `LinkAttribution` or `TextAttribution` rule does NOT include the `targetPropertyName` field, the rule applies to the parent object that encompasses the rules; otherwise, the rule applies to the targeted field.  
+The [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) and [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) rules are typically used to identify the provider of the data. The `targetPropertyName` field identifies the field that the rule applies to.  
   
-To attribute the providers, include a line immediately following the content that the attributions apply to (for example, the parent object or targeted field). The line should be clearly labeled to indicate that the providers are the source of the data. For example, "Data from: Wikipedia &#124; STATS LLC © 2016". For `LinkAttribution` rules, you must create a hyperlink to the provider's website.  
+To attribute the providers, include a line immediately following the content that the attributions apply to (for example, the targeted field). The line should be clearly labeled to indicate that the providers are the source of the data. For example, "Data from: en.wikipedia.org". For `LinkAttribution` rules, you must create a hyperlink to the provider's website.  
   
 The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.  
   
@@ -267,7 +248,7 @@ The following shows an example that includes an image's `provider` field and con
 ![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)  
 
 
-## United States-Based queries only  
+### United States-Based queries only  
 
 Entity Search API is intended for use only within the United States. Partners must use reasonable and best effort to ensure that all users for whom they are originating calls to the API are physically located within the United States. If the user is not physically located within the United States, then do not call this API.  
   
