@@ -43,3 +43,7 @@ You can turn off different tags for different reviews, by checking or unchecking
 While you can’t delete the two default tags, isadult and isracy, you can delete any custom tags that you have defined. Click the garbage can next to the tag you want to delete.
 
 ![Deleting Content Moderation Tags](images/tags-5-delete.png)
+
+## Next Steps ##
+
+To learn how to use tags for image moderation, see [how to review moderated images](Review-Moderated-Images.md).
