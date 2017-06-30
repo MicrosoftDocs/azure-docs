@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<suddomain>.printix.net`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Printix Client support team](support@printix.net) to get the value. 
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Printix Client support team](mailto:support@printix.net) to get the value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_08.png)
    
-     Attach the metadata xml file which you downloaded from Azure AD to [Printix support team](support@printix.net). Then they upload the xml file and provide a federation metadata URL.
+     Attach the metadata xml file which you downloaded from Azure AD to [Printix support team](mailto:support@printix.net). Then they upload the xml file and provide a federation metadata URL.
 
 10. Click the "**Test**" button and click "**OK**" button if the test was successful.
    
@@ -188,7 +188,7 @@ The objective of this section is to create a user called Britta Simon in Printix
 There is no action item for you in this section. A new user is created during an attempt to access Printix if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
 
 > [!NOTE]
-> If you need to create a user manually, you need to contact the [Printix support team](support@printix.net).
+> If you need to create a user manually, you need to contact the [Printix support team](mailto:support@printix.net).
 > 
 
 ### Assigning the Azure AD test user
