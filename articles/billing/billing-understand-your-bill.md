@@ -23,7 +23,7 @@ To understand your Azure bill, compare your invoice with the detailed daily usag
 
 For invoice PDF and detailed daily usage file CSV download, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
 
-For detailed terms and descriptions of your invoice and detailed daily usage file, see [Breakdown of your Microsoft Azure invoice](billing-breakdown-your-invoice.md) here and [Breakdown of your Microsoft Azure detailed usage](billing-breakdown-your-usage.md) here.
+For detailed terms and descriptions of your invoice and detailed daily usage file, see [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) here and [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) here.
 
 For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
@@ -67,10 +67,10 @@ consumed. These line items should add up to the consumed quantity for
 the meter during the billing period.
 
 For detailed sections, terms and descriptions of the invoice. See
-[here](billing-breakdown-your-invoice.md).
+[here](billing-understand-your-invoice.md).
 
 For detailed sections, terms and descriptions of the detailed daily
-usage file, see [here](billing-breakdown-your-usage.md).
+usage file, see [here](billing-underestand-your-usage.md).
 
 ### Review your invoice and compare with the usage and costs in the Azure portal
 
