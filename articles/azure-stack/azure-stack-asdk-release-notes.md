@@ -23,7 +23,7 @@ ms.author: helaw
 These release notes provide information on new features and known issues.
 
 ## Release Build 1708
-Starting with the 1708 release, Azure Stack Proof of Concept has been renamed to Azure Stack Development Kit.  Like the Azure Stack POC, Azure Stack Development Kit is intended to be a development and evaluation environment used to explore Azure Stack features, and provide a development platform for Azure Stack.
+Starting with the 1708 release ([build](azure-stack-updates.md#determine-the-current-version) 0627.1), Azure Stack Proof of Concept has been renamed to Azure Stack Development Kit.  Like the Azure Stack POC, Azure Stack Development Kit is intended to be a development and evaluation environment used to explore Azure Stack features, and provide a development platform for Azure Stack.
 
 ### What's new
 - You can now use CLI 2.0 to manage Azure Stack resources from a commandline on popular operating systems.
