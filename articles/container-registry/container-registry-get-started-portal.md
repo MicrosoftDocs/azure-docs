@@ -21,23 +21,26 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # Create a private Docker container registry using the Azure portal
-Use the Azure portal to create a container registry and manage its settings. You can also create and manage container registries using the [Azure CLI 2.0 commands](container-registry-get-started-azure-cli.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
-For background and concepts, see [the overview](container-registry-intro.md).
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure portal.
 
+## Log in to Azure
 
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a container registry
-1. In the [Azure portal](https://portal.azure.com), click **+ New**.
-2. Search the marketplace for **Azure container registry**.
-3. Select **Azure Container Registry**, with publisher **Microsoft**.
-    ![Container Registry service in Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
-4. Click **Create**. The **Azure Container Registry** blade appears.
+
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+
+2. Search the marketplace for **Azure container registry** and select it.
+
+4. Click **Create** which will open the ACR creation blade.
 
     ![Container registry settings](./media/container-registry-get-started-portal/container-registry-settings.png)
+
 5. In the **Azure Container Registry** blade, enter the following information. Click **Create** when you are done.
 
-    a. **Registry name**: A globally unique top-level domain name for your specific registry. In this example, the registry name is *myRegistry01*, but substitute a unique name of your own. The name can contain only letters and numbers.
+    a. **Registry name**: A globally unique top-level domain name for your specific registry. In this example, the registry name is *myAzureContainerRegistry1*, but substitute a unique name of your own. The name can contain only letters and numbers.
 
     b. **Resource group**: Select an existing [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one.
 
@@ -45,26 +48,58 @@ For background and concepts, see [the overview](container-registry-intro.md).
 
     d. **Admin user**: If you want, enable an admin user to access the registry. You can change this setting after creating the registry.
 
-      > [!IMPORTANT]
-      > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md).
-      >
+    e. **Use managed registry**: Select yes to have ACR automatically manage the registry storage, use webhooks, and geo-replication.
 
-    e. **Storage account**: Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location. Currently Premium Storage is not supported.
+    d. **Pricing Tier**: Select a pricing tier, see here ACR pricing for more information.
 
-## Manage registry settings
-After creating the registry, find the registry settings by starting at the **Container Registries** blade in the portal. For example, you might need the settings to log in to your registry, or you might want to enable or disable the admin user.
 
-1. On the **Container Registries** blade, click the name of your registry.
+## Log in to ACR instance
 
-    ![Container registry blade](./media/container-registry-get-started-portal/container-registry-blade.png)
-2. To manage access settings, click **Access key**.
+Before pushing and pulling container images, you must log in to the ACR instance. 
 
-    ![Container registry access](./media/container-registry-get-started-portal/container-registry-access.png)
-3. Note the following settings:
+To do so, use the Azure CLI 2.0. First, if needed, log into azure using the [az login] command. 
 
-   * **Login server** - The fully qualified name you use to log in to the registry. In this example, it is `myregistry01.azurecr.io`.
-   * **Admin user** - Toggle to enable or disable the registry's admin user account.
-   * **Username** and **Password** - The credentials of the admin user account (if enabled) you can use to log in to the registry. You can optionally regenerate the passwords. Two passwords are created so that you can maintain connections to the registry by using one password while you regenerate the other password. To authenticate with a service principal instead, see [Authenticate with a private Docker container registry](container-registry-authentication.md).
+```azurecli
+az login
+```
+
+Next, use the [az acr login]() command to log in to the Azure Container Registry.
+
+```azurecli-interactive
+az acr login --myAzureContainerRegistry1
+```
+
+## Use Azure Container Registry
+
+### List container images
+
+Use the `az acr` CLI commands to query the images and tags in a repository.
+
+> [!NOTE]
+> Currently, Container Registry does not support the `docker search` command to query for images and tags.
+
+### List repositories
+
+The following example lists the repositories in a registry, in JSON (JavaScript Object Notation) format:
+
+```azurecli
+az acr repository list -n myContainerRegistry1 -o json
+```
+
+### List tags
+
+The following example lists the tags on the **samples/nginx** repository, in JSON format:
+
+```azurecli
+az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
+```
+
+## Next steps
+
+In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server.
+
+> [!div class="nextstepaction"]
+> [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
 
 ## Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)

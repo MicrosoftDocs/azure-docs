@@ -42,10 +42,13 @@ az group create --name myResourceGroup --location westcentralus
 
 Create an ACR instacne using the [az acr create]() command.
 
-When you create a registry, specify a globally unique top-level domain name, containing only letters and numbers. The registry name in the examples is *mycontainerregistry1*, substitute a unique name of your own.
+> [!NOTE]
+> When you create a registry, specify a globally unique top-level domain name, containing only letters and numbers.
+
+ The registry name in the examples is *myContainerRegistry1*, substitute a unique name of your own.
 
 ```azurecli
-az acr create --name mycontainerregistry1 --resource-group myResourceGroup --sku Managed_Standard
+az acr create --name myContainerRegistry1 --resource-group myResourceGroup --sku Managed_Standard
 ```
 
 When the registry is created, the output is similar to the following:
@@ -68,7 +71,14 @@ When the registry is created, the output is similar to the following:
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
+```
 
+## Log in to ACR instance
+
+Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login]() command.
+
+```azurecli-interactive
+az acr login --myAzureContainerRegistry1
 ```
 
 ## Use Azure Container Registry
@@ -85,7 +95,7 @@ Use the `az acr` CLI commands to query the images and tags in a repository.
 The following example lists the repositories in a registry, in JSON (JavaScript Object Notation) format:
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n myContainerRegistry1 -o json
 ```
 
 ### List tags
@@ -93,7 +103,7 @@ az acr repository list -n myRegistry1 -o json
 The following example lists the tags on the **samples/nginx** repository, in JSON format:
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
 ```
 
 ## Next steps
