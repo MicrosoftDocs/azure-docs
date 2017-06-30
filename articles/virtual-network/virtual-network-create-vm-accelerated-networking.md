@@ -189,7 +189,9 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
     - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. Please wait for an email confirmation from Microsoft about your subscription being enabled.
     - Enter the following command to confirm you are registered for the preview:
     
-        `Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingForLinux -ProviderNamespace Microsoft.Network`
+        ```powershell
+        Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingForLinux -ProviderNamespace Microsoft.Network
+        ```
 
         Do not continue with step 5 until **Registered** appears in the output after you enter the previous command. Your output must look like the following output before continuing:
     
@@ -202,7 +204,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       >[!NOTE]
       >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
       >
-5. In your browser, copy the following script:
+5. In your browser, copy the following script substituting Ubuntu or SLES as desired.  Again, Redhat and CentOS have a different workflow outlined below:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -245,6 +247,11 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
 
+    $OSDiskName = "MyOSDiskName"
+    $OSDiskSAName = "thestorageaccountname"  
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $RgName -Name $OSDiskSAName -Type "Standard_GRS" -Location $Location
+    $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName
+
     # Create a virtual machine configuration
     $VmConfig = New-AzureRmVMConfig `
       -VMName MyVM -VMSize Standard_DS4_v2 | `
@@ -257,7 +264,8 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       -Offer UbuntuServer `
       -Skus 16.04-LTS `
       -Version latest | `
-    Add-AzureRmVMNetworkInterface -Id $Nic.Id 
+    Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
+    Set-AzureRmVMOSDisk -Name $OSDiskName -VhdUri $OSDiskUri -CreateOption FromImage
 
     # Create the virtual machine.    
     New-AzureRmVM `
@@ -280,7 +288,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash cloud shell (Preview). The Bash cloud shell pane appears at the bottom of the portal and after a few seconds, presents a **username@Azure:~$** prompt. Though you can SSH to the VM from your computer, rather than the cloud shell, the instructions in this tutorial assume you're using the cloud shell.
 3. At the top of the portal, in the box that contains the text *Search resources*, type *MyVm*. When **MyVm** appears in the search results, click it.
 4. In the **MyVm** blade that appears, click the **Connect** button in the top left corner of the blade. **Note:** If **Creating** is visible under the **Connect** button, Azure has not yet finished creating the VM. Click **Connect** only after you no longer see **Creating** under the **Connect** button.
-5. Azure opens a box telling you to enter the `ssh adminuser@<ipaddress>`. Enter this command in the cloud shell (or copy it from the box that appeared in step 4 and paste it in to the cloud shell, then press Enter.
+5. Azure opens a box telling you to enter the `ssh adminuser@<ipaddress>`. Enter this command in the cloud shell (or copy it from the box that appeared in step 4 and paste it in to the cloud shell), then press Enter.
 6. Enter **yes** to the question asking you if you want to continue connecting, then press Enter.
 7. Enter the password you entered when creating the VM. Once successfully logged in to the VM, you see an adminuser@MyVm:~$ prompt. You are now logged in to the VM through the cloud shell session. **Note:** Cloud shell sessions time out after 10 minutes of inactivity.
 
@@ -288,99 +296,160 @@ At this point, the instructions vary based on the distribution you are using.
 
 #### Ubuntu/SLES
 
-1. At the prompt, enter uname -r and confirm the version: 
-    * Ubuntu is “4.4.0-77-generic,” or greater
-    * SLES is “4.4.59-92.20-default” or greater
-2.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
+1. At the prompt, enter `uname -r` and confirm the version for:
 
-    ```bash
-    Wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
- 
-    chmod +x ./configure_hv_sriov.sh
+    * Ubuntu is "4.4.0-77-generic," or greater
+    * SLES is "4.4.59-92.20-default" or greater
 
-    sudo ./configure_hv_sriov.sh
-    ```
-
+2. Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
+  		  
+     ```bash
+     wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
+     chmod +x ./configure_hv_sriov.sh
+     sudo ./configure_hv_sriov.sh
+     ```
 3. After running the script, the VM will restart after a 60 second pause.
-4. Once the VM is restarted, reconnect to it by completing steps 5-7 of the [Configure Linux](#configure-linux) section again.
+4. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
 5. Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. 
-
-**Note:** Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
+ 
+ >[!NOTE]
+      >Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
 
 #### RHEL/CentOS
 
-##### Phase one: prepare a base image
+Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
 
-1. Provision a non-Accelerated Networking RHEL/CentOS 7.3 VM on Azure
-2. After the base VM starts up, disable the Network Manager with:
+##### Phase one: prepare a Red Hat Enterprise Linux or CentOS 7.3 base image. 
 
-    ```bash
-    sudo service NetworkManager stop
-    
-    sudo chkconfig NetworkManager off
-    ```
+1.	Provision a non-SRIOV CentOS 7.3 VM on Azure
 
-3. Install LIS 4.2.1:
+2.	Install LIS 4.2.1:
 
     ```bash
-    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
-    
-    tar -xvf lis-rpms-4.2.1.tar.gz
-    
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+    tar -xvf lis-rpms-4.2.1-1.tar.gz
     cd LISISO && sudo ./install.sh
-
-    sudo reboot
     ```
-    
-    After the VM starts, verify the LIS version by “modinfo hv_vmbus”. The version should be “4.2.1”.
-    
-4. From the Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account.
 
-##### Phase two: Provision SRIOV CentOS 7.3 VMs on Azure
+3.	Download config files
 
-1. Provision new VMs based on the base image VHD captured in phase one with AcceleratedNetworking enabled on the vNIC.  Currently the only way to do this provisioning is by using PowerShell. Step-by-step instructions are here, Create VM from a special VHD in Azure with the only difference being when you create the NIC.  You will need to add the following parameter: 
-    
+    ```bash
+    cd /etc/udev/rules.d/  
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/60-hyperv-vf-name.rules 
+    cd /usr/sbin/
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/hv_vf_name 
+    sudo chmod +x hv_vf_name
+    cd /etc/sysconfig/network-scripts/
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/ifcfg-vf1   
+    ```
+
+4.	Deprovision this VM
+
+    ```bash
+    sudo waagent -deprovision+user 
+    ```
+
+5.	From Azure portal, stop this VM; and go to VM’s "Disks", capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account. 
+ 
+##### Phase two: Provision new VMs on Azure
+
+1.	Provision new VMs based with New-AzureRMVMConfig using the base image VHD captured in phase one, with AcceleratedNetworking enabled on the vNIC:
+
     ```powershell
-    $vm= Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.ID -Enable Accelerated Networking
-    ```
+    $RgName="MyResourceGroup"
+    $Location="westus2"
     
-2. After the VMs boot up, check the VF device by “lspci” and check the Mellanox entry. For example, you see the following line in the lspci output:
+    # Create a resource group
+    New-AzureRmResourceGroup `
+     -Name $RgName `
+     -Location $Location
 
+    # Create a subnet
+    $Subnet = New-AzureRmVirtualNetworkSubnetConfig `
+     -Name MySubnet `
+     -AddressPrefix 10.0.0.0/24
+
+    # Create a virtual network
+    $Vnet=New-AzureRmVirtualNetwork `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -Name MyVnet `
+     -AddressPrefix 10.0.0.0/16 `
+     -Subnet $Subnet
+    
+    # Create a public IP address
+    $Pip = New-AzureRmPublicIpAddress `
+     -Name MyPublicIp `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -AllocationMethod Static
+    
+    # Create a virtual network interface and associate the public IP address to it
+    $Nic = New-AzureRmNetworkInterface `
+     -Name MyNic `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -SubnetId $Vnet.Subnets[0].Id `
+     -PublicIpAddressId $Pip.Id `
+     -EnableAcceleratedNetworking
+    
+    # Specify the base image's VHD URI (from phase one step 5). 
+    # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
+    # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
+    $OSDiskName = "MyOSDiskName.vhd"
+    $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
+
+    # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
+    $destOsDiskName = "MyOsDiskName.vhd" # Must end with ".vhd" extension
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    
+    # Define a credential object for the VM. PowerShell prompts you for a username and password.
+    $Cred = Get-Credential
+    
+    # Create a Red Hat virtual machine configuration, for CentOS use PublisherName "OpenLogic", Offer "CentOS", and Skus "7.3"
+    $VmConfig = New-AzureRmVMConfig `
+     -VMName MyVM -VMSize Standard_DS4_v2 | `
+      Set-AzureRmVMOperatingSystem `
+     -Linux `
+     -ComputerName myVM `
+     -Credential $Cred | `
+    Set-AzureRmVMSourceImage `
+     -PublisherName "RedHat" `
+     -Offer "RHEL" `
+     -Skus "7.3" `
+     -Version latest | `
+    Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
+    Set-AzureRmVMOSDisk 
+      -Linux `
+      -Name $OSDiskName `
+      -SourceImageUri $sourceUri `
+      -VhdUri $OSDiskURI `
+      -CreateOption FromImage '
+      -Linux
+    
+    # Create the virtual machine.    
+    New-AzureRmVM `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -VM $VmConfig
+    ```
+
+2.	After VMs boot up, check the VF device by "lspci" and check the Mellanox entry. For example, we should see this item in the lspci output:
+    
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
     ```
     
-3. Run the bonding script:
-    
+3.	Run the bonding script by:
+
     ```bash
     sudo bondvf.sh
     ```
-    
-4. Re-Enable Network Manager on the new VMs:
-    
-    ```bash
-    sudo service NetworkManager start
-    
-    sudo chkconfig NetworkManager on
-    ```
 
-    After this, you see Network Manager is running. You can check this with the following command:
-
-    ```bash
-    ps -aux | grep NetworkManager
-    ```
-
-5. Reboot the new VMs:
+4.	Reboot the new VMs:
 
     ```bash
     sudo reboot
     ```
 
-6. After the new VMs come up, check the data path switch to VF:
-
-    ```bash
-    dmesg | grep switched
-    ```
-    You will see a line in the log similar to the below indicating that the Data path has been switched to the VF: 
-[    6.465594] hv_netvsc 000d3af7-4374-000d-3af7-4374000d3af7 eth0: Data path switched to VF: eth1
-
+The VM should start with bond0 configured and the Accelerated Networking path enabled.  Run `ifconfig` to confirm.

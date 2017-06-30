@@ -41,6 +41,13 @@ Status: June 2017
 
 ### Azure AD Connect Sync
 
+#### Known issue
+* There is an issue that affects customers who are using [OU-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) with Azure AD Connect sync. When you navigate to the [Domain and OU Filtering page](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the Azure AD Connect wizard, the following behavior is expected:
+  * If OU-based filtering is enabled, the **Sync selected domains and OUs** option is selected.
+  * Otherwise, the **Sync all domains and OUs** option is selected.
+
+The issue it is that the **Sync all domains and OUs** option is selected, even if OU-based filtering is enabled. Before saving any synchronization configuration changes in the wizard, make sure the **Sync selected domains and OUs** option is selected first. Otherwise, OU-based filtering will be disabled.
+
 #### Fixed issues
 
 * Fixed an issue with Password writeback that allows an Azure AD Administrator to reset the password of an on-premises AD privileged user account. The issue occurs when Azure AD Connect is granted the Reset Password permission over the privileged account. The issue is addressed in this version of Azure AD Connect by not allowing an Azure AD Administrator to reset the password of an arbitrary on-premises AD privileged user account unless the administrator is the owner of that account. For more information, refer to [Security Advisory 4033453](https://technet.microsoft.com/library/security/4033453).
