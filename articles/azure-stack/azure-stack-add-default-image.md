@@ -19,7 +19,7 @@ ms.author: sngun
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack marketplace
 
-By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add an image to the marketplace before users can use them. You can add the Windows Server 2016 image to the Azure Stack marketplace by using one of the following two methods:
+By default, there aren’t any virtual machine images available in the Azure Stack marketplace. The administrator must add an image to the marketplace before users can use them. You can add the Windows Server 2016 image to the Azure Stack marketplace by using one of the following two methods:
 
 * [Add the image by downloading it from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-Azure-marketplace) - Use this option if you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure.
 
@@ -35,7 +35,7 @@ By default, there aren’t any virtual machine images available in the Azure sta
 
    ![Download image from Azure](media/azure-stack-add-default-image/download-image.png)
 
-After the download completes, the image it is added to the **Marketplace Management** blade and it is also made available from the **Virtual Machines** blade.
+After the download completes, the image is added to the **Marketplace Management** blade and it is also made available from the **Virtual Machines** blade.
 
 ## Add the image by using PowerShell
 
@@ -91,7 +91,7 @@ After the download completes, the image it is added to the **Marketplace Managem
    ```
    To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the previous cmdlet. 
 
-   When you run the `New-AzsServer2016VMImage` cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode: Created” message.
+   It takes about an hour to publish the image to the Azure Stack marketplace.
 
 ## Parameters
 
@@ -99,7 +99,7 @@ After the download completes, the image it is added to the **Marketplace Managem
 |-----|-----|------|
 |ISOPath|Yes|The fully qualified path to the downloaded Windows Server 2016 ISO.|
 |Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL and MYSQL resource providers. |
-|Version|No|This parameter allows you to choose whether to add a **Core** or **Full** or **Both** Windows Server 2016 images. By default, this value is set to "Full".|
+|Version|No|This parameter allows you to choose whether to add a **Core** or **Full** or **Both** Windows Server 2016 images. By default, this value is set to "Full."|
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. By default, this value is set to 40960 MB.|
 |CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|
 |location |No |Specifies the location to which the Windows Server 2016 image should be published.|
