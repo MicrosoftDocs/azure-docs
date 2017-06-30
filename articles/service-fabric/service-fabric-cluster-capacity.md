@@ -69,16 +69,10 @@ The durability tier is used to indicate to the system the privileges that your V
 This privilege is expressed in the following values:
 
 * Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-* Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD and is available on all standard VMs of single core and above.
-* Bronze - No privileges. This is the default.
+* Silver - The infrastructure Jobs can be paused for a duration of 10 minutes per UD and is available on all standard VMs of single core and above.
+* Bronze - No privileges. This is the default and is recommended if you are only running stateless workloads in your cluster.
 
-### Recommendations on when to use Silver or Gold durability levels
-
-The durability feature is biased towards data retention, So it will slow the deployment operations down. You get to choose durability level for each of your node-types. You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster. Maintain a minimum count of 5 nodes for any Node-type that has a durability of Gold or silver.
-
-**Rule of thumb** : If your operational priority is data retention and cluster up-time, then choose Silver or Gold. If your operational priority is agility, then choose Bronze durability.
-
-For example: Use silver durability for all node types that hosts stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
+You get to choose durability level for each of your node-types.You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster. **You must maintain a minimum count of 5 nodes for any node-type that has a durability of Gold or silver**. 
 
 **Advantages of using Silver or Gold durability levels**
  
@@ -87,19 +81,25 @@ For example: Use silver durability for all node types that hosts stateful servic
 	 
 **Disadvantages of using Silver or Gold durability levels**
  
-1. Deployments to your Virtual Machine Scale Set (VMSS) and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or by concurrent upgrade and maintenance activity at the infrastructure level. 
-2. Reduces overall deployment performance.
-3. Increases the number of replica lifecycle events (e.g. primary swaps) due to automated node deactivations during Azure infrastructure operations
+1. Deployments to your Virtual Machine Scale Set and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
+2. Increases the number of [replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (e.g. primary swaps) due to automated node deactivations during Azure infrastructure operations.
 
-### Operational Recommendations for the node type that has a silver or gold durability.
 
-1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all lifecycle events (like replica in build is stuck) in a timely fashion.
+
+### Recommendations on when to use Silver or Gold durability levels
+
+Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
+
+### Operational Recommendations for the node type that you have set to silver or gold durability level.
+
+1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion.
 2. Adopt safer ways to make a VM SKU change (Scale up/down):
-	- For non-primary nodetypes: it is recommended that you create new VMSS , modify the service placement constraint to include the new VMSS/node type and then reduce the old VMSS instance count to 0.
-	- For the primary nodetype - Do not change VM SKU of the primary node type. If you have no choice, then make modifications to the VMSS Model definition. If your cluster has only one nodetype, then make sure that stateful applications respond to all lifecycle events (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than 10 minutes (for Silver durablity level).
-3. Maintain a minimum count of 5 nodes for any VMSS that has MR enabled
-4. Do not delete random VM instances, always use VMSS scale down. The deletion of random VM instances have a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to proper load balancing amongst the service instances/Service replicas.
-5. Do not remove all VMs from any UD (do not delete randome VM instances, always use VMSS scale down).
+
+This is not an operation you should be performing often, since it is not safe.  Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation. Here is the process you can follow to avoid common issues.
+	- For non-primary nodetypes: it is recommended that you create new Virtual Machine Scale Set , modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
+	- For the primary nodetype - Our recommendation is that you do not change VM SKU of the primary node type. If the reason for the new SKU is capacity, we recommend adding more instances or if possible, create a new cluster. If you have no choice, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than 10 minutes (for Silver durability level).
+3. Maintain a minimum count of 5 nodes for any Virtual Machine Scale Set that has MR enabled
+4. Do not delete random VM instances, always use Virtual Machine Scale Set scale down. The deletion of random VM instances have a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to proper load balancing amongst the service instances/Service replicas.
 6. If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. 
 
 
@@ -110,7 +110,7 @@ The reliability tier can take the following values:
 
 * Platinum - Run the System services with a target replica set count of 9
 * Gold - Run the System services with a target replica set count of 7
-* Silver - Run the System services with a target replica set count of 5
+* Silver - Run the System services with a target replica set count of 5 
 * Bronze - Run the System services with a target replica set count of 3
 
 > [!NOTE]
