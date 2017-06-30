@@ -52,10 +52,10 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 	- Open a command prompt (`Windows + R` -> `cmd` -> `enter`).
 	- Navigate to the folder where you'd like to create the `C#` project.
 	- Type **dotnet new classlib -o IoTEdgeConverterModule -f netstandard1.3**. 
-	- This creates an empty class called `Class1.cs` in your projects directory.
+	- This command creates an empty class called `Class1.cs` in your projects directory.
 2. Navigate to the folder where we just created the class library project by typing **cd IoTEdgeConverterModule**.
 3. Open the project in `Visual Studio Code` by typing **code .**.
-4. Once the project is opened in `Visual Studio Code`, in the file view to the left, click on the **IoTEdgeConverterModule.csproj**. This opens the `IoTEdgeConverterModule.csproj` file in the code editor window to the right of the file view as shown in the following image:
+4. Once the project is opened in `Visual Studio Code`, click on the **IoTEdgeConverterModule.csproj** to open the file as shown in the following image:
 
 	![Visual Studio Code edit window](media/iot-hub-iot-edge-create-module/vscode-edit-csproj.png)
 
@@ -68,7 +68,7 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
   </ItemGroup> 
 ```
-6. Once you save the `.csproj` file `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the following image: 
+6. Once you save the `.csproj` file, `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the following image: 
 
 	![Visual Studio Code restore dependencies dialog](media/iot-hub-iot-edge-create-module/vscode-restore.png)
 
@@ -76,8 +76,8 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 
 	b) You see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
  
-        >[!NOTE]
-	    `.NET Core Tools` are now MSBuild-based. This means a `.csproj` project file is created instead of a `project.json`.
+    >[!NOTE]
+	`.NET Core Tools` are now MSBuild-based. This means a `.csproj` project file is created instead of a `project.json`.
 
 	- If `Visual Studio Code` does not prompt you that is ok, we can do it manually. Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal`.
 	- In the `Integrated Terminal` window type **dotnet restore**.
@@ -145,11 +145,11 @@ namespace IoTEdgeConverterModule
 
 9. Save the file by pressing `Ctrl` + `S`.
 
-10. Create a new file by pressing the `Ctrl` + `N` keys, this creates a new file called `Untitled-1` as seen in the following image:
+10. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys as seen in the following image:
 
     ![Visual Studio Code new file](media/iot-hub-iot-edge-create-module/vscode-new-file.png)
 
-11. Copy the following code into the `Untitled-1` file code editor window. This is the class that we use to deserialize the `JSON` object that we receive from the simulated `BLE` device.
+11. To deserialize the `JSON` object that we receive from the simulated `BLE` device, copy the following code into the `Untitled-1` file code editor window. 
 
 ```csharp
 using System;
@@ -170,7 +170,7 @@ namespace IoTEdgeConverterModule
 
     ![Visual Studio Code save as dialog](media/iot-hub-iot-edge-create-module/vscode-save-as.png)
 
-13. Create a new file by pressing the `Ctrl` + `N` keys, this creates a new file called `Untitled-1`.
+13. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.
 
 14. Copy and paste the following code snippet into the `Untitled-1` file. This class is a `Azure IoT Edge` module, which we use to output the data received from our `BleConverterModule`.
 
@@ -228,9 +228,9 @@ namespace PrinterModule
 15. Save the file as `DotNetPrinterModule.cs` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
 
-16. Create a new file by pressing the `Ctrl` + `N` keys.
+16. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.
 
-17. Copy and paste the following code snippet into the `Untitled-1` file. This is the class that we use to deserialize the `JSON` object that we receive from the `BleConverterModule`.
+17. To deserialize the `JSON` object that we receive from the `BleConverterModule`, Copy and paste the following code snippet into the `Untitled-1` file. 
 
 ```csharp
 using System;
@@ -255,7 +255,7 @@ namespace PrinterModule
 18. Save the file as `BleConverterData.cs` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
 
-19. Create a new file by pressing the `Ctrl` + `N` keys.
+19. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.
 
 20. Copy and paste the following code snippet into the `Untitled-1` file.
 
@@ -335,7 +335,7 @@ namespace PrinterModule
 
     ![Visual Studio Code updated .csproj file](media/iot-hub-iot-edge-create-module/vscode-update-csproj.png)
 
-23. Create a new file by pressing the `Ctrl` + `N` keys.
+23. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.
 
 24. Copy and paste the following code snippet into the `Untitled-1` file.
 
@@ -352,19 +352,19 @@ Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\
 25. Save the file as `binplace.ps1` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.
 
-26. Build the project (`Ctrl` + `Shift` + `B`), since this is the first time you have built the project `Visual Studio Code` prompts you with the `No build task defined.` dialog as seen in the following image:
+26. Build the project by pressing the `Ctrl` + `Shift` + `B` keys. When you build the project for the first time `Visual Studio Code` will prompt you with the `No build task defined.` dialog as seen in the following image:
 
 	![Visual Studio Code build task dialog](media/iot-hub-iot-edge-create-module/vscode-build-task.png)
 
     a) Click the `Configure Build Task` button.
 
-    b) This brings up the `Select a Task Runner` dialog dropdown menu. Since this is a `.NET Core` project, select `.Net Core` as seen in the following image: 
+    b) In the `Select a Task Runner` dialog dropdown menu. Select `.NET Core` as seen in the following image: 
 
 	![Visual Studio Code select a task dialog](media/iot-hub-iot-edge-create-module/vscode-build-task-runner.png)
 
-    c) This creates the `tasks.json` file in your `.vscode` directory and opens the file in the `code editor` window. There is no need to modify this file, close the tab by pressing (`Ctrl` + `F4`) or using the close button on the `tasks.json` tab itself.
+    c) Clicking the `.NET Core` item creates the `tasks.json` file in your `.vscode` directory and opens the file in the `code editor` window. There is no need to modify this file, close the tab.
 
-27.  Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal` and type **.\binplace.ps1** into the `PowerShell` command prompt. This copies all our dependencies to the output directory.
+27.  Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal` and type **.\binplace.ps1** into the `PowerShell` command prompt. This command copies all our dependencies to the output directory.
 
 28. Navigate to the projects output directory in the `Integrated Terminal` window by typing **cd .\bin\Debug\netstandard1.3**.
 
@@ -377,5 +377,5 @@ Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\
     - If you want to terminate the application, press the `<Enter>` key.
 
      >[!IMPORTANT]
-      It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (that is, **gw.exe**). As this may cause the process to terminate abnormally.
+      It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (that is, **gw.exe**). As this action may cause the process to terminate abnormally.
 
