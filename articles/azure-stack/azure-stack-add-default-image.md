@@ -27,7 +27,7 @@ By default, there aren’t any virtual machine images available in the Azure sta
 
 ## Add the image by downloading it from the Azure Marketplace
 
-1. After deploying Azure Stack, sign in to the Azure Stack POC computer.
+1. After deploying Azure Stack, sign in to your Azure Stack Development Kit.
 
 2. click **More services** > **Marketplace Management** > **Add from Azure** 
 
@@ -39,7 +39,7 @@ After the download completes, the image it is added to the **Marketplace Managem
 
 ## Add the image by using PowerShell
 
-1. After deploying Azure Stack, sign in to the Azure Stack POC computer.
+1. After deploying Azure Stack, sign in to your Azure Stack Development Kit.
 
 2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps. This step requires internet connectivity.
 

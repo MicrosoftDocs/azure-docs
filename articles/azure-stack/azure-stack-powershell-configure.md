@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Configure PowerShell for use with Azure Stack 
 
-This article describes the steps required to connect to an Azure Stack proof-of-concept (POC) instance by using PowerShell. After you connect, you can access the portal and deploy resources through PowerShell. You can use the steps described in this article either from the Azure Stack POC computer, or from a Windows-based external client if you are connected through VPN.
+This article describes the steps required to connect to an Azure Stack Development Kit instance by using PowerShell. After you connect, you can access the portal and deploy resources through PowerShell. You can use the steps described in this article either from the development kit, or from a Windows-based external client if you are connected through VPN.
 
 This article has detailed instructions to configure PowerShell for Azure Stack. However, if you want to quickly install and configure PowerShell, you can use the script provided in the [Get up and running with PowerShell](azure-stack-powershell-configure-quickstart.md) topic. 
 

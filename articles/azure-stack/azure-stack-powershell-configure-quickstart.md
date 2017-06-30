@@ -22,7 +22,7 @@ ms.author: sngun
 
 This article is a quick start to install and configure PowerShell for Azure Stack. This script provided in this article is scoped to use with **Azure Active Directory(AAD)** based deployments and within the **administrative** environment only. You can also use this script for user environments, but make sure to replace the Azure Resource Manager endpoint value in the `Add-AzureStackAzureRmEnvironment` cmdlet. 
 
-This article is a condensed version of the steps described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. To install and configure PowerShell, sign in to your Azure Stack POC computer, or a Windows-based external client if you are connected through VPN. Next, open an elevated PowerShell ISE session and run the following script:
+This article is a condensed version of the steps described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. To install and configure PowerShell, sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Next, open an elevated PowerShell ISE session and run the following script:
 
 ```powershell
 
