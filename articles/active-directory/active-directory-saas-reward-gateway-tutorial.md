@@ -124,7 +124,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<companyname>.rewardgateway.co.nz/Authentication/EndLogin?idp=<Unique Id>` |
 	| `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
-
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Reward Gateway support team](mailto:clientsupport@rewardgateway.com) to get these values.
  
