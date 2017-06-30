@@ -30,7 +30,7 @@ Starting with windowsazure.mediaservices 4.0.0.4, Azure Media Services supports 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
 - **User authentication** authenticates a person who is using the app to interact with Azure Media Services resources. The interactive application should first prompt the user for credentials. An example is a management console app that's used by authorized users to monitor encoding jobs or live streaming. 
-- **Service principal authentication** authenticates a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs, such as Web Apps, Function Apps, Logic Apps, APIs, or Microservices.
+- **Service principal authentication** authenticates a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs, such as web apps, function apps, logic apps, APIs, or microservices.
 
 >[!IMPORTANT]
 >Azure Media Service currently supports an Azure Access Control Service  authentication model. However, Access Control authorization is going to be deprecated on June 1, 2018. We recommend that you migrate to an Azure Active Directory authentication model as soon as possible.
@@ -69,17 +69,14 @@ You also have the option of replacing the default implementation of the **AzureA
 
 To connect to the Azure Media Service API with the user authentication option, the client app needs to request an Azure AD token by using the following parameters:  
 
-- Azure AD tenant endpoint
-
-	The tenant information can be retrieved from the Azure portal. Hover over the signed-in user in the upper right corner.
-
-- Media Services resource URI
-- Media Services (native) application client ID 
-- Media Services (native) application redirect URI 
+- Azure AD tenant endpoint. The tenant information can be retrieved from the Azure portal. Hover over the signed-in user in the upper-right corner.
+- Media Services resource URI.
+- Media Services (native) application client ID. 
+- Media Services (native) application redirect URI. 
 
 The values for these parameters can be found in **AzureEnvironments.AzureCloudEnvironment**. The **AzureEnvironments.AzureCloudEnvironment** constant is a helper in the .NET SDK to get the right environment variable settings for a public Azure Data Center. 
 
-It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use the **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, or **AzureGermanCloudEnvironment** respectively.
+It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, or **AzureGermanCloudEnvironment** respectively.
 
 The following code example creates a token:
 	
@@ -127,13 +124,9 @@ The following example shows how to create the Azure AD token and the context:
 	
 To connect to the Azure Media Services API with the service principal option, your middle-tier app (web API or web application) needs to requests an Azure AD token with the following parameters:  
 
-- Azure AD tenant endpoint
-
-	The tenant information can be retrieved from the Azure portal. Hover over the signed-in user in the upper right corner.
-
-- Media Services resource URI 
-
-- Azure AD application values: the **Client ID** and **Client secret**
+- Azure AD tenant endpoint. The tenant information can be retrieved from the Azure portal. Hover over the signed-in user in the upper-right corner.
+- Media Services resource URI.
+- Azure AD application values: the **Client ID** and **Client secret**.
 
 The values for the **Client ID** and **Client secret** parameters can be found in the Azure portal. For more information, see [Getting started with Azure AD authentication using the Azure portal](media-services-portal-get-started-with-aad.md).
 
@@ -153,7 +146,7 @@ For instructions about how to create and configure a certificate in a form that 
 								new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
 								AzureEnvironments.AzureCloudEnvironment);
 
-To start programming against Media Services you need to create a **CloudMediaContext** instance that represents the server context. You also need to pass the **resource URI for Media REST Services** to the **CloudMediaContext** constructor. You can get the **resource URI for Media REST Services** value from the Azure portal as well.
+To start programming against Media Services, you need to create a **CloudMediaContext** instance that represents the server context. You also need to pass the **resource URI for Media REST Services** to the **CloudMediaContext** constructor. You can get the **resource URI for Media REST Services** value from the Azure portal as well.
 
 The following code example creates a **CloudMediaContext** instance:
 
