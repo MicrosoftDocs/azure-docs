@@ -1,6 +1,6 @@
 # Overview
 ## [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
-## [How it Works](multi-factor-authentication-how-it-works.md)
+## [How it works](multi-factor-authentication-how-it-works.md)
 ## [How to get Azure MFA](multi-factor-authentication-versions-plans.md)
 
 # Get started

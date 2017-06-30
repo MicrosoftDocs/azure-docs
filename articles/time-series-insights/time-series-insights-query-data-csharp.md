@@ -47,41 +47,23 @@ namespace TimeSeriesInsightsQuerySample
 {
     class Program
     {
+        // For automated execution under application identity,
+        // use application created in Active Directory.
+        // To create the application in AAD, follow the steps provided here:
+        // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
+
+        // SET the application ID of application registered in your Azure Active Directory
+        private const string ApplicationClientId = "fe1bc0a0-3097-4b7c-9efc-ee919be80c9e";
+
+        // SET the application key of the application registered in your Azure Active Directory
+        private const string ApplicationClientSecret = "#DUMMYSECRET#";
+
         public static async Task SampleAsync()
         {
             // 1. Acquire an access token.
-            string accessToken;
-            {
-                var authenticationContext = new AuthenticationContext(
-                    "https://login.windows.net/common",
-                    TokenCache.DefaultShared);
+            string accessToken = await AcquireAccessTokenAsync();
 
-                // Show an interactive logon dialog box to acquire a token on behalf of the user.
-                // Suitable for native apps, and not on the server side of a web application.
-                AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-                    // Set the resource URI to the Azure Time Series Insights API.
-                    resource: "https://api.timeseries.azure.com/",
-                    // Set a well-known client ID for Azure PowerShell.
-                    clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
-                    // Set a redirect URI for Azure PowerShell.
-                    redirectUri: new Uri("urn:ietf:wg:oauth:2.0:oob"),
-                    parameters: new PlatformParameters(PromptBehavior.Auto));
-
-                // For automated execution under application identity,
-                // use an application created in Active Directory.
-                //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-                //    resource: "https://api.timeseries.azure.com/",
-                //    // Set the resource URI to the Azure Time Series Insights API.
-                //    clientCredential: new ClientCredential(
-                //        // Application ID of the application registered in Azure Active Directory.
-                //        clientId: "1bc3af48-7e2f-4845-880a-c7649a6470b8",
-                //        // Application key of the application registered in Azure Active Directory.
-                //        clientSecret: "aBcdEffs4XYxoAXzLB1n3R2meNCYdGpIGBc2YC5D6L2="));
-
-                accessToken = token.AccessToken;
-            }
-
-            // 2. Obtain a list of environments and get the environment FQDN for the environment of interest.
+            // 2. Obtain list of environments and get environment FQDN for the environment of interest.
             string environmentFqdn;
             {
                 Uri uri = new UriBuilder("https", "api.timeseries.azure.com")
@@ -103,12 +85,12 @@ namespace TimeSeriesInsightsQuerySample
                     JArray environmentsList = (JArray)result["environments"];
                     if (environmentsList.Count == 0)
                     {
-                        // List of user environments is empty, so fall back to the sample environment.
+                        // List of user environments is empty, fallback to sample environment.
                         environmentFqdn = "10000000-0000-0000-0000-100000000108.env.timeseries.azure.com";
                     }
                     else
                     {
-                        // Assume that the first environment is the environment of interest.
+                        // Assume the first environment is the environment of interest.
                         JObject firstEnvironment = (JObject)environmentsList[0];
                         environmentFqdn = firstEnvironment["environmentFqdn"].Value<string>();
                     }
@@ -116,7 +98,7 @@ namespace TimeSeriesInsightsQuerySample
             }
             Console.WriteLine("Using environment FQDN '{0}'", environmentFqdn);
 
-            // 3. Obtain availability data for the environment and get the availability range.
+            // 3. Obtain availability data for the environment and get availability range.
             DateTime fromAvailabilityTimestamp;
             DateTime toAvailabilityTimestamp;
             {
@@ -147,15 +129,15 @@ namespace TimeSeriesInsightsQuerySample
                 toAvailabilityTimestamp);
 
             // 4. Get aggregates for the environment:
-            //    Group by event source name and calculate the number of events in each group.
+            //    group by Event Source Name and calculate number of events in each group.
             {
-                // Assume that data for the whole availability range is requested.
+                // Assume data for the whole availablility range is requested.
                 DateTime from = fromAvailabilityTimestamp;
                 DateTime to = toAvailabilityTimestamp;
 
                 JObject inputPayload = new JObject(
-                    // Send HTTP headers as a part of the message because .NET WebSocket does not support
-                    // sending custom headers on an HTTP GET upgrade request to a WebSocket protocol request.
+                    // Send HTTP headers as a part of the message since .NET WebSocket does not support
+                    // sending custom headers on HTTP GET upgrade request to WebSocket protocol request.
                     new JProperty("headers", new JObject(
                         new JProperty("x-ms-client-application-name", "TimeSeriesInsightsQuerySample"),
                         new JProperty("Authorization", "Bearer " + accessToken))),
@@ -174,7 +156,7 @@ namespace TimeSeriesInsightsQuerySample
 
                 var webSocket = new ClientWebSocket();
 
-                // Establish the WebSocket connection.
+                // Establish web socket connection.
                 Uri uri = new UriBuilder("wss", environmentFqdn)
                 {
                     Path = "aggregates",
@@ -182,7 +164,7 @@ namespace TimeSeriesInsightsQuerySample
                 }.Uri;
                 await webSocket.ConnectAsync(uri, CancellationToken.None);
 
-                // Send the input payload.
+                // Send input payload.
                 byte[] inputPayloadBytes = Encoding.UTF8.GetBytes(inputPayload.ToString());
                 await webSocket.SendAsync(
                     new ArraySegment<byte>(inputPayloadBytes),
@@ -190,7 +172,7 @@ namespace TimeSeriesInsightsQuerySample
                     endOfMessage: true,
                     cancellationToken: CancellationToken.None);
 
-                // Read response messages from WebSocket.
+                // Read response messages from web socket.
                 JObject responseContent = null;
                 using (webSocket)
                 {
@@ -199,7 +181,7 @@ namespace TimeSeriesInsightsQuerySample
                         string message;
                         using (var ms = new MemoryStream())
                         {
-                            // Write from WebSocket to the memory stream.
+                            // Write from socket to memory stream.
                             const int bufferSize = 16 * 1024;
                             var temporaryBuffer = new byte[bufferSize];
                             while (true)
@@ -215,7 +197,7 @@ namespace TimeSeriesInsightsQuerySample
                                 }
                             }
 
-                            // Reset the position to the beginning to allow reads.
+                            // Reset position to the beginning to allow reads.
                             ms.Position = 0;
 
                             using (var sr = new StreamReader(ms))
@@ -226,17 +208,17 @@ namespace TimeSeriesInsightsQuerySample
 
                         JObject messageObj = JsonConvert.DeserializeObject<JObject>(message);
 
-                        // Stop reading if an error is emitted.
+                        // Stop reading if error is emitted.
                         if (messageObj["error"] != null)
                         {
                             break;
                         }
 
-                        // Number of items corresponds to the number of aggregates in the input payload.
+                        // Number of items corresponds to number of aggregates in input payload
                         JArray currentContents = (JArray)messageObj["content"];
 
-                        // In this sample, the list of aggregates in the input payload contains
-                        // only one item because the request contains one aggregate.
+                        // In this sample list of aggregates in input payload contains
+                        // only 1 item since request contains 1 aggregate.
                         responseContent = (JObject)currentContents[0];
 
                         // Stop reading if 100% of completeness is reached.
@@ -247,7 +229,7 @@ namespace TimeSeriesInsightsQuerySample
                         }
                     }
 
-                    // Close the WebSocket connection.
+                    // Close web socket connection.
                     if (webSocket.State == WebSocketState.Open)
                     {
                         await webSocket.CloseAsync(
@@ -272,6 +254,29 @@ namespace TimeSeriesInsightsQuerySample
                     Console.WriteLine("{0}\t\t{1}", currentDimensionValue, currentCount);
                 }
             }
+        }
+
+        private static async Task<string> AcquireAccessTokenAsync()
+        {
+            var authenticationContext = new AuthenticationContext(
+                "https://login.windows.net/common",
+                TokenCache.DefaultShared);
+
+            AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
+                resource: "https://api.timeseries.azure.com/",
+                clientCredential: new ClientCredential(
+                    clientId: ApplicationClientId,
+                    clientSecret: ApplicationClientSecret));
+
+            // Show interactive logon dialog to acquire token on behalf of the user.
+            // Suitable for native apps, and not on server-side of a web application.
+            //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
+            //    resource: "https://api.timeseries.azure.com/",
+            //    clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
+            //    redirectUri: new Uri("urn:ietf:wg:oauth:2.0:oob"),
+            //    parameters: new PlatformParameters(PromptBehavior.Auto));
+
+            return token.AccessToken;
         }
 
         static void Main(string[] args)
