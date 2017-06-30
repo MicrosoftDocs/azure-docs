@@ -13,14 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 07/04/2017
 ms.author: sngun
 
 ---
 
 # Configure PowerShell for use with Azure Stack 
 
-This article describes the steps required to connect to an Azure Stack proof-of-concept (POC) instance by using PowerShell. After you connect, you can access the portal and deploy resources through PowerShell. You can use the steps described in this article either from the Azure Stack POC computer, or from a Windows-based external client if you are connected through VPN.
+This article describes the steps required to connect to an Azure Stack Development Kit instance by using PowerShell. After you connect, you can access the portal and deploy resources through PowerShell. You can use the steps described in this article either from the development kit, or from a Windows-based external client if you are connected through VPN.
 
 This article has detailed instructions to configure PowerShell for Azure Stack. However, if you want to quickly install and configure PowerShell, you can use the script provided in the [Get up and running with PowerShell](azure-stack-powershell-configure-quickstart.md) topic. 
 
@@ -63,20 +63,20 @@ To configure your Azure Stack environment, do the following:
 
    ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
 
-2. Get the GUID value of the Active Directory tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed, use:  
+2. Get the GUID value of the Active Directory tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed by using:  
 
    * **Azure Active Directory (Azure AD)**
    
       * To access the **administrative environment**, use:
         ```PowerShell
-        $TenantID = Get-DirectoryTenantID `
+        $TenantID = Get-AzsDirectoryTenantId `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
           -EnvironmentName AzureStackAdmin
         ```
 
       * To access the **user environment**, use:
         ```PowerShell
-        $TenantID = Get-DirectoryTenantID `
+        $TenantID = Get-AzsDirectoryTenantId `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
           -EnvironmentName AzureStackUser
         ```
@@ -85,14 +85,14 @@ To configure your Azure Stack environment, do the following:
    
       * To access the **administrative environment**, use:
         ```PowerShell
-        $TenantID = Get-DirectoryTenantID `
+        $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
           -EnvironmentName AzureStackAdmin
         ```
 
       * To access the **user environment**, use:
         ```PowerShell 
-        $TenantID = Get-DirectoryTenantID `
+        $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
           -EnvironmentName AzureStackUser 
         ```
@@ -101,16 +101,7 @@ To configure your Azure Stack environment, do the following:
 
 To sign in to your Azure Stack environment, do the following:
 
-1. Store the Azure AD service administrator or user account credentials in a variable:
-
-   ```PowerShell
-   $UserName='<Azure Active Directory service administrator or user account name>'
-   $Password='<Azure Active Directory service administrator or user password>'| `
-     ConvertTo-SecureString -Force -AsPlainText
-   $Credential= New-Object PSCredential($UserName,$Password)
-   ```
-
-2. Sign in to the Azure Stack environment by using one of the following two cmdlets:
+1. Sign in to the Azure Stack environment by using one of the following two cmdlets:
 
    * To sign in to the **administrative portal**, use:
     
@@ -118,7 +109,6 @@ To sign in to your Azure Stack environment, do the following:
        Login-AzureRmAccount `
          -EnvironmentName "AzureStackAdmin" `
          -TenantId $TenantID `
-         -Credential $Credential
        ```
 
    * To sign in to the **user portal**, use:
@@ -127,35 +117,7 @@ To sign in to your Azure Stack environment, do the following:
        Login-AzureRmAccount `
          -EnvironmentName "AzureStackUser" `
          -TenantId $TenantID `
-         -Credential $Credential
        ```
-
-## Register resource providers 
-
-After you sign in to the administrator or user portal, you can issue operations against the registered resource providers. By default, all the foundational resource providers are registered in the **Default Provider Subscription (administrator subscription)**. 
-
-When you operate on a newly created user subscription, which doesn’t have any resources deployed through the portal, the resource providers aren't automatically registered. For example, when you look at the output of the following cmdlet, you can see that the registration state is *Unregistered*.
-
-```PowerShell
-  Get-AzureRmResourceProvider `
-    -ListAvailable 
-```
-
-![PowerShell in Unregistered state](media/azure-stack-powershell-configure/unregisteredrps.png)  
-
-Before you use these resource providers, you should explicitly register them in the user subscriptions. To register providers on the current subscription, use the following command:
-
-```PowerShell
-Register-AllAzureRmProviders
-```
-
-![PowerShell in Registering state](media/azure-stack-powershell-configure/registeringrps.png)  
-
-To register all the resource providers on all your subscriptions, use the following command:
-
-```PowerShell
-Register-AllAzureRmProvidersOnAllSubscriptions
-```
 
 ## Next steps
 * [Develop templates for Azure Stack](azure-stack-develop-templates.md)
