@@ -184,6 +184,8 @@
       href: hybrid-use-benefit-licensing.md
     - name: Use Windows client images
       href: client-images.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Prepare a VHD for upload
       href: prepare-for-upload-vhd-image.md
     - name: Create a Managed Disk image
@@ -369,6 +371,8 @@
       href: boot-diagnostics.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Deployment issues 
+      href: troubleshoot-deploy-vm.md
     - name: Restarting or resizing a VM
       href: restart-resize-error-troubleshooting.md
     - name: Application access
