@@ -31,3 +31,7 @@ From the Review Tool Dashboard, click on Credentials from the Settings tab.
 While building workflows in the Review Tool, you will likely need a key for a connector. From the Dashboard, click Connectors from the Settings tab, then click the Edit symbol next to the connector for which you want credentials.
 
 ![Content Moderation Credentials in the review tool](images/credentials-3-connectors.png)
+
+## Next steps ##
+
+To learn how to use API credentials to define custom workflows, see the [workflows](workflows.md) article.
