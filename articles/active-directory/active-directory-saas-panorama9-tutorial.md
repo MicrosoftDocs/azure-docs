@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Panorama9 Client support team](https://support.panorama9.com) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click **Certifi** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/tutorial_panorama9_certificate.png) 
 
