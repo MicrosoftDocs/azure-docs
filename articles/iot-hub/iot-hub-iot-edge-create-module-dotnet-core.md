@@ -68,27 +68,30 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
   </ItemGroup> 
 ```
-6. Once you save the `.csproj` file, `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the following image: 
+<ol start="6">
+<li>Once you save the `.csproj` file, `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the following image: </li>
 
-	![Visual Studio Code restore dependencies dialog](media/iot-hub-iot-edge-create-module/vscode-restore.png)
+![Visual Studio Code restore dependencies dialog](media/iot-hub-iot-edge-create-module/vscode-restore.png)
 
-	a) Click `Restore` to restore all of the references in the projects `.csproj` file including the `PackageReferences` we have added. 
+a) Click `Restore` to restore all of the references in the projects `.csproj` file including the `PackageReferences` we have added. 
 
-	b) You see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
+b) You see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
  
-    >[!NOTE]
-	`.NET Core Tools` are now MSBuild-based. Which means a `.csproj` project file is created instead of a `project.json`.
+>[!NOTE]
+`.NET Core Tools` are now MSBuild-based. Which means a `.csproj` project file is created instead of a `project.json`.
 
-	- If `Visual Studio Code` does not prompt you that is ok, we can do it manually. Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal`.
-	- In the `Integrated Terminal` window type **dotnet restore**.
+- If `Visual Studio Code` does not prompt you that is ok, we can do it manually. Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal`.
+- In the `Integrated Terminal` window type **dotnet restore**.
 	
-7. Rename the `Class1.cs` file to `BleConverterModule.cs`. 
-    a) To rename the file first click on the file then press the `F2` key.
-    b) Type in the new name **BleConverterModule**, as seen in the following image:
+<li>Rename the `Class1.cs` file to `BleConverterModule.cs`. </li>
 
-    ![Visual Studio Code renaming a class](media/iot-hub-iot-edge-create-module/vscode-rename.png)
+a) To rename the file first click on the file then press the `F2` key.
 
-8. Replace the existing code in the `BleConverterModule.cs` file by copying and pasting the following code snippet into your `BleConverterModule.cs` file.
+b) Type in the new name **BleConverterModule**, as seen in the following image:
+
+![Visual Studio Code renaming a class](media/iot-hub-iot-edge-create-module/vscode-rename.png)
+
+<li>Replace the existing code in the `BleConverterModule.cs` file by copying and pasting the following code snippet into your `BleConverterModule.cs` file.</li>
 
 ```csharp
 using System;
@@ -145,13 +148,13 @@ namespace IoTEdgeConverterModule
 }
 ```
 
-9. Save the file by pressing `Ctrl` + `S`.
+<li>Save the file by pressing `Ctrl` + `S`.</li>
 
-10. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys as seen in the following image:
+<li>Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys as seen in the following image:</li>
 
-    ![Visual Studio Code new file](media/iot-hub-iot-edge-create-module/vscode-new-file.png)
+![Visual Studio Code new file](media/iot-hub-iot-edge-create-module/vscode-new-file.png)
 
-11. To deserialize the `JSON` object that we receive from the simulated `BLE` device, copy the following code into the `Untitled-1` file code editor window. 
+<li>To deserialize the `JSON` object that we receive from the simulated `BLE` device, copy the following code into the `Untitled-1` file code editor window.</li>
 
 ```csharp
 using System;
@@ -167,14 +170,14 @@ namespace IoTEdgeConverterModule
 }
 ```
 
-12. Save the file as `BleData.cs` by pressing `Ctrl` + `Shift` + `S` keys.
-    - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in the following image:
+<li>Save the file as `BleData.cs` by pressing `Ctrl` + `Shift` + `S` keys.
+    - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in the following image:</li>
 
-    ![Visual Studio Code save as dialog](media/iot-hub-iot-edge-create-module/vscode-save-as.png)
+![Visual Studio Code save as dialog](media/iot-hub-iot-edge-create-module/vscode-save-as.png)
 
-13. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.
+<li>Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.</li>
 
-14. Copy and paste the following code snippet into the `Untitled-1` file. This class is a `Azure IoT Edge` module, which we use to output the data received from our `BleConverterModule`.
+<li>Copy and paste the following code snippet into the `Untitled-1` file. This class is a `Azure IoT Edge` module, which we use to output the data received from our `BleConverterModule`.</li>
 
 ```csharp
 using System;
@@ -227,12 +230,12 @@ namespace PrinterModule
 }
 ```
 
-15. Save the file as `DotNetPrinterModule.cs` by pressing `Ctrl` + `Shift` + `S`.
-    - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
+<li>Save the file as `DotNetPrinterModule.cs` by pressing `Ctrl` + `Shift` + `S`.</li>
+- On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
 
-16. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.
+<li>Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.</li>
 
-17. To deserialize the `JSON` object that we receive from the `BleConverterModule`, Copy and paste the following code snippet into the `Untitled-1` file. 
+<li>To deserialize the `JSON` object that we receive from the `BleConverterModule`, Copy and paste the following code snippet into the `Untitled-1` file.</li>
 
 ```csharp
 using System;
@@ -254,12 +257,12 @@ namespace PrinterModule
 }
 ```
 
-18. Save the file as `BleConverterData.cs` by pressing `Ctrl` + `Shift` + `S`.
-    - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
+<li>Save the file as `BleConverterData.cs` by pressing `Ctrl` + `Shift` + `S`.</li>
+- On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
 
-19. Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.
+<li>Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.</li>
 
-20. Copy and paste the following code snippet into the `Untitled-1` file.
+<li>Copy and paste the following code snippet into the `Untitled-1` file.</li>
 
 ```json
 {
@@ -322,10 +325,10 @@ namespace PrinterModule
 }
 ```
 
-21. Save the file as `gw-config.json` by pressing `Ctrl` + `Shift` + `S`.
-    - On the save as dialog box, in the `Save as Type` dropdown menu, select `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.
+<li>Save the file as `gw-config.json` by pressing `Ctrl` + `Shift` + `S`.</li>
+- On the save as dialog box, in the `Save as Type` dropdown menu, select `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.
 
-22. To enable copying of the configuration file to the output directory, update the `IoTEdgeConverterModule.csproj` with the following XML blob:
+<li>To enable copying of the configuration file to the output directory, update the `IoTEdgeConverterModule.csproj` with the following XML blob:</li>
 
 ```xml
   <ItemGroup>
