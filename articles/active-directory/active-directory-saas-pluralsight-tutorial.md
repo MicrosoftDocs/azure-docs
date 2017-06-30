@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/02/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.pluralsight.com/sso/<companyname>`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instance name>.pluralsight.com/sso/<company name>`
 
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Pluralsight Client support team](mailto:support@pluralsight.com) to get this value. 
@@ -119,38 +119,38 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_certificate.png) 
 
-5. The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure SSO in your Pluralsight application.
+5. The objective of this section is to enable Azure AD single sign-on in the Azure portal and to configure SSO in the Pluralsight application.
 
-    Your Pluralsight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this.
+    The Pluralsight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this.
 
     ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_attribute.png)
 
-   >[!NOTE]
-   >You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user.
+    >[!NOTE]
+    >You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user.
 
 6. To remove the redundant **SAML token attributes**, perform the following steps: 
    
     ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_removeattribute.png) 
   
-   For each user attribute in the red box of the table above, hover over the attribute, and then click delete. 
+    For each user attribute in the red box of the table above, click on the **three dots** over the attribute, and then click **Delete**. 
 
 7. To add the required **SAML token attributes**, for each row shown in the table below, perform the following steps:
    
    | Attribute Name | Attribute Value |
-   | --- | --- |
+   | ---| --- |
    | First Name |user.givenname |
    | Last Name |user.surname |
    | Email |user.mail |
    
-   a. Click **add user attribute** to open the **Add User Attribure** dialog.
-   
+    a. Click **add user attribute** to open the **Add User Attribure** dialog.
+    
     ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addattribute.png)
   
-   b. In the **Attrubute Name** textbox, type the attribute name shown for that row.
+    b. In the **Attribute Name** textbox, type the attribute name shown for that row.
   
-   c. From the **Attribute Value** list, select the attribute value shown for that row.
+    c. From the **Attribute Value** list, select the attribute value shown for that row.
   
-   d. Click **Ok**.    
+    d. Click **Ok**.    
 
 8. Click **Save** button.
 
@@ -195,11 +195,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Pluralsight test user
 
-The objective of this section is to create a user called Britta Simon in Pluralsight. Please work with Pluralsight support team to add the users in the Pluralsight account. 
-
->[!NOTE]
->If you need to create an user manually, you need to contact the [Pluralsight Client support team](mailto:support@pluralsight.com). 
-> 
+The objective of this section is to create a user called Britta Simon in Pluralsight. Please work with [Pluralsight Client support team](mailto:support@pluralsight.com) to add the users in the Pluralsight account. 
 
 ### Assigning the Azure AD test user
 
@@ -233,10 +229,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Pluralsight tile in the Access Panel, you should get login page of Pluralsight application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the Pluralsight tile in the Access Panel, you should get automatically signed-on to your Pluralsight application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
