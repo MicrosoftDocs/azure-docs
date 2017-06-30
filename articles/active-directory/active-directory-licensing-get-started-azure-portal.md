@@ -1,13 +1,13 @@
 ---
 
   title: Get started with licensing in Azure Active Directory | Microsoft Docs
-  description: 'Azure Active Directory licensing: How it works, how to get started, and best practices'
+  description: How Azure Active Directory licensing works, how to get started with best practices
   services: active-directory
   keywords: Azure AD licensing
   documentationcenter: ''
   author: curtand
   manager: femila
-  editor: 'piotrci'
+  editor: ''
 
   ms.assetid:
   ms.service: active-directory
@@ -15,18 +15,19 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 06/01/2017
+  ms.date: 06/29/2017
   ms.author: curtand
+  ms.reviewer: piotrci
 
-  ms.custom: H1Hack27Feb2017; piotrci
+  ms.custom: H1Hack27Feb2017;it-pro
 
 ---
 
 # License yourself and your users in Azure Active Directory
 
 > [!div class="op_single_selector"]
-> * [The Azure portal](active-directory-licensing-get-started-azure-portal.md)
-> * [The Azure classic portal](active-directory-licensing-what-is.md)
+> * [Azure portal instructions](active-directory-licensing-get-started-azure-portal.md)
+> * [Get Azure classic portal info](active-directory-licensing-what-is.md)
 >
 >
 
@@ -40,7 +41,7 @@ Azure Active Directory (Azure AD) is an identity as a service (IDaaS) solution a
   - Azure AD Basic
   - Azure Multi-Factor Authentication
 
-Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented by one or more subscriptions, and each subscription includes a prepurchase number of licenses in your tenant. Per-user entitlements are achieved by:
+Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented by one or more subscriptions, and each subscription includes some prepurchased licenses in your tenant. Per-user entitlements are achieved by:
 
 * Assigning a license. 
 * Creating a link between the user and the product.
@@ -78,15 +79,14 @@ Although obtaining a subscription is all you need to configure paid capabilities
 Managing which users in your directory should have a license can be accomplished by: 
 
 * Assigning licenses to groups in the [Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-whatis-azure-portal).
-* Assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. 
-
+* Assigning licenses directly to users by way of the portal, PowerShell, or APIs. 
 
 When you're assigning licenses to a group, all group members are assigned a license. If users are added or removed from the group, the appropriate license is assigned or removed. Group assignment can utilize any group management available to you, and it is consistent with group-based assignment to applications.
 
 You can use [group-based license assignment](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-whatis-azure-portal) to set up rules such as the following:
-* All users in your directory automatically get a license.
-* Everyone with the appropriate job title gets a license.
-* You can delegate the decision to other managers in the organization (by using [self-service groups](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-accessmanagement-self-service-group-management)).
+* All users in your directory automatically get a license
+* Everyone with the appropriate job title gets a license
+* You can delegate the decision to other managers in the organization (by using [self-service groups](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-accessmanagement-self-service-group-management))
 
 For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [Assign licenses to users by group membership in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
@@ -139,7 +139,13 @@ Assignment errors can occur during Azure AD license assignment but are relativel
 - Assignment conflict: When a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license requires removing the current one.
 - Exceeded available licenses: When the number of users in assigned groups exceeds the available licenses, a user's assignment status reflects a failure to assign due to missing licenses.
 
-Detailed information about group license assignment is available in this article.
+#### Azure AD B2B collaboration licensing
+
+B2B collaboration allows you to invite guest users into your Azure AD tenant to provide access to Azure AD services and any Azure resources you make available.  
+
+There is no charge for inviting B2B users and assigning them to an application in Azure AD. Up to 10 apps per guest user and 3 basic reports are also free for B2B collaboration users. If your guest user has any appropriate licenses assigned in the partner's Azure AD tenant, they'll be licensed in yours as well.
+
+It's not required, but if you want to provide access to paid Azure AD features, those B2B guest users must be licensed with appropriate Azure AD licenses. An inviting tenant with an Azure AD paid license can assign B2B collaboration user rights to an additional five guest users invited to the tenant. For scenarios and information, see [B2B collaboration licensing guidance](active-directory-b2b-licensing.md).
 
 ### View assigned licenses
 
@@ -172,7 +178,7 @@ Trial extensions for customers are available as self-service sign-up through the
 To learn more about advanced scenarios for license management through
 groups, read the article [Assigning licenses to a group](active-directory-licensing-group-assignment-azure-portal.md).
 
-Now you might be ready to configure and use some Azure AD Premium features:
+Here's information about how to configure and use other Azure AD paid features:
 
 * [Self-service password reset](active-directory-manage-passwords.md)
 * [Self-service group management](active-directory-accessmanagement-self-service-group-management.md)
