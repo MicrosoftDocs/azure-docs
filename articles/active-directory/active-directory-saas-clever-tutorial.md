@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -147,15 +147,35 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_general_400.png)
 
-8. In a different web browser window, log in to your Clever company site as an administrator.
+8. To generate the **Metadata** url, perform the following steps:
 
-9. In the toolbar, click **Instant Login**.
+    a. Click **App registrations**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
    
-   ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798984.png "Instant Login")
+    b. Click **Endpoints** to open **Endpoints** dialog box.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
 
-10. On the **Instant Login** page, perform the following steps:
+    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpoint.png)
+     
+    d. Now go to the property page of **Clever** and copy the **Application Id** using **Copy** button and paste it into notepad.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_appid.png)
+
+    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`	
+
+9. In a different web browser window, log in to your Clever company site as an administrator.
+
+10. In the toolbar, click **Instant Login**.
+
+	![Instant Login](./media/active-directory-saas-clever-tutorial/ic798984.png "Instant Login")
+
+11. On the **Instant Login** page, perform the following steps:
       
-	  ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798985.png "Instant Login")
+	  ![Instant Login](./media/active-directory-saas-clever-tutorial/ic798985.png "Instant Login")
 	  
 	  a. Type the **Login URL**.
 	  
