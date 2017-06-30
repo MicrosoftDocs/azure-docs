@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 06/29/2017
 ms.author: kaanan
 
 ---
@@ -113,7 +113,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telus](http://www.telus.com)** |Supported |Supported |Toronto |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Not Supported |London |
-| **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Chicago, Dallas+, London+, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
+| **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Amsterdam, Chicago, Dallas+, London+, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
 
  **+** denotes coming soon
 
@@ -236,6 +236,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Bright Skies GmbH](http://bskies.io/expressroute)** | Europe
 | **[Ensyst](http://www.ensyst.com.au)** | Asia
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | North America |
+| **[FlexManage](http://www.flexmanage.com/cloud)** | North America |
 | **[Inframon](http://www.inframon.com/partner/microsoft/)** | Europe |
 | **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Australia |
 | **[MOQdigital](http://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Australia |
@@ -246,7 +247,6 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europe |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
 | **[Presidio](http://info.presidio.com/microsoft-azure-expressroute)** | North America |
-| **[Project Leadership](http://www.projectleadership.net/azure)** | North America |
 | **[sol-tec](http://www.sol-tec.com/Technologies)** | Europe |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
 
