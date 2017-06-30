@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/28/2017
 ms.author: sdanie
 
 ---
@@ -64,6 +64,9 @@ The premium tier allows you to reboot one or more nodes of your cache on-demand.
 * When using a premium cache with clustering, you can reboot the master, slave, or both nodes for individual shards in the cache
 
 For more information, see [Reboot](cache-administration.md#reboot) and [Reboot FAQ](cache-administration.md#reboot-faq).
+
+>[!NOTE]
+>Reboot functionality is now enabled for all Azure Redis Cache tiers.
 
 ## Schedule updates
 The scheduled updates feature allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. To designate a maintenance window, select the desired days and specify the maintenance window start hour for each day. Note that the maintenance window time is in UTC. 
