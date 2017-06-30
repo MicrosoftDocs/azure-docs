@@ -380,5 +380,6 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
     
     - If you want to terminate the application, press the `<Enter>` key.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (that is, **gw.exe**). As this action may cause the process to terminate abnormally.
+
