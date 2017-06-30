@@ -167,7 +167,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
     ![Device Manager](./media/virtual-network-create-vm-accelerated-networking/image2.png)
 
 ## Create a Linux VM
-You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create the VM.
+You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS VMs there is a different workflow.  Please see the instructions below.
 
 ### <a name="linux-portal"></a>Portal
 1. Register for the accelerated networking for Linux preview by completing steps 1-5 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
@@ -283,23 +283,104 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 5. Azure opens a box telling you to enter the `ssh adminuser@<ipaddress>`. Enter this command in the cloud shell (or copy it from the box that appeared in step 4 and paste it in to the cloud shell, then press Enter.
 6. Enter **yes** to the question asking you if you want to continue connecting, then press Enter.
 7. Enter the password you entered when creating the VM. Once successfully logged in to the VM, you see an adminuser@MyVm:~$ prompt. You are now logged in to the VM through the cloud shell session. **Note:** Cloud shell sessions time out after 10 minutes of inactivity.
-8. At the prompt, enter `uname -r` and confirm the output matches the following version: “4.4.0-77-generic.”
-9.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
+
+At this point, the instructions vary based on the distribution you are using. 
+
+#### Ubuntu/SLES
+
+1. At the prompt, enter uname -r and confirm the version: 
+    * Ubuntu is “4.4.0-77-generic,” or greater
+    * SLES is “4.4.59-92.20-default” or greater
+2.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
 
     ```bash
-    wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh
+    Wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
  
-    chmod +x ./bondvf.sh
+    chmod +x ./configure_hv_sriov.sh
 
-    sudo ./bondvf.sh
-
-    sudo mv ~/bondvf.sh /etc/init.d
-
-    sudo update-rc.d bondvf.sh defaults
+    sudo ./configure_hv_sriov.sh
     ```
 
-    If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
+3. After running the script, the VM will restart after a 60 second pause.
+4. Once the VM is restarted, reconnect to it by completing steps 5-7 of the [Configure Linux](#configure-linux) section again.
+5. Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. 
 
-10. Restart the VM by entering the `sudo shutdown -r now` command.
-11. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
-12.	Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. **Note:** Application using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
+**Note:** Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
+
+#### RHEL/CentOS
+
+##### Phase one: prepare a base image
+
+1. Provision a non-Accelerated Networking RHEL/CentOS 7.3 VM on Azure
+2. After the base VM starts up, disable the Network Manager with:
+
+    ```bash
+    sudo service NetworkManager stop
+    
+    sudo chkconfig NetworkManager off
+    ```
+
+3. Install LIS 4.2.1:
+
+    ```bash
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+    
+    tar -xvf lis-rpms-4.2.1.tar.gz
+    
+    cd LISISO && sudo ./install.sh
+
+    sudo reboot
+    ```
+    
+    After the VM starts, verify the LIS version by “modinfo hv_vmbus”. The version should be “4.2.1”.
+    
+4. From the Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account.
+
+##### Phase two: Provision SRIOV CentOS 7.3 VMs on Azure
+
+1. Provision new VMs based on the base image VHD captured in phase one with AcceleratedNetworking enabled on the vNIC.  Currently the only way to do this provisioning is by using PowerShell. Step-by-step instructions are here, Create VM from a special VHD in Azure with the only difference being when you create the NIC.  You will need to add the following parameter: 
+    
+    ```powershell
+    $vm= Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.ID -Enable Accelerated Networking
+    ```
+    
+2. After the VMs boot up, check the VF device by “lspci” and check the Mellanox entry. For example, you see the following line in the lspci output:
+
+    ```
+    0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+    ```
+    
+3. Run the bonding script:
+    
+    ```bash
+    sudo bondvf.sh
+    ```
+    
+4. Re-Enable Network Manager on the new VMs:
+    
+    ```bash
+    sudo service NetworkManager start
+    
+    sudo chkconfig NetworkManager on
+    ```
+
+    After this, you see Network Manager is running. You can check this with the following command:
+
+    ```bash
+    ps -aux | grep NetworkManager
+    ```
+
+5. Reboot the new VMs:
+
+    ```bash
+    sudo reboot
+    ```
+
+6. After the new VMs come up, check the data path switch to VF:
+
+    ```bash
+    dmesg | grep switched
+    ```
+    You will see a line in the log similar to the below indicating that the Data path has been switched to the VF: 
+[    6.465594] hv_netvsc 000d3af7-4374-000d-3af7-4374000d3af7 eth0: Data path switched to VF: eth1
+
