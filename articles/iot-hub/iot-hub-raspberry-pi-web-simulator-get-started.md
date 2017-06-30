@@ -37,7 +37,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 
 ## What you learn
 
-* How to create an Azure IoT hub and get your new device connection string.
+* How to create an Azure IoT hub and get your new device connection string. If you don't have an Azure account, [create a free Azure trial account](https://azure.microsoft.com/free/) in just a few minutes.
 * How to work with Raspberry Pi online simulator.
 * How to send sensor data to your IoT hub.
 
