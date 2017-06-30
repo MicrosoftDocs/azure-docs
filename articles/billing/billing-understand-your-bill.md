@@ -19,93 +19,81 @@ ms.author: toguyen
 
 ---
 # Understand your bill for Microsoft Azure
-To understand your Azure bill, we have provided three options for you to
-verify your charges and usage:
+To understand your Azure bill, compare your invoice with the detailed daily usage file, and the cost management reports in the Azure portal.
 
-1.  **An invoice with the summary of usage and charges in PDF format**
+For invoice PDF and detailed daily usage file CSV download, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
 
-     For invoice download, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). For detailed terms and descriptions, see [Breakdown of your Microsoft Azure invoice](billing-breakdown-your-invoice.md) here.
+For detailed terms and descriptions of your invoice and detailed daily usage file, see [Breakdown of your Microsoft Azure invoice](billing-breakdown-your-invoice.md) here and [Breakdown of your Microsoft Azure detailed usage](billing-breakdown-your-usage.md) here.
 
-2.  **A separate detailed daily usage file in CSV format**
+For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
-    For CSV download, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). For detailed terms and descriptions, see [Breakdown of your Microsoft Azure detailed usage](billing-breakdown-your-usage.md) here.
-
-3.  **Online through the Azure portal**
-
-    For details, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
-
-## <a name="reconcile"></a>How do I ensure that the charges in my invoice are correct?
+## <a name="reconcile"></a>How do I make sure that the charges in my invoice are correct?
 If there is a charge on your invoice that you would like more details
 on, there are a couple of options:
 
--   **Review your invoice and compare the usage and costs with the
-    detailed usage CSV file**
+### Review your invoice and compare the usage and costs with the detailed usage CSV file
 
-    The detailed usage CSV file provides your charges by billing
-    period and daily usage. To get your detailed usage CSV file, see
-    [How to get your Azure billing invoice and daily usage
-    data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+The detailed usage CSV file provides your charges by billing
+period and daily usage. To get your detailed usage CSV file, see
+[How to get your Azure billing invoice and daily usage
+data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
-    Your usage charges are displayed at the meter level. Your invoice is
-    related to the detailed usage CSV file by the following table:
+Your usage charges are displayed at the meter level. The following table is a list of terms that mean the same thing between the invoice and the detailed usage file. For example, the billing cycle on the invoice is equivalent to the billing period shown on the detailed usage file.
 
-      | Invoice headers (PDF) | Detailed usage headers (CSV)|
-      | --- | --- |
-      |Billing cycle | Billing Period |
-      |Name |Meter Category |
-      |Type |Meter Sub-category |
-      |Resource |Meter Name |
-      |Region |Meter Region |
-      |Consumed |Consumed Quantity |
-      |Included |Included Quantity |
-      |Billable |Overage Quantity |
-      |Rate |Rate |
-      |Value |Value |
+ | Invoice (PDF) | Detailed usage (CSV)|
+ | --- | --- |
+ |Billing cycle | Billing Period |
+ |Name |Meter Category |
+ |Type |Meter Sub-category |
+ |Resource |Meter Name |
+ |Region |Meter Region |
+ |Consumed |Consumed Quantity |
+ |Included |Included Quantity |
+ |Billable |Overage Quantity |
 
-   The usage charges section of your invoice should have the total value
-   for each meter that is consumed during your billing period, as highlighted in the screenshot below:
+The usage charges section of your invoice has the total value
+for each meter that was consumed during your billing period. For example, the screenshot below shows a usage charge for the Azure Scheduler service.
 
-  <kbd>![Invoice usage charges](./media/billing-understand-your-bill/1.png)</kbd>
+![Invoice usage charges](./media/billing-understand-your-bill/1.png)
 
-   The same charge is shown in the statement section of your detailed
-   usage CSV.
+The same charge is shown in the statement section of your detailed
+usage CSV.
 
-   <kbd>![CSV usage charges](./media/billing-understand-your-bill/2.png)</kbd>
+![CSV usage charges](./media/billing-understand-your-bill/2.png)
 
-   Additionally, there is a daily usage section in the detailed usage CSV
-   file. The section has line items for each day that the meter was
-   consumed. These line items should add up to the consumed quantity for
-   the meter during the billing period.
+Additionally, there is a daily usage section in the detailed usage CSV
+file. The section has line items for each day that the meter was
+consumed. These line items should add up to the consumed quantity for
+the meter during the billing period.
 
-   For detailed sections, terms and descriptions of the invoice. See
-   [here](billing-breakdown-your-invoice.md).
+For detailed sections, terms and descriptions of the invoice. See
+[here](billing-breakdown-your-invoice.md).
 
-   For detailed sections, terms and descriptions of the detailed daily
-   usage file, see [here](billing-breakdown-your-usage.md).
+For detailed sections, terms and descriptions of the detailed daily
+usage file, see [here](billing-breakdown-your-usage.md).
 
-  -   **Review your invoice and compare with the usage and costs in the
-      Azure portal**
+### Review your invoice and compare with the usage and costs in the Azure portal
 
-      The Azure portal can also help you verify your charges. The Azure
-      portal provides cost management charts for quick overviews of your
-      usage and charges on your invoice.
+The Azure portal can also help you verify your charges. The Azure
+portal provides cost management charts for quick overviews of your
+usage and charges on your invoice.
 
-      Some examples of cost management tools available in the Azure
-      portal:
-      
-      ![Cost by resource in the Azure portal](./media/billing-understand-your-bill/3.png)
-      
-      This chart provides current costs by resource.
+Some examples of cost management tools available in the Azure
+portal:
 
-      ![Spending rate and forecast in the Azure portal](./media/billing-understand-your-bill/4.png)
+![Cost by resource in the Azure portal](./media/billing-understand-your-bill/3.png)
 
-      This chart shows the current costs on this subscription and forecasts cost for the rest of the billing period.
+This chart provides current costs by resource.
 
-      ![Cost analysis view in Azure portal](./media/billing-understand-your-bill/5.png)
+![Spending rate and forecast in the Azure portal](./media/billing-understand-your-bill/4.png)
 
-      The cost analysis provides resource and meter level usage for various billing periods.
+This chart shows the current costs on this subscription and forecasts cost for the rest of the billing period.
 
-      To learn more, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs).
+![Cost analysis view in Azure portal](./media/billing-understand-your-bill/5.png)
+
+The cost analysis provides resource and meter level usage for various billing periods.
+
+To learn more, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs).
 
 ## <a name="external"></a>What about external service charges?
 External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
