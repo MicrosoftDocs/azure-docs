@@ -156,19 +156,19 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 
 11. To deserialize the `JSON` object that we receive from the simulated `BLE` device, copy the following code into the `Untitled-1` file code editor window. 
 
-```csharp
-using System;
-using Newtonsoft.Json;
+   ```csharp
+    System;
+   using Newtonsoft.Json;
 
-namespace IoTEdgeConverterModule
-{
-    public class BleData
-    {
-        [JsonProperty(PropertyName = "temperature")]
-        public string Temperature { get; set; }
-    }
-}
-```
+   namespace IoTEdgeConverterModule
+   {
+       public class BleData
+       {
+           [JsonProperty(PropertyName = "temperature")]
+           public string Temperature { get; set; }
+       }
+   }
+   ```
 
 12. Save the file as `BleData.cs` by pressing `Ctrl` + `Shift` + `S` keys.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in the following image:
@@ -179,56 +179,56 @@ namespace IoTEdgeConverterModule
 
 14. Copy and paste the following code snippet into the `Untitled-1` file. This class is a `Azure IoT Edge` module, which we use to output the data received from our `BleConverterModule`.
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Azure.Devices.Gateway;
-using Newtonsoft.Json;
-
-namespace PrinterModule
-{
-    public class DotNetPrinterModule : IGatewayModule
-    {
-        private string configuration;
-        public void Create(Broker broker, byte[] configuration)
-        {
-            this.configuration = System.Text.Encoding.UTF8.GetString(configuration);
-        }
-
-        public void Destroy()
-        {
-        }
-
-        public void Receive(Message received_message)
-        {
-            string recMsg = System.Text.Encoding.UTF8.GetString(received_message.Content, 0, received_message.Content.Length);
-            Dictionary<string, string> receivedProperties = received_message.Properties;
-            
-            BleConverterData receivedData = JsonConvert.DeserializeObject<BleConverterData>(recMsg);
-
-            Console.WriteLine();
-            Console.WriteLine("Module           : [DotNetPrinterModule]");
-            Console.WriteLine("received_message : {0}", recMsg);
-
-            if(received_message.Properties["source"] == "bleTelemetry")
-            {
-                Console.WriteLine("Source           : {0}", receivedProperties["source"]);
-                Console.WriteLine("MAC address      : {0}", receivedProperties["macAddress"]);
-                Console.WriteLine("Temperature Alert: {0}", receivedProperties["temperatureAlert"]);
-                Console.WriteLine("Deserialized Obj : [BleConverterData]");
-                Console.WriteLine("  DeviceId       : {0}", receivedData.DeviceId);
-                Console.WriteLine("  MessageId      : {0}", receivedData.MessageId);
-                Console.WriteLine("  Temperature    : {0}", receivedData.Temperature);
-            }
-
-            Console.WriteLine();
-        }
-    }
-}
-```
+   ```csharp
+   using System;
+   using System.Collections.Generic;
+   using System.Linq;
+   using System.Text;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Devices.Gateway;
+   using Newtonsoft.Json;
+   
+   namespace PrinterModule
+   {
+       public class DotNetPrinterModule : IGatewayModule
+       {
+           private string configuration;
+           public void Create(Broker broker, byte[] configuration)
+           {
+               this.configuration = System.Text.Encoding.UTF8.GetString(configuration);
+           }
+   
+           public void Destroy()
+           {
+           }
+   
+           public void Receive(Message received_message)
+           {
+               string recMsg = System.Text.Encoding.UTF8.GetString(received_message.Content, 0, received_message.Content.Length);
+               Dictionary<string, string> receivedProperties = received_message.Properties;
+               
+               BleConverterData receivedData = JsonConvert.DeserializeObject<BleConverterData>(recMsg);
+   
+               Console.WriteLine();
+               Console.WriteLine("Module           : [DotNetPrinterModule]");
+               Console.WriteLine("received_message : {0}", recMsg);
+   
+               if(received_message.Properties["source"] == "bleTelemetry")
+               {
+                   Console.WriteLine("Source           : {0}", receivedProperties["source"]);
+                   Console.WriteLine("MAC address      : {0}", receivedProperties["macAddress"]);
+                   Console.WriteLine("Temperature Alert: {0}", receivedProperties["temperatureAlert"]);
+                   Console.WriteLine("Deserialized Obj : [BleConverterData]");
+                   Console.WriteLine("  DeviceId       : {0}", receivedData.DeviceId);
+                   Console.WriteLine("  MessageId      : {0}", receivedData.MessageId);
+                   Console.WriteLine("  Temperature    : {0}", receivedData.Temperature);
+               }
+   
+               Console.WriteLine();
+           }
+       }
+   }
+   ```
 
 15. Save the file as `DotNetPrinterModule.cs` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
@@ -237,25 +237,25 @@ namespace PrinterModule
 
 17. To deserialize the `JSON` object that we receive from the `BleConverterModule`, Copy and paste the following code snippet into the `Untitled-1` file. 
 
-```csharp
-using System;
-using Newtonsoft.Json;
+   ```csharp
+   using System;
+   using Newtonsoft.Json;
 
-namespace PrinterModule
-{
-    public class BleConverterData
-    {
-        [JsonProperty(PropertyName = "deviceId")]
-        public string DeviceId { get; set; }
-
-        [JsonProperty(PropertyName = "messageId")]
-        public string MessageId { get; set; }
-
-        [JsonProperty(PropertyName = "temperature")]
-        public string Temperature { get; set; }
-    }
-}
-```
+   namespace PrinterModule
+   {
+       public class BleConverterData
+       {
+           [JsonProperty(PropertyName = "deviceId")]
+           public string DeviceId { get; set; }
+   
+           [JsonProperty(PropertyName = "messageId")]
+           public string MessageId { get; set; }
+   
+           [JsonProperty(PropertyName = "temperature")]
+           public string Temperature { get; set; }
+       }
+   }
+   ```
 
 18. Save the file as `BleConverterData.cs` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.
@@ -264,77 +264,77 @@ namespace PrinterModule
 
 20. Copy and paste the following code snippet into the `Untitled-1` file.
 
-```json
-{
-    "loaders": [
-        {
-            "type": "dotnetcore",
-            "name": "dotnetcore",
-            "configuration": {
-                "binding.path": "dotnetcore.dll",
-                "binding.coreclrpath": "C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App\\1.1.1\\coreclr.dll",
-                "binding.trustedplatformassemblieslocation": "C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App\\1.1.1\\"
-            }
-        }
-    ],
-    "modules": [
-        {
-            "name": "simulated_device",
-            "loader": {
-                "name": "native",
-                "entrypoint": {
-                    "module.path": "simulated_device.dll"
-                }
-            },
-            "args": {
-                "macAddress": "01:02:03:03:02:01",
-                "messagePeriod": 500
-            }
-        },
-        {
-            "name": "ble_converter_module",
-            "loader": {
-                "name": "dotnetcore",
-                "entrypoint": {
-                    "assembly.name": "IoTEdgeConverterModule",
-                    "entry.type": "IoTEdgeConverterModule.BleConverterModule"
-                }
-            },
-            "args": ""
-        },
-        {
-            "name": "printer_module",
-            "loader": {
-                "name": "dotnetcore",
-                "entrypoint": {
-                    "assembly.name": "IoTEdgeConverterModule",
-                    "entry.type": "PrinterModule.DotNetPrinterModule"
-                }
-            },
-            "args": ""
-        }
-    ],
-    "links": [
-        {
-            "source": "simulated_device", "sink": "ble_converter_module"
-        },
-        {
-            "source": "ble_converter_module", "sink": "printer_module"
-        }
-    ]
-}
-```
+   ```json
+   {
+       "loaders": [
+           {
+               "type": "dotnetcore",
+               "name": "dotnetcore",
+               "configuration": {
+                   "binding.path": "dotnetcore.dll",
+                   "binding.coreclrpath": "C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App\\1.1.1\\coreclr.dll",
+                   "binding.trustedplatformassemblieslocation": "C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App\\1.1.1\\"
+               }
+           }
+       ],
+          "modules": [
+           {
+               "name": "simulated_device",
+               "loader": {
+                   "name": "native",
+                   "entrypoint": {
+                       "module.path": "simulated_device.dll"
+                   }
+               },
+               "args": {
+                   "macAddress": "01:02:03:03:02:01",
+                   "messagePeriod": 500
+               }
+           },
+           {
+               "name": "ble_converter_module",
+               "loader": {
+                   "name": "dotnetcore",
+                   "entrypoint": {
+                       "assembly.name": "IoTEdgeConverterModule",
+                       "entry.type": "IoTEdgeConverterModule.BleConverterModule"
+                   }
+               },
+               "args": ""
+           },
+           {
+               "name": "printer_module",
+               "loader": {
+                   "name": "dotnetcore",
+                   "entrypoint": {
+                       "assembly.name": "IoTEdgeConverterModule",
+                       "entry.type": "PrinterModule.DotNetPrinterModule"
+                   }
+               },
+               "args": ""
+           }
+       ],
+       "links": [
+           {
+               "source": "simulated_device", "sink": "ble_converter_module"
+           },
+           {
+               "source": "ble_converter_module", "sink": "printer_module"
+           }
+   ]
+   }
+   ```
 
 21. Save the file as `gw-config.json` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.
 
 22. To enable copying of the configuration file to the output directory, update the `IoTEdgeConverterModule.csproj` with the following XML blob:
 
-```xml
-  <ItemGroup>
-    <None Update="gw-config.json" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-```
+   ```xml
+     <ItemGroup>
+       <None Update="gw-config.json" CopyToOutputDirectory="PreserveNewest" />
+     </ItemGroup>
+   ```
     
 - The updated `IoTEdgeConverterModule.csproj` should look like the following image:
 
@@ -344,15 +344,15 @@ namespace PrinterModule
 
 24. Copy and paste the following code snippet into the `Untitled-1` file.
 
-```powershell
-Copy-Item -Path $env:userprofile\.nuget\packages\microsoft.azure.devices.gateway.native.windows.x64\1.1.3\runtimes\win-x64\native\* -Destination .\bin\Debug\netstandard1.3
-Copy-Item -Path $env:userprofile\.nuget\packages\system.runtime.serialization.formatters\4.3.0\lib\netstandard1.4\* -Destination .\bin\Debug\netstandard1.3
-Copy-Item -Path $env:userprofile\.nuget\packages\system.runtime.serialization.primitives\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
-Copy-Item -Path $env:userprofile\.nuget\packages\newtonsoft.json\10.0.2\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
-Copy-Item -Path $env:userprofile\.nuget\packages\system.componentmodel.typeconverter\4.3.0\lib\netstandard1.5\* -Destination .\bin\Debug\netstandard1.3
-Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.nongeneric\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
-Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
-```
+   ```powershell
+   Copy-Item -Path $env:userprofile\.nuget\packages\microsoft.azure.devices.gateway.native.windows.x64\1.1.3\runtimes\win-x64\native\* -Destination .\bin\Debug\netstandard1.3
+   Copy-Item -Path $env:userprofile\.nuget\packages\system.runtime.serialization.formatters\4.3.0\lib\netstandard1.4\* -Destination .\bin\Debug\netstandard1.3
+   Copy-Item -Path $env:userprofile\.nuget\packages\system.runtime.serialization.primitives\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
+   Copy-Item -Path $env:userprofile\.nuget\packages\newtonsoft.json\10.0.2\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
+   Copy-Item -Path $env:userprofile\.nuget\packages\system.componentmodel.typeconverter\4.3.0\lib\netstandard1.5\* -Destination .\bin\Debug\netstandard1.3
+   Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.nongeneric\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
+   Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
+   ```
 
 25. Save the file as `binplace.ps1` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.
