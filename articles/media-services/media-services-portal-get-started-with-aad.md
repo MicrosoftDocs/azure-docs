@@ -34,7 +34,7 @@ When you use Azure AD authentication with Azure Media Services, you have two aut
 > [!IMPORTANT]
 > Currently, Media Services supports the Azure Access Control service authentication model. However, Access Control authorization will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible.
 
-## Select authentication method
+## Select the authentication method
 
 1. In the [Azure portal](https://portal.azure.com/), select your Media Services account.
 2. Select how to connect to the Media Services API.
@@ -46,16 +46,16 @@ When you use Azure AD authentication with Azure Media Services, you have two aut
 To connect to the Media Services API by using the user authentication option, the client app needs to request an Azure AD token that has the following parameters:  
 
 * Azure AD tenant endpoint
-* Media Services resource URI.
-* Media Services (native) application client ID. 
-* Media Services (native) application redirect URI. 
-* Resource URI for REST Media Services.
+* Media Services resource URI
+* Media Services (native) application client ID 
+* Media Services (native) application redirect URI 
+* Resource URI for REST Media Services
 
 You can get the values for these parameters on the **Media Services API with user authentication** page. 
 
 ![Connect with user authentication page](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started02.png)
 
-If you connect to the Media Services API by using the Media Services Microsoft .NET SDK, the required values are available to you as part of the SDK. For more information, see [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md)
+If you connect to the Media Services API by using the Media Services Microsoft .NET SDK, the required values are available to you as part of the SDK. For more information, see [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md).
 
 If you're not using the Media Services .NET client SDK, you must manually create an Azure AD token request by using the parameters discussed earlier. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../active-directory/develop/active-directory-authentication-libraries.md).
 
@@ -63,10 +63,10 @@ If you're not using the Media Services .NET client SDK, you must manually create
 
 To connect to the Media Services API by using the service principal option, your middle-tier app (web API or web application) needs to request an Azure AD token that has the following parameters:  
 
-* Azure AD tenant endpoint.
-* Media Services resource URI. 
-* Resource URI for REST Media Services.
-* Azure AD application values: the **client ID** and **client secret**.
+* Azure AD tenant endpoint
+* Media Services resource URI 
+* Resource URI for REST Media Services
+* Azure AD application values: the **client ID** and **client secret**
 
 You can get the values for these parameters on the **Connect to Media Services API with service principal** page. Use this page to create a new Azure AD application or to select an existing one. After you select the Azure AD app, you can get the client ID (Application ID) and generate the client secret (key) values. 
 
@@ -85,7 +85,7 @@ If you connect to the Media Services API by using the Media Services .NET SDK, s
 
 If you are not using the Media Services .NET client SDK, you must manually create an Azure AD token request using the parameters discussed earlier. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../active-directory/develop/active-directory-authentication-libraries.md).
 
-### Get client ID and client secret
+### Get the client ID and client secret
 
 After you select an existing Azure AD app or select the option to create a new one, the following buttons appear:
 
@@ -95,7 +95,7 @@ To open the Azure AD application blade, click **Manage application**. On the **M
 
 ![Manage application blade Keys option](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started06.png) 
 
-### Manage permissions and application
+### Manage permissions and the application
 
 After you select the Azure AD application, you can manage the application and permissions. To set up your Azure AD application to access other applications, click **Manage permissions**. For management tasks, such as changing keys and reply URLs, or to edit the application’s manifest, click **Manage application**.
 
