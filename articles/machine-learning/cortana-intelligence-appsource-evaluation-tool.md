@@ -22,7 +22,7 @@ You can use the Cortana Intelligence solution evaluation tool to assess your adv
 ## Getting started
 Please [download](https://aka.ms/aa-evalution-tool-download) and install the Cortana Intelligence solution evaluation tool.
 
-Pre-requisites:
+Prerequisites:
 - Windows 10: [Official site for Windows 10](https://www.microsoft.com/en-us/windows)
 - Azure Powershell:
 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
@@ -101,7 +101,7 @@ Specifically, any of the following Azure resources can be configured with RBAC a
 - Secure HDInsight, see [An introduction to Hadoop security with domain-joined HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)
 - Azure SQL, see [AAD authentication with Azure SQL]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
 - Azure Analysis Services, see [Manage database roles and users for Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users)
-- Azure SQL Data Warehouse (NOTE: While Azure SQL DW does support RBAC, it is not recommended for direct end-user access.)
+- Azure SQL Data Warehouse (Be aware that because SQL DW does support RBAC, it is not recommended for direct end-user access.)
 
 If you are using a different resource type that supports RBAC, please
 specify that in the test case justification.
