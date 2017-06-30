@@ -45,3 +45,8 @@ Before you start defining a workflow, make sure you have valid credentials for t
 ![Content Moderation Connectors](images/connectors-5.png)
 
 3.	Paste the key you just copied into the Ocp-Admin-Subscription-Key field, then click Save.
+
+## Next steps ##
+
+To learn how to use connectors to define custom workflows, see the [workflows](workflows.md) article.
+
