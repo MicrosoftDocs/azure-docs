@@ -19,8 +19,7 @@ ms.author: sngun
 ---
 # Create virtual machines and include certificates retrieved from a key vault
 
-> [!NOTE]
-> In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault.
+This article helps you to create a virtual machine in Azure Stack and push certificates onto it. 
 
 ## Prerequisites
 
@@ -30,7 +29,7 @@ ms.author: sngun
 
 A key vault in Azure Stack is used to store certificates. Certificates are helpful in many different scenarios. For example, consider a scenario where you have a virtual machine in Azure Stack that is running an application that needs a certificate. This certificate can be used for encrypting, for authenticating to Active Directory, or for SSL on a website. Having the certificate in a key vault helps make sure that it's secure.
 
-In this article, we walk you through the steps required to push a certificate onto a Windows virtual machine in Azure Stack. You can use these steps either from the Azure Stack POC computer, or from a Windows-based external client if you are connected through VPN.
+In this article, we walk you through the steps required to push a certificate onto a Windows virtual machine in Azure Stack. You can use these steps either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
 
 ## Include a certificate on the virtual machine
 
