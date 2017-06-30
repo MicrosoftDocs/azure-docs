@@ -21,7 +21,7 @@ This tutorial showcases how to create a module for `Azure IoT Edge` using `Visua
 In this tutorial, we walk through environment set-up and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest `Azure IoT Edge NuGet` packages. 
 
 >[!NOTE]
-This tutorial is using the `.NET Core SDK`, which supports cross-platform compatibility. The following tutorial is written using the `Windows 10` operating system, some of the commands in this tutorial may be different depending on your `development environment`. 
+This tutorial is using the `.NET Core SDK`, which supports cross-platform compatibility. The following tutorial is written using the `Windows 10` operating system. Some of the commands in this tutorial may be different depending on your `development environment`. 
 
 ## Prerequisites
 
@@ -82,7 +82,9 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 	- If `Visual Studio Code` does not prompt you that is ok, we can do it manually. Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal`.
 	- In the `Integrated Terminal` window type **dotnet restore**.
 	
-7. Rename the `Class1.cs` file to `BleConverterModule.cs` by clicking on the file and pressing the `F2` key then typing **BleConverterModule** as seen in the following image:
+7. Rename the `Class1.cs` file to `BleConverterModule.cs`. 
+    a) To rename the file first click on the file then press the `F2` key.
+    b) Type in the new name **BleConverterModule**, as seen in the following image:
 
     ![Visual Studio Code renaming a class](media/iot-hub-iot-edge-create-module/vscode-rename.png)
 
