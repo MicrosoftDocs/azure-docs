@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 
 ---
@@ -38,7 +38,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 * A text editor or Java IDE
 
     > [!IMPORTANT]
-    > If you are using a Linux-based HDInsight server, but creating the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the [Troubleshooting](#troubleshooting) section for steps on removing the CR character using utilities on the HDInsight cluster.
+    > If you create the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the [Troubleshooting](#troubleshooting) section for steps on removing the CR character.
 
 ## Create an example Java UDF 
 
@@ -55,7 +55,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 
 2. Once the project has been created, delete the **exampleudf/src/test** directory that was created as part of the project.
 
-3. Open the **exampleudf/pom.xml**, and replace the existing `<dependencies>` entry with the following:
+3. Open the **exampleudf/pom.xml**, and replace the existing `<dependencies>` entry with the following XML:
 
     ```xml
     <dependencies>
@@ -76,7 +76,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 
     These entries specify the version of Hadoop and Hive included with HDInsight 3.5. You can find information on the versions of Hadoop and Hive provided with HDInsight from the [HDInsight component versioning](hdinsight-component-versioning.md) document.
 
-    Add a `<build>` section before the `</project>` line at the end of the file. This section should contain the following:
+    Add a `<build>` section before the `</project>` line at the end of the file. This section should contain the following XML:
 
     ```xml
     <build>
@@ -173,7 +173,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
     mvn compile package
     ```
 
-    This builds and packages the UDF into **exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar**.
+    This command builds and packages the UDF into the `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` file.
 
 2. Use the `scp` command to copy the file to the HDInsight cluster.
 
@@ -181,7 +181,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    Replace **myuser** with the SSH user account for your cluster. Replace **mycluster** with the cluster name. If you used a password to secure the SSH account, you are prompted to enter the password. If you used a certificate, you may need to use the `-i` parameter to specify the private key file.
+    Replace `myuser` with the SSH user account for your cluster. Replace `mycluster` with the cluster name. If you used a password to secure the SSH account, you are prompted to enter the password. If you used a certificate, you may need to use the `-i` parameter to specify the private key file.
 
 3. Connect to the cluster using SSH.
 
@@ -223,7 +223,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    This query selects the device platform (Android, Windows, iOS, etc.) from the table, convert the string to lower case, and then display them. The output appears similar to the following.
+    This query selects the device platform (Android, Windows, iOS, etc.) from the table, convert the string to lower case, and then display them. The output appears similar to the following text:
 
         +----------+--+
         |   _c0    |
