@@ -31,15 +31,15 @@ Even if SSPR is not enabled users still a "contact your administrator" link on t
 2. If no Password administrators are assigned, then administrators with the **User administrator** role are notified
 3. If neither of the previous roles were assigned, then **Global administrators** are notified
 
-In all cases, up to 100 total recipients are notified.
+In all cases, a maximum of 100 recipients are notified.
 
 ### Disable contact your administrator emails
 
 If your organization does not want administrators notified about password reset requests, the following configuration can be enabled
 
-* Enable self-service password reset for all end users. This option is under **Password Reset**, **Properties**
-    * If you do not wish users to reset their own passwords, you can scope access to an empty group we do not recommend this option**.
-* Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset**, **Customization**, then **Custom helpdesk email or URL**
+* Enable self-service password reset for all end users. This option is under **Password Reset &gt; Properties**.
+    * If you do not wish users to reset their own passwords, you can scope access to an empty group **we do not recommend this option**.
+* Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset &gt; Customization &gt; Custom helpdesk email or URL**.
 
 ## Customize ADFS sign-in page for SSPR
 
@@ -65,9 +65,9 @@ These graphics are shown in the following circumstances:
 The following settings allow you to change the visual characteristics of the sign-in page and can be found under **Azure Active Directory**, **Company branding**, **Edit company branding**
 
 * Sign-in page image should be a PNG or JPG file 1420x1200 pixels and no larger than 500KB. We recommend it to be around 200 KB for best results.
-* Sign-in page background color is used when on high-latency connections and must be in the RGB hex format
-* Banner image should be a PNG or JPG file 60x280 pixels and no larger than 10 KB
-* Square logo (normal and dark theme) PNG or JPG 240x240 (resizable) no larger than 10 KB
+* Sign-in page background color is used when on high-latency connections and must be in the RGB hex format.
+* Banner image should be a PNG or JPG file 60x280 pixels and no larger than 10 KB.
+* Square logo (normal and dark theme) PNG or JPG 240x240 (resizable) no larger than 10 KB.
 
 ### Sign-in text options
 
@@ -78,13 +78,13 @@ The following settings allow you to add text to the sign-in page relevant to you
 
 ### Keep me signed in disabled
 
-The option "Keep me signed in disabled" allows users to remain signed in when they close and reopen their browser window and does not impact session lifetimes. This setting is found under **Azure Active Directory**, **Company branding**, **Edit company branding**.
+The option "Keep me signed in disabled" allows users to remain signed in when they close and reopen their browser window. This option does not impact session lifetimes. This setting is found under **Azure Active Directory &gt; Company branding &gt; Edit company branding**.
 
 Some features of SharePoint Online and Office 2010 have a dependency on users being able to check this box. If you hide this option, users may get additional and unexpected sign-in prompts.
 
 ### Directory name
 
-You can change the name attribute under **Azure Active Directory**, **Properties** to show a friendly organization name seen in the portal and automated communications. This option is most visible in the form of automated emails in the forms that follow
+You can change the name attribute under **Azure Active Directory &gt; Properties** to show a friendly organization name seen in the portal and automated communications. This option is most visible in the form of automated emails in the forms that follow
 
 * Friendly name in email “Microsoft on behalf of CONTOSO demo”
 * Subject line in email “CONTOSO demo account email verification code”
