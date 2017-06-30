@@ -27,7 +27,9 @@ This document provides a rough overview of various optimization features and whe
 > [!NOTE]
 > Your “optimized for” menu options can vary based on the provider you select. CDN providers apply enhancement in different ways, depending on the scenario. 
 
-> * Azure CDN from Akamai supports general web delivery, general media streaming, video on demand media streaming and large file download. 
+## Provider Options
+
+> * Azure CDN from Akamai supports general web delivery, general media streaming, video on demand media streaming, large file download, and dynamic site acceleration. 
 
 > * Azure CDN from Verizon supports general web delivery only, which can be used with video on demand and large file download without selecting an optimization type.
 
@@ -53,6 +55,7 @@ You can optimize the CDN endpoint for one of the following scenarios:
 2.	General media streaming
 3.	Video on demand media streaming
 4.	Large file download
+5.  Dynamic site acceleration
 
 The four scenario optimization configurations type are explained below. 
 
@@ -101,5 +104,14 @@ When using Azure CDN from Akamai, large file downloads are optimized for content
 Azure CDN from Verizon can use the general web delivery optimization type to deliver streaming media content.
 
 Learn more about large file optimization [here](cdn-large-file-optimization.md).
+
+### Dynamic Site Acceleration
+
+This optimization is available from both Akamai and Verizon CDN profiles and involves an additional fee to use. Please see the pricing page for more information.
+
+Dynamic Site Acceleration (DSA) includes a variety of techniques that benefit the latency and performance of dynamic content, such as route and network optimization, TCP optimization, and more. 
+
+You should consider this optimization to accelerate a web app that includes a lot responses that are not cacheable, such as search results, checkout transactions, or real time data, while still leveraging core CDN caching capabilities for static data. 
+
 
 
