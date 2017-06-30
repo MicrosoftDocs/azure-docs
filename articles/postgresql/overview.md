@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql-database
 ms.topic: overview
-ms.date: 05/31/2017
+ms.date: 06/29/2017
 ---
 # What is Azure Database for PostgreSQL?
 
@@ -45,6 +45,8 @@ Azure's industry leading 99.99% availability (not available in preview) service 
 ## Secure your data
 
 Azure database services have a tradition of data security that Azure Database for PostgreSQL upholds with features that limit access, protect data at-rest and in-motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx) for information about Azure's platform security.
+
+The Azure Database for PostgreSQL service uses storage encryption. All the data, including backups, are encrypted on disk. The service uses AES 256-bit cipher that is included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and cannot be disabled.
 
 ## Next steps
 - See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for cost comparisons and calculators.
