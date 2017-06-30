@@ -68,7 +68,7 @@ To create a VPN connection to the development kit, run the following steps on yo
     #Change the IP address in the following command to match your Azure Stack host IP address
     $hostIP = "<Azure Stack host IP address>"
     
-    # Change the password in the following command to administrator password that is provided when deploying Azure Stack. 
+    # Change the password in the following command to the administrator password that is provided when deploying Azure Stack. 
     $Password = ConvertTo-SecureString `
       "<Administrator password provided when deploying Azure Stack>" `
       -AsPlainText `
