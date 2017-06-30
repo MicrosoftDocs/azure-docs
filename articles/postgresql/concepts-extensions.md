@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql-database
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 06/29/2017
 ---
 # PostgreSQL Extensions in Azure Database for PostgreSQL
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for multiple related SQL objects to be bundled together in a single package and can be loaded or removed from your database with a single command. Extensions once loaded into the database can function just like features that are built in. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -22,12 +22,16 @@ Azure Database for PostgreSQL supports a subset of key extensions as listed here
 The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. You can also obtain this information by querying pg\_available\_extensions. 
 
 ### Data types extensions
+
+> [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |------------------------------------------------------------------|--------------------------------------------------------|
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Provides a case-insensitive character string type |
 | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Provides data type for storing sets of key/value pairs |
 
 ### Functions extensions
+
+> [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Provides several functions to determine similarities and distance between strings. |
@@ -38,22 +42,30 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Generate universally unique identifiers (UUIDs) |
 
 ### Full-text Search extensions
+
+> [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |----------------------------------------------------------------------|-------------------------------------------------------------------------------|
 | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | A text search dictionary that removes accents (diacritic signs) from lexemes. |
 
 ### Index Types extensions
+
+> [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
 | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | Provides sample GIN operator classes that implement B-tree like behavior for certain data types. |
 | [btree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | Provides GiST index operator classes that implement B-tree. |
 
 ### Language extensions
+
+> [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |--------------------------------------------------------------------|---------------------------------------|
 | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL loadable procedural language |
 
 ### Miscellaneous extensions
+
+> [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
 | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. |
@@ -62,6 +74,8 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers |
 
 ### PostGIS
+
+> [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. |
