@@ -49,7 +49,7 @@ To enable secure LDAP, perform the following configuration steps:
 6. Click the **Configure certificate ...** button to bring up the **Configure Certificate for Secure LDAP** dialog.
 
     ![Configure certificate for secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-configure-cert-page.png)
-7. Click the folder icon below **PFX FILE WITH CERTIFICATE** to specify the PFX file, which contains the certificate you wish to use for secure LDAP access to the managed domain. Also enter the password you specified when exporting the certificate to the PFX file. Then, click the done button on the bottom.
+7. Click the folder icon following **PFX FILE WITH CERTIFICATE** to specify the PFX file, which contains the certificate you wish to use for secure LDAP access to the managed domain. Also enter the password you specified when exporting the certificate to the PFX file. Then, click the done button on the bottom.
 
     ![Specify secure LDAP PFX file and password](./media/active-directory-domain-services-admin-guide/secure-ldap-specify-pfx.png)
 8. The **domain services** section of the **Configure** tab should get grayed out and is in the **Pending...** state for a few minutes. During this period, the LDAPS certificate is verified for accuracy and secure LDAP is configured for your managed domain.

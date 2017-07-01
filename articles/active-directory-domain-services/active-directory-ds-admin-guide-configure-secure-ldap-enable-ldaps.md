@@ -54,9 +54,9 @@ To enable secure LDAP, perform the following configuration steps:
     ![Enable secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired.
 
-6. Click the folder icon below **.PFX file with secure LDAP certificate** to specify the PFX file, which contains the certificate you wish to use for secure LDAP access to the managed domain.
+6. Click the folder icon following **.PFX file with secure LDAP certificate** to specify the PFX file with the certificate for secure LDAP access to the managed domain.
 
-7. Specify the **Password to decrypt .PFX file**. This is the same password you specified when exporting the certificate to the PFX file.
+7. Specify the **Password to decrypt .PFX file**. Provide the same password you used when exporting the certificate to the PFX file.
 
 8. When you are done, click the **Save** button.
 
@@ -85,7 +85,7 @@ Configure your external DNS provider so that the DNS name of the managed domain 
 That's it - you are now ready to connect to the managed domain using secure LDAP over the internet.
 
 > [!WARNING]
-> Remember that client computers must trust the issuer of the LDAPS certificate to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certification authority or a publicly trusted certification authority, you do not need to do anything since client computers trust these certificate issuers. If you are using a self-signed certificate, you need to install the public part of the self-signed certificate into the trusted certificate store on the client computer.
+> Remember that client computers must trust the issuer of the LDAPS certificate to be able to connect successfully to the managed domain using LDAPS. If you are using a publicly trusted certification authority, you do not need to do anything since client computers trust these certificate issuers. If you are using a self-signed certificate, install the public part of the self-signed certificate into the trusted certificate store on the client computer.
 >
 >
 
