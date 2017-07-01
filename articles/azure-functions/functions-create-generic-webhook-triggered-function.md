@@ -1,7 +1,7 @@
 ---
 title: Create a function in Azure triggered by a generic webhook | Microsoft Docs
 description: Use Azure Functions to create a serverless function that is invoked by a webhook in Azure.
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 06/30/2017
 ms.author: glenga
 
 ---
@@ -24,36 +24,46 @@ Learn how to create a function that is triggered by an HTTP webhook request with
 
 ![Generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/function-app-in-portal-editor.png)
 
-It should take you less than five minutes to complete all the steps in this topic.
-
 ## Prerequisites 
 
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
++ An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+## Create an Azure Function app
+
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+
+![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+Next, you create a function in the new function app.
 
 ## <a name="create-function"></a>Create a generic webhook triggered function
 
-1. Expand your function app, click the **+** button next to **Functions**, click the **GenericWebHook** template for your desired language. **Name your function**, then click **Create**. 
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
+
+    ![Functions quickstart page in the Azure portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
+
+2. Select the **GitHubWebHook** template for your desired language. **Name your function**, then select **Create**.
+
+     ![Create a GitHub webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
 
 2. In your new function, click **</> Get function URL**, then copy and save the values. You use this value to configure the webhook. 
 
-    ![Review the function code](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url-generic-secret.png) 
+    ![Review the function code](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url.png)
          
 Next, you create a webhook endpoint in an activity log alert in Azure Monitor. 
 
 ## Create an activity log alert
 
-1. In the Azure portal, navigate to the **Monitor** service
+1. In the Azure portal, navigate to the **Monitor** service, select **Alerts**, and click **Add activity log alert**.   
 
-    ![Monitor](../monitoring-and-diagnostics/media/monitoring-activity-log-alerts/home-monitor.png)
-2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
+    ![Monitor](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png
+    )
 
-3.	Now click on the **Alerts** section.
+2. use the settings as specified in the table, and click **OK**:
 
-    ![Alerts](../monitoring-and-diagnostics/media/monitoring-activity-log-alerts/alerts-blades.png)
-4.	Select the **Add activity log alert** and use the settings as specified in the table, and click **OK**:
+    ![Add-Alert-New-Action-Group](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -66,7 +76,7 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
     |  **Event Category** | | |
 
 
-    ![Add-Alert-New-Action-Group](../monitoring-and-diagnostics/media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
+3. 
 
 7.	Choose the this alert will be associated with in the **Subscription**.
 
@@ -108,13 +118,8 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
 Now, the webhook is configured to trigger your function when a new issue comment is added. 
 
 ## Test the function
-1. In your GitHub repository, open the **Issues** tab in a new browser window.
 
-2. In the new window, click **New Issue**, type a title, and then click **Submit new issue**. 
 
-2. In the issue, type a comment and click **Comment**. 
-
-    ![Add a GitHub issue comment.](./media/functions-create-generic-webhook-triggered-function/functions-generic-webhook-add-comment.png) 
 
 3. Go back to the portal and view the logs. You should see a trace entry with the new comment text. 
     
@@ -130,6 +135,4 @@ Now, the webhook is configured to trigger your function when a new issue comment
 You have created a function that runs when a request is received from a GitHub webhook. 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 For more information about webhook triggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
-
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

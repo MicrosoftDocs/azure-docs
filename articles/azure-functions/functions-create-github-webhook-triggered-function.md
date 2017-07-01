@@ -1,7 +1,7 @@
 ---
 title: Create a function in Azure triggered by a GitHub webhook | Microsoft Docs
 description: Use Azure Functions to create a serverless function that is invoked by a GitHub webhook.
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
