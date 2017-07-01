@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory Connect Health operations
-description: This article describes additional operations that can be performed once you have deployed Azure AD Connect Health.
+description: This article describes additional operations that can be performed after you have deployed Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
 author: karavar
@@ -31,23 +31,23 @@ You can configure the Azure AD Connect Health service to send email notification
 >
 
 ### To enable Azure AD Connect Health email notifications
-1. Open the **Alerts** blade for the service for which you wish to receive email notification.
+1. Open the **Alerts** blade for the service for which you want to receive email notification.
 2. From the action bar, click **Notification Settings**.
 3. At the email notification switch, select **ON**.
 4. Select the check box if you want all global administrators to receive email notifications.
-5. If you wish to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
+5. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
 6. To finalize the changes, click **Save**. Changes take effect only after you save.
 
 ## Delete a server or service instance
 
-In some instances, you may wish to remove a server from being monitored. Here's what you need to know to remove a server from the Azure AD Connect Health service.
+In some instances, you might want to remove a server from being monitored. Here's what you need to know to remove a server from the Azure AD Connect Health service.
 
-When deleting a server, be aware of the following:
+When you're deleting a server, be aware of the following:
 
 * This action stops collecting any further data from that server. This server is removed from the monitoring service. After this action, you are not able to view new alerts, monitoring, or usage analytics data for this server.
-* This action does not uninstall the Health Agent from your server. If you have not uninstalled the Health Agent before performing this step, you may see errors related to the Health Agent on the server.
-* This action does not delete the data already collected from this server. That data is deleted as per the Azure data retention policy.
-* After performing this action, if you wish to start monitoring the same server again, you must uninstall and reinstall the Health Agent on this server.
+* This action does not uninstall the Health Agent from your server. If you have not uninstalled the Health Agent before performing this step, you might see errors related to the Health Agent on the server.
+* This action does not delete the data already collected from this server. That data is deleted in accordance with the Azure data retention policy.
+* After performing this action, if you want to start monitoring the same server again, you must uninstall and reinstall the Health Agent on this server.
 
 ### To delete a server from the Azure AD Connect Health service
 Azure AD Connect Health for Active Directory Federation Services (AD FS) and Azure AD Connect (Sync):
@@ -66,17 +66,17 @@ Azure AD Connect Health for Azure Active Directory Domain Services:
 5. Click **Delete**.
 
 ### Delete a service instance from Azure AD Connect Health service
-In some instances, you may wish to remove a service instance. Here's what you need to know to remove a service instance from the Azure AD Connect Health service.
+In some instances, you might want to remove a service instance. Here's what you need to know to remove a service instance from the Azure AD Connect Health service.
 
-When deleting a service instance, be aware of the following:
+When you're deleting a service instance, be aware of the following:
 
 * This action removes the current service instance from the monitoring service.
-* This action does not uninstall or remove the Health Agent from any of the servers that were monitored as part of this service instance. If you have not uninstalled the Health Agent before performing this step, you may see errors related to the Health Agent on the server(s).
-* All data from this service instance is deleted as per the Azure data retention policy.
-* After performing this action, if you wish to start monitoring the service, uninstall and reinstall the Health Agent on all the servers. After performing this action, if you wish to start monitoring the same server again, uninstall, reinstall, and register the Health Agent on that server.
+* This action does not uninstall or remove the Health Agent from any of the servers that were monitored as part of this service instance. If you have not uninstalled the Health Agent before performing this step, you might see errors related to the Health Agent on the servers.
+* All data from this service instance is deleted in accordance with the Azure data retention policy.
+* After performing this action, if you want to start monitoring the service, uninstall and reinstall the Health Agent on all the servers. After performing this action, if you want to start monitoring the same server again, uninstall, reinstall, and register the Health Agent on that server.
 
 #### To delete a service instance from the Azure AD Connect Health service
-1. Open the **Service** blade from the **Service List** blade by selecting the service identifier (farm name) that you wish to remove.
+1. Open the **Service** blade from the **Service List** blade by selecting the service identifier (farm name) that you want to remove.
 2. On the **Server** blade, from the action bar, click **Delete**.
 3. Confirm by typing the service name in the confirmation box (for example: sts.contoso.com).
 4. Click **Delete**.
@@ -101,7 +101,7 @@ All other roles (such as User Access Administrators or DevTest Labs Users) have 
 Azure AD Connect Health supports managing access at two levels:
 
 * **All service instances**: This is the recommended path in most cases. It controls access for all service instances (for example, an AD FS farm) across all role types that are being monitored by Azure AD Connect Health.
-* **Service instance**: In some cases, you may need to segregate access based on role types or by a service instance. In this case, you can manage access at the service instance level.  
+* **Service instance**: In some cases, you might need to segregate access based on role types or by a service instance. In this case, you can manage access at the service instance level.  
 
 Permission is granted if an end user has access either at the directory or service instance level.
 
@@ -119,13 +119,13 @@ To allow a user access at the *all service instances* level within Azure AD Conn
 4. Type the name or identifier of the targeted user or group. You can select one or more users or groups at the same time. Click **Select**.
    ![Screenshot of Azure AD Connect Health RBAC Users window](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Select **OK**.<br>
-6. Once the role assignment is complete, the users and groups appear in the list.<br>
+6. After the role assignment is complete, the users and groups appear in the list.<br>
    ![Screenshot of Azure AD Connect Health RBAC Users window, with new users highlighted](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Now the listed users and groups have access, according to their assigned roles.
 
 > [!NOTE]
-> * Global administrators always have full access to all the operations, but global administrator accounts are not present in the above list.
+> * Global administrators always have full access to all the operations, but global administrator accounts are not present in the preceding list.
 > * The Invite Users feature is not supported within Azure AD Connect Health.
 >
 >
@@ -148,9 +148,9 @@ You can remove a user or a group added to Azure AD Connect Health RBAC. Simply r
 
 ## Next steps
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health Agent installation](active-directory-aadconnect-health-agent-install.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+* [Azure AD Connect Health version history](active-directory-aadconnect-health-version-history.md)
