@@ -33,7 +33,6 @@ The following software is required:
 - [.NET Core SDK](https://www.microsoft.com/net/core#windowscmd)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
->[!NOTE]
 You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the following repository:
 
 - `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
