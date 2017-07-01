@@ -23,71 +23,51 @@ ms.author: maheshu
 Ensure you've completed [Task 2 - export the secure LDAP certificate to a .PFX file](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
 
-## Task 3 - enable secure LDAP for the managed domain
+## Task 3 - enable secure LDAP for the managed domain using the Azure portal (Preview)
 To enable secure LDAP, perform the following configuration steps:
 
-1. Navigate to the **[Azure classic portal](https://manage.windowsazure.com)**.
-2. Select the **Active Directory** node on the left pane.
-3. Select the Azure AD directory (also referred to as 'tenant'), for which you have enabled Azure AD Domain Services.
+1. Navigate to the **[Azure portal](https://portal.azure.com)**.
 
-    ![Select Azure AD Directory](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
-4. Click the **Configure** tab.
+2. Search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** blade lists your managed domain.
 
-    ![Configure tab of directory](./media/active-directory-domain-services-getting-started/configure-tab.png)
-5. Scroll down to the section titled **domain services**. You should see an option titled **Secure LDAP (LDAPS)** as shown in the following screenshot:
+    ![Find managed domain being provisioned](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-    ![Domain Services configuration section](./media/active-directory-domain-services-admin-guide/secure-ldap-start.png)
-6. Click the **Configure certificate ...** button to bring up the **Configure Certificate for Secure LDAP** dialog.
+2. Click the name of the managed domain (for example, 'contoso100.com') to see more details about the domain.
 
-    ![Configure certificate for secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-configure-cert-page.png)
-7. Click the folder icon below **PFX FILE WITH CERTIFICATE** to specify the PFX file, which contains the certificate you wish to use for secure LDAP access to the managed domain. Also enter the password you specified when exporting the certificate to the PFX file. Then, click the done button on the bottom.
+    ![Domain Services - provisioning state](./media/getting-started/domain-services-provisioning-state.png)
 
-    ![Specify secure LDAP PFX file and password](./media/active-directory-domain-services-admin-guide/secure-ldap-specify-pfx.png)
-8. The **domain services** section of the **Configure** tab should get grayed out and is in the **Pending...** state for a few minutes. During this period, the LDAPS certificate is verified for accuracy and secure LDAP is configured for your managed domain.
+3. Click **Secure LDAP** on the navigation pane.
 
-    ![Secure LDAP - pending state](./media/active-directory-domain-services-admin-guide/secure-ldap-pending-state.png)
+    ![Domain Services - Secure LDAP blade](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
-   > [!NOTE]
-   > It takes about 10 to 15 minutes to enable secure LDAP for your managed domain. If the provided secure LDAP certificate does not match the required criteria, secure LDAP is not enabled for your directory and you see a failure. For example, the domain name is incorrect, the certificate has already expired or expires soon.
-   >
-   >
+4. By default, secure LDAP access to your managed domain is disabled. Toggle **Secure LDAP** to **Enable**.
 
-9. When secure LDAP is successfully enabled for your managed domain, the **Pending...** message should disappear. You should see the thumbprint of the certificate displayed.
+    ![Enable secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
+5. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired.
 
-    ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-enabled.png)
+6. Click the folder icon below **.PFX file with secure LDAP certificate** to specify the PFX file, which contains the certificate you wish to use for secure LDAP access to the managed domain.
+
+7. Specify the **Password to decrypt .PFX file**. This is the same password you specified when exporting the certificate to the PFX file.
+
+8. When you are done, click the **Save** button.
+
+9. You see a notification that informs you secure LDAP is being configured for the managed domain. Until this operation is complete, you cannot modify other settings for the domain.
+
+    ![Configuring secure LDAP for the managed domain](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configuring.png)
+
+> [!NOTE]
+> It takes about 10 to 15 minutes to enable secure LDAP for your managed domain. If the provided secure LDAP certificate does not match the required criteria, secure LDAP is not enabled for your directory and you see a failure. For example, the domain name is incorrect, the certificate has already expired or expires soon. In this case, retry with a valid certificate.
+>
+>
 
 <br>
 
-## Task 4 - enable secure LDAP access over the internet
+## Task 4 - configure DNS to access the managed domain from the internet
 **Optional task** - If you do not plan to access the managed domain using LDAPS over the internet, skip this configuration task.
 
 Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain).
 
-1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This option is set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
-
-    ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-enabled2.png)
-2. Toggle **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** to **YES**. Click the **SAVE** button on the bottom panel.
-    ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-enable-internet-access.png)
-3. The **domain services** section of the **Configure** tab should get grayed out and is in the **Pending...** state for a few minutes. After some time, internet access to your managed domain over secure LDAP is enabled.
-
-    ![Secure LDAP - pending state](./media/active-directory-domain-services-admin-guide/secure-ldap-enable-internet-access-pending-state.png)
-
-   > [!NOTE]
-   > It takes about 10 minutes to enable internet access over secure LDAP for your managed domain.
-   >
-   >
-4. When secure LDAP access to your managed domain over the internet is successfully enabled, the **Pending...** message should disappear. You should see the external IP address that can be used to access your directory over LDAPS in the field **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
-
-    ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-internet-access-enabled.png)
-
-<br>
-
-## Task 5 - configure DNS to access the managed domain from the internet
-**Optional task** - If you do not plan to access the managed domain using LDAPS over the internet, skip this configuration task.
-
-Before you begin this task, ensure you have completed the steps outlined in [Task 4](#task-4---enable-secure-ldap-access-over-the-internet).
-
-Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 4, an external IP address is displayed on the **Configure** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
+Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 3, an external IP address is displayed on the **Properties** blade in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
 Configure your external DNS provider so that the DNS name of the managed domain (for example, 'ldaps.contoso100.com') points to this external IP address. In our example, we need to create the following DNS entry:
 
