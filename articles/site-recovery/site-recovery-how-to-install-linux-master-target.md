@@ -61,77 +61,77 @@ Keep Ubuntu 16.04.2 minimal 64-bit ISO in DVD drive and boot the system.
 
 **Step 2:** Select **English** as your preferred Language and press Enter.
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png){width="6.5in" height="4.800694444444445in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
 
 **Step 3:** Select **Install Ubuntu Server** and press Enter
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png){width="6.5in" height="4.705555555555556in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
 
 **Step 4:** Select **English** as your preferred Language and press Enter
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png){width="6.5in" height="4.697916666666667in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
 
 **Step 5:** Select appropriate option from the **Time Zone** options list and press Enter
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png){width="6.5in" height="4.822916666666667in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
 
 **Step 6:** Select default option **NO** and press Enter
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png){width="6.5in" height="4.79375in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
 
 **Step 7:** Select **English (US)** as a country of origin for the keyboard and press Enter
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image6.png){width="6.5in" height="4.85625in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image6.png)
 
 **Step 8:** Select **English (US)** as a Keyboard layout and press Enter
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png){width="6.5in" height="4.888194444444444in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png)
 
 **Step 9:** Enter the hostname for your server in **Hostname text box**, Click on **Continue** button
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png){width="6.5in" height="4.76875in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png)
 
 **Step 10:** Enter **User name** to create a user account in the **Textbox**, Click on **Continue** button
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png){width="6.5in" height="4.820833333333334in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
 
 **Step 11:** Enter **Password** for the new user account in the **Text box**, Click on **Continue** button
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image10.png){width="6.5in" height="4.897916666666666in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image10.png)
 
 **Step 12:** Confirm **Password** for the new user in the **Text box**, Click on **Continue** button
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png){width="6.5in" height="4.808333333333334in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
 
 **Step 13:** Select default option **NO,** press **Enter**
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image12.png){width="6.5in" height="5.2347222222222225in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image12.png)
 
 **Step 14:** Select default option **YES** if the displayed time zone is correct and press **Enter.**
 
 You can select **No** option to re-configure your time zone.
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png){width="6.5in" height="4.955555555555556in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png)
 
 **Step 15:** Select “**Guided -** **Use entire disk**” option from the partitioning method options and press **Enter.**
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png){width="6.5in" height="4.8597222222222225in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
 
 **Step 16:** Select appropriate disk from the **select disk to partition** options and press **Enter.**
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png){width="6.5in" height="4.833333333333333in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
 
 **Step 17:** Select **YES** to write changes to disks and press **Enter.**
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image16.png){width="6.5in" height="4.898611111111111in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image16.png)
 
 **Step 18:** Select default option, Select Continue and press Enter.
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png){width="6.5in" height="4.769444444444445in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
 
 **Step 19:** Select appropriate option to manager upgrades on your system and press **Enter**
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png){width="6.5in" height="4.847916666666666in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
 
 > [!WARNING]
 > As the Azure site recovery master target server requires a very specific version of the Ubuntu, you need to ensure that the kernel upgrades are disabled for the virtual machine. If they are enabled, then any regular upgrades will cause the master target server to malfunction. Make sure you select the “No automatic updates” option.
@@ -139,25 +139,25 @@ You can select **No** option to re-configure your time zone.
 
 **Step 20:** You can go ahead with default options. If you want openSSH for SSH connect, then select “OpenSSH server” option and Continue.
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png){width="6.5in" height="4.896527777777778in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
 
 **Step 21:** Select option **YES** and press **Enter**
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image20.png){width="6.5in" height="4.8902777777777775in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image20.png)
 
 **Step 22:** Select appropriate device (Preferably /dev/sda) for boot loader installation and press **Enter.**
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image21.png){width="6.5in" height="4.84375in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image21.png)
 
 **Step 23:** Select **Continue** button and press **Enter** to **finish the installation.**
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png){width="6.5in" height="4.902083333333334in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
 
 Once after installation completes. Login to the VM using the new user credentials (Refer **Step 10**).
 
 Follow the steps mentioned in the following screenshot to set ROOT user password and to login as ROOT user for further operations.
 
-![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png){width="4.875in" height="2.9479166666666665in"}
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
 
 
 ### Post-installation steps
