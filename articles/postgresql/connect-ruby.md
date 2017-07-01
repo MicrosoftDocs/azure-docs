@@ -74,12 +74,12 @@ require 'pg'
 begin
 	# Initialize connection variables.
 	host = String('mypgserver-20170401.postgres.database.azure.com')
-	dbname = String('postgres')
+	database = String('postgres')
     user = String('mylogin@mypgserver-20170401')
 	password = String('<server_admin_password>')
 
 	# Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => dbname, :port => '5432', :password => password)
+    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
     puts 'Successfully created connection to database'
 
     # Drop previous table of same name if one exists
@@ -117,12 +117,12 @@ require 'pg'
 begin
 	# Initialize connection variables.
 	host = String('mypgserver-20170401.postgres.database.azure.com')
-	dbname = String('postgres')
+	database = String('postgres')
     user = String('mylogin@mypgserver-20170401')
 	password = String('<server_admin_password>')
 
 	# Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => dbname, :port => '5432', :password => password)
+    connection = PG::Connection.new(:host => host, :user => user, :database => dbname, :port => '5432', :password => password)
     puts 'Successfully created connection to database.'
 
     resultSet = connection.exec('SELECT * from inventory;')
@@ -151,12 +151,12 @@ require 'pg'
 begin
 	# Initialize connection variables.
 	host = String('mypgserver-20170401.postgres.database.azure.com')
-	dbname = String('postgres')
+	database = String('postgres')
     user = String('mylogin@mypgserver-20170401')
 	password = String('<server_admin_password>')
 
 	# Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => dbname, :port => '5432', :password => password)
+    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
     puts 'Successfully created connection to database.'
 
     # Modify some data in table.
@@ -185,12 +185,12 @@ require 'pg'
 begin
 	# Initialize connection variables.
 	host = String('mypgserver-20170401.postgres.database.azure.com')
-	dbname = String('postgres')
+	database = String('postgres')
     user = String('mylogin@mypgserver-20170401')
 	password = String('<server_admin_password>')
 
 	# Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => dbname, :port => '5432', :password => password)
+    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
     puts 'Successfully created connection to database.'
 
     # Modify some data in table.
