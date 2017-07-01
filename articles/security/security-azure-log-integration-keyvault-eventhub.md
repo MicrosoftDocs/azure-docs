@@ -21,7 +21,7 @@ ms.custom: AzLog
 You can use Azure Log Integration (AzLog) to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial walks you through the process of taking Azure Key Vault activity logged to an event hub and making it available as JSON files to your SIEM system. You can then configure your SIEM system to process the JSON files.
 
 >[!NOTE]
-Most of the steps in this tutorial involve configuring key vaults, storage accounts, and event hubs. The specific Azure Log Integration steps are at the end of this tutorial.
+>Most of the steps in this tutorial involve configuring key vaults, storage accounts, and event hubs. The specific Azure Log Integration steps are at the end of this tutorial.
 
 Information provided along the way helps you understand the reasons behind each step. Links to other articles give you more detail on certain topics.
 
@@ -72,11 +72,11 @@ You should see something like this:</br>
    >[!NOTE]
    >If this is the first time that you're logging in to Azure from this machine, you will see a message about allowing Microsoft to collect PowerShell usage data. We recommend that you enable this data collection because it will be used to improve Azure PowerShell.
 
-4. After successful authentication, you're logged in and you see the information in the following screenshot. Note the subscription ID and subscription name.
+4. After successful authentication, you're logged in and you see the information in the following screenshot. Take note of the subscription ID and subscription name, because you'll need them to complete later steps.
 
    ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Create variables to store values that will be used later. Type each of the following PowerShell lines and press Enter after each one. You might need to adjust the values to match your environment.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name might be different, and you can see it as part of the output of the previous command.)
+    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any other location of your choosing.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (The name can be anything, but it should include only lowercase letters and numbers.)
@@ -115,7 +115,7 @@ You should see something like this:</br>
     For more information about the Azure log profile, see [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 >[!NOTE]
-You might get an error message when you try to create a log profile. You can then review the documentation for Get-AzureRmLogProfile and Remove-AzureRmLogProfile. If you run Get-AzureRmLogProfile, you see information about the log profile. You can delete the existing log profile by typing ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` and pressing Enter.
+>You might get an error message when you try to create a log profile. You can then review the documentation for Get-AzureRmLogProfile and Remove-AzureRmLogProfile. If you run Get-AzureRmLogProfile, you see information about the log profile. You can delete the existing log profile by typing ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` and pressing Enter.
 >
 >![Resource Manager profile error](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -161,8 +161,8 @@ Now that you have configured all the required elements to have Key Vault logging
 
 Run the AzLog command for each event hub:
 
-1.  ```$eventhubs = Get-AzureRmEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
-2.  ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
+1. ```$eventhubs = Get-AzureRmEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
+2. ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
 
 After a minute or so of running the last two commands, you should see JSON files being generated. You can confirm that by monitoring the directory **C:\users\AzLog\EventHubJson**.
 
