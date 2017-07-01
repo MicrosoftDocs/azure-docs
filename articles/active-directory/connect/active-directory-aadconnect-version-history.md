@@ -31,6 +31,23 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.570.0
+Status: Not yet released
+
+>[!NOTE]
+>This build is not available to customers through the Azure AD Connect Auto Upgrade feature.
+
+### Azure AD Connect sync
+
+#### Fixed issue
+* Fixed an issue with the Initialize-ADSyncDomainJoinedComputerSync cmdlet that caused the verified domain configured on the existing service connection point object to be changed even if it is still a valid domain. This issue occurs when your Azure AD tenant has more than one verified domains that can be used for configuring the service connection point. For more information about service connection point object, refer to article [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+#### New features and improvements
+* Password writeback is now available for preview with Microsoft Azure Government cloud and Microsoft Cloud Germany. For more information about Azure AD Connect support for the different service instances, refer to article [Azure AD Connect: Special considerations for instances](active-directory-aadconnect-instances.md).
+
+* The Initialize-ADSyncDomainJoinedComputerSync cmdlet now has a new optional parameter named AzureADDomain. This parameter lets you specify which verified domain to be used for configuring the service connection point. For more information about service connection point object, refer to article [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+
 ## 1.1.553.0
 Status: June 2017
 
