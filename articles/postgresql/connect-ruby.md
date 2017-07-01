@@ -35,13 +35,15 @@ Install Ruby on your own machine.
 
 ### MacOS
 - Install Ruby using Homebrew by running the command `brew install ruby`. For more installation options, see the Ruby [installation documentation](https://www.ruby-lang.org/en/documentation/installation/#homebrew)
+- Test the Ruby installation `ruby -v` to see the version installed.
+- Test the Gem installation `gem -v` to see the version installed.
 - Build the PostgreSQL module for Ruby using Gem by running the command `gem install pg`.
 
 ### Linux (Ubuntu)
 - Install Ruby by running the command `sudo apt-get install ruby-full`. For more installation options, see the Ruby [installation documentation](https://www.ruby-lang.org/en/documentation/installation/).
-- Test the Ruby installation `ruby -v`. 
+- Test the Ruby installation `ruby -v` to see the version installed.
 - Install the latest updates for Gem by running the command `sudo gem update --system`.
-- Test the Gem installation `gem -v`.
+- Test the Gem installation `gem -v` to see the version installed.
 - Install the gcc, make, and other build tools by running the command `sudo apt-get install build-essential`.
 - Install the PostgreSQL libraries by running the command `sudo apt-get install libpq-dev`.
 - Build the Ruby pg module using Gem by running the command `sudo gem install pg`.
