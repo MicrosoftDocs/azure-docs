@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/25/2016
+ms.date: 06/30/2017
 ms.author: harikm
 
 ---
@@ -24,7 +24,7 @@ We created the MyDriving solution to give you a jumpstart in creating your own I
 
 If you haven't tried the app yet, look at the [Get started guide](iot-solution-get-started.md).
 
-There's a detailed account of the architecture in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs). In summary, there are several pieces that we set up, and that you would set up to create a similar project:
+There's a detailed account of the architecture in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs). In summary, there are several pieces that we set up to create a similar project:
 
 * A **client app** runs on Android, iOS, and Windows 10 phones. We use the Xamarin platform to share much of the code, which is stored on GitHub under `src/MobileApp`. The app actually performs two distinct functions:
   * It relays telemetry from the on-board diagnostics (OBD) device and from its own location service to the system's cloud back end.
@@ -38,7 +38,12 @@ There's a detailed account of the architecture in the [MyDriving Reference Guide
 * **HockeyApp** is used to distribute releases of the device code. It also collects crash and usage reports and user feedback.
 * **Visual Studio Application Insights** monitors the mobile web service.
 
-So let's see how we set up all of that. Note that many of the steps are optional.
+So, let's see how we set up all of that. 
+
+> [!NOTE] 
+> Many of the steps are optional.
+>
+>
 
 ## Sign up for accounts
 * [Visual Studio Dev Essentials](https://www.visualstudio.com/products/visual-studio-dev-essentials-vs.aspx). This free program provides easy access to many developer tools and services, including Visual Studio, Visual Studio Team Services, and Azure. It gives you a $25/month credit on Azure for 12 months. It also includes subscriptions to Pluralsight training and Xamarin University. You can also sign up separately for free tiers of [Azure](https://azure.com) and [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx), but these do not provide Azure credits.
@@ -66,12 +71,12 @@ Xamarin, Git, emulators, and other useful components are all integrated with Vis
 
 Install:
 
-* [Visual Studio 2015 with Xamarin](https://www.visualstudio.com/products/visual-studio-community-vs) (any edition--Community is free).
+* [Visual Studio with Xamarin](https://www.visualstudio.com/products/visual-studio-community-vs) (any edition--Community is free).
 * [SQLite for Universal Windows Platform](https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936). Required to build the Windows 10 Mobile code.
-* [Azure SDK for Visual Studio 2015](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409). Gives you the SDK for running apps in Azure, along with command-line tools for managing Azure.
+* [Azure SDK for Visual Studio](https://www.visualstudio.com/vs/azure-tools/). Gives you the SDK for running apps in Azure, along with command-line tools for managing Azure.
 * [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](../service-fabric/service-fabric-get-started.md) extension.
 
-Also, make sure that you have the right Visual Studio extensions. Check that under **Tools**, you see **Android, iOS, Xamarin…**. If not, open Control Panel, and then select **Programs and Features** > **Microsoft** > **Visual Studio 2015** > **Modify**. Under **Cross-Platform development**, select **C\#/.Net (Xamarin)**. While you're there, check that **Git for Windows** is installed.
+Be sure you have the right Visual Studio extensions. Check that under **Tools**, you see **Android, iOS, Xamarin…**. If not, open Visual Studio, search for Xamarin, and follow the prompts to install it. Also, check that **Git for Windows** is installed. If not, in Visual Studio, search for it and follow the prompts to install it. 
 
 ### Mac development machine
 The Mac (Yosemite or later) is required if you want to develop for iOS. Although we use Visual Studio with Xamarin on Windows to develop and manage all the code, Xamarin uses an agent installed on a Mac in order to build and sign the iOS code.
@@ -123,11 +128,11 @@ Rebuild the solution.
 
 If you have trouble building, try the solutions to quirks that we've found:
 
-* *VINLookupApplication project doesn't load*: Make sure that you installed the [Azure SDK for Visual Studio 2015](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
-* *Service Fabric project doesn't build*: Build the interface projects first, and make sure that you installed the Service Fabric SDK.
+* *VINLookupApplication project doesn't load*: Be sure that you installed the [Azure SDK for Visual Studio](https://www.visualstudio.com/vs/azure-tools/).
+* *Service Fabric project doesn't build*: Build the interface projects first, and be sure that you installed the Service Fabric SDK.
 * *Android app doesn't build*:
   
-  * Open **Tools** > **Android** > **Android SDK Manager**, and make sure that Android 6 (API 23)/SDK Platform is installed.
+  * Open **Tools** > **Android** > **Android SDK Manager**, and ensure that Android 6 (API 23)/SDK Platform is installed.
   * Delete this directory, and then rebuild:<br/>
     `%LocalAppData%\Xamarin\zips`
 
@@ -160,13 +165,13 @@ Take action to run the apps, based on the device that you're using:
 ## Upload the mobile app to HockeyApp
 HockeyApp manages the distribution of your Android, iOS, or Windows app to test users, notifying users of new releases. It also collects useful crash reports, user feedback with screenshots, and usage metrics.
 
-[Start by uploading](http://support.hockeyapp.net/kb/app-management-2/how-to-create-a-new-app) your build app. Then sign in to [HockeyApp](https://rink.hockeyapp.net) from your development machine. On the developer dashboard, click **New App**, and then drag the built files onto the window. (Later, you can automate your build service to do this.)
+[Start by uploading](http://support.hockeyapp.net/kb/app-management-2/how-to-create-a-new-app) your build app. Then, sign in to [HockeyApp](https://rink.hockeyapp.net) from your development machine. On the developer dashboard, click **New App**, and then drag the built files onto the window. (Later, you can automate your build service to do this.)
 
-Now you're in your app dashboard.
+Now, you're in your app dashboard.
 
 ![Overview tab on the app dashboard](./media/iot-solution-build-system/image2.png)
 
-Repeat the process for each platform that your app runs on. Then you can do the following:
+Repeat the process for each platform that your app runs on. Then, you can do the following:
 
 * Use the [app ID](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id) from the dashboard to send crash data and feedback from your app. In MyDriving, update the IDs in src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs.
 * [Invite test users](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). You get a URL to recruit testers users. They'll be able to sign up for your team, download the app, and send you feedback.
@@ -266,7 +271,7 @@ If the script fails for any reason, you can re-run it.
 The script gives you the option of configuring continuous integration in Visual Studio Team Services. If you have set up a Team Services project, you'll have a URL: https://yourAccountName.visualstudio.com. Enter the complete URL when you're asked. You can give it a new or existing name for a Team Services project.
 
 ## Set up build and test definitions in Visual Studio Team Services
-We use Team Services on this project mostly for its build and test features. But it also provides excellent collaboration support, such as task management with Kanban boards, code review integrated with tasks and source control, and gated builds. It integrates well with other tools such as GitHub, Xamarin, HockeyApp, and of course, Visual Studio. You can access it through the web interface or through Visual Studio, whichever is more convenient at any moment.
+We use Team Services on this project mostly for its build and test features. But, it also provides excellent collaboration support, such as task management with Kanban boards, code review integrated with tasks and source control, and gated builds. It integrates well with other tools such as GitHub, Xamarin, HockeyApp, and of course, Visual Studio. You can access it through the web interface or through Visual Studio, whichever is more convenient at any moment.
 
 The steps in the build and release definitions use a variety of plug-in services that are available in the Team Services [Marketplace](https://marketplace.visualstudio.com/VSTS). In addition to basic utilities to run command lines or copy files, there are services that invoke builds by Xamarin, Android, and other vendors, and that connect to HockeyApp.
 
@@ -292,7 +297,7 @@ We have build definitions for each of the main targets. We also have variations 
 If you want to see the full details of our configuration, see section 4.7 of the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), "Build and Release Configuration." They follow the same general pattern. The script:
 
 1. Restores the NuGet package. We don't keep compiled code in the repository, so the first steps of each build are to restore the required NuGet packages.
-2. Activates the license. The build is performed in the cloud, so where we need a license--in particular, for the Xamarin build service--we have to activate our license on the current build machine. Then we deactivate it immediately afterward, to allow it to be used on another machine.
+2. Activates the license. The build is performed in the cloud, so where we need a license--in particular, for the Xamarin build service--we have to activate our license on the current build machine. Then, we deactivate it immediately afterward, to allow it to be used on another machine.
 3. Builds by using the appropriate service. We use Xamarin builds for the mobile apps, and Visual Studio builds for the back-end web service.
 4. Builds tests.
 5. Runs tests. We run the mobile app tests in Xamarin Test Cloud.
