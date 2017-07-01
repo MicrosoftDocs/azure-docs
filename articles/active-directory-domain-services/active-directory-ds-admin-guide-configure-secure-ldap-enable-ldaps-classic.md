@@ -22,6 +22,15 @@ ms.author: maheshu
 ## Before you begin
 Ensure you've completed [Task 2 - export the secure LDAP certificate to a .PFX file](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
+<br>
+Choose whether to use the preview Azure portal experience or the Azure classic portal to complete this task.
+> [!div class="op_single_selector"]
+> * **Azure portal (Preview)**: [Enable secure LDAP using the Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+> * **Azure classic portal**: [Enable secure LDAP using the classic Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
+>
+>
+
+<br>
 
 ## Task 3 - enable secure LDAP for the managed domain using the classic Azure portal
 To enable secure LDAP, perform the following configuration steps:
