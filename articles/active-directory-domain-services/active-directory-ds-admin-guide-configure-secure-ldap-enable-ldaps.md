@@ -54,7 +54,7 @@ To enable secure LDAP, perform the following configuration steps:
     ![Enable secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired.
 
-6. Click the folder icon following **.PFX file with secure LDAP certificate** to specify the PFX file with the certificate for secure LDAP access to the managed domain.
+6. Click the folder icon following **.PFX file with secure LDAP certificate**. Specify the path to the PFX file with the certificate for secure LDAP access to the managed domain.
 
 7. Specify the **Password to decrypt .PFX file**. Provide the same password you used when exporting the certificate to the PFX file.
 
