@@ -170,42 +170,20 @@ and in the case of this topic, the `sdc` disk is the one that we want. Now parti
 sudo fdisk /dev/sdc
 ```
 
-Output
+Create a new partition by performing these tasks in fdisk:
+1. Type `n` to add a new partition
+1a. Follow the prompts to create a partition of your desired location and size.
+1b. The default prompts will use the entire disk for 1 partition.
+2. Type `w` to write the new partition table to disk and exit fdisk
+
+Output:
 
 ```bash
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
-
-Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
-
 Command (m for help): n
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Using default value 2048
-Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
-Using default value 10485759
-```
-
-Create the partition by typing `p` at the prompt:
-
-```bash
-Command (m for help): p
-
-Disk /dev/sdc: 5368 MB, 5368709120 bytes
-255 heads, 63 sectors/track, 652 cylinders, total 10485760 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x2a59b123
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1            2048    10485759     5241856   83  Linux
+Partition number (1-128, default 1): 
+First sector (2048-2145386462, default 2048): 
+Last sector, +sectors or +size{K,M,G,T,P} (2048-2145386462, default 2145386462): 
+Created partition 1
 
 Command (m for help): w
 The partition table has been altered!
