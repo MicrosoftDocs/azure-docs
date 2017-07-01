@@ -198,7 +198,7 @@ Data Lake Analytics has two policies that you can set at the job level:
 There is a default policy set on every account. The default policy applies to all users of the account. You can set additional policies for specific users and groups. 
 
 > [!NOTE]
-> Account-level policies work in conjunction with job-level policies.
+> Account-level policies and job-level policies apply simultaneously.
 >
 
 #### Add a policy for a specific user or group
