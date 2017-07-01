@@ -19,8 +19,6 @@ ms.author: venkatja
 ---
 # Manage reference data for an Azure Time Series Insights environment by using C#
 
-## Introduction
-
 This C# sample demonstrates how to manage reference data for an Azure Time Series Insights environment.
 Before running the sample, ensure the following steps are completed.
 1. A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).
@@ -218,3 +216,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     }
 }
 ```
+
+## Next steps
+
+For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.

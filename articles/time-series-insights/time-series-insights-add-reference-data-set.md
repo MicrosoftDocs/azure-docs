@@ -18,7 +18,7 @@ ms.date: 06/29/2017
 ms.author: venkatja
 ---
 
-# Create reference data set for your Time Series Insights environment using the Ibiza portal
+# Create a reference data set for your Time Series Insights environment using the Ibiza portal
 
 A Reference Data Set is a collection of items that are augmented with the events from your event source. Time Series Insights ingress engine joins an event from your event source with an item in your reference data set. This augmented event is then available for query. This join is based on the keys defined in your reference data set.
 
@@ -35,7 +35,7 @@ A Reference Data Set is a collection of items that are augmented with the events
     ![Create the Time Series Insights reference data set - details](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
 5. Specify the name of the reference data set.
-6. Specify the key name and its type. This name and type is used to pick the correct property from the event in your event source. For instance, if you provide key name as “DeviceId” and type as “String”, then the ingress engine looks for a property with the name “DeviceId” of type “String” in the incoming event. You can provide more than one key to join with the event. The property name match is case-sensitive.
+6. Specify the key name and its type. This name and type is used to pick the correct property from the event in your event source. For instance, if you provide key name as “DeviceId” and type as “String”, then the Time Series Insights ingress engine looks for a property with the name “DeviceId” of type “String” in the incoming event. You can provide more than one key to join with the event. The property name match is case-sensitive.
 
      ![Create the Time Series Insights reference data set - details](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
 
@@ -44,3 +44,4 @@ A Reference Data Set is a collection of items that are augmented with the events
 ## Next steps
 
 * [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
+* For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.

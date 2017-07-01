@@ -19,8 +19,6 @@ ms.author: ankryach
 ---
 # Query data from the Azure Time Series Insights environment by using C#
 
-## Introduction
-
 This C# sample demonstrates how to query data from the Azure Time Series Insights environment.
 The sample shows several basic examples of Query API usage:
 1. As a preparation step, the access token is acquired through the Azure Active Directory API. This token should be passed in the `Authorization` header of every Query API request. For setting up non-interactive applications, see the [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.
