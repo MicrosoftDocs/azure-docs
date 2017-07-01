@@ -34,7 +34,7 @@ The following software is required:
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 >[!NOTE]
-You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the following repository.
+You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the following repository:
 
 - `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
 - `cd iot-edge-samples/dotnetcore/simulated_ble`
