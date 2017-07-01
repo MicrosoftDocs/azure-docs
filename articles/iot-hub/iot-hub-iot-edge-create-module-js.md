@@ -13,7 +13,7 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
 ---
-# Creating Azure IoT Edge Module with Node.js
+# Creating an Azure IoT Edge Module with Node.js
 
 This tutorial showcases how to create a module for Azure IoT Edge in JS.
 
