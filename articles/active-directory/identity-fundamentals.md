@@ -80,3 +80,6 @@ With Azure identity management, you can:
 -   Improve user productivity with [self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords), and group and application access requests using the [MyApps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-user-help).
 
 -   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
+
+## Next steps
+[Learn more about Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)
