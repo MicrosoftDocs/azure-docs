@@ -123,7 +123,7 @@ FROM	dbo.T1
 
 ## Load data into a table with IDENTITY
 
-The presence of the IDENTITY property has some implications to your data-loading code. This next section highlights some basic patterns for loading data into tables by using IDENTITY. 
+The presence of the IDENTITY property has some implications to your data-loading code. This section highlights some basic patterns for loading data into tables by using IDENTITY. 
 
 ### Load data with PolyBase
 To load data into a table and generate a surrogate key by using IDENTITY, create the table and then use INSERT..SELECT or INSERT..VALUES to perform the load.
@@ -160,13 +160,13 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 > 
 
-For more information on loading data by using the bulk copy program (BCP) utility, see the following articles:
+For more information on loading data by using the bulk copy program (BCP) tool, see the following articles:
 
 - [Load with PolyBase][]
 - [PolyBase best practices][]
 
 ### Load data with BCP
- BCP is a command-line utility that you can use to load data into SQL Data Warehouse. One of its parameters (-E) controls the behavior of BCP when loading data into a table with an IDENTITY column. 
+BCP is a command-line tool that you can use to load data into SQL Data Warehouse. One of its parameters (-E) controls the behavior of BCP when loading data into a table with an IDENTITY column. 
 
 When -E is specified, the values held in the input file for the column with IDENTITY are retained. If -E is *not* specified, then the values in this column are ignored. If the identity column is not included, then the data is loaded as normal. The values are generated according to the increment and seed policy of the property.
 
@@ -251,8 +251,7 @@ AND     tb.name = 'T1'
 
 ## Next steps
 
-* To learn more about developing tables, see [Table overview][Overview], [Table data types][Data Types], [Distribute a table][Distribute], [Index a table][Index], [Partition a table][Partition], and [Temporary tables][Temporary].
- 
+* To learn more about developing tables, see [Table overview][Overview], [Table data types][Data Types], [Distribute a table][Distribute], [Index a table][Index], [Partition a table][Partition], and [Temporary tables][Temporary]. 
 * For more information about best practices, see [SQL Data Warehouse best practices][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->
