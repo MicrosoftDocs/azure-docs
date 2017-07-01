@@ -43,10 +43,10 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     public static class Program
     {
         // SET the environment fqdn.
-        private const string EnvironmentFqdn = "dummyid.env.timeseries.azure.com";
+        private static string EnvironmentFqdn = "#DUMMY#.env.timeseries.azure.com";
 
         // SET the environment reference data set name used when creating it.
-        private const string EnvironmentReferenceDataSetName = "contosords";
+        private static string EnvironmentReferenceDataSetName = "#DUMMY#";
 
         // For automated execution under application identity,
         // use application created in Active Directory.
@@ -54,10 +54,10 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
         // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
 
         // SET the application ID of application registered in your Azure Active Directory
-        private const string ApplicationClientId = "fe1bc0a0-3097-4b7c-9efc-ee919be80c9e";
+        private static string ApplicationClientId = "#DUMMY#";
 
         // SET the application key of the application registered in your Azure Active Directory
-        private const string ApplicationClientSecret = "#DUMMYSECRET#";
+        private static string ApplicationClientSecret = "#DUMMY#";
 
         private static async Task DemoReferenceDataAsync()
         {
@@ -69,11 +69,11 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
                 HttpWebRequest request = CreateWebRequest(accessToken);
                 string input = @"
 {
-	""put"": [{
-		""DeviceId"": ""Fan1"",
-		""Type"": ""Fan"",
-		""BladeCount"": ""3""
-	}]
+    ""put"": [{
+        ""DeviceId"": ""Fan1"",
+        ""Type"": ""Fan"",
+        ""BladeCount"": ""3""
+    }]
 }";
                 await SendRequestAsync(request, input);
                 string output = await GetResponseAsync(request);
@@ -85,9 +85,9 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
                 HttpWebRequest request = CreateWebRequest(accessToken);
                 string input = @"
 {
-	""get"": [{
-		""DeviceId"": ""Fan1""
-	}]
+    ""get"": [{
+        ""DeviceId"": ""Fan1""
+    }]
 }";
                 await SendRequestAsync(request, input);
                 string output = await GetResponseAsync(request);
@@ -100,11 +100,11 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
                 HttpWebRequest request = CreateWebRequest(accessToken);
                 string input = @"
 {
-	""patch"": [{
-		""DeviceId"": ""Fan1"",
-		""BladeCount"": ""4"",
-		""Colour"": ""Brown""
-	}]
+    ""patch"": [{
+        ""DeviceId"": ""Fan1"",
+        ""BladeCount"": ""4"",
+        ""Colour"": ""Brown""
+    }]
 }";
                 await SendRequestAsync(request, input);
                 string output = await GetResponseAsync(request);
@@ -116,12 +116,12 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
                 HttpWebRequest request = CreateWebRequest(accessToken);
                 string input = @"
 {
-	""deleteproperties"": [{
-		""key"": {
-			""DeviceId"": ""Fan1""
+    ""deleteproperties"": [{
+        ""key"": {
+            ""DeviceId"": ""Fan1""
 		},
-		""properties"": [""BladeCount""]
-	}]
+        ""properties"": [""BladeCount""]
+    }]
 }";
                 await SendRequestAsync(request, input);
                 string output = await GetResponseAsync(request);
@@ -133,8 +133,8 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
                 HttpWebRequest request = CreateWebRequest(accessToken);
                 string input = @"
 {
-	""delete"": [{
-		""DeviceId"": ""Fan1""
+    ""delete"": [{
+        ""DeviceId"": ""Fan1""
 	}]
 }";
                 await SendRequestAsync(request, input);
@@ -145,6 +145,12 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
         private static async Task<string> AcquireAccessTokenAsync()
         {
+            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#")
+            {
+                throw new Exception(
+                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId' and 'ApplicationClientSecret'.");
+            }
+
             var authenticationContext = new AuthenticationContext(
                 "https://login.windows.net/common",
                 TokenCache.DefaultShared);
