@@ -3514,7 +3514,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/">
+                                <a href="/azure/architecture/guide/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3524,7 +3524,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cloud Fundamentals</h3>
+                                                    <h3>Azure Application Architecture Guide</h3>
                                                     <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>

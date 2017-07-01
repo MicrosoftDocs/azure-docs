@@ -33,9 +33,9 @@
       href: sql-database-connect-query-ruby.md
 - name: Tutorials
   items:
-  - name: 1 - Create/design new SQL DB using SSMS
+  - name: 1 - Design DB using SSMS
     href: sql-database-design-first-database.md
-  - name: 1 - Create/design new SQL DB using .NET
+  - name: 1 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
   - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
@@ -57,10 +57,8 @@
   items:
   - name: Databases & servers
     items:
-    - name: Databases
-      href: sql-database-overview.md
-    - name: Servers
-      href: sql-database-server-overview.md
+    - name: Overview
+      href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
     - name: Elastic pools
@@ -77,8 +75,6 @@
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Features
       href: sql-database-features.md
-    - name: Tools
-      href: sql-database-manage-overview.md
   - name: Security
     items:
     - name: Overview
@@ -141,6 +137,8 @@
       href: sql-database-import.md
     - name: Export a DB
       href: sql-database-export.md
+    - name: Sync data
+      href: sql-database-sync-data.md
   - name: Monitor & tune
     items:
     - name: Overview
