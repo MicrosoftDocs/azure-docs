@@ -1,5 +1,5 @@
 ---
-title: Creating an Azure IoT Edge Module with Java | Microsoft Docs
+title: Create an Azure IoT Edge Module with Java | Microsoft Docs
 description: This tutorial showcases how to write a BLE data converter module using the latest Azure IoT Edge Maven packages.
 services: iot-hub
 author: junyi
@@ -13,7 +13,7 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
 ---
-# Creating an Azure IoT Edge Module with Java
+# Create an Azure IoT Edge Module with Java
 
 This tutorial showcases how one might build a module for Azure IoT Edge in Java.
 
