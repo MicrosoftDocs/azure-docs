@@ -93,7 +93,7 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 Before you start the TelcoGenerator app, you configure it so that it will send call records to the event hub you just created.
 
-# Configure the TelcoGeneratorapp
+### Configure the TelcoGeneratorapp
 
 1.	In the editor where you copied the connection string, make a note of the `EntityPath` value, and then remove the `EntityPath` pair (don't forget to remove the semicolon that precedes it). 
 
@@ -336,7 +336,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
 
 5. Close the **Outputs** blade. 
 
-### Start the Streaming Analytics job
+## Start the Streaming Analytics job
 
 The job is now configured. You've specified an input (the event hub), a transformation (the query to look for fraudulent calls), and an output (blob storage). You can now start the job. 
 
