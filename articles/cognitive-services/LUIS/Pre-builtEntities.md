@@ -267,7 +267,11 @@ The **builtin.datetimeV2** prebuilt entity automatically recognizes dates and ti
 
 ### Recognition of date values
 
-When LUIS recognizes a **builtin.datetimeV2** entity, it uses the `value` and `timex` fields to represent the date and time extracted from the utterance.
+When LUIS recognizes a **builtin.datetimeV2** entity, the entity's `resolution` field  has a `values` array that contains values representing the date or time extracted from the utterance. 
+| property | description |
+|----------|-------------|
+| type   | A string indicating the type of entity, for example `builtin.datetimeV2.datetime` |
+| resolution   | Contains a `values` array that has one, two, or four values. <ul><li>The array has one element if the date or time in the utterance is unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. In the case of an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. In the case of an ambiguous time, `values` contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li></ul><br/>Each element of `values` may contain the following fields: <br/><table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).</td></tr><tr><td>type</td><td>The subtype. For example, `datetime`.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime) <br/> This property is present if the entity is recognized as a date or time, but not a date range.</td></tr></table> |
 
 ```
 {
@@ -305,6 +309,7 @@ When LUIS recognizes a **builtin.datetimeV2** entity, it uses the `value` and `t
   ]
 }
 ```
+
 
 #### Ambiguous dates
 
