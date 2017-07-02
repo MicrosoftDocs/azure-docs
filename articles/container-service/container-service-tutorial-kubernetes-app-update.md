@@ -104,7 +104,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image, making sure to update the command with your ACR login server or public registry hostname.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag azure-vote-front:v2 <acrLoginServer>/azure-vote-front:v2
 ```
 
 Push the image to your registry. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname.
