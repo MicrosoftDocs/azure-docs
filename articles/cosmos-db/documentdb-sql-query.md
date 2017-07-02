@@ -961,9 +961,7 @@ You can also perform aggregates in combination with filters. For example, the fo
 
 **Results**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
 The following tables shows the list of supported aggregate functions in DocumentDB API. `SUM` and `AVG` are performed over numeric values, whereas `COUNT`, `MIN`, and `MAX` can be performed over numbers, strings, Booleans, and nulls. 
 
