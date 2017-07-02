@@ -1244,7 +1244,7 @@ This example is a natural extension of the preceding example, and performs a dou
         }
     }
 
-`AndersenFamily` has one child who has one pet. So, the cross product yields one row (1*1*1) from this family. WakefieldFamily however has two children, but only one child "Jesse" has pets. Jesse has 2 pets though. Hence the cross product yields 1*1*2 = 2 rows from this family.
+`AndersenFamily` has one child who has one pet. So, the cross product yields one row (1\*1\*1) from this family. WakefieldFamily however has two children, but only one child "Jesse" has pets. Jesse has 2 pets though. Hence the cross product yields 1\*1\*2 = 2 rows from this family.
 
 In the next example, there is an additional filter on `pet`. This excludes all the tuples where the pet name is not "Shadow". Notice that we are able to build tuples from arrays, filter on any of the elements of the tuple, and project any combination of the elements. 
 
