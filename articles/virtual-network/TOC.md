@@ -111,6 +111,7 @@
 #### [Peerings](virtual-network-manage-peering.md)
 #### Classic
 ##### [Network configuration file](virtual-networks-using-network-configuration-file.md)
+##### [Migrate from an affinity group to a region](virtual-networks-migrate-to-regional-vnet.md)
 ### Network security groups
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
