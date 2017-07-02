@@ -10,7 +10,6 @@
 # How to
 
 ## Build streaming solutions
-### [Internet of Things](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
