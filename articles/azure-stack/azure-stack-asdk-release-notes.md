@@ -37,7 +37,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 #### Deployment
 * You may notice deployment taking longer than previous releases. 
 * Get-AzureStackLogs generates diagnostic logs, however, does not log progress to the console.
-* You must run this tool to modify network adapter configuration before deploying Azure Stack development kit, or deployment may fail.
+* Run this tool to modify network adapter configuration before deploying Azure Stack development kit, or deployment may fail.
 
 #### Portal
 * You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
@@ -50,13 +50,13 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * A tenant must have an existing storage account before creating a new Azure function.
-* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null".  Redeployment of the virtual machine will succeed.  
-* Deleting tenant subscriptions will result in orphaned resources.  As a workaround, first delete tenant resources/resource group, then delete tenant subscriptions.  
-* You must create a NAT rule when creating a network load balancer, or you will receive an error trying to add a NAT rule once the load balancer is created.
+* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null".  Redeployment of the virtual machine succeeds.  
+* Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources/resource group, then delete tenant subscriptions.  
+* You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
 * Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
-* Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration will cause virtual machine creation to fail.
+* Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration causes virtual machine creation to fail.
 
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
-* Compute resource provider will show an unknown state.
+* Compute resource provider displays an unknown state.
 * The BMC IP address & model are not shown in the essential information of a Scale Unit Node.  This behavior is expected in Azure Stack development kit.
