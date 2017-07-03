@@ -31,11 +31,11 @@ To remove the virtual network, you must first remove the virtual network gateway
 
 For classic virtual networks, go to the **Overview** page of the virtual network. If the gateway is running in the virtual network, you will see the IP address of the gateway. 
 
-![Check whether gateway is running](media/vpn-gateway-troubleshoot-cannot-delete-vnet/classic-gateway.png)
+![Check whether gateway is running](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
 For virtual networks, go to the **Overview** page of the virtual network. Check **Connected devices** for the virtual network gateway.
 
-![Check the connected device for ](media/vpn-gateway-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Check the connected device for ](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 Before you can remove the gateway, any **Connection** objects in the gateway must be removed.
 
@@ -43,7 +43,7 @@ Before you can remove the gateway, any **Connection** objects in the gateway mus
 
 Go to the **Overview** page of the virtual network . Check the **Connected devices** for the application gateway.
 
-![Check the connected device](media/vpn-gateway-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 If there is an application gateway, you must remove it before you can delete the virtual network.
 
@@ -51,7 +51,7 @@ If there is an application gateway, you must remove it before you can delete the
 
 If the Active Directory Domain Service is enabled and connected to the virtual network, you cannot delete this virtual network. 
 
-![Check the connected device](media/vpn-gateway-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 To disable the service, follow these steps:
 
