@@ -17,7 +17,7 @@ ms.date: 06/23/2017
 ms.author: manayar
 
 ---
-# Multi-tenant support in Azure Site Recovery for replicating VMware virtual machines to Azure through the CSP program
+# Multi-tenant support in Azure Site Recovery for replicating VMware virtual machines to Azure through CSP
 
 Azure Site Recovery supports multi-tenant environments for tenant subscriptions. It also supports multi-tenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program. This article details the guidance for implementing and managing multi-tenant VMware-to-Azure scenarios. It also covers creating and managing tenant subscriptions through CSP.
 
@@ -71,15 +71,16 @@ The vCenter account-access procedure is as follows:
 
 2.	Assign the following permissions to this role:
 
-    * Datastore: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
-    * Network: Network assign
-    * Resource: Assign VM to resource pool, Migrate powered off VM, Migrate powered on VM
-    * Tasks: Create task, Update task
-    * Virtual machine: Configuration
-    * Virtual machine: Interaction > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
-    * Virtual machine: Inventory > Create from existing, Create new, Register, Unregister
-    * Virtual machine: Provisioning > Allow virtual machine download, Allow virtual machine files upload
-    * Virtual machine: Snapshot management > Remove snapshots
+    * **Datastore**: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
+    * **Network**: Network assign
+    * **Resource**: Assign VM to resource pool, Migrate powered off VM, Migrate powered on VM
+    * **Tasks**: Create task, Update task
+    * **Virtual machine**: 
+        * Configuration > all
+        * Interaction > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
+        * Inventory > Create from existing, Create new, Register, Unregister
+        * Provisioning > Allow virtual machine download, Allow virtual machine files upload
+        * Snapshot management > Remove snapshots
 
 	![The Edit Role dialog box](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
 
@@ -89,10 +90,10 @@ The vCenter account-access procedure is as follows:
 >| --- | --- | --- |
 >| vCenter | Read-Only | Needed only to allow vCenter access for managing different objects. You can remove this permission if the account is never going to be provided to a tenant or used for any management operations on the vCenter. |
 >| Datacenter | Azure Site Recovery |  |
->| Host and Host Cluster | Azure Site Recovery | Re-ensures that access is at the object level, so that only accessible hosts have tenant VMs before failover and after failback. |
->| Datastore and Datastore Cluster | Azure_Site_Recovery | Same as preceding. |
+>| Host and host cluster | Azure Site Recovery | Re-ensures that access is at the object level, so that only accessible hosts have tenant VMs before failover and after failback. |
+>| Datastore and datastore cluster | Azure_Site_Recovery | Same as preceding. |
 >| Network | Azure Site Recovery |  |
->| Management Server | Azure_Site_Recovery | Includes access to all components (CS, PS, and MT) if any are outside the CS machine. |
+>| Management server | Azure_Site_Recovery | Includes access to all components (CS, PS, and MT) if any are outside the CS machine. |
 >| Tenant VMs | Azure Site Recovery | Ensures that any new tenant VMs of a particular tenant also get this access, or they will not be discoverable through the Azure portal. |
 
 The vCenter account access is now complete. This step fulfills the minimum permissions requirement to complete failback operations. You can also use these access permissions with your existing policies. Just modify your existing permissions set to include role permissions from step 2, detailed previously.
