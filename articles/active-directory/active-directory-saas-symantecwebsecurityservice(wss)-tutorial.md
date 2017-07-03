@@ -168,8 +168,8 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In this section, you create a user called Britta Simon in Symantec Web Security Service (WSS). Work with [Symantec Web Security Service (WSS) support team](https://www.symantec.com/contact-us) to add the users in the Symantec Web Security Service (WSS) platform. Users must be created and activated before you use single sign-on. Also along with the user details you need to send the public IPaddress of the machine from which you are trying to access the application.
 
->[!NOTE]
-> for details about how to get your machine's public IPaddress please try accessing the following link [http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1).
+> [!NOTE]
+> Please [Click here](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) to get your machine's public IPaddress.
 
 ### Assigning the Azure AD test user
 
