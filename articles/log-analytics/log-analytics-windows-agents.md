@@ -59,7 +59,7 @@ For Windows agents to connect to and register with the OMS service, they must ha
 The following table shows resources needed for communication.
 
 >[!NOTE]
->Some of the following resources mention Operational Insights, which was a previous version of OMS. However, the listed resources will change in the future.
+>Some of the following resources mention Operational Insights, which was a previous name for Log Analytics.
 
 | Agent Resource | Ports | Bypass HTTPS inspection |
 |---|---|---|
@@ -172,6 +172,8 @@ MMASetup-AMD64.exe /C /T:.\MMAExtract
 cd .\MMAExtract
 setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
 ```
+
+
 
 >[!INFO]
 To avoid hitting the command-line length limit of IExpress, install the agent with no workspace configured and then use a script to set configuration for the workspace.
