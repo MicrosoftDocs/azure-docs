@@ -185,10 +185,10 @@ Go to the IP address to see the updated application.
 In this tutorial, we updated an application and rolled out this update o a Kubernetes cluster. We completed the following tasks:  
 
 > [!div class="checklist"]
-> * Updating the front-end application code
-> * Creating an updated container image
-> * Pushing the container image to Azure Container Registry
-> * Deploying the updated application
+> * Updated the front-end application code.
+> * Created an updated container image.
+> * Pushed the container image to Azure Container Registry.
+> * Deployed the updated application.
 
 Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
 
