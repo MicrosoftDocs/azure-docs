@@ -113,26 +113,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_attribute.png)
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
-	
+
 	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
+	| ------------------- | ---------- |
 	| givenname | user.givenname |
 	| surname | user.surname |
 	| emailaddress | user.mail |
 	| name | user.userprincipalname |
 	
-
 	a. Click on the **Attribute Name** to open the **Edit Attribute** dialog.
-
+	
 	![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_attribute_05.png)
-
+	
 	b. In the **Name** textbox, type the attribute name shown for that row.
-
+	
 	c. From the **Value** list, type the attribute value shown for that row.
-
+	
 	d. In the **Namespace** textbox, Remove the Namespace value.
 	
-	d. Click **Ok**.	
+	e. Click **Ok**.	
 
 6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
