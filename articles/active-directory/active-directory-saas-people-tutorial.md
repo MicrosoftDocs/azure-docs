@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/05/2017
 ms.author: jeedes
 
 ---
@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.peoplehr.com/`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.peoplehr.com`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.peoplehr.com`
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
 
@@ -176,7 +176,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a People test user
 
-The objective of this section is to create a user called Britta Simon in People. People does not support just-in-time provisioning so you need contact the People support team to create an user manually.
+In this section, you create a user called Britta Simon in People. Work with [People Client support team](mailto:customerservices@peoplehr.com) to add the users in the People platform. Users must be created and activated before you use single sign-on.
 
 ### Assigning the Azure AD test user
 
