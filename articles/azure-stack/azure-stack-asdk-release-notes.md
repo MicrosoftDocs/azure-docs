@@ -59,4 +59,4 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
 * Compute resource provider will show an unknown state.
-* The BMC IP address & model are not shown in the essential information of a Scale Unit Node.  This is expected behavior in the Azure Stack development kit.
+* The BMC IP address & model are not shown in the essential information of a Scale Unit Node.  This behavior is expected in Azure Stack development kit.
