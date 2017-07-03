@@ -65,7 +65,7 @@ The files produced by Event Hubs Capture have the following Avro schema:
 An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
 
 ```
-java -jar avro-tools-1.8.1.jar getschema \<name of capture file\>
+java -jar avro-tools-1.8.2.jar getschema \<name of capture file\>
 ```
 
 This command returns
