@@ -53,6 +53,7 @@ To complete this operation, you need the following parts from your Feather HUZZA
 
 You also need the following things for your development environment:
 
+* An active Azure subscription. If you don't have an Azure account, [create a free Azure trial account](https://azure.microsoft.com/free/) in just a few minutes.
 * Mac or PC that is running Windows or Ubuntu.
 * Wireless network for Feather HUZZAH ESP8266 to connect to.
 * Internet connection to download the configuration tool.

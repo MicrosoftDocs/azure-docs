@@ -10,7 +10,7 @@ az webapp deployment source config-local-git --name <app_name> --resource-group 
 
 The output has the following format:
 
-```
+```bash
 https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 ```
 
