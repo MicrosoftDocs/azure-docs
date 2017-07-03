@@ -49,15 +49,15 @@ For convenience, you can cross two *subsets* of features. Then each feature in o
 
 You can choose to represent some features as bit vectors, where each bit corresponds to a range of possible values. This bit is set to 1 if and only if the feature lies in this range. Thus, there is one "hot" bit that is set to 1, and the others are set to 0. This representation is commonly known as *1-hot encoding*.
 
-The 1-hot encoding is usually used for categorical features such as zipcode. It is also advisable for numerical features whose influence on the reward is likely to be non-linear. For example, a given article could be very relevant to a particular age group, and irrelevant to anyone older or younger. 
+The 1-hot encoding is typical for categorical features such as zipcode. It is also advisable for numerical features whose influence on the reward is likely to be non-linear. For example, a given article could be relevant to a particular age group, and irrelevant to anyone older or younger. 
 
 In slightly more depth, our machine learning algorithms treat all possible values of a feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows each range of values to receive a more individual treatment. 
 
-When choosing the ranges for the 1-hot encoding, keep in mind that all values within each range will be treated uniformly. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
+When choosing the ranges for the 1-hot encoding, keep in mind that all values within each range is treated uniformly. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
 
 #### Estimated average as a feature
 
-As a thought experiment, what would be the average reward of a given action if it were chosen for all decisions? Such average reward could be used as a measure of the "overall quality" of this action. It is usually not known exactly (because other actions have been chosen instead in some decisions), but it can be estimated via reinforcement learning techniques. The quality of this estimate typically improves over time.
+As a thought experiment, what would be the average reward of a given action if it were chosen for all decisions? Such average reward could be used as a measure of the "overall quality" of this action. It is not known exactly whenever other actions have been chosen instead in some decisions. However, it can be estimated via reinforcement learning techniques. The quality of this estimate typically improves over time.
 
 You can choose to include this "estimated average reward" as a feature for a given action. Then Custom Decision Service would automatically update this estimate as new data arrives. This feature is called the *marginal feature* of this action.
 
