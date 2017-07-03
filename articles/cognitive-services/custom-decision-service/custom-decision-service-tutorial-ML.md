@@ -13,7 +13,7 @@ ms.author: slivkins;marcozo;alekh
 
 # Machine learning in Custom Decision Service (tutorial)
 
-This tutorial covers the advanced machine learning functionality in Custom Decision Service. It consists of three parts: [featurization](#featurization-concepts-and-implementation), [feature specification format](#feature-specification-format), and [options and parameters for machine learning](#options-and-parameters-for-machine-learning). Featurization refers to representing your data as "features" for machine learning.
+This tutorial covers the advanced machine learning functionality in Custom Decision Service. For now, this funtionality is only available in private previw. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification). Featurization refers to representing your data as "features" for machine learning.
 
 By default, machine learning in Custom Decision Service is transparent to the customer. Features are automatically extracted from your content, and a standard reinforcement learning algorithm is used. Feature extraction leverages several other Microsoft Cognitive Services: 
 [Entity Linking](../entitylinking/home.md),
@@ -52,7 +52,9 @@ Features often "interact": the effect of one depends on others. For example, fea
 
 To account for interaction between features X and Y, create a *quadratic* feature whose value is X\*Y. (We also say, "cross" X and Y.) You can choose which pairs of features are crossed. 
 
-A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization. In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way.
+[!TIP] A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization. 
+
+In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way.
 
 #### 1-hot encoding
 
@@ -87,10 +89,22 @@ The implementation details are as follows:
 
 - To ignore all features in namespace `x`, write `--ignore x`. 
 
-## Feature specification format
+## Feature specification
 
+You can specify features using a simple JSON format:
 
+```
+{
+"<name>":<value>, "<name>":<value>, ... ,
+"namespace1": {"<name>":<value>,  ... },
+"namespace2": {"<name>":<value>,  ... },
+...
+}
+```
 
+Here `<name>` and `<value>` stand for feature name and feature value, respectively. `<value>` can be a string, an integer, a float, a boolean, or an  array. A feature not wrapped into a namespace is automatically assigned into the 'default' namespace.
 
+To represent a string as a bit vector over words, use a special syntax `"_text":"string"` instead of 
+`"<name>":<value>`. Then a separate internal feature with value `1` is created for each word in the string.
 
-## Options and parameters for machine learning
+If `<name>` starts with "_" (and is not `"_text"`), then the feature is ignored.
