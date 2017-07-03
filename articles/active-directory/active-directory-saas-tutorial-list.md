@@ -192,7 +192,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Kudos.png)| [Kudos](active-directory-saas-kudos-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LandGorillaClient.png)| [Land Gorilla Client](active-directory-saas-landgorilla-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_lcvista.png)| [LCVista](active-directory-saas-lcvista-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_learnconnect.png)| [Learnconnect](active-directory-saas-learnconnect-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LearningAtWork.png)| [Learning at Work](active-directory-saas-learning-at-work-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Learningpool.png)| [Learningpool](active-directory-saas-learningpool-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LearnUpon.png)| [LearnUpon](active-directory-saas-learnupon-tutorial.md)|
