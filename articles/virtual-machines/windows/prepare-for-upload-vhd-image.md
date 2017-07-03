@@ -89,7 +89,7 @@ On the VM you plan to upload to Azure, run all the following commands from the c
     ```
 
 ## Set Windows configurations for Azure
-Make sure that each of the following Windows services is set to the **Windows default values**. Below is the minimum services that needs to be setup to ensure that the machine has connectivity. To reset the startup settings, run the following commands:
+Make sure that each of the following Windows services is set to the **Windows default values**. Below is the minimum services that need to be set up to make sure that the machine has connectivity. To reset the startup settings, run the following commands:
    
 ```PowerShell
 Set-Service -Name bfe -StartupType Auto
@@ -117,12 +117,12 @@ Make share that the following settings are configured correctly for remote deskt
 
     ```
  
-2. The RDP port is properly setup (Default port 3389):
+2. The RDP port is properly set up (Default port 3389):
    
     ```PowerShell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" d3d
     ```
-    Note that when you deploy a machine, the default rules are created against 3389. You can review this on a later stage after the VM is deployed in Azure if needed.
+    When you deploy a machine, the default rules are created against 3389. You can review this on a later stage after the VM is deployed in Azure if needed.
 
 3. The listener is listening in every network interface:
    
@@ -302,9 +302,9 @@ Make share that the following settings are configured correctly for remote deskt
 
     Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 
-7. Reboot the VM to make sure that Windows is still healthy can be reached by using the RDP connection. At this point, you may want to create a VM in your local Hyper-V to ensure the VM is booting all the way up and then test if is RDP reachable.
+7. Reboot the VM to make sure that Windows is still healthy can be reached by using the RDP connection. At this point, you may want to create a VM in your local Hyper-V to make sure the VM is booting all the way up and then test if it is RDP reachable.
 
-8. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets or extra firewalls. Note that in a later stage after you deploy the VM in azure and you are able to reach the VM. You may want to review this item if needed.
+8. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets or extra firewalls. Note that in a later stage after you deploy the VM in Azure and you are able to reach the VM. You may want to review this item if needed.
 
 9. Uninstall any other third-party software and driver related to physical components or any other virtualization technology.
 
@@ -350,7 +350,7 @@ The ideal configuration is to have the patch level of the machine at the latest.
 
 Sysprep is a process that you could run into a windows installation that will reset the installation of the system and will provide an “Out of the box experience” by removing all personal data and resetting several components. You usually do this if you want to create a template from which you want to deploy several other machines with a specific configuration, this is called a **generalized image**.
 
-If this is not what you want, and you just want to create one VM from one disk, you don’t need sysprep and what you need is just create the VM from what is called a **specialized image**.
+If this is not what you want, and you just want to create one VM from one disk, you don’t need sysprep and what you need is just creating the VM from what is called a **specialized image**.
 
 For more information about how to create a VM from a specialized disk, see:
 
@@ -359,7 +359,7 @@ For more information about how to create a VM from a specialized disk, see:
 
 If you want to create a generalized image, you need to run sysprep. For more information about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx). 
 
-Not every role or application installed on a Windows machine support this generalization, so before proceeding with this,  refer to the following article to ensure the role that machine has is supported by sysprep, [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+Not every role or application installed on a Windows machine supports this generalization, so before proceeding with this,  refer to the following article to ensure the role that machine has is supported by sysprep, [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 ### Steps to generalized a VHD
 
@@ -371,7 +371,7 @@ Not every role or application installed on a Windows machine support this genera
     ![System Preparation Tool](media/prepare-for-upload-vhd-image/syspre.png)
 4. In **Shutdown Options**, select **Shutdown**.
 5. Click **OK**.
-6. When Sysprep completes, shuts down the VM. Note that do not use **Restart** to shut down the VM.
+6. When Sysprep completes, shut down the VM. Note that do not use **Restart** to shut down the VM.
 7. Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md)
 
 
@@ -400,12 +400,12 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpCount" -Value 10
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpType" -Value 2
     ```
-* After the VM is created in Azure, to improve the performance is recommended to place the pagefile on the temporal drive. You can setup this as following:
+* After the VM is created in Azure, to improve the performance is recommended to place the pagefile on the temporal drive. You can set up this as following:
 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile"
     ```
-Note that The pagefile should be placed on the volume that label as "Temporal drive" . If there’s any data disk attached on the VM, the Temporal drive volume's  drive letter would be "D". However, depending on the amount of drives and setting that you could make, this drive letter could be different.
+Note that the pagefile should be placed on the volume that is labeled as "Temporal drive". If there’s any data disk attached on the VM, the Temporal drive volume's drive letter would be "D". However, depending on the number of drives and setting that you could make, this drive letter could be different.
 
 
 ## Next steps
