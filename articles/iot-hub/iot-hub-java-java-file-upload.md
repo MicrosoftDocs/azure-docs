@@ -137,7 +137,7 @@ You need the **iothubowner** connection string for your IoT Hub to complete this
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.4.22</version>
+      <version>1.5.22</version>
     </dependency>
     ```
 
