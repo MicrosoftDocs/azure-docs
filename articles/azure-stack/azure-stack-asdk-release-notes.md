@@ -29,6 +29,9 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 - DSV2 virtual machine sizes enable template portability between Azure and Azure Stack.
 - Cloud operators can preview the capacity management experience with the capacity management blade.
 - You can now use Azure Diagnostics extension to gather diagnostic data from your virtual machines.  Capturing this data is useful when analyzing workload performance, and for investigating issues.
+- A new deployment experience replaces previous scripted steps for deployment.  The new deployment experience provides a common graphical interface through the entire deployment lifecycle.
+- Microsoft Accounts (MSA) are now supported during deployment.
+- Multi-Factor Authentication (MFA) is now supported during deployment.  Previously, MFA must be disabled during deployment.
 
 ### Known issues
 #### Deployment
