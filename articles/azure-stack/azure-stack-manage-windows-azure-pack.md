@@ -101,8 +101,10 @@ You can run the Add-AzurePackConnector.ps1 script immediately after deployment, 
  ```powershell
     $cred = New-Object System.Management.Automation.PSCredential("cloudadmin@azurestack.local", `
     (ConvertTo-SecureString -String "<password>" -AsPlainText -Force))
-    $session = New-PSSession -ComputerName 'azs-ercs01' -Credential $cred `
-   -ConfigurationName PrivilegedEndpoint -Authentication Credssp
+    $session = New-PSSession -ComputerName 'azs-ercs01' `
+     -Credential $cred `
+     -ConfigurationName PrivilegedEndpoint `
+     -Authentication Credssp
 
     # Enable Multicloud
     Invoke-Command -Session $session -ScriptBlock { Add-AzurePackConnector -AzurePackClouds `
@@ -112,7 +114,7 @@ You can run the Add-AzurePackConnector.ps1 script immediately after deployment, 
 
  ```
 
->
+
 > [!NOTE]
 > In the current build there is an issue where after the Add-AzurePackConnector script ends, it remains in a polling loop for an extended period of time (several minutes) until it ends. After you see the message **VERBOSE: Step 'Configure Azure Pack Connector' status: 'Success'**, you can stop the script or wait until it stops by itself. It won’t make a difference because the configuration has already succeeded.
 
