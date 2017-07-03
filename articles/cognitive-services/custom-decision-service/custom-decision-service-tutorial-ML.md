@@ -13,7 +13,7 @@ ms.author: slivkins;marcozo;alekh
 
 # Machine learning in Custom Decision Service (tutorial)
 
-This tutorial covers the advanced machine learning functionality in Custom Decision Service. It consists of three parts: [concepts related to featurization](#featurization-concepts), [implementation of these concepts](#featurization-implementation), and [options and parameters for machine learning](#options-and-parameters-for-machine-learning). Featurization refers to representing your data as "features" for machine learning.
+This tutorial covers the advanced machine learning functionality in Custom Decision Service. It consists of three parts: [featurization](#featurization-concepts-and-implementation), [Feature specification format](#feature-specification-format), and [options and parameters for machine learning](#options-and-parameters-for-machine-learning). Featurization refers to representing your data as "features" for machine learning.
 
 By default, machine learning in Custom Decision Service is transparent to the customer. Features are automatically extracted from your content, and a standard reinforcement learning algorithm is used. Feature extraction leverages several other Microsoft Cognitive Services: 
 [Entity Linking](../entitylinking/home.md),
@@ -21,13 +21,15 @@ By default, machine learning in Custom Decision Service is transparent to the cu
 [Emotion](../emotion/home.md), and
 [Computer Vision](../computer-vision/home.md). This tutorial can be skipped if only the default functionality is used.
 
-## Featurization (concepts)
+## Featurization: concepts and implementation
 
 Custom Decision Service makes decisions one by one. Each decision involves choosing among several alternatives, a.k.a., actions. Depending on the application, the decision may choose a single action or a (short) ranked list of actions. 
 
 As a running example, we use personalizing the selection of articles on the front page of a website. Here, actions correspond to articles, and each decision is which articles to show to a given user.
 
 Each action is represented by a vector of numbers, called *features*. Some features are inherently "numerical", for example, relevance of this article to a particular topic. Some features such as zipcode are "categorical": they distinguish between several possible "categories" that do not have an inherent numerical meaning.
+
+You can specify new features, in addition to those extracted automatically. You can also instruct Custom Decision Service to ignore some features for machine learning.
 
 #### Shared vs. action-dependent features
 
@@ -42,8 +44,6 @@ Features often "interact": the effect of one depends on others. For example, fea
 To account for interaction between features X and Y, create a *quadratic* feature whose value is X\*Y. (We also say, "cross" X and Y.) You can choose which pairs of features are crossed. 
 
 A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization. In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way.
-
-For convenience, you can cross two *subsets* of features. Then each feature in one subset is crossed with each feature in another subset.
 
 #### 1-hot encoding
 
@@ -61,6 +61,25 @@ As a thought experiment, what would be the average reward of a given action if i
 
 You can choose to include this "estimated average reward" as a feature for a given action. Then Custom Decision Service would automatically update this estimate as new data arrives. This feature is called the *marginal feature* of this action.
 
-## Featurization (implementation)
+#### Implementation via namespaces
+
+You can specify the featurization concepts discussed previously via a "VW arguments string" on the Portal. Custom Decision Service provides a flexible syntax based on the [Vowpal Wabbit](http://hunch.net/~vw/) command line.
+
+Centeral to the implementation is a concept of a *namespace*: a named subset of features. Each feature belongs to some namespace. The namespace can be provided when the feature value is entered. If the namespace is not provided, it is set to 'default'.
+
+[!TIP]
+While long, descriptive namespace ids are common, the system truncates each id to the first letter. Thus, all namespaces whose id stards with the same letter are treated as the same "logical namespace". In what follows, namespace ids are single letters.
+
+The implementation details are as follows:
+
+- To cross namespaces `x` and `y`, write `-q xy` or `--quadratic xy`. Then each feature in `x` is crossed with each feature in `y`. Here `x` and `y` are literally two letters. 
+
+- To ignore all features in namespace `x`, write `--ignore x`. 
+
+## Feature specification format
+
+
+
+
 
 ## Options and parameters for machine learning
