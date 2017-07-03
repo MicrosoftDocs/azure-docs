@@ -70,7 +70,7 @@ For detailed sections, terms and descriptions of the invoice. See
 [here](billing-understand-your-invoice.md).
 
 For detailed sections, terms and descriptions of the detailed daily
-usage file, see [here](billing-underestand-your-usage.md).
+usage file, see [here](billing-understand-your-usage.md).
 
 ### Review your invoice and compare with the usage and costs in the Azure portal
 
