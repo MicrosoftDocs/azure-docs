@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/22/2017
+ms.date: 07/03/2017
 ms.author: alkohli
 
 ---
-# Deploy your on-premises StorSimple device (Update 2 and later)
+# Deploy your on-premises StorSimple device (Update 3 and later)
 
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Update 3 or later. This series of tutorials includes a configuration checklist, configuration prerequisites, and detailed configuration steps for your StorSimple device.
@@ -150,7 +150,7 @@ The following steps are performed on your Windows Server host.
 
 If you decide not to configure MPIO, perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.
 
-[!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
+[!INCLUDE [storsimple-8000-mount-initialize-format-volume](../../includes/storsimple-8000-mount-initialize-format-volume.md)]
 
 ## Step 8: Take a backup
 Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times. You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots. Each of these backup types can be **Scheduled** or **Manual**.
