@@ -80,7 +80,7 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 - If the Internet-facing IP address of the VPN device is included in the **Local network** definition in Azure, you might experience sporadic disconnections.
 - The device's external interface must be directly on the Internet. There should be no network address translation or firewall between the Internet and the device.
--  To configure firewall clustering to have a virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
+- To configure firewall clustering to have a virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
 
 ### Step 6. Verify that the subnets match exactly (Azure policy-based gateways)
 
