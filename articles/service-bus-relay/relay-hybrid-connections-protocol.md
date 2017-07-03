@@ -19,13 +19,13 @@ ms.author: sethm;clemensv
 ---
 # Azure Relay Hybrid Connections protocol
 Azure Relay is one of the key capability pillars of the Azure Service Bus
-platform. The new "Hybrid Connections" capability of Relay is a secure,
+platform. The new *Hybrid Connections* capability of Relay is a secure,
 open-protocol evolution based on HTTP and WebSockets. It supersedes the former,
-equally named "BizTalk Services" feature that was built on a proprietary
+equally named *BizTalk Services* feature that was built on a proprietary
 protocol foundation. The integration of Hybrid Connections into Azure App
 Services will continue to function as-is.
 
-"Hybrid Connections" enables bi-directional, binary stream
+Hybrid Connections enables bi-directional, binary stream
 communication between two networked applications, during which either or both parties
 can reside behind NATs or firewalls. This article describes the client-side
 interactions with the Hybrid Connections relay for connecting clients in
