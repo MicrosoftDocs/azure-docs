@@ -491,7 +491,7 @@ Yes. A Network Security Group can be applied directly to a scale set by referenc
                             "loadBalancerBackendAddressPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
-                                }
+                                 }
                             ]
                         }
                     }
@@ -550,7 +550,7 @@ Yes. To use accelerated networking, set enableAcceleratedNetworking to true in y
 To create a VM scale set with a custom DNS configuration, add a dnsSettings JSON packet to the scale set networkInterfaceConfigurations section. Example:
 ```json
     "dnsSettings":{
-        "dnsServers":["10.0.0.6"], ["10.0.0.5"]
+        "dnsServers":["10.0.0.6", "10.0.0.5"]
     }
 ```
 
