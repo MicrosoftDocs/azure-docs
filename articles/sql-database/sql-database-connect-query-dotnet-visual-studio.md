@@ -69,7 +69,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 7. When the install completes, review the changes and then click **OK** to close the **Preview** window. 
 8. If a **License Acceptance** window appears, click **I Accept**.
 
-## Insert code into the project to select data from your sample Azure SQL database
+## Insert code into the project to query Azure SQL database
 
 1. Switch to (or open if necessary) **Program.cs**
 
