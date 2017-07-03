@@ -20,12 +20,11 @@ ms.author: carlrab
 
 # What are Azure SQL Database servers and databases?
 
-[Azure SQL Database](sql-database-technical-overview.md) is a fully managed, relational Database-As-A-Service (DBaaS) in the Microsoft cloud (Azure). With this platform-as-a-service offering, Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). You can create Azure SQL Database servers and databases using the Azure portal, PowerShell, the Azure CLI, Transact-SQL, and the REST API.
+An Azure SQL database is a managed database in Microsoft Azure that is created with a defined set of compute and storage resources, called [Database Transaction Units (DTUs)](sql-database-service-tiers.md), within an [Azure resource group](../azure-resource-manager/resource-group-overview.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region. 
 
+## What is an Azure SQL logical server?
 
-## Create an Azure SQL Database in a resource group and in a logical server
-
-An Azure SQL database is created with a defined set of compute and storage resources, called [Database Transaction Units (DTUs)](sql-database-service-tiers.md), within an [Azure resource group](../azure-resource-manager/resource-group-overview.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region. A logical server acts as a central administrative point for multiple databases, including [SQL elastic pools](sql-database-elastic-pool.md) [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-geo-replication-overview.md). A logical server can be in a different region than its resource group. The logical server must exist before you can create the Azure SQL database. All databases on a server are created within the same region as the logical server. 
+A logical server acts as a central administrative point for multiple databases, including [SQL elastic pools](sql-database-elastic-pool.md) [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-geo-replication-overview.md). A logical server can be in a different region than its resource group. The logical server must exist before you can create the Azure SQL database. All databases on a server are created within the same region as the logical server. 
 
 
 > [!IMPORTANT]
@@ -56,7 +55,7 @@ An Azure Database logical server:
 - Server-level principal logins can manage all databases on a server
 - Can contain logins similar to those in instances of SQL Server on your premises that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](sql-database-manage-logins.md).
 
-## Create an Azure SQL database as a single, pooled, or partitioned database
+## An Azure SQL database can be a single, pooled, or partitioned database
 
 An Azure SQL database can be:
 
@@ -79,13 +78,27 @@ To help protect your data, a [SQL Database firewall](sql-database-firewall-confi
 
 ## Create and manage Azure SQL servers, databases, and firewalls using the Azure portal
 
-To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical server) form to begin creating a server. You can create the Azure SQL database's resource group ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL server form - this image shows one.
+You can create the Azure SQL database's resource group ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL server form, either by creating a new SQL server or as part of creating a new database. 
+
+### Create a blank SQL server (logical server)
+
+To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical server) form. The following screenshot shows one method for opening a form to create a blank logical SQL server. 
 
    ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
 
-To create an Azure SQL database using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Database form to begin creating a database. You can create the Azure SQL database's resource group and logical server ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL Database form.
+If you get to this form using another method, the information on the form is identical.
+
+### Create a blank or sample SQL database
+
+To create an Azure SQL database using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Database form and provide the requested information. You can create the Azure SQL database's resource group and logical server ahead of time or while creating the database itself. You can create a blank database or create a sample database based on Adventure Works LT. 
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
+
+> [IMPORTANT]
+> For information on selecting the pricing tier for your database, see [Service tiers](sql-database-service-tiers.md).
+>
+
+### Manage an existing SQL server
 
 To manage an existing server, navigate to the server using a number of methods - such as from specific SQL database page, the **SQL servers** page, or the **All resources** page. The following screenshot shows how to begin setting a server-level firewall from the **Overview** page for a server. 
 
@@ -94,6 +107,10 @@ To manage an existing server, navigate to the server using a number of methods -
 To manage an existing database, navigate to the **SQL databases** page and click the database you wish to manage. The following screenshot shows how to begin setting a server-level firewall for a database from the **Overview** page for a database. 
 
    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+> [!IMPORTANT]
+> To manage and change the service tier or performance level for a database, see [Service tiers](sql-database-service-tiers.md).
+>
 
 > [!TIP]
 > For an Azure portal quick start tutorial, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).

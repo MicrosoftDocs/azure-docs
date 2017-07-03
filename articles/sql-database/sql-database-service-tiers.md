@@ -92,12 +92,15 @@ The duration of the entire scale-up process depends on both the size and service
 - Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import.md) and [export](sql-database-export.md) data.
 
 
-## Manage single database service tiers using the Azure portal
+## Manage single database service tiers and performance levels using the Azure portal
+
+To change the service tier or performance level of an existing Azure SQL database using the Azure portal, open the **Configure performance** window for your database by clicking **Pricing tier (scale DTUs)** - as shown in the following screenshot. 
+
+- You can change the performance level within the existing service tier using the DTU slides. 
+- You can change the service tier by selecting a new service tier and then u 
 
 
-
-
-## Manage single database service tiers using PowerShell
+## Manage single database service tiers and performance levels using PowerShell
 
 
 
@@ -113,9 +116,9 @@ For existing P11 and P15 databases located in one of the supported regions, you 
 
 
 
-## Manage single database service tiers using the Azure CLI
+## Manage single database service tiers and performance levels using the Azure CLI
 
-## Manage single database service tiers using Transact-SQL
+## Manage single database service tiers and performance levels using Transact-SQL
 
 
 ### Creating 4 TB
