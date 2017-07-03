@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_ethicspoint_samlbase.png)
 
-3. On the **EthicsPoint Incident Management (EPIM) Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
+3. On the **EthicsPoint Incident Management (EPIM) Domain and URLs** section, perform folleong steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_ethicspoint_url.png)
 
@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.navexglobal.com/adfs/services/trust`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<servername>.navexglobal.com/adfs/ls/`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<servername>.navexglobal.com/adfs/ls/`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Reply URL, Identifier, and Sign-On URL. Contact [EthicsPoint Incident Management (EPIM) Client support team](http://www.navexglobal.com/company/contact-us) to get these values. 
