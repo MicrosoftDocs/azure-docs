@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/30/2017
+ms.date: 7/02/2017
 ms.author: mfussell
 
 ---
