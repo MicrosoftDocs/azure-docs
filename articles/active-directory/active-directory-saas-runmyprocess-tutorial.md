@@ -197,9 +197,9 @@ In order to enable Azure AD users to log in to RunMyProcess, they must be provis
    
     ![Profile](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profile") 
   
-    a. Type the **Name** and **E-mail** of a valid AAD account you want to provision into the related textboxes. 
+    a. Type the **Name** and **E-mail** of a valid Azure AD account you want to provision into the related textboxes. 
 
-    b. Select an **IDE language**, a **Language, and a **Profile**. 
+    b. Select an **IDE language**, **Language**, and **Profile**. 
 
     c. Select **Send account creation e-mail to me**. 
 
