@@ -3,7 +3,7 @@ title: Prepare a Windows VHD to upload to Azure | Microsoft Docs
 description: How to prepare a Windows VHD or VHDX before uploading to Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: genlin
+author: glimoli
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 6/26/2017
-ms.author: glimoli;genli
+ms.author: genli
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
