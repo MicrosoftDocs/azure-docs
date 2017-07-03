@@ -99,9 +99,7 @@ To configure your Azure Stack environment, do the following:
 
 ## Sign in to Azure Stack
 
-To sign in to your Azure Stack environment, do the following:
-
-1. Sign in to the Azure Stack environment by using one of the following two cmdlets:
+Sign in to the Azure Stack environment by using one of the following two cmdlets:
 
    * To sign in to the **administrative portal**, use:
     
