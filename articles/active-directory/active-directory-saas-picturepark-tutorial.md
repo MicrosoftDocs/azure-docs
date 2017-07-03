@@ -156,7 +156,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     d. In **Issuer URI** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
    
-    e. Copy the **Thumbprint** value from the **SAML Signing Certificate** section, and then paste it into the **Trusted Issuer Thumb Print** textbox.  
+    e. In **Trusted Issuer Thumb Print** textbox, paste the value of **Thumbprint** which you have copied from **SAML Signing Certificate** section. 
 
 11. Click **JoinDefaultUsersGroup**.
 
