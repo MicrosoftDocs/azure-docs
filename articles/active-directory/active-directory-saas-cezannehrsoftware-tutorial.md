@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 07/05/2017
 ms.author: jeedes
 
 ---
@@ -108,12 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://w3.cezanneondemand.com/CezanneOnDemand/<tenantid>`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://w3.cezanneondemand.com:443/<tenantid>`    
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Cezanne HR Software Client support team](mailto:info@cezannehr.com) to get these values.
+	> These values are not real. Update these values with the actual Reply URL, and Sign-On URL. Contact [Cezanne HR Software Client support team](mailto:info@cezannehr.com) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -146,12 +146,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On On App side](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 	
 	a. Enter the name of your Identity Provider as the **Display Name**.
-	
-	b. In the **Entity Identifier** textbox put the value of **SAML Entity ID** from Azure AD application configuration window.
-	
+
+	b. Paste **SAML Entity ID**, which you have copied from the Azure portal into the **Entity Identifier** textbox. 
+
 	c. Change the **SAML Binding** to 'POST'.
-	
-	d. In the **Security Token Service Endpoint** textbox put the value of **SAML Single Sign-on Service URL** from Azure AD application configuration window.
+
+	d.Paste **SAML Single Sign-on Service URL**, which you have copied from the Azure portal into the **Security Token Service Endpoint** textbox. 
 	
 	e. In the User ID Attribute Name textbox, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 	
@@ -216,19 +216,19 @@ In order to enable Azure AD users to log into Cezanne HR Software, they must be 
 	
 	a. Set **Internal User** as OFF.
  	
-	b. In the **First Name** textbox, type **Britta**.  
+	b. In the **First Name** textbox, type the First Name of user like **Britta**.  
  
-	c. In the **Last Name** textbox, type **Simon**.
+	c. In the **Last Name** textbox, type the last Name of user like **Simon**.
 	
-	d. In the **E-mail** textbox, type the email address of Britta Simon account.
+	d. In the **E-mail** textbox, type the email address of user like Brittasimon@contoso.com.
 
 4.  On **Account Information** section, perform below steps:
 
     ![New User](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "New User")
 	
-	a. In the **Username** textbox, type the email address of Britta Simon.
+	a. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
 	
-	b. In the **Password** textbox, type the password of Britta Simon account.
+	b. In the **Password** textbox, type the password of user.
  	
 	c. Select **HR Professional** as **Security Role**.
 	
@@ -286,8 +286,6 @@ When you click the Cezanne HR Software tile in the Access Panel, you should get 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
