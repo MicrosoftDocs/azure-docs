@@ -108,15 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_url.png)
 
-4. On the **Rightscale Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, perform the following steps:
-
-	![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_url2.png)
-
-    a. Click on the **Show advanced URL settings**.
-
-    b. In the **Reply URL** textbox, type the URL: `https://login.rightscale.com/login/saml2/consume`
-
-5. On the **Rightscale Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
+4. On the **Rightscale Domain and URLs** section, if you wish to configure the application in **SP initiated mode**, perform the following steps:
 	
 	![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_url1.png)
 
@@ -124,19 +116,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Sign On URL** textbox, type the URL: `https://login.rightscale.com/`
 
-6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_certificate.png) 
 
-7. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_general_400.png)
 
-8. On the **Rightscale Configuration** section, click **Configure Rightscale** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Rightscale Configuration** section, click **Configure Rightscale** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_configure.png) 
 
-9. To get SSO configured for your application, you need to sign-on to your RightScale tenant as an administrator.
+8. To get SSO configured for your application, you need to sign-on to your RightScale tenant as an administrator.
 
     a. In the menu on the top, click the **Settings** tab and select **Single Sign-On**.
    
