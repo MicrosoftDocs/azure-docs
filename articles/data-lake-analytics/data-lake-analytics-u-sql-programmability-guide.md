@@ -3,8 +3,8 @@ title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
 description: Learn about the set of services in Azure Data Lake that enable you to create a cloud-based big data platform.
 services: data-lake-analytics
 documentationcenter: ''
-author: MikeRys
-manager: arindamc
+author: saveenr
+manager: saveenr
 
 
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
-ms.author: mrys
+ms.author: saveenr
 
 ---
 
@@ -27,145 +27,46 @@ U-SQL is a query language that's designed for big data-type of workloads. One of
 Download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
 ## Get started with U-SQL  
-The description of U-SQL language is outside the scope of this document. However, we describe basic U-SQL constructs to gradually introduce U-SQL programmability features. For more information, see the [U-SQL Language Reference](http://aka.ms/usql_reference) guide.
 
-Let’s look at the following example:
+Let’s look at the following U-SQL script:
 
 ```
-DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
-DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
-
-@rs0 =
-	EXTRACT
-	    guid Guid,
-	    dt DateTime,
-	user String,
-	des String
-	FROM @input_file USING Extractors.Tsv();
-
-@rs1 =
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso",   1500.0, "2017-03-39"),
+            ("Woodgrove", 2700.0, "2017-04-10")
+        ) AS 
+              D( customer, amount );
+@results =
     SELECT
-            MAX(guid) AS start_id,
-            MIN(dt) AS start_time,
-        user,
-        des
-	FROM @rs0
-    GROUP BY user, des;
-
-OUTPUT @rs1 
-	TO @output_file 
-	USING Outputters.Text();
+    	customer,
+	amount,
+	date
+    FROM @a;    
 ```
 
-In this example, we have an **Input File**: `file input_file.tsv`, defined by **Local Variable** @input_file.
-
-The following actions are performed by the U-SQL script show in this example:
-
-* The initial **EXTRACT** statement loads data to memory by converting Input File to the **Memory RowSet**.
-* **SELECT** operates on data rowset to aggregate data and prepare for exporting.
-* **OUTPUT** exports data rowset to **Output File**, which is an external file.
-
-First, let’s look at some options for using a C# expression directly in a U-SQL Script.
+It defines a RowSet called @a and creates a RowSet called @results from @a.
 
 ## C# types and expressions in U-SQL script
-A U-SQL C# expression, similar to an expression in general C#, is a sequence of one or more operators that can be evaluated to a single value, object, method, or namespace. Expressions can consist of a literal value, a method invocation, an operator, or a simple name. Simple names can be the name of a variable, type member, method parameter, namespace, or type.
 
-When we talk about U-SQL C# expressions, we specifically refer to the U-SQL base script C# expressions. The underlying C# code-behind section, discussed later in this document, can also contain C# expressions as regular C# code-based elements.
+A U-SQL Expression is a C# expression combined with U-SQL logical operations such `AND`, `OR`, and `NOT`. U-SQL Expressions can be used with SELECT, EXTRACT, WHERE, HAVING, GROUP BY and DECLARE.
 
-Expressions can use operators that use other expressions as parameters. They can also use method calls with parameters that are other method calls. Following are examples of an expression:  
-
-```
-Convert.ToDateTime(Convert.ToDateTime(dt).ToString("yyyy-MM-dd"))
-```
-
-U-SQL language enables the usage of standard C# expressions from built-in namespaces.  
+For example, the following script parses a string a DateTime value in the SELECT clause.
 
 ```
-Microsoft.Analytics.Interfaces;  
-Microsoft.Analytics.Types.Sql;  
-System;  
-System.Collections.Generic;  
-System.Linq;  
-System.Text;  
-```
-
-General C# expressions can be used in U-SQL SELECT, EXTRACT.
-
-The C# expressions can also be used in DECLARE or IF statements. An example of this type of expression is as follows:   
-
-```
-DateTime.Today.Day   
-Convert.ToDateTime
-```
-
-U-SQL-based script example:  
-
-```
-DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
-```
-
-C# expressions can provide extended functionality when you're manipulating columns as part of a rowset. For example, if you want to convert a datetime column to the date with zero hours, you can use the following SELECT part of a U-SQL-based script:
-
-```
-@rs1 =
+@results =
     SELECT
-        MAX(guid) AS start_id,
-	 MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt).ToString("yyyy-MM-dd")))
-AS start_zero_time,
-        user,
-        des
-	FROM @rs0
-    GROUP BY user, des;
+    	customer,
+	amount,
+	DateTime.Parse(date) AS date
+    FROM @a;    
 ```
 
-As you can see, we use `System.Convert.ToDateTime` method to run through the conversion.
-
-Following is a slightly more complicated scenario that demonstrates the use of some basic C# operators:
+The following script parses a string a DateTime value in a DECLARE statement.
 
 ```
-@rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-	    MIN(dt) AS start_time,
-          MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        user,
-        des
-	FROM @rs0
-    GROUP BY user, des;
-```
-
-This shows an example of a C# conditional operator expression.
-
-The previous examples demonstrate the use of C# expressions in the base U-SQL script. However, U-SQL enables more extensible programmability features that are covered later in this document.  
-
-Full script:
-
-```
-DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
-DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
-
-@rs0 =
-	EXTRACT
-        guid Guid,
-	    dt DateTime,
-        user String,
-        des String
-	FROM @input_file USING Extractors.Tsv();
-
-DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
-
-@rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-	MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        user,
-        des
-	FROM @rs0
-    GROUP BY user, des;
-
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
 ```
 
 ### Use C# expressions for data type conversions
@@ -203,163 +104,7 @@ Here's an example of how to use this expression in a script:
     GROUP BY user, des;
 ```
 
-## Use inline C# function expressions
-U-SQL allows the use of inline function expressions definition as part of C# expressions. This creates additional possibilities for using C# functions with output reference parameters.
 
-Following is an example of a general inline function expression definition:
-
-```
-(Func<type of param1, type of param2>)
-(param1 =>
-     { … return param2}
-) (Rowset Column)
-```
-
-Example:
-
-```
-(Func<string, DateTime?>)
-(input_p =>
-     {
-	DateTime dt_result;
-	return DateTime.TryParse(input_p, out dt_result)
-	       ? (DateTime?) dt_result : (DateTime?) null;
-     }
-)
-) (dt)
-```
-
-In this example, we define an inline function with the string input parameter input_p. Inside this function, we verify if input string is a valid datetime value. If it is, return it, otherwise return null.
-
-The inline function is needed in this scenario because the DateTime.TryParse function contains the output parameter `out dt_result`. We define it as the `DateTime dt_result;`.
-
-
-## Verify data type values
-Some C# functions cannot be used directly in base U-SQL scripts as C# expressions. Specifically, the functions that can't be used directly are those that require an output reference parameter. However, these functions can be defined and used as part of an inline function expression, as discussed earlier.
-
-### Use inline function expressions
-To verify if DateTime value is valid, we can use `DateTime.TryParse`.
-
-Here is a complete example that shows how to use an inline function expression to verify data type value with `DateTime.TryParse`.
-
-In this scenario, we verify DateTime data type value:
-
-```
-DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
-DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
-
-@rs0 =
-	EXTRACT
-        guid Guid,
-	    dt string,
-        user String,
-        des String
-	FROM @input_file USING Extractors.Tsv();
-
-@rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-        MIN((
-             (Func<string, DateTime?>)
-             (input_parameter =>
-                { DateTime dt_result;
-                  return
-                     DateTime.TryParse(input_parameter, out dt_result)
-                       ?(DateTime?) dt_result : (DateTime?) null;
-                }
-             )
-             ) (dt)) AS start_time,
-        DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
-        user,
-        des
-	FROM @rs0
-    GROUP BY user, des;
-
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
-```
-
-### Use code-behind
-To use the same functionality in the code-behind section of the U-SQL program, we define the C# function ToDateTime.
-
-Here is the section of base U-SQL script in which we made the necessary changes:
-
-```
-@rs1 =
-SELECT
-  MAX(guid) AS start_id,
-  MIN(USQL_Programmability.CustomFunctions.ToDateTime(dt)) AS start_time,
-  DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
-  user,
-  des
-  FROM @rs0
-GROUP BY user, des;
-```
-
-Here is the code-behind function:
-
-```
-static public DateTime? ToDateTime(string dt)
-{
-    DateTime dtValue;
-
-    if (!DateTime.TryParse(dt, out dtValue))
-	return Convert.ToDateTime(dt);
-    else
-	return null;
-}
-```
-
-## Use code-behind
-Code-behind is a C# programmability section of the U-SQL project. Conceptually, code-behind is a compiled assembly (DLL) that's referenced in U-SQL script. Visual Studio Tools enables you to manage and debug a C# programmability section as part of a U-SQL project.
-
-When a typical U-SQL project is created in Visual Studio, there are two parts of the project: base script and a file with the extension **.usql**.
-
-![Base script file](./media/data-lake-analytics-u-sql-programmability-guide/base-script-file.png)
-
-
-Typical solution project:   
-![Typical solution project](./media/data-lake-analytics-u-sql-programmability-guide/typical-solution-project.png)
-
-
-In the second part of the project, we call a code-behind file: Script.usql.cs.  
-![Code-behind](./media/data-lake-analytics-u-sql-programmability-guide/code-behind.png)
-
-This file contains a default namespace definition for programmability objects.
-
-```
-using Microsoft.Analytics.Interfaces;
-using Microsoft.Analytics.Types.Sql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace USQL_Programmability
-{
-
-}
-```
-
-The preview code-behind template is generated automatically. This file contains a default namespace definition for programmability objects. During project execution, it gets compiled and referenced in base U-SQL script.
-
-To start developing programmability objects, we need to create a **public** class.
-
-```c#
-namespace USQL_Programmability
-{
-    public class MyClass
-    {
-        public static string MyFunction(string param1)
-        {
-            return "my result";
-        }
-
-    }
-
-}
-```
-
-The programmability objects can be user-defined functions, UDF, User-Defined Types, UDT, PROCESS, or REDUCER, and so on.
 
 ## Register U-SQL assemblies
 U-SQL’s extensibility model relies heavily on the ability to add custom code. Currently, U-SQL provides you with easy ways to add your own Microsoft .NET-based code (in particular, C#). However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#.
@@ -2497,6 +2242,7 @@ USING MyNameSpace.MyCombiner();
 ```
 
 ## Use user-defined reducers
+
 U-SQL enables you to write custom rowset reducers in C# by using the user-defined operator extensibility framework and implementing an IReducer interface.
 
 User-defined reducer, or UDR, can be used to eliminate unnecessary rows during data extraction (import). It also can be used to manipulate and evaluate rows and columns. Based on programmability logic, it can also define which rows need to be extracted.
