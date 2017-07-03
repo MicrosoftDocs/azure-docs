@@ -35,7 +35,7 @@ To complete this quick start tutorial, make sure you have the following:
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 - You have installed [.NET Core for your operating system](https://www.microsoft.com/net/core). 
 
-## Get connection information
+## Get Azure SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
@@ -57,7 +57,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 > You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 >
   
-## Create a new project and add dependencies
+## Create a new .NET project and add dependencies
 
 1. Open a command prompt and create a folder named *sqltest*. Navigate to the folder you created and run the following command:
 
