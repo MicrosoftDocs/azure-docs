@@ -215,7 +215,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Sansan tile in the Access Panel, you should get login page of Sansan application.
+When you click the Sansan tile in the Access Panel, you should get automatically signed-on to your SanSan application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
