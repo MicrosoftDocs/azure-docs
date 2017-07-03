@@ -59,6 +59,7 @@ Please make sure you have the following:
 
 ## Step 1: Create an Azure Cosmos DB account
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your C++ application](#SetupNode).
+<!---Loc Comment: Please, check link [Setup your C++ application] since it's not redirecting to any location.--->
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
