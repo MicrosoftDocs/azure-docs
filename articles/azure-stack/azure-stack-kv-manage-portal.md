@@ -43,7 +43,7 @@ You can manage Key Vault in Azure Stack by using the Azure Stack portal. This ar
 
 6. Select the **Pricing tier**.  
     >[!NOTE]
-    > At the TP3 release, key vault supports the **Standard** SKU only.
+    > Key vaults in Azure Stack Development Kit support **Standard** SKU only.
 
 7. Choose an existing **Access policies** or create a new one. Access policy allows you to grant permissions for a user, application, or a security group to perform operations with this vault.  
 
