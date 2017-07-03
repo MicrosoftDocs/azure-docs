@@ -1,6 +1,6 @@
 ---
-title: What is Azure Stack Technical Preview 3? | Microsoft Docs
-description: Azure Stack POC is an environment for learning about core Azure Stack features and scenarios.
+title: What is Azure Stack Development Kit? | Microsoft Docs
+description: Azure Stack Development Kit is an environment for evaluating Azure Stack features and scenarios.
 services: azure-stack
 documentationcenter: ''
 author: HeathL17
@@ -13,19 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/11/2017
+ms.date: 7/10/2017
 ms.author: helaw
 ms.custom: mvc
 
 ---
-# What is Azure Stack Technical Preview 3?
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Microsoft-Azure-Stack/player]
+# What is Azure Stack Development Kit?
 
+Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Development Kit is a single-node version of Azure Stack that runs on your hardware, which you can use to evaluate and learn about Azure Stack features.  You can also use the Azure Stack Development Kit as a developer environment, where you can develop using consistent APIs and tooling.  
 
-Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 3 is being made available as a Proof of Concept (POC). Once deployed, the POC is an ideal environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
-
-## Scope of Azure Stack POC
-* Azure Stack POC must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
+## Scope of Azure Stack Development Kit
+* Azure Stack Development Kit must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
 * Your deployment of Azure Stack is associated with a single identity provider, like Azure Active Directory or Active Directory Federation Services. You can create multiple users in this directory and assign subscriptions to each user.
 * With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale or performance evaluation.
 * Networking scenarios are limited due to the single host/NIC requirement.
