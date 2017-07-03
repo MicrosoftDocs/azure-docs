@@ -66,7 +66,7 @@ This section guides you through connecting your Azure AD to Xmatters's user acco
 
 ![Xmatters Provisioning](./media/active-directory-saas-xmatters-provisioning-tutorial/Xmatters1.png)
 
-5)	Under the **Admin Credentials** section, input the **Admin Username&Admin Password&Domain** of your Xmatters's account(You can get these information while registering your account). 
+5)	Under the **Admin Credentials** section, input the **Admin Username&Admin Password&Domain** of your Xmatters's account(You can get **Username&Password** while registering your account and get the **Domain** from the URL. For example, if you get the URL "https://deepblue7.xmatters.com/xmatters/app.do?identifier=shvf2NA7", "deepblue7" is the Domain). 
 
 ![Xmatters Provisioning](./media/active-directory-saas-xmatters-provisioning-tutorial/Xmatters2.png)
 
