@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2017
+ms.date: 07/05/2017
 ms.author: jeedes
 
 ---
@@ -126,15 +126,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_attribute.png)
 
     >[!NOTE]
-    >You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user.
+    >You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user. 
 
-6. To remove the redundant **SAML token attributes**, perform the following steps: 
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_removeattribute.png) 
-  
-    For each user attribute in the red box of the table above, click on the **three dots** over the attribute, and then click **Delete**. 
-
-7. To add the required **SAML token attributes**, for each row shown in the table below, perform the following steps:
+6. To add the required **SAML token attributes**, for each row shown in the table below, perform the following steps:
    
    | Attribute Name | Attribute Value |
    | ---| --- |
@@ -142,21 +136,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    | Last Name |user.surname |
    | Email |user.mail |
    
-    a. Click **add user attribute** to open the **Add User Attribure** dialog.
+   a. Click **add user attribute** to open the **Add User Attribure** dialog.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addattribute.png)
+     ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addattribute.png)
   
-    b. In the **Attribute Name** textbox, type the attribute name shown for that row.
+   b. In the **Attribute Name** textbox, type the attribute name shown for that row.
   
-    c. From the **Attribute Value** list, select the attribute value shown for that row.
+   c. From the **Attribute Value** list, select the attribute value shown for that row.
   
-    d. Click **Ok**.    
+   d. Click **Ok**.    
 
-8. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_general_400.png)
 
-9. To get SSO configured for your application, contact [Pluralsight Professional Services](mailTo:professionalservices@pluralsight.com) team and provide the downloaded metadata file.
+8. To get SSO configured for your application, contact [Pluralsight Professional Services](mailTo:professionalservices@pluralsight.com) team and provide the downloaded metadata file.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
