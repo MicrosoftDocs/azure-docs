@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/05/2017
 ms.author: jeedes
 
 ---
@@ -191,21 +191,17 @@ In order to enable Azure AD users to log into Panorama9, they must be provisione
 
 1. Log in to your **Panorama9** company site as an administrator.
 
-2. In the menu on the top, click **Manage**, and then click 
-
-**Users**.
+2. In the menu on the top, click **Manage**, and then click **Users**.
    
   ![Users](./media/active-directory-saas-panorama9-tutorial/ic790027.png "Users")
 
-3. Click **+**.
+3. In the Users section, Click **+** to add new user.
 
-4. In the User data section, perform the following steps:
+4. Go to the User data section, type the email address of a valid Azure Active Directory user you want to provision into the **Email** textbox.
+
+5. Come to the Users section, Click **Save**.
    
   ![Users](./media/active-directory-saas-panorama9-tutorial/ic790028.png "Users")
-
-  a. In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
-
-  b. Click **Save**.
 
 > [!NOTE]
     > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
@@ -244,7 +240,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Panorama9 tile in the Access Panel, you should get automatically login page of Panorama9 application.
+When you click the Panorama9 tile in the Access Panel, you should get automatically signed-on to Panorama9 application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
