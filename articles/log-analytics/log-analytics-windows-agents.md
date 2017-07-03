@@ -166,7 +166,9 @@ The agent uses IExpress as its self-extractor using the `/c` command. You can se
 |OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy |
 
 >[!NOTE]
-If you get a `Command line option syntax error.` when using the `OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE` parameter, you can use the following workaround:
+1. To avoid hitting the command-line length limit of IExpress, install the agent with no workspace configured and then use a script to set configuration for the workspace.
+
+2. If you get a `Command line option syntax error.` when using the `OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE` parameter, you can use the following workaround:
 ```dos
 MMASetup-AMD64.exe /C /T:.\MMAExtract
 cd .\MMAExtract
@@ -175,11 +177,6 @@ setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1
 >
 >
 >
-
-
-
->[!INFO]
-To avoid hitting the command-line length limit of IExpress, install the agent with no workspace configured and then use a script to set configuration for the workspace.
 
 ## Add a workspace using a script
 Add a workspace using the Log Analytics agent scripting API with the following example:
