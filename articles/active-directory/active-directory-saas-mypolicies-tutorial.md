@@ -108,11 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_url.png)
 
-4. The myPolicies application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
+4. The myPolicies application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_attribute.png)
 
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
+5. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
 
 	| Attribute Name | Attribute Value |
 	| ------------------- | ---------- |
@@ -121,18 +121,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| emailaddress | user.mail |
 	| name | user.userprincipalname |
 	
-	a. Click on the **Attribute Name** to open the **Edit Attribute** dialog.
+	a. Click on the attribute to open the **Edit Attribute** dialog.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_attribute_05.png)
 	
-	b. In the **Name** textbox, type the attribute name shown for that row.
+	b. Delete the URL value from the **Namespace**.
 	
-	c. From the **Value** list, type the attribute value shown for that row.
+	c. Click **Ok** to save the setting.
 	
-	d. In the **Namespace** textbox, Remove the Namespace value.
-	
-	e. Click **Ok**.	
-
 6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_certificate.png) 
