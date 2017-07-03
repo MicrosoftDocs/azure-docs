@@ -21,15 +21,15 @@ ms.author: sethm
 
 ## Runtime APIs
 
-The following is a listing of all currently available Relay runtime clients.
+The following table lists all currently available Relay runtime clients.
 
-See [additional information](#additional-information) for more details on the status of each runtime library.
+The [additional information](#additional-information) section contains more information about the status of each runtime library.
 
 | Language/Platform | Available feature | Client package | Repository |
 | --- | --- | --- | --- |
 | .NET Standard | Hybrid Connections | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | WCF Relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
-| Node | Hybrid Connections | [hyco-ws](https://www.npmjs.com/package/hyco-ws)<br/>[hyco-websocket](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Node | Hybrid Connections | [`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### Additional information
 
