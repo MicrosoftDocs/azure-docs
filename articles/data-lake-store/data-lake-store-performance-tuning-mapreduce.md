@@ -57,8 +57,9 @@ If you are using an empty cluster, then memory can be the total YARN memory for 
 **Step 4: Calculate number of YARN containers** – YARN containers dictate the amount of concurrency available for the job.  Take total YARN memory and divide that by mapreduce.map.memory.  
 
 	# of YARN containers = total YARN memory / mapreduce.map.memory
-	
-You should use at least as many mappers and reducers as the # of YARN containers to get the most concurrency.  You can experiment further by increasing the number of mappers and reducers to see if you get better performance.  Keep in mind that more mappers will have additional overhead so having too many mappers may degrade performance.  
+
+**Step 5: Set mapreduce.job.maps/mapreduce.job.reduces**
+Set mapreduce.job.maps/mapreduce.job.reduces to at least the number of available containers.  You can experiment further by increasing the number of mappers and reducers to see if you get better performance.  Keep in mind that more mappers will have additional overhead so having too many mappers may degrade performance.  
 
 Note: CPU scheduling and CPU isolation are turned off by default so the number of YARN containers is constrained by memory.
 
@@ -71,16 +72,20 @@ Let’s say you currently have a cluster composed of 8 D14 nodes and you want to
 **Step 2: Set mapreduce.map.memory/mapreduce.reduce.memory** – for our example, you are running an I/O intensive job and decide that 3GB of memory for map tasks will be sufficient.
 
 	mapreduce.map.memory = 3GB
-**Step 3: Determine Total YARN memory** 
+**Step 3: Determine Total YARN memory**
 
 	total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Step 4: Calculate # of YARN containers**
 
 	# of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
+**Step 5: Set mapreduce.job.maps/mapreduce.job.reduces**
+
+	mapreduce.map.jobs = 256
+
 ## Limitations
 
-**ADLS throttling** 
+**ADLS throttling**
 
 As a multi-tenant service, ADLS sets account level bandwidth limits.  If you hit these limits, you will start to see task failures. This can be identified by observing throttling errors in task logs.  If you need more bandwidth for your job, please contact us.   
 
@@ -103,7 +108,7 @@ For a starting point, here are some example commands to run MapReduce Teragen, T
 
 **Teragen**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
+	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.=2048 -Dmapred.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
 
 **Terasort**
 

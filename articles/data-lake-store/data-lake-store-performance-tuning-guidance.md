@@ -118,7 +118,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 ![Data Lake Store performance](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
-NOTE: Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It’s common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
+Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It’s common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
 
 **Increase cores per YARN container.**  Increase the number of cores allocated to each container to increase the number of parallel tasks that run in each container.  This works for applications like Spark which run multiple tasks per container.  For applications like Hive which run a single thread in each container, it is better to have more containers rather than more cores per container.   
 
