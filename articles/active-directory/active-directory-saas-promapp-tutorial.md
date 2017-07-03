@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://DOMAIN.promapp.com/INSTANCENAME/saml/authenticate`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://DOMAINNAME.promapp.com/TENANTNAME`
 
@@ -143,9 +143,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. Paste **SAML Single Sign-On Service URL**, which you have copied from the Azure portal into the **SSO-Login URL** textbox.
 	
-	b. As **SSO - Single Sign-on Mode**, select **Optional**.
+	b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
 
-	c. Open your downloaded certificate file in notepad, copy the content, paste it into **SSO-x.509 Certificate** textbox.
+	c. Open the downloaded certificate in notepad, copy the certificate content without the first line (-----BEGIN CERTIFICATE-----) and the last line (-----END CERTIFICATE-----), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
 		
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
