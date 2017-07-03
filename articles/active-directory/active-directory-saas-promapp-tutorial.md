@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://DOMAIN.promapp.com/INSTANCENAME/saml/authenticate`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://DOMAIN.promapp.com/INSTANCENAME`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://DOMAINNAME.promapp.com/TENANTNAME`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Promapp Client support team](https://www.promapp.com/about-us/contact-us/) to get these values.
