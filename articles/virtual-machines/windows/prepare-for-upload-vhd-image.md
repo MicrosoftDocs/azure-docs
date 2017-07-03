@@ -40,7 +40,7 @@ After you convert the disk, create a VM that uses the converted disk. Start and 
 7. Click **Finish** to close.
 
 >[!NOTE]
->For all the instructions sections, the commands must be run on an elevated PowerShell session.
+>The commands in the following instructions must be run on an elevated PowerShell session.
 
 ### Convert disk using PowerShell
 You can convert a virtual disk by using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) command in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
@@ -70,7 +70,7 @@ On the VM you plan to upload to Azure, run all the following commands from the c
     ```
 3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx). 
    
-    ```
+    ```PowerShell
     diskpart 
     ```
     In the opened Command Prompt window, type the following commands:
