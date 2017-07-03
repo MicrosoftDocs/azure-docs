@@ -24,7 +24,7 @@ Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure ser
 
 ## Scope of Azure Stack Development Kit
 * Azure Stack Development Kit must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
-* Your deployment of Azure Stack is associated with a single identity provider, like Azure Active Directory or Active Directory Federation Services. You can create multiple users in this directory and assign subscriptions to each user.
+* Your deployment of Azure Stack is associated with a single Azure Active Directory or Active Directory Federation Services identity provider. You can create multiple users in this directory and assign subscriptions to each user.
 * With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale or performance evaluation.
 * Networking scenarios are limited due to the single host/NIC requirement.
 
