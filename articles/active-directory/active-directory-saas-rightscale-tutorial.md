@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_samlbase.png)
 
-3. On the **Rightscale Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure:
+3. On the **Rightscale Domain and URLs** section, if you wish to configure the application in **IDP initiated mode** you does not have to perform any steps as the app is already pre-integrated with Azure.
 
 	![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_url.png)
 
