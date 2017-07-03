@@ -112,6 +112,7 @@ You can run the Add-AzurePackConnector.ps1 script immediately after deployment, 
 
  ```
 
+>
 > [!NOTE]
 > In the current build there is an issue where after the Add-AzurePackConnector script ends, it remains in a polling loop for an extended period of time (several minutes) until it ends. After you see the message **VERBOSE: Step 'Configure Azure Pack Connector' status: 'Success'**, you can stop the script or wait until it stops by itself. It won’t make a difference because the configuration has already succeeded.
 
