@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     d. In the **Logout URL** textbox, enter the value of **Sign-Out URL** which you have copied from Azure portal.
  
-    e. In the **SAML Issuer** textbox type, the value of **Identifier** set in **Samanage Domain and URLs** section on Azure portal.
+    e. In the **SAML Issuer** textbox, type the value of **Identifier** set in **Samanage Domain and URLs** section on Azure portal.
  
     f. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Paste your Identity Provider x.509 Certificate below** textbox.
  
