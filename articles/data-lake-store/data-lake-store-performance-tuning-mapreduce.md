@@ -38,7 +38,7 @@ When running MapReduce jobs, here are the most important parameters that you can
 * **Mapreduce.job.reduces** – The number of reduce tasks per job
 
 **Mapreduce.map.memory / Mapreduce.reduce.memory**
-This number should be adjusted based on how much memory is needed for the map and/or reduce task.  The default values of mapreduce.map.memory and mapreduce.reduce.memory can be viewed in Ambari via the Yarn configuration.  In Ambari, navigate to YARN and view the Configs tab.  You can see the memory     
+This number should be adjusted based on how much memory is needed for the map and/or reduce task.  The default values of mapreduce.map.memory and mapreduce.reduce.memory can be viewed in Ambari via the Yarn configuration.  In Ambari, navigate to YARN and view the Configs tab.  The YARN memory will be displayed.  
 
 **Mapreduce.job.maps / Mapreduce.job.reduces**
 This will determine the maximum number of mappers or reducers to be created.  The number of splits will determine how many mappers will be created for the MapReduce job.  Therefore, you may get less mappers than you requested if there are less splits than the number of mappers requested.       
@@ -61,7 +61,7 @@ If you are using an empty cluster, then memory can be the total YARN memory for 
 **Step 5: Set mapreduce.job.maps/mapreduce.job.reduces**
 Set mapreduce.job.maps/mapreduce.job.reduces to at least the number of available containers.  You can experiment further by increasing the number of mappers and reducers to see if you get better performance.  Keep in mind that more mappers will have additional overhead so having too many mappers may degrade performance.  
 
-Note: CPU scheduling and CPU isolation are turned off by default so the number of YARN containers is constrained by memory.
+CPU scheduling and CPU isolation are turned off by default so the number of YARN containers is constrained by memory.
 
 ## Example Calculation
 
@@ -102,18 +102,18 @@ To check if you are getting throttled, you need to enable the debug logging on t
 To demonstrate how MapReduce runs on Azure Data Lake Store, below is some sample code that was run on a cluster with the following settings:
 
 * 16 node D14v2
-* Hadoop cluster running HDI 3.5
+* Hadoop cluster running HDI 3.6
 
 For a starting point, here are some example commands to run MapReduce Teragen, Terasort, and Teravalidate.  You can adjust these commands based on your resources.
 
 **Teragen**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.=2048 -Dmapred.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
+	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
 
 **Terasort**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 -Dmapred.reduce.tasks=512 -Dmapred.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
+	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
 
 **Teravalidate**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=512 -Dmapred.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
+	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
