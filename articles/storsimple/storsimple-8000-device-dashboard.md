@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/19/2017
+ms.date: 07/03/2017
 ms.author: alkohli
 
 ---
@@ -76,12 +76,10 @@ The essentials area captures some of the important properties such as, the statu
   
      In this context, *primary storage* refers to the total amount of data written by the host, and can be broken down by volume type: *primary tiered storage* includes both locally stored data and data tiered to the cloud. *Primary locally pinned storage* includes just data stored locally. *Cloud storage*, on the other hand, is a measurement of the total amount of data stored in the cloud. This storage includes tiered data and backups. The data stored in the cloud is deduplicated and compressed, whereas primary storage indicates the amount of storage used before the data is deduplicated and compressed. (You can compare these two numbers to get an idea of the compression rate.) For both primary and cloud storage, the amounts shown are based on the tracking frequency you configure. For example, if you choose a one week frequency, then the chart shows data for each day in the previous week.
 
-       * To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY TIERED STORAGE USED** and **PRIMARY LOCALLY PINNED STORAGE USED** options. In the illustration, both options are selected. Therefore, the chart shows storage amounts for both cloud and primary storage. Any primary storage used prior to installing Update 2 is represented by the **PRIMARY TIERED STORAGE USED** line.
-       * Use the drop-down menu in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time period. The top-level chart is refreshed only one time per day, and therefore will reflect the previous day's totals.
+     To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY TIERED STORAGE USED** and **PRIMARY LOCALLY PINNED STORAGE USED** options. In the illustration, both options are selected. Therefore, the chart shows storage amounts for both cloud and primary storage. .
     
-       For more information, see [Use the StorSimple Device Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
-
-      * **Usage overview** – In the **usage overview** area, you can see the amount of primary storage used, the amount of provisioned storage, and the maximum storage capacity for your device. By comparing these usage numbers to the maximum amount of storage that is available, you can see at a glance if you need to obtain additional storage. This overview is updated every 15 minutes and, because of the difference in update frequency, may show different numbers than those shown in the chart area above, which is updated daily. For more information, see [Use the StorSimple Device Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
+        
+    For more information, see [Use the StorSimple Device Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
 
 
 * The **Capacity** tile displays the primary storage that is provisioned and remaining across the device relative to the total storage available for the same. **Provisioned** refers to the amount of storage that is prepared and allocated for use, **Remaining** refers to the remaining capacity that can be provisioned across this device. 

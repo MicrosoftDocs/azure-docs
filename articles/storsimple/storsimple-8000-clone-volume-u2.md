@@ -17,7 +17,7 @@ ms.date: 06/23/2017
 ms.author: alkohli
 
 ---
-# Use the StorSimple Device Manager service in Azuer portal to clone a volume
+# Use the StorSimple Device Manager service in Azure portal to clone a volume
 
 ## Overview
 
@@ -25,7 +25,7 @@ This tutorial describes how you can use a backup set to clone an individual volu
 
 The StorSimple Device Manager service **Backup catalog** blade displays all the backup sets that are created when manual or automated backups are taken. You can then select a volume in a backup set to clone.
 
- ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)
+ ![Backup set list](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
 
 ## Considerations for cloning a volume
 
