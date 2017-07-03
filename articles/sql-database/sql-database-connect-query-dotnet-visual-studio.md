@@ -60,8 +60,8 @@ Get the connection information needed to connect to the Azure SQL database. You 
 ## Create a new Visual Studio project and add dependencies
 
 1. In Visual Studio, choose **File**, **New**, **Project**. 
-2. In the **New Project** dialog, expand **Visual C#**, and select **.NET Core**.
-3. Select **Console App (.NET Core)** and enter *sqltest* for the project name.
+2. In the **New Project** dialog, and expand **Visual C#**.
+3. Select **Console App** and enter *sqltest* for the project name.
 4. Click **OK** to create and open the new project in Visual Studio
 4. In Solution Explorer, right-click **sqltest** and click **Manage NuGet Packages**. 
 5. On the **Browse**, search for ```System.Data.SqlClient``` and, when found, select it.
