@@ -185,7 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In order to enable Azure AD users to log into Panorama9, they must be provisioned into Panorama9.  
 
-* In the case of Panorama9, provisioning is a manual task.
+In the case of Panorama9, provisioning is a manual task.
 
 **To configure user provisioning, perform the following steps:**
 
@@ -197,12 +197,12 @@ In order to enable Azure AD users to log into Panorama9, they must be provisione
 
 3. In the Users section, Click **+** to add new user.
 
+ ![Users](./media/active-directory-saas-panorama9-tutorial/ic790028.png "Users")
+
 4. Go to the User data section, type the email address of a valid Azure Active Directory user you want to provision into the **Email** textbox.
 
 5. Come to the Users section, Click **Save**.
    
-  ![Users](./media/active-directory-saas-panorama9-tutorial/ic790028.png "Users")
-
 > [!NOTE]
     > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
