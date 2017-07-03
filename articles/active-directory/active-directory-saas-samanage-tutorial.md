@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     d. In the **Logout URL** textbox, enter the value of **Sign-Out URL** which you have copied from Azure portal.
  
-    e. In the **SAML Issuer** textbox type  the value of **Identifier** set in **Samanage Domain and URLs** section on Azure portal.
+    e. In the **SAML Issuer** textbox type, the value of **Identifier** set in **Samanage Domain and URLs** section on Azure portal.
  
     f. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Paste your Identity Provider x.509 Certificate below** textbox.
  
@@ -214,7 +214,7 @@ In the case of Samanage, provisioning is a manual task.
 
 5. Type the **Name** and the **Email Address** of an Azure Active Directory account you want to provision and click **Create user**.
    
-    ![Creat User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Creat User")
+    ![Create User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Create User")
    
    >[!NOTE]
    >The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Samanage user account creation tools or APIs provided by Samanage to provision Azure Active Directory user accounts.
