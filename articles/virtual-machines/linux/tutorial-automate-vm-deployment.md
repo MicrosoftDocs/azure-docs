@@ -19,7 +19,14 @@ ms.author: iainfou
 ---
 
 # How to customize a Linux virtual machine on first boot
-To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). This tutorial describes how to use cloud-init to automatically install packages, configure the NGINX web server, and deploy a Node.js app.
+In a previous tutorial, you learned how to SSH to a virtual machine (VM) and manually install NGINX. To create VMs in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create a cloud-init config file
+> * Create a VM that uses a cloud-init file
+> * View a running Node.js app after the VM is created
+> * Use Key Vault to securely store certificates
+> * Automate secure deployments of NGINX with cloud-init
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -254,6 +261,16 @@ Your secured NGINX site and Node.js app is then displayed as in the following ex
 
 
 ## Next steps
-In this tutorial, you have learned how to customize a VM on first boot. Advance to the next tutorial to learn how to create custom VM images.
+In this tutorial, you configured VMs on first boot with cloud-init. You learned how to:
 
-[Create custom VM images](./tutorial-custom-images.md)
+> [!div class="checklist"]
+> * Create a cloud-init config file
+> * Create a VM that uses a cloud-init file
+> * View a running Node.js app after the VM is created
+> * Use Key Vault to securely store certificates
+> * Automate secure deployments of NGINX with cloud-init
+
+Advance to the next tutorial to learn how to create custom VM images.
+
+> [!div class="nextstepaction"]
+> [Create custom VM images](./tutorial-custom-images.md)

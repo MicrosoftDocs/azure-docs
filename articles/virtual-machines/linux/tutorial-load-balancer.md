@@ -19,7 +19,16 @@ ms.author: iainfou
 ---
 
 # How to load balance Linux virtual machines in Azure to create a highly available application
-Load balancing provide a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a Node.js app that runs on three Linux virtual machines (VMs).
+Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. You learn how to:
+
+> [!div class="checklist"]
+> * Create an Azure load balancer
+> * Create a load balancer health probe
+> * Create load balancer traffic rules
+> * Use cloud-init to create a basic Node.js app
+> * Create virtual machines and attach to a load balancer
+> * View a load balancer in action
+> * Add and remove VMs from a load balancer
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -33,7 +42,7 @@ Virtual machines connect to a load balancer using their virtual network interfac
 
 To control the flow of traffic, you define load balancer rules for specific ports and protocols that map to your VMs.
 
-If you followed the previous tutorial to [create a virtual machine scale set](tutorial-create-vmss.md), a load balancer was created for you. All of these components were configured for you as part of the scale set.
+If you followed the previous tutorial to [create a virtual machine scale set](tutorial-create-vmss.md), a load balancer was created for you. All these components were configured for you as part of the scale set.
 
 
 ## Create Azure load balancer
@@ -276,6 +285,18 @@ az network nic ip-config address-pool add \
 
 
 ## Next steps
-In this tutorial, you learned about creating a load balancer for virtual machines. Advance to the next tutorial to learn more about Azure virtual network components.
+In this tutorial, you created a load balancer and attached VMs to it. You learned how to:
 
-[Manage VM networking](tutorial-virtual-network.md)
+> [!div class="checklist"]
+> * Create an Azure load balancer
+> * Create a load balancer health probe
+> * Create load balancer traffic rules
+> * Use cloud-init to create a basic Node.js app
+> * Create virtual machines and attach to a load balancer
+> * View a load balancer in action
+> * Add and remove VMs from a load balancer
+
+Advance to the next tutorial to learn more about Azure virtual network components.
+
+> [!div class="nextstepaction"]
+> [Manage VM networking](tutorial-virtual-network.md)

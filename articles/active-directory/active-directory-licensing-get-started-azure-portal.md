@@ -1,6 +1,6 @@
 ---
 
-  title: Get started with licensing in the Azure Active Directory preview | Microsoft Docs
+  title: Get started with licensing in the Azure Active Directory | Microsoft Docs
   description: Description of Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions
   services: active-directory
   keywords: Azure AD licensing
@@ -15,14 +15,14 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/27/2017
+  ms.date: 05/05/2017
   ms.author: curtand
 
   ms.custom: H1Hack27Feb2017
 
 ---
 
-# License yourself and your users in Azure Active Directory preview
+# License yourself and your users in Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-licensing-get-started-azure-portal.md)
@@ -62,7 +62,7 @@ While obtaining a subscription is all you need to configure paid capabilities, u
 assigned a license. A license assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise
 Mobility Suite.
 
-Managing which users in your directory should have a license is simple. It can be accomplished by assigning licenses to groups in Azure portal or by assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. When assigning licenses to a group, all group members will be assigned a license. If users are added or removed from the group they will be assigned or removed the appropriate license. Group assignment can utilize any group management available to you and is consistent with group-based assignment to applications. Using this approach, you can set up rules such that all users in your directory are automatically assigned, ensure that everyone with the appropriate job title has a license or even delegate the decision to other managers in the organization. 
+Managing which users in your directory should have a license is simple. It can be accomplished by assigning licenses to groups in Azure portal (this feature is in public preview) or by assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. When assigning licenses to a group, all group members will be assigned a license. If users are added or removed from the group they will be assigned or removed the appropriate license. Group assignment can utilize any group management available to you and is consistent with group-based assignment to applications. Using this approach, you can set up rules such that all users in your directory are automatically assigned, ensure that everyone with the appropriate job title has a license or even delegate the decision to other managers in the organization. 
 
 For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, please see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 

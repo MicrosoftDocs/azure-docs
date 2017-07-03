@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/07/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -47,6 +47,9 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.13.3"/>1.13.3
+* Functionally same as 1.13.2. Made some internal changes.
 
 ### <a name="1.13.2"/>1.13.2
 * Fixed an issue that ignored the PartitionKey value provided in FeedOptions for aggregate queries.
@@ -222,6 +225,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.13.3](#1.13.3) |May 06, 2017 |--- |
 | [1.13.2](#1.13.2) |April 19, 2017 |--- |
 | [1.13.1](#1.13.1) |March 29, 2017 |--- |
 | [1.13.0](#1.13.0) |March 24, 2017 |--- |

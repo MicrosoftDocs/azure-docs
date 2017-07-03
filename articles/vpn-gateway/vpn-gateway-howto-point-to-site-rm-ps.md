@@ -147,21 +147,9 @@ Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPN
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
+## <a name="upload"></a>4 - Upload the root certificate .cer file
 
-## <a name="creategateway"></a>4 - Create the VPN gateway
-
-Configure and create the virtual network gateway for your VNet. The *-GatewayType* must be **Vpn** and the *-VpnType* must be **RouteBased**. A VPN gateway can take up to 45 minutes to complete.
-
-```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
--Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
--VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
-```
-
-## <a name="upload"></a>5 - Upload the root certificate .cer file
-
-Upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. You can upload files for up to 20 root certificates. You do not upload the private key for the root certificate to Azure. Once the .cer file is uploaded, Azure uses it to authenticate clients that connect to the virtual network. To upload a root certificate public key, you can either use the instructions in this section, or you can use the instructions in the [Add or remove a root certificate](#addremovecert) section.
+Upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. You can upload files for up to 20 root certificates. You do not upload the private key for the root certificate to Azure. Once the .cer file is uploaded, Azure uses it to authenticate clients that connect to the virtual network. You can upload additional root certificate public keys later, if needed.
 
 1. Declare the variable for your certificate name, replacing the value with your own.
 
@@ -176,6 +164,18 @@ Upload the .cer file (which contains the public key information) for a trusted r
   $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
   $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
   ```
+
+
+## <a name="creategateway"></a>5 - Create the VPN gateway
+
+Configure and create the virtual network gateway for your VNet. The *-GatewayType* must be **Vpn** and the *-VpnType* must be **RouteBased**. In this example, the public key for the root certificate gets associated with the VPN gateway. A VPN gateway can take up to 45 minutes to complete.
+
+```powershell
+New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+-Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
+-VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
+-VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
+```
 
 ## <a name="clientconfig"></a>6 - Download the VPN client configuration package
 

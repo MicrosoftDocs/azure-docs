@@ -55,7 +55,7 @@ This solution does not require any management packs.
 
 ## Connected sources
 
-The following ITSM products/services are supported by the IT Service Management connector:
+The following ITSM products/services are supported by the IT Service Management Connector:
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 

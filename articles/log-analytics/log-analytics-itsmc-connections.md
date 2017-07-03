@@ -89,9 +89,8 @@ Run the script by providing the following required details:
 - Resource group name
 - Location
 - Service Manager server details (server name, domain, user name, and password)
-- URL for deployment
-- Site name for your Web app
-- Biz talk service name.
+- Site name prefix for your Web app
+- ServiceBus Namespace.
 
 The script creates the Web app using the name that you specified (along with few additional strings to make it unique). It generates the **Web app URL**, **client ID** and **client secret**.
 

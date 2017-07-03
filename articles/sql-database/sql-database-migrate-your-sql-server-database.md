@@ -15,26 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/20/2017
+ms.date: 05/07/2017
 ms.author: janeng
 
 ---
 
 # Migrate your SQL Server database to Azure SQL Database
 
-In this tutorial, you migrate an existing SQL Server database to Azure SQL Database using the Microsoft Data Migration Assistant and go through the required steps from preparing for migration to performing the actual data migration, and connecting to the migrated database after completed migration. 
+Moving your SQL Server database to Azure SQL Database is a three part process - you prepare, export and import the database. In this tutorial, you learn to:
 
-> [!IMPORTANT]
-> To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
->
+> [!div class="checklist"]
+> * Prepare a database in a SQL Server for migration to Azure SQL Database using the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA)
+> * Export the database to a BACPAC file
+> * Import the BACPAC file into an Azure SQL Database
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
-To complete this tutorial, make sure you have:
+Before you get started, be sure you have the following:
 
 - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Installing SSMS also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. 
+- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## Prepare for migration
 
@@ -218,14 +217,16 @@ You can change the service tier, performance level, and compatibility level usin
    ![change compatibility level](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## Next steps 
+In this tutorial you prepared, exported and imported your database. You learned to:
 
-- For an overview of migration, see [Database migration](sql-database-cloud-migrate.md).
-- For a discussion of T-SQL differences, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
-- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+> [!div class="checklist"]
+> * Prepare a database in a SQL Server for migration to Azure SQL Database
+> * Export the database to a BACPAC file
+> * Import the BACPAC file into an Azure SQL Database
+
+Advance to the next tutorial to learn how to secure your database.
+
+> [!div class="nextstepaction"]
+> [Secure your Azure SQL Database](sql-database-security-tutorial.md).
+
 

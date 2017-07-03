@@ -85,7 +85,7 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for the lis
 Please see [ExpressRoute prerequisites page](expressroute-prerequisites.md) for requirements.
 
 ### Are connections to ExpressRoute redundant?
-Yes. Each Express Route circuit has a redundant pair of cross connections configured to provide high availability.
+Yes. Each ExpressRoute circuit has a redundant pair of cross connections configured to provide high availability.
 
 ### Will I lose connectivity if one of my ExpressRoute links fail?
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.

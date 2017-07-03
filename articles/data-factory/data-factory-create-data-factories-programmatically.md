@@ -440,6 +440,46 @@ Here is how you can create the Active Directory application, service principal, 
 
 Note down the application ID and the password (client secret) and use it in the walkthrough.
 
+## Get a list of failed data slices 
+
+```csharp
+// Parse the resource path
+var ResourceGroupName = "ADFTutorialResourceGroup";
+var DataFactoryName = "DataFactoryAPITestApp";
+
+var parameters = new ActivityWindowsByDataFactoryListParameters(ResourceGroupName, DataFactoryName);
+parameters.WindowState = "Failed";
+var response = dataFactoryManagementClient.ActivityWindows.List(parameters);
+do
+{
+	foreach (var activityWindow in response.ActivityWindowListResponseValue.ActivityWindows)
+	{
+		var row = string.Join(
+			"\t",
+			activityWindow.WindowStart.ToString(),
+			activityWindow.WindowEnd.ToString(),
+			activityWindow.RunStart.ToString(),
+			activityWindow.RunEnd.ToString(),
+			activityWindow.DataFactoryName,
+			activityWindow.PipelineName,
+			activityWindow.ActivityName,
+			string.Join(",", activityWindow.OutputDatasets));
+		Console.WriteLine(row);
+	}
+
+	if (response.NextLink != null)
+	{
+		response = dataFactoryManagementClient.ActivityWindows.ListNext(response.NextLink, parameters);
+	}
+	else
+	{
+		response = null;
+	}
+}
+while (response != null);
+```
+
+
 ## Get Azure subscription and tenant IDs
 If you do not have latest version of PowerShell installed on your machine, follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install it.
 

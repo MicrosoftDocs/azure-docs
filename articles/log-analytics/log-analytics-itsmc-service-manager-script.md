@@ -27,9 +27,8 @@ Run the script by providing the following required details:
 - Resource group name
 - Location
 - Service Manager server details (server name,    domain, username and password)
-- URL for deployment
-- Site name for your Web app
-- Biz talk service name.
+- Site name prefix for your Web app
+- ServiceBus Namespace.
 
 The script will create the Web app using the name that you specified (along with few additional strings to make it unique). It generates the **Web app URL**, **client ID** and **client secret**.
 
@@ -44,17 +43,15 @@ Use the following script:
 
 ```
 ###################################
-
 # User Configuration Section Begins
 ####################################
-
 # Subscription name in Azure account. Check in Azure Portal.
 $azureSubscriptionName = ""
 
 # Resource group name for resource deployment. Could be an existing resource group or a new one to be created.
 $resourceGroupName = ""
 
-# Location for Resource group deployment
+# Location for existing resource group or new resource group deployment
 ################################### List of available regions #################################################
 # centralus,eastasia,southeastasia,eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,
 # northeurope,westeurope,japaneast,japanwest,brazilsouth,australiasoutheast,australiaeast,westindia,southindia,
@@ -69,10 +66,11 @@ $username = ""
 $password = ""
 
 
-# Site Name Prefix. Default is "smoc". It can be configured to any desired value.
+# Azure site Name Prefix. Default is "smoc". It can be configured to any desired value.
 $siteNamePrefix = ""
 
-# BizTalk Service Name. Please provide an already existing biz talk service name. If it doesn't exist, a new one with that name will be created.
+# Service Bus namespace. Please provide an already existing service bus namespace.
+# If it doesn't exist, a new one will be created with name $siteName + "sbn" which can also be later reused for any other hybrid connections.
 $serviceName = ""
 
 ##################################
@@ -100,7 +98,7 @@ if(!$module -or ($module.Version.Major -lt 3))
     {
         # In case of Win 10 Anniversary update
         Install-Module AzureRM -MinimumVersion 3.3.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue -AllowClobber
-    }
+   }
     catch
     {
         Install-Module AzureRM -MinimumVersion 3.3.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue
@@ -217,30 +215,34 @@ $connStrings['ida:Password'] = $kvp
 
 Set-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -AppSettings $appSettings -ConnectionStrings $connStrings -Slot production -WarningAction SilentlyContinue
 
-# Biz Talk Service
+# Relay Namespace
 ###################
 
 if(!$serviceName)
 {
-    $serviceName = "ITSMbiz"
+    $serviceName = $siteName + "sbn"
 }
-$resource = Find-AzureRmResource -ResourceNameContains $serviceName -ResourceType Microsoft.BizTalkServices/BizTalk
+$resource = Find-AzureRmResource -ResourceNameContains $serviceName -ResourceType Microsoft.Relay/namespaces
 
 if(!$resource)
 {
+    $serviceName = $siteName + "sbn"
     $properties = @{
-                    "sku"= @{
-                                                "name" = "Free"
-                                                "unitCount" = 1
-        }
+                    "sku" = @{
+            "name"= "Standard"
+            "tier"= "Standard"
+            "capacity"= 1
+         }
     }
     try
     {
-        New-AzureRmResource -ResourceName $serviceName -Location "West US" -PropertyObject $properties -ResourceGroupName $resourceGroupName -ResourceType Microsoft.BizTalkServices/BizTalk -ApiVersion 2014-04-01-preview -Force
+        Write-Host "Creating Service Bus namespace..."
+        New-AzureRmResource -ResourceName $serviceName -Location $location -PropertyObject $properties -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Relay/namespaces -ApiVersion 2016-07-01 -Force
     }
     catch
     {
-        "Creation of BizTalk Service failed...Please create it manually from Azure Portal.`n"
+        $err = $TRUE
+        "Creation of Service Bus Namespace failed...Please create it manually from Azure Portal.`n"
     }
 
 }
@@ -252,6 +254,10 @@ Write-Host "App Name:"  $siteName
 Write-Host "Client Id:"  $clientId
 Write-Host "Client Secret:"  $clientSecret
 Write-Host "URI:"  $azureSite
+if(!$err)
+{
+    Write-Host "ServiceBus Namespace:"  $serviceName  
+}
 
 ```
 ## Next steps

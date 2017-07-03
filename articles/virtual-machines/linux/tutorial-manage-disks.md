@@ -20,7 +20,16 @@ ms.author: nepeters
 
 # Manage Azure disks with the Azure CLI
 
-Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks.
+Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
+
+> [!div class="checklist"]
+> * OS disks and temporary disks
+> * Data disks
+> * Standard and Premium disks
+> * Disk performance
+> * Attaching and preparing data disks
+> * Resizing disks
+> * Disk snapshots
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -142,7 +151,7 @@ Mount the new disk so that it is accessible in the operating system.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-The disk can now be accesses through the *datadrive* mountpoint, which can be verified by running the `df -h` command. 
+The disk can now be accessed through the *datadrive* mountpoint, which can be verified by running the `df -h` command. 
 
 ```bash
 df -h
@@ -269,6 +278,18 @@ az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 
 ## Next steps
 
-In this tutorial, you have learned about VM disks. Advance to the next tutorial to learn about automating VM configuration.
+In this tutorial, you learned about VM disks topics such as:
 
-[Automate VM configuration](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * OS disks and temporary disks
+> * Data disks
+> * Standard and Premium disks
+> * Disk performance
+> * Attaching and preparing data disks
+> * Resizing disks
+> * Disk snapshots
+
+Advance to the next tutorial to learn about automating VM configuration.
+
+> [!div class="nextstepaction"]
+> [Automate VM configuration](./tutorial-automate-vm-deployment.md)

@@ -48,7 +48,7 @@ A B2B guest user is one that is invited from a partner organization to work with
 1. If a host invites an employee using a consumer address
   1. This is not compliant with our licensing policies and currently not recommended.
 
-2.	If a host organization adds a user from another conglomerate organization
+2. If a host organization adds a user from another conglomerate organization
   1. This is the case where the user is invited using B2B APIs, but this is not traditionally B2B. Ideally, we should have these organizations invite the other orgs users as members (our API allows that). In this case, licenses have to be assigned to these members for them to access resources in the inviting organization.
 
   2. Some organizations may want to add the other org’s users to be added as “Guest” as a policy. There are two cases here:

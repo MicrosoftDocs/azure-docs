@@ -83,7 +83,7 @@ Here's what you need to do:
 
 1. Install Windows Server 2012 R2 or later, on a VMware VM.
 2. Make sure the VM has access to the URLs listed in [prerequisites](#prerequisites).
-3. Install [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0).
+3. Install [VMware vSphere PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1).
 
 
 ## Prepare for automatic discovery and push installation

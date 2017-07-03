@@ -21,7 +21,7 @@ Azure Active Directory is a cloud identity service that allows developers to sec
 
 | | |
 | --- | --- |
-|[Auth basics](active-directory-authentication-scenarios.md) | An introduction to authenication with Azure AD |
+|[Auth basics](active-directory-authentication-scenarios.md) | An introduction to authentication with Azure AD |
 |[Types of applications](active-directory-authentication-scenarios.md#application-types-and-scenarios) | An overview of the authentication scenarios supported by Azure AD |                                
                                                                               
 ## Get started
