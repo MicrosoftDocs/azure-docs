@@ -40,9 +40,9 @@ When you add this Connector to your logic apps, enter the following Twilio value
 
 If you don't have a Twilio access token, see [User Identity & Access Tokens](https://www.twilio.com/docs/api/chat/guides/identity).
 
-## View the swagger
+## Connector-specific details
 
-View any triggers, actions, and limits in the [swagger details](/connectors/twilio/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/twilio/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

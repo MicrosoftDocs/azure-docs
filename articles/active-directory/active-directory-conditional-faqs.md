@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Conditional Access FAQ | Microsoft Docs
-description: 'Frequently asked questions about conditional access '
+title: Azure Active Directory conditional access FAQs | Microsoft Docs
+description: Get answers to frequently asked questions about conditional access in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,44 +12,47 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 05/25/2017
 ms.author: markvi
 
 ---
-# Azure Active Directory Conditional Access FAQ
+# Azure Active Directory conditional access FAQs
 
 ## Which applications work with conditional access policies?
 
-**A:** Please see [Applications and browsers that use conditional access rules in Azure Active Directory](active-directory-conditional-access-supported-apps.md).
-
----
+For information about applications that work with conditional access policies, see [Applications and browsers that use conditional access rules in Azure Active Directory](active-directory-conditional-access-supported-apps.md).
 
 ## Are conditional access policies enforced for B2B collaboration and guest users?
-**A:** Policies are enforced for B2B collaboration users. However, in some cases, a user might not be able to satisfy the policy requirement if, for example, an organization does not support multi-factor authentication. 
-The policy is currently not enforced for SharePoint guest users. The guest relationship is maintained within SharePoint. Guest users accounts are not subject to access polices at the authentication server. Guest access can be managed at SharePoint.
 
----
+Policies are enforced for business-to-business (B2B) collaboration users. However, in some cases, a user might not be able to satisfy the policy requirements. For example, a guest user's organization might not support multi-factor authentication. 
+
+Currently, conditional access policies are not enforced for SharePoint guest users. The guest relationship is maintained in SharePoint. Guest user accounts in SharePoint are not subject to access polices at the authentication server. You can manage guest access in SharePoint.
 
 ## Does a SharePoint Online policy also apply to OneDrive for Business?
-**A:** Yes.
 
----
+Yes. A SharePoint Online policy also applies to OneDrive for Business.
 
 ## Why can’t I set a policy on client apps, like Word or Outlook?
-**A:** A conditional access policy sets requirements for accessing a service and is enforced when authentication happens to that service. The policy is not set directly on a client application; instead, it is applied when it calls into a service. For example, a policy set on SharePoint applies to clients calling SharePoint and a policy set on Exchange applies to Outlook.
 
---- 
+A conditional access policy sets requirements for accessing a service. It's enforced when authentication to that service occurs. The policy is not set directly on a client application. Instead, it is applied when a client calls a service. For example, a policy set on SharePoint applies to clients calling SharePoint. A policy set on Exchange applies to Outlook.
 
 ## Does a conditional access policy apply to service accounts?
-**A:** Conditional access policies apply to all user accounts. This includes user accounts used as service accounts. In many cases, a service account that runs unattended is not able to satisfy a policy. This is, for example the case, when MFA is required. In these cases, services accounts can be excluded from a policy, using conditional access policy management settings. Learn more about applying a policy to users here.
 
----
+Conditional access policies apply to all user accounts. This includes user accounts that are used as service accounts. Often, a service account that runs unattended can't satisfy the requirements of a conditional access policy. For example, multi-factor authentication might be required. Service accounts can be excluded from a policy by using conditional access policy management settings. 
 
-## Are Graph APIs available to configure configure conditional access policies?
-**A:** not yet. 
+## Are Graph APIs available for configuring conditional access policies?
 
----
+Currently, no. 
 
-##Q: What is the default exclusion policy for unsupported device platforms?
+## What is the default exclusion policy for unsupported device platforms?
 
-**A:** At the present time, conditional access policies are selectively enforced on users on iOS and Android devices. Applications on other device platforms are, by default, unaffected by the conditional access policy for iOS and Android devices. Tenant admin may, however, choose to override the global policy to disallow access to users on unsupported platforms.
+Currently, conditional access policies are selectively enforced on users of iOS and Android devices. Applications on other device platforms are, by default, not affected by the conditional access policy for iOS and Android devices. A tenant admin can choose to override the global policy to disallow access to users on platforms that are not supported.
+
+
+## How do conditional access policies work for Microsoft Teams?  
+
+Microsoft Teams relies heavily on Exchange Online and SharePoint Online for core productivity scenarios, like meetings, calendars, and file sharing. Conditional access policies that are set for these cloud apps apply to Microsoft Teams when a user signs in.
+
+Microsoft Teams also is supported separately as a cloud app in Azure Active Directory conditional access policies. Certificate authority policies that are set for a cloud app apply to Microsoft Teams when a user signs in.
+
+Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms. 

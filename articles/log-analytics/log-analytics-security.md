@@ -3,7 +3,7 @@ title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 # Log Analytics data security

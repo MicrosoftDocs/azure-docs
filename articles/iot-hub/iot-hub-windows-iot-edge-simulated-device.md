@@ -13,42 +13,45 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 06/09/2017
 ms.author: andbuc
 
 ---
+
 # Use Azure IoT Edge to send device-to-cloud messages with a simulated device (Windows)
+
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
-## Build and run the sample
-Before you get started, you must:
+[!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-* [Set up your development environment][lnk-setupdevbox] for working with the SDK on Windows.
-* [Create an IoT hub][lnk-create-hub] in your Azure subscription, you need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* Add two devices to your IoT hub and make a note of their ids and device keys. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to add your devices to the IoT hub you created in the previous step and retrieve their keys.
+## How to run the sample
 
-To build the sample:
+The **build.cmd** script generates its output in the **build** folder in your local copy of the **iot-edge** repository. This output includes the four IoT Edge modules used in this sample.
 
-1. Open a **Developer Command Prompt for VS 2015** or **Developer Command Prompt for VS 2017** command prompt.
-2. Navigate to the root folder in your local copy of the **iot-edge** repository.
-3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file and builds 
-the solution. You can find the Visual Studio solution in the **build** folder in your local copy of 
-the **iot-edge** repository. Additional parameters can be given to the script to build 
-and run unit and end to end tests. These parameters are **--run-unittests** and **--run-e2e-tests**
-respectively.
+The build script places the:
 
-To run the sample:
+* **logger.dll** in the **build\\modules\\logger\\Debug** folder.
+* **iothub.dll** in the **build\\modules\\iothub\\Debug** folder.
+* **identity\_map.dll** in the **build\\modules\\identitymap\\Debug** folder.
+* **simulated\_device.dll** in the **build\\modules\\simulated\_device\\Debug** folder.
 
-In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** in your local copy of the **iot-edge** repository. This file configures the IoT Edge modules in the sample gateway:
+Use these paths for the **module path** values as shown in the following JSON settings file:
 
-* The **IoTHub** module connects to your IoT hub. You configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the **IoTHubSuffix** value to **azure-devices.net**. Set the **Transport** value to one of: "HTTP", "AMQP", or "MQTT." Currently, only "HTTP" shares one TCP connection for all device messages. If you set the value to "AMQP", or "MQTT", the gateway maintains a separate TCP connection to IoT Hub for each device.
+The simulated\_device\_cloud\_upload\_sample process takes the path to a JSON configuration file as a command-line argument. The following example JSON file is provided in the SDK repository at **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_win.json**. This configuration file works as is unless you modify the build script to place the IoT Edge modules or sample executables in non-default locations.
+
+> [!NOTE]
+> The module paths are relative to the directory where the simulated\_device\_cloud\_upload\_sample.exe is located. The sample JSON configuration file defaults to writing to 'deviceCloudUploadGatewaylog.log' in your current working directory.
+
+In a text editor, open the file **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json** in your local copy of the **iot-edge** repository. This file configures the IoT Edge modules in the sample gateway:
+
+* The **IoTHub** module connects to your IoT hub. You configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the **IoTHubSuffix** value to **azure-devices.net**. Set the **Transport** value to one of: **HTTP**, **AMQP**, or **MQTT**. Currently, only **HTTP** shares one TCP connection for all device messages. If you set the value to **AMQP**, or **MQTT**, the gateway maintains a separate TCP connection to IoT Hub for each device.
 * The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device ids. Make sure that **deviceId** values match the ids of the two devices you added to your IoT hub, and that the **deviceKey** values contain the keys of your two devices.
 * The **BLE1** and **BLE2** modules are the simulated devices. Note how the module MAC addresses match the addresses in the **mapping** module.
 * The **Logger** module logs your gateway activity to a file.
-* The **module path** values shown in the following example assume that you cloned the IoT Edge repository to the root of your **C:** drive. If you downloaded it to another location, you need to adjust the **module path** values accordingly.
+* The **module path** values shown in the following example are relative to the directory where the simulated\_device\_cloud\_upload\_sample.exe is located.
 * The **links** array at the bottom of the JSON file connects the **BLE1** and **BLE2** modules to the **mapping** module, and the **mapping** module to the **IoTHub** module. It also ensures that all messages are logged by the **Logger** module.
 
-```
+```json
 {
     "modules" :
     [
@@ -133,20 +136,25 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
 }
 ```
 
-Save any changes you made to the configuration file.
+Save the changes you made to the configuration file.
 
 To run the sample:
 
-1. At a command prompt, navigate to the root folder of your local copy of the **iot-edge** repository.
+1. At a command prompt, navigate to the **build** folder in your local copy of the **iot-edge** repository.
 2. Run the following command:
    
+    ```cmd
+    samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe ..\samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
-    build\samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
+3. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to monitor the messages that IoT hub receives from the gateway. For example, using iothub-explorer you can monitor device-to-cloud messages using the following command:
+
+    ```cmd
+    iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
     ```
-3. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to monitor the messages that IoT hub receives from the gateway.
 
 ## Next steps
-If you want to gain a more advanced understanding of IoT Edge and experiment with some code examples, visit the following developer tutorials and resources:
+
+To gain a more advanced understanding of IoT Edge and experiment with some code examples, visit the following developer tutorials and resources:
 
 * [Send device-to-cloud messages from a physical device with IoT Edge][lnk-physical-device]
 * [Azure IoT Edge][lnk-iot-edge]
@@ -157,14 +165,9 @@ To further explore the capabilities of IoT Hub, see:
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
+[lnk-iot-edge]: https://github.com/Azure/iot-edge/
+[lnk-physical-device]: iot-hub-iot-edge-physical-device.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-securing]: iot-hub-security-ground-up.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
-[lnk-iot-edge]: https://github.com/Azure/iot-edge/
-
-[lnk-physical-device]: iot-hub-iot-edge-physical-device.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-create-hub]: iot-hub-create-through-portal.md
-[lnk-securing]: iot-hub-security-ground-up.md

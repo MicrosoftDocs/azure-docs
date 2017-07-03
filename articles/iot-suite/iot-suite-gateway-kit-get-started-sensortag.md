@@ -23,7 +23,7 @@ ms.author: dobett
 
 This tutorial shows you how to use Azure IoT Edge to send temperature and humidity data from SensorTag device to the remote monitoring preconfigured solution. The SensorTag connects to the Intel NUC gateway using Bluetooth. The tutorial uses:
 
-- The Azure IoT Edge to implement a sample gateway.
+- Azure IoT Edge to implement a sample gateway.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
 
 ## Overview

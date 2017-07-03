@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
+ms.custom: mvc
 ---
 
 # Create a VM with IIS using DSC
@@ -34,7 +35,7 @@ This script creates a virtual machine, and uses the Azure Virtual Machine DSC cu
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

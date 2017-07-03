@@ -11,20 +11,23 @@ tags: ''
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 06/01/2017
 ms.author: owend
 ---
 # Lesson 6: Create measures
-In this lesson, you create measures to be included in your model. Similar to the calculated columns you created, a measure is a calculation created by using a DAX formula. However, unlike calculated columns, measures are evaluated based on a user selected *filter*; for example, a particular column or slicer added to the Row Labels field in a PivotTable. A value for each cell in the filter is then calculated by the applied measure. Measures are powerful, flexible calculations that you will want to include in almost all tabular models to perform dynamic calculations on numerical data. To learn more, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+In this lesson, you create measures to be included in your model. Similar to the calculated columns you created, a measure is a calculation created by using a DAX formula. However, unlike calculated columns, measures are evaluated based on a user selected *filter*. For example, a particular column or slicer added to the Row Labels field in a PivotTable. A value for each cell in the filter is then calculated by the applied measure. Measures are powerful, flexible calculations that you want to include in almost all tabular models to perform dynamic calculations on numerical data. To learn more, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
   
-To create measures, you use the *Measure Grid*. By default, each table has an empty measure grid; however, you typically will not create measures for every table. The measure grid appears below a table in the model designer when in Data View. To hide or show the measure grid for a table, click the **Table** menu, and then click **Show Measure Grid**.  
+To create measures, you use the *Measure Grid*. By default, each table has an empty measure grid; however, you typically do not create measures for every table. The measure grid appears below a table in the model designer when in Data View. To hide or show the measure grid for a table, click the **Table** menu, and then click **Show Measure Grid**.  
   
-You can create a measure by clicking on an empty cell in the measure grid, and then typing a DAX formula in the formula bar. When you click ENTER to complete the formula, the measure will then appear in the cell. You can also create measures using a standard aggregation function by clicking on a column, and then clicking on the AutoSum button (**∑**) on the toolbar. Measures created using the AutoSum feature will appear in the measure grid cell directly beneath the column, but can be moved.  
+You can create a measure by clicking an empty cell in the measure grid, and then typing a DAX formula in the formula bar. When you click ENTER to complete the formula, the measure then appears in the cell. You can also create measures using a standard aggregation function by clicking a column, and then clicking the AutoSum button (**∑**) on the toolbar. Measures created using the AutoSum feature appear in the measure grid cell directly beneath the column, but can be moved.  
   
-In this lesson, you create measures by both entering a DAX formula in the formula bar and by using the AutoSum feature.  
+In this lesson, you create measures by both entering a DAX formula in the formula bar, and by using the AutoSum feature.  
   
 Estimated time to complete this lesson: **30 minutes**  
   
@@ -49,12 +52,12 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
-    Unlike calculated columns, with measure formulas you can type the measure name, followed by a comma, followed by the formula expression.
+    Unlike calculated columns, with measure formulas you can type the measure name, followed by a colon, followed by the formula expression.
 
   
 #### To create a DaysInCurrentQuarter measure in the DimDate table  
   
-1.  With the **DimDate** table still active in the model designer, in the measure grid, click the empty cell below the measure you just created.  
+1.  With the **DimDate** table still active in the model designer, in the measure grid, click the empty cell below the measure you created.  
   
 2.  In the formula bar, type the following formula:  
   
@@ -62,13 +65,13 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     DaysInCurrentQuarter:=COUNTROWS( DATESBETWEEN( 'DimDate'[Date], STARTOFQUARTER( LASTDATE('DimDate'[Date])), ENDOFQUARTER('DimDate'[Date])))
     ```
   
-    When creating a comparison ratio between one incomplete period and the previous period; the formula must take into account the proportion of the period that has elapsed, and compare it to the same proportion in the previous period. In this case, [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter] gives the proportion elapsed in the current period.  
+    When creating a comparison ratio between one incomplete period and the previous period. The formula must calculate the proportion of the period that has elapsed and compare it to the same proportion in the previous period. In this case, [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter] gives the proportion elapsed in the current period.  
   
 #### To create an InternetDistinctCountSalesOrder measure in the FactInternetSales table  
   
 1.  Click the **FactInternetSales** table.   
   
-2.  Click on the **SalesOrderNumber** column heading.  
+2.  Click the **SalesOrderNumber** column heading.  
   
 3.  On the toolbar, click the down-arrow next to the AutoSum (**∑**) button, and then select **DistinctCount**.  
   
@@ -94,7 +97,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     |TaxAmt|InternetTotalTaxAmt|Sum|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|Sum|=SUM([Freight])|  
   
-2.  By clicking on an empty cell in the measure grid, and by using the formula bar, create and name the following measures in order:  
+2.  By clicking an empty cell in the measure grid, and by using the formula bar, create, and name the following measures in order:  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))

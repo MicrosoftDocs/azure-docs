@@ -129,14 +129,24 @@
     items:
     - name: VM creation overview
       href: creation-choices.md
+    - name: Create a VM from a specialized VHD
+      href: create-vm-specialized.md
     - name: Create VM with a template
       href: ps-template.md
-    - name: Create VM with C#
+    - name: Create / Manage VM with C#
       href: csharp.md
     - name: Create VM with C# and template
       href: csharp-template.md
     - name: Create VM with Chef
       href: chef-automation.md
+    - name: Create / Manage VM with Python
+      href: python.md
+    - name: Create VM with Terraform
+      items:
+      - name: Install and configure
+        href: ../terraform-install-configure.md
+      - name: Create basic infrastructure
+        href: ../terraform-create-complete-vm.md      
     - name: Create VM running popular application frameworks
       href: app-frameworks.md
     - name: Move a VM between subscriptions
@@ -162,8 +172,6 @@
       href: cli-manage.md
     - name: Manage VMs using CLI
       href: cli-deploy-templates.md
-    - name: Manage VMs using C#
-      href: csharp-manage.md
   - name: Connect with RDP
     items:
     - name: Log on to a VM
@@ -176,19 +184,18 @@
       href: hybrid-use-benefit-licensing.md
     - name: Use Windows client images
       href: client-images.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Prepare a VHD for upload
       href: prepare-for-upload-vhd-image.md
     - name: Create a Managed Disk image
       href: capture-image-resource.md
     - name: Create a VM from a generalized Managed Disk image
       href: create-vm-generalized-managed.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
   - name: Manage VM storage
     items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: FAQs
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Create Managed Disk
       href: create-managed-disk-ps.md
     - name: Migrate VMs to Managed Disks
@@ -212,22 +219,10 @@
       href: expand-os-disk.md
     - name: Expand data disk
       href: expand-data-disks.md
+    - name: Use a file share
+      href: mount-azure-file-storage.md
     - name: Use D as data disk
       href: change-drive-letter.md
-    - name: Create VMs using unmanaged disks
-      items:
-      - name: Upload a VHD
-        href: upload-image.md
-      - name: Create an unmanaged image
-        href: capture-image.md
-      - name: Create an unmanaged VM from a generalized VHD
-        href: create-vm-generalized.md
-      - name: Copy a VM
-        href: vhd-copy.md
-      - name: Create a VM from a specialized VHD
-        href: create-vm-specialized.md
-      - name: Attach an unmanaged data disk
-        href: attach-disk-portal.md
   - name: VM networking
     href: ps-common-network-ref.md
     items:
@@ -340,10 +335,8 @@
       items:
       - name: Migrate from Amazon Web Services (AWS) to Azure
         href: aws-to-azure.md
-    - name: Upload and create VM from generalized VHD
-      href: upload-generalized-managed.md
-    - name: Upload and create VM from specialized VHD
-      href: upload-specialized.md
+      - name: Upload and create VM from generalized VHD
+        href: upload-generalized-managed.md
     - name: Migrate from Classic to Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
@@ -361,8 +354,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Virtual machine boot diagnostics 
-      href: ../virtual-machine-boot-diagnostics.md
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
     - name: Remote Desktop connections
       href: troubleshoot-rdp-connection.md
       items:
@@ -372,16 +365,26 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Reset NIC
+      href: reset-network-interface.md
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Deployment issues 
+      href: troubleshoot-deploy-vm.md
     - name: Restarting or resizing a VM
       href: restart-resize-error-troubleshooting.md
     - name: Application access
       href: troubleshoot-app-connection.md
+    - name: Activation problems
+      href: troubleshoot-activation-problems.md
     - name: Allocation failures
       href: allocation-failure.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk to troubleshooting VM
       items:
       - name: Azure PowerShell
@@ -410,6 +413,8 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing

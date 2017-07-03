@@ -57,6 +57,10 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **A:** Yes.
 
+**Q:** Can I use **web deploy** to deploy my web app?
+
+**A:** Yes, you need to set an app setting called `UseWebDeployScm` to `false`.
+
 ## Language support
 
 **Q:** Do you support uncompiled .NET Core apps?
@@ -65,7 +69,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Do you support Composer as a dependency manager for PHP apps?
 
-**A:** No. You will need to deploy your PHP apps with all the dependencies. We're planning a full deployment experience in a future release.
+**A:** Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.json file) and will trigger a composer install for you.
 
 ## Custom containers
 

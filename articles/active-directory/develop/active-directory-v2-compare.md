@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # What's different about the v2.0 endpoint?

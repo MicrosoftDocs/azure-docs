@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
 ---
 
@@ -26,11 +26,11 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 
 1. Open AD FS Management.
 2. On the left, select **Relying Party Trusts**.
-3. Right-click on **Microsoft Office 365 Identity Platform** and select **Edit Claim Rules…**
+3. Right-click on **Microsoft Office 365 Identity Platform** and select **Edit Claim Rules**.
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-4. On Issuance Transform Rules, click **Add Rule.**
+4. On Issuance Transform Rules, click **Add Rule**.
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
 
@@ -85,8 +85,10 @@ Now that the claims are in place, we can configure trusted IPs.
 3. Under Directory, select the directory where you want to set up trusted IPs.
 4. On the Directory you have selected, click **Configure**.
 5. In the multi-factor authentication section, click **Manage service settings**.
-6. On the Service Settings page, under trusted IPs, select **Skip multi-factor-authentication for requests from federated users on my intranet.**
+6. On the Service Settings page, under trusted IPs, select **Skip multi-factor-authentication for requests from federated users on my intranet**.  
+
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. Click **save**.
 8. Once the updates have been applied, click **close**.
 

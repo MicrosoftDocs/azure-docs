@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 ## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
 ## [Use Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
@@ -10,7 +10,6 @@
 ## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Using REST API](data-lake-store-get-started-rest-api.md)
-## [Using Azure CLI](data-lake-store-get-started-cli.md)
 ## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Using Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Using Python](data-lake-store-get-started-python.md)
@@ -69,10 +68,11 @@
 ## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-store)
-## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Data Lake Store Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

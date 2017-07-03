@@ -38,6 +38,3 @@ Similarly, on the **Europe** tab, NORTH EUROPE and WEST EUROPE both map to the E
 
 
 
-
-
-

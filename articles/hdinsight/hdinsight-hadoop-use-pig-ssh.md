@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with SSH on an HDInsight cluster | Microsoft Docs
+title: Use Hadoop Pig with SSH on an HDInsight cluster - Azure | Microsoft Docs
 description: Learn how connect to a Linux-based Hadoop cluster with SSH, and then use the Pig command to run Pig Latin statements interactively, or as a batch job.
 services: hdinsight
 documentationcenter: ''

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 06/16/2017
 ms.author: magoedte
 
 ---
@@ -41,7 +41,10 @@ For Windows performance counters, you can choose a specific instance for each pe
 
 Follow this procedure to add a new Windows performance counter to collect.
 
-1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*.
+1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*.  
+
+    When collecting SQL Server performance counters from named instances, all named instance counters start with *MSSQL$* and followed by the name of the instance.  For example, to collect the Log Cache Hit Ratio counter for all databases from the Database performance object for named SQL instance INST2, specify `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`. 
+ 
 2. Click **+** or press **Enter** to add the counter to the list.
 3. When you add a counter, it uses the default of 10 seconds for its **Sample Interval**.  You can change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
 4. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
@@ -212,6 +215,7 @@ The following table provides different examples of log searches that retrieve Pe
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Hourly average of CPU usage across all computers |
 | Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |Hourly 70 percentile of every % percent counter for a particular computer |
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
+| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2.  
 
 ## Viewing performance data
 When you run a log search for performance data, the **List** view is displayed by default.  To view the data in graphical form, click **Metrics**.  For a detailed graphical view, click the **+** next to a counter.  

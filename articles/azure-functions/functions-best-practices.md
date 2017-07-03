@@ -15,42 +15,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 06/13/2017
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# Tips for improving the performance and reliability of Azure Functions.
+# Optimize the performance and reliability of Azure Functions
 
-## Overview
-
-This article provides a collection of best practices for you to
-consider when implementing function apps. Keep in mind that your
-function app is an app in Azure App Service, so App Service best practices also apply.
+This article provides guidance to improve the performance and reliability of your function apps. 
 
 
-## Avoid large long running functions.
+## Avoid long running functions
 
-Large, long-running functions can cause unexpected timeout issues. A
-function can become large due to many Node.js dependencies, since
-importing these dependencies can cause increased load times resulting
-in unexpected timeouts. These dependencies could be explicitly loaded
-by multiple `require()` statements in your code, but they could also
-be implicit, based on a single module loaded by your code that has its
-own internal ones. 
+Large, long-running functions can cause unexpected timeout issues. A function can become large due to many Node.js dependencies. Importing dependencies can also cause increased load times that result in unexpected timeouts. Dependencies are loaded both explicitly and implicitly. A single module loaded by your code may load its own additional modules.  
 
-Whenever possible, refactor large functions into smaller function sets
-that work together and return responses fast. For example, a webhook
-or HTTP trigger function might require an acknowledgment response
-within a certain time limit; it is common for webhooks to require an
-immediate response. You can pass the HTTP trigger payload into a queue
-to be processed by a queue trigger function. This approach allows you
-to defer the actual work and return an immediate response.
+Whenever possible, refactor large functions into smaller function sets that work together and return responses fast. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit; it is common for webhooks to require an immediate response. You can pass the HTTP trigger payload into a queue
+to be processed by a queue trigger function. This approach allows you to defer the actual work and return an immediate response.
 
 
-## Cross function communication.
+## Cross function communication
 
 When integrating multiple functions, it is generally a best practice to use storage queues for cross function communication.  The main reason is storage queues are cheaper and much easier to provision. 
 
@@ -61,15 +46,14 @@ Service Bus topics are useful if you require message filtering before processing
 Event hubs are useful to support high volume communications.
 
 
-
-## Write functions to be stateless. 
+## Write functions to be stateless 
 
 Functions should be stateless and idempotent if possible. Associate any required state information with your data. For example, an order being processed would likely have an associated `state` member. A function could process an order based on that state while the function itself remains stateless. 
 
 Idempotent functions are especially recommended with timer triggers. For example, if you have something that absolutely must run once a day, write it so it can run any time during the day with the same results. The function can exit when there is no work for a particular day. Also if a previous run failed to complete, the next run should pick up where it left off.
 
 
-## Write defensive functions.
+## Write defensive functions
 
 Assume your function could encounter an exception at any time. Design your functions with the ability to continue from a previous fail point during the next execution. Consider a scenario that requires the following actions:
 
@@ -85,7 +69,7 @@ If a queue item was already processed, allow your function to be a no-op.
 Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers](functions-bindings-storage-queue.md#trigger).
  
 
-## Don't mix test and production code in the same function app.
+## Don't mix test and production code in the same function app
 
 Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test-related functions and resources to it. It can cause unexpected overhead during production code execution.
 
@@ -101,19 +85,16 @@ Don't use verbose logging in production code. It has a negative performance impa
 
 
 
-## Use async code but avoid Task.Result.
+## Use async code but avoid Task.Result
 
-Asynchronous programming is a recommended best practice. However, always avoid referencing the `Task.Result` property. This approach essentially does a busy-wait on a lock of another thread. Holding a lock creates the potential for deadlocks.
+Asynchronous programming is a recommended best practice. However, always avoid referencing the `Task.Result` property. This approach can lead to thread exhaustion.
 
 
-
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ## Next steps
 For more information, see the following resources:
 
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
+Because Azure Functions uses Azure App Service, you should also be aware of  App Service guidelines.
 * [Patterns and Practices HTTP Performance Optimizations](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
 

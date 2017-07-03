@@ -25,7 +25,7 @@ Azure Active Directory provides you with a variety of reports. The data of these
 This article provides you with the information you need to get started with the Azure AD reporting APIs.
 In the next section, you find more details about using the audit and sign-in APIs. For all other APIs, see the [Azure AD reports and events](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) article.
 
-For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
+For frequently asked questions,read our [FAQ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). For issues, please [file a support ticket](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 ## Learning map
 1. **Prepare** - Before you can test your API samples, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites-azure-portal.md).

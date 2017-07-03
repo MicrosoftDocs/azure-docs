@@ -3,6 +3,7 @@ title: Application Insights for Azure Cloud Services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
 services: application-insights
 documentationcenter: ''
+keywords: "WAD2AI, Azure Diagnostics"
 author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
@@ -18,7 +19,7 @@ ms.author: cfreeman
 
 ---
 # Application Insights for Azure Cloud Services
-[Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Application Insights][start] for availability, performance, failures, and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Application Insights][start] for availability, performance, failures, and usage by combining data from Application Insights' SDKs with [Azure Diagnotics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) data from your Cloud Services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Example](./media/app-insights-cloudservices/sample.png)
 
@@ -137,8 +138,8 @@ Add more telemetry - see the sections below - and then publish your app to get l
 * Wait a few seconds and click Refresh.
 * See [Troubleshooting][qna].
 
-## View Azure diagnostic events
-Where to find the diagnostics:
+## View Azure Diagnostic events
+Where to find the [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) information in Application Insights:
 
 * Performance counters are displayed as custom metrics. 
 * Windows event logs are shown as traces and custom events.

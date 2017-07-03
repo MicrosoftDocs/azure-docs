@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 05/25/2017
 ms.author: larryfr
 
 ---
@@ -84,7 +84,9 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
 3. In the first field (called a **cell**) on the page, enter the following text:
 
-        sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```python
+   sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```
 
     This code configures Spark to recursively access the directory structure for the input data. Application Insights telemetry is logged to a directory structure similar to the `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
@@ -99,8 +101,10 @@ To add the Azure Storage Account to an existing cluster, use the information in 
         SparkContext and HiveContext created. Executing user code ...
 5. A new cell is created below the first one. Enter the following text in the new cell. Replace `CONTAINER` and `STORAGEACCOUNT` with the Azure storage account name and blob container name that contains Application Insights data.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```python
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     Use **SHIFT+ENTER** to execute this cell. You see a result similar to the following text:
 
@@ -114,13 +118,17 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
 6. In the next cell, enter the following code: Replace `WASB_PATH` with the path from the previous step.
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```python
+   jsonFiles = sc.textFile('WASB_PATH')
+   jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     This code creates a dataframe from the JSON files exported by the continuous export process. Use **SHIFT+ENTER** to run this cell.
 7. In the next cell, enter and run the following to view the schema that Spark created for the JSON files:
 
-        jsonData.printSchema()
+   ```python
+   jsonData.printSchema()
+   ```
 
     The schema for each type of telemetry is different. The following example is the schema that is generated for web requests (data stored in the `Requests` subdirectory):
 
@@ -186,8 +194,11 @@ To add the Azure Storage Account to an existing cluster, use the information in 
         |    |    |    |-- protocol: string (nullable = true)
 8. Use the following to register the dataframe as a temporary table and run a query against the data:
 
-        jsonData.registerTempTable("requests")
-        sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   ```python
+   jsonData.registerTempTable("requests")
+   df = sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   df.show()
+   ```
 
     This query returns the city information for the top 20 records where context.location.city is not null.
 
@@ -214,7 +225,9 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 2. In the upper right corner of the Jupyter page, select **New**, and then **Scala**. A new browser tab containing a Scala-based Jupyter Notebook appears.
 3. In the first field (called a **cell**) on the page, enter the following text:
 
-        sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```scala
+   sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```
 
     This code configures Spark to recursively access the directory structure for the input data. Application Insights telemetry is logged to a directory structure similar to `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
@@ -229,8 +242,10 @@ To add the Azure Storage Account to an existing cluster, use the information in 
         SparkContext and HiveContext created. Executing user code ...
 5. A new cell is created below the first one. Enter the following text in the new cell. Replace `CONTAINER` and `STORAGEACCOUNT` with the Azure storage account name and blob container name that contains Application Insights logs.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```scala
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     Use **SHIFT+ENTER** to execute this cell. You see a result similar to the following text:
 
@@ -244,13 +259,19 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
 6. In the next cell, enter the following code: Replace `WASB\_PATH` with the path from the previous step.
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```scala
+   var jsonFiles = sc.textFile('WASB_PATH')
+   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+   var jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     This code creates a dataframe from the JSON files exported by the continuous export process. Use **SHIFT+ENTER** to run this cell.
+
 7. In the next cell, enter and run the following to view the schema that Spark created for the JSON files:
 
-        jsonData.printSchema
+   ```scala
+   jsonData.printSchema
+   ```
 
     The schema for each type of telemetry is different. The following example is the schema that is generated for web requests (data stored in the `Requests` subdirectory):
 
@@ -314,10 +335,13 @@ To add the Azure Storage Account to an existing cluster, use the information in 
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
+
 8. Use the following to register the dataframe as a temporary table and run a query against the data:
 
-        jsonData.registerTempTable("requests")
-        var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```scala
+   jsonData.registerTempTable("requests")
+   var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```
 
     This query returns the city information for the top 20 records where context.location.city is not null.
 

@@ -27,9 +27,9 @@ Connect to Bing Search to search news, search videos, and more. With Bing Search
 
 You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/bingsearch/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/bingsearch/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

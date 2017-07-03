@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
@@ -15,6 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/12/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Quick Start: Azure AD self-service password reset

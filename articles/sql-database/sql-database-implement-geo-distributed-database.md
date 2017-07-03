@@ -10,56 +10,57 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-failover
+ms.custom: mvc,business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/17/2017
+ms.date: 05/26/2017
 ms.author: carlrab
 
 ---
 
 # Implement a geo-distributed database
 
-In this tutorial, you configure an Azure SQL database and application for failover to a remote region, and then test your failover plan. 
+In this tutorial, you configure an Azure SQL database and application for failover to a remote region, and then test your failover plan. You learn how to: 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+> [!div class="checklist"]
+> * Create database users and grant them permissions
+> * Set up a database-level firewall rule
+> * Create a [geo-replication failover group](sql-database-geo-replication-overview.md)
+> * Create and compile a Java application to query an Azure SQL database
+> * Perform a disaster recovery drill
 
-To complete this tutorial, make sure you have:
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-- The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
-- The latest [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs) 
-- An Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
+
+## Prerequisites
+
+To complete this tutorial, make sure the following prerequisites are completed:
+
+- Installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). 
+- Installed an Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
 
    - [Create DB - Portal](sql-database-get-started-portal.md)
    - [Create DB - CLI](sql-database-get-started-cli.md)
+   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
-## Create users with permissions for your database
+- Have identified a method to execute SQL scripts against your database, you can use one of the following query tools:
+   - The query editor in the [Azure portal](https://portal.azure.com). For more information on using the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).
+   - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), which is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.
+   - The newest version of [Visual Studio Code](https://code.visualstudio.com/docs), which is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. For more information on using this tool with Azure SQL Database, see [Connect and query with VS Code](sql-database-connect-query-vscode.md). 
 
-Use SQL Server Management Studio to connect to your database and create user accounts. These user accounts will replicate automatically to your secondary server. You may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For steps, see [Create SQL DB using the Azure portal](sql-database-get-started-portal.md).
+## Create database users and grant permissions
 
-1. Open SQL Server Management Studio.
-2. In the **Connect to Server** dialog box, enter the following information:
-   - **Server type**: Specify Database engine
-   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
-   - **Authentication**: Specify SQL Server Authentication
-   - **Login**: Enter your server admin account
-   - **Password**: Enter the password for your server admin account
+Connect to your database and create user accounts using one of the following query tools:
 
-   ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
+- The Query editor in the Azure portal
+- SQL Server Management Studio
+- Visual Studio Code
 
-3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
+These user accounts replicate automatically to your secondary server (and be kept in sync). To use SQL Server Management Studio or Visual Studio Code, you may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
 
-   ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
-
-4. Click **Connect**. The Object Explorer window opens in SSMS. 
-
-   ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
-
-5. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
-
-6. In the query window, execute the following query to create two user accounts in your database, granting **db_owner** permissions to the **app_admin** account and **UPDATE** permissions to the **app_user** account. 
+- In a query window, execute the following query to create two user accounts in your database. This script grants **db_owner** permissions to the **app_admin** account and grants **SELECT** and **UPDATE** permissions to the **app_user** account. 
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
@@ -68,55 +69,53 @@ Use SQL Server Management Studio to connect to your database and create user acc
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
-   GRANT SELECT ON SalesLT.Product TO app_user; 
-   GRANT UPDATE ON SalesLT.Product TO app_user;  
+   GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
    ```
 
 ## Create database-level firewall
 
-Use SQL Server Management Studio to create a database-level firewall rule for your SQL database. This database-level firewall rule will replicate automatically to your secondary server. For testing purposes, you can create a firewall rule for all IP addresses (0.0.0.0 and 255.255.255.255), can create a firewall rule for the single IP address with which you created the server-firewall rule, or you can configure one or more firewall rules for the IP addresses of the computers that you wish to use for testing of this tutorial.  
+Create a [database-level firewall rule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database. This database-level firewall rule replicates automatically to the secondary server that you create in this tutorial. For simplicity (in this tutorial), use the public IP address of the computer on which you are performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
 
-- In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+- In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment.  
 
    ```sql
    -- Create database-level firewall setting for your public IP address
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
-   ```  
-
-## Create a failover group 
-
-Choose a failover region and then, using Azure PowerShell:
-- Create an empty server in that region
-- Create a failover group between your existing server and the new empty server
-- Add your database to the failover group
-
-1. To start, run **Login-AzureRmAccount** to create a connection with Azure..
-
-2. Populate variables for your PowerShell scripts.
-
-   ```powershell
-   $secpasswd = ConvertTo-SecureString "MyStrongPassword1" -AsPlainText -Force
-   $mycreds = New-Object System.Management.Automation.PSCredential (“ServerAdmin”, $secpasswd)
-   $myresourcegroupname = "<your resource group name>"
-   $mylocation = "<resource group location>"
-   $myservername = "<your existing server name>"
-   $mydatabasename = "<your existing database name>"
-   $mydrlocation = "<your disaster recovery location>"
-   $mydrservername = "<your disaster recovery server name>"
-   $myfailovergroupname = "<your failover group name>"
    ```
 
-3. Create an empty backup server in your failover region.
+## Create an active geo-replication auto failover group 
+
+Using Azure PowerShell, create an [active geo-replication auto failover group](sql-database-geo-replication-overview.md) between your existing Azure SQL server and the new empty Azure SQL server in an Azure region, and then add your sample database to the failover group.
+
+> [!IMPORTANT]
+> These cmdlets require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+>
+
+1. Populate variables for your PowerShell scripts using the values for your existing server and sample database, and provide a globally unique value for failover group name.
+
+   ```powershell
+   $adminlogin = "ServerAdmin"
+   $password = "ChangeYourAdminPassword1"
+   $myresourcegroupname = "<your resource group name>"
+   $mylocation = "<your resource group location>"
+   $myservername = "<your existing server name>"
+   $mydatabasename = "mySampleDatabase"
+   $mydrlocation = "<your disaster recovery location>"
+   $mydrservername = "<your disaster recovery server name>"
+   $myfailovergroupname = "<your unique failover group name>"
+   ```
+
+2. Create an empty backup server in your failover region.
 
    ```powershell
    $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
-      -Location $mydrlocation `
       -ServerName $mydrservername `
-      -ServerVersion "12.0" `
-      -SqlAdministratorCredentials $mycreds
+      -Location $mydrlocation `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   $mydrserver   
    ```
 
-4. Create a failover group.
+3. Create a failover group between the two servers.
 
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
@@ -126,12 +125,13 @@ Choose a failover region and then, using Azure PowerShell:
       –FailoverGroupName $myfailovergroupname `
       –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
+   $myfailovergroup   
    ```
 
-5. Add your database to the failover group.
+4. Add your database to the failover group.
 
    ```powershell
-   $failovergroup = Get-AzureRmSqlDatabase `
+   $myfailovergroup = Get-AzureRmSqlDatabase `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $myservername `
       -DatabaseName $mydatabasename | `
@@ -139,11 +139,12 @@ Choose a failover region and then, using Azure PowerShell:
       -ResourceGroupName $myresourcegroupname ` `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname
+   $myfailovergroup   
    ```
 
 ## Install Java software
 
-The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Java** and then select your operating system.
+The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. 
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Install **brew** and **Maven** by entering the following commands: 
@@ -154,6 +155,8 @@ brew update
 brew install maven
 ```
 
+For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **MacOS**, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.
+
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Install **Maven** by entering the following commands:
 
@@ -161,17 +164,20 @@ Open your terminal and navigate to a directory where you plan on creating your J
 sudo apt-get install maven
 ```
 
+For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **Ubuntu**, and then follow the detailed instructions for configuring Java and Maven in step 1.2, 1.3, and 1.4.
+
 ### **Windows**
-Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. 
+Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test, and run your Java project. For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select Windows, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.
 
 ## Create SqlDbSample project
 
-1. In the command console (such as Bash), create a new Maven project. 
+1. In the command console (such as Bash), create a Maven project. 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 2. Type **Y** and click **Enter**.
 3. Change directories into your newly created project.
+
    ```bash
    cd SqlDbSamples
    ```
@@ -188,7 +194,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    </dependency>
    ```
 
-6. Specify the version of Java to compile the project against by adding the “properties” section below into the pom.xml file after the "dependencies" section. 
+6. Specify the version of Java to compile the project against by adding the following “properties” section into the pom.xml file after the "dependencies" section. 
 
    ```xml
    <properties>
@@ -196,7 +202,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. Add the "build" section below into the pom.xml file after the "properties" section to support manifest files in jars.       
+7. Add the following "build" section into the pom.xml file after the "properties" section to support manifest files in jars.       
 
    ```xml
    <build>
@@ -233,7 +239,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
    public class App {
 
-      private static final String FAILOVER_GROUP_NAME = "myfailovergroup";
+      private static final String FAILOVER_GROUP_NAME = "myfailovergroupname";
   
       private static final String DB_NAME = "mySampleDatabase";
       private static final String USER = "app_user";
@@ -252,7 +258,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
          try {
             for(int i = 1; i < 1000; i++) {
-                //  loop will run for about 1h
+                //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " + (insertData((highWaterMark + i))?"successful":"failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " + (selectData((highWaterMark + i))?"successful":"failed") + "\n");
@@ -323,9 +329,9 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    ```bash
    mvn package
    ```
-2. When finished, execute the following command to run the application (it will run for about 1h unless it is stop manually):
+2. When finished, execute the following command to run the application (it runs for about 1 hour unless you stop it manually):
 
-   ```Output
+   ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
    
    #######################################
@@ -339,23 +345,43 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 ## Perform disaster recovery drill
 
-1. Call manual failover of failover group using forced failover. If data loss during the drill is unacceptable you should remove -AllowDataLoss
+1. Call manual failover of failover group. 
 
    ```powershell
-   $fg | Switch-AzureRMSqlDatabaseFailoverGroup -AllowDataLoss
+   Switch-AzureRMSqlDatabaseFailoverGroup `
+   -ResourceGroupName $myresourcegroupname  `
+   -ServerName $mydrservername `
+   -FailoverGroupName $myfailovergroupname
    ```
 
-2. Observe the application results during failover. You will see some insert to fail until the DNS cache refreshes. 	 
+2. Observe the application results during failover. Some inserts fail while the DNS cache refreshes. 	 
 
-## Troubleshoot failover 
-
-Find out which role your disaster recovery server is performing.
+3. Find out which role your disaster recovery server is performing.
 
    ```powershell
-   $fg = Get-AzureRMSqlDatabaseFailoverGroup -ResourceGroupName "<your failover group>" -ServerName "<your disaster recovery server>" 
-   print $fg.role
+   $mydrserver.ReplicationRole
    ```
 
+4. Failback.
+
+   ```powershell
+   Switch-AzureRMSqlDatabaseFailoverGroup `
+   -ResourceGroupName $myresourcegroupname  `
+   -ServerName $myservername `
+   -FailoverGroupName $myfailovergroupname
+   ```
+
+5. Observe the application results during failback. Some inserts fail while the DNS cache refreshes. 	 
+
+6. Find out which role your disaster recovery server is performing.
+
+   ```powershell
+   $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
+      -FailoverGroupName $myfailovergroupname `
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $mydrservername
+   $fileovergroup.ReplicationRole
+   ```
 ## Next steps 
 
-- For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).
+For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Backup Azure Linux VMs | Microsoft Docs'
+title: 'Backup Azure Linux VMs | Microsoft Docs'
 description: Protect your Linux VMs by backing them up using Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/05/2017
 ms.author: cynthn
+ms.custom: mvc
 ---
 # Back up Linux  virtual machines in Azure
 
@@ -25,6 +26,7 @@ You can protect your data by taking backups at regular intervals. Azure Backup c
 > * Create a backup of a VM
 > * Schedule a daily backup
 > * Restore a file from a backup
+
 
 
 ## Backup overview
@@ -88,7 +90,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 6. In the menu on the left, select **Virtual machines**. 
 7. From the list, select the VM.
 8. On the VM blade, in the **Settings** section, click **Backup**. The **Backup** blade opens. 
-9. In the menu at the top of the blade, select **File Recovery (Preview)**. The **File Recovery (Preview) blade opens.
+9. In the menu at the top of the blade, select **File Recovery (Preview)**. The **File Recovery (Preview)** blade opens.
 10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
 11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the downloaded file to your local computer.
 7. Click **Download script** to download the script file locally.

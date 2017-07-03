@@ -10,7 +10,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/24/2017
 ms.author: gauravbh; tomfitz
 
 ---
@@ -30,9 +30,13 @@ There are two experiences when working with managed applications:
 1. The vendor or independent software vendor (ISV) who creates a managed application, and makes it available for broader use. 
 2. The customer or consumer who wishes to create and use the published application. 
 
-This article covers both experiences. First, lets understand how a managed application works. 
+This article provides an overview of both experiences. First, lets understand how a managed application works. 
 
 A managed application is similar to a marketplace solution template with one key difference. In a managed application, the resources are provisioned to a resource group that is managed by the ISV/vendor. The resource group is present in the customer's subscription, but a user, user group, or application in the ISV's tenant has access to the resource group. To manage and service the application, the vendor's identity is added to an Active Directory Owner, Contributor, Reader, or any other built-in role. 
+
+For more information about the vendor experience, see [Create and publish an Azure Managed Application](managed-application-publishing.md).
+
+For more information about the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).
 
 ## Key concepts
 

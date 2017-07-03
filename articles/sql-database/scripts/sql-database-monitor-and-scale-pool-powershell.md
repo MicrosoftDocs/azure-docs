@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script-Monitor & scale SQL elastic pool | Microsoft Docs
-description: Azure PowerShell Script Sample - Monitor and scale a SQL Database elastic pool using PowerShell
+title: PowerShell example-monitor-scale-SQL elastic pool-Azure SQL Database | Microsoft Docs
+description: Azure PowerShell example script to monitor and scale a SQL elastic pool in Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -10,24 +10,24 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Monitor and scale a SQL Database elastic pool using PowerShell
+# Use PowerShell to monitor and scale a SQL elastic pool in Azure SQL Database
 
-This sample PowerShell script monitors the performance metrics of an elastic pool, scales it to a higher performance level, and creates an alert rule on one of the performance metrics. 
+This PowerShell script example monitors the performance metrics of an elastic pool, scales it to a higher performance level, and creates an alert rule on one of the performance metrics. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1 "Monitor and scale single SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitor and scale single SQL Database")]
 
 ## Clean up deployment
 

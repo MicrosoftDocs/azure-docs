@@ -1,12 +1,12 @@
-﻿
+
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
+## [Big picture](service-fabric-content-roadmap.md)
 ## [Application scenarios](service-fabric-application-scenarios.md)
 ## [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
-## [Primer](service-fabric-content-roadmap.md)
 
 # Get started
 ## Set up your development environment
@@ -48,7 +48,8 @@
 #### [Deploy Windows container](service-fabric-deploy-container.md)
 #### [Deploy Linux container](service-fabric-deploy-container-linux.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
-#### [Resource Governance for Containers and Services](service-fabric-resource-governance.md)
+#### [Resource governance for containers and services](service-fabric-resource-governance.md)
+#### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
 
 ### Build a Reliable Service service
 #### [Overview](service-fabric-reliable-services-introduction.md)
@@ -130,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### Integrate with API Management
+#### [Overview](service-fabric-api-management-overview.md)
+#### [Quick start](service-fabric-api-management-quick-start.md)
+
 ### Migrate from Cloud Services
 #### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -141,6 +146,7 @@
 ### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Upgrade an application
@@ -199,13 +205,13 @@
 #### [Delete](service-fabric-cluster-delete.md)
 
 ### Standalone clusters
-#### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Create
 ##### [Create on-premises](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Create on Azure virtual machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Secure using certs](service-fabric-windows-cluster-x509-security.md)  
 ##### [Secure using Windows security](service-fabric-windows-cluster-windows-security.md)
+##### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Scale](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Set access control](service-fabric-cluster-security-roles.md)
 #### [Configure](service-fabric-cluster-manifest.md)
@@ -214,7 +220,8 @@
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
+### [Manage a cluster using XPlat CLI](service-fabric-azure-cli.md)
+### [Manage a cluster using Azure CLI 2.0 commands](service-fabric-azure-cli-2-0.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
@@ -232,42 +239,44 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
-
-## Inspect application and cluster health
-### [Monitor Service Fabric health](service-fabric-health-introduction.md)
-### [Report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Add custom health reports](service-fabric-report-health.md)
-### [Troubleshoot with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [View health reports](service-fabric-view-entities-aggregated-health.md)
-
 ## Monitor and diagnose
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
-### Monitor and diagnose services locally
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Azure Diagnostics logs
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Collect logs from a service process](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Monitor Windows Server containers](service-fabric-diagnostics-containers-windowsserver.md)
-### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### Generate events
+#### [Generate infrastructure level events](service-fabric-diagnostics-event-generation-infra.md)
+##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
+#### [Generate application level events](service-fabric-diagnostics-event-generation-app.md)
+### Inspect application and cluster health
+#### [Monitor Service Fabric health](service-fabric-health-introduction.md)
+#### [Report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Add custom health reports](service-fabric-report-health.md)
+#### [Troubleshoot with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [View health reports](service-fabric-view-entities-aggregated-health.md)
+### Aggregate events
+#### [Aggregate events with EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Aggregate events with Azure Diagnostics
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analyze events
+#### [Analyze events with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Reference
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Java API](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
+## [Azure CLI](/cli/azure/sf)
+## [Java API](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Common questions about Service Fabric](service-fabric-common-questions.md)
-## [Service Fabric support options](service-fabric-support.md)
-## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Sample code](http://aka.ms/servicefabricsamples)
+## [Service Fabric support options](service-fabric-support.md)
+## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

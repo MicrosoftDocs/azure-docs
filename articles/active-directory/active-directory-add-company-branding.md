@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 05/23/2017
 ms.author: curtand
 
 ---

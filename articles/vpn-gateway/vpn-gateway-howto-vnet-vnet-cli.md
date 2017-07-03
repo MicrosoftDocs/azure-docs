@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2017
+ms.date: 05/22/2017
 ms.author: cherylmc
 
 ---
@@ -23,10 +23,10 @@ ms.author: cherylmc
 This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the Resource Manager deployment model and uses the Azure CLI. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager - Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Classic - Azure portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -43,19 +43,18 @@ VNet-to-VNet communication can be combined with multi-site configurations. This 
 You may want to connect virtual networks for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
-  
+
   * You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
   * With Azure Traffic Manager and Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
 * **Regional multi-tier applications with isolation or administrative boundary**
-  
+
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
 For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 
 ### Which set of steps should I use?
 
-In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub). 
-
+In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub).
 
 ## <a name="samesub"></a>Connect VNets that are in the same subscription
 
@@ -67,7 +66,7 @@ Before beginning, install the latest version of the CLI commands (2.0 or later).
 
 ### <a name="Plan"></a>Plan your IP address ranges
 
-In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way.
+In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 We use the following values in the examples:
 
@@ -80,7 +79,6 @@ We use the following values in the examples:
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
-* DNS Server: 8.8.8.8
 * GatewayName: VNet1GW
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
@@ -97,12 +95,12 @@ We use the following values in the examples:
 * GatewaySubnet: 10.42.255.0/27
 * Resource Group: TestRG4
 * Location: West US
-* DNS Server: 8.8.8.8
 * GatewayName: VNet4GW
 * Public IP: VNet4GWIP
 * VPNType: RouteBased
 * Connection: VNet4toVNet1
 * ConnectionType: VNet2VNet
+
 
 ### <a name="Connect"></a>Step 1 - Connect to your subscription
 
@@ -143,7 +141,7 @@ We use the following values in the examples:
 7. Create the virtual network gateway for TestVNet1. VNet-to-VNet configurations require a RouteBased VpnType. If you run this command using the '--no-wait' parameter, you don't see any feedback or output. The '--no-wait' parameter allows the gateway to create in the background. It does not mean that the VPN gateway finishes creating immediately. Creating a gateway can often take 45 minutes or more, depending on the gateway SKU that you use.
 
   ```azurecli
-  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="TestVNet4"></a>Step 3 - Create and configure TestVNet4
@@ -178,7 +176,7 @@ We use the following values in the examples:
 6. Create the TestVNet4 virtual network gateway.
 
   ```azurecli
-  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### Step 4 - Create the connections
@@ -254,11 +252,15 @@ You now have two VNets with VPN gateways. The next step is to create VPN gateway
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5. When creating additional connections, it's important to verify that the IP address space of the new virtual network does not overlap with any of your other VNet ranges or local network gateway ranges.
+In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5.
 
-These instructions continue from the previous steps in the preceding sections. You must complete [Step 1](#Connect) and [Step 2](#TestVNet1) to create and configure TestVNet1, and the VPN Gateway for TestVNet1. Once you complete Step 1 and Step 2, continue with Step 5 (below).
+### <a name="TestVNet1diff"></a>Step 5 - Create and configure TestVNet1
 
-For this exercise, you can use the following values for the TestVNet5:
+These instructions continue from the steps in the preceding sections. You must complete [Step 1](#Connect) and [Step 2](#TestVNet1) to create and configure TestVNet1 and the VPN Gateway for TestVNet1. For this configuration, you are not required to create TestVNet4 from the previous section, although if you do create it, it will not conflict with these steps. Once you complete Step 1 and Step 2, continue with Step 6 (below).
+
+### <a name="verifyranges"></a>Step 6 - Verify the IP address ranges
+
+When creating additional connections, it's important to verify that the IP address space of the new virtual network does not overlap with any of your other VNet ranges or local network gateway ranges. For this exercise, you can use the following values for the TestVNet5:
 
 **Values for TestVNet5:**
 
@@ -269,23 +271,15 @@ For this exercise, you can use the following values for the TestVNet5:
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
-* DNS Server: 8.8.8.8
 * GatewayName: VNet5GW
 * Public IP: VNet5GWIP
 * VPNType: RouteBased
 * Connection: VNet5toVNet1
 * ConnectionType: VNet2VNet
 
-**Additional Values for TestVNet1:**
+### <a name="TestVNet5"></a>Step 7 - Create and configure TestVNet5
 
-* Connection: VNet1toVNet5
-
-
-### <a name="TestVNet5"></a>Step 5 - Configure TestVNet 5
-
-This step must be done in the context of the new subscription, Subscription 5. This part may be performed by the administrator in a different organization that owns the subscription.
-
-To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
+This step must be done in the context of the new subscription, Subscription 5. This part may be performed by the administrator in a different organization that owns the subscription. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
 
 1. Make sure you are connected to Subscription 5, then create a resource group.
 
@@ -319,14 +313,14 @@ To switch between subscriptions use 'az account list --all' to list the subscrip
 6. Create the TestVNet5 gateway
 
   ```azurecli
-  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### Step 6 - Connect the gateways
+### Step 8 - Create the connections
 
-Because the gateways are in the different subscriptions, we've split this step into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]**. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
+We split this step into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
 
-1. **[Subscription 1]** Get the virtual network gateway name and ID for Subscription 1. Make sure you log in and are connected to Subscription 1. Run the following command to get the name and ID of the Gateway from the output.
+1. **[Subscription 1]** Log in and connect to Subscription 1. Run the following command to get the name and ID of the Gateway from the output:
 
   ```azurecli
   az network vnet-gateway show -n VNet1GW -g TestRG1
@@ -340,7 +334,7 @@ Because the gateways are in the different subscriptions, we've split this step i
   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
   ```
 
-2. **[Subscription 5]** Get the virtual network gateway name and ID for Subscription 5. Make sure you log in and are connected to Subscription 5. Run the following command to get the name and ID of the Gateway from the output.
+2. **[Subscription 5]** Log in and connect to Subscription 5. Run the following command to get the name and ID of the Gateway from the output:
 
   ```azurecli
   az network vnet-gateway show -n VNet5GW -g TestRG5
@@ -348,13 +342,13 @@ Because the gateways are in the different subscriptions, we've split this step i
 
   Copy the output for "id:". Send the ID and the name of the VNet gateway (VNet5GW) to the administrator of Subscription 1 via email or another method.
 
-3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection. In this step, you create the connection from TestVNet1 to TestVNet5. You can use your own values for the shared key, however, the shared key must match for both connections. Creating a connection can take a short while to complete. Make sure you connect to Subscription 1.
+3. **[Subscription 1]** In this step, you create the connection from TestVNet1 to TestVNet5. You can use your own values for the shared key, however, the shared key must match for both connections. Creating a connection can take a short while to complete. Make sure you connect to Subscription 1.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
   ```
 
-4. **[Subscription 5]** Create the TestVNet5 to TestVNet1 connection. This step is similar to the one above, except you are creating the connection from TestVNet5 to TestVNet1. In this step, be sure that the shared keys match. Make sure you connect to Subscription 5.
+4. **[Subscription 5]** This step is similar to the one above, except you are creating the connection from TestVNet5 to TestVNet1. Make sure that the shared keys match and that you connect to Subscription 5.
 
   ```azurecli
   az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l japaneast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW

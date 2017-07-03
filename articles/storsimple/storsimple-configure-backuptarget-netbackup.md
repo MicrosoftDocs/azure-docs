@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 06/15/2017
 ms.author: hkanna
 ---
 
@@ -224,7 +224,7 @@ Set up your solution according to the guidelines in the following few sections.
 
 -   The NetBackup database should be local to the server and not reside on a StorSimple volume.
 -   For disaster recovery, back up the NetBackup database on a StorSimple volume.
--   We support NetBackup full and incremental backups for this solution. We recommend that you do not use synthetic and differential backups.
+-   We support NetBackup full and incremental backups (also referred to as differential incremental backups in NetBackup) for this solution. We recommend that you do not use synthetic and cumulative incremental backups.
 -   Backup data files should contain only the data for a specific job. For example, no media appends across different jobs are allowed.
 
 For the latest NetBackup settings and best practices for implementing these requirements, see the NetBackup documentation at [www.veritas.com](https://www.veritas.com).
