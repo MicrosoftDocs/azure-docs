@@ -1,14 +1,14 @@
 ---
 title: Troubleshooting: Virtual network cannot be deleted in Azure| Microsoft Docs
 description: Learn how to troubleshoot the problem in which virtual network cannot be deleted. 
-services: vpn-gateway
+services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: willchen
+manager: cshepard
 editor: ''
 tags: ''
 
-ms.service: vpn-gateway
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
