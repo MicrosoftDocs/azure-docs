@@ -176,7 +176,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     * In the **First name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
     * In the **Last name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
-     
+    
     l. Click **Save**.
 
 > [!TIP]
