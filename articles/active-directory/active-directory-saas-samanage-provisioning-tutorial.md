@@ -46,6 +46,7 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 *	When assigning a user to Samanage, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. Note that the **Default Access** role does not work for provisioning, and these users will be skipped.
 
+**Note:** As an added feature, the provisioning service reads any custom roles defined in Samanage, and imports them into Azure AD where they can be selected in the Select Role dialog. These roles will be visible in the Azure portal after the provisioning service is enabled and one synchronization cycle has completed.
 
 ## Configuring user provisioning to Samanage 
 
