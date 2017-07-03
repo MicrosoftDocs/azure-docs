@@ -106,159 +106,27 @@ Here's an example of how to use this expression in a script:
 
 
 
-## Register U-SQL assemblies
-U-SQL’s extensibility model relies heavily on the ability to add custom code. Currently, U-SQL provides you with easy ways to add your own Microsoft .NET-based code (in particular, C#). However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#.
+## Using .NET assemblies
+U-SQL’s extensibility model relies heavily on the ability to add custom code. Currently, U-SQL provides you with easy ways to add your own Microsoft .NET-based code (in particular, C#). However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#. 
 
-You can even deploy your own runtime for other languages, but you still need to provide the interoperability through a .NET layer yourself. If you want us to support a specific language, file a feature request or leave a comment at http://aka.ms/adlfeedback.
+### Register a .NET assembly
 
-### Learn the difference between code-behind and assembly registration through Azure Data Lake Tools in Visual Studio
-The easiest way to use custom code is to use the Azure Data Lake Tools for Visual Studio’s code-behind capabilities.
+Use the CREATE ASSEMBLY statement to place a .NET assembly into a U-SQL Database. Once an assembly is in a database, U-SQL scripts can use those assemblies by using the REFERENCE ASSEMBLY statement. 
 
-As we mentioned earlier, you fill in the custom code for the script (for example, Script.usql) into its code-behind file (for example, Script.usql.cs).
-
-![Code-behind example](./media/data-lake-analytics-u-sql-programmability-guide/code-behind-example.jpg)
-**Figure 1**: Code-behind example in Azure Data Lake Tools in Visual Studio. (Click the image to enlarge it. [Sample code](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis) is available.)
-
-
-The advantage of code-behind is that the tooling takes care of the following steps for you when you submit your script:  
-
-1. It builds the assembly for the code-behind file.  
-
-2. It adds a prologue to the script that uses the [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) statement to register the assembly file. It also uses [REFERENCE ASSEMBLY]  (https://msdn.microsoft.com/library/azure/mt763294.aspx) to load the assembly into the script’s context.
-
-3. It adds an epilogue to the script, which uses [DROP ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763295.aspx) to remove the temporarily registered assembly again.
-
-You can see the generated prologue and epilogue when you open the script:
-
-![Generated prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
-
-**Figure 2**: Auto-generated prologue and epilogue for code-behind
-<br />
-
-The following are some of the drawbacks of code-behind:
-
-* The code gets uploaded for every script submission.
-* The functionality cannot be shared with others.
-
-Thus, you can add a separate C# Class Library (for U-SQL) to your solution (see Figure 3), develop the code, or copy existing code-behind code (no changes in the C# code required, as shown in Figure 4). Then use the **Register Assembly** menu option on the project to register the assembly (as shown in Step 1 of Figure 5).
-
-![Creating project](./media/data-lake-analytics-u-sql-programmability-guide/creating-project.png)
-**Figure 3**: Creating a U-SQL C# code project  
-<br />
-
-![Class library](./media/data-lake-analytics-u-sql-programmability-guide/class-library.png)
-**Figure 4**: The U-SQL C# class library next to the code-behind file
-<br />
-
-![Register code](./media/data-lake-analytics-u-sql-programmability-guide/register-code.png)
-**Figure 5**: How to register the U-SQL C# code project
-<br />
-
-The registration dialog box (see Step 2 of Figure 5) gives you the options for how to register the assembly (for example, which Data Lake Analytics account to use, which database to use). It also gives you information about how to name the assembly. (The local assembly path gets filled in by the tool.) In addition, it provides an option to re-register an already registered assembly, and two options for adding additional dependencies:
-
-**Managed dependencies**: Shows the managed assemblies that are needed. Each selected assembly is registered individually and becomes referenceable in scripts. You use this for other .NET assemblies.
-
-**Additional files**: Enables you to add additional resource files that are needed by the assembly. They are registered together with the assembly and automatically loaded when the assembly gets referenced. You use this for config files, native assemblies, other language runtimes, their resources, and so on.
-
-We use both of these options in the following examples. The [recent blog post about image processing](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/) is another example that shows the use of a predefined assembly that can use these options for registration.
-
-Now you can refer to the registered assemblies from any U-SQL script that has permissions for the database of the registered assemblies. (For more information, see the code in the U-SQL script in Figure 4.) You have to add a reference for every assembly that's registered separately. The additional resource files are automatically deployed. That script should not have a code-behind file for the code that's in the referenced assemblies anymore, but the code-behind file can still provide other code.
-
-### Register assemblies via Azure Data Lake Tools in Visual Studio and in U-SQL scripts
-While the Azure Data Lake Tools in Visual Studio make it easy to register an assembly, you can also do it with a script (in the same way that the tools do it for you) if you are (for example) developing on a different platform or have already compiled assemblies that you want to upload and register. You take the following steps:
-
-1. Upload your assembly DLL and also all required non-system DLLs and resource files into a location that you choose. You can also upload it to your Azure Data Lake storage account or even a Microsoft Azure Blob storage account that's linked to your Azure Data Lake account. You can use any of the upload tools that are available to you (for example, Windows PowerShell commands, Visual Studio’s Azure Data Lake Tool Data Lake Explorer upload, your favorite SDK’s upload command, or tools that you access through the Azure portal).
-
-1. After you have uploaded the DLLs, use the [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) statements to register them.
-
-We use this approach in the following spatial example.
-
-### Register assemblies that use other .NET assemblies (based on the JSON and XML sample library)
-Our [U-SQL GitHub site](https://github.com/Azure/usql/) offers a set of shared example assemblies for you to use. One of the assemblies, called [Microsoft.Analytics.Samples.Formats](https://github.com/Azure/usql/tree/master/Examples/DataFormats), provides extractors, functions, and outputters to handle both JSON and XML documents. The Microsoft.Analytics.Samples.Formats assembly depends on two existing domain-specific assemblies to do the processing of the JSON and XML respectively. It uses the [Newtonsoft Json.Net](http://www.newtonsoft.com/) library for processing the JSON documents and the [System.Xml](https://msdn.microsoft.com/data/bb291078.aspx) assembly for processing XML. We use it to show how to register them and use the assemblies in our scripts.
-
-First we download the [Visual Studio project](https://github.com/Azure/usql/tree/master/Examples/DataFormats) to our local development environment (for example, by making a local copy with the GitHub tool for Windows). Then we open the solution in Visual Studio and right-click the project (as explained previously) to register the assembly.
-
-Though this assembly has two dependencies, we only have to include the Newtonsoft dependency because System.Xml is available in Azure Data Lake already (it has to be explicitly referenced, however). Figure 6 shows how we name the assembly (note that you can choose a different name without dots as well) and add the Newtonsoft DLL. Each of the two assemblies is individually registered in the specified database (for example, JSONBlog).
-
-![Register assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
-
-**Figure 6**: How to register the Microsoft.Analytics.Samples.Formats assembly from Visual Studio
-<br />
-
-If you or others (with whom you shared the registered assemblies by giving them read access to the database) now want to use the JSON capability in your scripts, add the following two references to your script:
+The following code shows how to register an assembly:
 
 ```
-REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
-REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
+CREATE ASSEMBLY MyDB.[MyAssembly]
+	FROM "/myassembly.dll";
 ```
 
-And if you want to use the XML functionality, add a system assembly reference and a reference to the registered assembly:
+The following code shows how to reference an assembly:
 
 ```
-REFERENCE SYSTEM ASSEMBLY [System.Xml];
-REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
+REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-For more information about how to use the JSON functionality, see [this blog post](https://blogs.msdn.microsoft.com/mrys/?p=755).
-
-### Register assemblies that use native C++ assemblies (using the SQL Server 2016 spatial type assembly from the feature pack)
-Now let’s look at a slightly different scenario. Let’s assume the assembly that we want to use has a dependency on code that is not .NET based. More specifically, the assembly has a dependency on a native C++ assembly. An example of such an assembly is the SQL Server type assembly [Microsoft.SqlServer.Types.dll](https://www.microsoft.com/download/details.aspx?id=52676). It provides .NET-based implementations of the SQL Server hierarchyID, geometry, and geography types to be used by SQL Server client-side applications for handling the SQL Server types. (It was also originally the assembly that provided the implementation for the SQL Server spatial types before the SQL Server 2016 release.)
-
-Let’s look at how to register this assembly in U-SQL.
-
-First we download and install the assembly from the [SQL Server 2016 feature pack](https://www.microsoft.com/download/details.aspx?id=52676). To ensure that you have the 64-bit version of the libraries, select the 64-bit version of the installer (ENU\x64\SQLSysClrTypes.msi).
-
-The installer installs the managed assembly Microsoft.SqlServer.Types.dll into C:\Program Files (x86)\Microsoft SQL Server\130\SDK\Assemblies and the native assembly SqlServerSpatial130.dll into \Windows\System32\. Now we upload the assemblies into our Azure Data Lake Store (for example, into a folder called /upload/asm/spatial).
-
-Because the installer has installed the native library into the system folder c:\Windows\System32, we have to make sure that we either copy SqlServerSpatial130.dll out from that folder before uploading it, or that the tool we use does not perform the [file system redirection](https://msdn.microsoft.com/library/windows/desktop/aa384187(v=vs.85).aspx) of system folders.
-
-For example, if you want to upload it with the current Visual Studio Azure Data Lake File Explorer, you have to copy the file into another directory first. Otherwise--as of the time of the writing of this article--you upload the 32-bit version. The reason for this is that Visual Studio is a 32-bit application, which does File System Redirection in its Azure Data Lake upload file selection window. Then, when you run a U-SQL script that calls into the native assembly, you get the following (inner) error at runtime:
-
-**Inner exception from user expression: An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)**
-
-After uploading the two assembly files, we now register them in the database SQLSpatial with the following script:
-
-```
-DECLARE @ASSEMBLY_PATH string = "/upload/asm/spatial/";
-DECLARE @SPATIAL_ASM string = @ASSEMBLY_PATH+"Microsoft.SqlServer.Types.dll";
-DECLARE @SPATIAL_NATIVEDLL string = @ASSEMBLY_PATH+"SqlServerSpatial130.dll";
-
-CREATE DATABASE IF NOT EXISTS SQLSpatial;
-USE DATABASE SQLSpatial;
-
-DROP ASSEMBLY IF EXISTS SqlSpatial;
-CREATE ASSEMBLY SqlSpatial
-FROM @SPATIAL_ASM
-WITH ADDITIONAL_FILES =
-     (
-         @SPATIAL_NATIVEDLL
-     );
-```
-
-In this case, we only register one U-SQL assembly and include the native assembly as a string dependency to the U-SQL assembly. To use the spatial assemblies, we only need to reference the U-SQL assembly. The additional file is automatically made available for the assembly. Here's a simple sample script that uses the spatial assembly:
-
-```sql
-REFERENCE SYSTEM ASSEMBLY [System.Xml];
-REFERENCE ASSEMBLY SQLSpatial.SqlSpatial;
-
-USING Geometry = Microsoft.SqlServer.Types.SqlGeometry;
-USING Geography = Microsoft.SqlServer.Types.SqlGeography;
-USING SqlChars = System.Data.SqlTypes.SqlChars;
-
-@spatial =
-    SELECT * FROM (VALUES
-                   // The following expression is not using the native DDL
-                   ( Geometry.Point(1.0,1.0,0).ToString()),    
-                   // The following expression is using the native DDL
-                   ( Geometry.STGeomFromText(new SqlChars("LINESTRING (100 100, 20 180, 180 180)"), 0).ToString())
-                  ) AS T(geom);
-
-OUTPUT @spatial
-TO "/output/spatial.csv"
-USING Outputters.Csv();
-```
-
-The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods use the System.Data.SqlTypes types instead of the built-in C# types. Because System.Data is already included by default, we can reference the needed SQL type. The previous code is available on our [GitHub site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
+Consult the [assembly registration instructions](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) that covers this topic in greater detail.
 
 
 ### Use assembly versioning
