@@ -46,16 +46,15 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 
 #### Services
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
-* There is no marketplace experience for creating virtul machine scale sets, though they can be created via template.
+* There is no marketplace experience for creating virtual machine scale sets, though they can be created via template.
 * You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * A tenant must have an existing storage account before creating a new Azure function.
-* You must storage explorer version to connect to Azure Stack Development Kit.
-* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null".  Redeployment will succeed.  
+* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null".  Redeployment of the virtual machine will succeed.  
 * Deleting tenant subscriptions will result in orphaned resources.  As a workaround, first delete tenant resources/resource group, then delete tenant subscriptions.  
 * You must create a NAT rule when creating a network load balancer, or you will receive an error trying to add a NAT rule once the load balancer is created.
-* Tenants can create virtual machines larger than quota allows.  This is because compute quotas are not enforced.
-* Tenants are given the option to create a virtual machine with geo-redundant storage.  This will cause virtual machine creation to fail.
+* Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
+* Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration will cause virtual machine creation to fail.
 
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
