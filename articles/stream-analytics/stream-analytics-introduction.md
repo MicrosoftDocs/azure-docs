@@ -40,9 +40,7 @@ Examples of Streaming Analytics scenarios include:
 
 The following diagram illustrates the Streaming Analytics pipeline, showing how data is ingested, analyzed, and then sent for presentation or action. 
 
-
 ![Stream Analytics pipeline](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
-
 
 Stream Analytics starts with a source of streaming data. The data can be ingested into Azure from a device using an Azure event hub or IoT hub. The data can also be pulled from a data store like Azure Blob Storage. 
 
@@ -53,7 +51,7 @@ Finally, the job specifies an output to send the transformed data to. This lets 
 * Send a command to change a device's settings. 
 * Send data to a queue that's monitored by a process that takes action based on what it finds. 
 * Send data to a Power BI dashboard for reporting.
-* Send data to storage like Data Lake Store a SQL Server database.
+* Send data to storage like Data Lake Store, SQL Server database, or Azure Blob or Table storage.
 
 While a job is running, you can monitor it and adjust how many events it processes per second. You can also have jobs produce diagnostic logs for troubleshooting.
 
@@ -61,7 +59,7 @@ While a job is running, you can monitor it and adjust how many events it process
 
 Stream Analytics is designed to be easy to use, flexible, scalable to any job size, and economical.
 
-#### Connectivity to many inputs and outputs
+### Connectivity to many inputs and outputs
 
 Stream Analytics connects directly to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/) for stream ingestion, and the [Azure Blob storage service](https://docs.microsoft.com/azure/storage/storage-introduction#blob-storage-accounts) to ingest historical data. If you get data from event hubs, you can combine Stream Analytics with other data sources and processing engines.
 
@@ -69,24 +67,23 @@ Job input can also include reference data (static or slow-changing data). You ca
 
 The output of a Stream Analytics job can be routed in many directions. It can be written to storage, such as Azure Storage blobs or tables, Azure SQL DB, Azure Data Lake Stores, or Azure Cosmos DB. From there, the data might go for batch analytics via Azure HDInsight. You might send the output to another service for consumption by another process, such as event hubs, Azure Service Bus topics, or queues. You might send the output to Power BI for visualization.
 
-
-#### Ease of use
+### Ease of use
 
 To define transformations, you use a simple, declarative [Stream Analytics query language](https://msdn.microsoft.com/library/azure/dn834998.aspx) that lets you create sophisticated analyses with no programming. The query language takes streaming data as its input. You can then filter and sort the data, aggregate values, perform calculations, join data (within a stream or to reference data), and use geospatial functions. You can edit queries in the portal, using IntelliSense and syntax checking, and you can test queries using sample data that you can extract from the live stream.
 
-#### Extensible query language
+### Extensible query language
 
 You can extend the capabilities of the query language by defining and invoking additional functions. You can define function calls in the Azure Machine Learning service to take advantage of Azure Machine Learning solutions. You can also integrate JavaScript user-defined functions (UDFs) in order to perform complex calculations as part a Stream Analytics query.
 
-#### Scalability
+### Scalability
 
 Stream Analytics can handle up to 1 GB of incoming data per second. Integration with [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/) allows jobs to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. Using the partition feature of event hubs, you can partition computations into logical steps, each with the ability to be further partitioned to increase scalability.
 
-#### Low cost
+### Low cost
 
 As a cloud service, Stream Analytics is optimized to let you get going at low cost. You pay as you go based on streaming-unit usage and the amount of data processed by the system. Usage is derived based on the volume of events processed and the amount of compute power provisioned within the cluster to handle Stream Analytics jobs.
 
-#### Reliability, quick recovery, and repeatability
+### Reliability, quick recovery, and repeatability
 
 As a managed service in the cloud, Stream Analytics helps prevent data loss and provides business continuity. If failures occur, the service provides built-in recovery capabilities. With the ability to internally maintain state, the service provides repeatable results ensuring it is possible to archive events and reapply processing in the future, always getting the same results. This enables you to go back in time and investigate computations when doing root-cause analysis, what-if analysis, and so on.
 
