@@ -122,9 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Picturepark Client support team](https://picturepark.com/about/contact/) to get these values. 
  
-
-
-4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value only instead of downloading certificate, which is used later in the tutorial.
+4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-picturepark-tutorial/tutorial_picturepark_certificate.png) 
 
