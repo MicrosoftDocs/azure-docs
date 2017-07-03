@@ -56,6 +56,7 @@ This article provides an example of how you can use Azure Automation Desired Sta
 
   > [!NOTE]
   > If you want to use DSC for Windows machines that have WMF 4.0 installed, see the section [Use DSC in disconnected environments](#Use DSC in disconnected environments).
+<!---Loc Comment: Please, check link [Use DSC in disconnected environments] since it's not redirecting to any location.--->
   >
   >
 
