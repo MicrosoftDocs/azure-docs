@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<Company Name>.samanage.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Samanage Client support team](https://www.samanage.com/support) to get these values. 
+	> These values are not real. Update these values with the actual Sign-on URL and Identifier, which is explained later in the tutorial. For more details contact [Samanage Client support team](https://www.samanage.com/support).    
  
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -149,9 +149,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     d. In the **Logout URL** textbox, enter the value of **Sign-Out URL** which you have copied from Azure portal.
  
-    e. In the **SAML Issuer** textbox, type the value of **Identifier** set in **Samanage Domain and URLs** section on Azure portal.
+    e. In the **SAML Issuer** textbox, type the app id URI set in your identity provider.
  
-    f. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Paste your Identity Provider x.509 Certificate below** textbox.
+    f. Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **Paste your Identity Provider x.509 Certificate below** textbox.
  
     g. Click **Create users if they do not exist in Samanage**.
  
