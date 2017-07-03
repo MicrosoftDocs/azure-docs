@@ -99,16 +99,16 @@ You can run the Add-AzurePackConnector.ps1 script immediately after deployment, 
 1. Run the Add-AzurePackConnector.ps1 script by using the following commands (with values specific to your environment). Notice that the Add-AzurePackConnector script enables you to add more than one Windows Azure Pack Connector endpoint.
  
  ```powershell
- $cred = New-Object System.Management.Automation.PSCredential("cloudadmin@azurestack.local", `
+    $cred = New-Object System.Management.Automation.PSCredential("cloudadmin@azurestack.local", `
     (ConvertTo-SecureString -String "<password>" -AsPlainText -Force))
- $session = New-PSSession -ComputerName 'azs-ercs01' -Credential $cred `
+    $session = New-PSSession -ComputerName 'azs-ercs01' -Credential $cred `
    -ConfigurationName PrivilegedEndpoint -Authentication Credssp
 
-# Enable Multicloud
- Invoke-Command -Session $session -ScriptBlock { Add-AzurePackConnector -AzurePackClouds `
-     @{CloudName = "AzurePack_1"; CloudEndpoint = "https://waptenantportal1:40005"},`
-     @{CloudName = "AzurePack_2"; CloudEndpoint = "https://waptenantportal2:40005" } `
-     -AzureStackCloudName "AzureStack" }
+    # Enable Multicloud
+    Invoke-Command -Session $session -ScriptBlock { Add-AzurePackConnector -AzurePackClouds `
+    @{CloudName = "AzurePack_1"; CloudEndpoint = "https://waptenantportal1:40005"},`
+    @{CloudName = "AzurePack_2"; CloudEndpoint = "https://waptenantportal2:40005" } `
+    -AzureStackCloudName "AzureStack" }
 
  ```
 
