@@ -1,20 +1,20 @@
 ---
-  title: Azure Service Bus management libraries| Microsoft Docs
-  description: Manage Service Bus namespaces and messaging entities from .NET
-  services: service-bus-messaging
-  cloud: na
-  documentationcenter: na
-  author: jtaubensee
-  manager: timlt
+title: Azure Service Bus management libraries| Microsoft Docs
+description: Manage Service Bus namespaces and messaging entities from .NET
+services: service-bus-messaging
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
-  ms.assetid:
-  ms.service: service-bus-messaging
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: dotnet
-  ms.topic: article
-  ms.date: 04/03/2017
-  ms.author: jotaub;sethm
+ms.assetid:
+ms.service: service-bus-messaging
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 04/03/2017
+ms.author: sethm
 
 ---
 

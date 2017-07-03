@@ -2,7 +2,7 @@
 title: Release notes for Data Management Gateway | Microsoft Docs
 description: Data Management Gateway tory release notes
 services: data-factory
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
-ms.author: spelluru
+ms.date: 06/19/2017
+ms.author: abnarain
 published: true
 ---
 # Release notes for Data Management Gateway
-One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data Factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
+One of the challenges for modern data integration is to move data to and from on-premises to cloud. Data Factory makes this integration with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
 See the following articles for detailed information about Data Management Gateway and how to use it:
 
@@ -24,23 +24,30 @@ See the following articles for detailed information about Data Management Gatewa
 *  [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## CURRENT VERSION (2.9.6313.2)
+## CURRENT VERSION (2.10.6347.7)
 
 ### Enhancements-
--	You can add DNS entries to whitelist Service Bus rather than whitelisting all Azure IP addresses from your firewall (if needed). More details here.
--	You can now copy data to/from a single block blob up to 4.75TB, which is the max supported size of block blob. (earlier limit was 195GB).
--	Fixed: Out of memory issue while unzipping several small files during copy activity.
--	Fixed: Index out of range issue while copying from Document DB to on premise SQL with idempotency feature.
--	Fixed: SQL cleanup script doesn't work with on premise SQL from Copy Wizard.
--	Fixed: Column name with space at the end does not work in copy activity.
+- You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
+- HDFS connector now supports self-signed public certificate by letting you skip SSL validation.
+- Fixed: Issue with gateway offline during update (due to clock skew)
+
 
 
 ## Earlier versions
 
+## 2.9.6313.2
+### Enhancements-
+-	You can add DNS entries to whitelist Service Bus rather than whitelisting all Azure IP addresses from your firewall (if needed). More details here.
+-	You can now copy data to/from a single block blob up to 4.75 TB, which is the max supported size of block blob. (earlier limit was 195 GB).
+-	Fixed: Out of memory issue while unzipping several small files during copy activity.
+-	Fixed: Index out of range issue while copying from Document DB to an on-premises SQL Server with idempotency feature.
+-	Fixed: SQL cleanup script doesn't work with on-premises SQL Server from Copy Wizard.
+-	Fixed: Column name with space at the end does not work in copy activity.
+
 ## 2.8.66283.3
 ### Enhancements-
 - Fixed: Issue with missing credentials on gateway machine reboot.
-- Fixed: Issue with registration during gateway restore using backup file.
+- Fixed: Issue with registration during gateway restore using a backup file.
 
 
 ## 2.7.6240.1
@@ -93,7 +100,7 @@ See the following articles for detailed information about Data Management Gatewa
 
 *  DB2 driver is included in the gateway installation package now. You do not need to install it separately.
 *  DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows).
-*  Supports using DocumentDB as a source or destination for on-premises data stores
+*  Supports using Azure Cosmos DB as a source or destination for on-premises data stores
 *  Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account.
 *  Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
 

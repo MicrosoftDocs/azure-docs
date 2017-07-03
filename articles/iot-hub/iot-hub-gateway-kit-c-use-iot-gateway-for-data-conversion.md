@@ -1,6 +1,6 @@
 ---
-title: Data conversion on IoT gateway with Azure IoT Gateway SDK | Microsoft Docs
-description: Use IoT gateway to convert the format of sensor data through a customized module from the Azure IoT Gateway SDK.
+title: Data conversion on IoT gateway with Azure IoT Edge | Microsoft Docs
+description: Use IoT gateway to convert the format of sensor data through a customized module from Azure IoT Edge.
 services: iot-hub
 documentationcenter: ''
 author: shizn
@@ -14,18 +14,18 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 06/25/2017
 ms.author: xshi
 
 ---
-# Use IoT gateway for sensor data transformation with Azure IoT Gateway SDK
+# Use IoT gateway for sensor data transformation with Azure IoT Edge
 
 > [!NOTE]
 > Before you start this tutorial, make sure you’ve completed the following lessons in sequence:
 > * [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 > * [Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
-One purpose of an Iot gateway is to process collected data before sending it to the cloud. The Azure IoT Gateway SDK introduces modules which can be created and assembled to form the data processing workflow. A module receives a message, performs some action on it, and then move it on for other modules to process.
+One purpose of an Iot gateway is to process collected data before sending it to the cloud. Azure IoT Edge introduces modules which can be created and assembled to form the data processing workflow. A module receives a message, performs some action on it, and then move it on for other modules to process.
 
 ## What you learn
 
@@ -35,7 +35,7 @@ You learn how to create a module to convert messages from the SensorTag into a d
 
 * Create a module to convert a received message into the .json format.
 * Compile the module.
-* Add the module to the BLE sample application from the Azure IoT Gateway SDK.
+* Add the module to the BLE sample application from Azure IoT Edge.
 * Run the sample application.
 
 ## What you need
@@ -57,7 +57,7 @@ You learn how to create a module to convert messages from the SensorTag into a d
    git clone https://github.com/Azure-Samples/iot-hub-c-intel-nuc-gateway-customized-module.git
    ```
 
-   This is a native Azure Gateway SDK module written in the C programming language. The module converts the format of received messages into the following one:
+   This is a native Azure Edge module written in the C programming language. The module converts the format of received messages into the following one:
 
    ```json
    {"deviceId": "Intel NUC Gateway", "messageId": 0, "temperature": 0.0}
@@ -68,11 +68,11 @@ You learn how to create a module to convert messages from the SensorTag into a d
 To compile the module, run the following commands:
 
 ```bash
-cd iot-hub-c-intel-nuc-gateway-customized-module
+cd iot-hub-c-intel-nuc-gateway-customized-module/my_module
 # change the build script runnable
 chmod 777 build.sh
 # remove the invalid windows character
-sed -i -e "s/\r$\/\/" build.sh
+sed -i -e "s/\r$//" build.sh
 # run the build shell script
 ./build.sh
 ```

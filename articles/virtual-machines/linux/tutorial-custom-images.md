@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/21/2017
 ms.author: cynthn
+ms.custom: mvc
 ---
 
 # Create a custom image of an Azure VM using the CLI
@@ -26,8 +27,13 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Deprovision and generalize VMs
 > * Create a custom image
 > * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Before you begin
 
@@ -66,23 +72,23 @@ exit
 
 To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#deallocate). 
    
-```azurecli
-az vm deallocate --resource-group myRGCaptureImage --name myVM
+```azurecli-interactive 
+az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
    
-```azurecli
-az vm generalize --resource-group myResourceGroupImages --name myVM
+```azurecli-interactive 
+az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
 ### Create the image
 
 Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named *myImage* from a VM named *myVM*.
    
-```azurecli
+```azurecli-interactive 
 az image create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myImage \
     --source myVM
 ```
@@ -91,13 +97,32 @@ az image create \
 
 Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
-```azurecli
+```azurecli-interactive 
 az vm create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myVMfromImage \
     --image myImage \
     --admin-username azureuser \
     --generate-ssh-keys
+```
+
+## Image management 
+
+Here are some examples of common image management tasks and how to complete them using the Azure CLI.
+
+List all images by name in a table format.
+
+```azurecli-interactive 
+az image list \
+  --resource-group myResourceGroup
+```
+
+Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+
+```azurecli-interactive 
+az image delete \
+    --name myOldImage \
+	--resource-group myResourceGroup
 ```
 
 ## Next steps
@@ -108,6 +133,8 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Deprovision and generalize VMs
 > * Create a custom image
 > * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
 
 Advance to the next tutorial to learn about highly available virtual machines.
 

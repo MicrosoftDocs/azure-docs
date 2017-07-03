@@ -43,7 +43,7 @@
 ### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
 ### [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure DocumentDB indexer](search-howto-index-documentdb.md)
+### [Azure Cosmos DB indexer](search-howto-index-documentdb.md)
 ### [Index CSV blobs](search-howto-index-csv-blobs.md)
 ### [Index JSON blobs](search-howto-index-json-blobs.md)
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -73,20 +73,22 @@
 ## [REST (Management)](/rest/api/searchmanagement)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=search)
 ## [API versions](search-api-versions.md)
-## [Service REST (Preview)](search-api-2015-02-28-preview.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
+## [Service REST (Preview)](search-api-2015-02-28-preview.md)
+## [Service updates](https://azure.microsoft.com/updates/?product=search)
+## Courseware & tutorials
 ## Demo sites
+## Partner & community
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Job listings app](http://aka.ms/azjobsdemo)
 ### [Live demo apps](https://searchsamples.azurewebsites.net/)
-## Courseware & tutorials
-### [Virtual academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
-### [Videos and tutorials](search-video-demo-tutorial-list.md)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-## Partner & community
 ### [Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Search Analyzer Demo](http://alice.unearth.ai/)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Videos and tutorials](search-video-demo-tutorial-list.md)
+### [Virtual academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)

@@ -1,6 +1,6 @@
 ---
-title: Using Ruby in Azure App Service Web Apps on Linux | Microsoft Docs
-description: Using Ruby in Azure App Service Web Apps on Linux.
+title: Using Ruby in Azure App Service Web App on Linux | Microsoft Docs
+description: Using Ruby in Azure App Service Web App on Linux.
 keywords: azure app service, web app, faq, linux, oss, ruby
 services: app-service
 documentationCenter: ''
@@ -19,7 +19,7 @@ ms.author: aelnably;wesmc
 
 ---
 
-# Using Ruby in Web Apps on Linux #
+# Using Ruby in Web App on Linux #
 
 With the latest update to our backend, we introduced support for Ruby v.2.3. By setting the configuration of your Linux web app, you can change the application stack.
 
@@ -40,11 +40,14 @@ Next, the **Create blade** opens as shown in the following image:
 
 After your Ruby web app gets created, you can deploy to it using Git or FTP.
 
+To learn more about creating a Ruby app, check the [get started guide](app-service-linux-ruby-get-started.md)
+
 ## Next steps
-* [What is App Service on Linux?](app-service-linux-intro.md)
-* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
+* [What is Web App on Linux?](app-service-linux-intro.md)
+* [Creating Web Apps in Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md)
-* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
+* [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
+* [Create a Ruby App with Azure Web App on Linux](app-service-linux-ruby-get-started.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

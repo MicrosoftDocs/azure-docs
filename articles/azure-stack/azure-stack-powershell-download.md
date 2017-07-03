@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Download Azure Stack tools from GitHub
 
-AzureStack-Tools is a GitHub repository that hosts PowerShell modules that you can use to manage and deploy resources to Azure Stack. You can download and use these PowerShell modules from MAS-CON01, Azure Stack host computer, or from a windows-based external client through VPN connectivity. To obtain these tools, clone the GitHub repository or download the AzureStack-Tools folder. 
+AzureStack-Tools is a GitHub repository that hosts PowerShell modules that you can use to manage and deploy resources to Azure Stack. You can download and use these PowerShell modules from Azure Stack POC computer, or from a windows-based external client if you are planning to establish VPN connectivity. To obtain these tools, clone the GitHub repository or download the AzureStack-Tools folder. 
 
 To clone the repository, download [Git](https://git-scm.com/download/win) for Windows, open a Command Prompt window and run the following command:
 
@@ -42,10 +42,14 @@ To download the tools folder, run the following command:
 cd \
 
 # Download the tools archive
-invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  -OutFile master.zip
 
 # Expand the downloaded files
-expand-archive master.zip -DestinationPath . -Force
+expand-archive master.zip `
+  -DestinationPath . `
+  -Force
 
 # Change to the tools directory
 cd AzureStack-Tools-master

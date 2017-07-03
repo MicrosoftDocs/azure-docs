@@ -3,7 +3,7 @@ title: Integrate Azure AD into an iOS app | Microsoft Docs
 description: How to build an iOS application that integrates with Azure AD for sign-in and calls Azure AD protected APIs by using OAuth.
 services: active-directory
 documentationcenter: ios
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
+ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # Integrate Azure AD into an iOS app
@@ -54,8 +55,8 @@ The iOS format for a redirect URI is:
 <app-scheme>://<bundle-id>
 ```
 
-* **aap-scheme**: This is registered in your XCode project. It is how other applications can call you. You can find this in the XCode project at **Info.plist** > **URL types** > **URL Identifier**. You should create one if you don't already have one or more configured.
-* **bundle-id**: This is the Bundle Identifier that is found under **identity** in your project settings in XCode.
+* **app-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
+* **bundle-id** - This is the Bundle Identifier found under "identity" un your project settings in XCode.
 
 An example for this QuickStart code: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: davidmu
+ms.custom: mvc
 ---
 
 # Monitor a Windows Virtual Machine with Azure PowerShell
@@ -60,8 +61,7 @@ The basic host metrics are available, but to see more granular and VM-specific m
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Diagnosis settings**. The list shows that *Boot diagnostics* are already enabled from the previous section. Click the check box for *Basic metrics*.
-3. In the *Storage account* section, browse to and select a storage account.
-4. Click the **Save** button.
+3. Click the **Enable guest-level monitoring** button.
 
     ![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 

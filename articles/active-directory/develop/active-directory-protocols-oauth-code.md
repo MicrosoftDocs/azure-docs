@@ -3,7 +3,7 @@ title: Understand the OAuth 2.0 authorization code flow in Azure AD  | Microsoft
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: priyamo
+ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Authorize access to web applications using OAuth 2.0 and Azure Active Directory

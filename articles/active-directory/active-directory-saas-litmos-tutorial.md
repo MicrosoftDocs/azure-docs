@@ -170,7 +170,7 @@ As part of the configuration, you need to customize the **SAML Token Attributes*
     | --- | --- |
     | Email |user.mail |
     | FirstName |user.givenname |
-    | Lastname |user.surname |
+    | LastName |user.surname |
     
     For each data row in the table above, perform the following steps:
     

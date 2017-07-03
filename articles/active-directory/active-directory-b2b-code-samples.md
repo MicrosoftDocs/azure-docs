@@ -40,7 +40,8 @@ You can bulk-invite external users to an organization from email addresses that 
 3. Sign in to your tenancy
 
     ```
-    Connect-AzureAd -tenantId <tenantId>
+    $cred = Get-Credential
+    Connect-AzureAD -Credential $cred
     ```
 
 4. Run the PowerShell cmdlet

@@ -12,13 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/07/2017
 ms.author: banders
 
 ---
 # Plan Hyper-V virtual machine capacity with the Capacity and Performance solution (Preview)
 
-![Capacity and Performance solution](./media/log-analytics-capacity/capacity-solution.png) You can use the Capacity and Performance solution in Log Analytics to help you understand the capacity of your Hyper-V servers. The solution provides insights into your Hyper-V environment by showing you the overall utilization (CPU, memory, and disk) of the hosts and the VMs running on those Hyper-V hosts. Metrics are collected for CPU, memory, and disks across all your hosts and the VMs running on them.
+![Capacity and Performance symbol](./media/log-analytics-capacity/capacity-solution.png)
+
+You can use the Capacity and Performance solution in Log Analytics to help you understand the capacity of your Hyper-V servers. The solution provides insights into your Hyper-V environment by showing you the overall utilization (CPU, memory, and disk) of the hosts and the VMs running on those Hyper-V hosts. Metrics are collected for CPU, memory, and disks across all your hosts and the VMs running on them.
 
 The solution:
 

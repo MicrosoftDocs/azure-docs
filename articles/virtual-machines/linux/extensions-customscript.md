@@ -29,6 +29,8 @@ The Custom Script Extension configuration specifies things like script location 
 ### Public Configuration
 Schema:
 
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
+
 * **commandToExecute**: (required, string) the entry point script to execute
 * **fileUris**: (optional, string array) the URLs for files to be downloaded.
 * **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
@@ -42,6 +44,8 @@ Schema:
 
 ### Protected Configuration
 Schema:
+
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
 
 * **commandToExecute**: (optional, string) the entry point script to execute. Use this field instead if your command contains secrets such as passwords.
 * **storageAccountName**: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.

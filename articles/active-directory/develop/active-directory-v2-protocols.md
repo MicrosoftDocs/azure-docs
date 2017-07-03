@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # v2.0 Protocols - OAuth 2.0 & OpenID Connect
@@ -77,5 +78,4 @@ check out [the types of apps you can build with the v2.0](active-directory-v2-fl
 * [Build Web Apps with Open ID Connect](active-directory-v2-protocols-oidc.md)
 * [Build Single Page Apps with the OAuth 2.0 Implicit Flow](active-directory-v2-protocols-implicit.md)
 * [Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow](active-directory-v2-protocols-oauth-client-creds.md)
-* [Get tokens in a Web API with the OAuth 2.0 On-Behalf-Of Flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) -->
+* [Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow](active-directory-v2-protocols-oauth-on-behalf-of.md)

@@ -25,7 +25,7 @@ ms.author: rodsan
 | Web Application | <ul><li>[Ensure that sensitive content is not cached on the browser](#cache-browser)</li><li>[Encrypt sections of Web App's configuration files that contain sensitive data](#encrypt-data)</li><li>[Explicitly disable the autocomplete HTML attribute in sensitive forms and inputs](#autocomplete-input)</li><li>[Ensure that sensitive data displayed on the user screen is masked](#data-mask)</li></ul> | 
 | Database | <ul><li>[Implement dynamic data masking to limit sensitive data exposure non privileged users](#dynamic-users)</li><li>[Ensure that passwords are stored in salted hash format](#salted-hash)</li><li>[ Ensure that sensitive data in database columns is encrypted](#db-encrypted)</li><li>[Ensure that database-level encryption (TDE) is enabled](#tde-enabled)</li><li>[Ensure that database backups are encrypted](#backup)</li></ul> | 
 | Web API | <ul><li>[Ensure that sensitive data relevant to Web API is not stored in browser's storage](#api-browser)</li></ul> | 
-| Azure Document DB | <ul><li>[Encrypt sensitive data stored in DocumentDB](#encrypt-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[Encrypt sensitive data stored in Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | Azure IaaS VM Trust Boundary | <ul><li>[Use Azure Disk Encryption to encrypt disks used by Virtual Machines](#disk-vm)</li></ul> | 
 | Service Fabric Trust Boundary | <ul><li>[Encrypt secrets in Service Fabric applications](#fabric-apps)</li></ul> | 
 | Dynamics CRM | <ul><li>[Perform security modeling and use Business Units/Teams where required](#modeling-teams)</li><li>[Minimize access to share feature on critical entities](#entities)</li><li>[Train users on the risks associated with the Dynamics CRM Share feature and good security practices](#good-practices)</li><li>[Include a development standards rule proscribing showing config details in exception management](#exception-mgmt)</li></ul> | 
@@ -239,7 +239,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 };
 ```
 
-## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in DocumentDB
+## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Cosmos DB
 
 | Title                   | Details      |
 | ----------------------- | ------------ |

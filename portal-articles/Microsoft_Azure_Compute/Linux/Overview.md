@@ -13,19 +13,19 @@ ms.author: sewatson
 
 # Linux Virtual Machines Documentation
 
-Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice.  Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.
+Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice. Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.
 
 ## 5-Minute Quickstarts
 
 Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:
 
-- [Azure CLI](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure Portal](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure CLI](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Step-by-Step Tutorials
 
-Learn how to deploy, manage, and scale Linux VMs on Azure
+Learn how to deploy, manage, and scale Linux VMs on Azure.
 
 - [Create and manage Linux VMs](/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Create and manage VM disks](/azure/virtual-machines/linux/tutorial-manage-disks)
@@ -34,7 +34,11 @@ Learn how to deploy, manage, and scale Linux VMs on Azure
 - [Create highly available VMs](/azure/virtual-machines/linux/tutorial-availability-sets)
 - [Create a VM scale set](/azure/virtual-machines/linux/tutorial-create-vmss)
 - [Load balance VMs](/azure/virtual-machines/linux/tutorial-load-balancer)
-- [Manage VM networking](/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Manage VMs and virtual networks](/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Backup VMs](/azure/virtual-machines/linux/tutorial-backup-vms)
+- [Monitor VMs](/azure/virtual-machines/linux/tutorial-monitoring)
+- [Manage security on VMs](/azure/virtual-machines/linux/tutorial-azure-security)
+- [Create a CI/CD infrastructure with Jenkins, Docker, and GitHub](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
 
 ## Free PluralSight Video Training
 

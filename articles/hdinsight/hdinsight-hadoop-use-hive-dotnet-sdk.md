@@ -1,5 +1,5 @@
 ---
-title: Run Hive queries using HDInsight .NET SDK | Microsoft Docs
+title: Run Hive queries using HDInsight .NET SDK - Azure | Microsoft Docs
 description: Learn how to submit Hadoop jobs to Azure HDInsight Hadoop using HDInsight .NET SDK.
 editor: cgronlun
 manager: jhubbard
@@ -85,7 +85,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
    
                 private static void SubmitHiveJob()
                 {
-                    Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
+                    Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "tez" }, { "hive.exec.reducers.max", "1" } };
                     List<string> args = new List<string> { { "argA" }, { "argB" } };
                     var parameters = new HiveJobSubmissionParameters
                     {

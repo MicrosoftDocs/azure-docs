@@ -1,4 +1,4 @@
-﻿# [Overview](../overview.md)
+# [Overview](../overview.md)
 ## [Images](about-images.md)
 ## [VM extensions](agents-and-extensions.md)
 ## [Availability](configure-availability.md)
@@ -16,7 +16,8 @@
 ### [Use Remote Desktop with a Linux VM](remote-desktop.md)
 ### [Manage VM extensions](manage-extensions.md)
 ### [Manage VMs with Visual Studio](manage-visual-studio.md)
-### [Monitor VMs using the Diagnostic VM Extension](diagnostic-extension.md)
+### [Monitor VMs using the Diagnostic VM Extension](../diagnostic-extension.md)
+### [Monitor VMs using v2.x of the Diagnostic VM Extension](diagnostic-extension-v2.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
@@ -77,6 +78,7 @@
 
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Regional availability](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

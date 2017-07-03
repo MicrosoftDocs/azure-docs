@@ -3,7 +3,7 @@ title: Planned maintenance for Liunx VMs in Azure | Microsoft Docs
 description: Understand what Azure planned maintenance is and how it affects your Windows virtual machines running in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: 
+author: zivr
 manager: timlt
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/27/2017
-ms.author: 
+ms.author: zivr
 
 ---
 
@@ -43,4 +43,4 @@ virtual machines:
 Please note that this page describes how Microsoft Azure performs
 planned maintenance. For more information about unplanned events
 (outages), see [Manage the availability of virtual
-machines](../windows/manage-availability.md).
+machines](../linux/manage-availability.md).

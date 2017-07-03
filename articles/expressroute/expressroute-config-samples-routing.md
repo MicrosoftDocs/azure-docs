@@ -25,7 +25,12 @@ This page provides interface and routing configuration samples for Cisco IOS-XE 
 > 
 > 
 
+## MTU and TCP MSS settings on router interfaces
+* The MTU for the ExpressRoute interface is 1500, which is the typical default MTU for an Ethernet interface on a router. Unless your router has a different MTU by default, there is no need to specify a value on the router interface.
+* Unlike an Azure VPN Gateway, the TCP MSS for an ExpressRoute circuit does not need to be specified.
+
 Router configuration samples below apply to all peerings. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute routing requirements](expressroute-routing.md) for more details on routing.
+
 
 ## Cisco IOS-XE based routers
 The samples in this section apply for any router running the IOS-XE OS family.

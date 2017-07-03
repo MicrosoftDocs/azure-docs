@@ -1,5 +1,5 @@
 ---
-title: Use Tez UI with Windows-based HDInsight | Microsoft Docs
+title: Use Tez UI with Windows-based HDInsight - Azure | Microsoft Docs
 description: Learn how to use the Tez UI to debug Tez jobs on Windows-based HDInsight HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -22,7 +22,7 @@ ROBOTS: NOINDEX
 The Tez UI is a web page that can be used to understand and debug jobs that use Tez as the execution engine on Windows-based HDInsight clusters. The Tez UI allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Prerequisites
 * A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).

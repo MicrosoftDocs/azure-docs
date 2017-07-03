@@ -7,7 +7,7 @@ manager: ytkuo
  
 ms.service: cognitive-services 
 ms.technology: computer-vision 
-ms.topic: article 
+ms.topic: article
 ms.date: 02/06/2017 
 ms.author: juliakuz 
 --- 
@@ -41,51 +41,50 @@ After uploading an image or specifying an image URL, Computer Vision API's algor
 ### Example
 ![House_Yard](./Images/house_yard.jpg) '
 
-```
+```json
 Returned Json
 {
-'tags': [
-          {
-            "name": "grass",
-              "confidence": 0.999999761581421
-          },
-          {
-            "name": "outdoor",
-              "confidence": 0.999970674514771
-          },
-          {
-              "name": "sky",
-                "confidence": 999289751052856
-          },
-          {
-              "name": "building",
-                "confidence": 0.996463239192963
-          },
-          {
-            "name": "house",
-              "confidence": 0.992798030376434
-          },
-          {
-            "name": "lawn",
-              "confidence": 0.822680294513702
-          },
-          {
-            "name": "green",
-              "confidence": 0.641222536563873
-
-},
-          {
-            "name": "residential",
-              "confidence": 0.314032256603241
-          },
-        ],
+   'tags':[
+      {
+         "name":"grass",
+         "confidence":0.999999761581421
+      },
+      {
+         "name":"outdoor",
+         "confidence":0.999970674514771
+      },
+      {
+         "name":"sky",
+         "confidence":999289751052856
+      },
+      {
+         "name":"building",
+         "confidence":0.996463239192963
+      },
+      {
+         "name":"house",
+         "confidence":0.992798030376434
+      },
+      {
+         "name":"lawn",
+         "confidence":0.822680294513702
+      },
+      {
+         "name":"green",
+         "confidence":0.641222536563873
+      },
+      {
+         "name":"residential",
+         "confidence":0.314032256603241
+      },
+   ],
 }
 ```
 ## <a name="Categorizing">Categorizing Images</a>
 In addition to tagging and descriptions, Computer Vision API returns the taxonomy-based categories defined in previous versions. These categories are organized as a taxonomy with parent/child hereditary hierarchies. All categories are in English. They can be used alone or with our new models.
 
 ### The 86-category concept
-Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy).
+Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 
 ![Analyze Categories](./Images/analyze_categories.jpg)
 
@@ -152,42 +151,41 @@ Computer Vision API's algorithms analyze the content in an image. This analysis 
 
 ### Example Description Generation
 ![B&W Buildings](./Images/bw_buildings.jpg) '
-```
+```json
  Returned Json
 
- 'description':
-{
-    "captions":
-[
-{
-"type": "phrase",
-'text': 'a black and white photo of a large city',
-          'confidence': 0.607638706850331}]
-"captions":
-[
-{
-"type": "phrase",
-'text': 'a photo of a large city',
-           'confidence': 0.577256764264197
-    }
-]
-"captions":
-[
-{
-"type": "phrase",
-'text': 'a black and white photo of a city',
-          'confidence': 0.538493271791207
+'description':{
+   "captions":[
+      {
+         "type":"phrase",
+         'text':'a black and white photo of a large city',
+         'confidence':0.607638706850331
+      }
+   ]   
+   "captions":[
+      {
+         "type":"phrase",
+         'text':'a photo of a large city',
+         'confidence':0.577256764264197
+      }
+   ]   
+   "captions":[
+      {
+         "type":"phrase",
+         'text':'a black and white photo of a city',
+         'confidence':0.538493271791207
+      }
+   ]   
+   'description':[
+      "tags":{
+         "outdoor",
+         "city",
+         "building",
+         "photo",
+         "large",
+      }
+   ]
 }
-]
-'description':
-[
-"tags":
-{
-      "outdoor", "city", "building", "photo", "large",
-
-}
-]
- }
 ```
 
 ## <a name="Color">Perceiving Color Schemes</a>
@@ -232,7 +230,7 @@ Requirements for OCR:
 - The size of the input image must be between 40 x 40 and 3200 x 3200 pixels.
 - The image cannot be bigger than 10 megapixels.
 
-The input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
+Input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
 
 The accuracy of text recognition depends on the quality of the image. An inaccurate reading may be caused by the following situations:
 - Blurry images.
@@ -249,6 +247,11 @@ Limitations: On photos where text is dominant, false positives may come from par
 This technology allows you to detect and extract handwritten text from notes, letters, essays, whiteboards, forms, etc. It works with different surfaces and backgrounds, such as white paper, yellow sticky notes, and whiteboards.
 
 Handwritten text recognition saves time and effort and can make you more productive by allowing you to take images of text, rather than having to transcribe it. It makes it possible to digitize notes. This digitization allows you to implement quick and easy search. It also reduces paper clutter.
+
+Input requirements:
+- Supported image formats: JPEG, PNG, and BMP.
+- Image file size must be less than 4 MB.
+- Image dimensions must be at least 40 x 40, at most 3200 x 3200.
 
 Note: this technology is currently in preview and is only available for English text.
 

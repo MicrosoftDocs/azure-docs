@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
 
 ---
@@ -24,14 +24,16 @@ ms.author: spelluru
 >
 >
 
-This article describes how to use the Monitoring and Management app to monitor, manage, and debug your Azure Data Factory pipelines--and create alerts to get notified on failures. You can also watch the following video to learn about using the Monitoring and Management app.
+This article describes how to use the Monitoring and Management app to monitor, manage, and debug your Data Factory pipelines. It also provides information on how to create alerts to get notified on failures. You can get started with using the application by watching the following video:
+
+> [!NOTE]
+> The user interface shown in the video may not exactly match what you see in the portal. It's slightly older, but concepts remain the same. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
->
 
-## Open the Monitoring and Management app
-To open the Monitor and Management app, click the **Monitor & Manage** tile on the **Data Factory** blade for your data factory.
+## Launch the Monitoring and Management app
+To launch the Monitor and Management app, click the **Monitor & Manage** tile on the **Data Factory** blade for your data factory.
 
 ![Monitoring tile on the Data Factory home page](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
@@ -42,7 +44,13 @@ You should see the Monitoring and Management app open in a separate window.
 > [!NOTE]
 > If you see that the web browser is stuck at "Authorizing...", clear the **Block third-party cookies and site data** check box--or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
 
-If you don't see activity windows in the list at the bottom, click the **Refresh** button on the toolbar to refresh the list. In addition, set the right values for the **Start time** and **End time** filters.  
+
+In the Activity Windows list in the middle pane, you see an activity window for each run of an activity. For example, if you have the activity scheduled to run hourly for five hours, you see five activity windows associated with five data slices. If you don't see activity windows in the list at the bottom, do the following:
+ 
+- Update the **start time** and **end time** filters at the top to match the start and end times of your pipeline, and then click the **Apply** button.  
+- The Activity Windows list is not automatically refreshed. Click the **Refresh** button on the toolbar in the **Activity Windows** list.  
+
+If you don't have a Data Factory application to test these steps with, do the tutorial: [copy data from Blob Storage to SQL Database using Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Understand the Monitoring and Management app
 There are three tabs on the left: **Resource Explorer**, **Monitoring Views**, and **Alerts**. The first tab (**Resource Explorer**) is selected by default.
@@ -51,9 +59,9 @@ There are three tabs on the left: **Resource Explorer**, **Monitoring Views**, a
 You see the following:
 
 * The Resource Explorer **tree view** in the left pane.
-* The **Diagram View** at the top.
+* The **Diagram View** at the top in the middle pane.
 * The **Activity Windows** list at the bottom in the middle pane.
-* The **Properties** and **Activity Window Explorer** tabs in the right pane.
+* The **Properties**, **Activity Window Explorer**, and **Script** tabs in the right pane.
 
 In Resource Explorer, you see all resources (pipelines, datasets, linked services) in the data factory in a tree view. When you select an object in Resource Explorer:
 
@@ -77,23 +85,31 @@ When the pipeline is enabled (not in a paused state), it's shown with a green li
 
 ![Pipeline running](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-There are three command bar buttons for the pipeline in the Diagram View. You can use the second button to pause the pipeline. Pausing doesn't terminate the currently running activities and lets them proceed to completion. The third button pauses the pipeline and terminates its existing executing activities. The first button resumes the pipeline. When your pipeline is paused, the color of the pipeline changes to yellow:
-
-![Pause/resume on tile](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
-
-You can multiselect two or more pipelines by using the Ctrl key. You can use the command bar buttons to pause/resume multiple pipelines at a time.
+You can pause, resume, or terminate a pipeline by selecting it in the diagram view and using the buttons on the command bar.
 
 ![Pause/resume on the command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+ 
+There are three command bar buttons for the pipeline in the Diagram View. You can use the second button to pause the pipeline. Pausing doesn't terminate the currently running activities and lets them proceed to completion. The third button pauses the pipeline and terminates its existing executing activities. The first button resumes the pipeline. When your pipeline is paused, the color of the pipeline changes. For example, a paused pipeline looks like in the following image: 
 
-You can see all the activities in the pipeline by right-clicking the pipeline tile, and then clicking **Open pipeline**.
+![Pipeline paused](./media/data-factory-monitor-manage-app/PipelinePaused.png)
+
+You can multi-select two or more pipelines by using the Ctrl key. You can use the command bar buttons to pause/resume multiple pipelines at a time.
+
+You can also right-click a pipeline and select options to suspend, resume, or terminate a pipeline. 
+
+![Context menu for pipeline](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+
+Click the **Open pipeline** option to see all the activities in the pipeline. 
 
 ![Open pipeline menu](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-In the opened pipeline view, you see all activities in the pipeline. In this example, there is only one activity: Copy Activity. To go back to the previous view, click the data factory name in the breadcrumb menu at the top.
+In the opened pipeline view, you see all activities in the pipeline. In this example, there is only one activity: Copy Activity. 
 
 ![Opened pipeline](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-In the pipeline view, when you click an output dataset or when you move your mouse over the output dataset, you see the Activity Windows pop-up window for that dataset.
+To go back to the previous view, click the data factory name in the breadcrumb menu at the top.
+
+In the pipeline view, when you select an output dataset or when you move your mouse over the output dataset, you see the Activity Windows pop-up window for that dataset.
 
 ![Activity Windows pop-up window](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 

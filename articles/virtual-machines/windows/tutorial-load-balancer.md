@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # How to load balance Windows virtual machines in Azure to create a highly available application
@@ -241,7 +242,7 @@ for ($i=1; $i -le 3; $i++)
   $nic = Get-AzureRmNetworkInterface `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Name myNic$i
-  $vm = Add-AzureRmVMNetworkInterface `-VM $vm -Id $nic.Id
+  $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
   New-AzureRmVM `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Location EastUS `
@@ -332,4 +333,4 @@ In this tutorial, you created a load balancer and attached VMs to it. You learne
 Advance to the next tutorial to learn how to manage VM networking.
 
 > [!div class="nextstepaction"]
-> [Manage Azure VM networking](./tutorial-virtual-network.md)
+> [Manage VMs and virtual networks](./tutorial-virtual-network.md)

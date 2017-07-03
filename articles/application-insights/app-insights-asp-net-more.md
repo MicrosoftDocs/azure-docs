@@ -3,7 +3,7 @@ title: Get more out of Azure Application Insights | Microsoft Docs
 description: After getting started with Application Insights, here's a summary of the features you can explore.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # More telemetry from Application Insights

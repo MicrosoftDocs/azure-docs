@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
@@ -41,7 +41,30 @@ Checks whether two values equal each other.
 | arg1 |Yes |int, string, array, or object |The first value to check for equality. |
 | arg2 |Yes |int, string, array, or object |The second value to check for equality. |
 
-### Examples
+### Return value
+
+Returns **True** if the values are equal; otherwise, **False**.
+
+### Remarks
+
+The equals function is often used with the `condition` element to test whether a resource is deployed.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+### Example
 
 The example template checks different types of values for equality. All the default values return True.
 
@@ -106,9 +129,14 @@ The example template checks different types of values for equality. All the defa
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-Returns **True** if the values are equal; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 <a id="less" />
 
@@ -124,7 +152,11 @@ Checks whether the first value is less than the second value.
 | arg1 |Yes |int or string |The first value for the less comparison. |
 | arg2 |Yes |int or string |The second value for the less comparison. |
 
-### Examples
+### Return value
+
+Returns **True** if the first value is less than the second value; otherwise, **False**.
+
+### Example
 
 The example template checks whether the one value is less than the other.
 
@@ -134,16 +166,20 @@ The example template checks whether the one value is less than the other.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -161,9 +197,12 @@ The example template checks whether the one value is less than the other.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-Returns **True** if the first value is less than the second value; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 <a id="lessorequals" />
 
@@ -179,7 +218,11 @@ Checks whether the first value is less than or equal to the second value.
 | arg1 |Yes |int or string |The first value for the less or equals comparison. |
 | arg2 |Yes |int or string |The second value for the less or equals comparison. |
 
-### Examples
+### Return value
+
+Returns **True** if the first value is less than or equal to the second value; otherwise, **False**.
+
+### Example
 
 The example template checks whether the one value is less than or equal to the other.
 
@@ -189,16 +232,20 @@ The example template checks whether the one value is less than or equal to the o
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -216,9 +263,12 @@ The example template checks whether the one value is less than or equal to the o
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-Returns **True** if the first value is less than or equal to the second value; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 <a id="greater" />
 
@@ -234,7 +284,11 @@ Checks whether the first value is greater than the second value.
 | arg1 |Yes |int or string |The first value for the greater comparison. |
 | arg2 |Yes |int or string |The second value for the greater comparison. |
 
-### Examples
+### Return value
+
+Returns **True** if the first value is greater than the second value; otherwise, **False**.
+
+### Example
 
 The example template checks whether the one value is greater than the other.
 
@@ -244,16 +298,20 @@ The example template checks whether the one value is greater than the other.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -271,9 +329,12 @@ The example template checks whether the one value is greater than the other.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-Returns **True** if the first value is greater than the second value; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
 <a id="greaterorequals" />
 
@@ -289,7 +350,11 @@ Checks whether the first value is greater than or equal to the second value.
 | arg1 |Yes |int or string |The first value for the greater or equal comparison. |
 | arg2 |Yes |int or string |The second value for the greater or equal comparison. |
 
-### Examples
+### Return value
+
+Returns **True** if the first value is greater than or equal to the second value; otherwise, **False**.
+
+### Example
 
 The example template checks whether the one value is greater than or equal to the other.
 
@@ -299,16 +364,20 @@ The example template checks whether the one value is greater than or equal to th
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -326,9 +395,13 @@ The example template checks whether the one value is greater than or equal to th
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-Returns **True** if the first value is greater than or equal to the second value; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
+
 
 ## Next Steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
