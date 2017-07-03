@@ -3,7 +3,7 @@ title: Get started with an Azure Log Analytics workspace | Microsoft Docs
 description: You can get up and running with a workspace in Log Analytics in minutes.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/12/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 # Get started with a Log Analytics workspace
@@ -50,7 +50,7 @@ The next step is to create a workspace.
    * **Pricing tier**  
        ![quick create](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. Click **OK** to see a list of your workspaces.
-4. Select a workspace to see it's details in the Azure portal.       
+4. Select a workspace to see its details in the Azure portal.       
     ![workspace details](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## 3 Add solutions and solution offerings

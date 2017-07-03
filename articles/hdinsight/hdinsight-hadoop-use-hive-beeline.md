@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/05/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 
 ---
@@ -28,7 +28,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 | Where you run Beeline from | Parameters |
 | --- | --- | --- |
-| An SSH connection to a headnode or edge node | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
+| An SSH connection to a headnode or edge node | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
 | Outside the cluster | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
 > [!NOTE]
@@ -51,22 +51,20 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 ## <a id="beeline"></a>Use Beeline
 
-1. When starting Beeline, you must provide a connection string for HiveServer2 on your HDInsight cluster. You must also provide the account name for the cluster login (usually `admin`). If you run the command from outside the cluster, you must also provide the cluster login password. Use the following table to find the connection string format and parameters to use:
+1. When starting Beeline, you must provide a connection string for HiveServer2 on your HDInsight cluster. To run the command from outside the cluster, you must also provide the cluster login account name (default `admin`) and password. Use the following table to find the connection string format and parameters to use:
 
     | Where you run Beeline from | Parameters |
     | --- | --- | --- |
-    | An SSH connection to a headnode or edge node | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
+    | An SSH connection to a headnode or edge node | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
     | Outside the cluster | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
     For example, the following command can be used to start Beeline from an SSH session to the cluster:
 
     ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
 
-    This command starts the Beeline client, and connects to HiveServer2 on the cluster head node. The `-n` parameter is used to provide the cluster login account. The default login is `admin`. If you used a different name during cluster creation, use it instead of `admin`.
-
-    Once the command completes, you arrive at a `jdbc:hive2://headnodehost:10001/>` prompt.
+    This command starts the Beeline client, and connects to HiveServer2 on the cluster head node. Once the command completes, you arrive at a `jdbc:hive2://headnodehost:10001/>` prompt.
 
 2. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
 
@@ -188,10 +186,10 @@ Use the following steps to create a file, then run it using Beeline.
 
 3. To save the file, use **Ctrl**+**_X**, then enter **Y**, and finally **Enter**.
 
-4. Use the following to run the file using Beeline. Replace **HOSTNAME** with the name obtained earlier for the head node, and **PASSWORD** with the password for the admin account:
+4. Use the following to run the file using Beeline:
 
     ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i query.hql
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
     > [!NOTE]
@@ -227,6 +225,15 @@ If you have Beeline installed locally, or are using it through a Docker image su
 Replace the `clustername` in the connection string with the name of your HDInsight cluster.
 
 Replace `admin` with the name of your cluster login, and replace `password` with the password for your cluster login.
+
+## <a id="sparksql"></a>Use Beeline with Spark
+
+Spark provides its own implementation of HiveServer2, which is often refered to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
+
+To connect to the Spark Thrift server of a Spark on HDInsight cluster, use port `10002` instead of `10001`. For example, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+
+> [!IMPORTANT]
+> The Spark Thrift server is not directly accessible over the internet. You can only connect to it from an SSH session or inside the same Azure Virtual Network as the HDInsight cluster.
 
 ## <a id="summary"></a><a id="nextsteps"></a>Next steps
 

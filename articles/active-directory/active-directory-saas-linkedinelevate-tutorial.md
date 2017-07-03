@@ -136,11 +136,14 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-	a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+   	a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
 
-	b. Click on **Ok** to save the attribute.
+   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+
+   	b. Click on **Ok** to save the attribute.
+
+	c. Change the name of the attribute **emailaddress** to **email**.
+
 
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -233,6 +236,7 @@ When you click the LinkedIn Elevate tile in the Access Panel, you should get the
 
 ## Additional resources
 
+* [Tutorial: Configuring LinkedIn Elevate for automatic user provisioning with Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

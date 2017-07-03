@@ -1,5 +1,5 @@
 ---
-title: Debug and analyze Hadoop services with heap dumps | Microsoft Docs
+title: Debug and analyze Hadoop services with heap dumps - Azure | Microsoft Docs
 description: Automatically collect heap dumps for Hadoop services and place inside the Azure Blob storage account for debugging and analysis.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 
@@ -23,7 +23,7 @@ ROBOTS: NOINDEX
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Heap dumps contain a snapshot of the application's memory, including the values of variables
-at the time the dump was created. So they are very useful for diagnosing problems that occur
+at the time the dump was created. So they are useful for diagnosing problems that occur
 at run-time. Heap dumps can be automatically collected for Hadoop services and placed inside
 the Azure Blob storage account of a user under HDInsightHeapDumps/.
 
@@ -54,11 +54,11 @@ in the section for that service, which is specified by **service_name**.
     "javaargs.<service_name>.XX:+HeapDumpOnOutOfMemoryError" = "-XX:+HeapDumpOnOutOfMemoryError",
     "javaargs.<service_name>.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\Dumps\<service_name>_%date:~4,2%%date:~7,2%%date:~10,2%%time:~0,2%%time:~3,2%%time:~6,2%.hprof"
 
-The value of **service_name** can be any of the services listed above:
+The value of **service_name** can be any of the services listed here:
 tempelton, hiveserver2, metastore, derbyserver, jobhistoryserver, resourcemanager, nodemanager, timelineserver, datanode, secondarynamenode, or namenode.
 
 ## Enable using Azure PowerShell
-For example, to turn on heap dumps by using Azure PowerShell for jobhistoryserver, you would do the following:
+For example, to turn on heap dumps by using Azure PowerShell for jobhistoryserver, you can use the following script:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -67,7 +67,7 @@ For example, to turn on heap dumps by using Azure PowerShell for jobhistoryserve
     $MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
 
 ## Enable using .NET SDK
-For example, to turn on heap dumps by using the Azure HDInsight .NET SDK for jobhistoryserver, you would do the following:
+For example, to turn on heap dumps by using the Azure HDInsight .NET SDK for jobhistoryserver, you can use the following code:
 
     clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError", "-XX:+HeapDumpOnOutOfMemoryError"));
 

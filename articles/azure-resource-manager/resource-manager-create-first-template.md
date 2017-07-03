@@ -69,7 +69,7 @@ Let's start with a blank template that includes only the basic sections of a tem
        {
          "name": "string",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-12-01",
          "sku": {
            "name": "string"
          },
@@ -97,6 +97,8 @@ Let's start with a blank template that includes only the basic sections of a tem
    }
    ```
 
+  VS Code may indicate that 2016-12-01 is not a valid API version. If you are using a version number from the template reference documentation, you can ignore this warning. You see this warning when the schema has not been updated with the latest version number from the resource provider. 
+  
   The preceding example includes many placeholder values and some properties that you might not need in your storage account.
 
 ## Set values for storage account
@@ -112,7 +114,7 @@ Now, you are ready to set values for your storage account.
      {
        "name": "string",
        "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
+       "apiVersion": "2016-12-01",
        "sku": {
          "name": "string"
        },
@@ -151,7 +153,7 @@ Your template now looks like:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -194,7 +196,7 @@ Your template now looks like:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -323,7 +325,7 @@ After completing the steps in this article, your template now looks like:
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },

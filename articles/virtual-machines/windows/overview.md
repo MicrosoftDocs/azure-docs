@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
-
+ms.custom: mvc
 ---
 # Overview of Windows virtual machines in Azure
 Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../../app-service-web/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
@@ -45,7 +45,7 @@ There are always a multitude of [design considerations](infrastructure-virtual-m
 ### Naming
 A virtual machine has a [name](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
 
-If you use Azure to create the operating system disk, the computer name and the virtual machine name are the same. If you [upload and use your own image](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that contains a previously configured operating system and use it to create a virtual machine, the names can be different. We recommend that when you upload your own image file, you make the computer name in the operating system and the virtual machine name the same.
+If you use Azure to create the operating system disk, the computer name and the virtual machine name are the same. If you [upload and use your own image](upload-generalized-managed.md) that contains a previously configured operating system and use it to create a virtual machine, the names can be different. We recommend that when you upload your own image file, you make the computer name in the operating system and the virtual machine name the same.
 
 ### Locations
 All resources created in Azure are distributed across multiple [geographical regions](https://azure.microsoft.com/regions/) around the world. Usually, the region is called **location** when you create a VM. For a VM, the location specifies where the virtual hard disks are stored.
@@ -79,7 +79,7 @@ This table shows some ways that you can find the information for an image.
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST APIs |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
-You can choose to [upload and use your own image](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and when you do, the publisher name, offer, and sku aren’t used.
+You can choose to [upload and use your own image](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) and when you do, the publisher name, offer, and sku aren’t used.
 
 ### Extensions
 VM [extensions](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) give your VM additional capabilities through post deployment configuration and automated tasks.

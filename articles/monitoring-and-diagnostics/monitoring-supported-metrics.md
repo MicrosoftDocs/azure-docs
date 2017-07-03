@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 6/07/2017
 ms.author: johnkem
 
 ---
@@ -22,8 +22,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 > [!NOTE]
 > Other metrics may be available in the portal or using legacy APIs. This list only includes public preview metrics available using the public preview of the consolidated Azure Monitor metric pipeline.
-> 
-> 
+>
+>
 
 ## Microsoft.AnalysisServices/servers
 
@@ -333,6 +333,17 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|
 |CustomerInsightsApiCalls|CustomerInsightsApiCalls|Count|Total||
 
+## Microsoft.DataLakeAnalytics/accounts
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|JobEndedSuccess|Successful Jobs|Count|Total|Count of successful jobs.|
+|JobEndedFailure|Failed Jobs|Count|Total|Count of failed jobs.|
+|JobEndedCancelled|Cancelled Jobs|Count|Total|Count of cancelled jobs.|
+|JobAUEndedSuccess|Successful AU Time|Seconds|Total|Total AU time for successful jobs.|
+|JobAUEndedFailure|Failed AU Time|Seconds|Total|Total AU time for failed jobs.|
+|JobAUEndedCancelled|Cancelled AU Time|Seconds|Total|Total AU time for cancelled jobs.|
+
 ## Microsoft.DBforMySQL/servers
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
@@ -630,7 +641,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BytesReceived|Data In|Bytes|Total|Data In|
 |BytesSent|Data Out|Bytes|Total|Data Out|
 
-## Microsoft.Web/sites (including functions)
+## Microsoft.Web/sites (excluding functions)
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
@@ -650,6 +661,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|
 |AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|
+
+## Microsoft.Web/sites (functions)
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|BytesReceived|Data In|Bytes|Total|Data In|
+|BytesSent|Data Out|Bytes|Total|Data Out|
+|Http5xx|Http Server Errors|Count|Total|Http Server Errors|
+|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|
+|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|
 |FunctionExecutionUnits|Function Execution Units|Count|Average|Function Execution Units|
 |FunctionExecutionCount|Function Execution Count|Count|Average|Function Execution Count|
 
@@ -680,4 +701,3 @@ Azure Monitor provides several ways to interact with metrics, including charting
 * [Read about metrics in Azure Monitor](monitoring-overview-metrics.md)
 * [Create alerts on metrics](insights-receive-alert-notifications.md)
 * [Export metrics to storage, Event Hub, or Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-

@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint

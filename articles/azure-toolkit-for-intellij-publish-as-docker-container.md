@@ -107,9 +107,10 @@ Docker containers are a widely used method for deploying web applications. By us
              * **SSH**: Enter the Secure Shell (SSH) settings for your Docker host. You can select one of the following options:
                 * **None**: Specifies that your virtual machine does not allow SSH connections.
                 * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
-                * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files: 
-                   * *id_rsa*: Contains the RSA identification for a user.
-                   * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
+                * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
+                
+                  * *id_rsa*: Contains the RSA identification for a user.
+                  * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
             
         b. On the **Docker Daemon Access** tab, provide the following information:
 

@@ -39,7 +39,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Terminology |The use of the ARM acronym, V1, or V2 as references to the classic and Resource Manager deployment models is a blocking terminology item. |
 | Images |Animated GIFs and PDN files are not accepted into the repo. |
 | Images |Images have clear resolution, are free of misspelled words, and contain no private information |
-| Localizability | Links to pages on azure.microsoft.com, TechNet, and MSDN are coded as locale agnostic. Do not include en-us, en-gb, en-in, or any other locale in links to these sites. |
+| Localizability | Links to pages on azure.microsoft.com, TechNet, and MSDN are coded as locale agnostic. Do not include en-us, en-gb, en-in, or any other locale in links to these sites. TechNet/MSDN forum links are an exception - locales cannot be removed from forum links on these sites. |
 | Staging |The article preview must be clean on staging. It cannot contain any obvious formatting issues: <br>- A numbered or bulleted list that appears as a paragraph<br>- Code in a code block appearing partly in the code block and partly outside it<br>- Numbered steps numbered incorrectly due to faulty indentation<br>- Leftover merge conflict markers |
 
 ## Non-blocking content quality items

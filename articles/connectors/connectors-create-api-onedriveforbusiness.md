@@ -35,9 +35,9 @@ After you create the connection, you can use it to execute the actions and liste
 > [!INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 > 
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/onedriveforbusinessconnector/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/onedriveforbusinessconnector/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

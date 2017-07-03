@@ -1,5 +1,5 @@
 ﻿---
-title: Use Python with Hive and Pig in HDInsight | Microsoft Docs
+title: Python UDF with Apache Hive and Pig - Azure HDInsight | Microsoft Docs
 description: Learn how to use Python User Defined Functions (UDF) from Hive and Pig in HDInsight, the Hadoop technology stack on Azure.
 services: hdinsight
 documentationcenter: ''
@@ -14,33 +14,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/22/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight
 
-Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general-purpose language. Both Hive and Pig allow you to create User Defined Functions (UDF) using many programming languages. In this article, you learn how to use a Python UDF from Hive and Pig.
-
-## Requirements
-
-* An HDInsight cluster
-
-  > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
-
-* A text editor
+Learn how to use Python user-defined functions (UDF) with Apache Hive and Pig in Hadoop on Azure HDInsight.
 
 ## <a name="python"></a>Python on HDInsight
 
-Python2.7 is installed by default on HDInsight 3.0 and later clusters. Hive can be used with this version of Python for stream processing (data is passed between Hive and Python using STDOUT/STDIN).
+Python2.7 is installed by default on HDInsight 3.0 and later. Apache Hive can be used with this version of Python for stream processing. Stream processing uses STDOUT and STDIN to pass data between Hive and the UDF.
 
-HDInsight also includes Jython, which is a Python implementation written in Java. Pig understands how to talk to Jython without having to resort to streaming, so it's preferable when using Pig. You can also use normal Python (C Python,) with Pig.
+HDInsight also includes Jython, which is a Python implementation written in Java. Jython runs directly on the Java Virtual Machine and does not use streaming. Jython is the recommended Python interpreter when using Python with Pig.
 
 ## <a name="hivepython"></a>Hive and Python
 
-Python can be used as a UDF from Hive through the HiveQL **TRANSFORM** statement. For example, the following HiveQL invokes a Python script stored in the **streaming.py** file.
+Python can be used as a UDF from Hive through the HiveQL `TRANSFORM` statement. For example, the following HiveQL invokes a Python script stored in the `streaming.py` file.
 
 **Linux-based HDInsight**
 
@@ -67,16 +58,17 @@ ORDER BY clientid LIMIT 50;
 ```
 
 > [!NOTE]
-> On Windows-based HDInsight clusters, the **USING** clause must specify the full path to python.exe.
+> On Windows-based HDInsight clusters, the `USING` clause must specify the full path to python.exe.
 
 Here's what this example does:
 
-1. The **add file** statement at the beginning of the file adds the **streaming.py** file to the distributed cache, so it's accessible by all nodes in the cluster.
-2. The **SELECT TRANSFORM ... USING** statement selects data from the **hivesampletable**. It also passes the clientid, devicemake, and devicemodel values to the **streaming.py** script.
-3. The **AS** clause describes the fields returned from **streaming.py**
+1. The `add file` statement at the beginning of the file adds the `streaming.py` file to the distributed cache, so it's accessible by all nodes in the cluster.
+2. The `SELECT TRANSFORM ... USING` statement selects data from the `hivesampletable`. It also passes the clientid, devicemake, and devicemodel values to the `streaming.py` script.
+3. The `AS` clause describes the fields returned from `streaming.py`.
 
 <a name="streamingpy"></a>
-Here's the **streaming.py** file used by the HiveQL example.
+
+Here's the `streaming.py` file used by the HiveQL example.
 
 ```python
 #!/usr/bin/env python
@@ -100,7 +92,7 @@ This script performs the following actions:
 1. Read a line of data from STDIN.
 2. The trailing newline character is removed using `string.strip(line, "\n ")`.
 3. When doing stream processing, a single line contains all the values with a tab character between each value. So `string.split(line, "\t")` can be used to split the input at each tab, returning just the fields.
-4. When processing is complete, the output must be written to STDOUT as a single line, with a tab between each field. This is accomplished by using `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. When processing is complete, the output must be written to STDOUT as a single line, with a tab between each field. For example, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. The `while` loop repeats until no `line` is read.
 
 The script output is a concatenation of the input values for `devicemake` and `devicemodel`, and a hash of the concatenated value.
@@ -109,11 +101,11 @@ See [Running the examples](#running) for how to run this example on your HDInsig
 
 ## <a name="pigpython"></a>Pig and Python
 
-A Python script can be used as a UDF from Pig through the **GENERATE** statement. You can run the script using either Jython or C Python.
+A Python script can be used as a UDF from Pig through the `GENERATE` statement. You can run the script using either Jython or C Python.
 
 The difference between these are that Jython runs on the JVM and can natively be called from Pig. C Python is an external process, so the data from Pig on the JVM is sent out to the script running in a Python process. The output of the Python script is sent back into Pig.
 
-To determine whether Pig uses Jython or C Python to run the script, use **register** when referencing the Python script from Pig Latin. The following examples register scripts with Pig as **myfuncs**:
+To specify the Python interpreter, use `register` when referencing the Python script. The following examples register scripts with Pig as `myfuncs`:
 
 * **To use Jython**: `register '/path/to/pig_python.py' using jython as myfuncs;`
 * **To use C Python**: `register '/path/to/pig_python.py' using streaming_python as myfuncs;`
@@ -132,12 +124,12 @@ DUMP DETAILS;
 
 Here's what this example does:
 
-1. The first line loads the sample data file, **sample.log** into **LOGS**. It also defines each record as a **chararray**.
-2. The next line filters out any null values, storing the result of the operation into **LOG**.
-3. Next, it iterates over the records in **LOG** and uses **GENERATE** to invoke the **create_structure** method contained in the Python/Jython script loaded as **myfuncs**.  **LINE** is used to pass the current record to the function.
-4. Finally, the outputs are dumped to STDOUT using the **DUMP** command. This displays the results after the operation completes.
+1. The first line loads the sample data file, `sample.log` into `LOGS`. It also defines each record as a `chararray`.
+2. The next line filters out any null values, storing the result of the operation into `LOG`.
+3. Next, it iterates over the records in `LOG` and uses `GENERATE` to invoke the `create_structure` method contained in the Python/Jython script loaded as `myfuncs`. `LINE` is used to pass the current record to the function.
+4. Finally, the outputs are dumped to STDOUT using the `DUMP` command. This command displays the results after the operation completes.
 
-The Python script file is similar between C Python and Jython, the only difference being that you must import from **pig\_util** when using C Python. Here is the **pig\_python.py** script:
+The Python script file is similar between C Python and Jython. The only difference is that you must import from `pig_util` when using C Python. Here is the `pig_python.py` script:
 
 <a name="streamingpy"></a>
 
@@ -156,9 +148,9 @@ def create_structure(input):
 > [!NOTE]
 > 'pig_util' isn't something you need to worry about installing; it's automatically available to the script.
 
-Remember that we previously defined the **LINE** input as a chararray because there was no consistent schema for the input. The Python script transforms the data into a consistent schema for output.
+Remember that we previously defined the `LINE` input as a chararray because there was no consistent schema for the input. The Python script transforms the data into a consistent schema for output.
 
-1. The **@outputSchema** statement defines the format of the data that is returned to Pig. In this case, it's a **data bag**, which is a Pig data type. The bag contains the following fields, all of which are chararray (strings):
+1. The `@outputSchema` statement defines the format of the data that is returned to Pig. In this case, it's a **data bag**, which is a Pig data type. The bag contains the following fields, all of which are chararray (strings):
 
    * date - the date the log entry was created
    * time - the time the log entry was created
@@ -166,18 +158,20 @@ Remember that we previously defined the **LINE** input as a chararray because th
    * level - the log level
    * detail - verbose details for the log entry
 
-2. Next, the **def create_structure(input)** defines the function that Pig passes line items to.
+2. Next, the `def create_structure(input)` defines the function that Pig passes line items to.
 
-3. The example data, **sample.log**, mostly conforms to the date, time, classname, level, and detail schema we want to return. But it also contains a few lines that begin with the string '*java.lang.Exception*' that need to be modified to match the schema. The **if** statement checks for those, then massages the input data to move the '*java.lang.Exception*' string to the end, bringing the data in-line with our expected output schema.
+3. The example data, `sample.log`, mostly conforms to the date, time, classname, level, and detail schema we want to return. However, it contains a few lines that begin with `*java.lang.Exception*`. These lines must be modified to match the schema. The `if` statement checks for those, then massages the input data to move the `*java.lang.Exception*` string to the end, bringing the data in-line with our expected output schema.
 
-4. Next, the **split** command is used to split the data at the first four space characters. The output is assigned into **date**, **time**, **classname**, **level**, and **detail**.
+4. Next, the `split` command is used to split the data at the first four space characters. The output is assigned into `date`, `time`, `classname`, `level`, and `detail`.
 
 5. Finally, the values are returned to Pig.
 
-When the data is returned to Pig, it has a consistent schema as defined in the **@outputSchema** statement.
+When the data is returned to Pig, it has a consistent schema as defined in the `@outputSchema` statement.
 
-## <a name="running"></a>Running the examples
-If you are using a Linux-based HDInsight cluster, use the **SSH** steps. If you are using a Windows-based HDInsight cluster and a Windows client, use the **PowerShell** steps.
+## <a name="running"></a>Run the examples
+
+> [!IMPORTANT]
+> The **SSH** steps only work with a Linux-based HDInsight cluster. The **PowerShell** steps work with either a Linux or Windows-based HDInsight cluster, but require a Windows client.
 
 ### SSH
 
@@ -187,22 +181,30 @@ For more information on using SSH, see [Use SSH with HDInsight](hdinsight-hadoop
 
 2. Use `scp` to copy the files to your HDInsight cluster. For example, the following command copies the files to a cluster named **mycluster**.
 
-        scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.net:
+    ```bash
+    scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.net:
+    ```
 
-3. Use SSH to connect to the cluster. For example, the following would connect to a cluster named **mycluster** as user **myuser**.
+3. Use SSH to connect to the cluster.
 
-        ssh myuser@mycluster-ssh.azurehdinsight.net
+    ```bash
+    ssh myuser@mycluster-ssh.azurehdinsight.net
+    ```
+
 4. From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.
 
-        hdfs dfs -put streaming.py /streaming.py
-        hdfs dfs -put pig_python.py /pig_python.py
+    ```bash
+    hdfs dfs -put streaming.py /streaming.py
+    hdfs dfs -put pig_python.py /pig_python.py
+    ```
 
 After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 #### Hive
 
 1. Use the `hive` command to start the hive shell. You should see a `hive>` prompt once the shell has loaded.
-2. Enter the following at the `hive>` prompt.
+
+2. Enter the following query at the `hive>` prompt:
 
    ```hive
    add file wasbs:///streaming.py;
@@ -212,6 +214,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
    FROM hivesampletable
    ORDER BY clientid LIMIT 50;
    ```
+
 3. After entering the last line, the job should start. Once the job completes, it returns output similar to the following example:
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -222,7 +225,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 #### Pig
 
-1. Use the `pig` command to start the shell. You should see a `grunt>` prompt once the shell has loaded.
+1. Use the `pig` command to start the shell. You see a `grunt>` prompt once the shell has loaded.
 
 2. Enter the following statements at the `grunt>` prompt:
 
@@ -234,7 +237,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
    DUMP DETAILS;
    ```
 
-3. After entering the following line, the job should start. Once the job completes, it returns output similar to the following.
+3. After entering the following line, the job should start. Once the job completes, it returns output similar to the following data:
 
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
         ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -244,11 +247,15 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 4. Use `quit` to exit the Grunt shell, and then use the following to edit the pig_python.py file on the local file system:
 
+    ```bash
     nano pig_python.py
+    ```
 
 5. Once in the editor, uncomment the following line by removing the `#` character from the beginning of the line:
 
-        #from pig_util import outputSchema
+    ```bash
+    #from pig_util import outputSchema
+    ```
 
     Once the change has been made, use Ctrl+X to exit the editor. Select Y, and then enter to save the changes.
 
@@ -270,10 +277,10 @@ These steps use Azure PowerShell. For more information on using
 Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 1. Using the Python examples [streaming.py](#streamingpy) and [pig_python.py](#jythonpy), create local copies of the files on your development machine.
-2. Use  the following PowerShell script to upload the **streaming.py** and **pig\_python.py** files to the server. Substitute the name of your Azure HDInsight cluster, and the path to the **streaming.py** and **pig\_python.py** files on the first three lines of the script.
+2. Use the following PowerShell script to upload the Python files to the server:
 
    ```powershell
-    # Login to your Azure subscription
+    # Log in to your Azure subscription
     # Is there an active Azure subscription?
     $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
@@ -283,6 +290,7 @@ Azure PowerShell, see [How to install and configure Azure PowerShell](/powershel
 
     # Get cluster info
     $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    # Change the path to match the file location on your system
     $pathToStreamingFile = "C:\path\to\streaming.py"
     $pathToJythonFile = "C:\path\to\pig_python.py"
 
@@ -315,7 +323,7 @@ Azure PowerShell, see [How to install and configure Azure PowerShell](/powershel
     This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
 
    > [!NOTE]
-   > Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
+   > For more information on uploading files, see the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
 
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 
@@ -429,7 +437,7 @@ Get-AzureRmHDInsightJobOutput `
     -HttpCredential $creds
 ```
 
-The output for the **Pig** job should appear similar to the following:
+The output for the **Pig** job should appear similar to the following data:
 
     ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
     ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -441,11 +449,11 @@ The output for the **Pig** job should appear similar to the following:
 
 ### Errors when running jobs
 
-When running the hive job, you may encounter an error similar to the following:
+When running the hive job, you may encounter an error similar to the following text:
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 
-This problem may be caused by the line endings in the streaming.py file. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
+This problem may be caused by the line endings in the Python file. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
 
 You can use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
 
@@ -467,9 +475,9 @@ Both of the example PowerShell scripts used to run the examples contain a commen
         -DisplayOutputType StandardError
 ```
 
-The error information (STDERR,) and the result of the job (STDOUT,) are also logged to your HDInsight storage.
+The error information (STDERR) and the result of the job (STDOUT) are also logged to your HDInsight storage.
 
-| For this job.. | Look at these files in the blob container |
+| For this job... | Look at these files in the blob container |
 | --- | --- |
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |

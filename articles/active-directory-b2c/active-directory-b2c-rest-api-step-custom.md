@@ -1,6 +1,6 @@
 ---
-title: 'Walkthrough: REST API claims exchange as a step in your B2C Custom Policies| Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies integrating with API
+title: 'Azure Active Directory B2C: REST API claims exchanges as an orchestration step | Microsoft Docs'
+description: A topic on Azure Active Directory B2C custom policies that integrate with an API
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
@@ -17,36 +17,42 @@ ms.date: 04/24/2017
 ms.author: joroja
 ---
 
-# Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journeys as an orchestration step
+# Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step
 
-The **Identity Experience Framework** (IEF) underlying Azure AD B2C enables the identity developer to integrate an interaction with a RESTful API in a user journey.  
+The Identity Experience Framework (IEF) that underlies Azure Active Directory B2C (Azure AD B2C) enables the identity developer to integrate an interaction with a RESTful API in a user journey.  
 
-At the end of this walkthrough you will be able to create Azure AD B2C user journeys which interact with RESTful services.
+At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with RESTful services.
 
-The IEF sends data in claims and receives data back in claims.  The REST API claims exchange can be designed as an orchestrations step.
+The IEF sends data in claims and receives data back in claims. The REST API claims exchange:
 
-- This can trigger an external action - for instance, it can log an event in an external database.
-- This can also be used to fetch a value and subsequently stores it in the user database.
-- The claims received can be later used to change the flow of execution.
+- Can be designed as an orchestration step.
+- Can trigger an external action. For instance, it can log an event in an external database.
+- Can be used to fetch a value and then store it in the user database.
 
-The interaction can also be designed as a validation profile. For more information about that, please see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journeys as validation on user input](active-directory-b2c-rest-api-validation-custom.md).
+You can use the received claims later to change the flow of execution.
 
-The scenario is that when a user performs a profile edit, we would like to lookup the user in an external system, get the city where that user is registered and return that attribute as a claim back to the application.
+You can also design the interaction as a validation profile. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md).
+
+The scenario is that when a user performs a profile edit, we want to:
+
+1. Look up the user in an external system.
+2. Get the city where that user is registered.
+3. Return that attribute to the application as a claim.
 
 ## Prerequisites
 
-- An Azure AD B2C tenant configure to complete a local account signup/signin as described in [Getting Started](active-directory-b2c-get-started-custom.md).
-- A REST API endpoint to interact with - this walkthrough uses a very simple Azure Function Apps WebHook as an example
-- **Recommended**: Complete the [REST API claims exchange walkthrough as a validation step](active-directory-b2c-rest-api-validation-custom.md).
+- An Azure AD B2C tenant configured to complete a local account sign-up/sign-in, as described in [Getting started](active-directory-b2c-get-started-custom.md).
+- A REST API endpoint to interact with. This walkthrough uses a simple Azure function app webhook as an example.
+- *Recommended*: Complete the [REST API claims exchange walkthrough as a validation step](active-directory-b2c-rest-api-validation-custom.md).
 
-## Step 1 - Prepare the REST API function
+## Step 1: Prepare the REST API function
 
 > [!NOTE]
-> Set up of REST API functions is outside the scope of this article. [Azure Function Apps](https://docs.microsoft.com/azure/azure-functions/functions-reference) provides an excellent toolkit to create RESTful services in the cloud.
+> Setup of REST API functions is outside the scope of this article. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) provides an excellent toolkit to create RESTful services in the cloud.
 
-We have set up an Azure Function that receives a claim `email`, and simply returns the claim `city` with the assigned value of `Redmond`. The sample Azure function is here: [Github](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples)
+We have set up an Azure function that receives a claim called `email`, and then returns the claim `city` with the assigned value of `Redmond`. The sample Azure function is on [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
-The `userMessage` claim returned by the Azure Function is optional in this context and will be ignored by the IEF.  It could potentially be used as a message passed to the application and presented to the user later.
+The `userMessage` claim that the Azure function returns is optional in this context, and the IEF will ignore it. You can potentially use it as a message passed to the application and presented to the user later.
 
 ```csharp
 if (requestContentAsJObject.email == null)
@@ -69,14 +75,14 @@ return request.CreateResponse<ResponseContent>(
     "application/json");
 ```
 
-**Azure Function Apps** makes it easy to Get Function URL, which includes the identifier of the specific function.  In this case, the URL is: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==, and you may use it for testing purposes.
+An Azure function app makes it easy to get the function URL, which includes the identifier of the specific function. In this case, the URL is: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. You can use it for testing.
 
-## Step 2 - Configure the RESTful API claims exchange as a technical profile in your TrustFrameworExtensions.xml file
+## Step 2: Configure the RESTful API claims exchange as a technical profile in your TrustFrameworExtensions.xml file
 
-A technical profile is the full configuration of the exchange desired with the RESTful service. Open the `TrustFrameworkExtensions.xml` file and add the XML snippet below inside the `<ClaimsProvider>` element.
+A technical profile is the full configuration of the exchange desired with the RESTful service. Open the TrustFrameworkExtensions.xml file and add the following XML snippet inside the `<ClaimsProvider>` element.
 
 > [!NOTE]
-> Consider the “Restful Provider, Version 1.0.0.0”  described below as the protocol as the function that will interact with the external service.  A full definition of the schema can be found <!-- TODO: Link to RESTful Provider schema definition>-->
+> In the following XML, RESTful provider `Version=1.0.0.0` is described as the protocol. Consider it as the function that will interact with the external service. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```XML
 <ClaimsProvider>
@@ -102,13 +108,13 @@ A technical profile is the full configuration of the exchange desired with the R
 </ClaimsProvider>
 ```
 
-The `<InputClaims>` element defines the claims that will be sent from the IEF to the REST service. In the above example, the contents of the claim `givenName` will be sent to the REST service as claim `email`.  
+The `<InputClaims>` element defines the claims that will be sent from the IEF to the REST service. In this example, the contents of the claim `givenName` will be sent to the REST service as the claim `email`.  
 
-The `<OutputClaims>` element defines the claims that the IEF will expect from the REST service. Regardless of the number of claims that are received, the IEF will only use those identified here. In this example, a claim received as `city` will be mapped to an IEF claim `city`.
+The `<OutputClaims>` element defines the claims that the IEF will expect from the REST service. Regardless of the number of claims that are received, the IEF will use only those identified here. In this example, a claim received as `city` will be mapped to an IEF claim called `city`.
 
-## Step 3 - Add a new claim `city` to the schema of your TrustFrameworkExtensions.xml file
+## Step 3: Add the new claim `city` to the schema of your TrustFrameworkExtensions.xml file
 
-The claim `city` is not otherwise defined anywhere in our schema. So we will add a definition inside the element `<BuildingBlocks>` which can be found at the beginning of the  `TrustFrameworkExtensions.xml` file.
+The claim `city` is not yet defined anywhere in our schema. So, add a definition inside the element `<BuildingBlocks>`. You can find this element at the beginning of the TrustFrameworkExtensions.xml file.
 
 ```XML
 <BuildingBlocks>
@@ -125,14 +131,14 @@ The claim `city` is not otherwise defined anywhere in our schema. So we will add
 </BuildingBlocks>
 ```
 
-## Step 4 - Include the REST service claims exchange as an Orchestration Step in your Profile Edit User journey in your TrustFrameworkExtensions.xml
+## Step 4: Include the REST service claims exchange as an orchestration step in your profile edit user journey in TrustFrameworkExtensions.xml
 
-We have decided to add the step the profile edit user journey, after the user has authenticated (Orchestration steps 1-4 – see below), and the user has provided the updated profile information (Step 5).
+Add a step to the profile edit user journey, after the user has been authenticated (orchestration steps 1-4 in the following XML) and the user has provided the updated profile information (step 5).
 
 > [!NOTE]
-> There are many use cases where the REST API Call can be used as an Orchestration Step.  As an Orchestration Step, it may be used as an update to an external system once a user has successfully completed a task like first time registration, or profile update to keep information synchronized.  In this case it is used to augment the information provided to the application after profile edit.
+> There are many use cases where the REST API call can be used as an orchestration step. As an orchestration step, it can be used as an update to an external system after a user has successfully completed a task like first-time registration, or as a profile update to keep information synchronized. In this case, it's used to augment the information provided to the application after the profile edit.
 
-Copy the profile edit user journey XML code from the `TrustFrameworkBase.xml` file to your `TrustFrameworkExtensions.xml` file inside the `<UserJourneys>` element, then make the modification under step 6.
+Copy the profile edit user journey XML code from the TrustFrameworkBase.xml file to your TrustFrameworkExtensions.xml file inside the `<UserJourneys>` element. Then make the modification under step 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -143,9 +149,9 @@ Copy the profile edit user journey XML code from the `TrustFrameworkBase.xml` fi
 ```
 
 > [!IMPORTANT]
-> If the order does not match your version just make sure you insert as the step before the ClaimsExchange Type `SendClaims`
+> If the order does not match your version, make sure that you insert the code as the step before the `ClaimsExchange` type `SendClaims`.
 
-The final UserJourney XML should look like this:
+The final XML for the user journey should look like this:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -191,7 +197,7 @@ The final UserJourney XML should look like this:
                 <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
             </ClaimsExchanges>
         </OrchestrationStep>
-        <!-- Add a step 6 to the user journey before the jwt token is created-->
+        <!-- Add a step 6 to the user journey before the JWT token is created-->
         <OrchestrationStep Order="6" Type="ClaimsExchange">
             <ClaimsExchanges>
                 <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
@@ -203,12 +209,12 @@ The final UserJourney XML should look like this:
 </UserJourney>
 ```
 
-## Step 5 - Add the Claim “city” to your Relying Party policy file so the claim is sent to your application
+## Step 5: Add the claim `city` to your relying party policy file so the claim is sent to your application
 
-To do this, edit your `ProfileEdit.xml` RP file and modify the `<TechnicalProfile Id="PolicyProfile">` element to add the following:
+Edit your ProfileEdit.xml relying party (RP) file and modify the `<TechnicalProfile Id="PolicyProfile">` element to add the following:
 `<OutputClaim ClaimTypeReferenceId="city" />`.
 
-After adding the new claim, the TechnicalProfile looks like this:
+After you add the new claim, the technical profile looks like this:
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
@@ -221,15 +227,15 @@ After adding the new claim, the TechnicalProfile looks like this:
 </TechnicalProfile>
 ```
 
-## Step 6 - Upload your changes and test
+## Step 6: Upload your changes and test
 
-You will be overwriting existing versions of the policy.
+Overwrite the existing versions of the policy.
 
-1.	(OPTIONAL) Saved the existing version (by downloading) of your extensions file before you proceed.  We recommend that you do not upload multiple versions of the extensions file to keep initial complexity low.
-2.	(OPTIONAL) you may rename the new version of the policy edit file PolicyId by changing   PolicyId="B2C_1A_TrustFrameworkProfileEdit"
-3.	Upload the extensions file
-4.	Upload the policy edit Relying Party file
-5.	Use **Run Now** to test the policy.  Review the token returned by the IEF back to the application.
+1.	(Optional:) Save the existing version (by downloading) of your extensions file before you proceed. To keep the initial complexity low, we recommend that you do not upload multiple versions of the extensions file.
+2.	(Optional:) Rename the new version of the policy ID for the policy edit file by changing   `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+3.	Upload the extensions file.
+4.	Upload the policy edit RP file.
+5.	Use **Run Now** to test the policy. Review the token that the IEF returns to the application.
 
 If everything is set up correctly, the token will include the new claim `city`, with the value `Redmond`.
 
@@ -249,8 +255,8 @@ If everything is set up correctly, the token will include the new claim `city`, 
 }
 ```
 
-## Next Steps
+## Next steps
 
 [Use a REST API as a validation step](active-directory-b2c-rest-api-validation-custom.md)
 
-[How to modify profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Modify the profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)

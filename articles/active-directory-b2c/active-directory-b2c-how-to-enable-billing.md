@@ -26,16 +26,16 @@ Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are bille
 https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 ## Step 1 - Create an Azure AD B2C Tenant
-
-B2C tenant creation must be completed first. Skip this step if you have already created your target B2C Tenant. [Get started with Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
+B2C tenant creation must be completed first. Skip this step if you have already created your target B2C Tenant. [Get started with Azure AD B2C](active-directory-b2c-get-started.md)
 
 ## Step 2 - Open Azure portal in the Azure AD Tenant that shows your Azure subscription
-Navigate to portal.azure.com. Switch to the Azure AD Tenant that shows the Azure subscription you would like to use. This Azure AD tenant is different from the B2C tenant. Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant. An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
+Navigate to the [Azure portal](https://portal.azure.com). Switch to the Azure AD Tenant that shows the Azure subscription you would like to use. This Azure AD tenant is different from the B2C tenant. Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant. An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Switching to your Azure AD Tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## Step 3 - Create a B2C Tenant resource in Azure Marketplace
 Open Marketplace by clicking the Marketplace icon, or selecting the green "+" in the upper left corner of the dashboard.  Search for and select Azure Active Directory B2C. Select Create.
+
 ![Select Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![Search AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
@@ -73,11 +73,4 @@ By clicking the B2C tenant resource, you are able to
 ## Next steps
 Once these steps are complete for each of your B2C tenants, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details.
 - Review usage and billing within your selected Azure subscription
-- Review detailed day-by-day usage reports using the [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
-
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+- Review detailed day-by-day usage reports using the [Usage Reporting API](active-directory-b2c-reference-usage-reporting-api.md)

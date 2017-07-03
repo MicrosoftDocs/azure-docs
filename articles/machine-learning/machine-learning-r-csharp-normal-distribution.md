@@ -1,7 +1,24 @@
 ---
+title: (deprecated) Normal Distribution Web Service Suite - Azure | Microsoft Docs 
+description: (deprecated) Normal Distribution Web Service Suite 
+services: machine-learning 
+documentationcenter: '' 
+author: ireiter 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: aab7b92e-953b-43d8-b0af-031394406bfe 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
+ms.author: ireiter
 
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
 
 ---
 # (deprecated) Normal Distribution Suite

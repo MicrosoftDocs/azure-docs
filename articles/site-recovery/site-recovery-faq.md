@@ -4,16 +4,16 @@ description: This article discusses popular questions about Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
+manager: carmonm
 editor: ''
 
 ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
-ms.service: get-started-article
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/21/2017
+ms.date: 05/22/2017
 ms.author: raynew
 
 ---
@@ -22,20 +22,19 @@ This article includes frequently asked questions about Azure Site Recovery. If y
 
 ## General
 ### What does Site Recovery do?
-Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication from on-premises virtual machines and physical servers to Azure, or to a secondary datacenter. [Learn more](site-recovery-overview.md).
+Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter. [Learn more](site-recovery-overview.md).
 
 ### What can Site Recovery protect?
+* **Azure VMs**: Site Recovery can replicate any workload running on a supported Azure VM
 * **Hyper-V virtual machines**: Site Recovery can protect any workload running on a Hyper-V VM.
 * **Physical servers**: Site Recovery can protect physical servers running Windows or Linux.
 * **VMware virtual machines**: Site Recovery can protect any workload running in a VMware VM.
 
 ### Does Site Recovery support the Azure Resource Manager model?
-In addition to Site Recovery in the Azure classic portal, Site Recovery is available in the Azure portal with support for Resource Manager. For most deployment scenarios Site Recovery in the Azure portal provides a streamlined deployment experience and you can replicate VMs and physical servers into classic storage or Resource Manager storage. Here are the supported deployments:
+Site Recovery is available in the Azure portal with support for Resource Manager. Site Recovery supports legacy deployments in the Azure classic portal. You can't create new vaults in the classic portal, and new features aren't supported.
 
-* [Replicate VMware VMs or physical servers to Azure in the Azure portal](site-recovery-vmware-to-azure.md)
-* [Replicate Hyper-V VMs in VMM clouds to Azure in the Azure portal](site-recovery-vmm-to-azure.md)
-* [Replicate Hyper-V VMs (without VMM) to Azure in the Azure portal](site-recovery-hyper-v-site-to-azure.md)
-* [Replicate Hyper-V VMs in VMM clouds to a secondary site in the Azure portal](site-recovery-vmm-to-vmm.md)
+### Can I replicate Azure VMs?
+Yes, you can replicate supported Azure VMs between Azure regions. [Learn more](site-recovery-azure-to-azure.md).
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:

@@ -3,7 +3,7 @@ title: Detailed remote desktop troubleshooting in Azure | Microsoft Docs
 description: Review detailed troubleshooting steps for remote desktop errors where you cannot to a Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/18/2017
-ms.author: iainfou
+ms.date: 05/31/2017
+ms.author: genli
 
 ---
 # Detailed troubleshooting steps for remote desktop connection issues to Windows VMs in Azure
@@ -44,7 +44,7 @@ Before proceeding, it might help to mentally review what has changed since the l
 ## Preliminary steps
 Before proceeding to the detailed troubleshooting,
 
-* Check the status of the virtual machine in the Azure classic portal or the Azure portal for any obvious issues.
+* Check the status of the virtual machine in the Azure portal for any obvious issues.
 * Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
 
 Try reconnecting to the VM via Remote Desktop after these steps.

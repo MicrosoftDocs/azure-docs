@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
-ms.author: jonfan; ladocs
+ms.author: LADocs; jonfan
 
 ---
 # Exchange EDIFACT messages for enterprise integration with logic apps

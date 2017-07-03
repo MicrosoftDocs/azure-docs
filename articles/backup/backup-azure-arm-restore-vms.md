@@ -113,7 +113,9 @@ If you are not already there, [select a restore point](#restoring-vms-with-speci
 ![restore configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
 > [!NOTE]
-> If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
+> 1. If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
+> 2. If you are restoring VMs with managed disks, make sure that storage account selected is not enabled for Storage Service Encryption(SSE) in its lifetime.
+> 3. Based on the storage type of storage account selected(premium or standard), all disks restored will be either premium or standard disks. We currently don't support mixed mode of disks when restoring.  
 >
 >
 
@@ -197,6 +199,21 @@ If you have restored VM to same Resource Group with the same name as originally 
 
 ## Restoring a VM during Azure dataCenter disaster
 Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account, which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. Learn more about [Azure Data center resiliency](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
+
+## Restoring Domain Controller VMs
+Backup of Domain Controller (DC) virtual machines is a supported scenario with Azure Backup. However, care must be taken during
+the restore process. The correct restore process depends on the structure of the domain. In the simplest case you have a single DC in a single domain. More commonly for production loads, you will have a single domain with multiple DCs, perhaps with some DCs on premises. Finally, you may have a forest with multiple domains. 
+
+From an Active Directory perspective the Azure VM is like any other VM on a modern supported hypervisor. The major difference with on-premises hypervisors is that there is no VM console available in Azure. A console is required for certain scenarios such as recovering using a Bare Metal Recovery (BMR) type backup. However, VM restore from the backup vault is a full replacement for BMR. Active Directory Restore Mode (DSRM) is also available, so all Active Directory recovery scenarios are viable. For more background information, please check [Backup and Restore considerations for virtualized Domain Controllers](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) and [Planning for Active Directory Forest Recovery](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
+
+### Single DC in a single domain
+The VM can be restored (like any other VM) from the Azure portal or using PowerShell.
+
+### Multiple DCs in a single domain
+When other DCs of the same domain can be reached over the network, the DC can be restored like any VM. If it is the last remaining DC in the domain, or a recovery in an isolated network is performed, a forest recovery procedure must be followed.
+
+### Multiple domains in one forest
+When other DCs of the same domain can be reached over the network, the DC can be restored like any VM. However, in all other cases a forest recovery is recommended.
 
 ## Restoring VMs with special network configurations
 It is possible to back up and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process.

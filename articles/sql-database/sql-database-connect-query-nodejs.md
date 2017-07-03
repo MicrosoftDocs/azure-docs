@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 05/07/2017
+ms.topic: hero-article
+ms.date: 05/24/2017
 ms.author: lbosq
 
 ---
@@ -22,10 +22,13 @@ ms.author: lbosq
 
 This quick start demonstrates how to connect to an Azure SQL database using [Node.js](https://nodejs.org/en/); then use Transact-SQL statements to query, insert, update, and delete data in the database from Windows, Ubuntu Linux, and Mac platforms.
 
-This quick start uses as its starting point the resources created in any of these guides:
+## Prerequisites
+
+This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## Install Node.js 
 

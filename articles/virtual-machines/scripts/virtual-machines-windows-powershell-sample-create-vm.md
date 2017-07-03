@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create a fully configured virtual machine with PowerShell

@@ -3,7 +3,7 @@ title: Find data with log searches in Azure Log Analytics | Microsoft Docs
 description: Log searches allow you to combine and correlate any machine data from multiple sources within your environment.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
 ---

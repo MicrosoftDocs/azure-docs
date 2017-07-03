@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: jehollan; LADocs
+ms.author: LADocs; jehollan
 ---
 
 # Call, trigger, or nest workflows with HTTP endpoints in logic apps
@@ -30,9 +30,9 @@ so that your logic apps can receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
 
-* [API Connection Webhook](logic-apps-workflow-actions-triggers.md#api-connection)
+* [API Connection Webhook](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
 
-* [HTTP Webhook](../connectors/connectors-native-http.md)
+* [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
    > Although our examples use the **Request** trigger, 
@@ -249,7 +249,7 @@ Logic apps have built-in support for direct-access endpoints.
 If the content's type is `application/json`, 
 you can reference properties from the incoming request. 
 Otherwise, content is treated as a single binary unit that you can pass to other APIs. 
-You can't reference this content inside the workflow without converting that content. 
+To reference this content inside the workflow, you must convert that content. 
 For example, if you pass `application/xml` content, you can use `@xpath()` 
 for an XPath extraction, or `@json()` for converting XML to JSON. 
 Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
@@ -346,9 +346,13 @@ the trigger name, and the operation that's performed.
 So unless someone has access to the secret logic app key, 
 they cannot generate a valid signature.
 
-   > [!NOTE]
-   > For production/secure systems, we strongly recommend against calling your Logic App directly from the browser due to the shared access key being included in the URL, and the inability to manage secure content policies due to domains being shared across Logic App customers.
-
+   > [!IMPORTANT]
+   > For production and secure systems, we strongly recommend against 
+   > calling your logic app directly from the browser because:
+   > 
+   > * The shared access key appears in the URL.
+   > * You can't manage secure content policies 
+   > due to shared domains across Logic App customers.
 
 #### Q: Can I configure HTTP endpoints further?
 

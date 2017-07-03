@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
@@ -61,12 +61,13 @@
 ## [REST](/rest/api/streamanalytics)
 
 # Resources
-## [Release notes](stream-analytics-release-notes.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Blog](http://blogs.msdn.com/b/streamanalytics/)
+## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/stream-analytics/)
-## [Blog](http://blogs.msdn.com/b/streamanalytics/)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
-## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Release notes](stream-analytics-release-notes.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=stream-analytics)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)

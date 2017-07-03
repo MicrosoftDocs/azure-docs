@@ -4,7 +4,7 @@ description: Learn what to do in the event of an Azure service disruption that i
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: drewm
+manager: timlt
 editor: ''
 
 ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4

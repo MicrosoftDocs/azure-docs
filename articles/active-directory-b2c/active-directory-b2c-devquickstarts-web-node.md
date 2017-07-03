@@ -3,7 +3,7 @@ title: Add sign-in to a Node.js web app for Azure B2C | Microsoft Docs
 description: How to build a Node.js web app that signs in users by using a B2C tenant.
 services: active-directory-b2c
 documentationcenter: ''
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -20,7 +20,7 @@ ms.author: xerners
 
 # Azure AD B2C: Add sign-in to a Node.js web app
 
-**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. 
+**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more.
 
 We have developed a strategy for Azure Active Directory (Azure AD). You will install this module and then add the Azure AD `passport-azure-ad` plug-in.
 

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/01/2017
 ms.author: twooley
 
 ---
@@ -41,7 +41,7 @@ The following table describes the high-level differences between Azure Stack and
 | Area | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
 | Who operates it? | Microsoft | Your company or service provider.|
-| Who do you contact for support? | Microsoft | For Azure Stack POC support, visit the [Microsoft forums](https://social.msdn.microsoft.com/Forums/home?forum=azurestack).
+| Who do you contact for support? | Microsoft | For Azure Stack POC support, visit the [Microsoft forums](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Because the POC is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
 | Available services | See the list of [Azure products](https://azure.microsoft.com/services/?b=17.04b). Available services vary by Azure region. | Azure Stack supports a subset of Azure services. <br><br>Actual services will vary based on what your company or service provider chooses to offer.
 | Azure Resource Manager endpoint* | https://management.azure.com | For the POC: https://management.local.azurestack.external
 | Portal URL* | [https://portal.azure.com](https://portal.azure.com) | For the POC: https://portal.local.azurestack.external

@@ -57,9 +57,9 @@ Now that the trigger has been added, follow these steps to add an action that wi
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 6. Save your work and create a new file in Dropbox to activate your workflow.  
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/dropbox/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/dropbox/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

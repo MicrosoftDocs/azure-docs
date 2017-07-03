@@ -34,38 +34,38 @@ Your Azure Active Directory (Azure AD) B2C directory comes with a built-in set o
 
 With Azure AD B2C, you can extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
-[!NOTE]
-We refer to a custom attribute or an extension property as a feature of the Azure AD B2C Directory.  Extension properties extend the schema of the user objects in the directory.  To use a custom attribute as a custom claim in a policy, define it in the policy in the `ClaimsSchema`.
+>[!NOTE]
+>We refer to a custom attribute or an extension property as a feature of the Azure AD B2C Directory.  Extension properties extend the schema of the user objects in the directory.  To use a custom attribute as a custom claim in a policy, define it in the policy in the `ClaimsSchema`.
 
-[!NOTE]
-Extension properties can only be registered on an Application object even though they may contain data for a User. The property is attached to the application. The Application object must be granted write access to register an extension property. 100 Extension properties (across ALL types and ALL applications) can be written to any single object. Extension properties are added to the target directory type and becomes immediately accessible in the Azure AD B2C directory tenant.
+>[!NOTE]
+>Extension properties can only be registered on an Application object even though they may contain data for a User. The property is attached to the application. The Application object must be granted write access to register an extension property. 100 Extension properties (across ALL types and ALL applications) can be written to any single object. Extension properties are added to the target directory type and becomes immediately accessible in the Azure AD B2C directory tenant.
 If the application is deleted, those Extension properties along with any data contained in them for all users are also removed. If an Extension property is deleted by the Application, it is removed on the target directory object, and any data contained in it is removed too.
 
-[!NOTE]
-Extension properties exist only in the context of a registered  Application in the tenant. The object id of that Application must be included in the TechnicalProfile which use it
+>[!NOTE]
+>Extension properties exist only in the context of a registered  Application in the tenant. The object id of that Application must be included in the TechnicalProfile which use it
 
-[!NOTE]
-The Azure AD B2C directory typically includes a Web API App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the custom claims created via the Azure portal.  Using this application to register extensions for b2c custom policies is recommended only for advanced users.
+>[!NOTE]
+>The Azure AD B2C directory typically includes a Web API App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the custom claims created via the Azure portal.  Using this application to register extensions for b2c custom policies is recommended only for advanced users.
 
 
 ## Creating a new application to store the extension properties
 
 1. Open a browsing session and navigate to the [Azure porta](https://portal.azure.com) and sign in with administrative credentials of the B2C Directory you wish to configure.
-1. Click `Azure Active Directory` on the left navigation menu. You may need to find it by selecting More services>.
-1. Select `App registrations` and click `New application registration`
+1. Click **Azure Active Directory** on the left navigation menu. You may need to find it by selecting More services>.
+1. Select **App registrations** and click **New application registration**
 1. Provide the following recommended entries:
-  * Specify a name for the web application: `WebApp-GraphAPI-DirectoryExtensions`
+  * Specify a name for the web application: **WebApp-GraphAPI-DirectoryExtensions**
   * Application type: Web app/API
   * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
-1. Select `Create` . Successful completion appears in the `notifications`
-1. Select the newly created web application: `WebApp-GraphAPI-DirectoryExtensions`
-1. Select Settings: `Required permissions`
-1. Select API `Windows Active Directory`
-1. Place a checkmark in Application Permissions: `Read and write directory data`, and `Save`
-1. Choose `Grant permissions` and confirm `Yes`.
+1. Select **Create** . Successful completion appears in the **notifications**
+1. Select the newly created web application: **WebApp-GraphAPI-DirectoryExtensions**
+1. Select Settings: **Required permissions**
+1. Select API **Windows Active Directory**
+1. Place a checkmark in Application Permissions: **Read and write directory data**, and **Save**
+1. Choose **Grant permissions** and confirm **Yes**.
 1. Copy to your clipboard and save the following identifiers from WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
-*  `Application ID` . Example: `103ee0e6-f92d-4183-b576-8c3739027780`
-* `Object ID`. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **Application ID** . Example: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **Object ID**. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 ## Modifying your custom policy to add the `ApplicationObjectId`
 
@@ -93,13 +93,16 @@ For every TechnicalProfile that will read or write extension attributes you must
     	</ClaimsProvider>
     </ClaimsProviders>
 ```
-[!NOTE]
-The <TechnicalProfile Id="AAD-Common"> is "common" because its elements are re-used in in all the Azure Active Directory TechnicalProfiles by using the element:
+
+>[!NOTE]
+>The <TechnicalProfile Id="AAD-Common"> is "common" because its elements are re-used in in all the Azure Active Directory TechnicalProfiles by using the element:
+
 ```
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
 ```
-[!NOTE]
-When the TechnicalProfile writes for the first time to the newly created extension property, you may experience a one-time error as the property is created if not found.  .*  
+
+>[!NOTE]
+>When the TechnicalProfile writes for the first time to the newly created extension property, you may experience a one-time error as the property is created if not found.  .*  
 
 ## Using the new extension property / custom attribute in a user journey
 
@@ -135,9 +138,12 @@ When the TechnicalProfile writes for the first time to the newly created extensi
 </ClaimsSchema>
 ```
 4. Add the same claim definition to the Base policy file `TrustFrameworkBase.xml` .  
-NOTE: Adding a `ClaimType` definition in both the base and the extensions file is normally not necessary, however since the next steps will add the extension_loyaltyId to TechnicalProfiles in the Base file, the policy validator will reject the upload of the base file without it.
 
-NOTE: It may be useful to trace the execution of the user journey named "ProfileEdit" in the TrustFrameworkBase.xml file.  Search for the user journey of the same name in your editor and observe that Orchestration Step 5 invokes the TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Search and inspect this TechnicalProfile to familiarize yourself with the flow.
+>[!NOTE]
+>Adding a `ClaimType` definition in both the base and the extensions file is normally not necessary, however since the next steps will add the extension_loyaltyId to TechnicalProfiles in the Base file, the policy validator will reject the upload of the base file without it.
+
+>[!NOTE]
+>It may be useful to trace the execution of the user journey named "ProfileEdit" in the TrustFrameworkBase.xml file.  Search for the user journey of the same name in your editor and observe that Orchestration Step 5 invokes the TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Search and inspect this TechnicalProfile to familiarize yourself with the flow.
 
 5. Add loyaltyId as input and output claim in the TechnicalProfile "SelfAsserted-ProfileUpdate"
 
@@ -228,8 +234,9 @@ NOTE: Thus far the TechnicalProfiles have been changed in the flow of local acco
      </TechnicalProfile>
 ```
 
-[!IMPORTANT]
-The IncludeTechnicalProfile element above adds all the elements of AAD-Common to this TechnicalProfile.
+
+>[!IMPORTANT]
+>The IncludeTechnicalProfile element above adds all the elements of AAD-Common to this TechnicalProfile.
 
 ## Test the custom policy using "Run Now"
 
@@ -272,6 +279,7 @@ Add the new claim to the flows for social account logins by changing the Technic
 
 
 * For full treatment on extension properties, see the article [DIRECTORY SCHEMA EXTENSIONS | GRAPH API CONCEPTS](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
-[!NOTE]
-Extension attributes in Graph API are named using the convention `extension_ApplicationObjectID_attributename`
+
+>[!NOTE]
+>Extension attributes in Graph API are named using the convention `extension_ApplicationObjectID_attributename`
 Custom policies refer to extensions attributes as extension_attributename, thus omitting the ApplicationObjectId in the XML

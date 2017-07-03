@@ -46,9 +46,9 @@ While on the designer of your logic app, follow these steps to sign into SharePo
 6. You can then add other triggers and actions that you need to complete your logic app.   
 7. Save your work by selecting **Save** on the menu bar above.  
 
-## View the swagger
+## Connector-specific details
 
-View any triggers, actions, and limits in the [swagger details](/connectors/sharepoint/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/sharepoint/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).
