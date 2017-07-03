@@ -29,7 +29,7 @@ You might receive errors when you try to delete a virtual network in Microsoft A
 
 To remove the virtual network, you must first remove the virtual network gateway in this virtual network.
 
-For classic virtual networks, go to the **Overview** page of the virtual network. If the gateway is running in the virutal network, you will see the IP address of the gateway. 
+For classic virtual networks, go to the **Overview** page of the virtual network. If the gateway is running in the virtual network, you will see the IP address of the gateway. 
 
 ![Check whether gateway is running](media/vpn-gateway-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
@@ -57,7 +57,7 @@ To disable the service, follow these steps:
 
 1. Go to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the left pane, select  **Active Directory**.
-3. Select the Azure Active Directory (Azure AD) directory that has Ative Directory Domain Service enabled.
+3. Select the Azure Active Directory (Azure AD) directory that has Active Directory Domain Service enabled.
 4. click the **Configure** tab.
 5. Under **domain services**, change the **Enable domain services for this directory** option to **No**.  
 
@@ -65,21 +65,21 @@ To disable the service, follow these steps:
 
 Use get-sub to check for Circuit Links, connections, or even peerings. Any of these can cause a virtual network deletion to fail. 
 
-The recommended deletiton oder should be:
+The recommended deletion order should be:
 
 1. Connections
 2. Gateways
 3. IPs
-4. virtual networks
+4. Virtual networks
 5. App Service Environment (ASE)
 
 ### Check whether a VM is still running in the virtual network
 
-Make sure that there is no VM is running in the virtual network.
+Make sure tha no VM is running in the virtual network.
 
 ### Check whether the virtual network is stuck in a migration state
 
-If the virtual network is stuck in a migration state, it cannot be deleted. Run the following command to abort the mirgation, and then delete the virtual network.
+If the virtual network is stuck in a migration state, it cannot be deleted. Run the following command to abort the migration, and then delete the virtual network.
 
     Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 
