@@ -5,7 +5,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 06/6/2017
+ms.date: 07/03/2017
 ---
 # Azure Key Vault security worlds and geographic boundaries
 
@@ -34,7 +34,7 @@ In the products by region article, for example, the **Americas** tab contains EA
 >[!NOTE]
 >An exception is that US DOD EAST and US DOD CENTRAL have their own security worlds. 
 
-Similarly, on the **Europe** tab, NORTH EUROPE and WEST EUROPE both map to the Europe region. The same is also true or teh **Asia Pacific** tab.
+Similarly, on the **Europe** tab, NORTH EUROPE and WEST EUROPE both map to the Europe region. The same is also true or the **Asia Pacific** tab.
 
 
 
