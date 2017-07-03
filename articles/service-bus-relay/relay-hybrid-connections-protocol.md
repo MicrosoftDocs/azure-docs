@@ -44,7 +44,7 @@ There is a listener that first indicates readiness to handle incoming
 connections, and subsequently accepts them as they arrive. On the other side,
 there is a connecting client that connects towards the listener, expecting that
 connection to be accepted for establishing a bi-directional communication path.
-"Connect," "Listen," and "Accept" are the same terms you will find in most socket
+"Connect," "Listen," and "Accept" are the same terms you find in most socket
 APIs.
 
 Any relayed communication model has either party making outbound connections
@@ -70,7 +70,7 @@ namespace, and a security token that confers the "Listen" right on that name.
 When the WebSocket is accepted by the service, the registration is complete and
 the established web WebSocket is kept alive as the "control channel" for enabling
 all subsequent interactions. The service allows up to 25 concurrent listeners on
-a Hybrid Connection. If there are 2 or more active listeners, incoming
+a Hybrid Connection. If there are two or more active listeners, incoming
 connections are balanced across them in random order; fair distribution is
 not guaranteed.
 
@@ -116,10 +116,10 @@ with a connected listener.
 
 ### Interaction summary
 The result of this interaction model is that the sender client comes out of the
-handshake with a "clean" WebSocket which is connected to a listener and that
-needs no further preambles or preparation. This allows practically any existing
+handshake with a "clean" WebSocket, which is connected to a listener and that
+needs no further preambles or preparation. This model enables practically any existing
 WebSocket client implementation to readily take advantage of the Hybrid
-Connections service by simply supplying a correctly-constructed URL into their WebSocket client layer.
+Connections service by supplying a correctly-constructed URL into their WebSocket client layer.
 
 The rendezvous connection WebSocket that the listener obtains through the
 accept interaction is also clean and can be handed to any existing WebSocket
@@ -129,7 +129,7 @@ Hybrid Connections remote "accept" operations.
 
 ## Protocol reference
 
-This section describes the details of the protocol interactions described above.
+This section describes the details of the protocol interactions described previously.
 
 All WebSocket connections are made on port 443 as an upgrade from HTTPS 1.1,
 which is commonly abstracted by some WebSocket framework or API. The
@@ -226,13 +226,13 @@ establish the WebSocket for accepting or rejecting the sender socket.
 To accept, the listener establishes a WebSocket connection to the provided
 address.
 
-If the "accept" message carries a "Sec-WebSocket-Protocol" header, it is
+If the "accept" message carries a `Sec-WebSocket-Protocol` header, it is
 expected that the listener only accepts the WebSocket if it supports that
-protocol. Additoinally, it sets the header as the WebSocket is established.
+protocol. Additionally, it sets the header as the WebSocket is established.
 
-The same applies to the "Sec-WebSocket-Extensions" header. If the framework
-supports an extension, it should set the header to the *server* side reply of
-the required "Sec-WebSocket-Extensions" handshake for the extension.
+The same applies to the `Sec-WebSocket-Extensions` header. If the framework
+supports an extension, it should set the header to the server-side reply of
+the required `Sec-WebSocket-Extensions` handshake for the extension.
 
 The URL must be used as-is for establishing the accept socket, but contains the
 following parameters:
@@ -241,7 +241,7 @@ following parameters:
 | --- | --- | --- |
 | sb-hc-action |Yes |For accepting a socket, the parameter must be `sb-hc-action=accept` |
 | {path} |Yes |(see the following paragraph) |
-| sb-hc-id |No |See description of **id** above. |
+| sb-hc-id |No |See previous description of **id**. |
 
 `{path}` is the URL-encoded namespace path of the preconfigured Hybrid
 Connection on which to register this listener. This expression is appended to the
@@ -253,7 +253,7 @@ the sender client to pass dispatch arguments to the accepting listener when it
 is not possible to include HTTP headers. The expectation is that the listener
 framework parses out the fixed path portion and the registered name from the
 path and makes the remainder, possibly without any query string arguments
-prefixed by "sb-", available to the application for deciding whether to accept
+prefixed by `sb-`, available to the application for deciding whether to accept
 the connection.
 
 For more information, see the following "Sender Protocol" section.
@@ -265,7 +265,7 @@ If there is an error, the service can reply as follows:
 | 403 |Forbidden |The URL is not valid. |
 | 500 |Internal Error |Something went wrong in the service |
 
-After the connection has been established, the server shuts down the WebSocket when the sender WebSocket shuts down, or with the following status.
+After the connection has been established, the server shuts down the WebSocket when the sender WebSocket shuts down, or with the following status:
 
 | WS Status | Description |
 | --- | --- |
@@ -295,8 +295,8 @@ and appends two query string parameters to it, as follows:
 The resulting URI is then used to establish a WebSocket connection.
 
 When completing correctly, this handshake intentionally fails with an HTTP
-error code 410, since no WebSocket has been established. If an error occurs,
-these are the options:
+error code 410, since no WebSocket has been established. If something goes wrong,
+the following codes describe the error:
 
 | Code | Error | Description |
 | --- | --- | --- |
@@ -351,7 +351,7 @@ The query string parameter options are as follows:
 
 | Param | Required? | Description |
 | --- | --- | --- |
-| sb-hc-action |Yes |For the sender role the parameter must be `action=connect`. |
+| sb-hc-action |Yes |For the sender role, the parameter must be `action=connect`. |
 | {path} |Yes |(see the following paragraph) |
 | sb-hc-token |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right. |
 | sb-hc-id |No |An optional ID that enables end-to-end diagnostic tracing and is made available to the listener during the accept handshake. |
@@ -359,7 +359,7 @@ The query string parameter options are as follows:
 The {path} is the URL-encoded namespace path of the preconfigured Hybrid
 Connection on which to register this listener. The path expression can be extended
 with a suffix and a query string expression to communicate further. If the Hybrid
-Connection is registered under the path "hyco," the path expression can be
+Connection is registered under the path `hyco`, the path expression can be
 `hyco/suffix?param=value&...` followed by the query string parameters defined
 here. A complete expression may then be as follows:
 
