@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
@@ -171,10 +171,10 @@ If you get a `Command line option syntax error.` when using the `OPINSIGHTS_WORK
 MMASetup-AMD64.exe /C /T:.\MMAExtract
 cd .\MMAExtract
 setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+```
 
-
->[!NOTE]
-To avoid hitting the command line length limit of IExpress you can install the agent with no workspace configured and then use a script to set configuration for the workspace.
+>[!INFO]
+To avoid hitting the command-line length limit of IExpress, install the agent with no workspace configured and then use a script to set configuration for the workspace.
 
 ## Add a workspace using a script
 Add a workspace using the Log Analytics agent scripting API with the following example:
