@@ -28,133 +28,45 @@ Download and install [Azure Data Lake Tools for Visual Studio](https://www.micro
 
 ## Get started with U-SQL  
 
-Let’s look at the following example:
+Let’s look at the following U-SQL script:
 
 ```
-DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
-DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
-
-@rs0 =
-	EXTRACT
-	    guid Guid,
-	    dt DateTime,
-	    user String,
-	    des String
-	FROM @input_file USING Extractors.Tsv();
-
-@rs1 =
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso",   1500.0, "2017-03-39"),
+            ("Woodgrove", 2700.0, "2017-04-10")
+        ) AS 
+              D( customer, amount );
+@results =
     SELECT
-            MAX(guid) AS start_id,
-            MIN(dt) AS start_time,
-            user,
-            des
-	FROM @rs0
-    GROUP BY user, des;
-
-OUTPUT @rs1 
-	TO @output_file 
-	USING Outputters.Text();
+    	customer,
+	amount,
+	date
+    FROM @a;    
 ```
+
+It defines a RowSet called @a and creates a RowSet called @results from @a.
 
 ## C# types and expressions in U-SQL script
-A U-SQL C# expression, similar to an expression in general C#, is a sequence of one or more operators that can be evaluated to a single value, object, method, or namespace. Expressions can consist of a literal value, a method invocation, an operator, or a simple name. Simple names can be the name of a variable, type member, method parameter, namespace, or type.
 
-When we talk about U-SQL C# expressions, we specifically refer to the U-SQL base script C# expressions. The underlying C# code-behind section, discussed later in this document, can also contain C# expressions as regular C# code-based elements.
+A U-SQL Expression is a C# expression combined with U-SQL logical operations such `AND`, `OR`, and `NOT`. U-SQL Expressions can be used with SELECT, EXTRACT, WHERE, HAVING, GROUP BY and DECLARE.
 
-Expressions can use operators that use other expressions as parameters. They can also use method calls with parameters that are other method calls. Following are examples of an expression:  
-
-```
-Convert.ToDateTime(Convert.ToDateTime(dt).ToString("yyyy-MM-dd"))
-```
-
-U-SQL language enables the usage of standard C# expressions from built-in namespaces.  
+For example, the following script parses a string a DateTime value in the SELECT clause.
 
 ```
-Microsoft.Analytics.Interfaces;  
-Microsoft.Analytics.Types.Sql;  
-System;  
-System.Collections.Generic;  
-System.Linq;  
-System.Text;  
-```
-
-General C# expressions can be used in U-SQL SELECT, EXTRACT.
-
-The C# expressions can also be used in DECLARE or IF statements. An example of this type of expression is as follows:   
-
-```
-DateTime.Today.Day   
-Convert.ToDateTime
-```
-
-U-SQL-based script example:  
-
-```
-DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
-```
-
-C# expressions can provide extended functionality when you're manipulating columns as part of a rowset. For example, if you want to convert a datetime column to the date with zero hours, you can use the following SELECT part of a U-SQL-based script:
-
-```
-@rs1 =
+@results =
     SELECT
-        MAX(guid) AS start_id,
-	 MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt).ToString("yyyy-MM-dd")))
-AS start_zero_time,
-        user,
-        des
-	FROM @rs0
-    GROUP BY user, des;
+    	customer,
+	amount,
+	DateTime.Parse(date) AS date
+    FROM @a;    
 ```
 
-As you can see, we use `System.Convert.ToDateTime` method to run through the conversion.
-
-Following is a slightly more complicated scenario that demonstrates the use of some basic C# operators:
+The following script parses a string a DateTime value in a DECLARE statement.
 
 ```
-@rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-	    MIN(dt) AS start_time,
-          MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        user,
-        des
-	FROM @rs0
-    GROUP BY user, des;
-```
-
-This shows an example of a C# conditional operator expression.
-
-The previous examples demonstrate the use of C# expressions in the base U-SQL script. However, U-SQL enables more extensible programmability features that are covered later in this document.  
-
-Full script:
-
-```
-DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
-DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
-
-@rs0 =
-	EXTRACT
-        guid Guid,
-	    dt DateTime,
-        user String,
-        des String
-	FROM @input_file USING Extractors.Tsv();
-
-DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
-
-@rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-	MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        user,
-        des
-	FROM @rs0
-    GROUP BY user, des;
-
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
 ```
 
 ### Use C# expressions for data type conversions
