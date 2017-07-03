@@ -182,7 +182,7 @@ Go to the IP address to see the updated application.
 
 ## Next steps
 
-In this tutorial, we updated an application and rolled out this update o a Kubernetes cluster. We completed the following tasks:  
+In this tutorial, we updated an application and rolled out this update to a Kubernetes cluster. We completed the following tasks:  
 
 > [!div class="checklist"]
 > * Updated the front-end application code.
