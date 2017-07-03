@@ -41,7 +41,7 @@ Examples of Streaming Analytics scenarios include:
 The following diagram illustrates the Streaming Analytics pipeline, showing how data is ingested, analyzed, and then sent for presentation or action. 
 
 
-![Stream Analytics pipeline](./media/stream-analytics-introduction/stream_analytics__intro_pipeline.png)
+![Stream Analytics pipeline](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
 
 Stream Analytics starts with a source of streaming data. The data can be ingested into Azure from a device using an Azure event hub or IoT hub. The data can also be pulled from a data store like Azure Blob Storage. 
@@ -63,7 +63,7 @@ Stream Analytics is designed to be easy to use, flexible, scalable to any job si
 
 #### Connectivity to many inputs and outputs
 
-Stream Analytics connects directly to [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) and [Azure IoT Hubs](https://azure.microsoft.com/en-us/services/iot-hub/) for stream ingestion, and the [Azure Blob storage service](https://docs.microsoft.com/en-us/azure/storage/storage-introduction#blob-storage-accounts) to ingest historical data. If you get data from event hubs, you can combine Stream Analytics with other data sources and processing engines.
+Stream Analytics connects directly to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/) for stream ingestion, and the [Azure Blob storage service](https://docs.microsoft.com/azure/storage/storage-introduction#blob-storage-accounts) to ingest historical data. If you get data from event hubs, you can combine Stream Analytics with other data sources and processing engines.
 
 Job input can also include reference data (static or slow-changing data). You can join streaming data to this reference data to perform lookup operations the same way you would with database queries.
 
@@ -80,7 +80,7 @@ You can extend the capabilities of the query language by defining and invoking a
 
 #### Scalability
 
-Stream Analytics can handle up to 1 GB of incoming data per second. Integration with [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) and [Azure IoT Hubs](https://azure.microsoft.com/en-us/services/iot-hub/) allows jobs to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. Using the partition feature of event hubs, you can partition computations into logical steps, each with the ability to be further partitioned to increase scalability.
+Stream Analytics can handle up to 1 GB of incoming data per second. Integration with [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/) allows jobs to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. Using the partition feature of event hubs, you can partition computations into logical steps, each with the ability to be further partitioned to increase scalability.
 
 #### Low cost
 
