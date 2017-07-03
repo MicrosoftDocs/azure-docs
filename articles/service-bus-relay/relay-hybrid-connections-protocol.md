@@ -155,10 +155,10 @@ The query string parameter options are as follows.
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| sb-hc-action |Yes |For the listener role the parameter must be **sb-hc-action=listen** |
-| {path} |Yes |The URL-encoded namespace path of the preconfigured Hybrid Connection to register this listener on. This expression is appended to the fixed `$hc/` path portion. |
-| sb-hc-token |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Listen** right. |
-| sb-hc-id |No |This client-supplied optional ID enables end-to-end diagnostic tracing. |
+| `sb-hc-action` |Yes |For the listener role the parameter must be **sb-hc-action=listen** |
+| `{path}` |Yes |The URL-encoded namespace path of the preconfigured Hybrid Connection to register this listener on. This expression is appended to the fixed `$hc/` path portion. |
+| `sb-hc-token` |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Listen** right. |
+| `sb-hc-id` |No |This client-supplied optional ID enables end-to-end diagnostic tracing. |
 
 If the WebSocket connection fails due to the Hybrid Connection path not being
 registered, or an invalid or missing token, or some other error, the error
@@ -168,7 +168,7 @@ Azure support personnel:
 
 | Code | Error | Description |
 | --- | --- | --- |
-| 404 |Not Found |The Hybrid Connection **path** is invalid or the base URL is malformed. |
+| 404 |Not Found |The Hybrid Connection path is invalid or the base URL is malformed. |
 | 401 |Unauthorized |The security token is missing or malformed or invalid. |
 | 403 |Forbidden |The security token is not valid for this path for this action. |
 | 500 |Internal Error |Something went wrong in the service. |
@@ -239,15 +239,15 @@ following parameters:
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| sb-hc-action |Yes |For accepting a socket, the parameter must be `sb-hc-action=accept` |
-| {path} |Yes |(see the following paragraph) |
-| sb-hc-id |No |See previous description of **id**. |
+| `sb-hc-action` |Yes |For accepting a socket, the parameter must be `sb-hc-action=accept` |
+| `{path}` |Yes |(see the following paragraph) |
+| `sb-hc-id` |No |See previous description of **id**. |
 
 `{path}` is the URL-encoded namespace path of the preconfigured Hybrid
 Connection on which to register this listener. This expression is appended to the
 fixed `$hc/` path portion. 
 
-The path expression may be extended with a suffix and a query string expression
+The `path` expression may be extended with a suffix and a query string expression
 that follows the registered name after a separating forward slash. This enables
 the sender client to pass dispatch arguments to the accepting listener when it
 is not possible to include HTTP headers. The expectation is that the listener
@@ -351,15 +351,15 @@ The query string parameter options are as follows:
 
 | Param | Required? | Description |
 | --- | --- | --- |
-| sb-hc-action |Yes |For the sender role, the parameter must be `action=connect`. |
-| {path} |Yes |(see the following paragraph) |
-| sb-hc-token |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right. |
-| sb-hc-id |No |An optional ID that enables end-to-end diagnostic tracing and is made available to the listener during the accept handshake. |
+| `sb-hc-action` |Yes |For the sender role, the parameter must be `action=connect`. |
+| `{path}` |Yes |(see the following paragraph) |
+| `sb-hc-token` |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right. |
+| `sb-hc-id` |No |An optional ID that enables end-to-end diagnostic tracing and is made available to the listener during the accept handshake. |
 
-The {path} is the URL-encoded namespace path of the preconfigured Hybrid
-Connection on which to register this listener. The path expression can be extended
+The `{path}` is the URL-encoded namespace path of the preconfigured Hybrid
+Connection on which to register this listener. The `path` expression can be extended
 with a suffix and a query string expression to communicate further. If the Hybrid
-Connection is registered under the path `hyco`, the path expression can be
+Connection is registered under the path `hyco`, the `path` expression can be
 `hyco/suffix?param=value&...` followed by the query string parameters defined
 here. A complete expression may then be as follows:
 
@@ -367,7 +367,7 @@ here. A complete expression may then be as follows:
 wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
 ```
 
-The path expression is passed through to the listener in the address URI contained in the "accept" control message.
+The `path` expression is passed through to the listener in the address URI contained in the "accept" control message.
 
 If the WebSocket connection fails due to the Hybrid Connection path not being
 registered, an invalid or missing token, or some other error, the error
@@ -377,7 +377,7 @@ Azure support personnel:
 
 | Code | Error | Description |
 | --- | --- | --- |
-| 404 |Not Found |The Hybrid Connection `path` is invalid or the base URL is malformed. |
+| 404 |Not Found |The Hybrid Connection path is invalid or the base URL is malformed. |
 | 401 |Unauthorized |The security token is missing or malformed or invalid. |
 | 403 |Forbidden |The security token is not valid for this path and for this action. |
 | 500 |Internal Error |Something went wrong in the service. |

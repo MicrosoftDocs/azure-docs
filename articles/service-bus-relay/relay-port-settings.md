@@ -20,7 +20,7 @@ ms.author: sethm
 
 # Azure Relay port settings
 
-The following table describes the required configuration for port values for a Azure Relay.
+The following table describes the required configuration for port values for Azure Relay.
 
 ## Hybrid Connections
 Hybrid Connections uses WebSockets as the underlying transport mechanism, which uses **HTTPS** only. 
