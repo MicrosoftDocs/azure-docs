@@ -138,7 +138,7 @@ maintenance window to avoid any problems. (An increased workload that is
 caused by a trace or benchmark test could adversely affect the
 performance of your VM.)
 
-## What kind of information is collected by the script?
+## Information collected by the script?
 
 Information about the Windows VM, disks or storage pools configuration,
 and performance logs is collected. The following details describe this
@@ -230,7 +230,7 @@ are supported.
 
 1.  When used together with the ”Benchmark” or ”Custom” scenario that is
     configured by using XPerf or DiskSpd, the script might adversely
-    affect the performance of the VM., Please be careful when you run
+    affect the performance of the VM. Be careful when you run
     the script in a production environment.
 
 2.  When you use the script together with the ”Benchmark” or ”Custom”
@@ -333,7 +333,7 @@ If you continue to experience script failure even after several
 attempts, we recommend that you run the script in "debug mode" by using
 the "-Debug" parameter option on startup.
 
-After the failure occurs, please copy the full output of the PowerShell
+After the failure occurs, copy the full output of the PowerShell
 console, and send it to the Microsoft Support agent who is assisting you
 to help troubleshoot the problem.
 
