@@ -105,6 +105,7 @@ When using these steps as an exercise, you can use the example settings values. 
 
 ## <a name="CreatVNet"></a>1. Create and configure TestVNet1
 If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. If you have overlapping subnets, your connection won't work properly. If your VNet is configured with the correct settings, you can begin the steps in the [Specify a DNS server](#dns) section.
+<!---Loc Comment: Please, check link [Specify a DNS server] since it's not redirecting to any location.--->
 
 ### To create a virtual network
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
