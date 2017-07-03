@@ -87,4 +87,4 @@ If the virtual network is stuck in a migration state, it cannot be deleted. Run 
 ## Next steps
 
 - [Azure Virtual Network](virtual-networks-overview.md)
-- [Azure Virtual Network frequently asked questions (FAQ](virtual-networks-faq.md)
+- [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
