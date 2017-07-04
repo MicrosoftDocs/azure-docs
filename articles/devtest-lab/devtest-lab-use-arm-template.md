@@ -53,7 +53,7 @@ The remainder of this article discusses Resource Manager templates that use Miro
 
    ![Resource manager template to save for later use](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-arm-template.png)
 
-After you have saved the Resource Manager template, you must update the parameters section of the template before you can use it. You can create a parameter.json that customizes just the parameters to whatever you want, outside of the actual Resource Manager template. 
+After you have saved the Resource Manager template, you must update the parameters section of the template before you can use it. You can create a parameter.json that customizes just the parameters, outside of the actual Resource Manager template. 
 
 ![Customize paramaters using a JSON file](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
