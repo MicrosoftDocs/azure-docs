@@ -50,6 +50,7 @@
 #### [Indexes](sql-data-warehouse-tables-index.md)
 #### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partitions](sql-data-warehouse-tables-partition.md)
+#### [Replicated](design-guidance-for-replicated-tables.md)
 #### [Statistics](sql-data-warehouse-tables-statistics.md)
 #### [Temporary](sql-data-warehouse-tables-temporary.md)
 
