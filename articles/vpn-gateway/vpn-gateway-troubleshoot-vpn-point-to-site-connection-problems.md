@@ -53,7 +53,7 @@ When you try to connect to an Azure virtual network by using the VPN client, you
 
 ### Cause
 
-This problem occurs if the root certificate public key is not uploaded into the Azure VPN gateway or the key is corrupted or expired.
+This problem occurs if the root certificate public key is not uploaded into the Azure VPN gateway or if the key is corrupted or expired.
 
 ### Solution
 
@@ -119,7 +119,7 @@ An additional certificate is required to trust the VPN gateway for your virtual 
 
 ### Solution
 
-Extract the VPN client configuration package, and find the .cer file. Follow these steps to install the certificate:
+Extract the VPN client configuration package, and find the .cer file. To install the certificate, follow these steps:
 
 1. Open mmc.exe.
 
@@ -232,9 +232,9 @@ The VPN client has connected to the Azure virtual network. However, the client c
 
 ### Cause
 
-The SMB protocol is used for file share access. The failure occurs when the session credentials are added by the VPN client when the connection is initiated. After the connection is established, the client is forced to use the cache credentials for Kerberos authentication. This process initiates queries to the Key Distribution Center (a domain controller) to get a token. Because the client connects from the Internet, it might not be able to reach the domain controller. Therefore, the client cannot fail over from Kerberos to NTLM. 
+The SMB protocol is used for file share access. When the connection is initiated, the VPN client adds the session credentials and the failure occurs. After the connection is established, the client is forced to use the cache credentials for Kerberos authentication. This process initiates queries to the Key Distribution Center (a domain controller) to get a token. Because the client connects from the Internet, it might not be able to reach the domain controller. Therefore, the client cannot fail over from Kerberos to NTLM. 
 
-The only time that the client is prompted for a credential is when it has a valid certificate (with SAN=UPN) issued by the domain to which it is joined. The client also must be physically connected to the domain network. In this case, the client tries to use the certificate and reach out to the domain controller. Then the Key Distribution Center returns a "KDC_ERR_C_PRINCIPAL_UNKNOWN" error. The client is forced to fail over to NTLM. 
+The only time that the client is prompted for a credential is when it has a valid certificate (with SAN=UPN) issued by the domain to which it is joined. The client also must be physically connected to the domain network. In this case, the client tries to use the certificate and reaches out to the domain controller. Then the Key Distribution Center returns a "KDC_ERR_C_PRINCIPAL_UNKNOWN" error. The client is forced to fail over to NTLM. 
 
 ### Solution
 
