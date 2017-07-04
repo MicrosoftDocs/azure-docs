@@ -60,10 +60,8 @@ Perform the following steps to restore the device to a target StorSimple Cloud A
 8. In the **Fail over** blade, perform the following steps:
    
     1. Click **Source**. Select the volume containers to fail over. **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
-
         ![Select source](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png)
-
-   2. Click **Target**. Select a target cloud appliance from the dropdown list of available devices. **Only the devices that have sufficient capacity to accommodate source volume containers are displayed in the list.**
+    2. Click **Target**. Select a target cloud appliance from the dropdown list of available devices. **Only the devices that have sufficient capacity to accommodate source volume containers are displayed in the list.**
 
         ![Select target](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev12.png)
 
