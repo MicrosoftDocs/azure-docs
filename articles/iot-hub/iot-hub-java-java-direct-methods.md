@@ -1,6 +1,6 @@
 ---
-title: Use Azure IoT Hub direct methods (.NET/Node) | Microsoft Docs
-description: How to use Azure IoT Hub direct methods. You use the Azure IoT device SDK for Node.js to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
+title: Use Azure IoT Hub direct methods (Java) | Microsoft Docs
+description: How to use Azure IoT Hub direct methods. You use the Azure IoT device SDK for Java to implement a simulated device app that includes a direct method and the Azure IoT service SDK for Java to implement a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts
