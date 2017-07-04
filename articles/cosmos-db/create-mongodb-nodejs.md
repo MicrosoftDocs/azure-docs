@@ -134,33 +134,12 @@ DB/databaseAccounts/<cosmosdb-name>",
 
 In this step, you connect your MEAN.js sample application to an Azure Cosmos DB database you just created, using a MongoDB connection string. 
 
-## Retrieve the key
-
-In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
-
-```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
-```
-
-The Azure CLI outputs information similar to the following example. 
-
-```json
-{
-  "primaryMasterKey": "RUayjYjixJDWG5xTqIiXjC...",
-  "primaryReadonlyMasterKey": "...",
-  "secondaryMasterKey": "...",
-  "secondaryReadonlyMasterKey": "..."
-}
-```
-
-Copy the value of `primaryMasterKey` to a text editor. You need this information in the next step.
-
 <a name="devconfig"></a>
 ## Configure the connection string in your Node.js application
 
 In your MEAN.js repository, open `config/env/local-development.js`.
 
-Replace the content of this file with the following code. Be sure to also replace the two `<cosmosdb-name>` placeholders with your Azure Cosmos DB account name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
+Replace the content of this file with the following code. Be sure to also replace the two `<cosmosdb-name>` placeholders with your Azure Cosmos DB account name.
 
 ```javascript
 'use strict';
@@ -176,6 +155,24 @@ module.exports = {
 > The `ssl=true` option is important because [Azure Cosmos DB requires SSL](connect-mongodb-account.md#connection-string-requirements). 
 >
 >
+
+## Retrieve the key
+
+To connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
+
+```azurecli-interactive
+az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+```
+
+The Azure CLI outputs information similar to the following example. 
+
+```json
+"RUayjYjixJDWG5xTqIiXjC..."
+```
+
+Copy the value of `primaryMasterKey`.  
+
+In your MEAN.js repository, open `config/env/local-development.js`. Replace the `<primary_master_key>` placeholder with the key value you copied.
 
 Save your changes.
 
