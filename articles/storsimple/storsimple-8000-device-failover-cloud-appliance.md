@@ -65,9 +65,9 @@ Perform the following steps to restore the device to a target StorSimple Cloud A
 
         ![Select target](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev12.png)
 
-   3. Review the failover settings under **Summary** and select the checkbox indicating that the volumes in selected volume containers are offline. 
+    3. Review the failover settings under **Summary** and select the checkbox indicating that the volumes in selected volume containers are offline. 
 
-       ![Review failover settings](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev13.png)
+        ![Review failover settings](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev13.png)
 
 9. A failover job is created. To monitor the failover job, click the job notification.
 
