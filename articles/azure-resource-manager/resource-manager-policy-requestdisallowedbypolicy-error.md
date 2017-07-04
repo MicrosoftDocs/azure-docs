@@ -20,7 +20,8 @@ ms.author: genli
 
 ## Symptoms
 
-When your subscription includes a [resource  policy](resource-manager-policy.md) configured, you might receive a **RequestDisallowedByPolicy** error which prevents an action you are trying to perform during deployment. The following is a sample of the error:
+Your Microsoft Azure subscription has a [resource  policy](resource-manager-policy.md) configured. When you try to perform an action during depolyment, you might receive a **RequestDisallowedByPolicy** error that prevent the action be performed. The following is a sample of the error:
+
 
 ```
 {
@@ -33,7 +34,7 @@ When your subscription includes a [resource  policy](resource-manager-policy.md)
 
 ## Solution
 
-For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User Defined Routes,or route tables if your subscription has an ExpressRoute circuit. In the sample of the error that is described in "Symptoms" , the policy is named **SDOStdPolicyNetwork**.  The name could be different in your subscription. 
+For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User-Defined Routes, or route tables if your subscription has an ExpressRoute circuit. In the sample of the error that is described in "Symptoms", the policy is named **SDOStdPolicyNetwork**. The name could be different in your subscription. 
  
 
  
