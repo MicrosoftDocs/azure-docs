@@ -43,7 +43,7 @@ To complete this tutorial, you need:
 
 In this section, you create a Java console app that responds to a method called by the solution back end.
 
-1. Create an empty folder called iot-java-direct-method. In the iot-java-direct-method folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
+1. Create an empty folder called iot-java-direct-method.
 
 1. In the iot-java-direct-method folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 
