@@ -115,7 +115,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 Make share that the following settings are configured correctly for remote desktop connection:
 
 >[!Note] 
->You may receive an error message when you run the `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> <value>` command in the step 5, 6, 7 and 8. The error mesage can be safely ignored. It juse means the domain is not pushing that configuration through GPO.
+>You may receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> <value>** command in the step 1, 5, 6, 7 and 8. The error mesage can be safely ignored. It juse means the domain is not pushing that configuration through GPO.
 >
 >
 
@@ -125,12 +125,8 @@ Make share that the following settings are configured correctly for remote deskt
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
 
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Service' -name "fDenyTSConnections" -Value 0
-
     ```
-    >[!Note] You may receive an error message when you run the `Set-ItemProperty >-Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Service' -name "fDenyTSConnections" -Value 0`. The error can be safely ignored. It means the domain is not enabling/disabling RDP over GPO.
-    >
-    >
-
+   
 2. The RDP port is properly set up (Default port 3389):
    
     ```PowerShell
