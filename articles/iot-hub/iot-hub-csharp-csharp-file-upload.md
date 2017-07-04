@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 07/04/2017
 ms.author: elioda
 
 ---
@@ -42,8 +42,6 @@ At the end of this tutorial you run two .NET console apps:
 
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step-by-step instructions on how to connect your device to Azure IoT Hub.
-> 
-> 
 
 To complete this tutorial, you need the following:
 
@@ -53,98 +51,124 @@ To complete this tutorial, you need the following:
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## Upload a file from a device app
+
 In this section, you modify the device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) to receive cloud-to-device messages from the IoT hub.
 
 1. In Visual Studio, right-click the **SimulatedDevice** project, click **Add**, and then click **Existing Item**. Navigate to an image file and include it in your project. This tutorial assumes the image is named `image.jpg`.
-2. Right-click on the image, and then click **Properties**. Make sure that **Copy to Output Directory** is set to **Copy always**.
-   
+
+1. Right-click on the image, and then click **Properties**. Make sure that **Copy to Output Directory** is set to **Copy always**.
+
     ![][1]
-3. In the **Program.cs** file, add the following statements at the top of the file:
-   
-        using System.IO;
-4. Add the following method to the **Program** class:
-   
-        private static async void SendToBlobAsync()
+
+1. In the **Program.cs** file, add the following statements at the top of the file:
+
+    ```csharp
+    using System.IO;
+    ```
+
+1. Add the following method to the **Program** class:
+
+    ```csharp
+    private static async void SendToBlobAsync()
+    {
+        string fileName = "image.jpg";
+        Console.WriteLine("Uploading file: {0}", fileName);
+        var watch = System.Diagnostics.Stopwatch.StartNew();
+
+        using (var sourceData = new FileStream(@"image.jpg", FileMode.Open))
         {
-            string fileName = "image.jpg";
-            Console.WriteLine("Uploading file: {0}", fileName);
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-   
-            using (var sourceData = new FileStream(@"image.jpg", FileMode.Open))
-            {
-                await deviceClient.UploadToBlobAsync(fileName, sourceData);
-            }
-   
-            watch.Stop();
-            Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
+            await deviceClient.UploadToBlobAsync(fileName, sourceData);
         }
-   
+
+        watch.Stop();
+        Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
+    }
+    ```
+
     The `UploadToBlobAsync` method takes in the file name and stream source of the file to be uploaded and handles the upload to storage. The console app displays the time it takes to upload the file.
-5. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
-   
-        SendToBlobAsync();
+
+1. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
+
+    ```csharp
+    SendToBlobAsync();
+    ```
 
 > [!NOTE]
 > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
-> 
-> 
 
 ## Receive a file upload notification
+
 In this section, you write a .NET console app that receives file upload notification messages from IoT Hub.
 
 1. In the current Visual Studio solution, create a Visual C# Windows project by using the **Console Application** project template. Name the project **ReadFileUploadNotification**.
-   
+
     ![New project in Visual Studio][2]
-2. In Solution Explorer, right-click the **ReadFileUploadNotification** project, and then click **Manage NuGet Packages...**.
-       
-3. In the **NuGet Package Manager** window, search for **Microsoft.Azure.Devices**, click **Install**, and accept the terms of use. 
-   
+
+1. In Solution Explorer, right-click the **ReadFileUploadNotification** project, and then click **Manage NuGet Packages...**.
+
+1. In the **NuGet Package Manager** window, search for **Microsoft.Azure.Devices**, click **Install**, and accept the terms of use.
+
     This action downloads, installs, and adds a reference to the [Azure IoT service SDK NuGet package] in the **ReadFileUploadNotification** project.
 
-4. In the **Program.cs** file, add the following statements at the top of the file:
-   
-        using Microsoft.Azure.Devices;
-5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string from [Get started with IoT Hub]:
-   
-        static ServiceClient serviceClient;
-        static string connectionString = "{iot hub connection string}";
-6. Add the following method to the **Program** class:
-   
-        private async static Task ReceiveFileUploadNotificationAsync()
+1. In the **Program.cs** file, add the following statements at the top of the file:
+
+    ```csharp
+    using Microsoft.Azure.Devices;
+    ```
+
+1. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string from [Get started with IoT Hub]:
+
+    ```csharp
+    static ServiceClient serviceClient;
+    static string connectionString = "{iot hub connection string}";
+    ```
+
+1. Add the following method to the **Program** class:
+
+    ```csharp
+    private async static void ReceiveFileUploadNotificationAsync()
+    {
+        var notificationReceiver = serviceClient.GetFileNotificationReceiver();
+
+        Console.WriteLine("\nReceiving file upload notification from service");
+        while (true)
         {
-            var notificationReceiver = serviceClient.GetFileNotificationReceiver();
-   
-            Console.WriteLine("\nReceiving file upload notification from service");
-            while (true)
-            {
-                var fileUploadNotification = await notificationReceiver.ReceiveAsync();
-                if (fileUploadNotification == null) continue;
-   
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Received file upload noticiation: {0}", string.Join(", ", fileUploadNotification.BlobName));
-                Console.ResetColor();
-   
-                await notificationReceiver.CompleteAsync(fileUploadNotification);
-            }
+            var fileUploadNotification = await notificationReceiver.ReceiveAsync();
+            if (fileUploadNotification == null) continue;
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Received file upload noticiation: {0}", string.Join(", ", fileUploadNotification.BlobName));
+            Console.ResetColor();
+
+            await notificationReceiver.CompleteAsync(fileUploadNotification);
         }
-   
+    }
+    ```
+
     Note this receive pattern is the same one used to receive cloud-to-device messages from the device app.
-7. Finally, add the following lines to the **Main** method:
-   
-        Console.WriteLine("Receive file upload notifications\n");
-        serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
-        ReceiveFileUploadNotificationAsync().Wait();
-        Console.ReadLine();
+
+1. Finally, add the following lines to the **Main** method:
+
+    ```csharp
+    Console.WriteLine("Receive file upload notifications\n");
+    serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
+    ReceiveFileUploadNotificationAsync();
+    Console.WriteLine("Press Enter to exit\n");
+    Console.ReadLine();
+    ```
 
 ## Run the applications
+
 Now you are ready to run the applications.
 
 1. In Visual Studio, right-click your solution, and select **Set StartUp projects**. Select **Multiple startup projects**, then select the **Start** action for **ReadFileUploadNotification** and **SimulatedDevice**.
-2. Press **F5**. Both applications should start. You should see the upload completed in one console app and the upload notification message received by the other console app. You can use the [Azure portal] or Visual Studio Server Explorer to check for the presence of the uploaded file in your Azure Storage account.
-   
-   ![][50]
+
+1. Press **F5**. Both applications should start. You should see the upload completed in one console app and the upload notification message received by the other console app. You can use the [Azure portal] or Visual Studio Server Explorer to check for the presence of the uploaded file in your Azure Storage account.
+
+    ![][50]
 
 ## Next steps
+
 In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
 
 * [Create an IoT hub programmatically][lnk-create-hub]
