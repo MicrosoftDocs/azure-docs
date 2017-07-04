@@ -173,7 +173,7 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-## Create and manage single databases using the REST API
+## Manage single databases using the REST API
 
 To set or change Azure SQL databases service tiers, performance levels, and storage amount using the REST API, see [Azure SQL Database REST API](/rest/api/sql/).
 
