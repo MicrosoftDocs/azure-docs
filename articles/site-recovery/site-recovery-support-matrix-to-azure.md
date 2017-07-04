@@ -38,7 +38,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **Support**
 --- | ---
-**VMware VM/physical server** | vSphere 6.5, 6.0, 5.5, or 5.1 with latest update
+**VMware VM/physical server** | vCenter 6.5, 6.0 or 5.5
 **Hyper-V (with Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 and System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
@@ -48,7 +48,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **Support**
 --- | ---
-**VMware VM/physical server** | vCenter 5.5, 6.0 or 6.5
+**VMware VM/physical server** | vSphere 6.5, 6.0, 5.5
 **Hyper-V (with/without Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br></br>If SCVMM is used, Windows Server 2016 hosts should be managed by SCVMM 2016.
 
 
@@ -100,7 +100,7 @@ The following tables summarize network configuration support in various deployme
 
 **Configuration** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
 --- | --- | ---
-NIC teaming | Yes<br/><br/>Not supported in physical machines| Yes
+NIC teaming | Yes<br/><br/>Not supported when physical machines are replicated| Yes
 VLAN | Yes | Yes
 IPv4 | Yes | Yes
 IPv6 | No | No
@@ -113,7 +113,7 @@ NIC teaming | No | No
 IPv4 | Yes | Yes
 IPv6 | No | No
 Static IP (Windows) | Yes | Yes
-Static IP (Linux) | No | No
+Static IP (Linux) | Yes <br/><br/>Virtual machines is configured to use DHCP on failback  | No
 Multi-NIC | Yes | Yes
 
 ### Failed-over Azure VM network configuration
@@ -156,6 +156,7 @@ NFS | No | N/A
 SMB 3.0 | No | No
 RDM | Yes<br/><br/> N/A for physical servers | N/A
 Disk > 1 TB | No | No
+Disk with 4K sector size | No | No
 Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes
 Storage Spaces | No | Yes
 Hot add/remove disk | No | No
