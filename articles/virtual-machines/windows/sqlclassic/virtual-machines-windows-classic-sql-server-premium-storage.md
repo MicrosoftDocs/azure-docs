@@ -26,6 +26,7 @@ ms.author: jroth
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) shows a full comprehensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
+<!---Loc Comment: Please, check link [Appendix] since it's not redirecting to any location.--->
 
 It is important to understand the end-to-end process of utilizing Azure Premium Storage with SQL Server on IAAS VMs. This includes:
 
