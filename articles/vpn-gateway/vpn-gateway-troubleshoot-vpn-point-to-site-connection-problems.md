@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Point-to-Site connection problems| Microsoft Docs
-description: Learn how to troubleshoot Point-to-Site connection problems.
+title: Troubleshoot Azure point-to-site connection problems| Microsoft Docs
+description: Learn how to troubleshoot point-to-site connection problems.
 services: vpn-gateway
 documentationcenter: na
 author: genlin
@@ -16,21 +16,21 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ---
-# Troubleshooting: Azure Point-to-Site connection problems
+# Troubleshooting: Azure point-to-site connection problems
 
-This article lists common Point-to-Site connection problems that you may experience. It also discusses possible causes and solutions for these problems.
+This article lists common point-to-site connection problems that you might experience. It also discusses possible causes and solutions for these problems.
 
 ## VPN client error: A certificate could not be found
 
 ### Symptom
 
-When you try to connect to Microsoft Azure virtual network by using the VPN client, you receive following error message:
+When you try to connect to an Azure virtual network by using the VPN client, you receive the following error message:
 
 **A certificate could not be found that can be used with this Extensible Authentication Protocol. (Error 798)**
 
 ### Cause
 
-This problem occurs if the client certificate is missing from **Certificates - Current User\Personal\Certificates** .
+This problem occurs if the client certificate is missing from **Certificates - Current User\Personal\Certificates**.
 
 ### Solution
 
@@ -38,7 +38,7 @@ Make sure that the client certificate is installed in the following location of 
  
 **Certificates - Current User\Personal\Certificates**
 
-For more information about how to install the client certificate, see [Generate and export certificates for Point-to-Site connections](vpn-gateway-certificates-point-to-site.md).
+For more information about how to install the client certificate, see [Generate and export certificates for point-to-site connections](vpn-gateway-certificates-point-to-site.md).
 
 > [!NOTE]
 > When you import the client certificate, do not select the **Enable strong private key protection** option.
@@ -47,25 +47,25 @@ For more information about how to install the client certificate, see [Generate 
 
 ### Symptom
 
-When you try to connect to the virtual network by using the VPN client, you receive the following error message:
+When you try to connect to an Azure virtual network by using the VPN client, you receive the following error message:
 
-**VPN Client Error: The message received was unexpected or badly formatted. (Error 0x80090326)**
+**The message received was unexpected or badly formatted. (Error 0x80090326)**
 
 ### Cause
 
-This problem occurs if the root certificate public key is not uploaded into Microsoft Azure VPN gateway or the key is corrupted or expired.
+This problem occurs if the root certificate public key is not uploaded into the Azure VPN gateway or the key is corrupted or expired.
 
 ### Solution
 
-To resolve this problem, check the status of the root certificate in Azure portal to see whether it has been revoked. If it is not revoked, try to delete the root certificate and reupload. For more information, see [Create certificates](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+To resolve this problem, check the status of the root certificate in the Azure portal to see whether it has been revoked. If it is not revoked, try to delete the root certificate and reupload. For more information, see [Create certificates](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## VPN client error: A certificate chain processed but terminated 
 
 ### Symptom 
 
-When you try to connect to Azure virtual network by using the VPN client, you receive the following error message:
+When you try to connect to an Azure virtual network by using the VPN client, you receive the following error message:
 
-**A certificate chain processed but terminated in a root certificate which is not trusted by the trust provider**
+**A certificate chain processed but terminated in a root certificate which is not trusted by the trust provider.**
 
 ### Solution
 
@@ -77,15 +77,15 @@ When you try to connect to Azure virtual network by using the VPN client, you re
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-2. If the certificates are already in the location, try to delete the certificates and reinstall them. The **azuregateway-*GUID*.cloudapp.net** certificate can be found in the VPN client configuration package that you downloaded from Azure portal. You can use file archivers to extract the files from the package.
+2. If the certificates are already in the location, try to delete the certificates and reinstall them. The **azuregateway-*GUID*.cloudapp.net** certificate can be found in the VPN client configuration package that you downloaded from the Azure portal. You can use file archivers to extract the files from the package.
 
-##  Error: "File download error Target URI is not specified"
+## File download error: Target URI is not specified
 
 ### Symptom
 
 You receive the following error message:
 
-**File download error Target URI is not specified**
+**File download error. Target URI is not specified.**
 
 ### Cause 
 
@@ -93,19 +93,19 @@ This problem occurs because of an incorrect gateway type.
 
 ### Solution
 
-The VPN gateway type must be **VPN** and the VPN type must be **RouteBased**.
+The VPN gateway type must be **VPN**, and the VPN type must be **RouteBased**.
 
-## VPN client Error: Azure VPN Custom script failed (8007026f)
+## VPN client error: Azure VPN custom script failed 
 
 ### Symptom
 
-When you try to connect to Azure virtual network by using the VPN client, you receive the following error message:
+When you try to connect to an Azure virtual network by using the VPN client, you receive the following error message:
 
-**Custom script (to update your routing table) failed (8007026f).**
+**Custom script (to update your routing table) failed. (Error 8007026f)**
 
 ### Cause
 
-This problem may occur if you are trying to open the Site-to- Point VPN connection by using a shortcut.
+This problem might occur if you are trying to open the site-to-point VPN connection by using a shortcut.
 
 ### Solution 
 
@@ -119,30 +119,31 @@ An additional certificate is required to trust the VPN gateway for your virtual 
 
 ### Solution
 
-Extract the VPN client configuration package. You will find a .cer file. Install the certificate in the **Trusted Root Certification Authorities** of the **Computer account**:
+Extract the VPN client configuration package, and find the .cer file. Follow these steps to install the certificate:
 
-1. Open mmc.exe
+1. Open mmc.exe.
+
 2. Add the **Certificates** snap-in.
-3. Select **Computer** account for the Local computer
-4. Right-click the **Trusted Root Certification Authorities** node > **All-Task** > **Import**, and browse to the .cer file you extracted from the VPN client configuration package.
+3. Select the **Computer** account for the local computer.
+4. Right-click the **Trusted Root Certification Authorities** node. Click **All-Task** > **Import**, and browse to the .cer file you extracted from the VPN client configuration package.
 5. Restart the computer. 
 6. Try to install the VPN client.
 
-## Azure portal Error: Failed to save VPN gateway-data is invalid
+## Azure portal error: Failed to save the VPN gateway, and the data is invalid
 
 ### Symptom
 
 When you try to save the changes for the VPN gateway in the Azure portal, you receive the following error message:
 
-**Failed to save virtual network gateway &lt;gateway name&gt;. Error Data for certificate &lt;certificate ID&gt; is Invalid.**
+**Failed to save virtual network gateway &lt;*gateway name*&gt;. Data for certificate &lt;*certificate ID*&gt; is invalid.**
 
 ### Cause 
 
-This problem may occur if the root certificate public key that you uploaded contains invalid characters such as space.
+This problem might occur if the root certificate public key that you uploaded contains an invalid character, such as a space.
 
 ### Solution
 
-Make sure that the data in the certificate does not contain invalid characters such as line breaks (carriage returns). The entire value should be on one long line. The following text is a sample of the certificate:
+Make sure that the data in the certificate does not contain invalid characters, such as line breaks (carriage returns). The entire value should be one long line. The following text is a sample of the certificate:
 
     -----BEGIN CERTIFICATE-----
     MIIC5zCCAc+gAwIBAgIQFSwsLuUrCIdHwI3hzJbdBjANBgkqhkiG9w0BAQsFADAW
@@ -163,19 +164,19 @@ Make sure that the data in the certificate does not contain invalid characters s
     e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
     -----END CERTIFICATE-----
 
-## Azure portal Error: Failed to save VPN gateway-Resource name is invalid
+## Azure portal error: Failed to save the VPN gateway, and the resource name is invalid
 
 ### Symptom
 
 When you try to save the changes for the VPN gateway in the Azure portal, you receive the following error message: 
 
-**Failed to save virtual network gateway &lt;gateway name&gt;. Error Resource name &lt;certificate name you try to upload&gt; is invalid**.
+**Failed to save virtual network gateway &lt;*gateway name*&gt;. Resource name &lt;*certificate name you try to upload*&gt; is invalid**.
 
 ### Cause
 
-This problem occurs because the name of the certificate contains invalid characters such as a space. 
+This problem occurs because the name of the certificate contains an invalid character, such as a space. 
 
-## Azure portal Error: VPN package file download error 503
+## Azure portal error: VPN package file download error 503
 
 ### Symptom
 
@@ -187,7 +188,7 @@ When you try to download the VPN client configuration package, you receive the f
 
 This error can be caused by a temporary network problem. Try to download the VPN package again after a few minutes.
 
-## Azure VPN Gateway upgrade, all P2S clients are unable to connect
+## Azure VPN Gateway upgrade: All P2S clients are unable to connect
 
 ### Cause
 
@@ -195,25 +196,25 @@ If the certificate is more than 50 percent through its lifetime, the certificate
 
 ### Solution
 
-To resolve this problem, create and redistribute the new certificates to the VPN clients. 
+To resolve this problem, create and redistribute new certificates to the VPN clients. 
 
 ## Too many VPN clients connected at once
 
-For each VPN gateway, the maximum number of allowable  connections is 128.  You can see the total number of connected clients in the Azure portal.
+For each VPN gateway, the maximum number of allowable connections is 128. You can see the total number of connected clients in the Azure portal.
 
-## Point-to-Site VPN incorrectly adds a route for 10.0.0.0/8 to Route Table
+## Point-to-site VPN incorrectly adds a route for 10.0.0.0/8 to the route table
 
 ### Symptom
 
-When you dial the VPN connection on the Point-to-Site client, it is expect that the VPN client adds a route towards the Azure Virtual Network and the Iphelper service adds a route for the subnet of VPN clients. 
+When you dial the VPN connection on the point-to-site client, the VPN client should add a route toward the Azure virtual network. The IP helper service should add a route for the subnet of the VPN clients. 
 
-However, if the VPN client range belongs to a smaller subnet of 10.0.0.0/8 such as 10.0.12.0/24, instead of a route for 10.0.12.0/24 a "wrong" route for 10.0.0.0/8 is added that has higher priority. 
+The VPN client range belongs to a smaller subnet of 10.0.0.0/8, such as 10.0.12.0/24. Instead of a route for 10.0.12.0/24, a route for 10.0.0.0/8 is added that has higher priority. 
 
-This breaks connectivity with other on-premises networks that may belong to another subnet within the 10.0.0.0/8 range, such as 10.50.0.0/24 that don't have a specific route defined. 
+This incorrect route breaks connectivity with other on-premises networks that might belong to another subnet within the 10.0.0.0/8 range, such as 10.50.0.0/24, that don't have a specific route defined. 
 
 ### Cause
 
-This behavior is by design for Windows clients. When it uses the PPP IPCP protocol, the client obtains the IP address for the tunnel interface from the server (VPN gateway in this case). However, because of a limitation in the protocol, the client does not have the subnet mask. Because there is no other way to get it, the client tries to guess the subnet mask based on the class of the tunnel interface IP address. 
+This behavior is by design for Windows clients. When the client uses the PPP IPCP protocol, it obtains the IP address for the tunnel interface from the server (the VPN gateway in this case). However, because of a limitation in the protocol, the client does not have the subnet mask. Because there is no other way to get it, the client tries to guess the subnet mask based on the class of the tunnel interface IP address. 
 
 Therefore, a route is added based on the following static mapping: 
 
@@ -223,17 +224,17 @@ If address belongs to class B --> app
 
 If address belongs to class C --> apply /24
 
-##  VPN client cannot access network file shares
+## VPN client cannot access network file shares
 
 ### Symptom
 
-The VPN client has connected to the Azure network. However the client cannot access network shares.
+The VPN client has connected to the Azure virtual network. However, the client cannot access network shares.
 
 ### Cause
 
-The SMB protocol is used for file share access. The failure occurs when the session credentials are added by VPN client when the connection is initiated. After the connection is established, the client is forced to use the cache credentials for Kerberos authentication. This initiates queries to Key Distribution Center (a domain controller) to get a token. Because the clients connect from Internet, they may not be able to reach the domain controller. Therefore, the clients cannot fail over from Kerberos to NTLM. 
+The SMB protocol is used for file share access. The failure occurs when the session credentials are added by the VPN client when the connection is initiated. After the connection is established, the client is forced to use the cache credentials for Kerberos authentication. This process initiates queries to the Key Distribution Center (a domain controller) to get a token. Because the client connects from the Internet, it might not be able to reach the domain controller. Therefore, the client cannot fail over from Kerberos to NTLM. 
 
-The only time that the client will be prompted for a credential is when the client has a valid certificate (with SAN=UPN) issued by the domain to which the client is joined and the client is physically connected to the domain network. In this case, the client tries to use the certificate and reach out to the domain controller. Then KDC returns an "KDC_ERR_C_PRINCIPAL_UNKNOWN" error.  This forces the client to fail over to NTLM. 
+The only time that the client is prompted for a credential is when it has a valid certificate (with SAN=UPN) issued by the domain to which it is joined. The client also must be physically connected to the domain network. In this case, the client tries to use the certificate and reach out to the domain controller. Then the Key Distribution Center returns a "KDC_ERR_C_PRINCIPAL_UNKNOWN" error. The client is forced to fail over to NTLM. 
 
 ### Solution
 
@@ -242,11 +243,11 @@ To work around the problem, disable the caching of domain credentials from the f
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\DisableDomainCreds - Set the value to 1 
 
 
-## Cannot find the Point-to-Site VPN connection in Windows after reinstalling VPN client
+## Cannot find the point-to-site VPN connection in Windows after reinstalling the VPN client
 
 ### Symptom
 
-You remove the Point-to-Site VPN connection, and then reinstall VPN client. In this situation, the VPN connection is not configured successfully. You do not see the VPN connection in the **Network connections** settings in Windows.
+You remove the point-to-site VPN connection and then reinstall the VPN client. In this situation, the VPN connection is not configured successfully. You do not see the VPN connection in the **Network connections** settings in Windows.
 
 ### Solution
 
