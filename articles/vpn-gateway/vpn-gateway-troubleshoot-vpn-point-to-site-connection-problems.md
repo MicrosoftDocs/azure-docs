@@ -53,7 +53,7 @@ When you try to connect to an Azure virtual network by using the VPN client, you
 
 ### Cause
 
-This problem occurs if the root certificate public key is not uploaded into the Azure VPN gateway or if the key is corrupted or expired.
+This problem occurs if the root certificate public key is not uploaded into the Azure VPN gateway. It can also occur if the key is corrupted or expired.
 
 ### Solution
 
@@ -77,7 +77,7 @@ When you try to connect to an Azure virtual network by using the VPN client, you
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-2. If the certificates are already in the location, try to delete the certificates and reinstall them. The **azuregateway-*GUID*.cloudapp.net** certificate can be found in the VPN client configuration package that you downloaded from the Azure portal. You can use file archivers to extract the files from the package.
+2. If the certificates are already in the location, try to delete the certificates and reinstall them. The **azuregateway-*GUID*.cloudapp.net** certificate is in the VPN client configuration package that you downloaded from the Azure portal. You can use file archivers to extract the files from the package.
 
 ## File download error: Target URI is not specified
 
