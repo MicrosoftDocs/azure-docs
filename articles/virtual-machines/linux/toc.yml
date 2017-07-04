@@ -381,6 +381,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Reset Linux VM password
+      href: virtual-machines-linux-reset-password.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
     - name: SSH connections

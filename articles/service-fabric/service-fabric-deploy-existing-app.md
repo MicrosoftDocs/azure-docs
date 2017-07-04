@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/07/2016
+ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
 
 ---
 # Deploy a guest executable to Service Fabric
-You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric refers to these types of applications as guest executables.
+You can run any type of code, such as Node.js, Java, or C++ in Azure Service Fabric as a service. Service Fabric refers to these types of services as guest executables.
+
 Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, by using Visual Studio or a command-line utility.
 
 In this article, we cover the steps to package a guest executable and deploy it to Service Fabric.  
@@ -30,10 +31,11 @@ There are several advantages to running a guest executable in a Service Fabric c
 * Health monitoring. Service Fabric health monitoring detects if an application is running, and provides diagnostic information if there is a failure.   
 * Application lifecycle management. Besides providing upgrades with no downtime, Service Fabric provides automatic rollback to the previous version if there is a bad health event reported during an upgrade.    
 * Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.
+* Discoverability: Using REST you can call the Service Fabric Naming service to find other services in the cluster. 
 
 ## Samples
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Overview of application and service manifest files
 As part of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model as described in [application model](service-fabric-application-model.md). The Service Fabric packaging model relies on two XML files: the application and service manifests. The schema definition for the ApplicationManifest.xml and ServiceManifest.xml files is installed with the Service Fabric SDK into *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
@@ -75,17 +77,16 @@ The ApplicationPackageRoot contains the ApplicationManifest.xml file that define
 When packaging a guest executable, you can choose either to use a Visual Studio project template or to [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project template for you.
 
 > [!TIP]
-> The easiest way to package an existing Windows executable into a service is to use Visual Studio.
->
+> The easiest way to package an existing Windows executable into a service is to use Visual Studio and on Linux to use Yeoman
 >
 
-## Use Visual Studio to package an existing executable
+## Use Visual Studio to package and deploy an existing executable
 Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
 
 1. Choose **File** > **New Project**, and create a Service Fabric application.
 2. Choose **Guest Executable** as the service template.
 3. Click **Browse** to select the folder with your executable and fill in the rest of the parameters to create the service.
-   * *Code Package Behavior*. Can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable does not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead. Note that you can use linked folders when creating the application project in Visual Studio. This links to the source location from within the project, making it possible for you to update the guest executable in its source destination. Those updates become part of the application package on build.
+   * *Code Package Behavior*. Can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable does not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead. You can use linked folders when creating the application project in Visual Studio. This links to the source location from within the project, making it possible for you to update the guest executable in its source destination. Those updates become part of the application package on build.
    * *Program* specifies the executable that should be run to start the service.
    * *Arguments* specifies the arguments that should be passed to the executable. It can be a list of parameters with arguments.
    * *WorkingFolder* specifies the working directory for the process that is going to be started. You can specify three values:
@@ -96,6 +97,16 @@ Visual Studio provides a Service Fabric service template to help you deploy a gu
 5. If your service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. You can now use the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready, you can publish the application to a remote cluster or check in the solution to source control.
 7. Go to the end of this article to see how to view your guest executable service running in Service Fabric Explorer.
+
+## Use Yoeman to package and deploy an existing executable on Linux
+
+The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
+
+1. In a terminal, type `yo azuresfguest`.
+2. Name your application.
+3. Name your service, and provide the details including path of the executable and the parameters it must be invoked with.
+
+Yeoman creates an application package with the appropriate application and manifest files along with install and uninstall scripts.
 
 <a id="manually"></a>
 
@@ -329,24 +340,14 @@ If you navigate to the node and browse to the application, you see the essential
 
 ![Location on disk](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
-If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder, as shown in the following screenshot.
+If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder, as shown in the following screenshot: 
 
 ![Location of log](./media/service-fabric-deploy-existing-app/loglocation.png)
-
-## Creating a guest executable using Yeoman for Service Fabric on Linux
-
-The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
-
-1. In a terminal, type `yo azuresfguest`.
-2. Name your application.
-3. Name your service, and provide the details including path of the executable and the parameters it must be invoked with.
-
-Yeoman would have created an application package with the appropriate application and manifest files along with install and uninstall scripts.
 
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. See the following articles for related information and tasks.
 
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), including a link to the prerelease of the packaging tool
-* [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 * [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
