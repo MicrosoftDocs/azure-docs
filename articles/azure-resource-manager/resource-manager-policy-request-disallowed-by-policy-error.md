@@ -33,7 +33,7 @@ When your subscription includes a [resource  policy](resource-manager-policy.md)
 
 ## Solution
 
-For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User Defined Routes,or route tables if your subscription has an ExpressRoute circuit. Right now, the policy is named **SDOStdPolicyNetwork**. Howerver, the name could be changed later or that there is another policy named something different that enforces the same thing.
+For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User Defined Routes,or route tables if your subscription has an ExpressRoute circuit. In the sample of the error that is described in "Symptoms" , the policy is named **SDOStdPolicyNetwork**.  The name could be different in your subscription. 
  
 
  
