@@ -239,6 +239,7 @@ A new or different certificate can be added after the BizTalk Service is created
 </td>
 </tr>
 </table>
+<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 
 
