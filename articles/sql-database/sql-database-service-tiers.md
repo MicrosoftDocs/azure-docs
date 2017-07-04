@@ -21,7 +21,7 @@ ms.author: janeng
 ---
 # What performance options are available for an Azure SQL Database
 
-[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers for both single and [pooled](sql-database-elastic-pool.md) databases. These service tiers are: **Basic**, **Standard**, **Premium**, and **Premium RS**. Within each service tier are multiple performance levels ([DTUs](sql-database-what-is-a-dtu.md)) and storage options to handle different workloads and data sizees. Higher performance levels provide additional compute and storage resources designed to deliver increasingly higher throughput and capacity. You can change service tiers, performance levels, and storage dynamically without downtime. 
+[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers for both single and [pooled](sql-database-elastic-pool.md) databases. These service tiers are: **Basic**, **Standard**, **Premium**, and **Premium RS**. Within each service tier are multiple performance levels ([DTUs](sql-database-what-is-a-dtu.md)) and storage options to handle different workloads and data sizes. Higher performance levels provide additional compute and storage resources designed to deliver increasingly higher throughput and capacity. You can change service tiers, performance levels, and storage dynamically without downtime. 
 - **Basic**, **Standard** and **Premium** service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
 - The **Premium RS** tier provides the same performance levels as the Premium tier with a reduced SLA because it runs with a lower number of redundant copies than a database in the other service tiers. So, in the event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
 
@@ -118,7 +118,7 @@ To set or change the service tier, performance level, or storage amount for a ne
 - Set or change the performance level (**DTUs**) within a service tier using the **DTU** slider.
 - Set or change the storage amount for the performance level using the **Storage** slider. 
 
-  ![Configure service tier and performance lavel](./media/sql-database-service-tiers/service-tier-performance-level.png)
+  ![Configure service tier and performance level](./media/sql-database-service-tiers/service-tier-performance-level.png)
 
 > [!IMPORTANT]
 > Review [Current limitations of P11 and P15 databases with 4 TB maxsize](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize) when selecting a P11 or P15 service tier.
@@ -126,7 +126,7 @@ To set or change the service tier, performance level, or storage amount for a ne
 
 ## Manage single database service tiers and performance levels using PowerShell
 
-To set or change Azure SQL databases service tiers, performance levels, and storage amount uing PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+To set or change Azure SQL databases service tiers, performance levels, and storage amount using PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
 | Cmdlet | Description |
 | --- | --- |
@@ -140,7 +140,7 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 
 ## Manage single database service tiers and performance levels using the Azure CLI
 
-To set or change Azure SQL databases service tiers, performance levels, and storage amount uing the Azure CLI, use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To set or change Azure SQL databases service tiers, performance levels, and storage amount using the Azure CLI, use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -179,6 +179,6 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 
 ## Next steps
 
-* Learm more about [DTUs](sql-database-what-is-a-dtu.md).
+* Learn more about [DTUs](sql-database-what-is-a-dtu.md).
 * To learn about monitoring DTU usage, see [Monitoring and performance tuning](sql-database-troubleshoot-performance.md).
 
