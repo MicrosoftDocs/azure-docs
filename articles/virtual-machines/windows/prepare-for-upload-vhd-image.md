@@ -23,7 +23,8 @@ To upload a Windows VM from on-premises to Microsoft Azure, you must prepare the
 
 For more information about the support policy for Azure VM, see [Microsoft server software support for Microsoft Azure VMs](https://support.microsoft.com/en-us/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
-The instructions in this article apply to 64-bit version of Windows Server 2008 R2 and later Windows server operating system.
+> [!Note]
+> The instructions in this article apply to 64-bit version of Windows Server 2008 R2 and later Windows server operating system. For information about running 32-bit version of operating system in Azure, see [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 
 ## Convert the virtual disk to VHD and fixed size disk 
 If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you run the virtual disk conversion process and make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
@@ -40,7 +41,7 @@ After you convert the disk, create a VM that uses the converted disk. Start and 
 7. Click **Finish** to close.
 
 >[!NOTE]
->The commands in the following instructions must be run on an elevated PowerShell session.
+>The commands in this article must be run on an elevated PowerShell session.
 
 ### Convert disk using PowerShell
 You can convert a virtual disk by using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) command in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
@@ -87,8 +88,13 @@ On the VM you plan to upload to Azure, run all the following commands from the c
 
     Set-Service -Name w32time -StartupType Auto
     ```
+5. set the power profile to the "High Performance":
 
-## Set Windows configurations for Azure
+    ```PowerShell
+    powercfg /setactive SCHEME_MIN
+    ```
+
+## Check the Windows services
 Make sure that each of the following Windows services is set to the **Windows default values**. Below is the minimum services that need to be set up to make sure that the machine has connectivity. To reset the startup settings, run the following commands:
    
 ```PowerShell
@@ -108,6 +114,11 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 ## Update Remote Desktop registry settings
 Make share that the following settings are configured correctly for remote desktop connection:
 
+>[!Note] 
+>You may receive an error message when you run the `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> <value>` command in the step 5, 6, 7 and 8. The error mesage can be safely ignored. It juse means the domain is not pushing that configuration through GPO.
+>
+>
+
 1. Remote Desktop Protocol (RDP) is enabled:
    
     ```PowerShell
@@ -116,13 +127,16 @@ Make share that the following settings are configured correctly for remote deskt
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Service' -name "fDenyTSConnections" -Value 0
 
     ```
- 
+    >[!Note] You may receive an error message when you run the `Set-ItemProperty >-Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Service' -name "fDenyTSConnections" -Value 0`. The error can be safely ignored. It means the domain is not enabling/disabling RDP over GPO.
+    >
+    >
+
 2. The RDP port is properly set up (Default port 3389):
    
     ```PowerShell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" d3d
     ```
-    When you deploy a machine, the default rules are created against 3389. You can review this on a later stage after the VM is deployed in Azure if needed.
+    When you deploy a machine, the default rules are created against 3389. If you want to change the port number, you do that after the VM is deployed in Azure.
 
 3. The listener is listening in every network interface:
    
@@ -180,7 +194,7 @@ Make share that the following settings are configured correctly for remote deskt
     ```
     This is to make sure that you can connect at the beginning when you deploy the VM. You could review this on a later stage after the VM is deployed in Azure if needed.
 
-11. If the VM will be part of a Domain,  all these settings should be checked and make sure that the former settings are not getting revered. The policies that must be checked are:
+11. If the VM will be part of a Domain,  all these settings should be checked and make sure that the former settings are not getting reverted. The policies that must be checked are:
     
     - RDP is enabled:
 
@@ -238,7 +252,7 @@ Make share that the following settings are configured correctly for remote deskt
    ```PowerShell
     netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
    ``` 
-5. If the VM  will be part of a Domain, all these settings should be checked and make sure that the former settings are not getting revered. The AD policies that need to be checked are:
+5. If the VM  will be part of a Domain, all these settings should be checked and make sure that the former settings are not getting reverted. The AD policies that need to be checked are:
 
     - Enable the Windows Firewall profiles
 
@@ -289,7 +303,7 @@ Make share that the following settings are configured correctly for remote deskt
 4. Make sure that any other application is not using the Port 3389. This port is used for the RDP service in Azure. You can run netstat -anob to see the ports which are in used in your machine:
 
     ```PowerShell
-    etstat -anob
+    netstat -anob
     ```
 
 5. If the Windows VHD that you want to upload is a domain controller, then:
@@ -308,8 +322,8 @@ Make share that the following settings are configured correctly for remote deskt
 
 9. Uninstall any other third-party software and driver related to physical components or any other virtualization technology.
 
-## Install Windows Updates
-The ideal configuration is to have the patch level of the machine at the latest. If that's not possible, make sure that the following updates are installed:
+### Install Windows Updates
+The ideal configuration is to **have the patch level of the machine at the latest**. If that's not possible, make sure that the following updates are installed:
 
 | Component               | Binary            | Windows 7 & Windows Server 2008 R2 | Windows 8 & Windows Server 2012             | Windows 8.1 & Windows Server 2012 R2 | Windows 10 & Windows Server 2016 RTM | Windows 10 & Windows Server 2016 Build 10586 | Windows 10 & Windows Server 2016 Build 14393 |
 |-------------------------|-------------------|------------------------------------|---------------------------------------------|--------------------------------------|--------------------------------------|----------------------------------------------|----------------------------------------------|
@@ -346,7 +360,7 @@ The ideal configuration is to have the patch level of the machine at the latest.
 |                         |                   |                           | KB4012214                                   |                           | KB4013429                            |                                              | KB4013429                                    |
 |                         |                   |                                    | KB4012217                                   |                                      | KB4013429                            |                                              | KB4013429                                    |
        
-## Run Sysprep  <a id="step23"></a>    
+### Run Sysprep  <a id="step23"></a>    
 
 Sysprep is a process that you could run into a windows installation that will reset the installation of the system and will provide an “Out of the box experience” by removing all personal data and resetting several components. You usually do this if you want to create a template from which you want to deploy several other machines with a specific configuration, this is called a **generalized image**.
 
