@@ -140,6 +140,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
+>[!NOTE]
+>PC browser setting also work for Mobile app and Mobile browser along with PC web.  
+
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
