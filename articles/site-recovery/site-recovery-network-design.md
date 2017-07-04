@@ -110,8 +110,6 @@ In your secondary site is on-premises and you are using a VMM server to manage i
 * If the administrator defines the same IP address pool for the network on the recovery site as that of the IP address pool of the network on the primary site, while allocating the IP address to the replica virtual machine ASR would allocate the same IP address as that of the primary virtual machine.  The IP is reserved in VMM but not set as failover IP on the Hyper-v host. Failover IP on a Hyper-v host is set just before the failover.
 
 
-The picture above shows the Failover TCP/IP settings for the replica virtual machine (on the Hyper-V console). These settings would be populated just before the virtual machine is started after a failover
-
 If the same IP is not available, ASR would allocate some other available IP address from the defined IP address pool.
 
 After the VM is enabled for protection you can use following sample script to verify the IP that has been allocated to the virtual machine. The same IP would be set as Failover IP and assigned to the VM at the time of failover:
