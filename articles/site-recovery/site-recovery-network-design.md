@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
+ms.date: 07/04/2017
 ms.author: pratshar
 
 ---
@@ -107,9 +107,7 @@ After failover
 In your secondary site is on-premises and you are using a VMM server to manage it then when enabling protection for a specific virtual machine, ASR will allocate networking resources according to the following workflow:
 
 * ASR allocates an IP address for each network interface on the virtual machine from the static IP address pool defined on the relevant network for each System Center VMM instance.
-* If the administrator defines the same IP address pool for the network on the recovery site as that of the IP address pool of the network on the primary site, while allocating the IP address to the replica virtual machine ASR would allocate the same IP address as that of the primary virtual machine.  The IP is reserved in VMM but not set as failover IP. Failover IP is set just before the failover.
-
-![Retain IP address](./media/site-recovery-network-design/network-design4.png)
+* If the administrator defines the same IP address pool for the network on the recovery site as that of the IP address pool of the network on the primary site, while allocating the IP address to the replica virtual machine ASR would allocate the same IP address as that of the primary virtual machine.  The IP is reserved in VMM but not set as failover IP on the Hyper-v host. Failover IP on a Hyper-v host is set just before the failover.
 
 
 The picture above shows the Failover TCP/IP settings for the replica virtual machine (on the Hyper-V console). These settings would be populated just before the virtual machine is started after a failover
@@ -152,7 +150,8 @@ After failing-over the replica virtual machine might have an IP address that isn
 * Using Azure Traffic Manger with ASR  for internet based applications.
 * Using the following script within your recovery plan to update the DNS Server to ensure a timely update (The script is not required if the Dynamic DNS registration is configured)
 
-        string]$Zone,
+        param(
+		string]$Zone,
         [string]$name,
         [string]$IP
         )
