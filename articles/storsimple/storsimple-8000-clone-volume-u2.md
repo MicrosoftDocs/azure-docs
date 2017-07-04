@@ -64,7 +64,7 @@ Perform the following steps to create a clone of your volume from the backup cat
 
     The backups associated with the selected volume or backup policy should appear in the list of backup sets.
    
-    ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)
+    ![Backup set list](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volumes** blade of your device, and then follow the steps in [Take a volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) to take them offline.
    
