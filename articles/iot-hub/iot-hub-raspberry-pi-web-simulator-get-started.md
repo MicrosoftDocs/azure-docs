@@ -28,6 +28,9 @@ If you have physical devices, visit [Connect Raspberry Pi to Azure IoT Hub](iot-
 
 ![Overview of Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/top_banner.png)
 
+> [!div class="button"]
+[Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/)
+
 ## What you do
 
 * Learn the basics of Raspberry Pi online simulator.
