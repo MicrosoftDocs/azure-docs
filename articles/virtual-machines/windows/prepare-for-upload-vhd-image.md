@@ -88,7 +88,7 @@ On the VM you plan to upload to Azure, run all the following commands from the c
 
     Set-Service -Name w32time -StartupType Auto
     ```
-5. set the power profile to the "High Performance":
+5. Set the power profile to the **High Performance**:
 
     ```PowerShell
     powercfg /setactive SCHEME_MIN
@@ -115,7 +115,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 Make share that the following settings are configured correctly for remote desktop connection:
 
 >[!Note] 
->You may receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> <value>** command in the step 1, 5, 6, 7 and 8. The error mesage can be safely ignored. It juse means the domain is not pushing that configuration through GPO.
+>You may receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; &lt;value&gt;** command in the step 1, 5, 6, 7 and 8. The error mesage can be safely ignored. It juse means the domain is not pushing that configuration through GPO.
 >
 >
 
