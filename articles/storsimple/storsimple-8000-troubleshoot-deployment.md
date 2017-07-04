@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/09/2017
+ms.date: 07/03/2017
 ms.author: alkohli
 
 ---
@@ -333,7 +333,7 @@ See the following samples of output from the `Test-HcsmConnection` cmdlet.
       Checking connectivity to Microsoft Update servers  ... Success
       Controller1>
 
-**Sample output – offline device 
+**Sample output – offline device** 
 
 This sample is from a device that has a status of **Offline** in the Azure portal.
 

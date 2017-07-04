@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 073/2017
 ms.author: alkohli
 
 ---
@@ -36,10 +36,8 @@ This procedure explains how the antitamper locks on your StorSimple device can b
 #### To unlock the antitamper lock
 1. Carefully insert the lock key (a "tamperproof" T10 screwdriver that Microsoft provided) into the aperture in the handle and into its socket. 
    
-   > [!NOTE]
-   > If the antitamper lock is activated, the red indicator is visible in the aperture.
+   If the antitamper lock is activated, the red indicator is visible in the aperture.
   
-   
     ![Locked disk drive](./media/storsimple-disk-drive-replacement/IC741056.png)
    
     **Figure 1** Anti-tamper lock engaged

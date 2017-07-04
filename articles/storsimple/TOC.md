@@ -55,7 +55,7 @@
 ## Overview
 ### [What is the solution?](storsimple-overview.md)
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
-### [Security considerations](storsimple-security.md)
+### [Security considerations](storsimple-8000-security.md)
 
 ## Get started
 
@@ -72,7 +72,7 @@
 
 
 ### Install
-#### [Review safety](storsimple-safety.md)
+#### [Review safety](storsimple-8000-safety.md)
 #### [Unpack, rack, cable an 8100](storsimple-8100-hardware-installation.md)
 #### [Unpack, rack, cable an 8600](storsimple-8600-hardware-installation.md)
 #### [Supported hardware for 10 GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
@@ -151,13 +151,14 @@
 ##### [Configure CHAP](storsimple-configure-chap.md)
 
 
-#### [Using Window PowerShell for StorSimple](storsimple-windows-powershell-administration.md)
-##### [Manage device controller (Azure portal)](storsimple-8000-manage-device-controller.md)
-##### [Manage device controller (classic portal)](storsimple-manage-device-controller.md)
-##### [Configure web proxy (Azure portal)](storsimple-8000-configure-web-proxy.md)
-##### [Configure web proxy (classic portal)](storsimple-configure-web-proxy.md)
-##### [Modify DATA 0 settings (Azure portal)](storsimple-8000-modify-data-0.md)
-##### [Modify DATA 0 settings (classic portal)](storsimple-modify-data-0.md)
+#### [Using Window PowerShell for StorSimple (Azure portal)](storsimple-8000-windows-powershell-administration.md)
+##### [Manage device controller](storsimple-8000-manage-device-controller.md)
+##### [Configure web proxy](storsimple-8000-configure-web-proxy.md)
+##### [Modify DATA 0 settings](storsimple-8000-modify-data-0.md)
+#### [Using Window PowerShell for StorSimple (classic portal)](storsimple-windows-powershell-administration.md)
+##### [Manage device controller](storsimple-manage-device-controller.md)
+##### [Configure web proxy](storsimple-configure-web-proxy.md)
+##### [Modify DATA 0 settings](storsimple-modify-data-0.md)
 
 #### [Using StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
