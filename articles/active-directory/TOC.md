@@ -196,7 +196,6 @@
 ##### [Enable App Proxy](active-directory-application-proxy-enable.md)
 ##### [Publish apps](application-proxy-publish-azure-portal.md)
 ##### [Custom domains](active-directory-application-proxy-custom-domains.md)
-##### [Translate inline links](application-proxy-link-translation.md)
 #### [SSO access](active-directory-appssoaccess-whatis.md)
 ##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
@@ -216,6 +215,7 @@
 ##### [Native client apps](active-directory-application-proxy-native-client.md)
 ##### [Silent install](active-directory-application-proxy-silent-installation.md)
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
+##### [Translate inline links](application-proxy-link-translation.md)
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
