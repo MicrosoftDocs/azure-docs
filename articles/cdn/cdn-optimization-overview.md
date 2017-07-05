@@ -1,4 +1,4 @@
----
+A---
 title: Optimize content delivery for your scenario
 description: How to optimize delivery of your content for specific scenarios
 services: cdn
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
 ---
-# Optimize content delivery for your scenario
+# Optimize Azure content delivery for your scenario
 
 When delivering content to a large global audience, it is critical to ensure optimized delivery of your content. Azure CDN can optimize the delivery experience based on the type of content you have, whether it is a website, a live stream, a video, or a large file for download, to provide a discernable performance enhancement. When you create a CDN endpoint, you specify a scenario in the “optimized for” menu option. Your choice determines which optimization will be applied to the content delivered from the CDN endpoint
 
