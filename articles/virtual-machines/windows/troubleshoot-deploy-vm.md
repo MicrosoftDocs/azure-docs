@@ -27,8 +27,6 @@ If you need more help at any point in this article, you can contact the Azure ex
 ## Top issues
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
-For other VM deployment issues, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](troubleshoot-deployment-new-vm.md).
-
 ## The cluster cannot support the requested VM size
 <properties
 supportTopicIds="123456789"

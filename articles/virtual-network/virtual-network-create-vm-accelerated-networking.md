@@ -195,7 +195,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 
         Do not continue with step 5 until **Registered** appears in the output after you enter the previous command. Your output must look like the following output before continuing:
     
-        ```
+        ```powershell
         FeatureName                        ProviderName      RegistrationState
         -----------                        ------------      -----------------
         AllowAcceleratedNetworkingForLinux Microsoft.Network Registered
@@ -292,12 +292,14 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 6. Enter **yes** to the question asking you if you want to continue connecting, then press Enter.
 7. Enter the password you entered when creating the VM. Once successfully logged in to the VM, you see an adminuser@MyVm:~$ prompt. You are now logged in to the VM through the cloud shell session. **Note:** Cloud shell sessions time out after 10 minutes of inactivity.
 
+At this point, the instructions vary based on the distribution you are using. 
+
 #### Ubuntu/SLES
 
 1. At the prompt, enter `uname -r` and confirm the version for:
 
-    * Ubuntu is “4.4.0-77-generic,” or greater
-    * SLES is “4.4.59-92.20-default” or greater
+    * Ubuntu is "4.4.0-77-generic," or greater
+    * SLES is "4.4.59-92.20-default" or greater
 
 2. Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
   		  
@@ -347,7 +349,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     sudo waagent -deprovision+user 
     ```
 
-5.	From Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account. 
+5.	From Azure portal, stop this VM; and go to VM’s "Disks", capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account. 
  
 ##### Phase two: Provision new VMs on Azure
 
@@ -404,7 +406,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
     
-    # Create a Red Hat virtual machine configuration, for CentOS use PublisherName “OpenLogic”, Offer “CentOS”, and Skus “7.3”
+    # Create a Red Hat virtual machine configuration, for CentOS use PublisherName "OpenLogic", Offer "CentOS", and Skus "7.3"
     $VmConfig = New-AzureRmVMConfig `
      -VMName MyVM -VMSize Standard_DS4_v2 | `
       Set-AzureRmVMOperatingSystem `
@@ -412,9 +414,9 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
      -ComputerName myVM `
      -Credential $Cred | `
     Set-AzureRmVMSourceImage `
-     -PublisherName “RedHat” `
-     -Offer “RHEL” `
-     -Skus “7.3” `
+     -PublisherName "RedHat" `
+     -Offer "RHEL" `
+     -Skus "7.3" `
      -Version latest | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
     Set-AzureRmVMOSDisk 
@@ -432,7 +434,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
      -VM $VmConfig
     ```
 
-2.	After VMs boot up, check the VF device by “lspci” and check the Mellanox entry. For example, we should see this item in the lspci output:
+2.	After VMs boot up, check the VF device by "lspci" and check the Mellanox entry. For example, we should see this item in the lspci output:
     
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
