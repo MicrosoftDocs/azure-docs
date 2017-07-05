@@ -1,5 +1,5 @@
 ---
-title: OMS log analytics for Apache Kafka - Azure HDInsight | Microsoft Docs
+title: Log analytics for Apache Kafka - Azure HDInsight | Microsoft Docs
 description: 'Learn how to use Operations Management Suite to analyze logs from Apache Kafka cluster on Azure HDInsight.'
 services: hdinsight
 documentationcenter: ''
@@ -27,12 +27,14 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
 
 1. From the [Azure portal](https://portal.azure.com), select your log analytics workspace. From the overview section, select the __OMS Portal__ link. This opens the OMS portal for your workspace.
 
-    ![image goes here]()
+    ![Analytics workspace, with the OMS Portal link highlighted](./media/apache-kafka-log-analytics-operations-management/select-oms-portal.png)
 
 2. Select __Settings__, __Connected Sources__, and then __Linux servers__. Copy the following values:
 
     * __Workspace ID__
     * __Primary Key__
+
+    ![Select the workspace ID and primary key](./media/apache-kafka-log-analytics-operations-management/oms-workspace-and-key.png)
 
 3. From the [Azure portal](https://portal.azure.com), select your Kafka on HDInsight cluster. Select __Script Actions__, and then select the __+ Submit new__ entry.
 
@@ -46,6 +48,8 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
     * __Node type(s)__: Check both __Head__ and __Worker__.
     * __Parameters__: Enter the __OMS Workspace ID__ and then the __OMS Primary Key__. There must be a space between these values.
     * __Persist this script action...__: Check this selection.
+
+    ![Submit a new script action](./media/apache-kafka-log-analytics-operations-management/new-script-action.png)
 
 5. Select __Create__. Once the script completes, it may take around 20 minutes before data is available for log analytics.
 
@@ -70,5 +74,16 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | kafkametrics\_CL | Kafka JMX metrics |
+
+    ![Image of the CPU usage search](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
  ## Next steps
+
+ For more information on log analytics, see the [Get started with a Log Analytics workspace](../log-analytics/log-analytics-get-started.md) document.
+
+ For more information on working with Kafka, see the following documents:
+
+ * [Mirror Kafka between HDInsight clusters](hdinsight-apache-kafka-mirroring.md)
+ * [Increase the scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md)
+ * [Use Spark streaming (DStreams) with Kafka](hdinsight-apache-spark-with-kafka.md)
+ * [Use Spark structured streaming with Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)
