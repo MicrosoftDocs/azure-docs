@@ -96,7 +96,7 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 * A usage report, covering number of users, number of logins, and volume of MFA is available at [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
-Yes!  Read about [language customization](active-directory-b2c-reference-language-customization), which is in public preview.  We provide translations for 36 languages, and you can override any string to suit your needs.
+Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview.  We provide translations for 36 languages, and you can override any string to suit your needs.
 
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from login.microsoftonline.com to login.contoso.com?
 Not currently. This feature is on our roadmap. Also note that verifying your domain in the **Domains** tab of your tenant on the Azure classic portal does not accomplish this goal.
