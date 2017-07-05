@@ -270,5 +270,6 @@ cd C:\temp\WAPConnector\Setup\Scripts
 3.	Ensure that the SSL certificates used in the new Connector services are trusted by Azure Stack (specifically the AzS-WASP01 VM) and any other computer the tenant may use to access the Azure Stack user portal.
 4. For known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
 
-  ## Next steps
+
+## Next steps
 [Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
