@@ -86,7 +86,8 @@ The following table lists the versions of HDInsight currently available, the cor
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |Yes |04/06/2017 |Yes | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |9/30/2016 |Yes |07/05/2017 |05/31/2018 |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |03/29/2016 |Yes |12/29/2016 |1/9/2018 |
-| HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS or Windows Server 2012R2 |Yes |12/02/2015 |Yes |06/27/2016 |07/31/2017 |
+| HDI 3.3 |HDP 2.3 |Windows Server 2012R2 |Yes |12/02/2015 |Yes |06/27/2016 |07/31/2018 |
+| HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Yes |12/02/2015 |Yes |06/27/2016 |07/31/2017 |
 | HDI 3.2 |HDP 2.2 |Ubuntu 12.04 LTS or Windows Server 2012R2 |Yes |2/18/2015 |No |3/1/2016 |04/01/2017 |
 | HDI 3.1 |HDP 2.1 |Windows Server 2012R2 |Yes |6/24/2014 |No |05/18/2015 |06/30/2016 |
 | HDI 3.0 |HDP 2.0 |Windows Server 2012R2 |Yes |02/11/2014 |No |09/17/2014 |06/30/2015 |
@@ -94,7 +95,7 @@ The following table lists the versions of HDInsight currently available, the cor
 | HDI 1.6 |HDP 1.1 | |No |10/28/2013 |No |04/26/2014 |05/31/2015 |
 
 ## HDI version 3.3 nearing retirement date
-The support for HDI 3.3 cluster expired on 06/27/2016 and it will be retired on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.5 or HDI 3.6 soon. Retirement timelines for HDI 3.3 Windows may vary by region. If your region’s planned retirement date is different, you are notified separately.
+The support for HDI 3.3 cluster expired on 06/27/2016 and it will be retired on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.6 soon. Retirement timelines for HDI 3.3 Windows may vary by region. If your region’s planned retirement date is different, you are notified separately.
 
 ### The service-level agreement for HDInsight cluster versions
 The SLA is defined in terms of a **Support Window**. A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a **Support Expiration Date** in the past, the HDInsight cluster is outside the Support Window. A list of supported HDInsight cluster versions can be found in the preceding table. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  

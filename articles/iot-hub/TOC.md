@@ -6,11 +6,13 @@
 # [Get Started](iot-hub-get-started.md)
 
 ## Setup your device
-### [Use a simulated device](iot-hub-get-started-simulated.md)
+### [Simulate a device on your PC](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
+
+### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [Use a physical device](iot-hub-get-started-physical.md)
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -27,8 +29,6 @@
 ##### [Set up Intel NUC as a gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-
-### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## Extended IoT scenarios
 ### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -133,9 +133,10 @@
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Use a real device](iot-hub-iot-edge-physical-device.md)
 ### Create a module
-#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
-#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+#### [Java](iot-hub-iot-edge-create-module-java.md)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
+#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
+#### [Node.js](iot-hub-iot-edge-create-module-js.md)
 ### Build
 #### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
 #### [.NET Core module](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
@@ -168,15 +169,16 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
-## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
-## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
-## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
-## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
-## [Service updates](https://azure.microsoft.com/updates/?product=iot-hub)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
-## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
-## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT)
+## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
+## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
+## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
+## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Service updates](https://azure.microsoft.com/updates/?product=iot-hub)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
+## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)

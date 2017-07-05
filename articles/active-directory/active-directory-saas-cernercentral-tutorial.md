@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Cerner Central, you need the following items:
 
 - An Azure AD subscription
-- A Cerner Central single-sign on enabled subscription
+- An approved Cerner Central System Account
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -106,18 +106,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
-    a. In the **Identifier** textbox, type the value using the following pattern: `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata`
+    a. In the **Identifier** textbox, type the value using the following patterns:
+	
+	| |
+	|--|
+	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+	| `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
+	| `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+	| `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso`
+	b. In the **Reply URL** textbox, type a URL using the following patterns: 
+	| |
+	|--|
+	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
+	| `https://cernercentral.com/<instasncename>` |
+	| `https://sandboxcernercentral.com/<instancename>` |
+	| `https://sandboxcernercentral.com/<instancename>` |
+	| `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Identifier and reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Cerner Central support team](https://www.cerner.com/support) to get these values.
+	> These values are not the real. Update these values with the actual Identifier and Reply URL. Contact [Cerner Central support team](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) to get these values.
  
-5. Click **Save** button.
+4. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata** url, perform the following steps:
+5. To generate the **Metadata** url, perform the following steps:
 
     a. Click **App registrations**.
     
@@ -137,7 +152,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-7. To configure single sign-on on **Cerner Central** side, you need to send the **Metadata URL** to [Cerner Central support](https://www.cerner.com/support). They configure the SSO on application side to complete the integration.
+6. To configure single sign-on on **Cerner Central** side, you need to send the **Metadata URL** to [Cerner Central support](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). They configure the SSO on application side to complete the integration.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -176,7 +191,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Cerner Central test user
 
-In order to enable Azure AD users to log in to Cerner Central, they must be provisioned into Cerner Central. There are many ways to create users in Cerner Central application. To manually create the user in Cerner Central application please work with the [Cerner Central support](https://www.cerner.com/support) team.
+**Cerner Central** application allows authentication from any federated identity provider. If a user is able to log in to the application home page, they are federated and have no need for any manual provisioning.
 
 ### Assigning the Azure AD test user
 
@@ -212,11 +227,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Cerner Central tile in the Access Panel, you should get automatically signed-on to your Cerner Central application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+When you click the Cerner Central tile in the Access Panel, you should get automatically signed-on to your Cerner Central application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
-* [Tutorial: Configuring Cerner Central for automatic user provisioning with Azure Active Directory](active-directory-saas-cernercentral-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

@@ -57,7 +57,7 @@ In this section, you create a Java console app that responds to a method called 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.26</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -204,7 +204,7 @@ In this section, you create a Java console app that invokes a direct method in t
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.3.19</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```

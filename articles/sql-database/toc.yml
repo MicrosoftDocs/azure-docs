@@ -19,8 +19,10 @@
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-    - name: .NET
-      href: sql-database-connect-query-dotnet.md
+    - name: .NET with Visual Studio
+      href: sql-database-connect-query-dotnet-visual-studio.md
+    - name: .NET core
+      href: sql-database-connect-query-dotnet-core.md
     - name: PHP
       href: sql-database-connect-query-php.md
     - name: Node.js
@@ -33,8 +35,10 @@
       href: sql-database-connect-query-ruby.md
 - name: Tutorials
   items:
-  - name: 1 - Create/design new SQL DB
+  - name: 1 - Design DB using SSMS
     href: sql-database-design-first-database.md
+  - name: 1 - Design DB using .NET
+    href: sql-database-design-first-database-csharp.md
   - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
@@ -55,10 +59,8 @@
   items:
   - name: Databases & servers
     items:
-    - name: Databases
-      href: sql-database-overview.md
-    - name: Servers
-      href: sql-database-server-overview.md
+    - name: Overview
+      href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
     - name: Elastic pools
@@ -75,8 +77,6 @@
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Features
       href: sql-database-features.md
-    - name: Tools
-      href: sql-database-manage-overview.md
   - name: Security
     items:
     - name: Overview
@@ -100,7 +100,7 @@
     - name: TDE with SQL DB
       href: https://msdn.microsoft.com/library/dn948096
     - name: Always encrypted
-      href: https://msdn.microsoft.com/library/mt163865.aspx
+      href: https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine
     - name: Data masking
       href: sql-database-dynamic-data-masking-get-started.md
   - name: Business continuity
@@ -139,6 +139,8 @@
       href: sql-database-import.md
     - name: Export a DB
       href: sql-database-export.md
+    - name: Sync data
+      href: sql-database-sync-data.md
   - name: Monitor & tune
     items:
     - name: Overview
@@ -161,12 +163,12 @@
       href: sql-database-in-memory-oltp-monitoring.md
   - name: Scale out apps
     items:
+    - name: Overview
+      href: sql-database-elastic-scale-introduction.md
     - name: SaaS design patterns
       href: sql-database-design-patterns-multi-tenancy-saas-applications.md
     - name: SaaS app security
       href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Sharded databases
-      href: sql-database-elastic-scale-introduction.md
     - name: Elastic client library
       href: sql-database-elastic-database-client-library.md
     - name: Shard maps
@@ -342,9 +344,9 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql
+    href: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/#sql
   - name: PowerShell (Elastic DB)
-    href: /powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs
+    href: https://docs.microsoft.com/en-us/powershell/module/elasticdatabasejobs/#elasticdatabasejobs
   - name: Azure CLI 2.0
     href: /cli/azure/sql
   - name: .NET
@@ -388,6 +390,8 @@
       href: https://msdn.microsoft.com/library/mt654048.aspx
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: FAQ
     href: sql-database-faq.md
   - name: Public data sets
