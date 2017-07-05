@@ -7,13 +7,13 @@ manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: slivkins;marcozo;alekh
 ---
 
 # Machine learning in Custom Decision Service (tutorial)
 
-This tutorial covers the advanced machine learning functionality in Custom Decision Service. For now, this funtionality is only available in private previw. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification). Featurization refers to representing your data as "features" for machine learning.
+This tutorial addresses the advanced machine learning functionality in Custom Decision Service. For now, this functionality is only available in private preview. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification). Featurization refers to representing your data as "features" for machine learning. Feature specification covers the JSON format and the ancillary APIs for specifying features.
 
 By default, machine learning in Custom Decision Service is transparent to the customer. Features are automatically extracted from your content, and a standard reinforcement learning algorithm is used. Feature extraction leverages several other Microsoft Cognitive Services: 
 [Entity Linking](../entitylinking/home.md),
@@ -37,8 +37,6 @@ You can customize some aspects of this translation:
 
 - a string can be represented as a bit vector: an internal feature is created for each word in the string, and its value is set to "true."
 - a feature can be represented as a bit vector: each bit is set if and only if the feature lies in a specified range of values (see [1-hot encoding](#1-hot-encoding)).
-
-While native features may have meaningful ids, such as 'age' or 'zipcode', internal features are nameless. Ids of native features are ignored in the translation.
 
 #### Shared vs. action-dependent features
 
@@ -76,22 +74,38 @@ You can choose to include this "estimated average reward" as a feature for a giv
 
 You can specify the featurization concepts discussed previously via a "VW arguments string" on the Portal. Custom Decision Service provides a flexible syntax based on the [Vowpal Wabbit](http://hunch.net/~vw/) command line.
 
-Central to the implementation is the concept of  *namespace*: a named subset of features. Each feature belongs to exactly one namespace. When a native feature is translated into multiple internal features, all internal features are grouped into the same namespace.
+Central to the implementation is the concept of  *namespace*: a named subset of features. Each feature belongs to exactly one namespace. The namespace can be specified explicitly when the feature value is provided.
 
-A namespace can be specified explicitly when the feature is specified. Else, the namespace is set to 'default'. Native features in different namespaces are treated as distinct, even if they have the same name.
+[!TIP] It is a good practice to specify a namespace explicitly for each feature. Else, the feature is automatically assigned to the default namespace.
+
+[!IMPORTANT] Features and namespaces do not need to be defined consistently across actions. In particular, a namespace can have different features for different actions. Moreover, a namespace can be defined for some actions and not for some others.
+
+While native features may have meaningful ids, such as 'age' or 'zipcode', internal features do not have individual feature ids. Namespaces are used instead.
+
+When a native feature such as a string is translated into multiple internal features, all internal features are grouped into the same namespace. Native features with the same feature id, but in different namespaces, are treated as distinct.
+
+
+
+
+
 
 [!IMPORTANT]
-While long, descriptive namespace ids are common, the system truncates each id to the first letter. Thus, all namespaces whose id starts with the same letter are treated as the same "logical namespace." In what follows, namespace ids are single letters.
+While long, descriptive namespace ids are common, the system truncates each id to the first letter. Thus, all namespaces whose id starts with the same letter are treated as the same "logical namespace." In what follows, namespace ids are single letters, such as `x` and `y`.
 
 The implementation details are as follows:
 
-- To cross namespaces `x` and `y`, write `-q xy` or `--quadratic xy`. Then each feature in `x` is crossed with each feature in `y`. Here `x` and `y` are literally two letters. 
+- To cross namespaces `x` and `y`, write `-q xy` or `--quadratic xy`. Then each feature in `x` is crossed with each feature in `y`. Use `-q x:` to cross `x` with every namespace, and `-q ::` to cross all pairs of namespaces.
 
-- To ignore all features in namespace `x`, write `--ignore x`. 
+- To ignore all features in namespace `x`, write `--ignore x`.
+
+- To create marginal features, write `--marginal x`, where `x` is a namespace that describes the action ids.
+
+
+The above commands apply for each action separately. If a namespace is not defined for a given action, the corresponding command is ignored.
 
 ## Feature specification
 
-You can specify features using a simple JSON format:
+You can specify features using a simple JSON format and several ancillary APIs. The basic JSON template is as follows:
 
 ```
 {
@@ -102,9 +116,29 @@ You can specify features using a simple JSON format:
 }
 ```
 
-Here `<name>` and `<value>` stand for feature name and feature value, respectively. `<value>` can be a string, an integer, a float, a boolean, or an  array. A feature not wrapped into a namespace is automatically assigned into the 'default' namespace.
+Here `<name>` and `<value>` stand for feature name and feature value, respectively. `<value>` can be a string, an integer, a float, a boolean, or an  array. A feature not wrapped into a namespace is automatically assigned into the default namespace.
 
 To represent a string as a bit vector over words, use a special syntax `"_text":"string"` instead of 
 `"<name>":<value>`. Then a separate internal feature with value `1` is created for each word in the string.
 
 If `<name>` starts with "_" (and is not `"_text"`), then the feature is ignored.
+
+#### Feature Set API 
+
+Feature Set API returns a list of features in the JSON format described previously. Several Feature Set APIs can be used, identified by feature set ids. The mapping between feature set ids and the corresponding URLs is set on the Portal.
+
+#### Action Set API (JSON version)
+
+Action Set API has a version in which actions and features are specified in JSON. Features can be specified explicitly and/or via feature set ids. When a feature set id is encountered, a call to the corresponding Feature Set API is executed.
+	
+#### Ranking API (HTTP POST call)
+
+Ranking API has a version that uses HTTP POST call. The body of this call specifies actions and features via a flexible JSON syntax. 
+
+The details are as follows:
+
+- Actions can be specified explicitly and/or via action set ids. Whenever an action set id is enountered, a call to the corresponding Action Set API is executed. 
+- Likewise, features can be specified explicitly and/or via feature set ids. When a feature set id is encountered, a call to the corresponding Feature Set API is executed.
+- Shared features can be specified once for all actions.
+
+
