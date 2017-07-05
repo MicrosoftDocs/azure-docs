@@ -27,7 +27,7 @@ Azure AD and Azure AD B2C are separate product offerings and cannot coexist in t
 Azure AD B2C can't be used to authenticate users for Microsoft Office 365.  Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and conditional access.  Azure AD B2C provides an identity and access management platform for building web and mobile applications.  When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
 
 ### What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
-In an Azure AD tenant, every user in the tenant (except users with existing Microsoft accounts) signs in with an email address of the form `<xyz>@<tenant domain>`, where `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
+In an Azure AD tenant, users that belong to the tenant sign in with an email address of the form `<xyz>@<tenant domain>`.  The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
 
 In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account.  We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types by configuring Azure AD B2C in the Azure portal.
 
@@ -65,7 +65,7 @@ The email signature contains the B2C tenant's name that you provided when you fi
 1. Change the **Name** field under the **Directory properties** section.
 1. Click **Save** at the bottom of the page.
 
-Currently there is no way to change the "From:" field on the email. If you are interested in this capability and in fully customizing the body of the verification email, do vote for the feature on [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails).
+Currently there is no way to change the "From:" field on the email. Vote on [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) you are interested in customizing the body of the verification email.
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 You can use the Azure AD Graph API to write your migration tool. See the [Graph API sample](active-directory-b2c-devquickstarts-graph-dotnet.md) for details.
@@ -99,7 +99,7 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview.  We provide translations for 36 languages, and you can override any string to suit your needs.
 
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from login.microsoftonline.com to login.contoso.com?
-Not currently. This feature is on our roadmap. Also note that verifying your domain in the **Domains** tab of your tenant on the Azure classic portal does not accomplish this goal.
+Not currently. This feature is on our roadmap. Verifying your domain in the **Domains** tab on the Azure classic portal does not accomplish this goal.
 
 ### How do I delete my Azure AD B2C tenant?
 Follow these steps to delete your Azure AD B2C tenant:
