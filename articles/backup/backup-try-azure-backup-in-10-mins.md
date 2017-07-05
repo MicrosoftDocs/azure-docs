@@ -160,6 +160,15 @@ Now that you've created a vault, configure it for backing up files and folders.
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
+## Network and Connectivity Requirements
+
+If your machine/proxy has limited internet access, ensure that firewall settings on the Windows server/client with Azure Recovery Services Agent are configured to allow the following URLs: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
+
 ## Back up your files and folders
 The initial backup includes two key tasks:
 
