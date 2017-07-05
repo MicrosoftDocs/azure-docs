@@ -1,3 +1,5 @@
+The VNet-to-VNet FAQ applies to VPN Gateway connections. If you are looking for VNet Peering, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md)
+
 ### Does Azure charge for traffic between VNets?
 
 VNet-to-VNet traffic within the same region is free for both directions when using a VPN gateway connection. Cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Refer to the [VPN Gateway pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details. If you are connecting your VNets using VNet Peering, rather than VPN Gateway, see the [Virtual Network pricing page](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -17,6 +19,10 @@ No. Connecting multiple Azure virtual networks together doesn't require a VPN de
 ###Do my VNets need to be in the same region?
 
 No. The virtual networks can be in the same or different Azure regions (locations).
+
+### If the VNets are not in the same subscription, do the subscriptions need to be associated with the same AD tenant?
+
+No.
 
 ###Can I use VNet-to-VNet along with multi-site connections?
 

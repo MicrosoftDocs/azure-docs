@@ -252,7 +252,7 @@ You now have two VNets with VPN gateways. The next step is to create VPN gateway
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5.
+In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The subscriptions do not need to be associated with the same Active Directory tenant. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Step 5 - Create and configure TestVNet1
 
