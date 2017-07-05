@@ -12,32 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 07/05/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Pass-through Authentication: Current limitations
 
->[!NOTE]
->Azure AD Pass-through Authentication is currently in preview. It is a free feature, and you don't need any paid editions of Azure AD to use it.
+>[!IMPORTANT]
+>Azure AD Pass-through Authentication is currently in preview. It is a free feature, and you don't need any paid editions of Azure AD to use it. Pass-through Authentication is only available in the world-wide instance of Azure AD, and not on [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) and [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/).
 
 ## Supported scenarios
 
 The following scenarios are fully supported during preview:
 
-- All web browser-based applications
-- Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga)
+- User sign-ins into all web browser-based applications.
+- User sign-ins into Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga).
 
 ## Unsupported scenarios
 
 The following scenarios are _not_ supported during preview:
 
-- Legacy Office client applications and Exchange ActiveSync (that is, native email applications on mobile devices). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your identities by using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication (MFA).
+- User sign-ins into legacy Office client applications and Exchange ActiveSync (that is, native email applications on mobile devices). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your identities by using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication (MFA).
+- User sign-ins into Skype for Business client applications.
+- User sign-ins into PowerShell v1.0. It is recommended that you use PowerShell v2.0 instead.
 - Azure AD Join for Windows 10 devices.
-- PowerShell v1.0. It is recommended that you use PowerShell v2.0 instead.
 
 >[!IMPORTANT]
->As a workaround for scenarios not supported today, Password Hash Synchronization is also enabled by default when you enable Pass-through Authentication. Password Hash Synchronization acts as a fallback for the preceding scenarios _only_ (and _not_ as a generic fallback to Pass-through Authentication). If you don't need these scenarios, you can turn off Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
+>As a workaround for unsupported scenarios, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. Password Hash Synchronization acts as a fallback for the preceding scenarios _only_ (and _not_ as a generic fallback to Pass-through Authentication). If you don't need these scenarios, turn off Password Hash Synchronization.
 
 ## Next steps
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
