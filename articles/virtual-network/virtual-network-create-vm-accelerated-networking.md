@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Create a virtual machine with Accelerated Networking
 
-In this tutorial, you learn how to create an Azure Virtual Machine (VM) with Accelerated Networking. Accelerated Networking is now GA for Windows and in a preview for specific Linux distribution. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two virtual machines (VM) with and without accelerated networking:
+In this tutorial, you learn how to create an Azure Virtual Machine (VM) with Accelerated Networking. Accelerated Networking is GA for Windows and in a Public Preview for specific Linux distributions. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two virtual machines (VM) with and without accelerated networking:
 
 ![Comparison](./media/virtual-network-create-vm-accelerated-networking/image1.png)
 
@@ -43,7 +43,7 @@ The following limitations exist when using this capability:
 
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM.
-* **Regions:** Windows VMs with accelerated networking are offered in most Azure regions. Linux VMs with accelerated networking are offered in multiple regions. The regions this capability is available in will expand in the future. Please see the Azure Virtual Networking Updates blog below for the latest information.   
+* **Regions:** Windows VMs with accelerated networking are offered in most Azure regions. Linux VMs with accelerated networking are offered in multiple regions. The regions this capability is available in is expanding. Please see the Azure Virtual Networking Updates blog below for the latest information.   
 * **Supported operating systems:** Windows: Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016. Linux: Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3 and CentOS 7.3 (Published by “Rogue Wave Software”).
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
 
