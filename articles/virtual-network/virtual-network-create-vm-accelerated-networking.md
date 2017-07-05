@@ -424,7 +424,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
       -Name $OSDiskName `
       -SourceImageUri $sourceUri `
       -VhdUri $OSDiskURI `
-      -CreateOption FromImage '
+      -CreateOption FromImage `
       -Linux
     
     # Create the virtual machine.    
