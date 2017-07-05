@@ -25,7 +25,7 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
 > [!IMPORTANT]
 > You must have already created an Operations Management Suite (OMS) workspace before beginning the steps in this document. For more information, see the [Get started with a Log Analytics workspace](../log-analytics/log-analytics-get-started.md) document.
 
-1. From the [Azure portal](https://portal.azure.com), select your log analytics workspace. From the overview section, select the __OMS Portal__ link. This opens the OMS portal for your workspace.
+1. From the [Azure portal](https://portal.azure.com), select your log analytics workspace. From the overview section, select the __OMS Portal__ link. This link opens the OMS portal for your workspace.
 
     ![Analytics workspace, with the OMS Portal link highlighted](./media/apache-kafka-log-analytics-operations-management/select-oms-portal.png)
 
@@ -43,7 +43,7 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
 4. To enable log analytics, use the following information on the __Submit script action__ dialog:
 
     * __Script type__: Custom
-    * __Name__: Provide a name that you will remember
+    * __Name__: Provide a name for this script
     * __Bash script URI__: https://000aarperiscus.blob.core.windows.net/oms/kafka/HdiKafkaOmsInstallation.sh
     * __Node type(s)__: Check both __Head__ and __Worker__.
     * __Parameters__: Enter the __OMS Workspace ID__ and then the __OMS Primary Key__. There must be a space between these values.
@@ -57,7 +57,7 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
 
 1. From the [Azure portal](https://portal.azure.com), select your log analytics workspace.
 
-2. Select __Log Search__. From here, you can search the data collected from kafka. The following are some example searches:
+2. Select __Log Search__. From here, you can search the data collected from Kafka. The following are some example searches:
 
     * Disk usage: `Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
     * CPU usage: `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
