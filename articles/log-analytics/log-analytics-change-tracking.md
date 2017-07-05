@@ -40,9 +40,8 @@ Use the following steps to configure files to track on Linux computers.
 3. Under Linux File Change Tracking, type the entire path, including the file name of the file that you want to track and then click the **Add** symbol. For example: "/etc/*.conf"
 4. Click **Save**.  
   
-[!NOTE]
-
-Linux file tracking has additional capabilities including directory tracking, recrusion through directories, and wildcard tracking.
+> [!NOTE]
+> Linux file tracking has additional capabilities including directory tracking, recrusion through directories, and wildcard tracking.
 
 ### Configure Windows files to track
 Use the following steps to configure files to track on Windows computers.
@@ -70,9 +69,8 @@ Use the following steps to configure registry keys to track on Windows computers
    * **Ignore** (Ignore symlinks during recurions to not include the files/directories referenced)
    * **Follow** (Follow the symlinks during recursion to also include the files/directories referenced)
    * **Manage** (Follow the symlinks and alter the treatment of returned content) 
-   [!NOTE]
-   
-   The "Manage" links option is not recommended since file content retrieval is not currently supported.
+   > [!NOTE]   
+   > The "Manage" links option is not recommended since file content retrieval is not currently supported.
 3. **Recurse** (Recurse through folder levels and track all files meeting the path statement)
 4. **Sudo** (Enable access files or directories that require sudo privilege)
 
