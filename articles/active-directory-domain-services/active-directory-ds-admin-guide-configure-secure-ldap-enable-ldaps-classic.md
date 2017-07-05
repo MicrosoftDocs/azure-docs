@@ -115,7 +115,7 @@ That's it - you are now ready to connect to the managed domain using secure LDAP
 
 Before you begin this task, ensure you have completed the steps outlined in [Task 4](#task-4---enable-secure-ldap-access-over-the-internet).
 
-Exposing your managed domain for LDAPS access over the internet represents a security threat. Therefore, you can choose to restrict access to the managed domain to specific known IP addresses. Create a Network Security Group (../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to specify the external IP addresses that should be allowed to connect via secure LDAP over the internet. 
+Exposing your managed domain for LDAPS access over the internet represents a security threat. Therefore, you can choose to restrict access to the managed domain to specific known IP addresses. [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to specify the external IP addresses that should be allowed to connect via secure LDAP over the internet. 
 
 <br>
 
