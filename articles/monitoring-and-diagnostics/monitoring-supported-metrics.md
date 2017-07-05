@@ -476,15 +476,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |EHAMSGS|Archive messages|Count|Total|Event Hub archived messages in a namespace|
 |EHAMBS|Archive message throughput|Bytes|Total|Event Hub archived message throughput in a namespace|
 
-## Microsoft.Insights/AutoscaleSettings
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|ObservedMetricValue|Observed Metric Value|Count|Average|The value computed by autoscale when executed|
-|MetricThreshold|Metric Threshold|Count|Average|The configured autoscale threshold when autoscale ran.|
-|ObservedCapacity|Observed Capacity|Count|Average|The capacity reported to autoscale when it executed.|
-|ScaleActionsInitiated|Scale Actions Initiated|Count|Total|The direction of the scale operation.|
-
 ## Microsoft.Logic/workflows
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
@@ -742,44 +733,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |database_dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
 |storage_used|Storage used|Bytes|Average|Storage used|
 |database_storage_used|Storage used|Bytes|Average|Storage used|
-
-## Microsoft.Storage/storageAccounts
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|UsedCapacity|Used capacity|Bytes|Average|Account used capacity|
-
-## Microsoft.Storage/storageAccounts/blobServices
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account’s Blob service in bytes.|
-|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account’s Blob service.|
-|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account’s Blob service.|
-
-## Microsoft.Storage/storageAccounts/tableServices
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account’s Table service in bytes.|
-|TableCount|Table Count|Count|Average|The number of table in the storage account’s Table service.|
-|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account’s Table service.|
-
-## Microsoft.Storage/storageAccounts/queueServices
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account’s Queue service in bytes.|
-|QueueCount|Queue Count|Count|Average|The number of queue in the storage account’s Queue service.|
-|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account’s Queue service.|
-
-## Microsoft.Storage/storageAccounts/fileServices
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account’s File service in bytes.|
-|FileCount|File Count|Count|Average|The number of file in the storage account’s File service.|
-|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account’s File service.|
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
