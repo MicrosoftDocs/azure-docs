@@ -64,7 +64,7 @@ Once you cancel, billing is stopped immediately. However, it can take up to 10 m
 
 After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only.
 
-If you're currently paying for Azure (that is, you're not on Free Trial), any outstanding charges for usage before the cancellation is billed at the end of the billing cycle. So, in this case, you should expect one more bill after canceling.
+Unless you’re on a Free Trial or have credits available, you’re billed for any outstanding usage charges generated between your last billing cycle and the cancellation date. You get your last bill at the end of the billing cycle.
 
 After you cancel your subscription, we wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
