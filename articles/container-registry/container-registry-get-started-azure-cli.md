@@ -78,8 +78,10 @@ When the registry is created, the output is similar to the following:
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login]() command.
 
 ```azurecli-interactive
-az acr login --myAzureContainerRegistry1
+az acr login --name myAzureContainerRegistry1
 ```
+
+The command returns a 'Login Succeeded’ message once completed.
 
 ## Use Azure Container Registry
 

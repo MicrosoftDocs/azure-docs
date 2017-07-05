@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -63,10 +63,10 @@ To do so, use the Azure CLI 2.0. First, if needed, log into azure using the [az 
 az login
 ```
 
-Next, use the [az acr login]() command to log in to the Azure Container Registry.
+Next, use the [az acr login](/cli/azure/acr#login) command to log in to the Azure Container Registry.
 
 ```azurecli-interactive
-az acr login --myAzureContainerRegistry1
+az acr login --name myAzureContainerRegistry1
 ```
 
 ## Use Azure Container Registry
@@ -100,6 +100,3 @@ In this quick start, you’ve deployed a simple virtual machine, a network secur
 
 > [!div class="nextstepaction"]
 > [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
-
-## Next steps
-* [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
