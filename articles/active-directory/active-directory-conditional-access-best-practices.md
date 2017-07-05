@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/22/2017
+ms.date: 07/05/2017
 ms.author: markvi
 
 ---
@@ -29,6 +29,15 @@ This topic provides you with information about things you should know and what i
 When configuring a conditional access policy, you should at least assign one group to it. A conditional access policy that has no users and groups assigned, is never triggered.
 
 When you intend to assign several users and groups to a policy, you should start small by assigning only one user or group, and then test your configuration. If your policy works as expected, you can then add additional assignments to it.  
+
+
+### Do I need to assign a cloud app to my policy?
+
+When configuring a conditional access policy, you should either assign **All cloud apps** or **Select apps** your policy applies to.
+
+![Cloud apps](./media/active-directory-conditional-access-best-practices/01.png)
+
+This is because the goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.
 
 
 ### How are assignments evaluated?
