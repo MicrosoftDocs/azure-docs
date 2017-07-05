@@ -88,9 +88,9 @@ var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 Creates an Azure Relay Shared Access Signature (SAS) token for the given target URI, SAS rule, 
 and SAS rule key that is valid for the given number of seconds or for an hour from the current 
-instant if the expiry argunent is omitted.
+instant if the expiry argument is omitted.
 
-- `uri` (required) - the URI for which the token is to be issued. The URI is normalized to use the HTTP scheme, and query string information will be stripped.
+- `uri` (required) - the URI for which the token is to be issued. The URI is normalized to use the HTTP scheme, and query string information is stripped.
 - `ruleName` (required) - SAS rule name for either the entity represented by the given URI, or for the namespace represented by the URI host portion.
 - `key` (required) - valid key for the SAS rule. 
 - `expirationSeconds` (optional) - the number of seconds until the generated token should expire. If not specified, the default is 1 hour (3600).
