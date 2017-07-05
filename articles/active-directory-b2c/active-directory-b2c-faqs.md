@@ -27,9 +27,9 @@ Azure AD and Azure AD B2C are separate product offerings and cannot coexist in t
 Azure AD B2C can't be used to authenticate users for Microsoft Office 365.  Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and conditional access.  Azure AD B2C provides an identity and access management platform for building web and mobile applications.  When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
 
 ### What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
-In an Azure AD tenant, users that belong to the tenant sign in with an email address of the form `<xyz>@<tenant domain>`.  The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
+In an Azure AD tenant, users that belong to the tenant sign-in with an email address of the form `<xyz>@<tenant domain>`.  The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
 
-In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account.  We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types by configuring Azure AD B2C in the Azure portal.
+In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account.  We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types by configuring Azure AD B2C in the Azure portal.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 We currently support Facebook, Google+, LinkedIn, Microsoft Account, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (preview).  We continue to add support for other popular social identity providers based on customer demand.
@@ -59,7 +59,7 @@ You can use the [company branding feature](../active-directory/active-directory-
 
 The email signature contains the B2C tenant's name that you provided when you first created the B2C tenant. You can change the name using these instructions:
 
-1. Sign into the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator.
 1. Navigate to your B2C tenant.
 1. Click the **Configure** tab.
 1. Change the **Name** field under the **Directory properties** section.
