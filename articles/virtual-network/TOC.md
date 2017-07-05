@@ -4,9 +4,10 @@
 ## [Virtual network peering](virtual-network-peering-overview.md)
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
 ## [FAQ](virtual-networks-faq.md)
-## IP addressing
-### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
-### [Classic](virtual-network-ip-addresses-overview-classic.md)
+## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
+## [Classic]
+### [IP addressing](virtual-network-ip-addresses-overview-classic.md)
+### [Access control lists](virtual-networks-acl.md)
 
 # Get Started
 ## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
@@ -95,15 +96,15 @@
 ##### [Sample application](virtual-networks-sample-app.md)
 
 ## Configure
-
-### Access control lists
-#### [Classic portal](virtual-networks-acl.md)
-#### [PowerShell](virtual-networks-acl-powershell.md)
 ### Virtual machines
 #### [Add or remove network interfaces](virtual-network-network-interface-vm.md)
 #### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 #### [Optimize network throughput](virtual-network-optimize-network-bandwidth.md)
 #### [View and modify hostnames](virtual-networks-viewing-and-modifying-hostnames.md)
+### Classic
+#### Access control lists
+##### [Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [PowerShell](virtual-networks-acl-powershell.md)
 
 ## Manage
 ### [Virtual networks](virtual-network-manage-network.md)
