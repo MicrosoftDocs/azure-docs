@@ -5,6 +5,7 @@
 ## [Create an environment](time-series-insights-get-started.md)
 ## [Grant data access](time-series-insights-data-access.md)
 ## [Create an event source](time-series-insights-add-event-source.md)
+## [Create a reference data set](time-series-insights-add-reference-data-set.md)
 ## [Send events](time-series-insights-send-events.md)
 
 # How to
@@ -15,6 +16,7 @@
 ## Develop
 ### [Authentication and authorization](time-series-insights-authentication-and-authorization.md)
 ### [Query data using C#](time-series-insights-query-data-csharp.md)
+### [Manage reference data using C#](time-series-insights-manage-reference-data-csharp.md)
 
 # Reference
 ## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

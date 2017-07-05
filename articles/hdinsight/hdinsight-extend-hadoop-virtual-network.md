@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/21/2017
+ms.date: 06/30/2017
 ms.author: larryfr
 
 ---
@@ -121,7 +121,7 @@ If you restrict access to the virtual network you must allow access to the manag
 
 | Country | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
-| Asia | East Asia | 23.102.235.122</br>52.175.32.59 | 443 |
+| Asia | East Asia | 23.102.235.122</br>52.175.38.134 | 443 |
 | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 |
 | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 |
 | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 |
@@ -134,7 +134,7 @@ If you restrict access to the virtual network you must allow access to the manag
 | &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | 443 |
 | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 |
 | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 |
-| United States | Central US | 13.67.223.215</br>40.77.106.9 | 443 |
+| United States | Central US | 13.67.223.215</br>40.86.83.253 | 443 |
 | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 |
 

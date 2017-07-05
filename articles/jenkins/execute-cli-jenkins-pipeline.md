@@ -132,7 +132,7 @@ az webapp config set \
 ```
 
 ## Prepare a GitHub Repository
-Open the [Simple Java Web App for Azure](https://github.com/puicchan/jenkinssamples) from the Azure samples repo. To fork the repo to your own GitHub account, click the **Fork** button in the top right-hand corner.
+Open the [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) repo. To fork the repo to your own GitHub account, click the **Fork** button in the top right-hand corner.
 
 * In GitHub web UI, open **Jenkinsfile** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 20 and 21 respectively.
 
@@ -149,7 +149,7 @@ withCredentials([azureServicePrincipal('<azsrvprincipal>')]) {
 
 ```
 
-## Create Jenkins pipeline:
+## Create Jenkins pipeline
 Open Jenkins in a web browser, click **New Item**. 
 
 * Provide a name for the job and select **Pipeline**. Click **OK**.
@@ -159,7 +159,7 @@ Open Jenkins in a web browser, click **New Item**.
 * Enter the GitHub URL for your forked repo: https:\<your forked repo\>.git
 * Click **Save**
 
-## Test your pipeline:
+## Test your pipeline
 * Go to the pipeline you created, click **Build Now**
 * A build should succeed in a few seconds, and you can go to the build and click **Console Output** to see the details
 
