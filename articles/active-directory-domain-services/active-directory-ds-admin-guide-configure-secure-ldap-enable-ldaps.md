@@ -22,7 +22,6 @@ ms.author: maheshu
 ## Before you begin
 Ensure you've completed [Task 2 - export the secure LDAP certificate to a .PFX file](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
-<br>
 Choose whether to use the preview Azure portal experience or the Azure classic portal to complete this task.
 > [!div class="op_single_selector"]
 > * **Azure portal (Preview)**: [Enable secure LDAP using the Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
@@ -30,7 +29,6 @@ Choose whether to use the preview Azure portal experience or the Azure classic p
 >
 >
 
-<br>
 
 ## Task 3 - enable secure LDAP for the managed domain using the Azure portal (Preview)
 To enable secure LDAP, perform the following configuration steps:
@@ -99,9 +97,9 @@ That's it - you are now ready to connect to the managed domain using secure LDAP
 >
 >
 
-Before you begin this task, ensure you have completed the steps outlined in [Task 4](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
+Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
-Exposing your managed domain for LDAPS access over the internet represents a security threat. The managed domain is reachable from the internet at the port used for secure LDAP (that is, port 636). Therefore, you can choose to restrict access to the managed domain to specific known IP addresses. For improved security, create a network security group (NSG) and associate it with the virtual network. The NSG
+Exposing your managed domain for LDAPS access over the internet represents a security threat. The managed domain is reachable from the internet at the port used for secure LDAP (that is, port 636). Therefore, you can choose to restrict access to the managed domain to specific known IP addresses. For improved security, create a network security group (NSG) and associate it with the virtual network.
 
 The following table illustrates a sample NSG you can configure, to lock down secure LDAP access over the internet. The NSG contains a set of rules that allow inbound LDAPS access over TCP port 636 only from a specified set of IP addresses. The default 'DenyAll' rule applies to all other inbound traffic from the internet. The NSG rule to allow LDAPS access over the internet from specified IP addresses has a higher priority than the DenyAll NSG rule.
 
