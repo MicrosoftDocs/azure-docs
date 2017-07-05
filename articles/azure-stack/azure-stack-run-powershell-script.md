@@ -57,17 +57,17 @@ To deploy the development kit, you must complete the following steps:
 3. Sign in as the Local Administrator to your development kit host.
 4. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
 5. Run the folloiwing scrip to download the development kit installer file (asdk-installer.ps1) to the c:\AzureStack_Installer folder on your development kit host.
-```powershell
-# Variables
-$Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
-$LocalPath = 'c:\AzureStack_Installer'
+    ```powershell
+    # Variables
+    $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
+    $LocalPath = 'c:\AzureStack_Installer'
 
-# Create folder
-New-Item $LocalPath -Type directory
+    # Create folder
+    New-Item $LocalPath -Type directory
 
-# Download file
-Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
-```
+    # Download file
+    Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
+    ```
 6. Open an elevated PowerShell console > navigate to the asdk-installer.ps1 script > execute it > click **Prepare vhdx**.
 7. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the cloudbuilder.vhdx file that you downloaded in the previous steps.
 8. Optional: Check the **Add drivers** box to specifiy a folder containing additional drivers that you want on the host.
