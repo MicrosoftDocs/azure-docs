@@ -33,28 +33,15 @@ You may experience the following problems when running Linux VMs in Microsoft Az
 
 ## Cause
 
-Device Names in Linux are not guaranteed to be consistent across
-restarts. Device Names are made up of major (letter) and minor numbers.
-When the Linux storage device driver detects a new device, it assigns
-major and minor device numbers to it from the available range. When a
-device is removed, the device numbers are freed for reuse.
+Device Names in Linux are not guaranteed to be consistent across restarts. Device Names are made up of major (letter) and minor numbers. When the Linux storage device driver detects a new device, it assigns major and minor device numbers to it from the available range. When a device is removed, the device numbers are freed for reuse.
 
-Azure does not guarantee that disks will be presented to the operating
-system in the same order after every restart. Additionally, detaching
-and reattaching disk in a different order while a Linux VM is running
-may cause the device name to change when the numbers are reused.
+Azure does not guarantee that disks will be presented to the operating system in the same order after every restart. Additionally, detaching and reattaching disk in a different order while a Linux VM is running may cause the device name to change when the numbers are reused.
 
 ## Solution
 
-To address this issue, use persistent naming. For example,
-device and partition UUIDs are considered stable, and are used as a best
-practice in fstab and to discover Device Names. For more information about how to
-configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-dis.mdk#connect-to-the-linux-vm-to-mount-the-new-disk).
+To address this issue, use persistent naming. For example, device and partition UUIDs are considered stable, and are used as a best practice in fstab and to discover Device Names. For more information about how to configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-dis.mdk#connect-to-the-linux-vm-to-mount-the-new-disk).
 
-The use of the [mount option
-*nofail*](http://www.man7.org/linux/man-pages/man5/fstab.5.html) for
-partitions on data disks in fstab is also recommended to prevent boot
-failures in Azure.
+The use of the [mount option *nofail*](http://www.man7.org/linux/man-pages/man5/fstab.5.html) for partitions on data disks in fstab is also recommended to prevent boot failures in Azure.
 
 When the Azure Linux agent is installed on a VM, it uses Udev rules to construct a set of symbolic links under **/dev/disk/azure**. These Udev rules can be used by applications and scripts to identify disks are attached to the VM, their type, and the LUN.
 
