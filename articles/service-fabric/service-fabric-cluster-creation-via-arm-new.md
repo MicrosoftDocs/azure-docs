@@ -53,7 +53,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 ## Set up a key vault
 This section discusses creating a key vault for a Service Fabric cluster in Azure and for Service Fabric applications. For a complete guide to Azure Key Vault, refer to the [Key Vault getting started guide][key-vault-get-started].
 
-Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use Key Vault to manage certificates for Service Fabric clusters in Azure. When a cluster ARM template is deployed, the Azure resource provider that's responsible for creating virtual machine scale sets, pulls certificates from Key Vault and installs them on the VMs. 
+Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use Key Vault to manage certificates for Service Fabric clusters in Azure. When a cluster AZure Resource Manager template is deployed, the Azure resource provider that's responsible for creating virtual machine scale sets, pulls certificates from Key Vault and installs them on the VMs. 
 
 The following diagram illustrates the relationship between Azure Key Vault, a Service Fabric cluster, and the Azure resource provider that uses certificates stored in a key vault when it creates a cluster:
 
@@ -454,7 +454,9 @@ The Azure AD configuration that you created earlier can be inserted directly int
 }
 ```
 
-### <a "configure-arm" ></a>Configure Resource Manager template parameters
+<a id="configure-arm"></a>
+
+### Configure Resource Manager template parameters
 Finally, use the output values from the key vault and Azure AD PowerShell commands to populate the parameters file:
 
 ```json
@@ -596,8 +598,6 @@ The certificate's subject name must match the domain that you use to access the 
 
 You can fill the parameters from the helper script in the Azure portal, as described in the [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) section.
 
-## Next steps
-At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
 ## Troubleshoot setting up Azure Active Directory for client authentication
 If you run into an issue while you're setting up Azure AD for client authentication, review the potential solutions in this section.
@@ -649,6 +649,9 @@ Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web
 
 ### Why do I still need a server certificate while Azure AD is enabled?
 FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used to verify the server identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
+
+## Next steps
+At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
