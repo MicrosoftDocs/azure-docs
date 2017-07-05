@@ -47,6 +47,13 @@ Status: July 2017
 
 * The Initialize-ADSyncDomainJoinedComputerSync cmdlet now has a new optional parameter named AzureADDomain. This parameter lets you specify which verified domain to be used for configuring the service connection point.
 
+### Pass-through Authentication
+
+#### New features and improvements
+* The name of the agent required for Pass-through Authentication has been changed from *Microsoft Azure AD Application Proxy Connector* to *Microsoft Azure AD Connect Authentication Agent*.
+
+* Enabling Pass-through Authentication no longer enables Password Hash Synchronization by default.
+
 
 ## 1.1.553.0
 Status: June 2017

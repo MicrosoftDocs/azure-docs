@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/07/2017
+ms.date: 7/05/2017
 ms.author: johnkem
 
 ---
@@ -85,8 +85,10 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|CoreCount|Core Count|Count|Total|Total number of cores in the batch account|
-|TotalNodeCount|Node Count|Count|Total|Total number of nodes in the batch account|
+|CoreCount|Dedicated Core Count|Count|Total|Total number of dedicated cores in the batch account|
+|TotalNodeCount|Dedicated Node Count|Count|Total|Total number of dedicated nodes in the batch account|
+|LowPriorityCoreCount|LowPriority Core Count|Count|Total|Total number of low-priority cores in the batch account|
+|TotalLowPriorityNodeCount|Low-Priority Node Count|Count|Total|Total number of low-priority nodes in the batch account|
 |CreatingNodeCount|Creating Node Count|Count|Total|Number of nodes being created|
 |StartingNodeCount|Starting Node Count|Count|Total|Number of nodes starting|
 |WaitingForStartTaskNodeCount|Waiting For Start Task Node Count|Count|Total|Number of nodes waiting for the Start Task to complete|
@@ -98,6 +100,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |RunningNodeCount|Running Node Count|Count|Total|Number of running nodes|
 |LeavingPoolNodeCount|Leaving Pool Node Count|Count|Total|Number of nodes leaving the Pool|
 |UnusableNodeCount|Unusable Node Count|Count|Total|Number of unusable nodes|
+|PreemptedNodeCount|Preempted Node Count|Count|Total|Number of preempted nodes|
 |TaskStartEvent|Task Start Events|Count|Total|Total number of tasks that have started|
 |TaskCompleteEvent|Task Complete Events|Count|Total|Total number of tasks that have completed|
 |TaskFailEvent|Task Fail Events|Count|Total|Total number of tasks that have completed in a failed state|
@@ -331,7 +334,30 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|CustomerInsightsApiCalls|CustomerInsightsApiCalls|Count|Total||
+|DCIApiCalls|Customer Insights API Calls|Count|Total||
+|DCIMappingImportOperationSuccessfulLines|Mapping Import Operation Successful Lines|Count|Total||
+|DCIMappingImportOperationFailedLines|Mapping Import Operation Failed Lines|Count|Total||
+|DCIMappingImportOperationTotalLines|Mapping Import Operation Total Lines|Count|Total||
+|DCIMappingImportOperationRuntimeInSeconds|Mapping Import Operation Runtime In Seconds|Seconds|Total||
+|DCIOutboundProfileExportSucceeded|Outbound Profile Export Succeeded|Count|Total||
+|DCIOutboundProfileExportFailed|Outbound Profile Export Failed|Count|Total||
+|DCIOutboundProfileExportDuration|Outbound Profile Export Duration|Seconds|Total||
+|DCIOutboundKpiExportSucceeded|Outbound Kpi Export Succeeded|Count|Total||
+|DCIOutboundKpiExportFailed|Outbound Kpi Export Failed|Count|Total||
+|DCIOutboundKpiExportDuration|Outbound Kpi Export Duration|Seconds|Total||
+|DCIOutboundKpiExportStarted|Outbound Kpi Export Started|Seconds|Total||
+|DCIOutboundKpiRecordCount|Outbound Kpi Record Count|Seconds|Total||
+|DCIOutboundProfileExportCount|Outbound Profile Export Count|Seconds|Total||
+|DCIOutboundInitialProfileExportFailed|Outbound Initial Profile Export Failed|Seconds|Total||
+|DCIOutboundInitialProfileExportSucceeded|Outbound Initial Profile Export Succeeded|Seconds|Total||
+|DCIOutboundInitialKpiExportFailed|Outbound Initial Kpi Export Failed|Seconds|Total||
+|DCIOutboundInitialKpiExportSucceeded|Outbound Initial Kpi Export Succeeded|Seconds|Total||
+|DCIOutboundInitialProfileExportDurationInSeconds|Outbound Initial Profile Export Duration In Seconds|Seconds|Total||
+|AdlaJobForStandardKpiFailed|Adla Job For Standard Kpi Failed In Seconds|Seconds|Total||
+|AdlaJobForStandardKpiTimeOut|Adla Job For Standard Kpi TimeOut In Seconds|Seconds|Total||
+|AdlaJobForStandardKpiCompleted|Adla Job For Standard Kpi Completed In Seconds|Seconds|Total||
+|ImportASAValuesFailed|Import ASA Values Failed Count|Count|Total||
+|ImportASAValuesSucceeded|Import ASA Values Succeeded Count|Count|Total||
 
 ## Microsoft.DataLakeAnalytics/accounts
 
@@ -485,11 +511,44 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BillableTriggerExecutions|Billable Trigger Executions|Count|Total|Number of workflow trigger executions getting billed.|
 |TotalBillableExecutions|Total Billable Executions|Count|Total|Number of workflow executions getting billed.|
 
+## Microsoft.Network/publicIPAddresses
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|PacketsInDDoS|Inbound packets DDoS|CountPerSecond|Total||
+|PacketsDroppedDDoS|Inbound packets dropped DDoS|CountPerSecond|Total||
+|PacketsForwardedDDoS|Inbound packets forwarded DDoS|CountPerSecond|Total||
+|TCPPacketsInDDoS|Inbound TCP packets DDoS|CountPerSecond|Total||
+|TCPPacketsDroppedDDoS|Inbound TCP packets dropped DDoS|CountPerSecond|Total||
+|TCPPacketsForwardedDDoS|Inbound TCP packets forwarded DDoS|CountPerSecond|Total||
+|UDPPacketsInDDoS|Inbound UDP packets DDoS|CountPerSecond|Total||
+|UDPPacketsDroppedDDoS|Inbound UDP packets dropped DDoS|CountPerSecond|Total||
+|UDPPacketsForwardedDDoS|Inbound UDP packets forwarded DDoS|CountPerSecond|Total||
+|BytesInDDoS|Inbound bytes DDoS|BytesPerSecond|Total||
+|BytesDroppedDDoS|Inbound bytes dropped DDoS|BytesPerSecond|Total||
+|BytesForwardedDDoS|Inbound TCP bytes forwarded DDoS|BytesPerSecond|Total||
+|TCPBytesInDDoS|Inbound TCP bytes DDoS|BytesPerSecond|Total||
+|TCPBytesDroppedDDoS|Inbound TCP bytes dropped DDoS|BytesPerSecond|Total||
+|TCPBytesForwardedDDoS|Inbound TCP bytes forwarded DDoS|BytesPerSecond|Total||
+|UDPBytesInDDoS|Inbound UDP bytes DDoS|BytesPerSecond|Total||
+|UDPBytesDroppedDDoS|Inbound UDP bytes dropped DDoS|BytesPerSecond|Total||
+|UDPBytesForwardedDDoS|Inbound UDP bytes forwarded DDoS|BytesPerSecond|Total||
+|IfUnderDDoSAttack|Under DDoS attack or not|Count|Total||
+|DDoSTriggerTCPPackets|Inbount TCP packets to trigger DDoS mitigation|CountPerSecond|Total||
+|DDoSTriggerUDPPackets|Inbount UDP packets to trigger DDoS mitigation|CountPerSecond|Total||
+
 ## Microsoft.Network/applicationGateways
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Average||
+
+## Microsoft.Network/expressRouteCircuits
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|BytesIn|BytesIn|Count|Total||
+|BytesOut|BytesOut|Count|Total||
 
 ## Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -554,10 +613,55 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |outgoing.mpns.dropped|MPNS Dropped Notifications|Count|Total|The count of pushes that were dropped by MPNS (MPNS response header: X-NotificationStatus: QueueFull or Suppressed).|
 |outgoing.mpns.pnserror|MPNS Errors|Count|Total|The count of pushes that failed because of errors communicating with MPNS.|
 |outgoing.mpns.authenticationerror|MPNS Authentication Errors|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|
-|notificationhub.devices|Notification Hub Devices|Count|Average|The device count of the notification hub|
-|notificationhub.pushes|Notification Hub Push Notifications|Count|Total|The count of push notifications in the notification hub|
+|notificationhub.pushes|All Outgoing Notifications|Count|Total|All outgoing notifications of the notification hub|
 |incoming.all.requests|All Incoming Requests|Count|Total|Total incoming requests for a notification hub|
 |incoming.all.failedrequests|All Incoming Failed Requests|Count|Total|Total incoming failed requests for a notification hub|
+
+## Microsoft.PowerBIDedicated/capacities
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|qpu_metric|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|
+|memory_metric|Memory|Bytes|Average|Memory. Range 0-25 GB for S1, 0-50 GB for S2 and 0-100 GB for S4|
+|TotalConnectionRequests|Total Connection Requests|Count|Average|Total connection requests. These are arrivals.|
+|SuccessfullConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|
+|TotalConnectionFailures|Total Connection Failures|Count|Average|Total failed connection attempts.|
+|CurrentUserSessions|Current User Sessions|Count|Average|Current number of user sessions established.|
+|QueryPoolBusyThreads|Query Pool Busy Threads|Count|Average|Number of busy threads in the query thread pool.|
+|CommandPoolJobQueueLength|Command Pool Job Queue Length|Count|Average|Number of jobs in the queue of the command thread pool.|
+|ProcessingPoolJobQueueLength|Processing Pool Job Queue Length|Count|Average|Number of non-I/O jobs in the queue of the processing thread pool.|
+|CurrentConnections|Connection: Current connections|Count|Average|Current number of client connections established.|
+|CleanerCurrentPrice|Memory: Cleaner Current Price|Count|Average|Current price of memory, $/byte/time, normalized to 1000.|
+|CleanerMemoryShrinkable|Memory: Cleaner Memory shrinkable|Bytes|Average|Amount of memory, in bytes, subject to purging by the background cleaner.|
+|CleanerMemoryNonshrinkable|Memory: Cleaner Memory nonshrinkable|Bytes|Average|Amount of memory, in bytes, not subject to purging by the background cleaner.|
+|MemoryUsage|Memory: Memory Usage|Bytes|Average|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory which was mapped or allocated by the xVelocity in-memory analytics engine (VertiPaq) in excess of the xVelocity engine Memory Limit.|
+|MemoryLimitHard|Memory: Memory Limit Hard|Bytes|Average|Hard memory limit, from configuration file.|
+|MemoryLimitHigh|Memory: Memory Limit High|Bytes|Average|High memory limit, from configuration file.|
+|MemoryLimitLow|Memory: Memory Limit Low|Bytes|Average|Low memory limit, from configuration file.|
+|MemoryLimitVertiPaq|Memory: Memory Limit VertiPaq|Bytes|Average|In-memory limit, from configuration file.|
+|Quota|Memory: Quota|Bytes|Average|Current memory quota, in bytes. Memory quota is also known as a memory grant or memory reservation.|
+|QuotaBlocked|Memory: Quota Blocked|Count|Average|Current number of quota requests that are blocked until other memory quotas are freed.|
+|VertiPaqNonpaged|Memory: VertiPaq Nonpaged|Bytes|Average|Bytes of memory locked in the working set for use by the in-memory engine.|
+|VertiPaqPaged|Memory: VertiPaq Paged|Bytes|Average|Bytes of paged memory in use for in-memory data.|
+|RowsReadPerSec|Processing: Rows read per sec|CountPerSecond|Average|Rate of rows read from all relational databases.|
+|RowsConvertedPerSec|Processing: Rows converted per sec|CountPerSecond|Average|Rate of rows converted during processing.|
+|RowsWrittenPerSec|Processing: Rows written per sec|CountPerSecond|Average|Rate of rows written during processing.|
+|CommandPoolBusyThreads|Threads: Command pool busy threads|Count|Average|Number of busy threads in the command thread pool.|
+|CommandPoolIdleThreads|Threads: Command pool idle threads|Count|Average|Number of idle threads in the command thread pool.|
+|LongParsingBusyThreads|Threads: Long parsing busy threads|Count|Average|Number of busy threads in the long parsing thread pool.|
+|LongParsingIdleThreads|Threads: Long parsing idle threads|Count|Average|Number of idle threads in the long parsing thread pool.|
+|LongParsingJobQueueLength|Threads: Long parsing job queue length|Count|Average|Number of jobs in the queue of the long parsing thread pool.|
+|ProcessingPoolBusyIOJobThreads|Threads: Processing pool busy I/O job threads|Count|Average|Number of threads running I/O jobs in the processing thread pool.|
+|ProcessingPoolBusyNonIOThreads|Threads: Processing pool busy non-I/O threads|Count|Average|Number of threads running non-I/O jobs in the processing thread pool.|
+|ProcessingPoolIOJobQueueLength|Threads: Processing pool I/O job queue length|Count|Average|Number of I/O jobs in the queue of the processing thread pool.|
+|ProcessingPoolIdleIOJobThreads|Threads: Processing pool idle I/O job threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|
+|ProcessingPoolIdleNonIOThreads|Threads: Processing pool idle non-I/O threads|Count|Average|Number of idle threads in the processing thread pool dedicated to non-I/O jobs.|
+|QueryPoolIdleThreads|Threads: Query pool idle threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|
+|QueryPoolJobQueueLength|Threads: Query pool job queue lengt|Count|Average|Number of jobs in the queue of the query thread pool.|
+|ShortParsingBusyThreads|Threads: Short parsing busy threads|Count|Average|Number of busy threads in the short parsing thread pool.|
+|ShortParsingIdleThreads|Threads: Short parsing idle threads|Count|Average|Number of idle threads in the short parsing thread pool.|
+|ShortParsingJobQueueLength|Threads: Short parsing job queue length|Count|Average|Number of jobs in the queue of the short parsing thread pool.|
+|memory_thrashing_metric|Memory Thrashing|Percent|Average|Average memory thrashing.|
 
 ## Microsoft.Search/searchServices
 
@@ -602,17 +706,33 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
 |cpu_percent|CPU percentage|Percent|Average|CPU percentage|
+|database_cpu_percent|CPU percentage|Percent|Average|CPU percentage|
 |physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|
+|database_physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|
 |log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|
+|database_log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|
 |dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
+|database_dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
 |storage_percent|Storage percentage|Percent|Average|Storage percentage|
 |workers_percent|Workers percentage|Percent|Average|Workers percentage|
+|database_workers_percent|Workers percentage|Percent|Average|Workers percentage|
 |sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|
+|database_sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|
 |eDTU_limit|eDTU limit|Count|Average|eDTU limit|
 |storage_limit|Storage limit|Bytes|Average|Storage limit|
 |eDTU_used|eDTU used|Count|Average|eDTU used|
 |storage_used|Storage used|Bytes|Average|Storage used|
+|database_storage_used|Storage used|Bytes|Average|Storage used|
 |xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|
+
+## Microsoft.Sql/servers
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
+|database_dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
+|storage_used|Storage used|Bytes|Average|Storage used|
+|database_storage_used|Storage used|Bytes|Average|Storage used|
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
