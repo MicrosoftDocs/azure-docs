@@ -47,7 +47,7 @@ The use of the [mount option *nofail*](http://www.man7.org/linux/man-pages/man5/
 
 When the Azure Linux agent is installed on a VM, it uses Udev rules to construct a set of symbolic links under **/dev/disk/azure**. These Udev rules can be used by applications and scripts to identify disks are attached to the VM, their type, and the LUN.
 
-## MORE INFORMATION
+## More Information
 
 A script or application can read the output of blkid, or similar sources of information, and construct symbolic links under **/dev** for use. The output will show the UUIDs of all disks attached to the VM and the device file to which they are associated:
 
