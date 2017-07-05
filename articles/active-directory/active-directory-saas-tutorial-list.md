@@ -239,12 +239,12 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Optimizely.png)| [Optimizely](active-directory-saas-optimizely-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-origami-tutorial.png)| [Origami](active-directory-saas-origami-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-overdrive-books-tutorial.png)| [Overdrive Books](active-directory-saas-overdrive-books-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-pacific-timesheet-tutorial)| [Pacific Timesheet](active-directory-saas-pacific-timesheet-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-pacific-timesheet-tutorial.png)| [Pacific Timesheet](active-directory-saas-pacific-timesheet-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PagerDuty.png)| [Pagerduty](active-directory-saas-pagerduty-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-panopto-tutorial.png)| [Panopto](active-directory-saas-panopto-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Panorama9.png)| [Panorama9](active-directory-saas-panorama9-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-pantheon-tutorial.png)| [Pantheon](active-directory-saas-pantheon-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-people-tutorial)| [People](active-directory-saas-people-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-people-tutorial.png)| [People](active-directory-saas-people-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-performancecentre-tutorial.png)| [PerformanceCentre](active-directory-saas-performancecentre-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Picturepark.png)| [Picturepark](active-directory-saas-picturepark-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Pingboard.png)| [Pingboard](active-directory-saas-PingBoard-tutorial.md)
