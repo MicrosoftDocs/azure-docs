@@ -61,7 +61,7 @@ We recommend using the Anniversary Update for enabling the scenarios above.
           KeyProvider : Microsoft Platform Crypto Provider
          TpmProtected : YES
          KeySignTest: : MUST Run elevated to test.
-                  Idp : login.windows.net
+                  Idp : login.microsoftonline.com
              TenantId : 72b988bf-86f1-41af-91ab-2d7cd011db47
            TenantName : Contoso
           AuthCodeUrl : https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize
