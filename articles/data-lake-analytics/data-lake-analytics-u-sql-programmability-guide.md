@@ -74,9 +74,11 @@ The following example demonstrates how you can do a datetime data conversion by 
 
 ```
 DECLARE @dt String = "2016-07-06 10:23:15";
+
 @rs1 =
-    SELECT Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
-           dt AS olddt
+    SELECT 
+    	Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
+        dt AS olddt
     FROM @rs0;
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
@@ -94,13 +96,13 @@ Here's an example of how to use this expression in a script:
 @rs1 =
     SELECT
         MAX(guid) AS start_id,
-	    MIN(dt) AS start_time,
+        MIN(dt) AS start_time,
         MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
         MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
         DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
         user,
         des
-	FROM @rs0
+    FROM @rs0
     GROUP BY user, des;
 ```
 
@@ -262,10 +264,10 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
 	EXTRACT
-        guid Guid,
+            guid Guid,
 	    dt DateTime,
-        user String,
-        des String
+            user String,
+            des String
 	FROM @input_file USING Extractors.Tsv();
 
 DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
@@ -273,15 +275,17 @@ DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 @rs1 =
     SELECT
         MAX(guid) AS start_id,
-	    MIN(dt) AS start_time,
+	MIN(dt) AS start_time,
         MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
         MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
         user,
         des
-	FROM @rs0
+    FROM @rs0
     GROUP BY user, des;
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 
+    TO @output_file 
+    USING Outputters.Text();
 ```
 
 Following is the output file of the script execution:
@@ -330,22 +334,16 @@ namespace USQLApplication21
             if (!string.IsNullOrEmpty(PreviousRow))
             {
                 double timeGap = Convert.ToDateTime(eventTime).Subtract(Convert.ToDateTime(PreviousRow)).TotalMinutes;
-                if (timeGap <= 60)
-                    return Session;
-                else
-                    return Guid.NewGuid().ToString();
+                if (timeGap <= 60) {return Session;}
+                else {return Guid.NewGuid().ToString();}
             }
-            else
-                return Guid.NewGuid().ToString();
+            else {return Guid.NewGuid().ToString();}
 
         }
 
         static public string getStampUserSession(string Session)
         {
-            if (Session != globalSession && !string.IsNullOrEmpty(Session))
-            {
-                globalSession = Session;
-            }
+            if (Session != globalSession && !string.IsNullOrEmpty(Session)) { globalSession = Session; }
             return globalSession;
         }
 
@@ -373,32 +371,36 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
     USING Extractors.Tsv();
 
 @rs1 =
-    SELECT EventDateTime,
-           UserName,
-LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,          
-           string.IsNullOrEmpty(LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
-           USQLApplication21.UserSession.StampUserSession
+    SELECT 
+        EventDateTime,
+        UserName,
+	LAG(EventDateTime, 1) 
+		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,          
+        string.IsNullOrEmpty(LAG(EventDateTime, 1) 
+		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
+        USQLApplication21.UserSession.StampUserSession
            (
            	EventDateTime,
            	LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
            	LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
-           )
-           AS UserSessionTimestamp
+           ) AS UserSessionTimestamp
     FROM @records;
 
 @rs2 =
-    SELECT EventDateTime,
-           UserName,
-           LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
-           string.IsNullOrEmpty(LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,
-           USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp) AS UserSessionTimestamp
+    SELECT 
+    	EventDateTime,
+        UserName,
+        LAG(EventDateTime, 1) 
+		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
+        string.IsNullOrEmpty( LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,
+        USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp) AS UserSessionTimestamp
     FROM @rs1
     WHERE UserName != "UserName";
 
 OUTPUT @rs2
-TO @out2
-ORDER BY UserName, EventDateTime ASC
-USING Outputters.Csv();
+    TO @out2
+    ORDER BY UserName, EventDateTime ASC
+    USING Outputters.Csv();
 ```
 
 Function `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` is called here during the second memory rowset calculation. It passes the `UserSessionTimestamp` column and returns the value until `UserSessionTimestamp` has changed.
@@ -444,10 +446,13 @@ If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as show
 
 ```
 @rs1 =
-    SELECT MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
+    SELECT 
+    	MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
     FROM @rs0;
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 
+    TO @output_file 
+    USING Outputters.Text();
 ```
 
 We receive the following error:
@@ -490,9 +495,9 @@ To define a UDT, we have to:
 
 * Add the following namespaces:
 
-```c#
-	using Microsoft.Analytics.Interfaces
-	using System.IO;
+```
+using Microsoft.Analytics.Interfaces
+using System.IO;
 ```
 
 * Add `Microsoft.Analytics.Interfaces`, which is required for the UDT interfaces. In addition, `System.IO` might be needed to define the IFormatter interface.
@@ -512,9 +517,7 @@ The constructor of the class:
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
 public class MyType
-{
-…
-}
+{ … }
 ```
 
 * Typical UDT also requires definition of the IFormatter interface, as shown in the following example:
@@ -522,17 +525,11 @@ public class MyType
 ```
 public class MyTypeFormatter : IFormatter<MyType>
 {
-    public void Serialize(MyType instance, IColumnWriter writer,
-		   ISerializationContext context)
-    {
-	…
-    }
+    public void Serialize(MyType instance, IColumnWriter writer, ISerializationContext context)
+    { … }
 
-    public MyType Deserialize(IColumnReader reader,
-			  ISerializationContext context)
-    {
-	…
-    }
+    public MyType Deserialize(IColumnReader reader, ISerializationContext context)
+    { … }
 }
 ```
 
@@ -636,7 +633,7 @@ return new FiscalPeriod((c1.Quarter + c2.Quarter) > 4 ? (c1.Quarter + c2.Quarter
 
 public class FiscalPeriodFormatter : IFormatter<FiscalPeriod>
 {
-public void Serialize(FiscalPeriod instance, IColumnWriter writer, ISerializationContext context)
+    public void Serialize(FiscalPeriod instance, IColumnWriter writer, ISerializationContext context)
     {
 	using (var binaryWriter = new BinaryWriter(writer.BaseStream))
 	{
@@ -646,7 +643,7 @@ public void Serialize(FiscalPeriod instance, IColumnWriter writer, ISerializatio
 	}
     }
 
-public FiscalPeriod Deserialize(IColumnReader reader, ISerializationContext context)
+    public FiscalPeriod Deserialize(IColumnReader reader, ISerializationContext context)
     {
 	using (var binaryReader = new BinaryReader(reader.BaseStream))
 	{
@@ -708,25 +705,27 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
 
 @rs0 =
 	EXTRACT
-        guid string,
+	    guid string,
 	    dt DateTime,
-        user String,
-        des String
+	    user String,
+	    des String
 	FROM @input_file USING Extractors.Tsv();
 
 @rs1 =
-    SELECT guid AS start_id,
-           dt,
-           DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
-           USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).Quarter AS fiscalquarter,
-           USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).Month AS fiscalmonth,
-           USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt) + new USQL_Programmability.CustomFunctions.FiscalPeriod(1,7) AS fiscalperiod_adjusted,
-           user,
-           des
+    SELECT 
+    	guid AS start_id,
+        dt,
+        DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
+        USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).Quarter AS fiscalquarter,
+        USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).Month AS fiscalmonth,
+        USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt) + new USQL_Programmability.CustomFunctions.FiscalPeriod(1,7) AS fiscalperiod_adjusted,
+        user,
+        des
     FROM @rs0;
 
 @rs2 =
-    SELECT start_id,
+    SELECT 
+    	   start_id,
            dt,
            DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
            fiscalquarter,
@@ -739,7 +738,9 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            des
     FROM @rs1;
 
-OUTPUT @rs2 TO @output_file USING Outputters.Text();
+OUTPUT @rs2 
+	TO @output_file 
+	USING Outputters.Text();
 ```
 
 Here's an example of a full code-behind section:
@@ -898,7 +899,6 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
                 }
             }
         }
-
     }
 }
 ```
@@ -930,23 +930,16 @@ The base class allows you to pass three abstract parameters: two as input parame
 ```
 public class GuidAggregate : IAggregate<string, string, string>
 {
-string guid_agg;
+	string guid_agg;
 
-public override void Init()
-{
-	…
-}
+	public override void Init()
+	{ … }
 
-public override void Accumulate(string guid, string user)
-{
-	…
-}
+	public override void Accumulate(string guid, string user)
+	{ … }
 
-public override string Terminate()
-{
-	…
-}
-
+	public override string Terminate()
+	{ … }
 }
 ```
 
@@ -990,25 +983,25 @@ Here is an example of UDAGG:
 ```
 public class GuidAggregate : IAggregate<string, string, string>
 {
-string guid_agg;
+	string guid_agg;
 
-public override void Init()
-{
-    guid_agg = "";
-}
+	public override void Init()
+	{
+	    guid_agg = "";
+	}
 
-public override void Accumulate(string guid, string user)
-{
-    if (user.ToUpper()== "USER1")
-    {
-	guid_agg += "{" + guid + "}";
-    }
-}
+	public override void Accumulate(string guid, string user)
+	{
+	    if (user.ToUpper()== "USER1")
+	    {
+		guid_agg += "{" + guid + "}";
+	    }
+	}
 
-public override string Terminate()
-{
-    return guid_agg;
-}
+	public override string Terminate()
+	{
+	    return guid_agg;
+	}
 
 }
 ```
@@ -1021,17 +1014,18 @@ DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
 
 @rs0 =
 	EXTRACT
-        guid string,
+            guid string,
 	    dt DateTime,
-        user String,
-        des String
-	FROM @input_file USING Extractors.Tsv();
+            user String,
+            des String
+	FROM @input_file 
+	USING Extractors.Tsv();
 
 @rs1 =
     SELECT
         user,
         AGG<USQL_Programmability.GuidAggregate>(guid,user) AS guid_list
-	FROM @rs0
+    FROM @rs0
     GROUP BY user;
 
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
@@ -1096,21 +1090,16 @@ It can be useful to develop a custom extractor. This can be helpful during data 
 
 To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, and encoding, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for the `IEnumerable<IRow>` override as follows:
 
-```c#
-     [SqlUserDefinedExtractor]
-     public class SampleExtractor : IExtractor
-     {
-         public SampleExtractor(string row_delimiter, char col_delimiter)
-         {
-            …
+```
+[SqlUserDefinedExtractor]
+public class SampleExtractor : IExtractor
+{
+	 public SampleExtractor(string row_delimiter, char col_delimiter)
+	 { … }
 
-         }
-
-         public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
-         {
-             …
-         }
-     }
+	 public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
+	 { … }
+}
 ```
 
 The **SqlUserDefinedExtractor** attribute indicates that the type should be registered as a user-defined extractor. This class cannot be inherited.
@@ -1143,9 +1132,7 @@ foreach (Stream current in input.Split(my_row_delimiter))
 …
 	string[] parts = line.Split(my_column_delimiter);
 	foreach (string part in parts)
-	{
-	…
-	}
+	{ … }
 }
 ```
 
@@ -1165,56 +1152,56 @@ Following is the extractor example:
 [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
 public class FullDescriptionExtractor : IExtractor
 {
- private Encoding _encoding;
- private byte[] _row_delim;
- private char _col_delim;
+	 private Encoding _encoding;
+	 private byte[] _row_delim;
+	 private char _col_delim;
 
-public FullDescriptionExtractor(Encoding encoding, string row_delim = "\r\n", char col_delim = '\t')
-{
-     this._encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
-     this._row_delim = this._encoding.GetBytes(row_delim);
-     this._col_delim = col_delim;
+	public FullDescriptionExtractor(Encoding encoding, string row_delim = "\r\n", char col_delim = '\t')
+	{
+	     this._encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
+	     this._row_delim = this._encoding.GetBytes(row_delim);
+	     this._col_delim = col_delim;
 
-}
+	}
 
-public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
-{
-     string line;
-     //Read the input line by line
-     foreach (Stream current in input.Split(_encoding.GetBytes("\r\n")))
-     {
-	using (System.IO.StreamReader streamReader = new StreamReader(current, this._encoding))
-	 {
-	     line = streamReader.ReadToEnd().Trim();
-	     //Split the input by the column delimiter
-	     string[] parts = line.Split(this._col_delim);
-	     int count = 0; // start with first column
-	     foreach (string part in parts)
+	public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
+	{
+	     string line;
+	     //Read the input line by line
+	     foreach (Stream current in input.Split(_encoding.GetBytes("\r\n")))
 	     {
-if (count == 0)
-		 {  // for column “guid”, re-generated guid
-		     Guid new_guid = Guid.NewGuid();
-		     output.Set<Guid>(count, new_guid);
-		 }
-		 else if (count == 2)
+		using (System.IO.StreamReader streamReader = new StreamReader(current, this._encoding))
 		 {
-		     // for column “user”, convert to UPPER case
-		     output.Set<string>(count, part.ToUpper());
+		     line = streamReader.ReadToEnd().Trim();
+		     //Split the input by the column delimiter
+		     string[] parts = line.Split(this._col_delim);
+		     int count = 0; // start with first column
+		     foreach (string part in parts)
+		     {
+	if (count == 0)
+			 {  // for column “guid”, re-generated guid
+			     Guid new_guid = Guid.NewGuid();
+			     output.Set<Guid>(count, new_guid);
+			 }
+			 else if (count == 2)
+			 {
+			     // for column “user”, convert to UPPER case
+			     output.Set<string>(count, part.ToUpper());
+
+			 }
+			 else
+			 {
+			     // keep the rest of the columns as-is
+			     output.Set<string>(count, part);
+			 }
+			 count += 1;
+		     }
 
 		 }
-		 else
-		 {
-		     // keep the rest of the columns as-is
-		     output.Set<string>(count, part);
-		 }
-		 count += 1;
+		 yield return output.AsReadOnly();
 	     }
-
+	     yield break;
 	 }
-	 yield return output.AsReadOnly();
-     }
-     yield break;
- }
 }
 ```
 
@@ -1228,12 +1215,12 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
 	EXTRACT
-        guid Guid,
-	    dt String,
-        user String,
-        des String
+            guid Guid,
+ 	    dt String,
+            user String,
+            des String
 	FROM @input_file
-    USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
+        USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
 OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ```
@@ -1259,10 +1246,10 @@ Following is the base `IOutputter` class implementation:
 ```
 public abstract class IOutputter : IUserDefinedOperator
 {
-protected IOutputter();
+	protected IOutputter();
 
-public virtual void Close();
-public abstract void Output(IRow input, IUnstructuredWriter output);
+	public virtual void Close();
+	public abstract void Output(IRow input, IUnstructuredWriter output);
 }
 ```
 
@@ -1477,14 +1464,16 @@ DECLARE @output_file string = @"\usql-programmability\output_file.html";
 
 @rs0 =
 	EXTRACT
-        guid Guid,
+            guid Guid,
 	    dt String,
-        user String,
-        des String
-	FROM @input_file
-    USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
+            user String,
+            des String
+         FROM @input_file
+         USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
-OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
+OUTPUT @rs0 
+	TO @output_file 
+	USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
 This is an HTML outputter, which creates an HTML file with table data.
@@ -1591,10 +1580,10 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
 	EXTRACT
-        guid Guid,
+            guid Guid,
 	    dt String,
-        user String,
-        des String
+            user String,
+            des String
 	FROM @input_file USING Extractors.Tsv();
 
 @rs1 =
@@ -1641,16 +1630,15 @@ To define a user-defined applier, we need to create the `IApplier` interface wit
 [SqlUserDefinedApplier]
 public class ParserApplier : IApplier
 {
+	public ParserApplier()
+	{
+		…
+	}
 
-public ParserApplier()
-{
-	…
-}
-
-public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
-{
-	…
-}
+	public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
+	{
+		…
+	}
 }
 ```
 
@@ -2207,11 +2195,12 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
 	EXTRACT
-        guid string,
+            guid string,
 	    dt DateTime,
-        user String,
-        des String
-	FROM @input_file USING Extractors.Tsv();
+            user String,
+            des String
+	FROM @input_file 
+	USING Extractors.Tsv();
 
 @rs1 =
     REDUCE @rs0 PRESORT guid
@@ -2228,5 +2217,7 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
            des
     FROM @rs1;
 
-OUTPUT @rs2 TO @output_file USING Outputters.Text();
+OUTPUT @rs2 
+	TO @output_file 
+	USING Outputters.Text();
 ```

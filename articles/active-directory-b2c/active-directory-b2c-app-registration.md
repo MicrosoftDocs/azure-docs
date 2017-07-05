@@ -47,7 +47,7 @@ You can also access the blade by clicking **More services** and then searching *
 1. Click **+Add** at the top of the blade.
 1. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
 1. Toggle the **Include web app / web API** switch to **Yes**.
-1. Enter [a proper](#choosing-a-web-app/api-reply-url) value for the **Reply URLs**, which are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
+1. Enter [a proper](#limitations) value for the **Reply URLs**, which are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
 1. Click **Create** to register your application.
 1. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 1. If your web application will also be calling a web API secured by Azure AD B2C, you'll want to:
