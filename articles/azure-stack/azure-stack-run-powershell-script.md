@@ -108,7 +108,7 @@ To deploy the development kit, you must complete the following steps:
     - If it says **An update cannot be downloaded**, follow the instructions on the page.
     - When it says **Completed**, click **Next**.
 10. On **Summary** page, click **Deploy**.
-11. If you're using an Azure Active Directory deployment, you'll be asked to enter your Azure credentials global account.
+11. If you're using an Azure Active Directory deployment, you'll be asked to enter your Azure Active Directory global administrator account credentials.
 12. The deployment process can take a few hours, during which the system automatically reboots once.
    
    > [!IMPORTANT]
