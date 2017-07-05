@@ -107,6 +107,7 @@
 ## Use Kafka (Preview)
 ### [Replicate Kafka data](hdinsight-apache-kafka-mirroring.md)
 ### [Configure storage and scalability of Kafka](hdinsight-apache-kafka-scalability.md)
+### [Configure high availability of data](hdinsight-apache-kafka-high-availability.md)
 ### [Use with Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Use with Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Use with Spark (DStream)](hdinsight-apache-spark-with-kafka.md)
