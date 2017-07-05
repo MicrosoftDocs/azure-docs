@@ -56,17 +56,11 @@ The use of the [mount option
 partitions on data disks in fstab is also recommended to prevent boot
 failures in Azure.
 
-When the Azure Linux agent is installed on a VM, it uses
-Udev rules to construct a set of symbolic links under **/dev/disk/azure**.
-These Udev rules can be used by applications and scripts to determine
-what disks are attached to the VM, their type, and the LUN.
+When the Azure Linux agent is installed on a VM, it uses Udev rules to construct a set of symbolic links under **/dev/disk/azure**. These Udev rules can be used by applications and scripts to identify disks are attached to the VM, their type, and the LUN.
 
 ## MORE INFORMATION
 
-A script or application can read the output of blkid, or similar sources
-of information, and construct symbolic links under **/dev** for use. The
-output will show the UUIDs of all disks attached to the VM and the
-device file to which they are associated:
+A script or application can read the output of blkid, or similar sources of information, and construct symbolic links under **/dev** for use. The output will show the UUIDs of all disks attached to the VM and the device file to which they are associated:
 
     **$ sudo blkid -s UUID**
 
@@ -76,8 +70,7 @@ device file to which they are associated:
     /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
     /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
 
-The waagent udev rules construct a set of symbolic links under
-/dev/disk/azure:
+The waagent udev rules construct a set of symbolic links under **/dev/disk/azure**:
 
 
     $ ls -l /dev/disk/azure**
@@ -92,19 +85,14 @@ The waagent udev rules construct a set of symbolic links under
 
 The application can use this information identify the boot disk device and the resource (ephemeral) disk. In Azure, applications should refer to **/dev/disk/azure/root-part1** or **/dev/disk/azure-resource-part1** to discover these partitions.
 
-If there are additional partitions from the blkid list, they reside on a
-data disk. Applications can persist the UUID for these partitions and
-use a path like the below to discover the device name at runtime:
+If there are additional partitions from the blkid list, they reside on a data disk. Applications can persist the UUID for these partitions and use a path like the below to discover the device name at runtime:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
     ----------------an example of the output from this command ------------------
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-Alternatively, an application could use LUNs for the purpose of finding
-all the attached disks and constructing symbolic links. The Azure Linux
-agent now comes with udev rules that set up symbolic links from LUN to
-the devices:
+Alternatively, an application could use LUNs for the purpose of finding all the attached disks and constructing symbolic links. The Azure Linux agent now comes with udev rules that set up symbolic links from LUN to the devices:
 
     $ tree /dev/disk/azure
 
@@ -123,8 +111,7 @@ the devices:
         └── lun1-part3 -> ../../../sdd3                                    
                                  
 
-LUN information can also be retrieved from the Linux guest using lsscsi
-or similar tooling.
+LUN information can also be retrieved from the Linux guest using lsscsi or similar tooling.
 
        sudo lsscsi
     ----------------an example of the output from this command ------------------
@@ -138,9 +125,7 @@ or similar tooling.
 
       \[5:0:0:1\] disk Msft Virtual Disk 1.0 /dev/sdd
 
-This guest LUN information can be used with Azure subscription metadata
-to determine the location in Azure storage of the VHD which stores the
-partition data. For example, using the az cli:
+This guest LUN information can be used with Azure subscription metadata to identify the location in Azure storage of the VHD which stores the partition data. For example, using the az cli:
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks                                        
     [                                                                                                                                                                  
