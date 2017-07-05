@@ -35,7 +35,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 
 The features covered in this article are configured in the Azure Multi-Factor Authentication Management Portal. There are two ways to access the MFA management portal through the Azure classic portal. The first is by managing a Multi-Factor Auth Provider. The second is via the MFA service settings. 
 
-### Use an Auth Provider
+### Use an Authentication Provider
 
 If you use a Multi-Factor Auth Provider for consumption-based MFA, use this method to access the management portal.
 
@@ -43,7 +43,7 @@ To access the MFA Management Portal via an Azure Multi-Factor Auth Provider, sig
 
 ### Use the MFA Service Settings page 
 
-If you have a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility + Security license, use this method to access the MFA service settings page .
+If you have a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility + Security license, use this method to access the MFA service settings page:
 
 To access the MFA Management Portal via the MFA Service Settings page, sign into the Azure classic portal as an administrator and select the Active Directory option. Click on your directory and then click the **Configure** tab. Under the multi-factor authentication section, select **Manage service settings**. At the bottom of the MFA Service Settings page, click the **Go to the portal** link.
 
@@ -143,7 +143,7 @@ To upload your custom message:
 9. Add a Description and click **Upload**.
 10. Once this completes, a message confirms that you have successfully uploaded the file.
 
-To turn the message on for your users:
+To turn on the messages for your users:
 
 1. On the left, click **Voice Messages**.
 2. Under the Voice Messages section, click **New Voice Message**.
@@ -169,12 +169,12 @@ Caching is not intended to be used for sign-ins to Azure AD.
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## Trusted IPs
-Trusted IPs is a feature of Azure MFA that administrators of a managed or federated tenant can use to bypass two-step verification for users that are signing in from the company’s local intranet. This feature is available with the full version of Azure Multi-Factor Authentication, not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
+Trusted IPs is a feature of Azure MFA that administrators of a managed or federated tenant can use to bypass two-step verification. This is used for users that are signing in from the company’s local intranet. This feature is available with the full version of Azure Multi-Factor Authentication, not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 | Type of Azure AD Tenant | Available Trusted IP options |
 |:--- |:--- |
 | Managed |<li>Specific IP address ranges – Administrators can specify a range of IP addresses that can bypass two-step verification for users that are signing in from the company’s intranet.</li> |
-| Federated |<li>All Federated Users - All federated users who are signing in from inside the organization will bypass two-step verification using a claim issued by AD FS.</li><br><li>Specific IP address ranges – Administrators can specify a range of IP addresses that can bypass two-step verification for users that are signing in from the company’s intranet. |
+| Federated |<li>All Federated Users - All federated users who are signing in from inside the organization has to bypass two-step verification using a claim issued by AD FS.</li><br><li>Specific IP address ranges – Administrators can specify a range of IP addresses that can bypass two-step verification for users that are signing in from the company’s intranet. |
 
 This bypass only works from inside a company’s intranet. For example, if you selected all federated users, and a user signs in from outside the company’s intranet, that user has to authenticate using two-step verification even if the user presents an AD FS claim. 
 
@@ -193,7 +193,7 @@ Whether Trusted IPs is enabled or not, two-step verification is required for bro
 2. Navigate to the MFA Service Settings page per the instructions at the beginning of this article.
 3. On the Service Settings page, under Trusted IPs, you have two options:
    
-   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS.
+   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network bypasses two-step verification using a claim issued by AD FS.
    * **For requests from a specific range of public IPs** – Enter the IP addresses in the text box provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
 4. Click **Save**.
 5. Once the updates have been applied, click **Close**.
@@ -215,7 +215,7 @@ The following is an important list of things that you should know about app pass
 * The actual password is automatically generated and is not supplied by the user. This is because the automatically generated password is harder for an attacker to guess and is more secure.
 * There is a limit of 40 passwords per user. 
 * Apps which cache passwords and use it in on-premises scenarios might start failing since the app password isn't known outside of the organizational id. An example is Exchange emails that are on-premises but the archived mail is in the cloud. The same password doesn't work.
-* Once multi-factor authentication is enabled on a user's account, app passwords can be used with most non-browser clients such as Outlook and Lync, but administrative actions cannot be performed using app passwords through non-browser applications such as Windows PowerShell even if that user has an administrative account.  Ensure you create a service account with a strong password to run PowerShell scripts and do not enable that account for two-step verification.
+* Once multi-factor authentication is enabled on a user's account, app passwords can be used with most non-browser clients such as Outlook and Lync. Administrative actions cannot be done using app passwords through non-browser applications such as Windows PowerShell even if that user has an administrative account. Ensure you create a service account with a strong password to run PowerShell scripts and do not enable that account for two-step verification.
 
 > [!WARNING]
 > App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints. This is because domain passwords are required to authenticate on-premises and app passwords are required to authenticate with the cloud.
@@ -269,7 +269,7 @@ However, if an account or device is compromised, remembering MFA for trusted dev
 
 ### How it works
 
-Remembering Multi-Factor Authentication works by setting a persistent cookie on the browser when a user checks the "Don't ask again for **X** days" box at sign-in. The user won't be prompted for MFA again from that broswer until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they are prompted to verify again. 
+Remembering Multi-Factor Authentication works by setting a persistent cookie on the browser when a user checks the "Don't ask again for **X** days" box at sign-in. The user will not be prompted for MFA again from that browser until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they are prompted to verify again. 
 
 The "Don't ask again for **X** days" checkbox isn't shown on non-browser apps, whether or not they support modern authentication. These apps use refresh tokens that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last time two-step verification was performed was within the configured number of days. 
 
@@ -294,16 +294,16 @@ Once you enable this feature, users can mark a device as trusted when they sign 
 ![Don't ask again - screenshot](./media/multi-factor-authentication-whats-next/trusted.png)
 
 ## Selectable Verification Methods
-You can choose which verification methods are available for your users. The table below provides a brief overview of each method.
+You can choose which verification methods are available for your users. The following table provides a brief overview of each method.
 
-When your users enroll their accounts for MFA, they choose their preferred verification method out of the options that you enabled. The guidance for their enrollment process is covered in [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
+When your users enroll their accounts for MFA, they choose their preferred verification method out of the options that you enabled. The guidance for their enrollment process is covered in [Set-up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
 
 | Method | Description |
 |:--- |:--- |
 | Call to phone |Places an automated voice call. The user answers the call and presses # in the phone keypad to authenticate. This phone number is not synchronized to on-premises Active Directory. |
 | Text message to phone |Sends a text message containing a verification code. The user is prompted to either reply to the text message with the verification code or to enter the verification code into the sign-in interface. |
 | Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. <br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verification code from mobile app |The Microsoft Authenticator app generates a new OATH verification code every thirty seconds. The user enters this verification code into the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verification code from mobile app |The Microsoft Authenticator app generates a new OATH verification code every  second. The user enters this verification code into the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### How to enable/disable authentication methods
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
