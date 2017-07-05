@@ -34,15 +34,15 @@ The Service Fabric solution uses Azure Diagnostics data from your Service Fabric
 ## Installing and configuring the solution
 Follow these three easy steps to install and configure the solution:
 
-1. Ensure that the Log Analytics workspace that you use is associated with the same Azure subscription that you used to create all cluster resources, including storage accounts. See [Get started with Log Analytics](log-analytics-get-started.md) for information about creating an Log Analytics workspace.
+1. Ensure that the Log Analytics workspace that you use is associated with the same Azure subscription that you used to create all cluster resources, including storage accounts. See [Get started with Log Analytics](log-analytics-get-started.md) for information about creating a Log Analytics workspace.
 2. Configure Log Analytics to collect and view Service Fabric logs.
 3. Enable the Service Fabric solution in your workspace.
 
 ## Configure Log Analytics to collect and view Service Fabric logs
-In this section, you'll learn how to configure Log Analytics to retrieve Service Fabric logs. The logs allow you view, analyze, and troubleshoot issues in your cluster or in the applications and services running in that cluster, using the OMS portal.
+In this section, you learn how to configure Log Analytics to retrieve Service Fabric logs. The logs allow you to view, analyze, and troubleshoot issues in your cluster or in the applications and services running in that cluster, using the OMS portal.
 
 > [!NOTE]
-> The Azure Diagnostics extension must be configured to upload the logs to storage tables that match what Log Analytics will look for. See [How to collect logs with Azure Diagnostics](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) for more information about how to collect logs. The configuration settings examples in this article show you what the names of the storage tables should be. Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to configure Log Analytics to collect these logs.
+> The Azure Diagnostics extension must be configured to upload the logs to storage tables that match what Log Analytics looks for. For more information, see [How to collect logs with Azure Diagnostics](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md). The configuration settings examples in this article show you what the names of the storage tables should be. Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to configure Log Analytics to collect these logs.
 >
 >
 
@@ -53,8 +53,8 @@ The following tools are used to perform some of the operations in this section:
 * Azure PowerShell
 * [Operations Management Suite](http://www.microsoft.com/oms)
 
-### Configure an Log Analytics workspace to show the cluster logs
-After you've created an Log Analytics workspace as described above, the next step is to configure the workspace to pull the logs from the Azure storage tables where they are being uploaded from the cluster by the Diagnostics extension. In order to do this, run the following PowerShell script:
+### Configure a Log Analytics workspace to show the cluster logs
+After you create a Log Analytics workspace, as described above, the next step is to configure the workspace to pull the logs from the Azure storage tables where they are being uploaded from the cluster by the Diagnostics extension. In order to do this, run the following PowerShell script:
 
 ```
 <#
@@ -286,7 +286,7 @@ $workspace = Select-Workspace
 $storageAccount = Select-StorageAccount
 ```
 
-After you've configured the Log Analytics workspace to read from the Azure tables in your storage account, log into the Azure portal, and select the Log Analytics workspace from **All Resources**. Once selected, you should see the number of storage account logs connected to that Log Analytics workspace. Select the **Storage account logs** tile and verify from the list of storage account logs that your storage account is connected to that Log Analytics workspace:
+After you've configured the Log Analytics workspace to read from the Azure tables in your storage account, log in to the Azure portal, and select the Log Analytics workspace from **All Resources**. Once selected, you should see the number of storage account logs connected to that Log Analytics workspace. Select the **Storage account logs** tile and verify from the list of storage account logs that your storage account is connected to that Log Analytics workspace:
 
 ![Storage account logs](./media/log-analytics-service-fabric/sf1.png)
 
@@ -347,7 +347,7 @@ After the solution is enabled, the Service Fabric tile is added to your Log Anal
 ![Service Fabric tile](./media/log-analytics-service-fabric/sf2.png)
 
 ### View Service Fabric events
-Click the **Service Fabric** tile to open the Service Fabric dashboard. The dashboard includes the columns in the following table. Each column lists the top ten events by count matching that column's criteria for the specified time range. You can run a log search that provides the entire list by clicking **See all** at the right bottom of each column, or by clicking the column header.
+Click the **Service Fabric** tile to open the Service Fabric dashboard. The dashboard includes the columns in the following table. Each column lists the top 10 events by count matching that column's criteria for the specified time range. You can run a log search that provides the entire list by clicking **See all** at the right bottom of each column, or by clicking the column header.
 
 | **Service Fabric event** | **description** |
 | --- | --- |
@@ -363,12 +363,12 @@ Click the **Service Fabric** tile to open the Service Fabric dashboard. The dash
 
 The following table shows data collection methods and other details about how data is collected for Service Fabric.
 
-| platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| platform | Direct Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![Yes](./media/log-analytics-malware/oms-bullet-green.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |10 minutes |
 
 > [!NOTE]
-> You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or 6 hours. Or, you can select **Custom** to specify a custom date range.
+> You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last seven days, one day, or six hours. Or, you can select **Custom** to specify a custom date range.
 >
 >
 
