@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 07/05/2017
 ms.author: nini
 
 ---
@@ -34,7 +34,7 @@ The Service Fabric solution uses Azure Diagnostics data from your Service Fabric
 To get started with the solution, you will need to connect your Service Fabric cluster to a Log Analytics workspace. Here are three scenarios to consider:
 
 1. If you have not deployed your Service Fabric cluster, use the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** to deploy a new cluster and have it configured to report to Log Analytics.
-2. If you need to collect performance counters from your hosts to use other OMS solutions such as Security on your Service Fabric Cluster, follow the steps in ***Deploy a Service Fabric Cluster connected to an OMS workspace with VM Extension installed.***
+2. If you need to collect performance counters from your hosts to use other OMS solutions such as Security on your Service Fabric Cluster, follow the steps in ***Deploy a Service Fabric Cluster connected to an Log Analytics workspace with VM Extension installed.***
 3. If you have already deployed your Service Fabric cluster and want to connect it to Log Analytics, follow the steps in ***Adding an existing storage account to Log Analytics.***
 
 ## Deploy a Service Fabric Cluster connected to a Log Analytics workspace.
@@ -56,7 +56,7 @@ Accept the legal terms and hit "Create" to start the deployment. Once the deploy
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-## Deploy a Service Fabric Cluster connected to an OMS workspace with VM Extension installed.
+## Deploy a Service Fabric Cluster connected to an Log Analytics workspace with VM Extension installed.
 This template does the following:
 
 1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You can create a new workspace or use an existing one.
@@ -116,7 +116,7 @@ This template simply adds your existing storage accounts to a new or existing Lo
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
 
 > [!NOTE]
-> In selecting a Resource Group, if you're working with an already existing Log Analytics workspace, select "Use Existing" and search for the resource group containing the OMS workspace. Create a new one if otherwise.
+> In selecting a Resource Group, if you're working with an already existing Log Analytics workspace, select "Use Existing" and search for the resource group containing the Log Analytics workspace. Create a new one if otherwise.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
 >
 >
