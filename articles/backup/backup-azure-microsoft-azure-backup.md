@@ -66,9 +66,12 @@ If you do not want to run the base server in Azure, you can run the server on a 
 You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.
 
 > [!NOTE]
-> You cannot install Azure Backup Server on a machine running as a domain controller.
->
->
+> Azure Backup Server is designed to run on a dedicated, single-purpose server. You cannot install Azure Backup Server on:
+> - A computer running as a domain controller
+> - A computer on which the Application Server role is installed
+> - A computer that is a System Center Operations Manager management server
+> - A computer on which Exchange Server is running
+> - A computer that is a node of a cluster
 
 You must join Azure Backup Server to a domain. If you plan to move the server to a different domain, it is recommended that you join the server to the new domain before installing Azure Backup Server. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 05/09/2017
 ms.author: garye;gibattag
 
 ---
@@ -26,7 +26,7 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
 
 2. Click **+ NEW**.
 
-3. Select **Intelligence + Analytics** and then **Cognitive Services APIs (preview)**.
+3. Select **AI + Cognitive Services** and discover the list of availble APIs. Click on **See all** to see the entire list of Cognitive Services APIs. Click on the API of your choice to proceed.
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/select-cognitive-services-apis.png)
 

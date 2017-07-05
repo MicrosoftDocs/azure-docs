@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to load balance Windows virtual machines in Azure | Microsoft Docs
 description: Learn how to use the Azure load balancer to create a highly available and secure application across three Windows VMs
 services: virtual-machines-windows
@@ -16,10 +16,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # How to load balance Windows virtual machines in Azure to create a highly available application
-Load balancing provide a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a simple IIS web site that runs on three Windows virtual machines (VMs).
+Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. You learn how to:
+
+> [!div class="checklist"]
+> * Create an Azure load balancer
+> * Create a load balancer health probe
+> * Create load balancer traffic rules
+> * Use the Custom Script Extension to create a basic IIS site
+> * Create virtual machines and attach to a load balancer
+> * View a load balancer in action
+> * Add and remove VMs from a load balancer
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -232,7 +242,7 @@ for ($i=1; $i -le 3; $i++)
   $nic = Get-AzureRmNetworkInterface `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Name myNic$i
-  $vm = Add-AzureRmVMNetworkInterface `-VM $vm -Id $nic.Id
+  $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
   New-AzureRmVM `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Location EastUS `
@@ -309,6 +319,18 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## Next steps
 
-In this tutorial, you learned how to create a load balanced IIS website. Advance to the next tutorial to learn how to manage VM networking.
+In this tutorial, you created a load balancer and attached VMs to it. You learned how to:
 
-[Manage Azure VM networking](./tutorial-virtual-network.md)
+> [!div class="checklist"]
+> * Create an Azure load balancer
+> * Create a load balancer health probe
+> * Create load balancer traffic rules
+> * Use the Custom Script Extension to create a basic IIS site
+> * Create virtual machines and attach to a load balancer
+> * View a load balancer in action
+> * Add and remove VMs from a load balancer
+
+Advance to the next tutorial to learn how to manage VM networking.
+
+> [!div class="nextstepaction"]
+> [Manage VMs and virtual networks](./tutorial-virtual-network.md)

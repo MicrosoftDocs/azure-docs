@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure an Azure Run As Account | Microsoft Docs
 description: This tutorial walks you through the creation, testing, and example use of security-principal authentication in Azure Automation.
 services: automation
@@ -18,7 +18,7 @@ ms.date: 04/06/2017
 ms.author: magoedte
 
 ROBOTS: NOINDEX
-redirect_url: /azure/automation/automation-offering-get-started
+redirect_url: /azure/automation/
 redirect_document_id: TRUE 
 
 ---

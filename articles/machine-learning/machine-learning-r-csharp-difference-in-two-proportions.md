@@ -1,7 +1,24 @@
 ---
+title: (deprecated) Difference in Proportions Test - Azure | Microsoft Docs 
+description: (deprecated) Difference in Proportions Test 
+services: machine-learning 
+documentationcenter: '' 
+author: aniedea 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 9356b821-5345-44f6-8e26-719f2dea5e6d 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
+ms.author: aniedea
 
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
 
 ---
 # (deprecated) Difference in Proportions Test

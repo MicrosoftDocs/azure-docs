@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with REST in HDInsight | Microsoft Docs
+title: Use Hadoop Pig with REST in HDInsight - Azure | Microsoft Docs
 description: Learn how to use REST to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -33,7 +33,7 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * [Curl](http://curl.haxx.se/)
 

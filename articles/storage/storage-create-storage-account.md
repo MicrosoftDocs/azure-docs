@@ -13,6 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords: 
+  - "sql13.swb.windowsazurestorage.connect.f1"
 ms.date: 01/23/2017
 ms.author: robinsh
 
@@ -20,7 +22,7 @@ ms.author: robinsh
 # About Azure storage accounts
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
 An Azure storage account provides a unique namespace to store and access your Azure Storage data objects. All objects in a storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
@@ -84,7 +86,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ## Manage your storage account
 ### Change your account configuration
-After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration.
+After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.com), navigate to your storage account, find and click **Configuration** under **SETTINGS** to view and/or change the account configuration.
 
 > [!NOTE]
 > Depending on the performance tier you chose when creating the storage account, some replication options may not be available.
@@ -150,6 +152,7 @@ If the storage account uses the Classic deployment model, you can remove the vir
 For more information, see the [Azure Virtual Machine documentation](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Next steps
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md)
 * [Azure Storage replication](storage-redundancy.md)
 * [Configure Azure Storage Connection Strings](storage-configure-connection-string.md)

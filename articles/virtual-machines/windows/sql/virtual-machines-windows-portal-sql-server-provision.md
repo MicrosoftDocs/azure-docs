@@ -17,6 +17,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: jroth
+experimental: true
+experimental_id: a641df96-f27d-40
 
 ---
 # Provision a SQL Server virtual machine in the Azure Portal

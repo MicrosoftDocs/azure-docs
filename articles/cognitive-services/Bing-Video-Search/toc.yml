@@ -9,6 +9,7 @@
     - name: Use and display requirements
       href: UseAndDisplayRequirements.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Get started
     href: quick-start.md
@@ -30,6 +31,8 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
   - name: Try it!

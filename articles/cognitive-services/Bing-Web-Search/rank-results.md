@@ -13,7 +13,7 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Using Ranking to Display Results  
+# Using ranking to display results  
 
 Each search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#rankingresponse) answer, that specifies how you must display the search results. The ranking response groups results by mainline content and sidebar content for a traditional search results page. If you do not display the results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content.  
   
@@ -211,8 +211,10 @@ And the sidebar would display the following search results:
 -   All the related searches  
   
 
-## Next Steps
+## Next steps
 
 For information about promoting unranked results, see [Promoting answers that are not ranked](./filter-answers.md#promoting-answers-that-are-not-ranked).
 
 For information about limiting the number of ranked answers in the response, see [Limiting the number of answers in the response](./filter-answers.md#limiting-the-number-of-answers-in-the-response).
+
+For a C# example that uses ranking to display results, see [C# ranking tutorial](./csharp-ranking-tutorial.md).

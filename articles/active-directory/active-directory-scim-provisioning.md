@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
+ms.date: 05/04/2017
 ms.author: asmalser
+ms.custom: aaddev
 
 ---
 # Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications
@@ -29,7 +30,7 @@ This capability can be used in conjunction with the “[bring your own app](http
 There are two use cases for SCIM in Azure Active Directory:
 
 * **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and use OAuth bearer tokens for authentication will work with Azure AD of the box.
-* **Build your own provisioning solution for applications that support other API-based provisioning** - For non-SCIM applications, you can create a SCIM endpoint to translate between Azure AD’s SCIM endpoint and whatever API the application supports for user provisioning.  To aid in the development of a SCIM endpoint, we provide CLI libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
+* **Build your own provisioning solution for applications that support other API-based provisioning** - For non-SCIM applications, you can create a SCIM endpoint to translate between the Azure AD SCIM endpoint and whatever API the application supports for user provisioning.  To aid in the development of a SCIM endpoint, we provide CLI libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
 
 ## Provisioning Users and Groups To Applications That Support SCIM
 Azure Active Directory can be configured to automatically provision assigned users and groups to applications that implement a [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web service and accept OAuth bearer tokens for authentication. Within the SCIM 2.0 specification, applications must meet these requirements:
@@ -116,16 +117,16 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 2. Browse to **Active Directory > Directory > [Your Directory] > Applications**, and select **Add > Add an application from the gallery**.
 3. Select the **Custom** tab on the left, enter a name such as “SCIM Test App”, and click the checkmark icon to create an app object. Note that the application object created is intend to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
 
-![][2]
+  ![][2]
 
-1. In the resulting screen, select the second **Configure account provisioning** button.
+4. In the resulting screen, select the second **Configure account provisioning** button.
 2. In the dialog, enter the internet-exposed URL and port of your SCIM endpoint. This would be something like http://testmachine.contoso.com:9000 or http://<ip-address>:9000/, where <ip-address> is the internet exposed IP address.  
-3. Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
-4. If the attempts to connect to your Web service succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
-5. In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
-6. Once users and groups are assigned, click the **Configure** tab near the top of the screen.
-7. Under **Account Provisioning**, confirm that the Status is set to On. 
-8. Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
+5. Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
+6. If the attempts to connect to your Web service succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
+7. In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
+8. Once users and groups are assigned, click the **Configure** tab near the top of the screen.
+9. Under **Account Provisioning**, confirm that the Status is set to On. 
+10. Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
 
 Note that 5-10 minutes may elapse before the provisioning process will begin to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab, and both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
 

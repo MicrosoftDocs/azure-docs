@@ -21,7 +21,7 @@ ms.author: ryanwi
 This article describes how to package a Service Fabric application and make it ready for deployment.
 
 ## Package layout
-The application manifest, service manifest(s), and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
+The application manifest, one or more service manifests, and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -47,10 +47,10 @@ The folders are named to match the **Name** attributes of each corresponding ele
 ## Use SetupEntryPoint
 Typical scenarios for using **SetupEntryPoint** are when you need to run an executable before the service starts or you need to perform an operation with elevated privileges. For example:
 
-* Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
+* Setting up and initializing environment variables that the service executable needs. It is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
 * Setting up access control by installing security certificates.
 
-For more details on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)  
+For more information on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
 
 ## Configure 
 ### Build a package by using Visual Studio
@@ -63,7 +63,7 @@ To create a package, right-click the application project in Solution Explorer an
 When packaging is complete, you can find the location of the package in the **Output** window. The packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
 ### Build a package by command line
-It is also possible to programmatically package up your application using `msbuild.exe`. Under the hood, this is what Visual Studio is running so the output is the same.
+It is also possible to programmatically package up your application using `msbuild.exe`. Under the hood, Visual Studio is running it so the output is same.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -109,7 +109,7 @@ PS D:\temp>
 
 If your application has [application parameters](service-fabric-manage-multiple-environment-app-configuration.md) defined, you can pass them in [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) for proper validation.
 
-If you know the cluster where the application will be deployed, it is recommended you pass in the image store connection string. In this case, the package is also validated against previous versions of the application
+If you know the cluster where the application will be deployed, it is recommended you pass in the `ImageStoreConnectionString` parameter. In this case, the package is also validated against previous versions of the application
 that are already running in the cluster. For example, the validation can detect whether a package with the same version but different content was already deployed.  
 
 Once the application is packaged correctly and passes validation, evaluate based on the size and the number of files if compression is needed. 
@@ -126,7 +126,7 @@ with `CompressPackage` switch. You can uncompress the package with the same comm
 
 The following command compresses the package without copying it to the image store. You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)
 without the `SkipCopy` flag. 
-The package now includes zipped files for the `code`, `config` and `data` packages. The application manifest and the service manifests are not zipped,
+The package now includes zipped files for the `code`, `config`, and `data` packages. The application manifest and the service manifests are not zipped,
 because they are needed for many internal operations (like package sharing, application type name and version extraction for certain validations).
 Zipping the manifests would make these operations inefficient.
 
@@ -170,11 +170,22 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package.
-If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the versions of the `code`, `config` and `data` packages to avoid checksum mismatch. If the packages are unchanged, instead of changing the version, you can use [diff provisioning](service-fabric-application-upgrade-advanced.md). With this option, do not include the unchanged package, just reference it from the service manifest.
+If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the versions of the `code`, `config`, and `data` packages to avoid checksum mismatch. If the packages are unchanged, instead of changing the version, you can use [diff provisioning](service-fabric-application-upgrade-advanced.md). With this option, do not include the unchanged package instead reference it from the service manifest.
 
 Similarly, if you uploaded a compressed version of the package and you want to use an uncompressed package, you must update the versions to avoid the checksum mismatch.
 
 The package is now packaged correctly, validated, and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
+
+### Compress packages when deploying using Visual Studio
+You can instruct Visual Studio to compress packages on deployment, by adding the `CopyPackageParameters` element to your publish profile, and set the `CompressPackage` attribute to `true`.
+
+``` xml
+    <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
+        <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com" />
+        <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+        <CopyPackageParameters CompressPackage="true"/>
+    </PublishProfile>
+```
 
 ## Next steps
 [Deploy and remove applications][10] describes how to use PowerShell to manage application instances

@@ -9,6 +9,7 @@
     - name: Use and display requirements
       href: UseAndDisplayRequirements.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Get started
     href: quick-start.md
@@ -24,6 +25,10 @@
     href: paging-webpages.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+- name: Tutorials
+  items:
+  - name: C# Ranking Tutorial
+    href: csharp-ranking-tutorial.md
 - name: Reference
   items:
   - name: REST v5
@@ -32,6 +37,8 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
   - name: Try it!

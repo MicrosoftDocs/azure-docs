@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 05/26/2017
 ms.author: steveesp
 
 ---
@@ -76,7 +76,7 @@ Optional command:
 
 ### CentOS
 
-In order to get the optimization, first update to the latest supported version, as of January 2017, which is:
+In order to get the optimization, first update to the latest supported version, as of May 2017, which is:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -84,7 +84,7 @@ In order to get the optimization, first update to the latest supported version, 
 "Version": "latest"
 ```
 After the update is complete, install the latest Linux Integration Services (LIS).
-The throughput optimization is in LIS, starting from 4.1.3. Enter the following
+The throughput optimization is in LIS, starting from 4.2. Enter the following
 commands to install LIS:
 
 ```bash
@@ -96,12 +96,12 @@ sudo yum install microsoft-hyper-v
 ### Red Hat
 
 In order to get the optimization, first update to the latest supported version, as of January 2017, which is:
-
+```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7.3"
 "Version": "7.3.20161104"
-
+```
 After the update is complete, install the latest Linux Integration Services (LIS).
 The throughput optimization is in LIS, starting from 4.1.3. Enter the following commands to download and install LIS:
 
@@ -113,5 +113,9 @@ tar xvzf lis-rpms-4.1.3.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if previous LIS was previously installed
 ```
- 
+
 Learn more about Linux Integration Services Version 4.1 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=51612).
+
+## Next steps
+* Now that the VM is optimized, see the result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
+* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

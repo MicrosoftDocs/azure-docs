@@ -1,5 +1,5 @@
 # Overview
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [About HDInsight and Hadoop](hdinsight-hadoop-introduction.md)
 ## [Hadoop components on HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -22,7 +22,8 @@
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [HDInsight storage options](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 # How To
 ## Use Hadoop for batch queries
@@ -74,7 +75,7 @@
 ### [Use external packages with Jupyter using script action](hdinsight-apache-spark-python-package-installation.md)
 ### [Use a local Jupyter notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md)
-### [Debug jobs remotely with IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### [Debug jobs remotely with IntelliJ through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Manage resources](hdinsight-apache-spark-resource-manager.md)
 ### [Track and debug jobs](hdinsight-apache-spark-job-debugging.md)
 ### [Known issues](hdinsight-apache-spark-known-issues.md)
@@ -105,14 +106,17 @@
 ### [Configure Hive policies](hdinsight-domain-joined-run-hive.md)
 ## Use Kafka (Preview)
 ### [Replicate Kafka data](hdinsight-apache-kafka-mirroring.md)
+### [Configure storage and scalability of Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Use with Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Use with Spark](hdinsight-apache-spark-with-kafka.md)
+### [Use with Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [Use with Spark (DStream)](hdinsight-apache-spark-with-kafka.md)
 ### [Use with Storm](hdinsight-apache-storm-with-kafka.md)
 ## Develop
 ### [Develop C# streaming MapReduce programs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Develop Scalding MapReduce jobs](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Use HDInsight Tools to create Spark apps](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Use HDInsight Tools to debug Spark apps remotely through SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 ### [Use empty edge nodes](hdinsight-apps-use-edge-node.md)
 ### [Develop Python streaming programs](hdinsight-hadoop-streaming-python.md)
 ### [Process and analyze JSON documents](hdinsight-using-json-in-hive.md)
@@ -133,6 +137,7 @@
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Develop script actions](hdinsight-hadoop-script-actions-linux.md)
+### [Install and use Presto](hdinsight-hadoop-install-presto.md)
 ### [Install or update Mono](hdinsight-hadoop-install-mono.md)
 ### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
 ### [Use Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -140,7 +145,7 @@
 ### [Use R](hdinsight-hadoop-r-scripts-linux.md)
 ### [Use Solr](hdinsight-hadoop-solr-install-linux.md)
 ### [Use Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
-### [Use Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Use Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### Build HDInsight applications
 #### [Install HDInsight apps](hdinsight-apps-install-applications.md)
 #### [Install custom apps](hdinsight-apps-install-custom-applications.md)
@@ -221,5 +226,8 @@
 ### [Monitor clusters using the Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Windows tools for HDInsight](hdinsight-hadoop-windows-tools.md)

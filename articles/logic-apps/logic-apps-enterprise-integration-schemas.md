@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: estfan
+ms.author: LADocs; padmavc
 
 ---
 # Validate XML with schemas for Azure Logic Apps and the Enterprise Integration Pack

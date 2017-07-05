@@ -1,11 +1,11 @@
 ---
 title: Learn about Azure Service Fabric Support options | Microsoft Docs
-description: Azure Service Fabric cluster versions supported and links to file support tickets.
+description: Azure Service Fabric cluster versions supported and links to file support tickets
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
-editor: ''
+editor: 
 
 ms.assetid: 
 ms.service: service-fabric
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
+ms.date: 06/15/2017
+ms.author: pkc
 
 ---
 # Azure Service Fabric support options
@@ -74,13 +74,13 @@ Refer to the following documents on details on how to keep your cluster running 
  
 Here are the list of the Service Fabric versions that are supported and their support end dates.
 
-| **Service Fabric runtime cluster** | **End of Support Date** |
-| --- | --- |
-| All cluster versions prior to 5.3.121 |January 20, 2017 |
-| 5.3.* |February 24, 2017 |
-| 5.4.* |May 10,2017     |
-| 5.5.* |July 10,2017    |
-| 5.6.* |Current version and so no end date
+| **Service Fabric runtime cluster** | **Compatible SDK / NuGet Package Versions** | **End of Support Date** |
+| --- | --- | --- |
+| All cluster versions prior to 5.3.121 |Less than or equal to version  2.3 |January 20, 2017 |
+| 5.3.* |Less than or equal to version  2.3 |February 24, 2017 |
+| 5.4.* |Less than or equal to version  2.4 |May 10,2017     |
+| 5.5.* |Less than or equal to version  2.5 |August 10,2017    |
+| 5.6.* |Less than or equal to version  2.6 |Current version and so no end date
 
 <a id="previewversion"></a>
 ## Service Fabric Preview Versions - unsupported for production use.

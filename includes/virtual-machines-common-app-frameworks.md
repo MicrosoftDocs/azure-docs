@@ -1,20 +1,20 @@
 
 
 ## Applications
-From this table you can find more information about the parameters that are used in the template, you can inspect the template before you deploy it, or you can deploy the template directly from the Azure portal.
+The following table lists some of the most popular application framework templates. Choose a template to see more information, view the template in GitHub, or deploy directly through the Azure portal.
 
 | Application | Learn more | View the template | Deploy it now |
 |:--- |:---:|:---:|:---:|
 | Active Directory |[Gallery](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Apache |[Gallery](https://azure.microsoft.com/documentation/templates/apache2-on-ubuntu-vm/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Couchbase |[Gallery](https://azure.microsoft.com/documentation/templates/couchbase-on-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| DataStax |[Gallery](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdatastax-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Couchbase |[Gallery](https://azure.microsoft.com/resources/templates/couchbase/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| DataStax |[Gallery](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/couchbase/azuredeploy.json) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdatastax%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Django |[Gallery](https://azure.microsoft.com/documentation/templates/django-app/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdjango-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Docker |[Gallery](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdocker-simple-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Elasticsearch |[Gallery](https://azure.microsoft.com/documentation/templates/elasticsearch/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Felasticsearch%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Jenkins |[Gallery](https://azure.microsoft.com/documentation/templates/jenkins-on-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/jenkins-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fjenkins-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Kafka |[Gallery](https://azure.microsoft.com/documentation/templates/kafka-ubuntu-multidisks/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/kafka-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%kafka-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| LAMP |[Gallery](https://azure.microsoft.com/en-us/documentation/templates/lamp-app/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Flamp-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| LAMP |[Gallery](https://azure.microsoft.com/documentation/templates/lamp-app/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Flamp-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | MongoDB |[Gallery](https://azure.microsoft.com/documentation/templates/mongodb-on-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fmongodb-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Redis |[Gallery](https://azure.microsoft.com/documentation/templates/redis-high-availability/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/redis-high-availability) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fredis-high-availability%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | SharePoint |[Gallery](https://azure.microsoft.com/documentation/templates/sharepoint-three-vm/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-three-vm) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -25,45 +25,37 @@ From this table you can find more information about the parameters that are used
 
 In addition to these templates, you can search through the [gallery templates](https://azure.microsoft.com/documentation/templates/).
 
-## Azure portal
-Deploying a template by using the Azure portal is easy to do by just sending a URL to it. You need the name of the template file to deploy it. You can find the name by looking at the pages in the template gallery or by looking in the GitHub repository. Change {template name} in this URL to the name of the template that you want to deploy and then enter it into your browser:
 
-    https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
+## Azure CLI 2.0
+These steps require the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-You should see the custom deployment blade:
+First, create a resource group with [az group create](/cli/azure/group#create). Then create your deployment from a template with [az group deployment create](/cli/azure/group/deployment#create). Provide the full URI to your template with the `--template-uri` parameter and any required template parameters in `--parameters` as follows:
 
-![](../articles/virtual-machines/media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
-
-1. For the **Template** pane, click **Save**.
-2. Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
-3. If needed, click **Subscription** and select the correct Azure subscription.
-4. Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this deployment.
-5. If needed, click **Location** and select the correct Azure location.
-6. If needed, click **Legal terms** to review the terms and agreement for using the template.
-7. Click **Create**.
+```azurecli
+az group create --name myResourceGroup --location eastus
+az group deployment create --resource-group myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json \
+    --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
+```
 
 Depending on the template, it can take some time for Azure to deploy the resources.
 
+
 ## Azure PowerShell
-Run these commands to create the resource group and the deployment after you replace the text in brackets with the resource group name, location, deployment name, and template name:
+These steps require the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-    New-AzureRmResourceGroup -Name {resource-group-name} -Location {location}
-    New-AzureRmResourceGroupDeployment -Name {deployment-name} -ResourceGroupName {resource-group-name} -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
+First, create a resource group with [New-​Azure​Rm​Resource​Group](/powershell/module/azurerm.resources/new-azurermresourcegroup). Then create your deployment from a template with [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Provide the full URI to your template with the `-TemplateURI` parameter as follows:
 
-When you run the **New-AzureRmResourceGroupDeployment** command, you are prompted to enter values for the parameters in the template. Depending on the template, it can take some time for Azure to deploy the resources.
+```powershell
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" `
+     -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
+```
 
-## Azure CLI
-[Install Azure CLI](../articles/cli-install-nodejs.md), log in, and make sure you enable Resource Manager commands. For information about how to do this, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
+When you run the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) command, you may be prompted to enter values for the parameters in the template. Depending on the template, it can take some time for Azure to deploy the resources.
 
-Run these commands to create the resource group and the deployment after you replace the text in brackets with the resource group name, location, deployment name, and template name:
-
-    azure group create {resource-group-name} {location}
-    azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json {resource-group-name} {deployment-name}
-
-When you run the **azure group deployment create** command, you are prompted to enter values for the parameters in the template. Depending on the template, it can take some time for Azure to deploy the resources.
 
 ## Next steps
 Discover all the templates at your disposal on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Learn more about [Azure Resource Manager](../articles/resource-group-template-deploy.md).
-

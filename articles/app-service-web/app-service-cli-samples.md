@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
+ms.custom: mvc
 
 ---
 # Azure CLI Samples
@@ -40,7 +41,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Connect a web app to a SQL Database](./scripts/app-service-cli-app-service-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and a SQL database, then adds the database connection string to the app settings. |
 | [Connect a web app to a storage account](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and a storage account, then adds the storage connection string to the app settings. |
 | [Connect a web app to a redis cache](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and a redis cache, then adds the redis connection details to the app settings.) |
-| [Connect a web app to a documentdb](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and a documentdb, then adds the documentdb connection details to the app settings. |
+| [Connect a web app to Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and a Cosmos DB, then adds the Cosmos DB connection details to the app settings. |
 |**Monitor app**||
 | [Monitor a web app with web server logs](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app, enables logging for it, and downloads the logs to your local machine. |
 | | |

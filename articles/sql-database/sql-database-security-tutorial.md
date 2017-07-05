@@ -4,34 +4,41 @@ description: Learn about techniques and features to secure your Azure SQL databa
 services: sql-database
 documentationcenter: ''
 author: DRediske
-manager: johammer
+manager: jhubbard
 editor: ''
 tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure
+ms.custom: mvc,security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/03/2017
+ms.date: 05/07/2017
 ms.author: daredis
 
 ---
-# Secure your Azure SQL database
+# Secure your Azure SQL Database
 
-In this tutorial, you walk through the basics of securing your SQL database. With just a few simple steps, you can take any database and greatly improve its protection against malicious users or unauthorized access.
+SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
+
+> [!div class="checklist"]
+> * Set up firewall rules for your sever and or database
+> * Connect to your database using a secure connection string
+> * Manage user access
+> * Protect your data with encryption
+> * Enable SQL Database auditing
+> * Enable SQL Database threat detection
 
 To complete this tutorial, make sure you have installed Excel, and the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
 
 
-
 ## Set up firewall rules for your database
 
-Azure SQL databases are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected except for connections from other Azure services. THe most secure setting is to set 'Allow access to Azure services' to OFF. If you need to connect to the database from an Azure VM or cloud service, you should create a [Reserved IP](../virtual-network/virtual-networks-reserved-public-ip.md) and allow only the reserved IP address access through the firewall. 
+SQL databases are protected by a firewall in Azure. By default, all connections to the server and the databases inside the server are rejected except for connections from other Azure services. The most secure configuration is to set 'Allow access to Azure services' to OFF. If you need to connect to the database from an Azure VM or cloud service, you should create a [Reserved IP](../virtual-network/virtual-networks-reserved-public-ip.md) and allow only the reserved IP address access through the firewall. 
 
 Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your server to allow connections from a specific IP address. 
 
@@ -56,7 +63,7 @@ You can now connect to any database in the server with the specified IP address 
 
 If you require different firewall settings for different databases within the same logical server, you must create a database-level rule for each database. Database-level firewall rules can only be configured by using Transact-SQL statements and only after you have configured the first server-level firewall rule. Follows these steps to create a database-specific firewall rule.
 
-1. Connect to your database, for example using [SSMS](./sql-database-connect-query-ssms.md).
+1. Connect to your database, for example using [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
 
 2. In Object Explorer, right-click on the database you want to add a firewall rule for and click **New Query**. A blank query window opens that is connected to your database.
 
@@ -68,10 +75,10 @@ If you require different firewall settings for different databases within the sa
 
 4. On the toolbar, click **Execute** to create the firewall rule.
 
-## Connect to the database using a secure connection string
+## Connect to your database using a secure connection string
 
-To ensure a secure, encrypted connection between the client and SQL Database, the connection string has to be configured to 1) request an encrypted connection and 2) does not trust the server's certificate. This establishes a connection using Transport Layer Security (TLS) and reduces the risk of man-in-the-middle attacks. 
-You can obtain correctly configured connection strings for your Azure SQL Database for supported client drivers from the Azure portal as shown for ADO.net in this screenshot.
+To ensure a secure, encrypted connection between the client and SQL Database, the connection string has to be configured to 1) request an encrypted connection and 2) to not trust the server certificate. This establishes a connection using Transport Layer Security (TLS) and reduces the risk of man-in-the-middle attacks. 
+You can obtain correctly configured connection strings for your SQL Database for supported client drivers from the Azure portal as shown for ADO.net in this screenshot.
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page.
 
@@ -94,14 +101,14 @@ If you want to use [Azure Active Directory](./sql-database-aad-authentication.md
 
 Follow these steps to create a user using SQL Authentication:
 
-1. Connect to your database, for example using [SSMS](./sql-database-connect-query-ssms.md) using your server admin credentials.
+1. Connect to your database, for example using [SQL Server Management Studio](./sql-database-connect-query-ssms.md) using your server admin credentials.
 
 2. In Object Explorer, right-click on the database you want to add a new user on and click **New Query**. A blank query window opens that is connected to the selected database.
 
 3. In the query window, enter the following query:
 
     ```sql
-    CREATE USER ApplicationUserUser WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. On the toolbar, click **Execute** to create the user.
@@ -128,15 +135,15 @@ Azure SQL Database transparent data encryption (TDE) automatically encrypts your
 
 3. Set **Data encryption** to ON and click **Save**.
 
-The encryption process starts in the background. You can monitor the progress by connecting to SQL Database using for example [SSMS](./sql-database-connect-query-ssms.md) as a database and query the encryption_state column of the sys.dm_database_encryption_keys view.
+The encryption process starts in the background. You can monitor the progress by connecting to SQL Database using [SQL Server Management Studio](./sql-database-connect-query-ssms.md) by querying the encryption_state column of the `sys.dm_database_encryption_keys` view.
 
 ## Enable SQL Database auditing
 
-Azure SQL Database Auditing tracks database events and writes them to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. Follow these steps to create a default auditing policy for your database:
+Azure SQL Database Auditing tracks database events and writes them to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations. Follow these steps to create a default auditing policy for your SQL database:
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page.
 
-2. In the Settings blade, select **Auditing & Threat detection**.
+2. In the Settings blade, select **Auditing & Threat Detection**.
 
     ![Auditing Blade](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
@@ -144,7 +151,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
     ![Inherit settings](./media/sql-database-security-tutorial/auditing-get-started-server-inherit.png)
 
-4. If you prefer to enable Blob Auditing on the database-level (in addition or instead of server-level auditing), **uncheck** the **Inherit Auditing settings from server** option, turn **ON** Auditing, and choose the **Blob** Auditing Type.
+4. If you prefer to enable  an Audit type (or location?) different from the one specified at the server level, **uncheck** the **Inherit Auditing settings from server** option, turn **ON** Auditing, and choose the **Blob** Auditing Type.
 
     > If server Blob auditing is enabled, the database configured audit will exist side by side with the server Blob audit.
 
@@ -154,7 +161,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
     ![Navigation pane](./media/sql-database-security-tutorial/auditing-get-started-storage-details.png)
 
-6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
+6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#subheading-7) section for more details.
 
 7. Click **Save**.
 
@@ -208,7 +215,16 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 
 ## Next steps
+You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
 
-* For an overview of all SQL Database security features, see [SQL Database Security Overview](sql-database-security-overview.md).
-* For additional encryption of sensitive columns in your database, consider using client-side encryption with [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
-* For additional access control capabilities, [Row Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) enables you to restrict access to rows in a database based on the user’s group membership or execution context, and [Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking it to non-privileged users on the application layer. 
+> [!div class="checklist"]
+> * Set up firewall rules for your sever and or database
+> * Connect to your database using a secure connection string
+> * Manage user access
+> * Protect your data with encryption
+> * Enable SQL Database auditing
+> * Enable SQL Database threat detection
+
+> [!div class="nextstepaction"]
+>[Improve SQL Database performance](sql-database-performance-tutorial.md)
+

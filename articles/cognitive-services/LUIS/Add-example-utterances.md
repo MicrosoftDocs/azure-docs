@@ -14,13 +14,16 @@ ms.author: cahann
 
 # Add example utterances
 
-Utterances are sentences representing examples of user queries or commands that your application is expected to receive and interpret. You need to add example utterances for each intent in your app. LUIS learns from these utterances and your app is able to generalise and understand similar contexts. By constantly adding more utterances and labeling them, you are enhancing your application’s language learning experience. 
+Utterances are sentences representing examples of user queries or commands that your application is expected to receive and interpret. 
 
-For each intent, add example utterances that trigger this intent and include as many utterance variations as you expect users to say. The more relevant & diverse examples you add to the intent, the better intent prediction you’ll get from your app. For example, the utterance “book me a flight to Paris” may have variations such as “Reserve me a flight to Paris”, "book me a ticket to Paris", "Get me a ticket to Paris”, "Fly me to Paris", and "Take me on a flight to Paris".
+To train LUIS, you need to add example utterances for each intent in your app. LUIS learns from these utterances and your app is able to generalize and understand similar contexts. By constantly adding more utterances and labeling them, you are enhancing your application’s language learning experience. 
 
-Utterances are added to an intent on the **Utterances** tab of the intent page. The following steps describe how to add example utterances to an intent (e.g. "BookFlight" intent in the TravelAgent app). 
+For each intent, add example utterances that trigger this intent and include as many utterance variations as you expect users to say. The more relevant and diverse examples you add to the intent, the better intent prediction you get from your app. For example, the utterance “book me a flight to Paris” may have variations like as “Reserve me a flight to Paris”, "book me a ticket to Paris", "Get me a ticket to Paris”, "Fly me to Paris", and "Take me on a flight to Paris".
 
-**To add utterance:**
+Utterances are added to an intent on the **Utterances** tab of the intent page. The following steps describe how to add example utterances to an intent. 
+In this example we use the "BookFlight" intent in the TravelAgent app. 
+
+**To add an utterance:**
 
 1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
 
@@ -28,12 +31,12 @@ Utterances are added to an intent on the **Utterances** tab of the intent page. 
 
     ![Intent Details page](./Images/IntentDetails-UtterancesTab1.JPG) 
 
-3. Type “book me 2 adult business tickets to Paris tomorrow on Air France” as a new utterance in the text box, and then press Enter. Note that LUIS converts all utterances to lower case.
+3. Type `book me 2 adult business tickets to Paris tomorrow on Air France` as a new utterance in the text box, and then press Enter. Note that LUIS converts all utterances to lower case.
 
     ![Intent Details page](./Images/IntentDetails-UtterancesTab.JPG) 
 
 4. Repeat the previous step to add more example utterances. 
-5.	Click **Save** to save the added utterances in the utterances list.
+5. Click **Save** to save the added utterances in the utterances list.
 
 Utterances are added to the utterances list in the current intent. To delete one or more utterances from the list, select them and click **Delete**.
 
@@ -41,30 +44,31 @@ Utterances are added to the utterances list in the current intent. To delete one
 After adding utterances, your next step is to label them. Utterances are labeled in terms of intents and entities. 
 ### Intent label
 Adding an utterance in an intent page means that it is labeled under this intent. That's how an utterance gets an intent label. You can change the intent label of one or more utterances by moving them to another intent. To do this, select the utterances, click **Reassign Intent**, and then select the intent where you want to move them. 
-### Entity label
-There are different types of entities; custom entities and prebuilt entities. You need to label custom entities only, **because prebuilt entities are detected and labeled automatically by your app.** 
 
-For example, in the utterance "book me 2 adult business tickets to Paris tomorrow on Air France" that you've just added to "Bookflight" intent in TravelAgent app, before you start labeling entities in this utterance, if you have already added number and datetime as prebuilt entities, you'll notice that "2" and "tomorrow" were automatically detected as prebuilt entities, where "2" is labeled as "number" and "tomorrow" as "datetime". This will look like the following screenshot.
+### Entity label
+There are different types of entities: custom entities (which include simple, hierarchical and composite entities) and prebuilt entities. You only need to label custom entities, **because prebuilt entities are detected and labeled automatically by your app.** 
+
+For example, look at the utterance `book me 2 adult business tickets to Paris tomorrow on Air France` that you've just added to the "Bookflight" intent in the TravelAgent app. Before you start labeling entities in this utterance, if you have already added `number` and `datetime` as prebuilt entities, you'll notice that "2" and "tomorrow" were automatically detected as prebuilt entities, where "2" is labeled as `number` and "tomorrow" as `datetime`. This looks like the following screenshot.
 
 ![Prebuilt Entity Labeling](./Images/LabelingEntities-prebuilt.JPG)
 
 To Learn more about prebuilt entities and how to add them, see [Add entities](Add-entities.md).
 
-In the following procedure, we'll label custom entities (simple, hierarchical and composite entities) in the utterance "book me 2 adult business tickets to Paris tomorrow on Air France".
+In the following procedure, you label custom entities (simple, hierarchical and composite entities) in the utterance `book me 2 adult business tickets to Paris tomorrow on Air France`.
 
 1. Select "Air France" in the utterance mentioned above to label it as entity.
 
-    >[!NOTE]
-    >When selecting words to label them as entities:
-    >* For a single word, just click it. 
-    >* For a set of two or more words, click at the beginning and then at the end of the set.
+    > [!NOTE]
+    > When selecting words to label them as entities:
+    > * For a single word, just click it. 
+    > * For a set of two or more words, click at the beginning and then at the end of the set.
 
-2. In the entity drop-down box that appears, you can either click an existing entity (if available) to select it, or add a new entity by typing its name in the text box and clicking **Create entity**. Now, we'll create the simple entity "Airline". Type "Airline" in the text box and then click **Create entity**.
+2. In the entity drop-down box that appears, you can either click an existing entity (if available) to select it, or add a new entity by typing its name in the text box and clicking **Create entity**. Now, create the simple entity "Airline". Type "Airline" in the text box and then click **Create entity**.
  
     ![Simple Entity Labeling](./Images/LabelingEntities-CreateSimple.JPG)
  
-    >[!NOTE]
-    >This way is used to create a simple entity on the spot (while labeling utterances). More complicated entities (e.g. hierarchical and composite) can only be created from the **Entities** page. For more instructions, see [Add entities](Add-entities.md). 
+    > [!NOTE]
+    > This way is used to create a simple entity on the spot (while labeling utterances). Hierarchical and composite entities can only be created from the **Entities** page. For more instructions, see [Add entities](Add-entities.md). 
 
 3. Click "Paris" in the same utterance, then click "ToLocation" in the entity drop-down box as the entity label. "ToLocation" is a hierarchical entity that must be added on the **Entities** page. To learn more about hierarchical entities and how to add them, see [Add entities](Add-entities.md).
 

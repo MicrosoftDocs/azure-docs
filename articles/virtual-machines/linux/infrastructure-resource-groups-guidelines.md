@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/262017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
@@ -39,7 +39,7 @@ Tasks:
 * Create the set of Resource Groups using your naming convention. You can use the Azure CLI or portal.
 
 ## Resource Groups
-In Azure, you logically group related resources such as storage accounts, virtual networks, and virtual machines (VMs) to deploy, manage, and maintain them as a single entity. This approach makes it easier to deploy applications while keeping all the related resources together from a management perspective, or to grant others access to that group of resources. For a more comprehensive understanding of Resource Groups, you can read the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+In Azure, you logically group related resources such as storage accounts, virtual networks, and virtual machines (VMs) to deploy, manage, and maintain them as a single entity. This approach makes it easier to deploy applications while keeping all the related resources together from a management perspective, or to grant others access to that group of resources. Resource group names can be a maximum of 90 characters in length. For a more comprehensive understanding of Resource Groups, you can read the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 A key feature to Resource Groups is the ability to build your environment using a JSON file that declares the storage, networking, and compute resources. You can also define any related custom scripts or configurations to apply. By using these JSON templates, you create consistent, reproducible deployments for your applications. This approach lets you build an environment in development and then use that same template to create a production deployment, or vice versa. For a better understanding about using templates, read [the template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md) that guides you through each step of building out a JSON template.
 

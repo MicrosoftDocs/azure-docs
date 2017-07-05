@@ -4,7 +4,7 @@ description: Provides a unique perspective from Microsoft Azure Billing partner 
 services: ''
 documentationcenter: ''
 author: BryanLa
-manager: ruchic
+manager: tonguyen
 editor: ''
 tags: billing
 

@@ -42,7 +42,7 @@ Standard tier features:
 For Basic and Standard Notification Hubs tiers, properly configured applications can send push notifications or perform registration management operations at least 99.9 percent of the time. To learn more about the SLA, go to the [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) page.
 
 > [!NOTE]
-> Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS and Google FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs batches the sends to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
+> Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS and Google FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs sends the batches to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
 
 ### Which customers are using Notification Hubs?
 Many customers use Notification Hubs. Some notable ones are listed here:

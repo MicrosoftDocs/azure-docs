@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
+ms.author: LADocs; padmavc
 
 ---
 # Add maps for XML data transform

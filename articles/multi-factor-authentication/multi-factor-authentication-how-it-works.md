@@ -24,20 +24,17 @@ The security of multi-factor authentication lies in its layered approach. Compro
 
 Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.  It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy verification options.
 
-For detailed information on how it works, see the following video:
-
-> [!VIDEO https://channel9.msdn.com/Events/TechEd/Europe/2014/EM-B313/player]
 
 ## Methods available for two-step verification
 When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification.
 
 | Verification Method | Description |
 | --- | --- |
-| Phone Call |A call is placed to a user’s registered phone asking them to verify that they are signing in by pressing the # sign or entering a PIN. |
-| Text Message |A text message will be sent to a user’s mobile phone with a six-digit code.  Enter this code in to complete the verification process. |
-| Mobile App Notification |A verification request is sent to a user’s smart phone asking them complete the verification by selecting Verify from the mobile app. This will occur if you selected app notification as your primary verification method.  If they receive this when they are not signing in, they can choose to report it as fraud. |
+| Phone call |A call is placed to a user’s registered phone asking them to verify that they are signing in by pressing the # key or entering a PIN. |
+| Text message |A text message will be sent to a user’s mobile phone with a six-digit code.  Enter this code in to complete the verification process. |
+| Mobile app notification |A verification request is sent to a user’s smart phone asking them complete the verification by selecting Verify from the mobile app. This will occur if you selected app notification as your primary verification method.  If they receive this when they are not signing in, they can choose to report it as fraud. |
 | Mobile app verification code |The mobile app, which is running on a user’s smart phone, displays a 6-digit verification code that changes every 30 seconds. The user finds the most recent code and enters it on the sign-in page to complete the verification process. This will occur if you selected a verification code as your primary verification method. |
-| 3rd party OATH tokens | Azure Multi-Factor Authentication can be configured to accept 3rd party verification methods. |
+| 3rd party OATH tokens | Azure Multi-Factor Authentication Server can be configured to accept 3rd party verification methods. |
 
 Azure Multi-Factor Authentication provides selectable verification methods for both cloud and server. This means that you can choose which methods are available for your users: phone call, text, app notification, or app codes. For more information, see [selectable verification methods](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 

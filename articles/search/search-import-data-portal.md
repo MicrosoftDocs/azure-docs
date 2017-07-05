@@ -1,6 +1,6 @@
 ---
 title: Import data into Azure Search in the portal | Microsoft Docs
-description: Use the Azure Search Import Data Wizard in the Azure Portal to crawl Azure data from NoSQL DocumentDB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
+description: Use the Azure Search Import Data Wizard in the Azure Portal to crawl Azure data from NoSQL Azure Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 05/01/2017
 ms.author: heidist
 
 ---
@@ -29,17 +29,17 @@ Internally, the wizard configures and invokes an *indexer*, automating several s
 * Generate a modifiable index schema based on the source data structure
 * Load JSON documents into an index using a rowset retrieved from the data source
 
-You can try out this workflow using sample data in DocumentDB. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) for instructions.
+You can try out this workflow using sample data in Azure Cosmos DB. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) for instructions.
 
 > [!NOTE]
-> You can launch the **Import data** wizard from the DocumentDB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
+> You can launch the **Import data** wizard from the Azure Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
 
 ## Data sources supported by the Import Data Wizard
 The Import Data wizard supports the following data sources: 
 
 * Azure SQL Database
 * SQL Server relational data on an Azure VM
-* Azure DocumentDB
+* Azure Cosmos DB
 * Azure Blob storage
 * Azure Table storage
 
@@ -55,7 +55,7 @@ A flattened dataset is a required input. You can only import from a single table
 | **Existing data source** |If you already have indexers defined in your search service, you can select an existing data source definition for another import. |
 | **Azure SQL Database** |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
 | **SQL Server on Azure VM** |Specify a fully-qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. For instructions, see [SQL VM connection to Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
-| **DocumentDB** |Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or to detect changed documents for subsequent data refresh operations. |
+| **Azure Cosmos DB** |Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or to detect changed documents for subsequent data refresh operations. |
 | **Azure Blob Storage** |Requirements include the storage account and a container. Optionally, if blob names follow a virtual naming convention for grouping purposes, you can specify the virtual directory portion of the name as a folder under container. See [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) for more information. |
 | **Azure Table Storage** |Requirements include the storage account and a table name. Optionally, you can specify a query to retrieve a subset of the tables. See [Indexing Table Storage](search-howto-indexing-azure-tables.md) for more information. |
 
@@ -110,7 +110,7 @@ Edits that don't require a rebuild include adding a new field, changing scoring 
 Review these links to learn more about indexers:
 
 * [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexing DocumentDB](search-howto-index-documentdb.md)
+* [Indexing Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexing Table Storage](search-howto-indexing-azure-tables.md)
 

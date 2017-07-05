@@ -127,11 +127,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 8. In the menu on the top, click **Admin**.
    
-   	![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
 9. In the **General Settings** tab, click **Security**.
    
-   	![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
 
 10. In the **Security** section, perform the following steps:
    
@@ -194,29 +194,29 @@ In the case of FreshDesk, provisioning is a manual task.
 1. Log in to your **Freshdesk** tenant.
 2. In the menu on the top, click **Admin**.
    
-   	![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
+   ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
 
 3. In the **General Settings** tab, click **Agents**.
    
-   	![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
+   ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
 
 4. Click **New Agent**.
    
-   	![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
+    ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
 
 5. On the Agent Information dialog, perform the following steps:
    
-   	![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
+   ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
    
-   	a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+   a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
 
-   	b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+   b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
 
-   	c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
+   c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
 
-   	d. Select **Agents role**, and then click **Assign**.
+   d. Select **Agents role**, and then click **Assign**.
 	   
-   	e. Click **Save**.     
+   e. Click **Save**.     
    
 	>[!NOTE]
 	>The Azure AD account holder will get an email that includes a link to confirm the account before it is activated. 

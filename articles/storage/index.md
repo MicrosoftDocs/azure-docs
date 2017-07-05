@@ -103,6 +103,7 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Blobs, Queues, Tables, and Files</a></p>
                         <p><a href="/java/api/">Java</a></p>
                         <p><a href="http://azure.github.io/azure-storage-node">Node​.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p>
                         <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
                         <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
                         <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>

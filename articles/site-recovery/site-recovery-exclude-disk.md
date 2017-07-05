@@ -9,11 +9,11 @@ editor:
 
 ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/24/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
 
 ---

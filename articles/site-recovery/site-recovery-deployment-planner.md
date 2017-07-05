@@ -9,11 +9,11 @@ editor:
 
 ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
 
 ---
@@ -200,8 +200,7 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour format). *StartDate* must be specified along with *EndDate*. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
-
-to a single storage account placement is caculated considering Failover/Test Test failover of virtual machines is done on Managed Disk instead of Unmanaged disk. |
+| -UseManagedDisks | (Optional) UseManagedDisks - Yes/No. Default is Yes. The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk. |
 
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
@@ -478,7 +477,7 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 
 **NICs**: The number of NICs on the VM.
 
-**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet. 
+**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet.
 
 **OS Type**: The is OS type of the VM. It can be either Windows or Linux or other.
 
@@ -515,7 +514,7 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 
 **NICs**: The number of NICs on the VM.
 
-**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet. 
+**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet.
 
 **OS Type**: The is OS type of the VM. It can be either Windows or Linux or other.
 
@@ -556,6 +555,15 @@ To update the deployment planner, do the following:
 
 
 ## Version history
+
+### 1.3
+Updated: May 9, 2017
+
+Following new feature is added:
+
+* Added Managed Disk support in report generation. The number of virtual machines can be placed to a single storage account is calcuated based on if managed disk is selected for Failover/Test failover.        
+
+
 ### 1.2
 Updated: April 7, 2017
 

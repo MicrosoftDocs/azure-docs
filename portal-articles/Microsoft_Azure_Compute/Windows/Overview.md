@@ -17,7 +17,7 @@ Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualiz
 
 ## 5-Minute Quickstarts
 
-Create a Windows VM using:
+Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:
 
 - [Azure Portal](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -25,13 +25,19 @@ Create a Windows VM using:
 
 ## Step-by-Step Tutorials
 
-Build and deploy Windows virtual machines.
+Learn how to deploy, manage, and monitor Windows VMs on Azure.
 
 - [Create and manage Windows VMs](/azure/virtual-machines/windows/tutorial-manage-vm)
-- [Create and manage VM disks](/azure/virtual-machines/windows/tutorial-manage-disks)
+- [Create and manage VM disks](/azure/virtual-machines/windows/tutorial-manage-data-disk)
 - [Automate VM configuration](/azure/virtual-machines/windows/tutorial-automate-vm-deployment)
+- [Create custom VM images](/azure/virtual-machines/windows/tutorial-custom-images)
+- [Create highly available VMs](/azure/virtual-machines/windows/tutorial-availability-sets)
+- [Create a VM scale set](/azure/virtual-machines/windows/tutorial-create-vmss)
 - [Load balance VMs](/azure/virtual-machines/windows/tutorial-load-balancer)
-- [Manage VM networking](/azure/virtual-machines/windows/tutorial-virtual-network)
+- [Manage VMs with virtual networks](/azure/virtual-machines/windows/tutorial-virtual-network)
+- [Backup VMs](/azure/virtual-machines/windows/tutorial-backup-vms)
+- [Monitor VMs](/azure/virtual-machines/windows/tutorial-monitoring)
+- [Manage security on VMs](/azure/virtual-machines/windows/tutorial-azure-security)
 
 
 ## Free PluralSight Video Training

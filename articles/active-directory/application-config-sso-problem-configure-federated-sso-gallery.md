@@ -101,5 +101,9 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as a XML file.
 
+## Don't know how to customize SAML claims sent to an application
+
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
+
 ## Next steps
 [Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)

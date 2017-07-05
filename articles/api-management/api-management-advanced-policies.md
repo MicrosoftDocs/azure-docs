@@ -3,7 +3,7 @@ title: Azure API Management advanced policies | Microsoft Docs
 description: Learn about the advanced policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -31,18 +31,20 @@ This topic provides a reference for the following API Management policies. For i
   
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.  
   
--   [Return response](#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.  
+-   [Return response](#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller. 
   
 -   [Send one way request](#SendOneWayRequest) - Sends a request to the specified URL without waiting for a response.  
   
 -   [Send request](#SendRequest) - Sends a request to the specified URL.  
-  
--   [Set variable](api-management-advanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.  
-  
+
+-   [Set HTTP proxy](#SetHttpProxy) - Allows you to route forwarded requests via an HTTP proxy.  
+
 -   [Set request method](#SetRequestMethod) - Allows you to change the HTTP method for a request.  
   
 -   [Set status code](#SetStatus) - Changes the HTTP status code to the specified value.  
   
+-   [Set variable](api-management-advanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.  
+
 -   [Trace](#Trace) - Adds a string into the [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) output.  
   
 -   [Wait](#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.  
@@ -616,6 +618,144 @@ status code and media type. If no example or schema found, the content is empty.
   
 -   **Policy scopes:** all scopes  
   
+##  <a name="SetHttpProxy"></a> Set HTTP proxy  
+ The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only.
+  
+### Policy statement  
+  
+```xml  
+<proxy url="http://hostname-or-ip:port" username="username" password="password" />  
+  
+```  
+  
+### Example  
+Note the use of [properties](api-management-howto-properties.md) as values of the username and password to avoid storing sensitive information in the policy document.  
+  
+```xml  
+<proxy url="http://192.168.1.1:8080" username={{username}} password={{password}} />
+  
+```  
+  
+### Elements  
+  
+|Element|Description|Required|  
+|-------------|-----------------|--------------|  
+|proxy|Root element|Yes|  
+
+### Attributes  
+  
+|Attribute|Description|Required|Default|  
+|---------------|-----------------|--------------|-------------|  
+|url="string"|Proxy URL in the form of http://host:port.|Yes|N/A|  
+|username="string"|Username to be used for authentication with the proxy.|No|N/A|  
+|password="string"|Password to be used for authentication with the proxy.|No|N/A|  
+
+### Usage  
+ This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound  
+  
+-   **Policy scopes:** all scopes  
+
+##  <a name="SetRequestMethod"></a> Set request method  
+ The `set-method` policy allows you to change the HTTP request method for a request.  
+  
+### Policy statement  
+  
+```xml  
+<set-method>METHOD</set-method>  
+  
+```  
+  
+### Example  
+ This sample policy that uses the `set-method` policy shows an example of sending a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+  
+```xml  
+<choose>  
+    <when condition="@(context.Response.StatusCode >= 500)">  
+      <send-one-way-request mode="new">  
+        <set-url>https://hooks.slack.com/services/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</set-url>  
+        <set-method>POST</set-method>  
+        <set-body>@{  
+                return new JObject(  
+                        new JProperty("username","APIM Alert"),  
+                        new JProperty("icon_emoji", ":ghost:"),  
+                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
+                                                context.Request.Method,  
+                                                context.Request.Url.Path + context.Request.Url.QueryString,  
+                                                context.Request.Url.Host,  
+                                                context.Response.StatusCode,  
+                                                context.Response.StatusReason,  
+                                                context.User.Email  
+                                                ))  
+                        ).ToString();  
+            }</set-body>  
+      </send-one-way-request>  
+    </when>  
+</choose>  
+  
+```  
+  
+### Elements  
+  
+|Element|Description|Required|  
+|-------------|-----------------|--------------|  
+|set-method|Root element. The value of the element specifies the HTTP method.|Yes|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound, on-error  
+  
+-   **Policy scopes:** all scopes  
+  
+##  <a name="SetStatus"></a> Set status code  
+ The `set-status` policy sets the HTTP status code to the specified value.  
+  
+### Policy statement  
+  
+```xml  
+<set-status code="" reason=""/>  
+  
+```  
+  
+### Example  
+ This example shows how to return a 401 response if the authorization token is invalid. For more information, see [Using external services from the Azure API Management service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)  
+  
+```xml  
+<choose>  
+  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
+    <return-response response-variable-name="existing response variable">  
+      <set-status code="401" reason="Unauthorized" />  
+      <set-header name="WWW-Authenticate" exists-action="override">  
+        <value>Bearer error="invalid_token"</value>  
+      </set-header>  
+    </return-response>  
+  </when>  
+</choose>  
+  
+```  
+  
+### Elements  
+  
+|Element|Description|Required|  
+|-------------|-----------------|--------------|  
+|set-status|Root element.|Yes|  
+  
+### Attributes  
+  
+|Attribute|Description|Required|Default|  
+|---------------|-----------------|--------------|-------------|  
+|code="integer"|The HTTP status code to return.|Yes|N/A|  
+|reason="string"|A description of the reason for returning the status code.|Yes|N/A|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** outbound, backend, on-error  
+  
+-   **Policy scopes:** all scopes  
+
 ##  <a name="set-variable"></a> Set variable  
  The `set-variable` policy declares a [context](api-management-policy-expressions.md#ContextVariables) variable and assigns it a value specified via an [expression](api-management-policy-expressions.md) or a string literal. if the expression contains a literal it will be converted to a string and the type of the value will be `System.String`.  
   
@@ -716,106 +856,7 @@ status code and media type. If no example or schema found, the content is empty.
 -   System.Char?  
   
 -   System.DateTime?  
-  
-##  <a name="SetRequestMethod"></a> Set request method  
- The `set-method` policy allows you to change the HTTP request method for a request.  
-  
-### Policy statement  
-  
-```xml  
-<set-method>METHOD</set-method>  
-  
-```  
-  
-### Example  
- This sample policy that uses the `set-method` policy shows an example of sending a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
-  
-```xml  
-<choose>  
-    <when condition="@(context.Response.StatusCode >= 500)">  
-      <send-one-way-request mode="new">  
-        <set-url>https://hooks.slack.com/services/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</set-url>  
-        <set-method>POST</set-method>  
-        <set-body>@{  
-                return new JObject(  
-                        new JProperty("username","APIM Alert"),  
-                        new JProperty("icon_emoji", ":ghost:"),  
-                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
-                                                context.Request.Method,  
-                                                context.Request.Url.Path + context.Request.Url.QueryString,  
-                                                context.Request.Url.Host,  
-                                                context.Response.StatusCode,  
-                                                context.Response.StatusReason,  
-                                                context.User.Email  
-                                                ))  
-                        ).ToString();  
-            }</set-body>  
-      </send-one-way-request>  
-    </when>  
-</choose>  
-  
-```  
-  
-### Elements  
-  
-|Element|Description|Required|  
-|-------------|-----------------|--------------|  
-|set-method|Root element. The value of the element specifies the HTTP method.|Yes|  
-  
-### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
-  
--   **Policy sections:** inbound, on-error  
-  
--   **Policy scopes:** all scopes  
-  
-##  <a name="SetStatus"></a> Set status code  
- The `set-status` policy sets the HTTP status code to the specified value.  
-  
-### Policy statement  
-  
-```xml  
-<set-status code="" reason=""/>  
-  
-```  
-  
-### Example  
- This example shows how to return a 401 response if the authorization token is invalid. For more information, see [Using external services from the Azure API Management service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)  
-  
-```xml  
-<choose>  
-  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
-    <return-response response-variable-name="existing response variable">  
-      <set-status code="401" reason="Unauthorized" />  
-      <set-header name="WWW-Authenticate" exists-action="override">  
-        <value>Bearer error="invalid_token"</value>  
-      </set-header>  
-    </return-response>  
-  </when>  
-</choose>  
-  
-```  
-  
-### Elements  
-  
-|Element|Description|Required|  
-|-------------|-----------------|--------------|  
-|set-status|Root element.|Yes|  
-  
-### Attributes  
-  
-|Attribute|Description|Required|Default|  
-|---------------|-----------------|--------------|-------------|  
-|code="integer"|The HTTP status code to return.|Yes|N/A|  
-|reason="string"|A description of the reason for returning the status code.|Yes|N/A|  
-  
-### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
-  
--   **Policy sections:** outbound, backend, on-error  
-  
--   **Policy scopes:** all scopes  
-  
+
 ##  <a name="Trace"></a> Trace  
  The             `trace` policy adds a string into the [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) output. The policy will execute only when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to `true` and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key associated with the admin account.  
   

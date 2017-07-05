@@ -1,6 +1,7 @@
-﻿# Overview
+# Overview
 
 ## [Introduction](storage-introduction.md)
+## [Choose Blobs, Files, or Data Disks](storage-decide-blobs-files-disks.md)
 
 # Get Started
 
@@ -11,8 +12,8 @@
 ### [Java](storage-java-how-to-use-blob-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-blob-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-blobs.md)
-### [Python](storage-python-how-to-use-blob-storage.md)
 ### [PHP](storage-php-how-to-use-blobs.md)
+### [Python](storage-python-how-to-use-blob-storage.md)
 ### [Ruby](storage-ruby-how-to-use-blob-storage.md)
 ### [iOS](storage-ios-how-to-use-blob-storage.md)
 ### [Xamarin](storage-xamarin-blob-storage.md)
@@ -22,17 +23,18 @@
 ### [Java](storage-java-how-to-use-queue-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-queues.md)
 ### [C++](storage-c-plus-plus-how-to-use-queues.md)
-### [Python](storage-python-how-to-use-queue-storage.md)
 ### [PHP](storage-php-how-to-use-queues.md)
+### [Python](storage-python-how-to-use-queue-storage.md)
 ### [Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ## Table Storage
 ### [.NET](storage-dotnet-how-to-use-tables.md)
+### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
-### [Python](storage-python-how-to-use-table-storage.md)
 ### [PHP](storage-php-how-to-use-table-storage.md)
+### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
 ## File Storage
@@ -49,13 +51,16 @@
 ### [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Using managed disks in Resource Manager templates](storage-using-managed-disks-template-deployments.md)
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
 ## Use blobs
 ### [Service overview](https://msdn.microsoft.com/library/dd179376.aspx)
+### [Searching Blob storage with Azure Search](../search/search-blob-storage-integration.md)
 ### [Hot and cool tiers](storage-blob-storage-tiers.md)
 ### [Custom domains](storage-custom-domain-name.md)
+### [Using the Azure CDN to access blobs with custom domains over HTTPs](storage-https-custom-domain-cdn.md) 
 ### [Anonymous access to blobs](storage-manage-access-to-resources.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
 ## Use queues
@@ -67,7 +72,8 @@
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
 ### [Overview](/rest/api/storageservices/File-Service-Concepts)
-### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
+### [Troubleshoot Azure Files - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Troubleshoot Azure Files - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
@@ -106,14 +112,17 @@
 ## Secure
 ### [Security guide](storage-security-guide.md)
 ### [Encryption for data at rest](storage-service-encryption.md)
-### [Shared key authentication](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Encryption at rest with customer keys](storage-service-encryption-customer-managed-keys.md)
+### [Shared key authentication](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Require secure transfer](storage-require-secure-transfer.md)
 ### Client-side encryption
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitor and troubleshoot
+### [Troubleshoot Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
 #### [Enable and view metrics](storage-enable-and-view-metrics.md)
@@ -126,7 +135,8 @@
 ### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
-### [AzCopy command-line utility](storage-use-azcopy.md)
+### [AzCopy on Windows](storage-use-azcopy.md)
+### [AzCopy on Linux](storage-use-azcopy-linux.md)
 ### [Using the Import/Export service](storage-import-export-service.md)
 ### [Using the Import/Export Tool](storage-import-export-tool-how-to.md)
 #### [Setting up the Import/Export Tool](storage-import-export-tool-setup.md)
@@ -174,6 +184,7 @@
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
+## [PHP](http://azure.github.io/azure-storage-php/)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
 ## [iOS](http://azure.github.io/azure-storage-ios/)
@@ -191,11 +202,12 @@
 ### [Troubleshooting tutorial](storage-e2e-troubleshooting-classic-portal.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Azure Storage client tools](storage-explorers.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=storage)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Storage Explorer
@@ -217,6 +229,6 @@
 ### [Java](https://github.com/Azure/azure-storage-java)
 ### [C++](https://github.com/Azure/azure-storage-cpp)
 ### [PHP](https://github.com/Azure/azure-storage-php)
-### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
+### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [iOS](https://github.com/Azure/azure-storage-ios)

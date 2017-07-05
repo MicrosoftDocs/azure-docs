@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid: a7dd5030-7d40-4654-8fbd-88e53ddc1ef5
 ms.service: multi-factor-authentication
@@ -13,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 06/14/2017
 ms.author: kgremban
-
+ms.reviewer: yossib
+ms.custom: it-pro
 ---
+
 # Getting started with an Azure Multi-Factor Auth Provider
 Two-step verification is available by default for global administrators who have Azure Active Directory, and Office 365 users. However, if you wish to take advantage of [advanced features](multi-factor-authentication-whats-next.md) then you should purchase the full version of Azure Multi-Factor Authentication (MFA).
 
-> [!NOTE]
-> An Azure Multi-Factor Auth Provider is used to take advantage of features provided by the full version of Azure MFA. It is for users who **do not have licenses through Azure MFA, Azure AD Premium, or EMS**.  Azure MFA, Azure AD Premium, and EMS include the full version of Azure MFA by default.  If you have licenses, then you do not need an Azure Multi-Factor Auth Provider.
+An Azure Multi-Factor Auth Provider is used to take advantage of features provided by the full version of Azure MFA. It is for users who **do not have licenses through Azure MFA, Azure AD Premium, or Enterprise Mobility + Security (EMS)**.  Azure MFA, Azure AD Premium, and EMS include the full version of Azure MFA by default. If you have licenses, then you do not need an Azure Multi-Factor Auth Provider.
 
 An Azure Multi-Factor Auth provider is required to download the SDK.
 
 > [!IMPORTANT]
-> To download the SDK, create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses.  This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own.
+> To download the SDK, create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses. This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own.
+
+## What is an Azure Multi-Factor Auth Provider?
+
+If you don't have licenses for Azure Multi-Factor Authentication, you can create an auth provider to require two-step verification for your users. If you are developing a custom app and want to enable Azure MFA, create an auth provider and [download the SDK](multi-factor-authentication-sdk.md).
+
+There are two types of auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally, like if you require MFA for a custom application. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
 
 ## Create a Multi-Factor Auth Provider
 Use the following steps to create an Azure Multi-Factor Auth Provider.
@@ -53,4 +59,3 @@ Use the following steps to create an Azure Multi-Factor Auth Provider.
         ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 8. Once you click create, the Multi-Factor Authentication Provider is created and you should see a message stating: **Successfully created Multi-Factor Authentication Provider**. Click **Ok**.
    ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
-

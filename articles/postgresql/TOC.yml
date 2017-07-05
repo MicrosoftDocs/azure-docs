@@ -1,0 +1,119 @@
+- name: Azure DB for PostgreSQL Docs
+  href: index.yml
+- name: Overview
+  items:
+  - name: Azure DB for PostgreSQL
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create DB - Portal
+    href: quickstart-create-server-database-portal.md
+  - name: Create DB - Azure CLI
+    href: quickstart-create-server-database-azure-cli.md
+  - name: Connect & query
+    items: 
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: PHP
+      href: connect-php.md
+    - name: .NET
+      href: connect-csharp.md
+- name: Tutorials
+  items:
+  - name: 1 - Design a Database
+    items:
+    - name: Azure portal
+      href: tutorial-design-database-using-azure-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-using-azure-cli.md
+  - name: 2 - Design Web App - Python
+    href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
+- name: Concepts
+  items:
+  - name: DB & Servers
+    items:
+    - name: Servers
+      href: concepts-servers.md
+    - name: Supported versions
+      href: concepts-supported-versions.md
+    - name: PostgreSQL extensions
+      href: concepts-extensions.md
+    - name: Server logs
+      href: concepts-server-logs.md
+  - name: Resources
+    items:
+    - name: Pricing tiers
+      href: concepts-service-tiers.md
+    - name: Compute Units
+      href: concepts-compute-unit-and-storage.md
+    - name: Limits
+      href: concepts-limits.md
+  - name: Data access & security
+    items:
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
+    - name: Configure SSL
+      href: concepts-ssl-connection-security.md
+  - name: Development
+    items:
+    - name: Connection libraries
+      href: concepts-connection-libraries.md
+- name: How-to guides
+  items:
+  - name: Firewall rules
+    items:
+    - name: Azure portal
+      href: howto-manage-firewall-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-using-cli.md
+  - name: Restore a server
+    items:
+    - name: Azure portal
+      href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
+  - name: Migrate your database
+    items:
+    - name: Dump & restore
+      href: howto-migrate-using-dump-and-restore.md
+    - name: Import & export
+      href: howto-migrate-using-export-and-import.md
+  - name: Customize server configuration parameters
+    items:
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: Server Logs
+    items:
+    - name: Azure CLI
+      href: howto-configure-server-logs-using-cli.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/postgres
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/postgresql/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Videos
+    href: videos.md    
+  - name: Feedback forum
+    href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Support options
+    href: https://azure.microsoft.com/support/options/

@@ -1,11 +1,12 @@
 ---
-title: Azure Active Directory PoC Playbook Building Blocks| Microsoft Docs
+
+title: Azure Active Directory proof of concept playbook building blocks | Microsoft Docs
 description: Explore and quickly implement Identity and Access Management scenarios
 services: active-directory
 keywords: azure active directory, playbook, Proof of Concept, PoC
 documentationcenter: ''
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 
 ms.assetid:
 ms.service: active-directory
@@ -13,15 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
 
 ---
-# Azure Active Directory Proof of Concept Playbook: Building Blocks
+# Azure Active Directory proof of concept playbook: Building blocks
 
-## Catalog of Actors
+## Catalog of roles
 
-| Actor | Description | PoC Responsibility |
+| Role | Description | Proof of concept (PoC) responsibility |
 | --- | --- | --- |
 | **Identity Architecture / development team** | This team is usually the one that designs the solution, implements prototypes, drives approvals, and finally hands off to operations | They provide the environments and are the ones evaluating the different scenarios from the manageability perspective |
 | **On-Premises Identity Operations team** | Manages the different identity sources on-premises: Active Directory Forests, LDAP directories, HR systems, and Federation Identity Providers. | Provide access to on-premises resources needed for the PoC scenarios.<br/>They should be involved as little as possible|
@@ -147,7 +148,7 @@ Approximate time to Complete: 60 minutes
 | Set a working meeting and follow the tutorial steps with each actor. | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Assign the app to the group identified in the Prerequisites. If the POC has conditional access in the scope, you can revisit that later and add MFA, and similar. <br/>Note this will kick in the provisioning process (if configured) |  [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Use Azure AD management Portal to add ServiceNow Application from Gallery| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[What's new in Enterprise Application management in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
-| In "Single sign-on" blade of ServiceNow App enable "SAML-based Sign-on" in "Single sign-on" blade of ServiceNow App |  |
+| In "Single sign-on" blade of ServiceNow App enable "SAML-based Sign-on" |  |
 | Fill out "Sign on URL" and "Identifier" fields with your ServiceNow URL<br/>Check the box to "Make new certificate active"<br/>and Save settings |  |
 | Open "Configure ServiceNow" blade on the bottom of the panel to view customized instructions for you to configure ServiceNow |  |
 | Follow instructions to configure ServiceNow |  |
@@ -180,7 +181,7 @@ Approximate time to Complete: 15 minutes
 | Step | Resources |
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assign the app to the group identified in the Prerequisites | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Log in to https://myapps.microsoft.com/ as a test user that has access |  |
@@ -206,7 +207,7 @@ Approximate time to Complete: 30 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | The list of target applications and the exact sign-in URLS ahead of time. As an example, you can use Twitter. | [Twitter on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en) |
-| Shared credential for this SaaS application. | [Sharing accounts using Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! - Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Shared credential for this SaaS application. | [Sharing accounts using Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! - Enterprise Mobility and Security Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Credentials for at least two team members who will access the same account. They must be part of a security group. | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Local administrator access to a computer to deploy the Access Panel Extension for Internet Explorer, Chrome or Firefox | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -215,7 +216,7 @@ Approximate time to Complete: 30 minutes
 | Step | Resources |
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assign the app to the group identified in the Prerequisites while assigning them credentials | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Log in as different users that access app as the **same shared account.**  |  |

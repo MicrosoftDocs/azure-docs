@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 06/01/2017
 ms.author: bwren
 
 ---
@@ -48,7 +48,7 @@ PowerShell runbooks are based on Windows PowerShell.  You directly edit the code
 
 ### Advantages
 * Implement all complex logic with PowerShell code without the additional complexities of PowerShell Workflow. 
-* Runbook starts faster than Graphical or PowerShell Workflow runbooks since it doesn't need to be compiled before running.
+* Runbook starts faster than PowerShell Workflow runbooks since it doesn't need to be compiled before running.
 
 ### Limitations
 * Must be familiar with PowerShell scripting.

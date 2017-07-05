@@ -9,14 +9,17 @@ editor: ''
 
 ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 5/11/2017
 ms.author: anoopkv
 ---
 # Automate Mobility Service installation by using software deployment tools
+
+>[!IMPORTANT]
+This document assumes you are using version **9.9.4510.1** or higher.
 
 This article provides you an example of how you can use System Center Configuration Manager to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like Configuration Manager has the following advantages:
 * Scheduling deployment of fresh installations and upgrades, during your planned maintenance window for software updates
@@ -55,46 +58,100 @@ This article provides you an example of how you can use System Center Configurat
    > [!NOTE]
    > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.
 
-```
+```DOS
 Time /t >> C:\Temp\logfile.log
 REM ==================================================
 REM ==== Clean up the folders ========================
 RMDIR /S /q %temp%\MobSvc
 MKDIR %Temp%\MobSvc
+MKDIR C:\Temp
 REM ==================================================
+
 REM ==== Copy new files ==============================
 COPY M*.* %Temp%\MobSvc
 CD %Temp%\MobSvc
 REN Micro*.exe MobSvcInstaller.exe
 REM ==================================================
+
 REM ==== Extract the installer =======================
 MobSvcInstaller.exe /q /x:%Temp%\MobSvc\Extracted
 REM ==== Wait 10s for extraction to complete =========
 TIMEOUT /t 10
 REM =================================================
-REM ==== Extract the installer ======================
+
+REM ==== Perform installation =======================
+REM =================================================
+
 CD %Temp%\MobSvc\Extracted
-REM ==================================================
-REM ==== Check if Mob Svc is already installed =======
-REM ==== If not installed run install command ========
-REM ==== Else run upgrade command =====================
-REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
-REM ==== guid for Mob Svc Installer ====================
-whoami >> C:\temp\logfile.log
-REM SET PRODKEY=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
-REM REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1} >> C:\Temp\logfile.log 2>&1
-REM REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1}
-REM IF NOT %ERRORLEVEL% EQU 0 (GOTO :INSTALL) ELSE GOTO :UPDATE
-NET START | FIND "InMage Scout Application Service"
-IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UPDATE
+whoami >> C:\Temp\logfile.log
+SET PRODKEY=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1}
+IF NOT %ERRORLEVEL% EQU 0 (
+	echo "Product is not installed. Goto INSTALL." >> C:\Temp\logfile.log
+	GOTO :INSTALL
+) ELSE (
+	echo "Product is installed." >> C:\Temp\logfile.log
+
+	echo "Checking for Post-install action status." >> C:\Temp\logfile.log
+	GOTO :POSTINSTALLCHECK
+)
+
+:POSTINSTALLCHECK
+	REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "PostInstallActions" | Find "Succeeded"
+	If %ERRORLEVEL% EQU 0 (
+		echo "Post-install actions succeeded. Checking for Configuration status." >> C:\Temp\logfile.log
+		GOTO :CONFIGURATIONCHECK
+	) ELSE (
+		echo "Post-install actions didn't succeed. Goto INSTALL." >> C:\Temp\logfile.log
+		GOTO :INSTALL
+	)
+
+:CONFIGURATIONCHECK
+	REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "AgentConfigurationStatus" | Find "Succeeded"
+	If %ERRORLEVEL% EQU 0 (
+		echo "Configuration has succeeded. Goto UPGRADE." >> C:\Temp\logfile.log
+		GOTO :UPGRADE
+	) ELSE (
+		echo "Configuration didn't succeed. Goto CONFIGURE." >> C:\Temp\logfile.log
+		GOTO :CONFIGURE
+	)
+
+
 :INSTALL
-	echo "Install" >> c:\Temp\logfile.log
- 	UnifiedAgent.exe /Role "Agent" /CSEndpoint "10.10.20.168" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
-GOTO :ENDSCRIPT
-:UPDATE
-	echo "Update" >> C:\Temp\logfile.log
-	UnifiedAgent.exe /upgrade
+	echo "Perform installation." >> C:\Temp\logfile.log
+	UnifiedAgent.exe /Role MS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+	IF %ERRORLEVEL% EQU 0 (
+	    echo "Installation has succeeded." >> C:\Temp\logfile.log
+		(GOTO :CONFIGURE)
+    ) ELSE (
+		echo "Installation has failed." >> C:\Temp\logfile.log
+		GOTO :ENDSCRIPT
+	)
+
+:CONFIGURE
+	echo "Perform configuration." >> C:\Temp\logfile.log
+	cd "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent"
+	UnifiedAgentConfigurator.exe  /CSEndPoint "[CSIP]" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
+	IF %ERRORLEVEL% EQU 0 (
+	    echo "Configuration has succeeded." >> C:\Temp\logfile.log
+    ) ELSE (
+		echo "Configuration has failed." >> C:\Temp\logfile.log
+	)
+	GOTO :ENDSCRIPT
+
+:UPGRADE
+	echo "Perform upgrade." >> C:\Temp\logfile.log
+	UnifiedAgent.exe /Platform "VmWare" /Silent
+	IF %ERRORLEVEL% EQU 0 (
+	    echo "Upgrade has succeeded." >> C:\Temp\logfile.log
+    ) ELSE (
+		echo "Upgrade has failed." >> C:\Temp\logfile.log
+	)
+	GOTO :ENDSCRIPT
+
 :ENDSCRIPT
+	echo "End of script." >> C:\Temp\logfile.log
+
 
 ```
 
@@ -114,7 +171,7 @@ GOTO :ENDSCRIPT
   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
- 
+
   | **Parameter name** | **Value** |
   |--|--|
   | Name | Install Microsoft Azure Mobility Service (Windows) |
@@ -125,7 +182,7 @@ GOTO :ENDSCRIPT
 
 9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png) 
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)
 
 10. To complete the wizard, click **Next** twice.
 
@@ -177,27 +234,36 @@ You can monitor the deployment progress by using the Configuration Manager conso
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
 6. Copy the following files to the **MobSvcLinux** folder on your network share:
-   * Microsoft-ASR\_UA\_*version*\_OEL-64\_GA\_*date*\_Release.tar.gz
-   * Microsoft-ASR\_UA\_*version*\_RHEL6-64\_GA\_*date*\_Release.tar.gz
-   * Microsoft-ASR\_UA\_*version*\_RHEL7-64\_GA\_*date*\_Release.tar.gz
-   * Microsoft-ASR\_UA\_*version*\_SLES11-SP3-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
+
 
 7. Copy the following code, and save it as **install_linux.sh** into the **MobSvcLinux** folder.
    > [!NOTE]
    > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.
 
-```
-#!/bin/sh
+```Bash
+#!/usr/bin/env bash
 
 rm -rf /tmp/MobSvc
-
 mkdir -p /tmp/MobSvc
+INSTALL_DIR='/usr/local/ASR'
+VX_VERSION_FILE='/usr/local/.vx_version'
+
+echo "=============================" >> /tmp/MobSvc/sccm.log
+echo `date` >> /tmp/MobSvc/sccm.log
+echo "=============================" >> /tmp/MobSvc/sccm.log
 
 if [ -f /etc/oracle-release ] && [ -f /etc/redhat-release ]; then
     if grep -q 'Oracle Linux Server release 6.*' /etc/oracle-release; then
         if uname -a | grep -q x86_64; then
             OS="OL6-64"
-	    cp *OL6*.tar.gz /tmp/MobSvc
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *OL6*.tar.gz /tmp/MobSvc
         fi
     fi
 elif [ -f /etc/redhat-release ]; then
@@ -206,55 +272,112 @@ elif [ -f /etc/redhat-release ]; then
         grep -q 'CentOS release 6.* (Final)' /etc/redhat-release; then
         if uname -a | grep -q x86_64; then
             OS="RHEL6-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
             cp *RHEL6*.tar.gz /tmp/MobSvc
         fi
     elif grep -q 'Red Hat Enterprise Linux Server release 7.* (Maipo)' /etc/redhat-release || \
         grep -q 'CentOS Linux release 7.* (Core)' /etc/redhat-release; then
         if uname -a | grep -q x86_64; then
             OS="RHEL7-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
             cp *RHEL7*.tar.gz /tmp/MobSvc
-	fi
+                fi
     fi
 elif [ -f /etc/SuSE-release ] && grep -q 'VERSION = 11' /etc/SuSE-release; then
     if grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 3' /etc/SuSE-release; then
         if uname -a | grep -q x86_64; then
             OS="SLES11-SP3-64"
-	    echo $OS >> /tmp/MobSvc/sccm.log
-	    cp *SLES11*.tar.gz /tmp/MobSvc
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *SLES11-SP3*.tar.gz /tmp/MobSvc
+        fi
+    elif grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 4' /etc/SuSE-release; then
+        if uname -a | grep -q x86_64; then
+            OS="SLES11-SP4-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *SLES11-SP4*.tar.gz /tmp/MobSvc
         fi
     fi
 elif [ -f /etc/lsb-release ] ; then
     if grep -q 'DISTRIB_RELEASE=14.04' /etc/lsb-release ; then
        if uname -a | grep -q x86_64; then
            OS="UBUNTU-14.04-64"
-	   cp *UBUNTU*.tar.gz /tmp/MobSvc
+           echo $OS >> /tmp/MobSvc/sccm.log
+           cp *UBUNTU-14*.tar.gz /tmp/MobSvc
        fi
     fi
 else
-	exit 1
+    exit 1
 fi
-if [ "${OS}" ==  "" ]; then
-	exit 1
+
+if [ -z "$OS" ]; then
+    exit 1
 fi
+
+Install()
+{
+    echo "Perform Installation." >> /tmp/MobSvc/sccm.log
+    ./install -q -d ${INSTALL_DIR} -r MS -v VmWare
+    RET_VAL=$?
+    echo "Installation Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Installation has succeeded. Proceed to configuration." >> /tmp/MobSvc/sccm.log
+        Configure
+    else
+        echo "Installation has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
+Configure()
+{
+    echo "Perform configuration." >> /tmp/MobSvc/sccm.log
+    ${INSTALL_DIR}/Vx/bin/UnifiedAgentConfigurator.sh -i [CSIP] -P MobSvc.passphrase
+    RET_VAL=$?
+    echo "Configuration Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Configuration has succeeded." >> /tmp/MobSvc/sccm.log
+    else
+        echo "Configuration has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
+Upgrade()
+{
+    echo "Perform Upgrade." >> /tmp/MobSvc/sccm.log
+    ./install -q -v VmWare
+    RET_VAL=$?
+    echo "Upgrade Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Upgrade has succeeded." >> /tmp/MobSvc/sccm.log
+    else
+        echo "Upgrade has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
 cp MobSvc.passphrase /tmp/MobSvc
 cd /tmp/MobSvc
 
 tar -zxvf *.tar.gz
 
-
-if [ -e /usr/local/.vx_version ];
-then
-	./install -A u
-	echo "Errorcode:$?"
-	Error=$?
-
+if [ -e ${VX_VERSION_FILE} ]; then
+    echo "${VX_VERSION_FILE} exists. Checking for configuration status." >> /tmp/MobSvc/sccm.log
+    agent_configuration=$(grep ^AGENT_CONFIGURATION_STATUS "${VX_VERSION_FILE}" | cut -d"=" -f2 | tr -d " ")
+    echo "agent_configuration=$agent_configuration" >> /tmp/MobSvc/sccm.log
+     if [ "$agent_configuration" == "Succeeded" ]; then
+        echo "Agent is already configured. Proceed to Upgrade." >> /tmp/MobSvc/sccm.log
+        Upgrade
+    else
+        echo "Agent is not configured. Proceed to Configure." >> /tmp/MobSvc/sccm.log
+        Configure
+    fi
 else
-	./install -t both -a host -R Agent -d /usr/local/ASR -i [CS IP] -p 443 -s y -c https -P MobSvc.passphrase >> /tmp/MobSvc/sccm.log 2>&1 && echo "Install Progress"
-	Error=$?
+    Install
 fi
+
 cd /tmp
-rm -rf /tm/MobSvc
-exit ${Error}
+
 ```
 
 ### Step 2: Create a package
@@ -285,8 +408,8 @@ exit ${Error}
 9. On the next page, select **This program can run on any platform**.
   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
 
-10. To complete the wizard, click **Next** twice. 
- 
+10. To complete the wizard, click **Next** twice.
+
 > [!NOTE]
 > The script supports both new installations of Mobility Service agents and updates to agents that are already installed.
 

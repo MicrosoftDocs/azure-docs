@@ -1,5 +1,5 @@
 ---
-title: Use a Hadoop sandbox to learn about Hadoop | Microsoft Docs
+title: Learn using a Hadoop sandbox - emulator - Azure HDInsight | Microsoft Docs
 description: 'To start learning about using the Hadoop ecosystem, you can set up a Hadoop sandbox from Hortonworks on an Azure virtual machine. '
 keywords: hadoop emulator,hadoop sandbox
 editor: cgronlun
@@ -11,7 +11,7 @@ tags: azure-portal
 
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.date: 01/06/2017
 ms.author: nitinme
 
 ---
-# Get started in the Hadoop ecosystem with a Hadoop Sandbox on a virtual machine
+# Get started with a Hadoop sandbox, an emulator on a virtual machine
 
 Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission. Once you are familiar with Hadoop, you can start using Hadoop on Azure by creating an HDInsight cluster. For more information on how to get started, see [Get started with Hadoop on HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -31,7 +31,8 @@ Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to
 
 ## Download and install the virtual machine
 1. Browse to the [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
-2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hrotonworks Sandbox on a VM. You will be prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
+
+2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hortonworks Sandbox on a VM. You are prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
    
     ![Link image for download Hortonworks Sandbox for VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
 3. From the same web page, click the **Import on Virtual Box** link to download a PDF containing installation instructions for the virtual machine.
@@ -45,25 +46,26 @@ To download an older HDP version sandbox, expand the archive:
 
 1. Open Oracle VM VirtualBox.
 2. From the **File** menu, click **Import Appliance**, and then specify the Hortonworks Sandbox image.
-1. Select the Hortonworks Sandbox, click **Start**, and then **Normal Start**. Once the virtual machine has finished the boot process, it will display login instructions.
+1. Select the Hortonworks Sandbox, click **Start**, and then **Normal Start**. Once the virtual machine has finished the boot process, it displays login instructions.
    
     ![Normal start](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)
 2. Open a web browser and navigate to the URL displayed (usually http://127.0.0.1:8888).
 
 ## Set Sandbox passwords
 
-1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to login to the sandbox using SSH. Use the name and password provided.
+1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to log in to the sandbox using SSH. Use the name and password provided.
    
    > [!NOTE]
    > If you do not have an SSH client installed, you can use the web-based SSH provided at by the virtual machine at **http://localhost:4200/**.
    > 
    
-    The first time you connect using SSH, you will be prompted to change the password for the root account. Enter a new password, which will be used when you login using SSH in the future.
+    The first time you connect using SSH, you are prompted to change the password for the root account. Enter a new password, which you use when you log in using SSH.
+
 2. Once logged in, enter the following command:
    
         ambari-admin-password-reset
    
-    When prompted, provide a password for the Ambari admin account. This will be used when you access the Ambari Web UI.
+    When prompted, provide a password for the Ambari admin account. This is used when you access the Ambari Web UI.
 
 ## Use Hive commands
 

@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
+ms.date: 6/17/2017
 ms.author: xshi
 
 ---
@@ -151,9 +151,9 @@ Install the package for Feather M0 WiFi in the Arduino IDE:
 
    ![Open the sample application in Arduino IDE](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
-1. Click **Tools** > **Board** > **Boards Manager**, and then install the `Arduino SAMD Boards` version `1.6.2` or later 
+1. Click **Tools** > **Board** > **Boards Manager**, and then install the `Arduino SAMD Boards` version `1.6.2` or later. Then install `Adafruit SAMD` package to add the board file definitions.
 
-   Boards Manager indicates that `Arduino SAMD Boards` with a version of `1.6.2` or later is installed.
+   Boards Manager indicates that `Arduino SAMD Boards` with a version of `1.6.2` or later is installed. 
 
    ![The esp8266 package is installed](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 
@@ -168,7 +168,6 @@ Install the package for Feather M0 WiFi in the Arduino IDE:
 
 1. In the Arduino IDE, click **Sketch** > **Include Library** > **Manage Libraries**.
 1. Search for the following library names one by one. For each  library that you find, click **Install**.
-   * `Adafruit_WINC1500`
    * `RTCZero`
    * `NTPClient`
    * `AzureIoTHub`
@@ -177,6 +176,7 @@ Install the package for Feather M0 WiFi in the Arduino IDE:
    * `ArduinoJson`
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
+1. Manually install `Adafruit_WINC1500`. Visit [this link](https://github.com/adafruit/Adafruit_WINC1500) and click the **Clone or download** button, then **Download ZIP**. Then in your Arduino IDE, go to **Sketch** -> **Include Library** -> **Add .zip Library** and add the zip file you just downloaded.
 
 ### Don’t have a real BME280 sensor?
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 12/29/2016
+ms.date: 06/01/2017
 ms.author: danlep
 
 ---
@@ -60,7 +60,7 @@ in an Azure VM.
     Configure a certificate to secure the connection between the head node and Azure. For options and procedures, see [Scenarios to Configure the Azure Management Certificate for HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). For test deployments, HPC Pack installs a Default Microsoft HPC Azure Management Certificate you can quickly upload to your Azure subscription.
 3. **Create a new cloud service and a storage account**
    
-    Use the Azure classic portal to create a cloud service and a storage account for the deployment in a region where the RDMA-capable instances are available.
+    Use the Azure portal to create a cloud service and a storage account for the deployment in a region where the RDMA-capable instances are available.
 4. **Create an Azure node template**
    
     Use the Create Node Template Wizard in HPC Cluster Manager. For steps, see [Create an Azure node template](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) in “Steps to Deploy Azure Nodes with Microsoft HPC Pack”.

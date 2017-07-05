@@ -19,27 +19,27 @@ ms.author: TomSh
 ---
 
 # Azure Operational Security
-## 1.0 Introduction
+## Introduction
 
-### 1.1 Overview
+### Overview
 We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform. Windows Azure must provide confidentiality, integrity, and availability of customer data, while also enabling transparent accountability.
 
 To help customers better understand the array of security controls implemented within Microsoft Azure from both the customer's and Microsoft operational perspectives, this white paper, “Azure Operational Security", is written that provides a comprehensive look at the operational security available with Windows Azure.
 
-### 1.2 Azure Platform
+### Azure Platform
 Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases,and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java,and Node.js; build back-ends for iOS, Android,and Windows devices. Azure Cloud service supports the same technologies millions of developers and IT professionals already rely on and trust.
 
 When you build on, or migrate IT assets to, a public cloud service provider you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
 
 Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security requirements. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your organization’s deployments. This document will helps you understand how Azure security capabilities can help you fulfill these requirements.
 
-### 1.3 Abstract
+### Abstract
 Azure Operational Security refers to the services, controls,and features available to users for protecting their data, applications,and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
 
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
 1.	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
-2.	[Azure Security Canter](https://docs.microsoft.com/azure/security-center/security-center-intro)
+2.	[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 3.	[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
@@ -50,8 +50,7 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 6.	[Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## 2.0 Microsoft Operations Management Suite
-
+## Microsoft Operations Management Suite
 
 Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
@@ -59,7 +58,7 @@ Microsoft Operations Management Suite (OMS) is the IT management solution for th
 
 With OMS, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, OMS offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
 
-### 2.1 OMS services
+### OMS services
 
 The core functionality of OMS is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
@@ -70,7 +69,7 @@ The core functionality of OMS is provided by a set of services that run in Azure
 | Backup | Back up and restore critical data. |
 | Site Recovery | Provide high availability for critical applications. |
 
-### 2.2 Log Analytics
+### Log Analytics
 
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
@@ -88,8 +87,7 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 -	compliance
 -	security standards certifications
 
-
-### 2.3 Azure Backup
+### Azure Backup
 
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
@@ -97,7 +95,7 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency.
 
-### 2.4 Management Solutions
+### Management Solutions
 [Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
@@ -110,11 +108,11 @@ A good example of a solution that uses multiple services to provide additional f
 
 When you create a deployment, runbooks in [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 
-## 3.0 Azure Security Center
+## Azure Security Center
 
 Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups), so you can be more granular.
 
-### 3.1 Security policies and recommendations
+### Security policies and recommendations
 
 A security policy defines the set of controls, which are recommended for resources within the specified subscription or resource group.
 
@@ -126,11 +124,11 @@ In Security Center, you define policies according to your company's security req
 Policies that are enabled in the subscription level automatically propagate to all resources groups within the subscription as shown in the diagram at the right side:
 
 
-### 3.2 Data collection
+### Data collection
 
 Security Center collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When your first access Security Center, data collection is enabled on all VMs in your subscription. Data collection is recommended, but you can opt out by turning off data collection in the Security Center policy.
 
-### 3.3 Data sources
+### Data sources
 
 - Azure Security Center analyzes data from the following sources to provide visibility into your security state, identify vulnerabilities and recommend mitigations, and detect active threats:
 
@@ -142,7 +140,7 @@ Security Center collects data from your virtual machines (VMs) to assess their s
 
 -	Your Virtual Machines: Uses configuration information and information about security events, such as Windows event and audit logs, IIS logs, syslog messages, and crash dump files from your virtual machines.
 
-### 3.4 Data protection
+### Data protection
 
 To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes security-related data, including configuration information, metadata, event logs, crash dump files, and more. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 
@@ -152,7 +150,7 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 
 -	**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
-### 3.5 Data location
+### Data location
 
 Azure Security Center collects ephemeral copies of your crash dump files and analyzes them for evidence of exploit attempts and successful compromises. Azure Security Center performs this analysis within the same Geo as the workspace, and deletes the ephemeral copies when analysis is complete. Machine artifacts are stored centrally in the same region as the VM.
 
@@ -161,7 +159,7 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 -	**Azure Security Center Storage**: Information about security alerts, including partner alerts, recommendations, and security health status is stored centrally, currently in the United States. This information may include related configuration information and security events collected from your virtual machines as needed to provide you with the security alert, recommendation, or security health status.
 
 
-## 4.0 Azure Monitor
+## Azure Monitor
 
 The [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
 
@@ -178,7 +176,7 @@ Cloud applications are complex with many moving parts. Monitoring provides data 
 
 In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
-### 4.1 Azure Activity Log
+### Azure Activity Log
 
 
 It is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions.
@@ -187,7 +185,7 @@ It is a log that provides insight into the operations that were performed on res
 
 Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic model.
 
-### 4.2 Azure Diagnostic Logs
+### Azure Diagnostic Logs
 
 These logs are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
@@ -195,7 +193,7 @@ For example, Windows event system logs are one category of Diagnostic Log for VM
 
 Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
 
-### 4.3 Metrics
+### Metrics
 
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
 
@@ -209,11 +207,11 @@ Azure Monitor enables you to consume telemetry to gain visibility into the perfo
 
 -	**Archive** the performance or health history of your resource for compliance or auditing purposes.
 
-### 4.4 Azure Diagnostics
+### Azure Diagnostics
 
 It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/overview) running Microsoft Windows,and [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics). Other Azure services have their own separate diagnostics.
 
-## 5.0 Azure Network Watcher
+## Azure Network Watcher
 
 Auditing your network security is vital for detecting network vulnerabilities and ensuring compliance with your IT security and regulatory governance model. With Security Group view, you can retrieve the configured Network Security Group and security rules,and  the effective security rules. With the list of rules applied, you can determine the ports that are open and assess network vulnerability.
 
@@ -234,7 +232,7 @@ Network Watcher currently has the following capabilities:
 
 -	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG Flow logging</a>** - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port,and Protocol.
 
-##  6.0 Azure Storage Analytics
+## Azure Storage Analytics
 
 [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) can store metrics that include aggregated transaction statistics and capacity data about Requests to a storage service. Transactions are reported at both the API operation level and at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.
 
@@ -270,7 +268,7 @@ The following types of authenticated and anonymous requests are logged.
 | Requests using a Shared Access Signature (SAS), including failed and successful requests |Time out errors for both client and server |
 | 	Requests to analytics data | 	Failed GET requests with error code 304 (Not Modified) |
 | Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) topics. | All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
-## 7.0 Azure Active Directory
+## Azure Active Directory
 
 Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing,and security monitoring and alerting.
 
@@ -305,7 +303,7 @@ Events in the Azure AD Audit report are retained for 180 days.
 
 For customers interested in storing their [audit events](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store.
 
-## 8.0 Summary
+## Summary
 
 This article summaries protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. Microsoft recognizes that when they entrust their data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. Securing and protecting data is a top priority at Microsoft.
 

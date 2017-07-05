@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -41,17 +41,38 @@ Run the `az acr create` command to create a container registry.
 >
 >
 
-The following command uses the minimal parameters to create container registry `myRegistry1` in the resource group `myResourceGroup` in the South Central US location:
+The following command uses the minimal parameters to create container registry `myRegistry1` in the resource group `myResourceGroup`, and using the *Basic* sku:
 
 ```azurecli
-az acr create -n myRegistry1 -g myResourceGroup -l southcentralus
+az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
 ```
 
 * `--storage-account-name` is optional. If not specified, a storage account is created with a name consisting of the registry name and a timestamp in the specified resource group.
 
-The output is similar to the following:
+When the registry is created, the output is similar to the following:
 
-![az acr create output](./media/container-registry-get-started-azure-cli/acr_create.png)
+```azurecli
+{
+  "adminUserEnabled": false,
+  "creationDate": "2017-06-06T18:36:29.124842+00:00",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
+/registries/myRegistry1",
+  "location": "southcentralus",
+  "loginServer": "myregistry1.azurecr.io",
+  "name": "myRegistry1",
+  "provisioningState": "Succeeded",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "myregistry123456789"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+
+```
 
 
 Take special note:

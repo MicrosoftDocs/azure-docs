@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
-ms.author: stepsic
+ms.author: LADocs; stepsic
 
 ---
 # Schema updates for Azure Logic Apps - August 1, 2015 preview

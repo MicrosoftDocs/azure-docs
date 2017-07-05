@@ -1,6 +1,6 @@
 ---
-title: Prerequisites for replication to Azure by using Azure Site Recovery | Microsoft Docs
-description: This article summarizes prerequisites for replicating VMs and physical machines to Azure by using the Azure Site Recovery service.
+title: Prerequisites for replication to Azure using Azure Site Recovery | Microsoft Docs
+description: This article summarizes prerequisites for replicating VMs and physical machines to Azure using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
 author: rajani-janaki-ram
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
+ms.date: 06/23/2017
 ms.author: rajanaki
 ---
 
-#  Prerequisites for replication to Azure by using Azure Site Recovery
+#  Prerequisites for replication from on-premises to Azure using Azure Site Recovery
 
+> [!div class="op_single_selector"]
+> * [Replicate from Azure to Azure](site-recovery-azure-to-azure-prereq.md)
+> * [Replicate from on-premises to Azure](site-recovery-prereq.md)
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of Azure virtiual machine to another Azure region and on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
 
-This article summarizes the prerequisites required to begin Site Recovery replication to Azure.
+This article summarizes the prerequisites required to begin Site Recovery replication from on-premises to Azure.
 
 Post any comments at the bottom of the article, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
 
 ## Azure requirements
 
@@ -40,7 +42,7 @@ Post any comments at the bottom of the article, or ask technical questions on th
 **Network mapping** | If you replicate Hyper-V VMs in Virtual Machine Manager clouds, you need to set up network mapping so that Azure VMs are connected to appropriate networks when they're created after failover.
 
 >[!NOTE]
->The following sections describe the prerequisites for various components in the customer environment. For more about support for specific configurations, read the [support matrix](site-recovery-support-matrix.md).
+>The following sections describe the prerequisites for various components in the customer environment. For more details about support for specific configurations, read the [support matrix](site-recovery-support-matrix.md).
 >
 
 ## Disaster recovery of VMware virtual machines or physical Windows or Linux servers to Azure
@@ -63,7 +65,7 @@ Following are the required components for disaster recovery of VMware virtual ma
 | --- | --- |
 | **On-premises** (VMware VMs) | Replicated VMs should have VMware tools installed and running.<br/><br/> VMs should conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) for creating Azure VMs.<br/><br/>Individual disk capacity on protected machines shouldn’t be more than 1,023 GB. <br/><br/>A minimum 2 GB of available space on the installation drive is required for component installation.<br/><br/>Port 20004 should be opened on the VM local firewall if you want to enable multi-VM consistency.<br/><br/>Machine names should contain between 1 and 63 characters (letters, numbers, and hyphens). The name must start with a letter or number and end with a letter or number. After you've enabled replication for a machine, you can modify the Azure name.<br/><br/> |
 | **Windows machines** (physical or VMware) | The machine should be running a supported 64-bit operating system: Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.<br/><br/> The operating system should be installed on drive C. The OS disk should be a Windows basic disk and not dynamic. The data disk can be dynamic.<br/><br/>|
-| **Linux machines** (physical or VMware) | You need a supported 64-bit operating system: Red Hat Enterprise Linux 6.7, 6.8, 7.1, or 7.2; Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, or 7.2; Oracle Enterprise Linux 6.4 or 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4.<br/><br/>Your /etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all network adapters.<br/><br/>If you want to connect to an Azure virtual machine running Linux after failover by using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot and that firewall rules allow an ssh connection to it.<br/><br/>The host name, mount points, device names, and Linux system paths and file names (for example, /etc/; /usr) should be in English only.<br/><br/>The following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc<br/><br/>XFS v5 features such as metadata checksum are currently not supported by ASR on XFS filesystems. Ensure that your XFS filesystems aren't using any v5 features. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used.<br/><br/>On Red Hat Enterprise Linux 7 and CentOS 7 servers, the lsof utility must be installed and available.<br/><br/>
+| **Linux machines** (physical or VMware) | You need a supported 64-bit operating system: Red Hat Enterprise Linux 6.7, 6.8, 7.1, or 7.2; Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, or 7.2; Ubuntu 14.04 LTS server(for a list of supported kernel versions with Ubuntu see [supported operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)); Oracle Enterprise Linux 6.4 or 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4.<br/><br/>Your /etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all network adapters.<br/><br/>If you want to connect to an Azure virtual machine running Linux after failover by using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot and that firewall rules allow an ssh connection to it.<br/><br/>The host name, mount points, device names, and Linux system paths and file names (for example, /etc/; /usr) should be in English only.<br/><br/>The following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc<br/><br/>XFS v5 features such as metadata checksum are currently not supported by ASR on XFS filesystems. Ensure that your XFS filesystems aren't using any v5 features. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used.<br/><br/>On Red Hat Enterprise Linux 7 and CentOS 7 servers, the lsof utility must be installed and available.<br/><br/>
 
 
 ## Disaster recovery of Hyper-V virtual machines to Azure (no Virtual Machine Manager)
