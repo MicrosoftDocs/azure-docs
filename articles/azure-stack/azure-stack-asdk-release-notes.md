@@ -29,7 +29,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 - DSV2 virtual machine sizes enable template portability between Azure and Azure Stack.
 - Cloud operators can preview the capacity management experience with the capacity management blade.
 - You can now use Azure Diagnostics extension to gather diagnostic data from your virtual machines.  Capturing this data is useful when analyzing workload performance, and for investigating issues.
-- A new deployment experience replaces previous scripted steps for deployment.  The new deployment experience provides a common graphical interface through the entire deployment lifecycle.
+- A new [deployment experience](azure-stack-run-powershell-script.md) replaces previous scripted steps for deployment.  The new deployment experience provides a common graphical interface through the entire deployment lifecycle.
 - Microsoft Accounts (MSA) are now supported during deployment.
 - Multi-Factor Authentication (MFA) is now supported during deployment.  Previously, MFA must be disabled during deployment.
 
@@ -37,7 +37,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 #### Deployment
 * You may notice deployment taking longer than previous releases. 
 * Get-AzureStackLogs generates diagnostic logs, however, does not log progress to the console.
-* Run this tool to modify network adapter configuration before deploying Azure Stack development kit, or deployment may fail.
+* You must use the new [deployment experience](azure-stack-run-powershell-script.md) to deploy Azure Stack, or deployment may fail.
 
 #### Portal
 * You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
