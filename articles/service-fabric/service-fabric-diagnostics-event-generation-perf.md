@@ -18,7 +18,7 @@ ms.author: dekapur
 
 ---
 
-# Performance Counters
+# Performance metrics
 
 Metrics should be collected to understand the performance of your cluster as well as the applications running in it. For Service Fabric clusters, we recommend collecting the following performance counters.
 
