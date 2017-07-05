@@ -67,7 +67,7 @@ You can use the Azure portal or Azure [PowerShell](#windows-powershell) to creat
 
     If you're new to Azure, learn more about [Resource groups](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), and [locations](https://azure.microsoft.com/regions) (which are also referred to as regions).
 5. In the **Choose a size** blade that appears, enter *8* in the **Minimum cores** box, then click **View all**.
-6. Click **DS4_V2 Standard**, then click the **Select** button.
+6. Click **DS4_V2 Standard**, or any supported VM, then click the **Select** button.
 7. In the **Settings** blade that appears, leave all settings as-is, except click **Enabled** under **Accelerated networking**, then click the **OK** button. **Note:** If, in previous steps, you selected values for VM size, operating system, or location that aren't listed in the [Limitations](#Limitations) section of this article, **Accelerated networking** isn't visible.
 8. In the **Summary** blade that appears, click the **OK** button. Azure starts creating the VM. VM creation takes a few minutes.
 9. To install the accelerated networking driver for Windows, complete the steps in the [Configure Windows](#configure-windows) section of this article.
@@ -406,26 +406,20 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
     
-    # Create a Red Hat virtual machine configuration, for CentOS use PublisherName "OpenLogic", Offer "CentOS", and Skus "7.3"
+    # Create a custom virtual machine configuration
     $VmConfig = New-AzureRmVMConfig `
      -VMName MyVM -VMSize Standard_DS4_v2 | `
-      Set-AzureRmVMOperatingSystem `
+     Set-AzureRmVMOperatingSystem `
      -Linux `
      -ComputerName myVM `
      -Credential $Cred | `
-    Set-AzureRmVMSourceImage `
-     -PublisherName "RedHat" `
-     -Offer "RHEL" `
-     -Skus "7.3" `
-     -Version latest | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
     Set-AzureRmVMOSDisk 
-      -Linux `
-      -Name $OSDiskName `
-      -SourceImageUri $sourceUri `
-      -VhdUri $OSDiskURI `
-      -CreateOption FromImage `
-      -Linux
+     -Name $OSDiskName `
+     -SourceImageUri $sourceUri `
+     -VhdUri $destOsDiskUri `
+     -CreateOption FromImage `
+     -Linux
     
     # Create the virtual machine.    
     New-AzureRmVM `
