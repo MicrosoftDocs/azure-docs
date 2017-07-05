@@ -1,5 +1,5 @@
 ---
-title: Manage StorSimple volumes (Update 2) | Microsoft Docs
+title: Manage StorSimple volumes (Update 3) | Microsoft Docs
 description: Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary.
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 07/04/2017
 ms.author: alkohli
 
 ---
@@ -32,7 +32,7 @@ StorSimple volumes can be:
 * **Locally pinned volumes**: Data in these volumes remains on the local StorSimple device at all times.
 * **Tiered volumes**: Data in these volumes can spill to the cloud.
 
-An archival volume is a type of tiered volume. The larger deduplication chunk size used for archival volumes allows the device to transfer larger segments of data to the cloud. 
+An archival volume is a type of tiered volume. The larger deduplication chunk size used for archival volumes allows the device to transfer larger segments of data to the cloud.
 
 If necessary, you can change the volume type from local to tiered or from tiered to local. For more information, go to [Change the volume type](#change-the-volume-type).
 
@@ -49,9 +49,6 @@ When you create a locally pinned volume, the available space for creation of tie
 Tiered volumes are thinly provisioned volumes in which the frequently accessed data stays local on the device and less frequently used data is automatically tiered to the cloud. Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because StorSimple can increase or decrease cloud storage to meet changing demands.
 
 If you are using the tiered volume for archival data, select the **Use this volume for less frequently accessed archival data** check box to change the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
-
-> [!NOTE]
-> Archival volumes created with a pre-Update 2 version of StorSimple will be imported as tiered with the archival check box selected.
 
 
 ### Provisioned capacity
@@ -294,7 +291,7 @@ Complete the following steps to delete a volume.
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-        ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first. Follow the steps in [Take a volume offline](#take-a-volume-offline).
 4. After the volume is offline, select the volume, right-click to invoke the context menu and then select **Delete**.
