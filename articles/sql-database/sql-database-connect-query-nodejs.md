@@ -69,51 +69,58 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
 
 2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
 
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
+   ```js
+   var Connection = require('tedious').Connection;
+   var Request = require('tedious').Request;
 
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.windows.net', // update me
-  options: {
-      database: 'your_database' //update me
-      , encrypt: true
-  }
-}
-var connection = new Connection(config);
+   // Create connection to database
+   var config = 
+      {
+        userName: 'someuser', // update me
+        password: 'somepassword', // update me
+        server: 'edmacasqlserver.database.windows.net', // update me
+        options: 
+           {
+              database: 'somedb' //update me
+              , encrypt: true
+           }
+      }
+   var connection = new Connection(config);
 
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
-    }
-    else{
-        queryDatabase()
-    }
-});
-
-function queryDatabase(){
-    console.log('Reading rows from the Table...');
-
-    // Read all rows from table
-    request = new Request(
-        "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) returned');
-        }
+   // Attempt to connect and execute queries if connection goes through
+   connection.on('connect', function(err) 
+      {
+        if (err) 
+          {
+             console.log(err)
+          }
+       else
+          {
+              queryDatabase()
+          }
+      }
     );
-    
-    request.on('row', function(columns) {
-        columns.forEach(function(column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-        });
-    });
 
-    connection.execSql(request);
-}
+   function queryDatabase()
+      { console.log('Reading rows from the Table...');
+
+          // Read all rows from table
+        request = new Request(
+             "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
+                function(err, rowCount, rows) 
+                   {
+                       console.log(rowCount + ' row(s) returned');
+                       process.exit();
+                   }
+               );
+    
+        request.on('row', function(columns) {
+           columns.forEach(function(column) {
+               console.log("%s\t%s", column.metadata.colName, column.value);
+            });
+                });
+        connection.execSql(request);
+      }
 ```
 
 ## Run the code
@@ -127,9 +134,12 @@ function queryDatabase(){
 2. Verify that the top 20 rows are returned and then close the application window.
 
 ## Next Steps
-- [Design your first Azure SQL database](sql-database-design-first-database.md)
-- [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+
+- Learn about the [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
+- Learn how to [connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
+- Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
+- Learn how to [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- Learn how to [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 
 
