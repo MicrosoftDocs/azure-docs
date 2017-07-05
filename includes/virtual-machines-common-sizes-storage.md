@@ -17,4 +17,3 @@ The maximum disk throughput (IOPS or MBps) possible with a Ls-series VM may be l
 
 *Instance is isolated to hardware dedicated to a single customer.
 
-&#8224; 16 core performance will consistently reach the upper limit in an upcoming release.

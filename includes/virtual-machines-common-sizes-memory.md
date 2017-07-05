@@ -40,7 +40,7 @@ ACU: 180 - 240
 
 **Instance is isolated to hardware dedicated to a single customer.
 
-&#8224; 16 core performance will consistently reach the upper limit in an upcoming release.
+
 <br>
 
 ## G-series
@@ -77,7 +77,6 @@ ACU: 210 - 250
 
 ***25000 Mbps with Accelerated Networking.
 
-&#8224; 16 core performance will consistently reach the upper limit in an upcoming release.
 <br>
 
 ## Dv2-series
@@ -111,7 +110,6 @@ ACU: 160
 
 *The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
-&#8224; 16 core performance will consistently reach the upper limit in an upcoming release.
 
 ## D-series
 
