@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2017
+ms.date: 7/10/2017
 ms.author: helaw
 
 ---
@@ -40,7 +40,7 @@ Azure Stack uses either Azure Active Directory (AAD) or Active Directory Federat
 Azure Active Directory is Microsoft's cloud-based, multi-tenant identity provider.  Most hybrid scenarios use Azure Active Directory as the identity store.
 
 ### Active Directory Federation Services
-You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Technical Preview 3 supports the following AD FS scenarios:
+You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Development Kit supports the following AD FS scenarios:
 
 - Sign in to the POC deployment by using AD FS.
 - Create a virtual machine with secrets in Key Vault
@@ -131,8 +131,8 @@ Azure RBAC has three basic roles that apply to all resource types: Owner, Contri
 ## Usage data
 Microsoft Azure Stack collects and aggregates usage data across all resource providers, and transmits it to Azure for processing by Azure commerce. The usage data collected on Azure Stack can be viewed via a REST API. There is an Azure-consistent Tenant API as well as Provider and Delegated Provider APIs to get usage data across all tenant subscriptions. This data can be used to integrate with an external tool or service for billing or chargeback. Once usage has been processed by Azure commerce, it can be viewed in the Azure billing portal.
 
-## In-development build of Azure Stack POC
-In-development builds let early-adopters evaluate the most recent version of the Azure Stack POC. They’re incremental builds based on the most recent major release. While major versions will continue to be released every few months, the in-development builds will release intermittently between the major releases.
+## In-development build of Azure Stack Development Kit
+In-development builds let early-adopters evaluate the most recent version of the Azure Stack Development Kit. They’re incremental builds based on the most recent major release. While major versions will continue to be released every few months, the in-development builds will release intermittently between the major releases.
 
 In-development builds will provide the following benefits:
 - Bug fixes
@@ -140,5 +140,5 @@ In-development builds will provide the following benefits:
 - Other improvements
 
 ## Next steps
-[Deploy Azure Stack Technical Preview 3 (POC)](azure-stack-deploy.md)
+[Deploy Azure Stack Development Kit](azure-stack-deploy.md)
 
