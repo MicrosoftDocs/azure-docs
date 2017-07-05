@@ -32,6 +32,11 @@ pip install psycopg2
 ```
 Make sure to use an up-to-date version of pip (you can upgrade it using something like `pip install -U pip`)
 
+## Run Python code
+- Paste the code into a text editor, and save the file into a project folder, such as `C:\postgres\read.py` or `/home/username/postgres/read.py`.  Make sure to select UTF-8 encoding when saving the file in the Windows OS, and use file extension **.py**. 
+- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgres`. Then type the command `python read.py` to run the application.
+
+
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
