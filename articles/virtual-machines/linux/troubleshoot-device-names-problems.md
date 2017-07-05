@@ -16,7 +16,9 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 07/05/2017
 ms.author: genli
+
 ---
+
 # Troubleshooting: Linux VM Device Names are changed
 
 The article explains why Device Names are changed after you restart a Linux virtual machine (VM), or reattach the disks. It also provides the solution for this problem.
@@ -39,7 +41,7 @@ Azure does not guarantee that disks will be presented to the operating system in
 
 ## Solution
 
-To address this issue, use persistent naming. For example, device and partition UUIDs are considered stable, and are used as a best practice in fstab and to discover Device Names. For more information about how to configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-dis.mdk#connect-to-the-linux-vm-to-mount-the-new-disk).
+To address this issue, use persistent naming. For example, device and partition UUIDs are considered stable, and are used as a best practice in fstab and to discover Device Names. For more information about how to configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-disk.mdadd-dis.mdk#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 The use of the [mount option *nofail*](http://www.man7.org/linux/man-pages/man5/fstab.5.html) for partitions on data disks in fstab is also recommended to prevent boot failures in Azure.
 
