@@ -36,7 +36,9 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
 ### Create virtual network and subnets
-1. Define two virtual network subnets with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) - one for front-end traffic and one for back-end traffic. The following example defines the subnets for *mySubnetFrontEnd* and *mySubnetBackEnd*:
+A common scenario is for a virtual network to have two or more subnets. One subnet may be for front-end traffic, the other for back-end traffic. To connect to both subnets, you then use multiple NICs on your VM.
+
+1. Define two virtual network subnets with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). The following example defines the subnets for *mySubnetFrontEnd* and *mySubnetBackEnd*:
 
     ```powershell
     $mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
@@ -210,7 +212,7 @@ To remove a virtual NIC from an existing VM, you deallocate the VM, remove the v
     Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```   
 
-## Create multiple NICs by using Resource Manager templates
+## Create multiple NICs with templates
 Azure Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. Resource Manager templates use declarative JSON files to define your environment. For more information, see [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). You can use *copy* to specify the number of instances to create:
 
 ```json
