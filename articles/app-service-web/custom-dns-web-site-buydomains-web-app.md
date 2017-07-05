@@ -108,6 +108,6 @@ If you have bought the custom domain from within the **Custom domains and SSL** 
     Within the portal, you won't be able to see or manage custom domains created in a different Azure subscription than the app. 
     However, if you click **Advanced management** in the domain's **Manage domain** blade, you'll be redirected to the domain
     provider's website, where you'll be able to 
-    [manually configure your custom domain like any external custom domain](web-sites-custom-domain-name.md) 
+    [manually configure your custom domain like any external custom domain](app-service-web-tutorial-custom-domain.md) 
     for apps created in a different Azure subscription. 
 

@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2076
+ms.date: 04/25/2017
 ms.author: sedusch
 
 ---
@@ -40,12 +40,13 @@ In the example configurations, installation commands etc. instance number 03 and
 
 Read the following SAP Notes and papers first
 
-* SAP Note [2205917]  
+* SAP Note [2205917]
   Recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [1944799]  
+* SAP Note [1944799]
   SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
-* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]  
+* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]
   The guide contains all required information to set up SAP HANA System Replication on-premises. Use this guide as a baseline.
+  
 ## Deploying Linux
 
 The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.

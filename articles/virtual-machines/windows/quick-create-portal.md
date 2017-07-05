@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/03/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create a Windows virtual machine with the Azure portal
@@ -92,7 +93,7 @@ With IIS installed, and port 80 open to your VM, the webserver can now be access
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
 
@@ -100,4 +101,5 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 
 In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
-[Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
+> [!div class="nextstepaction"]
+> [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)

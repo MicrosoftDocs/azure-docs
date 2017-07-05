@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and Manage Windows VMs with the Azure PowerShell module | Microsoft Docs
 description: Tutorial - Create and Manage Windows VMs with the Azure PowerShell module
 services: virtual-machines-windows
@@ -16,11 +16,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create and Manage Windows VMs with the Azure PowerShell module
 
-Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM.
+Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
+
+> [!div class="checklist"]
+> * Create and connect to a VM
+> * Select and use VM images
+> * View and use specific VM sizes
+> * Resize a VM
+> * View and understand VM state
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -382,6 +390,16 @@ Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 
 ## Next steps
 
-In this tutorial, you have learned about basic VM creation and management. Advance to the next tutorial to learn about VM disks.  
+In this tutorial, you learned about basic VM creation and management such as how to:
 
-[Create and Manage VM disks](./tutorial-manage-data-disk.md)
+> [!div class="checklist"]
+> * Create and connect to a VM
+> * Select and use VM images
+> * View and use specific VM sizes
+> * Resize a VM
+> * View and understand VM state
+
+Advance to the next tutorial to learn about VM disks.  
+
+> [!div class="nextstepaction"]
+> [Create and Manage VM disks](./tutorial-manage-data-disk.md)

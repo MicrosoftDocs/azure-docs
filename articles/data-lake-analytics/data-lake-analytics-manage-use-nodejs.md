@@ -31,8 +31,8 @@ Right now it supports:
 
 ## Features
 * Account management: create, get, list, update, and delete.
-* Job management: submit, get, list, cancel.
-* Catalog management: get, list, create (secrets), update (secrets), delete (secrets).
+* Job management: submit, get, list, and cancel.
+* Catalog management: get and list.
 
 ## How to Install
 ```bash

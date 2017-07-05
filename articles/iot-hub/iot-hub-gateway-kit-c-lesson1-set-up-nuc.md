@@ -24,7 +24,7 @@ ms.author: xshi
 ## What you will do
 
 - Set up Intel NUC as an IoT gateway.
-- Install the Azure IoT Gateway SDK package on the Intel NUC.
+- Install the Azure IoT Edge package on the Intel NUC.
 - Run a "hello_world" sample application on the Intel NUC to verify the gateway functionality.
 
   > If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).
@@ -85,9 +85,9 @@ You will need a keyboard and a monitor to get the IP address of your Intel NUC d
    It is more efficient and productive to operate an Intel NUC from a host computer. You'll need the Intel NUC's IP address, user name and password to connect to it via an SSH client. Here is an example that uses an SSH client on macOS.
    ![SSH client running on macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## Install the Azure IoT Gateway SDK package
+## Install the Azure IoT Edge package
 
-The Azure IoT Gateway SDK package contains the pre-compiled binaries of the SDK and its dependencies. These binaries are the Azure IoT Gateway SDK, the Azure IoT SDK and the corresponding tools. The package also contains a "hello_world" sample application is used to validate the gateway functionality. The SDK is the core part of the gateway. 
+The Azure IoT Edge package contains the pre-compiled binaries of IoT Edge and its dependencies. These binaries are Azure IoT Edge, the Azure IoT SDK and the corresponding tools. The package also contains a "hello_world" sample application is used to validate the gateway functionality. IoT Edge is the core part of the gateway. 
 
 Follow these steps to install the package.
 
@@ -100,6 +100,12 @@ Follow these steps to install the package.
    ```
 
    > Enter 'y', when it prompts you to 'Include this channel?'
+   
+   If you receive an `import read failed(-1)` error, use the following commands to resolve the issue:
+   ```bash
+   wget http://iotdk.intel.com/misc/iot_pub2.key 
+   rpm --import iot_pub2.key  
+   ```
 
    The `rpm` command imports the rpm key. The `smart channel` command adds the rpm channel to the Smart Package Manager. Before you run the `smart update` command, you will see an output like below.
 
@@ -129,9 +135,9 @@ Follow these steps to install the package.
 
    After the package is installed, Intel NUC is ready to function as a gateway.
 
-## Run the Azure IoT Gateway SDK "hello_world" sample application
+## Run the Azure IoT Edge "hello_world" sample application
 
-The following sample application creates a gateway from a `hello_world.json` file and uses the fundamental components of the Azure IoT Gateway SDK architecture to log a hello world message to a file (log.txt) every 5 seconds.
+The following sample application creates a gateway from a `hello_world.json` file and uses the fundamental components of Azure IoT Edge architecture to log a hello world message to a file (log.txt) every 5 seconds.
 
 You can run the Hello World sample by executing the following commands:
 

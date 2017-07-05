@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 
 ---
@@ -31,7 +31,6 @@ ms.author: spelluru
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
-
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
 - [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported source and sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
@@ -47,7 +46,7 @@ The following walkthrough provides step-by-step instructions for creating a cust
 > - The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster. Another option is to use an Azure Batch pool of VMs to run custom activities instead of using a HDInsight cluster.
 > - It is not possible to use a Data Management Gateway from a custom activity to access on-premises data sources. Currently, [Data Management Gateway](data-factory-data-management-gateway.md) supports only the copy activity and stored procedure activity in Data Factory.   
 
-## Walkthrough
+## Walkthrough: create a custom activity
 ### Prerequisites
 * Visual Studio 2012/2013/2015
 * Download and install [Azure .NET SDK][azure-developer-center]
@@ -59,7 +58,7 @@ For the tutorial, create an Azure Batch account with a pool of VMs. Here are the
 
 1. Create an **Azure Batch account** using the [Azure portal](http://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
 2. Note down the Azure Batch account name, account key, URI, and pool name. You need them to create an Azure Batch linked service.
-	1. On the home page for Azure Batch account, you see a **URL** in the following format: `https://myaccount.westus.batch.azure.com`. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: `https://westus.batch.azure.com`.
+	1. On the home page for Azure Batch account, you see a **URL** in the following format: `https://myaccount.westus.batch.azure.com`. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: `https://<region>.batch.azure.com`.
 	2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
 	3. To use an existing pool, click **Pools** on the menu, and note down the **ID** of the pool. If you don't have an existing pool, move to the next step.     
 2. Create an **Azure Batch pool**.
@@ -84,7 +83,7 @@ Here are the two high-level steps you perform as part of this walkthrough:
 1. Create a custom activity that contains simple data transformation/processing logic.
 2. Create an Azure data factory with a pipeline that uses the custom activity.
 
-## Create a custom activity
+### Create a custom activity
 To create a .NET custom activity, create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) and its signature is:
 
 ```csharp
@@ -108,10 +107,10 @@ The method returns a dictionary that can be used to chain custom activities toge
 ### Procedure
 1. Create a **.NET Class Library** project.
    <ol type="a">
-     <li>Launch <b>Visual Studio 2015</b> or <b>Visual Studio 2013</b> or <b>Visual Studio 2012</b>.</li>
+     <li>Launch <b>Visual Studio 2017</b> or <b>Visual Studio 2015</b> or <b>Visual Studio 2013</b> or <b>Visual Studio 2012</b>.</li>
      <li>Click <b>File</b>, point to <b>New</b>, and click <b>Project</b>.</li>
      <li>Expand <b>Templates</b>, and select <b>Visual C#</b>. In this walkthrough, you use C#, but you can use any .NET language to develop the custom activity.</li>
-     <li>Select <b>Class Library</b> from the list of project types on the right.</li>
+     <li>Select <b>Class Library</b> from the list of project types on the right. In VS 2017, choose <b>Class Library (.NET Framework)</b> </li>
      <li>Enter <b>MyDotNetActivity</b> for the <b>Name</b>.</li>
      <li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
      <li>Click <b>OK</b> to create the project.</li>
@@ -133,16 +132,27 @@ The method returns a dictionary that can be used to chain custom activities toge
 5. Add the following **using** statements to the source file in the project.
 
 	```csharp
-    using System.IO;
-    using System.Globalization;
-    using System.Diagnostics;
-    using System.Linq;
 
-    using Microsoft.Azure.Management.DataFactories.Models;
-    using Microsoft.Azure.Management.DataFactories.Runtime;
+	// Comment these lines if using VS 2017
+	using System.IO;
+	using System.Globalization;
+	using System.Diagnostics;
+	using System.Linq;
+	// --------------------
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
+	// Comment these lines if using <= VS 2015
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.Threading.Tasks;
+	// ---------------------
+
+	using Microsoft.Azure.Management.DataFactories.Models;
+	using Microsoft.Azure.Management.DataFactories.Runtime;
+
+	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
 	```
 6. Change the name of the **namespace** to **MyDotNetActivityNS**.
 
@@ -374,14 +384,13 @@ The method returns a dictionary that can be used to chain custom activities toge
 	> All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 
     ![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
-14. Create a blob container named **customactivitycontainer** if it does not already exist.
-15. Upload MyDotNetActivity.zip as a blob to the customactivitycontainer in a **general-purpose** Azure blob storage (not hold/cool Blob storage) that is referred by AzureStorageLinkedService.  
+14. Create a blob container named **customactivitycontainer** if it does not already exist.	
+15. Upload MyDotNetActivity.zip as a blob to the customactivitycontainer in a **general-purpose** Azure blob storage (not hot/cool Blob storage) that is referred by AzureStorageLinkedService.  
 
-> [!NOTE]
-> If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, and add a reference to .NET activity project from the Data Factory application project, you do not need to perform the last two steps of manually creating the zip file and uploading it to the general-purpose Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) articles to learn about creating and publishing Data Factory entities using Visual Studio.  
+> [!IMPORTANT]
+> If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, and add a reference to .NET activity project from the Data Factory application project, you do not need to perform the last two steps of manually creating the zip file and uploading it to the general-purpose Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. For more information, see [Data Factory project in Visual Studio](#data-factory-project-in-visual-studio) section.
 
-
-## Create a data factory 
+## Create a pipeline with custom activity
 You have created a custom activity and uploaded the zip file with binaries to a blob container in a **general-purpose** Azure Storage Account. In this section, you create an Azure data factory with a pipeline that uses the custom activity.
 
 The input dataset for the custom activity represents blobs (files) in the customactivityinput folder of adftutorial container in the blob storage. The output dataset for the activity represents output blobs in the customactivityoutput folder of adftutorial container in the blob storage.
@@ -646,7 +655,21 @@ In this step, you create datasets to represent input and output data.
 
 See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
 
-### Data Factory and Batch integration
+## Data Factory project in Visual Studio  
+You can create and publish Data Factory entities by using Visual Studio instead of using Azure portal. For detailed information about creating and publishing Data Factory entities by using Visual Studio, See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) articles.
+
+Do the following additional steps if you are creating Data Factory project in Visual Studio:
+ 
+1. Add the Data Factory project to the Visual Studio solution that contains the custom activity project. 
+2. Add a reference to the .NET activity project from the Data Factory project. Right-click Data Factory project, point to **Add**, and then click **Reference**. 
+3. In the **Add Reference** dialog box, select the **MyDotNetActivity** project, and click **OK**.
+4. Build and publish the solution.
+
+	> [!IMPORTANT]
+	> When you publish Data Factory entities, a zip file is automatically created for you and is uploaded to the blob container: customactivitycontainer. If the blob container does not exist, it is automatically created too.  
+
+
+## Data Factory and Batch integration
 The Data Factory service creates a job in Azure Batch with the name: **adf-poolname: job-xxx**. Click **Jobs** from the left menu. 
 
 ![Azure Data Factory - Batch jobs](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
@@ -876,7 +899,7 @@ In the **pipeline JSON**, use HDInsight (on-demand or your own) linked service:
 ```
 
 ## Create a custom activity by using .NET SDK
-The following code creates the data factory from the walkthrough in this article by using .NET SDK. You can find more details about using SDK to programmatically create pipelines in [this article](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+In the walkthrough in this article, you create a data factory with a pipeline that uses the custom activity by using the Azure portal. The following code shows you how to create the data factory by using .NET SDK instead. You can find more details about using SDK to programmatically create pipelines in the [create a pipeline with copy activity by using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md) article. 
 
 ```csharp
 using System;
@@ -1115,8 +1138,11 @@ namespace DataFactoryAPITestApp
 }
 ```
 
+## Debug custom activity in Visual Studio
+The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) sample on GitHub includes a tool that allows you to debug custom .NET activities within Visual Studio.  
 
-## Examples
+
+## Sample custom activities on GitHub
 | Sample | What custom activity does |
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Downloads data from an HTTP Endpoint to Azure Blob Storage using custom C# Activity in Data Factory. |
@@ -1124,8 +1150,6 @@ namespace DataFactoryAPITestApp
 | [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Uses different assembly versions from ones used by the Data Factory launcher |
 | [Reprocess a model in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Reprocesses a model in Azure Analysis Services. |
-| [Debug custom activity locally](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFCustomActivityRunner) | The custom activity runner allows you to step into and debug Azure Data Factory (ADF) custom .NET activities by using the information configured in your pipeline. | 
-
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../batch/batch-account-create-portal.md

@@ -1,5 +1,5 @@
 ---
-title: Create Azure HDInsight (Hadoop) using Data Factory | Microsoft Docs
+title: Create on-demand Hadoop clusters using Data Factory - Azure HDInsight | Microsoft Docs
 description: Learn how to create on-demand Hadoop clusters in HDInsight using Azure Data Factory.
 services: hdinsight
 documentationcenter: ''
@@ -570,6 +570,7 @@ In this article, you have learned how to use Azure Data Factory to create on-dem
 
 ### Azure CLI script
 You can use Azure CLI instead of using Azure PowerShell to do the tutorial. To use Azure CLI, first install Azure CLI as per the following instructions:
+
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 #### Use Azure CLI to prepare the storage and copy the files

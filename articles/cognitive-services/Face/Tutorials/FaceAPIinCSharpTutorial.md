@@ -26,7 +26,7 @@ To use the tutorial, you will need the following prerequisites:
 
 ## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
 
-Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services (formerly Project Oxford) portal. See [subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both primary and secondary key can be used in this tutorial.
+Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both primary and secondary key can be used in this tutorial.
 
 ## <a name="step2"></a>Step 2: Create the application framework
 
@@ -103,10 +103,12 @@ Follow the instructions below to configure the client library:
 
 ![GetStartedCSharp-CheckInstrallation.png](../Images/GetStartedCSharp-CheckInstallation.png)
 
-4. Open MainWindow.xaml.cs in your MyFirstApp project, add this using directives to the beginning of the file: 
+4. Open MainWindow.xaml.cs in your MyFirstApp project, add this using directives to the beginning of the file:
+
         using System.IO;
         using Microsoft.ProjectOxford.Face;
         using Microsoft.ProjectOxford.Face.Contract; 
+        
 5. Insert the following code in the MainWindow class: 
         private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("_key_"); 
    Replace the word _key_ with the subscription key you obtained in step 1.

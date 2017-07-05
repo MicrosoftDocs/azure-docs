@@ -1,6 +1,6 @@
 ---
-title: Indexing a DocumentDB data source for Azure Search | Microsoft Docs
-description: This article shows you how to create an Azure Search indexer with DocumentDB as a data source.
+title: Indexing a Cosmos DB data source for Azure Search | Microsoft Docs
+description: This article shows you how to create an Azure Search indexer with Cosmos DB as a data source.
 services: search
 documentationcenter: ''
 author: chaosrealm
@@ -8,29 +8,32 @@ manager: pablocas
 editor: 
 
 ms.assetid: 
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 04/11/2017
+ms.date: 05/01/2017
 ms.author: eugenesh
 
 ---
-# Connecting DocumentDB with Azure Search using indexers
+# Connecting Cosmos DB with Azure Search using indexers
 
-If you want to implement a great search experience over your DocumentDB data, you can use an Azure Search indexer to pull data into an Azure Search index. In this article, we show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure.
+If you want to implement a great search experience over your Cosmos DB data, you can use an Azure Search indexer to pull data into an Azure Search index. In this article, we show you how to integrate Azure Cosmos DB with Azure Search without having to write any code to maintain indexing infrastructure.
 
-To set up a DocumentDB indexer, you must have an [Azure Search service](search-create-service-portal.md), and create an index, datasource, and finally the indexer. You can create these objects using the [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/) for all non-.NET languages. 
+To set up a Cosmos DB indexer, you must have an [Azure Search service](search-create-service-portal.md), and create an index, datasource, and finally the indexer. You can create these objects using the [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/) for all non-.NET languages. 
 
 If you opt for the portal, the [Import data wizard](search-import-data-portal.md) guides you through the creation of all these resources.
 
 > [!NOTE]
-> You can launch the **Import data** wizard from the DocumentDB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
+> Cosmos DB is the next generation of DocumentDB. Although the product name is changed, syntax is the same as before. Please continue to specify `documentdb` as directed in this indexer article. 
+
+> [!TIP]
+> You can launch the **Import data** wizard from the Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
 
 <a name="Concepts"></a>
 ## Azure Search indexer concepts
-Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
+Azure Search supports the creation and management of data sources (including Cosmos DB) and indexers that operate against those data sources.
 
 A **data source** specifies the data to index, credentials, and policies for identifying changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
 
@@ -63,20 +66,20 @@ To create a data source, do a POST:
 
 The body of the request contains the data source definition, which should include the following fields:
 
-* **name**: Choose any name to represent your DocumentDB database.
+* **name**: Choose any name to represent your Cosmos DB database.
 * **type**: Must be `documentdb`.
 * **credentials**:
   
-  * **connectionString**: Required. Specify the connection info to your Azure DocumentDB database in the following format: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+  * **connectionString**: Required. Specify the connection info to your Azure Cosmos DB database in the following format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
 * **container**:
   
-  * **name**: Required. Specify the id of the DocumentDB collection to be indexed.
+  * **name**: Required. Specify the id of the Cosmos DB collection to be indexed.
   * **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
 * **dataChangeDetectionPolicy**: Recommended. See [Indexing Changed Documents](#DataChangeDetectionPolicy) section.
 * **dataDeletionDetectionPolicy**: Optional. See [Indexing Deleted Documents](#DataDeletionDetectionPolicy) section.
 
 ### Using queries to shape indexed data
-You can specify a DocumentDB query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
+You can specify a Cosmos DB query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
 
 Example document:
 
@@ -138,7 +141,7 @@ The following example creates an index with an id and description field:
 Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
 
 > [!NOTE]
-> For partitioned collections, the default document key is DocumentDB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, DocumentDB's `_rid` values contain characters that are invalid in Azure Search keys. For this reason, the `_rid` values are Base64 encoded.
+> For partitioned collections, the default document key is Cosmos DB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, Cosmos DB's `_rid` values contain characters that are invalid in Azure Search keys. For this reason, the `_rid` values are Base64 encoded.
 > 
 > 
 
@@ -225,7 +228,7 @@ Execution history contains up to the 50 most recent completed executions, which 
 
 <a name="DataChangeDetectionPolicy"></a>
 ## Indexing changed documents
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by DocumentDB, which is specified as follows:
+The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by Cosmos DB, which is specified as follows:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -273,7 +276,7 @@ The following example creates a data source with a soft-deletion policy:
     }
 
 ## <a name="NextSteps"></a>Next steps
-Congratulations! You have learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.
+Congratulations! You have learned how to integrate Azure Cosmos DB with Azure Search using the indexer for Cosmos DB.
 
-* To learn how more about Azure DocumentDB, see the [DocumentDB service page](https://azure.microsoft.com/services/documentdb/).
+* To learn how more about Azure Cosmos DB, see the [Cosmos DB service page](https://azure.microsoft.com/services/documentdb/).
 * To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).

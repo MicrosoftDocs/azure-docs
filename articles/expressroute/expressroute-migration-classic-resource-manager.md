@@ -61,7 +61,7 @@ Select-AzureSubscription -SubscriptionName <VNET Subscription>
 Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
 ```
       
-You must ensure that all references to <ConnectionsToLocalNetwork> are removed from the virtual networks to be migrated. A sample network configuration is shown in the following snippet:
+You must ensure that all references to `<ConnectionsToLocalNetwork>` are removed from the virtual networks to be migrated. A sample network configuration is shown in the following snippet. Notice that there are no references between the `<ConnectionsToLocalNetwork>` lines:
 
 ```
 	<VirtualNetworkSite name="MyVNet" Location="East US">
@@ -83,7 +83,7 @@ You must ensure that all references to <ConnectionsToLocalNetwork> are removed f
 	</VirtualNetworkSite>
 ```
  
-If <ConnectionsToLocalNetwork> is not empty, delete the references under it and resubmit your network configuration. You can do so by running the following PowerShell cmdlet:
+If `<ConnectionsToLocalNetwork>` is not empty, delete the references under it and resubmit your network configuration. You can do so by running the following PowerShell cmdlet:
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml

@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory reporting - preview | Microsoft Docs
-description: Lists the various available reports for Azure Active Directory preview
+
+title: Azure Active Directory reporting | Microsoft Docs
+description: Lists the various available reports for Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,12 +18,12 @@ ms.date: 04/06/2017
 ms.author: markvi
 
 ---
-# Azure Active Directory reporting - preview
+# Azure Active Directory reporting
 
 
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-With reporting in the Azure Active Directory preview, you get all the information you need to determine how your environment is doing. [What's in the preview?](active-directory-preview-explainer.md)
+With reporting in the Azure Active Directory (Azure AD), you can get the information you need to determine how your environment is doing.
 
 There are two main areas of reporting:
 

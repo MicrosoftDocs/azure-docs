@@ -35,7 +35,7 @@
 1. Click **Device Explorer**.
 1. In the Device Explorer pane, click **Add** to add a device to your IoT hub.
 
-   **Device ID**: The ID of the new device.
+   **Device ID**: The ID of the new device. Device IDs are case sensitive.
 
    **Authentication Type**: Select **Symmetric Key**.
 

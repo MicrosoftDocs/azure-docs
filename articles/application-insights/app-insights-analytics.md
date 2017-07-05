@@ -3,7 +3,7 @@ title: Analytics - the powerful search tool of Azure Application Insights | Micr
 description: 'Overview of Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Analytics in Application Insights
@@ -43,6 +43,10 @@ For example, let's find out what time of day the citizens of Hyderabad try our w
 
 We count distinct client IP addresses, grouping them by the hour of the day over the past 7 days. 
 
+> [!NOTE]
+> To get results outside the previous 24h, either include 'timestamp' explicitly in your query, or use the time range drop-down menu.
+>
+
 Let's display the results with the bar chart presentation, choosing to stack the results from different response codes:
 
 ![Choose bar chart, x and y axes, then segmentation](./media/app-insights-analytics/020.png)
@@ -51,7 +55,7 @@ Looks like our app is most popular at lunchtime and bed-time in Hyderabad. (And 
 
 There are also powerful statistical operations:
 
-![](./media/app-insights-analytics/025.png)
+![Results of statistical query](./media/app-insights-analytics/025.png)
 
 The language has many attractive features:
 
@@ -80,20 +84,24 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 
+
+## Query examples
+
+Try these walkthroughs to illustrate the power of using Analytics:
+
+ *	[Automatic diagnostics of spikes and step jumps in requests durations](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
+ *	[Analyzing performance degradations with time series analysis](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
+ *	[Analyzing application failures with autocluster and diffpatterns](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
+ *	[Advanced shape detections with time series analysis](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
+ *	[Using sliding window operations to analyze application usage (rolling MAU/DAU etc)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
+ *	[Detection of service disruptions based on analysis of debug logs](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) and a matching blog post [here](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics).
+ *	[Profiling applications’ performance using simple debug logs](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) and a matching blog post [here](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/)
+ *	[Measuring the duration for each step in your code flow using simple debug logs](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) and a matching blog post [here](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/)
+ *	[Analyzing concurrency using simple debug logs](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) and a matching blog post [here](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/)
+
+
+
 ## Next steps
 * We recommend you start with the [language tour](app-insights-analytics-tour.md). 
-
-### Query examples
-
-* Try these walkthroughs to illustrate the power of using Analytics:
- 1.	[Automatic diagnostics of spikes and step jumps in requests durations](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
- 2.	[Analyzing performance degradations with time series analysis](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
- 3.	[Analyzing application failures with autocluster and diffpatterns](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
- 4.	[Advanced shape detections with time series analysis](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
- 5.	[Using sliding window operations to analyze application usage (rolling MAU/DAU etc)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
- 6.	[Detection of service disruptions based on analysis of debug logs](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) and a matching blog post [here](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics).
- 7.	[Profiling applications’ performance using simple debug logs](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) and a matching blog post [here](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/)
- 8.	[Measuring the duration for each step in your code flow using simple debug logs](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) and a matching blog post [here](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/)
- 9.	[Analyzing concurrency using simple debug logs](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) and a matching blog post [here](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/)
-
-
+* More about [using Analytics](app-insights-analytics-using.md). 
+* [Language reference](app-insights-analytics-reference.md). 

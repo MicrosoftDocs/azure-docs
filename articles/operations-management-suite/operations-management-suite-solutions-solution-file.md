@@ -91,8 +91,8 @@ The following table lists the standard parameters for all management solutions. 
 | workspaceName |string |Log Analytics workspace name. |
 | workspaceRegionId |string |Region of the Log Analytics workspace. |
 
-### Sample
-Following is a sample parameter entity for a solution.  This includes all of the standard  parameters and two additional parameters in the same category.
+
+Following is the structure of the standard parameters that you can copy and paste into your solution file.  
 
     "parameters": {
         "workspaceName": {
@@ -123,22 +123,6 @@ Following is a sample parameter entity for a solution.  This includes all of the
             "type": "string",
             "metadata": {
                 "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
             }
         }
 	}

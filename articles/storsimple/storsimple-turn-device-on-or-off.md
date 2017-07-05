@@ -22,16 +22,6 @@ ms.custom: H1Hack27Feb2017
 ## Overview
 Shutting down a Microsoft Azure StorSimple device is not required as a part of normal system operation. However, you may need to turn on a new device or a device that had to be shut down. Generally, a shutdown is required in cases in which you must replace failed hardware, physically move a unit, or take a device out of service. This tutorial describes the required procedure for turning on and shutting down your StorSimple device in different scenarios.
 
-The following table lists various scenarios for turning on and shutting down your StorSimple device and provides links to the appropriate procedures.
-
-| Scenario | Reference topics |
-|:--- |:--- |
-| Turn on a new device |[Turn on a new device](#turn-on-a-new-device)<ul><li>[New device with primary enclosure only](#new-device-with-primary-enclosure-only)</li><li>[New device with EBOD enclosure](#new-device-with-ebod-enclosure)</li></ul> |
-| Turn on a device after shutdown |[Turn on a device after shutdown](#turn-on-a-device-after-shutdown)<ul><li>[Device with primary enclosure only](#device-with-primary-enclosure-only)</li><li>[Device with EBOD enclosure](#device-with-ebod-enclosure)</li></ul> |
-| Turn on a device after a power loss |[Turn on a device after a power loss](#turn-on-a-device-after-a-power-loss)<ul><li>[Device with primary enclosure only](#8100)</li><li>[Device with EBOD enclosure](#8600)</li></ul> |
-| Turn on a device after the primary enclosure and EBOD connection is lost |[Turn on a device after the primary and EBOD enclosure connection is lost](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost) |
-| Shut down a running device |[Turn off a running device](#turn-off-a-running-device)<ul><li>[Device with primary enclosure only](#8100a)</li><li>[Device with EBOD enclosure](#8600a)</li></ul> |
-
 ## Turn on a new device
 The steps for turning on a StorSimple device for the first time differ depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. The detailed steps for both models are covered in the following sections.
 

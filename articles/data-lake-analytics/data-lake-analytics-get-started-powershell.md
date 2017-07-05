@@ -13,121 +13,120 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: edmaca
 
 ---
-# Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell
+# Get started with Azure Data Lake Analytics using Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to use the Azure PowerShell to create Azure Data Lake Analytics accounts, define Data Lake Analytics jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytic accounts. For more  information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-
-In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+Learn how to use Azure PowerShell to create Azure Data Lake Analytics accounts and then submit and run U-SQL jobs. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 ## Prerequisites
-Before you begin this tutorial, you must have the following:
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+Before you begin this tutorial, you must have the following information:
+
+* **An Azure Data Lake Analytics account**. See [Get started with Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
-* **An Azure Resource Group**. 
 
-## Create Data Lake Analytics account
-You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
+## Log in to Azure
 
-* **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
-* **Data Lake Analytics account name**: The Data Lake account name must only contain lowercase letters and numbers.
-* **Location**: one of the Azure data centers that supports Data Lake Analytics.
-* **Default Data Lake Store  account**: each Data Lake Analytics account has a default Data Lake Store account.
+This tutorial assumes you are already familiar with using Azure PowerShell. In particular, you need to know how to log in to Azure. See the [Get started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) if you need help.
 
-        $resourceGroupName = "<ResourceGroupName>"
-        $dataLakeStoreName = "<DataLakeAccountName>"
-        $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-        $location = "East US 2"
-
-        New-AzureRmResourceGroup `
-            -Name  $resourceGroupName `
-            -Location $location
-
-        New-AzureRmDataLakeStoreAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeStoreName `
-            -Location $location
-
-        New-AzureRmDataLakeAnalyticsAccount `
-            -Name $dataLakeAnalyticsName `
-            -ResourceGroupName $resourceGroupName `
-            -Location $location `
-            -DefaultDataLake $dataLakeStoreName
-
-        Get-AzureRmDataLakeAnalyticsAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeAnalyticsName  
-
-## Upload data to Data Lake Store
+To log in with a subscription name:
 
 ```
-Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "D:\SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
 ```
 
-## Getting the Default Data Lake Store account for a Data Lake Analytics Account
+Instead of the subscription name, you can also use a subscription id to log in:
 
 ```
-$dataLakeAnalyticsAccount = Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName
-$dataLakeStoreName = $dataLakeAnalyticsAccount.Properties.DefaultDataLakeStoreAccount
-echo $dataLakeStoreName
+Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-## Submit Data Lake Analytics jobs
-The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
-
-Create a text file with following U-SQL script, and save the text file to your workstation:
+If  successful, the output of this command looks like the following text:
 
 ```
-@searchlog =
-    EXTRACT UserId          int,
-            Start           DateTime,
-            Region          string,
-            Query           string,
-            Duration        int?,
-            Urls            string,
-            ClickedUrls     string
-    FROM "/Samples/Data/SearchLog.tsv"
-    USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-    TO "/Output/SearchLog-from-Data-Lake.csv"
-USING Outputters.Csv();
+Environment           : AzureCloud
+Account               : joe@contoso.com
+TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionId        : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionName      : ContosoSubscription
+CurrentStorageAccount :
 ```
 
-**To submit the job**
+## Preparing for the tutorial
 
-1. Open PowerShell ISE.
-2. Run the following script:
+The PowerShell snippets in this tutorial use these variables to store this information:
 
 ```
-$usqlScript = "c:\script.usql"
+$rg = "<ResourceGroupName>"
+$adls = "<DataLakeStoreAccountName>"
+$adla = "<DataLakeAnalyticsAccountName>"
+$location = "East US 2"
+```
 
-$job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript
+## Get information about a Data Lake Analytics account
 
-Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
+```
+Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
+```
 
-Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
+## Submit a U-SQL job
+
+Create a PowerShell variable to hold the U-SQL script.
+
+```
+$script = @"
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
+    USING Outputters.Csv();
+
+"@
+```
+
+Submit the script.
+
+```
+$job = Submit-AdlJob -AccountName $adla –Script $script
+```
+
+Alternatively, you could save the script as a file and submit with the following command:
+
+```
+$filename = "d:\test.usql"
+$script | out-File $filename
+$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
 ```
 
 
-After the job is completed, you can use the following cmdlets to list the file, and download the file:
+Get the status of a specific job. Keep using this cmdlet until you see the job is done.
 
 ```
-$destFile = "c:\SearchLog-from-Data-Lake.csv"
+$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
+```
 
-$dataLakeStoreAccount = Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName
-$dataLakeStoreName = $dataLakeStoreAccount.Properties.DefaultDataLakeAccount
-Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -path "/Output"
-Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "/Output/SearchLog-from-Data-Lake.csv" -Destination $destFile
+Instead of calling Get-AdlAnalyticsJob over and over until a job finishes, you can use the Wait-AdlJob cmdlet.
 
+```
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
+
+Download the output file.
+
+```
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## See also
 * To see the same tutorial using other tools, click the tab selectors on the top of the page.
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-* For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
+* For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).

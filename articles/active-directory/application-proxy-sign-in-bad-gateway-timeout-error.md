@@ -1,5 +1,5 @@
 ---
-title: "Can't Access this Corporate Application" error when using an Application Proxy application | Microsoft Docs
+title: "Can't Access this Corporate Application error when using an Application Proxy application | Microsoft Docs"
 description: How to resolve common access issues with Azure AD Application Proxy applications.
 services: active-directory
 documentationcenter: ''

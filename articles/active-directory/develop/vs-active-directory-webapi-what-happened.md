@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: tarcher
+ms.custom: aaddev
 
 ---
 # What happened to my WebApi project (Visual Studio Azure Active Directory connected service)

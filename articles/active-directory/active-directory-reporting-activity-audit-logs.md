@@ -1,6 +1,7 @@
 ---
-title: Audit activity reports in the Azure Active Directory portal - preview | Microsoft Docs
-description: Introduction to the audit activity reports in the Azure Active Directory portal preview
+
+title: Audit activity reports in the Azure Active Directory portal | Microsoft Docs
+description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Audit activity reports in the Azure Active Directory portal - preview
+# Audit activity reports in the Azure Active Directory portal 
 
-With reporting in the Azure Active Directory [preview](active-directory-preview-explainer.md), you get all the information you need to determine how your environment is doing.
+With reporting in Azure Active Directory (Azure AD), you can get the information you need to determine how your environment is doing.
 
-The reporting architecture in Azure Active Directory consists of the following components:
+The reporting architecture in Azure AD consists of the following components:
 
 - **Activity** 
     - **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
@@ -32,6 +33,10 @@ The reporting architecture in Azure Active Directory consists of the following c
 
 This topic gives you an overview of the audit activities.
  
+## Who can access the data?
+* Users in the Security Admin or Security Reader role
+* Global Admins
+* Individual users (non-admins) can see their own activities
 
 
 ## Audit logs
@@ -96,10 +101,11 @@ The **category** filter enables you to select one of the following filter:
 - Core directory
 - Self-service password management
 - Self-service group management
-- Account provisioning
-- Automated password rollover
-- invited users
+- Account provisioning- Automated password rollover
+- Invited users
 - MIM service
+- Identity Protection
+- B2C
 
 The **activity resource type** filter enables you to select one of the following filters:
 
@@ -118,148 +124,9 @@ When you select **Group** as **activity resource type**, you get an additional f
 - O365
 
 
-
-
 The **activity** filter is based on the category and Activity resource type selection you make. You can select a specific activity you want to see or choose all. 
 
-| Activity Category| Activity Resource Type| Activity |
-| :-- | :-: | :-- |
-| Core Directory| Group| Delete Group Settings|
-| Core Directory| Directory| Update Domain|
-| Core Directory| Directory| Remove Partner From Company|
-| Core Directory| User| Update Role|
-| Core Directory| User| Add Role From Template|
-| Core Directory| Group| Add App Role Assignment To Group|
-| Core Directory| Group| Start Applying Group Based License To Users|
-| Core Directory| Application| Add Service Principal|
-| Core Directory| Policy| Update Policy|
-| Core Directory| Policy| Add Policy To Service Principal|
-| Core Directory| Device| Add Registered Owner To Device|
-| Core Directory| Device| Add Registered Users To Device|
-| Core Directory| Device| Update Device Configuration|
-| Self-service Password Management| User| Reset Password (Self-Service)|
-| Self-service Password Management| User| Unlock User Account (Self-Service)|
-| Self-service Password Management| User| Reset Password (By Admin)|
-| Self-service Group Management| Group| Delete A Pending Request To Join A Group|
-| Account Provisioning| Application| Process Escrow|
-| Automated Password Rollover| Application| Automated Password Rollover|
-| Invited Users| Other| Batch Invites Processed|
-| Core Directory| Directory| Remove Verified Domain|
-| Core Directory| Directory| Add Unverified Domain|
-| Core Directory| Directory| Add Verified Domain|
-| Core Directory| Directory| Set Directory Feature On Tenant|
-| Core Directory| Directory| Set Dirsyncenabled Flag|
-| Core Directory| Directory| Create Company Settings|
-| Core Directory| Directory| Update Company Settings|
-| Core Directory| Directory| Delete Company Settings|
-| Core Directory| Directory| Set Company Allowed Data Location|
-| Core Directory| Directory| Set Company Multinational Feature Enabled|
-| Core Directory| User| Update User|
-| Core Directory| User| Delete User|
-| Core Directory| Group| Remove Member From Group|
-| Core Directory| Group| Set Group License|
-| Core Directory| Group| Create Group Settings|
-| Core Directory| Application| Update Service Principal|
-| Core Directory| Application| Delete Application|
-| Core Directory| Application| Update Application|
-| Core Directory| Application| Remove Service Principal|
-| Core Directory| Application| Add Service Principal Credentials|
-| Core Directory| Application| Remove App Role Assignment From Service Principal|
-| Core Directory| Application| Remove Owner From Application|
-| Core Directory| Device| Remove Registered Owner From Device|
-| Self-service Password Management| User| Self-Serve Password Reset Flow Activity Progress|
-| Account Provisioning| Application| Administration|
-| Account Provisioning| Application| Directory Operation|
-| MIM Service| Group| Remove Member|
-| Core Directory| Policy| Delete Policy|
-| Invited Users| User| Viral Tenant Creation|
-| Core Directory| Directory| Update External Secrets|
-| Core Directory| Directory| Set Rights Management Properties|
-| Core Directory| Directory| Update Company|
-| Core Directory| User| Add User|
-| Core Directory| User| Convert Federated User To Managed|
-| Core Directory| User| Create Application Password For User|
-| Core Directory| Group| Add Member To Group|
-| Core Directory| Group| Add Group|
-| Core Directory| Application| Consent To Application|
-| Core Directory| Application| Add Application|
-| Core Directory| Application| Add Owner To Service Principal|
-| Core Directory| Application| Remove Oauth2Permissiongrant|
-| Core Directory| Policy| Remove Policy Credentials|
-| Core Directory| Device| Delete Device Configuration|
-| Self-service Group Management| Group| Set Dynamic Group Properties|
-| Self-service Group Management| Group| Update Lifecycle Management Policy|
-| Account Provisioning| Application| Synchronization Rule Action|
-| Invited Users| Other| Batch Invites Uploaded|
-| MIM Service| Group| Add Member|
-| Core Directory| User| Set License Properties|
-| Core Directory| User| Restore User|
-| Core Directory| User| Remove Member From Role|
-| Core Directory| User| Remove App Role Assignment From User|
-| Core Directory| User| Remove Scoped Member From Role|
-| Core Directory| Group| Update Group|
-| Core Directory| Group| Add Owner To Group|
-| Core Directory| Group| Finish Applying Group Based License To Users|
-| Core Directory| Group| Remove App Role Assignment From Group|
-| Core Directory| Group| Set Group To Be Managed By User|
-| Core Directory| Application| Add Oauth2Permissiongrant|
-| Core Directory| Application| Add App Role Assignment To Service Principal|
-| Core Directory| Application| Remove Service Principal Credentials|
-| Core Directory| Policy| Remove Policy From Service Principal|
-| Core Directory| Device| Update Device|
-| Core Directory| Device| Add Device|
-| Core Directory| Device| Add Device Configuration|
-| Self-service Password Management| User| Change Password (Self-Service)|
-| Self-service Password Management| User| User Registered For Self-Service Password Reset|
-| Self-service Group Management| Group| Approve A Pending Request To Join A Group|
-| Core Directory| Directory| Remove Unverified Domain|
-| Core Directory| Directory| Verify Domain|
-| Core Directory| Directory| Set Domain Authentication|
-| Core Directory| Directory| Set Password Policy|
-| Core Directory| Directory| Add Partner To Company|
-| Core Directory| Directory| Promote Company To Partner|
-| Core Directory| Directory| Set Partnership|
-| Core Directory| Directory| Set Accidental Deletion Threshold|
-| Core Directory| Directory| Demote Partner|
-| Invited Users| User| Invite External User|
-| Account Provisioning| Application| Import|
-| Core Directory| Application| Remove Owner From Service Principal|
-| Core Directory| Device| Remove Registered Users From Device|
-| Core Directory| Directory| Set Company Information|
-| Core Directory| Directory| Set Federation Settings On Domain|
-| Core Directory| Directory| Create Company|
-| Core Directory| Directory| Purge Rights Management Properties|
-| Core Directory| Directory| Set Dirsync Feature|
-| Core Directory| Directory| Verify Email Verified Domain|
-| Core Directory| User| Change User License|
-| Core Directory| User| Change User Password|
-| Core Directory| User| Reset User Password|
-| Core Directory| User| Add App Role Assignment Grant To User|
-| Core Directory| User| Add Member To Role|
-| Core Directory| User| Delete Application Password For User|
-| Core Directory| User| Update User Credentials|
-| Core Directory| User| Set User Manager|
-| Core Directory| User| Add Scoped Member To Role|
-| Core Directory| Group| Delete Group|
-| Core Directory| Group| Remove Owner From Group|
-| Core Directory| Group| Update Group Settings|
-| Core Directory| Application| Add Owner To Application|
-| Core Directory| Application| Revoke Consent|
-| Core Directory| Policy| Add Policy|
-| Core Directory| Device| Delete Device|
-| Self-service Password Management| User| Blocked From Self-Service Password Reset|
-| Self-service Group Management| Group| Request To Join A Group|
-| Self-service Group Management| Group| Create Lifecycle Management Policy|
-| Self-service Group Management| Group| Reject A Pending Request To Join A Group|
-| Self-service Group Management| Group| Cancel A Pending Request To Join A Group|
-| Self-service Group Management| Group| Renew Group|
-| Account Provisioning| Application| Export|
-| Account Provisioning| Application| Other|
-| Invited Users| User| Redeem External User Invite|
-| Invited Users| User| Viral User Creation|
-| Invited Users| User| Assign External User To Application|
-
-
+You can get the list of all Audit Activities using the Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, where $tenantdomain = your domain name or refer to the article [audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
 ## Audit logs shortcuts
@@ -268,9 +135,6 @@ In addition to **Azure Active Directory**, the Azure portal provides you with tw
 
 - Users and groups
 - Enterprise applications
-
-For a complete list of audit report activities, see the [list of audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
 
 ### Users and groups audit logs
 

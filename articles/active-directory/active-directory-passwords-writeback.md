@@ -6,6 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,19 +14,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Password writeback overview
 
-Password writeback allows you to configure Azure AD to write passwords back to you on-premises Active Directory. It removes the need to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory Editions](active-directory-editions.md).
+Password writeback allows you to configure Azure AD to write passwords back to you on-premises Active Directory. It removes the need to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory Editions](active-directory-editions.md).
 
 Password writeback provides the following features
 
 * **Zero delay feedback** - Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet policy or was not able to be reset or changed for any reason.
 * **Supports resetting passwords for users using AD FS or other federation technologies** - With password writeback, as long as the federated user accounts are synchronized into your Azure AD tenant, they are able to manage their on-premises AD passwords from the cloud.
-* **Supports resetting passwords for users using [password hash sync](/connect/active-directory-aadconnectsync-implement-password-synchronization.md)** - When the password reset service detects that a synchronized user account is enabled for password hash sync, we reset both this account’s on-premises and cloud password simultaneously.
+* **Supports resetting passwords for users using [password hash sync](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)** - When the password reset service detects that a synchronized user account is enabled for password hash sync, we reset both this account’s on-premises and cloud password simultaneously.
 * **Supports changing passwords from the access panel and Office 365** - When federated or password synchronized users come to change their expired or non-expired passwords, we write those passwords back to your local AD environment.
 * **Supports writing back passwords when an admin reset them from the Azure portal** - Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password synchronized, we’ll set the password the admin selects on your local AD, as well. This is currently not supported in the Office Admin Portal.
 * **Enforces your on-premises AD password policies** - When a user resets their password, we make sure that it meets your on-premises AD policy before committing it to that directory. This includes history, complexity, age, password filters, and any other password restrictions you have defined in your local AD.
@@ -69,11 +71,23 @@ When a federated or password hash synchronized user comes to reset or change the
 
     We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
-## Scenarios supported for password writeback
+## Configuring password writeback
 
-We recommend that you use the auto-update feature of [Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md) if you want to use password writeback.
+We recommend that you use the auto-update feature of [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) if you want to use password writeback.
 
-Additional information about [DirSync and Azure AD Sync support lifecycle](connect/active-directory-aadconnect-dirsync-deprecated.md)
+DirSync and Azure AD Sync are no longer supported means of enabling password writeback the article [Upgrade from DirSync and Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) has more information to help with your transition.
+
+The steps below assume you have already configured Azure AD Connect in your environment using the [Express](./connect/active-directory-aadconnect-get-started-express.md) or [Custom](./connect/active-directory-aadconnect-get-started-custom.md) settings.
+
+1. To configure and enable password writeback log in to your Azure AD Connect server and start the **Azure AD Connect** configuration wizard.
+2. On the Welcome screen click **Configure**.
+3. On the Additional tasks screen click **Customize synchronization options** and then choose **Next**.
+4. On the Connect to Azure AD screen enter a Global Administrator credential and choose **Next**.
+5. On the Connect your directories and Domain and OU filtering screens you can choose **Next**.
+6. On the Optional features screen check the box next to **Password writeback** and click **Next**.
+   ![Enable password writeback in Azure AD Connect][Writeback]
+7. On the Ready to configure screen click **Configure** and wait for the process to complete.
+8. When you see Configuration complete you can click **Exit**
 
 ## Licensing requirements for password writeback
 
@@ -178,3 +192,4 @@ The following links provide additional information regarding password reset usin
 * [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
 * [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
 
+[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Enable password writeback in Azure AD Connect"

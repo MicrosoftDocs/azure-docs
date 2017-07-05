@@ -13,6 +13,6 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Using Decoration Markers to Highlight Text
+# Using decoration markers to highlight text
 
 [!INCLUDE [cognitive-services-bing-hit-highlighting](../../../includes/cognitive-services-bing-hit-highlighting.md)]

@@ -1,6 +1,6 @@
 | Resource | Limit |
 | --- | --- |
-| Cache size |530 GB ([contact us](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) for more) |
+| Cache size |530 GB |
 | Databases |64 |
 | Max connected clients |40,000 |
 | Redis Cache replicas (for high availability) |1 |
@@ -10,5 +10,5 @@ Azure Redis Cache limits and sizes are different for each pricing tier. To see t
 
 For more information on Azure Redis Cache configuration limits, see [Default Redis server configuration](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
-Because configuration and management of Azure Redis Cache instances is done by Microsoft, not all Redis commands are supported in Azure Redis Cache. For more information, see [Redis commands not supported in Azure Redis Cache]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
+Because configuration and management of Azure Redis Cache instances is done by Microsoft, not all Redis commands are supported in Azure Redis Cache. For more information, see [Redis commands not supported in Azure Redis Cache](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
 
 ---
@@ -31,6 +31,7 @@ ms.author: dhanyahk;markvi
 | Sign-ins from possibly infected devices |2 hours |4 hours |8 hours |
 | Users with anomalous sign-in activity |2 hours |4 hours |8 hours |
 | Users with leaked credentials |2 hours |4 hours |8 hours |
+| All user sign-in activity |2 hours |4 hours |8 hours |
 | **Application Reports** | | | |
 | Account provisioning activity |2 hours |4 hours |8 hours |
 | Account provisioning errors |2 hours |4 hours |8 hours |
@@ -49,6 +50,4 @@ ms.author: dhanyahk;markvi
 | RMS usage |2 hours |4 hours |8 hours |
 | RMS device usage |2 hours |4 hours |8 hours |
 | RMS enabled application usage |2 hours |4 hours |8 hours |
-| **Private Preview Reports** | | | |
-| All User Sign-in activity |2 hours |4 hours |8 hours |
 

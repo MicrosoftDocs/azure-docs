@@ -3,7 +3,7 @@ title: Manage pricing and data volume for Azure Application Insights | Microsoft
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 
 ---
 # Manage pricing and data volume in Application Insights
@@ -37,20 +37,21 @@ The Basic plan is the default when a new Application Insights resource is create
 
 * In the Basic plan, you are charged by data volume: number of bytes of telemetry received by Application Insights. 
 Data volume is measured as the size of the uncompressed JSON data package received by Application Insights from your application.
+For [tabular data imported into Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), the data volume is measured as the uncompressed size of files sent to Application Insights.  
 * Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
 * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
-* [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan, although it is free until early March 2017.
+* [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan.
 
 ### Enterprise plan
 
 * In the Enterprise plan, your app can use all the features of Application Insights. [Continuous Export](app-insights-export-telemetry.md) and 
+
 [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) are available without any extra charge in the Enterprise plan.
 * You pay per node that is sending telemetry for any apps in the Enterprise plan. 
  * A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your app.
  * Development machines, client browsers, and mobile devices are not counted as nodes.
  * If your app has several components that send telemetry, such as a web service and a back-end worker, they are counted separately.
- * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
-* Across a subscription, your charges are per node, not per app. If you have five nodes sending telemetry for 12 apps, then the charge is for five nodes.
+ * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.* Across a subscription, your charges are per node, not per app. If you have five nodes sending telemetry for 12 apps, then the charge is for five nodes.
 * Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge / 744 (the number of hours in a 31-day month).
 * A data volume allocation of 200 MB per day is given for each node detected (with hourly granularity). Unused data allocation is not carried over from one day to the next.
  * If you choose the Enterprise pricing option, each subscription gets a daily allowance of data based on the number of nodes sending telemetry to the Application Insights resources in that subscription. So if you have 5 nodes sending data all day, you will have a pooled allowance of 1 GB applied to all the Application Insights resources in that subscription. It doesn't matter if certain nodes are sending more data than other nodes because the included data is shared across all nodes. If, on a given day, the Application Insights resources receive more data than is included in the daily data allocation for this subscription, the per-GB overage data charges apply. 
@@ -76,9 +77,18 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 There's an additional charge for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). This refers to web tests that perform a sequence of actions. 
 
 There is no separate charge for 'ping tests' of a single page. Telemetry from both ping tests and multi-step tests is charged along with other telemetry from your app.
+ 
+## Operations Management Suite subscription entitlement
 
-## Review pricing plan and estimate costs for your Application Insights resource
-Open the Features + Pricing blade in the Application Insights resource for your application.
+As [recently announced](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), customers who purchase Microsoft Operations Management Suite E1 and E2 are able to get Application Insights Enterprise as an additional component at no additional cost. Specifically, each unit of Operations Management Suite E1 and E2 includes an entitlement to 1 node of the Enterprise plan of Application Insights. As noted above, each Application Insights node includes up to 200 MB of data ingested per day (separate from Log Analytics data ingestion), with 90-day data retention at no additional cost. 
+
+> [!NOTE]
+> To ensure that you get this entitlement, you must have your Application Insights resources in the Enterprise pricing plan. This entitlement applies only as nodes, so Application Insights resources in the Basic plan will not realize any benefit. Note that this entitlement will not be visible on the estimated costs shown on the Features + pricing blade. 
+>
+ 
+## Review pricing plans and estimate costs
+
+Applicaition Insights makes it easy to understand the pricing plans available and what the costs are likely be be based on recent usage patterns. Start by opening the **Features + Pricing** blade in the Application Insights resource in the Azure portal:
 
 ![Choose Pricing.](./media/app-insights-pricing/01-pricing.png)
 
@@ -145,10 +155,7 @@ To set ingestion sampling, set the control in the Pricing blade:
 ![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> The value shown on the Samples Retained tile indicates only the value you have set for ingestion sampling. It doesn't show the sampling rate that is operating at the SDK in your app. 
-> 
-> If the incoming telemetry has already been sampled at the SDK, ingestion sampling is not applied.
-> 
+> The Data sampling blade only controls the value of ingestion sampling. It doesn't reflect the sampling rate that is being applied by the Application Insights SDK in your app. If the incoming telemetry has already been sampled at the SDK, ingestion sampling is not applied.
 > 
 
 To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:

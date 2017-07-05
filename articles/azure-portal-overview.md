@@ -28,7 +28,7 @@ The Microsoft Azure portal is a central place where you can provision and manage
   ![Azure Portal UI Orientation][UIOrientation]
 
 ## Before you get started
-You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://portal.azure.com].
+You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at <https://portal.azure.com>.
 
 ## How to create a resource
 Azure has a marketplace with thousands of items that you can create from one place.  Let’s say you want to create a new Windows Server 2012 VM.  The +NEW hub is your entry point into a curated set of featured categories from the marketplace.  Each category has a small set of featured items along with a link to the full marketplace that shows all categories and search. To create that new Windows Server 2012 VM, perform the following actions:  

@@ -25,9 +25,9 @@ For a cloud service that contains instances of web roles or worker roles, you ca
 
 The *servicedefinition.csdef* file contains the endpoint configuration and when you have multiple role instances for a web or worker role deployment, the load balancer will be setup for it. The way to add instances to your cloud deployment is changing the instance count on the service configuration file (.csfg).
 
-The following figure shows a load-balanced endpoint for encrypted web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
+The following figure shows a load-balanced endpoint for web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
 
-![public load balancer example](./media/load-balancer-internet-overview/IC727496.png))
+![public load balancer example](./media/load-balancer-internet-overview/IC727496.png)
 
 Figure 1 - Load-balanced endpoint for web traffic
 

@@ -50,6 +50,9 @@ Yes, this is now possible. The VM first needs to be stopped deallocated. Then yo
 ## Are there any computer name requirements?
 Yes. The computer name can be a maximum of 64 characters in length. See [Infrastructure naming guidelines](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information around naming your resources.
 
+## Are there any resource group name requirements?
+Yes. The resource group name can be a maximum of 90 characters in length. See [Infrastructure resource group guidelines](infrastructure-resource-groups-guidelines.md) for more information about resource groups.
+
 ## What are the username requirements when creating a VM?
 Usernames must be 1 - 64 characters in length.
 

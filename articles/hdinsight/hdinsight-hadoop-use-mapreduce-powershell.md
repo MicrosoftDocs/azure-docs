@@ -1,5 +1,5 @@
 ---
-title: Use MapReduce and PowerShell with Hadoop | Microsoft Docs
+title: Use MapReduce and PowerShell with Hadoop - Azure HDInsight | Microsoft Docs
 description: Learn how to use PowerShell to remotely run MapReduce jobs with Hadoop on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 
 ---
@@ -30,7 +30,7 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 * **An Azure HDInsight (Hadoop on HDInsight) cluster**
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * **A workstation with Azure PowerShell**.
 
@@ -52,7 +52,7 @@ The following cmdlets are used when running MapReduce jobs in a remote HDInsight
 
 The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster.
 
-1. Using an editor, save the following code as **mapreducejob.ps1**..
+1. Using an editor, save the following code as **mapreducejob.ps1**.
 
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 

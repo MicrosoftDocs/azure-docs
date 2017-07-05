@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/09/2017
 ms.author: robinsh
 
 ---
@@ -25,24 +25,15 @@ The following sections provide detailed guidance on how to use the Storage Servi
 ## Overview
 Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPs, or SMB 3.0. Storage Service Encryption provides encryption at rest, handling encryption, decryption, and key management in a totally transparent fashion. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
-SSE works by encrypting the data when it is written to Azure Storage, and can be used for Azure Blob Storage and File Storage (Preview). It works for the following:
+SSE works by encrypting the data when it is written to Azure Storage, and can be used for Azure Blob Storage and File Storage. It works for the following:
 
-* General purpose storage accounts and Blob storage accounts
-* Standard storage and Premium storage 
+* Standard Storage: General purpose storage accounts for Blobs and File storage and Blob storage accounts
+* Premium storage 
 * All redundancy levels (LRS, ZRS, GRS, RA-GRS)
 * Azure Resource Manager storage accounts (but not classic) 
-* All regions for Blob Storage. For File Storage, please check the Availability section.
-
-Storage Service Encryption – Files Preview
-SSE is now available for encrypting your data in File Storage. This is currently in preview. Given below is the list of regions where SSE for File Storage is available.
-
-To participate in the SSE Files Preview please contact ssediscussions@microsoft.com.
+* All regions.
 
 To learn more, please refer to the FAQ.
-
-### Availability for File Storage
-Storage Service Encryption for File Storage is currently available in all Azure regions.
-
 
 To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://azure.portal.com) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
 
@@ -55,22 +46,17 @@ To enable or disable Storage Service Encryption for a storage account, log into 
 After you click the Encryption setting, you can enable or disable Storage Service Encryption.
 
 ![Portal Screenshot showing Encryption properties](./media/storage-service-encryption/image2.png)
-<br/>*Figure 1.1: Enable SSE for Blob Service (Step2)*
+<br/>*Figure 3: Enable SSE for Blob and File Service (Step2)*
 
-![Portal Screenshot showing Encryption properties](./media/storage-service-encryption/image4.png)
-<br/>*Figure 2.1: Enable SSE for File Service (Step2)*
 ## Encryption Scenarios
-Storage Service Encryption can be enabled at a storage account level. It supports the following customer scenarios:
+Storage Service Encryption can be enabled at a storage account level. Once enabled, customers will choose which services to encrypt. It supports the following customer scenarios:
 
-* Encryption of Blob Storage and File Storage.
-* Encryption of classic storage accounts migrated to Resource Manager storage accounts is supported for encryption for the Blob Service, but not for the File Service.
-* Encryption for File Storage is supported only for newly created storage accounts.
+* Encryption of Blob Storage and File Storage in Resource Manager accounts.
+* Encryption of Blob and File Service in classic storage accounts once migrated to Resource Manager storage accounts.
 
 SSE has the following limitations:
 
 * Encryption of classic storage accounts is not supported.
-* Encryption of classic storage accounts migrated to Resource Manager storage accounts is supported for encryption for the Blob Service, but not for the File Service.
-* Encryption for File Storage is supported only for newly created storage accounts.
 * Existing Data - SSE only encrypts newly created data after the encryption is enabled. If for example you create a new Resource Manager storage account but don't turn on encryption, and then you upload blobs or archived VHDs to that storage account and then turn on SSE, those blobs will not be encrypted unless they are rewritten or copied.
 * Marketplace Support - Enable encryption of VMs created from the Marketplace using the [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI. The VHD base image will remain unencrypted; however, any writes done after the VM has spun up will be encrypted.
 * Table and Queues data will not be encrypted.
@@ -130,19 +116,19 @@ A: No, SSE is only supported on Resource Manager storage accounts.
 
 A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing classic storage account to your newly created Resource Manager storage account. 
 
-If you migrate your classic storage account to a Resource Manager storage account, the data will not be encrypted during migration. However, if you migrate the storage account and then enable encryption, any new data written to the storage account will be encrypted. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Please note that this is supported only for Blob Storage. For the File Storage Preview, users must create new Resource Manager storage accounts.
+If you migrate your classic storage account to a Resource Manager storage account, this operation is instantaneous, it changes the type of your account but does not effect your existing data. Any new data written will be encrypted only after enabling encryption. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Please note that this is supported only for Blob and File services.
 
 **Q: I have an existing Resource Manager storage account. Can I enable SSE on it?**
 
-A: Yes, but only newly written blobs will be encrypted. It does not go back and encrypt data that was already present. This is not yet supported for the File Storage Preview.
+A: Yes, but only newly written data will be encrypted. It does not go back and encrypt data that was already present. This is not yet supported for the File Storage Preview.
 
 **Q: I would like to encrypt the current data in an existing Resource Manager storage account?**
 
-A: You can enable SSE at any time in a Resource Manager storage account. However, blobs that were already present will not be encrypted. To encrypt those blobs, you can copy them to another name or another container and then remove the unencrypted versions.This is not yet supported for the File Storage Preview
+A: You can enable SSE at any time in a Resource Manager storage account. However, data that were already present will not be encrypted. To encrypt existing data, you can copy them to another name or another container and then remove the unencrypted versions.
 
 **Q: I'm using Premium storage; can I use SSE?**
 
-A: Yes, SSE is supported on both Standard Storage and Premium Storage.This is not yet supported for the File Storage Preview.
+A: Yes, SSE is supported on both Standard Storage and Premium Storage.  Premium Storage is not supported for the File Service.
 
 **Q: If I create a new storage account and enable SSE, then create a new VM using that storage account, does that mean my VM is encrypted?**
 

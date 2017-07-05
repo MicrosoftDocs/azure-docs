@@ -51,11 +51,11 @@ To monitor messages that are sent from your device to your IoT hub, follow these
 1. Run the following command:
 
    ```bash
-   iothub-explorer monitor-events <device-id> --login <IoTHubConnectionString>
+   iothub-explorer monitor-events <device-id> --login "<IoTHubConnectionString>"
    ```
 
    > [!Note]
-   > Get `<device-id>` and `<IoTHubConnectionString>` from your IoT hub. Make sure you've finished the previous tutorial.
+   > Get `<device-id>` and `<IoTHubConnectionString>` from your IoT hub. Make sure you've finished the previous tutorial. Or you can try to use `iothub-explorer monitor-events <device-id> --login "HostName=<my-hub>.azure-devices.net;SharedAccessKeyName=<my-policy>;SharedAccessKey=<my-policy-key>"` if you have `HostName`, `SharedAccessKeyName` and `SharedAccessKey`.
 
 ## Send cloud-to-device messages
 
@@ -65,7 +65,7 @@ To send a message from your IoT hub to your device, follow these steps:
 1. Start a session on your IoT hub by running the following command:
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. Send a message to your device by running the following command:

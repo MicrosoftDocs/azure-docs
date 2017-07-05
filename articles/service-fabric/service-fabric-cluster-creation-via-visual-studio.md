@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2017
-ms.author: mikhegn@microsoft.com
+ms.author: mikhegn
+redirect_url: /azure/service-fabric/service-fabric-cluster-creation-via-arm
 
 ---
 # Set up a Service Fabric cluster by using Visual Studio

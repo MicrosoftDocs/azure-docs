@@ -1,5 +1,6 @@
 ---
-title: Add new users to Azure Active Directory preview| Microsoft Docs
+
+title: Add new users to Azure Active Directory | Microsoft Docs
 description: Explains how to add new users or change user information in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,23 +14,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 06/27/2017
 ms.author: curtand;jeffsta
+ms.reviewer: jeffsta
+
 
 ---
-# Add new users to Azure Active Directory preview
+# Add new users to Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-users-create-azure-portal.md)
 > * [Azure classic portal](active-directory-create-users.md)
 >
 >
 
-This article explains how to add new users in your organization in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
+This article explains how to add new users in your organization in the Azure Active Directory (Azure AD). 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-   ![Opening user management](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
+   ![Opening users and groups](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
 3. On the **Users and groups** blade, select **All users**, and then select **Add**.
 
    ![Selecting the Add command](./media/active-directory-users-create-azure-portal/create-users-add-command.png)

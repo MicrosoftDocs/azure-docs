@@ -63,24 +63,24 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
    | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | Obtained from iothub-explorer                                |
-   | Azure.IoT.IoTHub.DeviceId             | Obtained from iothub-explorer                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
 
    ![Add settings to Azure web app with key value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
+
+1. In **Application settings**, toggle the Web sockets option under General settings. Save all your changes before you move to next step.
+
+   ![Toggle Web sockets option](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
 
 ## Upload a web application to be hosted by the web app
 
 We made available a web application on GitHub which displays real-time sensor data from your IoT hub. All you need to do is to configure the web app to work with a Git repository, download the web application from GitHub and upload it to Azure for the web app to host.
 
-1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**.
+1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**, and then click **OK**.
 
    ![Configure your Azure web app deployment to use local git repository](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-1. Click **Setup connection**, create a user name and password that will be used to connect to the Git repository in Azure, and then click **OK**.
+1. Click **Deployment Credentials**, create a user name and password that will be used to connect to the Git repository in Azure, and then click **OK**.
 
-   ![Set user name and password for the git repository in Azure for your web app](media/iot-hub-live-data-visualization-in-web-apps/6_web-app-set-user-password-git-repo-azure.png)
-
-1. Click **OK** to finish the configuration.
 1. Click **Overview** and make a note of the value of **Git clone url**.
 
    ![Get the git clone URL of your Azure web app](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
@@ -90,6 +90,7 @@ We made available a web application on GitHub which displays real-time sensor da
 
    ```bash
    git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
+   cd web-apps-node-iot-hub-data-visualization
    git remote add webapp <Git clone URL>
    git push webapp master:master
    ```
@@ -108,7 +109,7 @@ You should see the real-time temperature and humidity data from your IoT hub.
 ![Azure web app page showing real-time temperature and humidity](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 ## Next steps
-You’ve successfully used an Azure web app to visualize real-time sensor data from your Azure IoT hub.
+You've successfully used an Azure web app to visualize real-time sensor data from your Azure IoT hub.
 
 There is an alternate way to visualize data from Azure IoT Hub. See [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 

@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
 
 ---
@@ -224,9 +224,6 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 As shown above, the `UnregisterReminderAsync`(C#) or `unregisterReminderAsync`(Java) method accepts an `IActorReminder`(C#) or `ActorReminder`(Java) interface. The actor base class supports a `GetReminder`(C#) or `getReminder`(Java) method that can be used to retrieve the `IActorReminder`(C#) or `ActorReminder`(Java) interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder`(C#) or `ActorReminder`(Java) interface that was returned from the `RegisterReminder`(C#) or `registerReminder`(Java) method call.
 
 ## Next Steps
+Learn about Reliable Actor events and reentrancy:
 * [Actor events](service-fabric-reliable-actors-events.md)
 * [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
-* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
-* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)

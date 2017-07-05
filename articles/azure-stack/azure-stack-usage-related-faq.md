@@ -44,6 +44,7 @@ resource providers.
 | **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Base VM Size Hours |Virtual core minutes | Number of vcores times minutes the VM ran |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM Size Hours |Virtual core minutes | Number of vcores times minutes the VM ran |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM size hours |VM hours |Captures both Base and Windows VM. Does not adjust for vcores |
+| **Key Vault** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault transactions | Request count in 10000s| Number of REST API requests received by Key Vault data plane |
 
 ## How do the Azure Stack Usage APIs compare to the [Azure Usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
 * The Tenant Usage API is consistent with the Azure API, with one

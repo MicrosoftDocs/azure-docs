@@ -1,6 +1,6 @@
 ---
-title: Kubernetes cluster quickstart in Azure | Microsoft Docs
-description: Deploy and get started with a Kubernetes cluster in Azure Container Service
+title: Quickstart - Azure Kubernetes cluster for Linux | Microsoft Docs
+description: Quickly learn to create a Kubernetes cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
 documentationcenter: ''
 author: anhowe
@@ -15,168 +15,148 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/31/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ---
 
-# Get started with a Kubernetes cluster in Container Service
+# Deploy Kubernetes cluster for Linux containers
 
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Linux container.
 
-This walkthrough shows you how to use the Azure CLI 2.0 commands to create a Kubernetes cluster in Azure Container Service. Then, you can use the `kubectl` command-line tool to start working with containers in the cluster.
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-The following image shows the architecture of a Container Service cluster with one master and two agents. The master serves the Kubernetes REST API. The agent nodes are grouped in an Azure availability set
-and run your containers. All VMs are in the same private virtual network and are fully accessible to each other.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Prerequisites
-This walkthrough assumes that you have installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2). 
+## Log in to Azure 
 
-The command examples assume that you run the Azure CLI in a bash shell, common on Linux and macOS. If you run the Azure CLI on a Windows client, some scripting and file syntax may differ, depending on your command shell. 
+Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-## Create your Kubernetes cluster
-
-Here are brief shell commands that use the Azure CLI 2.0 to create your cluster. 
-
-### Create a resource group
-To create your cluster, you first need to create a resource group in a specific location. Run commands similar to the following:
-
-```azurecli
-RESOURCE_GROUP=my-resource-group
-LOCATION=westus
-az group create --name=$RESOURCE_GROUP --location=$LOCATION
+```azurecli-interactive
+az login
 ```
 
-### Create a cluster
-Once you have a resource group, you can create a cluster in that group. The following example uses the `--generate-ssh-keys` option, which generates the necessary SSH public and private key files for the deployment if they don't exist already in the default `~/.ssh/` directory. 
+## Create a resource group
 
-This command also automatically generates the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) that a Kubernetes cluster in Azure uses.
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed. 
 
-```azurecli
-DNS_PREFIX=some-unique-value
-CLUSTER_NAME=any-acs-cluster-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
 ```
 
+## Create Kubernetes cluster
+Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-After several minutes, the command completes, and you should have a working Kubernetes cluster.
-
-### Connect to the cluster
-
-To connect to the Kubernetes cluster from your client computer, you use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
-
-If you don't already have `kubectl` installed, you can install it with:
-
-```azurecli
-sudo az acs kubernetes install-cli
-```
-> [!TIP]
-> By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux or macOS system, or to `C:\Program Files (x86)\kubectl.exe` on Windows. To specify a different installation path, use the `--install-location` parameter.
->
-
-After `kubectl` is installed, ensure that its directory in your system path, or add it to the path. 
+The following example creates a cluster named *myK8sCluster* with one Linux master node and two Linux agent nodes. This example creates SSH keys if they don't already exist in the default locations. To use a specific set of keys, use the `--ssh-key-value` option. Update the cluster name to something appropriate to your environment. 
 
 
-Then, run the following command to download the master Kubernetes cluster configuration to the `~/.kube/config` file:
 
-```azurecli
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
+```azurecli-interactive 
+az acs create --orchestrator-type=kubernetes \
+    --resource-group myResourceGroup \
+    --name=myK8sCluster \
+    --agent-count=2 \
+    --generate-ssh-keys 
 ```
 
-For more options to install and configure `kubectl`, see [Connect to an Azure Container Service cluster](container-service-connect.md).
+After several minutes, the command completes, and shows you information about your deployment.
 
-At this point you should be ready to access your cluster from your machine. Try running:
+## Install kubectl
 
-```bash
+To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
+
+If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+
+The following Azure CLI example installs `kubectl` to your system. If you are running the Azure CLI on macOS or Linux, you might need to run the command with `sudo`.
+
+```azurecli-interactive 
+az acs kubernetes install-cli 
+```
+
+## Connect with kubectl
+
+To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
+downloads the cluster configuration for your Kubernetes cluster.
+
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+```
+
+To verify the connection to your cluster from your machine, try running:
+
+```azurecli-interactive
 kubectl get nodes
 ```
 
-Verify that you can see a list of the machines in your cluster.
+`kubectl` lists the master and agent nodes.
 
-## Create your first Kubernetes service
+```azurecli-interactive
+NAME                    STATUS                     AGE       VERSION
+k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
+k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
+k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
-After completing this walkthrough, you will know how to:
-* deploy a Docker application and expose it to the world
-* use `kubectl exec` to run commands in a container 
-* access the Kubernetes dashboard
-
-### Start a simple container
-You can run a simple container (in this case the Nginx web server) by running:
-
-```bash
-kubectl run nginx --image nginx
 ```
 
-This command starts the Nginx Docker container in a pod on one of the nodes.
 
-To see the running container, run:
+## Deploy an NGINX container
 
-```bash
+You can run a Docker container inside a Kubernetes *pod*, which contains one or more containers. 
+
+The following command starts the NGINX Docker container in a Kubernetes pod on one of the nodes. In this case, the container runs the NGINX web server pulled from an image in [Docker Hub](https://hub.docker.com/_/nginx/).
+
+```azurecli-interactive
+kubectl run nginx --image nginx
+```
+To see that the container is running, run:
+
+```azurecli-interactive
 kubectl get pods
 ```
 
-### Expose the service to the world
-To expose the service to the world, create a Kubernetes `Service` of type `LoadBalancer`:
+## View the NGINX welcome page
+To expose the NGINX server to the world with a public IP address, type the following command:
 
-```bash
+```azurecli-interactive
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-This command causes Kubernetes to create an Azure load balancer rule with a public IP address. The change
-takes a few minutes to propagate to the load balancer. For more information, see [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md).
+With this command, Kubernetes creates a service and an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address for the service. 
 
-Run the following command to watch the service change from `pending` to display an external IP address:
+Run the following command to see the status of the service.
 
-```bash
-watch 'kubectl get svc'
+```azurecli-interactive
+kubectl get svc
 ```
 
-  ![Image of watching the transition from pending to external IP address](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
-
-Once you see the external IP address, you can browse to it in your browser:
-
-  ![Image of browsing to Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
-
-
-### Browse the Kubernetes UI
-To see the Kubernetes web interface, you can use:
-
-```bash
-kubectl proxy
-```
-This command runs a simple authenticated proxy on localhost, which you can use to view the Kubernetes web UI running on [http://localhost:8001/ui](http://localhost:8001/ui). For more information, see [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md).
-
-![Image of Kubernetes dashboard](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
-
-### Remote sessions inside your containers
-Kubernetes allows you to run commands in a remote Docker container running in your cluster.
-
-```bash
-# Get the name of your nginx pods
-kubectl get pods
+Initially the IP address appears as `pending`. After a few minutes, the external IP address of the service is set:
+  
+```azurecli-interactive
+NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
+kubernetes   10.0.0.1       <none>          443/TCP        21h       
+nginx        10.0.111.25    52.179.3.96     80/TCP         22m
 ```
 
-Using your pod name, you can run a remote command on your pod.  For example:
+You can use a web browser of your choice to see the default NGINX welcome page at the external IP address:
 
-```bash
-kubectl exec <pod name> date
+![Image of browsing to Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
+
+
+## Delete cluster
+When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
 ```
-
-You can also get a fully interactive session using the `-it` flags:
-
-```bash
-kubectl exec <pod name> -it bash
-```
-
-![Remote session inside a container](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
-
 
 
 ## Next steps
 
-To do more with your Kubernetes cluster, see the following resources:
+In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an NGINX container. To learn more about Azure Container Service, continue to the Kubernetes cluster tutorial.
 
-* [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - shows you how to deploy, scale, update, and debug containerized applications.
-* [Kubernetes User Guide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
-* [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides examples on how to run real applications with Kubernetes.
+> [!div class="nextstepaction"]
+> [Manage an ACS Kubernetes cluster](./container-service-tutorial-kubernetes-prepare-app.md)

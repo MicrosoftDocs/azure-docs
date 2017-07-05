@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: cgronlun
+editor: ''
 
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
-ms.author: jonfan
+ms.author: LADocs; jonfan
 
 ---
 # Exchange EDIFACT messages for enterprise integration with logic apps
@@ -283,6 +283,9 @@ and return to your integration account blade.
 On your integration account blade, choose **Overview**, then select the **Agreements** tile. 
 
 	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+
+## View Swagger file
+To view the Swagger details for the EDIFACT connector, see [EDIFACT](/connectors/edifact/).
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

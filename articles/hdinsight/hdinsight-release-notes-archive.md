@@ -1,6 +1,6 @@
-﻿---
-title: Archived release notes for Hadoop components on Azure HDInsight | Microsoft Docs
-description: Archived release notes and versions of Hadoop components for Azure HDInsight.
+---
+title: Archived release notes - Hadoop components on Azure HDInsight | Microsoft Docs
+description: Archived release notes for older versions of Hadoop components for Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 editor: cgronlun
@@ -9,12 +9,12 @@ author: nitinme
 tags: azure-portal
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
 
@@ -57,7 +57,7 @@ This release contains the following updates.
 
 | Title | Description | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example Spark, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 | --- | --- | --- | --- | --- |
-| Changes to HDInsight 3.4 clusters |The default value for following hive configurations are changed for better performance <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |Service |All |N/A |
+| Changes to HDInsight 3.4 clusters |The default values for following hive configurations are changed for better performance <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |Service |All |N/A |
 | Following fixes are included in this release |HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933 |Service |All |N/A |
 
 ## Notes for 07/14/2016 release of HDInsight
@@ -103,7 +103,7 @@ This release contains the following updates.
 | Title | Description | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example Spark, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 | --- | --- | --- | --- | --- |
 | [HDInsight Tools for IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md) |IntelliJ IDEA plugin for HDInsight Spark clusters is now integrated with Azure Toolkit for IntelliJ. It supports Azure SDK v2.9.1, latest Java SDKs, and includes all the features from the standalone HDInsight Plugin for IntelliJ. |Tools |Spark |N/A |
-| [HDInsight Tools for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) |Azure Toolkit for Eclipse now supports HDInsight Spark clusters. It enables the following features. <ul><li>Create and write a Spark application easily in Scala and Java with first class authoring support for IntelliSense, auto format, error checking, etc.</li><li>Test the Spark application locally.</li><li>Submit jobs to HDInsight Spark cluster and retrieve the results.</li><li>Log into Azure and access all the Spark clusters associated with your Azure subscriptions.</li><li>Navigate all the associated storage resources of your HDInsight Spark cluster.</li></ul> |Tools |Spark |N/A |
+| [HDInsight Tools for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) |Azure Toolkit for Eclipse now supports HDInsight Spark clusters. It enables the following features. <ul><li>Create and write a Spark application easily in Scala and Java with first class authoring support for IntelliSense, auto format, error checking, etc.</li><li>Test the Spark application locally.</li><li>Submit jobs to HDInsight Spark cluster and retrieve the results.</li><li>Log in to Azure and access all the Spark clusters associated with your Azure subscriptions.</li><li>Navigate all the associated storage resources of your HDInsight Spark cluster.</li></ul> |Tools |Spark |N/A |
 
 Starting with this release, we have changed the guest OS patching policy for Linux-based HDInsight clusters. The goal of the new policy is to significantly reduce the number of reboots due to patching. The new policy will continue to patch virtual machines (VMs) on Linux clusters every Monday or Thursday starting at 12AM UTC in a staggered fashion across nodes in any given cluster. However, any given VM will only reboot at most once every 30 days due to guest OS patching. In addition, the first reboot for a newly created cluster will not happen sooner than 30 days from the cluster creation date.
 
@@ -124,8 +124,8 @@ This release contains the following updates.
 
 | Title | Description | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example Spark, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 | --- | --- | --- | --- | --- |
-| Spark on HDInsight is generally available |This release brings improvements in availability, scalability, and productivity to open source Apache Spark on HDInsight. <ul><li>Industry leading availability SLA of 99.9% which makes it suitable for demanding enterprise workloads.</li><li>Scalable storage layer using Azure Data Lake Store.</li><li>Productivity tools for every phase of data exploration and developement. Jupyter notebooks with customized Spark kernel enable interactive data exploration, integration with BI dashboards like Power BI, Tableau and Qlik is good for quick data sharing and continuous reporting, IntelliJ plugin is reliable option for long term code artifact development and debugging.</li></ul> |Service |Spark |N/A |
-| HDInsight Tools for IntelliJ |This is an IntelliJ IDEA plugin for HDInsight Spark clusters. It enables the following features.<ul><li>Create and write a Spark application easily in Scala and Java with first class authoring support for IntelliSense, auto format, error checking, etc.</li><li>Test the Spark application locally.</li><li>Submit jobs to HDInsight Spark cluster and retrieve the results.</li><li>Log into Azure and access all the Spark clusters associated with your Azure subscriptions.</li><li>Navigate all the associated storage resources of your HDInsight Spark cluster.</li><li>Navigate all the jobs history and job information for your HDInsight Spark cluster.</li><li>Debug Spark jobs remotely from your desktop computer.</li></ul> |Tools |Spark |N/A |
+| Spark on HDInsight is generally available |This release brings improvements in availability, scalability, and productivity to open source Apache Spark on HDInsight. <ul><li>Industry-leading availability SLA of 99.9% which makes it suitable for demanding enterprise workloads.</li><li>Scalable storage layer using Azure Data Lake Store.</li><li>Productivity tools for every phase of data exploration and development. Jupyter notebooks with customized Spark kernel enable interactive data exploration, integration with BI dashboards like Power BI, Tableau and Qlik is good for quick data sharing and continuous reporting, IntelliJ plugin is reliable option for long term code artifact development and debugging.</li></ul> |Service |Spark |N/A |
+| HDInsight Tools for IntelliJ |This is an IntelliJ IDEA plugin for HDInsight Spark clusters. It enables the following features.<ul><li>Create and write a Spark application easily in Scala and Java with first class authoring support for IntelliSense, auto format, error checking, etc.</li><li>Test the Spark application locally.</li><li>Submit jobs to HDInsight Spark cluster and retrieve the results.</li><li>Log in to Azure and access all the Spark clusters associated with your Azure subscriptions.</li><li>Navigate all the associated storage resources of your HDInsight Spark cluster.</li><li>Navigate all the jobs history and job information for your HDInsight Spark cluster.</li><li>Debug Spark jobs remotely from your desktop computer.</li></ul> |Tools |Spark |N/A |
 
 ## Notes for 05/13/2016 release of HDInsight
 The full version numbers for HDInsight clusters deployed with this release:
@@ -162,10 +162,10 @@ This release contains the following updates.
 
 | Title | Description | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 | --- | --- | --- | --- | --- |
-| Custom metastore upgrade issues for HDI 3.4 |Cluster creation would fail if you used a custom metastore, which was previously used on a lower version of another HDInsight cluster. This was due to a upgrade script error that has now been fixed |Cluster creation |All |N/A |
+| Custom metastore upgrade issues for HDI 3.4 |Cluster creation would fail if you used a custom metastore, which was previously used on a lower version of another HDInsight cluster. This was due to an upgrade script error that has now been fixed |Cluster creation |All |N/A |
 | Livy Crash Recovery |Provides job status resiliency for any job submitted through Livy |Reliability |Spark on Linux |N/A |
 | Jupyter Content HA |Provides the ability to save and load Jupyter notebook contents to and from the storage account associated with the cluster. For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Notebooks |Spark on Linux |N/A |
-| Removal of hiveContext in Jupter Notebooks |Use `%%sql` magic instead of `%%hive` magic. SqlContext is equivalent to hiveContext. For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md) |Notebooks |Spark clusters on Linux |N/A |
+| Removal of hiveContext in Jupyter Notebooks |Use `%%sql` magic instead of `%%hive` magic. SqlContext is equivalent to hiveContext. For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md) |Notebooks |Spark clusters on Linux |N/A |
 | Deprecation of older Spark versions |Older version Spark 1.3.1 will be removed from the service on 5/31 |Service |Spark clusters on Windows |N/A |
 
 ## Notes for 03/29/2016 release of HDInsight
@@ -432,7 +432,7 @@ This release contains the following updates.
 </tr>
 <tr>
 <td>Intermittent MapReduce shuffle issue for HDInsight 3.2</td>
-<td>Fix for a rare, intermittent race condition  in Map Reduce Shuffle on large clusters resulting in occassional task failures. See <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a> for more information.</td>
+<td>Fix for a rare, intermittent race condition  in Map Reduce Shuffle on large clusters resulting in occasional task failures. See <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a> for more information.</td>
 <td>Hadoop Core</td>
 <td>All</td>
 <td><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a></td>
@@ -530,14 +530,14 @@ This release contains the following updates.
 </tr>
 <tr>
 <td>HDP 2.2 update</td>
-<td>This release of HDInsight 3.2 contains HDP 2.2.6, and brings several important bug fixes to HDInsight. The full release notes is available at <a href="http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html">HDP 2.2.6 Release Notes</a>.</td>
+<td>This release of HDInsight 3.2 contains HDP 2.2.6, and brings several important bug fixes to HDInsight. The full release notes are available at <a href="http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html">HDP 2.2.6 Release Notes</a>.</td>
 <td>HDP</td>
 <td>All cluster types</td>
 <td>N/A</td>
 </tr>
 <tr>
 <td>Change to Default Yarn Container Memory Configuration</td>
-<td>In this update, the default available memory to YARN containers (yarn.nodemanager.resource.memory-mb and yarn.scheduler.maximum-allocation-mb), launched by Node Manager, is increased to 5632MB. Previously this was reduced to 4608MB, but based on various job runs, the new value must offer better reliability and performance to most jobs, hence is a better default. As usual, if you a have critical dependency on this memory configuration, please set it explicitly while creating the cluster.</td>
+<td>In this update, the default available memory to YARN containers (yarn.nodemanager.resource.memory-mb and yarn.scheduler.maximum-allocation-mb), launched by Node Manager, is increased to 5632MB. Previously this was reduced to 4608MB, but based on various job runs, the new value must offer better reliability and performance to most jobs, hence is a better default. As usual, if you have critical dependency on this memory configuration, please set it explicitly while creating the cluster.</td>
 <td>HDP</td>
 <td>All cluster types</td>
 <td>N/A</td>
@@ -573,7 +573,7 @@ This release contains the following updates.
 </tr>
 <tr>
 <td>SCP.NET EventHub Support</td>
-<td>The updated cluster packages for HDInsight Storm bring new features to SCP.NET. You will now have access to new APIs in topology builder that make it easier to use EventHubSpout or Java Spouts. You must update your SCP.NET client SDK to work with new clusters as the contracts have been updated. For details on the new APIs, usage and release notes (including bug fixes) please refer to the Readme included in the SCP.NET nuget package.</td>
+<td>The updated cluster packages for HDInsight Storm bring new features to SCP.NET. You will now have access to new APIs in topology builder that make it easier to use EventHubSpout or Java Spouts. You must update your SCP.NET client SDK to work with new clusters as the contracts have been updated. For details on the new APIs, usage and release notes (including bug fixes) please refer to the Readme included in the SCP.NET NuGet package.</td>
 <td>VS Tooling</td>
 <td>Storm HDInsight 3.2 clusters</td>
 <td>N/A</td>
@@ -847,7 +847,7 @@ This release contains the following updates.
 <td>N/A</td>
 </tr>
 <tr>
-<td>HDinsight on Linux (Preview)</td>
+<td>HDInsight on Linux (Preview)</td>
 <td>Clusters can be deployed running on Ubuntu Linux. For more details, see Get Started with HDInsight on Linux.</td>
 <td>Service</td>
 <td>Hadoop</td>
@@ -881,8 +881,8 @@ This release contains the following updates.
 <td>Hadoop</td>
 <td>N/A</td>
 </tr>
-<td>Hadoop Connector for DocumentDB</td>
-<td>With Hadoop Connector for DocumentDB, you can perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across DocumentDB collections or across database accounts. For more information and a tutorial, see Run Hadoop jobs using DocumentDB and HDInsight.</td>
+<td>Hadoop Connector for Azure Cosmos DB</td>
+<td>With Hadoop Connector for Azure Cosmos DB, you can perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across Azure Cosmos DB collections or across database accounts. For more information and a tutorial, see Run Hadoop jobs using Azure Cosmos DB and HDInsight.</td>
 <td>Service</td>
 <td>Hadoop</td>
 <td>N/A</td>
@@ -1051,7 +1051,7 @@ This release contains the following component update.
 <th>JIRA (if applicable)</th>
 </tr>
 <tr>
-<td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">Cluster customization General Avalability</a></td>
+<td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">Cluster customization General Availability</a></td>
 <td><p>Customization provides the ability for you to customize your Azure HDInsight clusters with projects that are available from the Apache Hadoop ecosystem. With this new feature, you can experiment and deploy Hadoop projects to Azure HDInsight. This is enabled through the **Script Action** feature, which can modify Hadoop clusters in arbitrary ways by using custom scripts. This customization is available on all types of HDInsight clusters including Hadoop, HBase, and Storm. To demonstrate the power of this capability, we have documented the process to install the popular <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>, <a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>, <a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a>, and <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> modules. This release also adds the capability for customers to specify their custom script action via the Azure portal, provides guidelines and best practices about how to build custom script actions using helper methods, and provides guidelines about how to test the script action. </p></td>
 <td>Feature General Availability</td>
 <td>All</td>
@@ -1113,7 +1113,7 @@ The full version numbers for HDInsight clusters deployed with this release are:
 * HDInsight 2.1.9.382.1169709 (no change from 11/14/2014)
 * HDInsight 3.0.5.382.1169709 (no change from 11/14/2014)
 * HDInsight 3.1.1.382.1169709 (no change from 11/14/2014)
-* HDINsight SDK 1.4.0
+* HDInsight SDK 1.4.0
 
 This release contains the following component updates.
 
@@ -1261,7 +1261,7 @@ For more information about the memory configuration settings used by YARN and Ma
 Regarding the Azure PowerShell and the HDInsight SDK error message: "*Cluster is not configured for HTTP services access*":
 
 * This error is a known [compatibility issue](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) that may occur due to a difference in the version of the  HDInsight SDK or Azure PowerShell and the version of the cluster. Clusters created on 8/15 or later have support for new provisioning capability into virtual networks. But this capability is not correctly interpreted by older versions of the  HDInsight SDK or Azure PowerShell. The result is a failure in some job submission operations. If you use  HDInsight SDK APIs or Azure PowerShell cmdlets (**Use-AzureRmHDInsightCluster** or **Invoke-AzureRmHDInsightHiveJob**) to submit jobs, those operations may fail with the error message "*Cluster <clustername> is not configured for HTTP services access*." Or (depending on the operation), you may get other error messages, such as "*Cannot connect to cluster*".
-* These compatibility issues are resolved in the latest versions of the HDInsight SDK and Azure PowerShell. We recommend updating the HDInsight SDK to version 1.3.1.6 or later and Azure PowerShell Tools to version 0.8.8 or later. You can get access to the latest HDInsight SDK from [Nuget](http://nuget.codeplex.com/wikipage?title=Getting%20Started) and the Azure PowerShell Tools at [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* These compatibility issues are resolved in the latest versions of the HDInsight SDK and Azure PowerShell. We recommend updating the HDInsight SDK to version 1.3.1.6 or later and Azure PowerShell Tools to version 0.8.8 or later. You can get access to the latest HDInsight SDK from [NugGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) and the Azure PowerShell Tools at [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Notes for 9/12/2014 release of HDInsight 3.1
 * This release is based on Hortonworks Data Platform (HDP) 2.1.5. For a list of the bugs fixed in this release, see the [Fixed in this Release](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) page on the Hortonworks site.
@@ -1272,7 +1272,7 @@ Regarding the Azure PowerShell and the HDInsight SDK error message: "*Cluster is
 
      templeton.mapper.memory.mb (=1024)
 
-  * This change addresses the following error which certain Hive queries had run in to due to lower memory limits: "Container is running beyond physical memory limits."
+  * This change addresses the following error with certain Hive queries due to lower memory limits: "Container is running beyond physical memory limits."
   * To revert to the old defaults, you can set this configuration value to 512 through Azure PowerShell at cluster creation time by using the following command:
 
       Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
@@ -1312,7 +1312,7 @@ This release contains enhancements to the HDInsight service:
 With HBase, you can build a variety of real-time workloads on HDInsight, from interactive websites that work with large datasets to services storing sensor and telemetry data from millions of end points. The next step would be to analyze the data in these workloads with Hadoop jobs, and this is possible in HDInsight through Azure PowerShell and the Hive cluster dashboard.
 
 ### Apache Mahout preinstalled on HDInsight 3.1
- [Mahout](http://hortonworks.com/hadoop/mahout/) is pre-installed on HDInsight 3.1 Hadoop clusters, so you can run Mahout jobs without the need for additional cluster configuration. For example, you can remote into an Hadoop cluster by using Remote Desktop Protocol (RDP), and without additional steps, you can run the following Hello World Mahout command:
+ [Mahout](http://hortonworks.com/hadoop/mahout/) is pre-installed on HDInsight 3.1 Hadoop clusters, so you can run Mahout jobs without the need for additional cluster configuration. For example, you can remote into a Hadoop cluster by using Remote Desktop Protocol (RDP), and without additional steps, you can run the following Hello World Mahout command:
 
         mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L
 
@@ -1322,7 +1322,7 @@ For a more complete explanation of this procedure, see the documentation for the
 
 ### Hive queries can use Tez in HDInsight 3.1
 Hive 0.13 is available in HDInsight 3.1, and it is capable of running queries using Tez, which can be leveraged for substantial performance improvements.
-Tez is not enable by default for Hive queries. To use it, you must opt in. You can enable Tez by running the following code snippet:
+Tez is not enabled by default for Hive queries. To use it, you must opt in. You can enable Tez by running the following code snippet:
 
         set hive.execution.engine=tez;
         select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
@@ -1334,7 +1334,7 @@ For more details about using Hive with Tez, see [Hive on Tez](https://cwiki.apac
 ### Global availability
 With the release of HDInsight on Hadoop 2.2, Microsoft has made HDInsight available in all major geographies where Azure is available. Specifically, the west Europe and southeast Asia datacenters have been brought online. This enables customers to locate clusters in a datacenter that is close and potentially in a zone of similar compliance requirements.
 
-### Do's & Dont's between cluster versions
+### Dos & Don'ts between cluster versions
 **Oozie metastores used with an HDInsight 3.1 cluster are not backward compatible with HDInsight 2.1 clusters, and they cannot be used with this previous version**.
 
 A custom Oozie metastore database deployed with an HDInsight 3.1 cluster cannot be reused with an HDInsight 2.1 cluster. This is the case even if the metastore originated with an HDInsight 2.1 cluster. This scenario is not supported because the metastore schema gets upgraded when used with an  HDInsight 3.1 cluster, so it is no longer compatible with the metastore required by the HDInsight 2.1 clusters. Any attempt to reuse an Oozie metastore that has been used with an HDInsight 3.1 cluster will render the HDInsight 2.1 cluster useless.
@@ -1345,7 +1345,7 @@ Oozie metastores are attached to specific clusters, and they cannot be shared ac
 
 ### Breaking changes
 **Prefix syntax**:
-Only the "wasbs://" syntax is supported in HDInsight 3.1 and 3.0 clusters. The older "asv://" syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.1 or 3.0 clusters. This means that any jobs submitted to an HDInsight 3.1  or 3.0 cluster that explicitly use the "asv://" syntax will fail. The "wasbs://" syntax should be used instead. Also, jobs submitted to any HDInsight 3.1 or 3.0 clusters that are created with an existing metastore that contains explicit references to resources using the "asv://" syntax will fail. These metastores need to be re-created using the "wasbs://" syntax to address resources.
+Only the "wasbs://" syntax is supported in HDInsight 3.1 and 3.0 clusters. The older "asv://" syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.1 or 3.0 clusters. This means that any jobs submitted to an HDInsight 3.1  or 3.0 cluster that explicitly uses the "asv://" syntax will fail. The "wasbs://" syntax should be used instead. Also, jobs submitted to any HDInsight 3.1 or 3.0 clusters that are created with an existing metastore that contains explicit references to resources using the "asv://" syntax will fail. These metastores need to be re-created using the "wasbs://" syntax to address resources.
 
 **Ports**: The ports used by the HDInsight service have changed. The port numbers that were being used were within the ephemeral port range of the Windows operating system. Ports are allocated automatically from a predefined ephemeral range for short-lived Internet protocol-based communications. The new set of allowed Hortonworks Data Platform (HDP) service port numbers are outside this range to avoid encountering conflicts that could arise with the ports used by services running on the head node. The new port numbers should not cause any breaking changes. The numbers used are as follows:
 
@@ -1475,7 +1475,7 @@ The following version changes were made between HDInsight 2.x (HDP1.x) and HDIns
 * 0.8.0.RELEASE']
 
 ### Drivers
-The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
+The Java Database Connectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 ### Bug fixes
 With this release, we have refreshed the following HDInsight versions with several bug fixes:

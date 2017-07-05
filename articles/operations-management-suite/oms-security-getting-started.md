@@ -4,7 +4,7 @@ description: This document helps you to get started with Operations Management S
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
 
 ---
@@ -134,6 +134,12 @@ You can continue your investigation by clicking on each computer and review the 
 ### Threat Intelligence
 
 By using the Threat Intelligence option available in OMS Security and Audit, IT administrators can identify security threats against the environment, for example, identify if a particular computer is part of a botnet. Computers can become nodes in a botnet when attackers illicitly install malware that secretly connects this computer to the command and control. It can also identify potential threats coming from underground communication channels, such as darknet. Learn more about Threat Intelligence by reading [Monitoring and responding to security alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md) article.
+
+In some scenarios, you may notice a potential malicious IP that was accessed from one monitored computer:
+
+![threat intel map](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+This alert and others within the same category, are generated via OMS Security by leveraging [Microsoft Threat Intelligence](https://youtu.be/O4WtxgUrDc8). The Threat Intelligence data is collected by Microsoft as well as purchased from leading threat intelligence providers. This data is updated frequently and adapted to fast-moving threats. Due to its nature, it should be combined with other sources of security information while [investigating](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) a security alert. 
 
 ### Baseline Assessment
 

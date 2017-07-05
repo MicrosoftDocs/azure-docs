@@ -1,5 +1,5 @@
 ---
-title: Use Ambari Tez View with HDInsight | Microsoft Docs
+title: Use Ambari Tez View with HDInsight - Azure | Microsoft Docs
 description: Learn how to use the Ambari Tez view to debug Tez jobs on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.author: larryfr
 The Ambari Web UI for HDInsight contains a Tez view that can be used to understand and debug jobs that use Tez. The Tez view allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Prerequisites
 

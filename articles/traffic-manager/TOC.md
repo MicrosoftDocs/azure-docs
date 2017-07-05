@@ -1,7 +1,8 @@
-﻿# Overview
+# Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
 ### [Country/Region hierarchy used by Traffic Manager](traffic-manager-geographic-regions.md)
+## [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
 ## [FAQs](traffic-manager-FAQs.md)
@@ -40,10 +41,11 @@
 ## [Azure DNS](/azure/dns/)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-## [Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Service updates](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

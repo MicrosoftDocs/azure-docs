@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/13/2017
+ms.date: 06/09/2017
 ms.author: vidarmsft
 
 ---
@@ -136,9 +136,18 @@ You can select the VM in the **Replicated items** tab to configure the network s
 ## Create a recovery plan
 You can create a recovery plan in ASR to automate the failover process of the file shares. If a disruption occurs, you can bring the file shares up in a few minutes with just a single click. To enable this automation, you will need an Azure automation account.
 
-#### To create the account
+#### To create an Automation account
 1. Go to the Azure portal &gt; **Automation** section.
-2. Create a new automation account. Keep it in the same geo/region in which the StorSimple Cloud Appliance and Storage Accounts were created.
+2. Click **+ Add** button, opens below blade.
+
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
+
+   * Name - Enter a new automation account
+   * Subscription - Choose subscription
+   * Resource group - Create new/choose existing resource group
+   * Location - Choose location, keep it in the same geo/region in which the StorSimple Cloud Appliance and Storage Accounts were created.
+   * Create Azure Run As account - Select **Yes** option.
+
 3. Go to the Automation account, click **Runbooks** &gt; **Browse Gallery** to import all the required runbooks into the automation account.
 4. Add the following runbooks by finding **Disaster Recovery** tag in the gallery:
 
@@ -149,13 +158,12 @@ You can create a recovery plan in ASR to automate the failover process of the fi
    * Start StorSimple Virtual Appliance
 
      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
+
 5. Publish all the scripts by selecting the runbook in the automation account and click **Edit** &gt; **Publish** and then **Yes** to the verification message. After this step, the **Runbooks** tab will appear as follows:
 
     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
-6. In the automation account, go to the **Assets** tab &gt; click **Credentials** &gt; **+ Add a credential**, and add your Azure credentials – name the asset AzureCredential.
 
-   Use the Windows PowerShell Credential. This should be a credential that contains an Org ID user name and password with access to this Azure subscription and with multi-factor authentication disabled. This is required to authenticate on behalf of the user during the failovers and to bring up the file server volumes on the DR site.
-7. In the automation account, select the **Assets** tab &gt; click **Variables** &gt; **Add a variable** and add the following variables. You can choose to encrypt these assets. These variables are recovery plan–specific. If your recovery plan (which you will create in the next step) name is TestPlan, then your variables should be TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, and so on.
+6. In the automation account, select the **Assets** tab &gt; click **Variables** &gt; **Add a variable** and add the following variables. You can choose to encrypt these assets. These variables are recovery plan–specific. If your recovery plan (which you will create in the next step) name is TestPlan, then your variables should be TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, and so on.
 
    * *RecoveryPlanName***-StorSimRegKey**: The registration key for the StorSimple Manager service.
    * *RecoveryPlanName***-AzureSubscriptionName**: The name of the Azure subscription.
@@ -174,8 +182,8 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
-8. Go to the **Recovery Services** section and select the Azure Site Recovery vault that you created earlier.
-9. Select the **Recovery Plans (Site Recovery)** option from **Manage** group and create a new recovery plan as follows:
+7. Go to the **Recovery Services** section and select the Azure Site Recovery vault that you created earlier.
+8. Select the **Recovery Plans (Site Recovery)** option from **Manage** group and create a new recovery plan as follows:
 
    a.  Click **+ Recover plan** button, opens below blade.
 
@@ -287,7 +295,7 @@ Capacity planning is made up of at least two important processes:
 
   > [!IMPORTANT]
   > Run the backup manually from the Azure portal and then run the recovery plan again.
-  
+
 * Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 * Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
 

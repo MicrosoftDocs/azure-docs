@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 ---
 
 # Design, build, and deploy Azure Logic Apps in Visual Studio

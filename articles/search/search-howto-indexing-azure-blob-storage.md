@@ -29,7 +29,8 @@ The blob indexer can extract text from the following document formats:
 * XML
 * ZIP
 * EML
-* Plain text files  
+* RTF
+* Plain text files
 * JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) preview feature)
 * CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
 
@@ -136,7 +137,7 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
 
 > [!NOTE]
 > By default, blobs with structured content such as JSON or CSV are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features.
-> 
+>
 > A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
 
 * The textual content of the document is extracted into a string field named `content`.
@@ -337,7 +338,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 ## Indexing documents along with related data
 
 Your documents may have associated metadata - for example, the department that created the document - that's stored as structured data in one of the following locations.
--   In a separate data store, such as SQL Database or DocumentDB.
+-   In a separate data store, such as SQL Database or Azure Cosmos DB.
 -   Directly attached to each document in Azure Blob Storage as custom metadata. (For more info, see [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
 
 You can index the documents along with their metadata by assigning the same unique key value to each document and to its metadata, and by specifying the `mergeOrUpload` action for each indexer. For a detailed description of this solution, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
@@ -361,7 +362,9 @@ The following table summarizes processing done for each document format, and des
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Strip XML markup and extract text |
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extract text, including attachments |
-| Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
+| RTF (application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Extract text|
+| Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extract text|
+
 
 ## Help us make Azure Search better
 If you have feature requests or ideas for improvements, let us know on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
