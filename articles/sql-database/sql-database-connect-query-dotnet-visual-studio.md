@@ -35,7 +35,7 @@ To complete this quick start tutorial, make sure you have the following:
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 - An installation of [Visual Studio Community 2017, Visual Studio Professional 2017, or Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
-## Get Azure SQL server connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
@@ -57,7 +57,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 > You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 >
   
-## Create a new Visual Studio project and add dependencies
+## Create a new Visual Studio project
 
 1. In Visual Studio, choose **File**, **New**, **Project**. 
 2. In the **New Project** dialog, and expand **Visual C#**.
@@ -69,7 +69,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 7. When the install completes, review the changes and then click **OK** to close the **Preview** window. 
 8. If a **License Acceptance** window appears, click **I Accept**.
 
-## Insert code into the project to query your Azure SQL database
+## Insert code to query your Azure SQL database
 
 1. Switch to (or open if necessary) **Program.cs**
 
