@@ -80,11 +80,43 @@ The lock compatibility matrix can be found in the following table:
 | Exclusive |No conflict |Conflict |Conflict |Conflict |
 
 Time-out argument in the Reliable Collections APIs is used for deadlock detection.
-For example, two transactions (T1 and T2) are trying to read and update K1.
-It is possible for them to deadlock, because they both end up having the Shared lock.
-In this case, one or both of the operations will time out.
+**A common error that leads to deadlock is not taking an Update lock when necessary:** 
+```csharp
+ using (ITransaction tx = this.stateManager.CreateTransaction())
+ {
+  ConditionalValue<int> count = await dict.TryGetValueAsync(tx, counterid);
+  if(count.HasValue){
+    await dict.SetAsync(tx, counterid, count.Value + 1);
+  }
+  await tx.CommitAsync();
+ }
+```
+| Transaction | Action |
+| --- |:--- |
+| tx1 | Takes shared read lock on counterid |
+| tx2 | Takes shared read lock on counterid |
+| tx1 | Tries to upgrade read lock to write lock, but has to wait for tx2 to release lock |
+| tx2 | Tries to upgrade read lock to write lock, but has to wait for tx1 to release lock |
+| | Deadlock|
 
-This deadlock scenario is a great example of how an Update lock can prevent deadlocks.
+**Proper usage:**
+```csharp
+ using (ITransaction tx = this.stateManager.CreateTransaction())
+ {
+  ConditionalValue<int> count = await dict.TryGetValueAsync(tx, counterid, LockMode.Update);
+  if(count.HasValue){
+    await dict.SetAsync(tx, counterid, count.Value + 1);
+  }
+  await tx.CommitAsync();
+ }
+```
+| Transaction | Action |
+| --- |:--- |
+| tx1 | Takes upgrade lock on counterid |
+| tx2 | Tries to take upgrade lock, but has to wait for tx1 to release lock |
+| tx1 | Upgrades lock to write lock, writes, and releases lock |
+| tx2 | Successfully takes upgrade lock, reads, upgrades lock to write lock, writes, releases lock |
+| | No deadlock |
 
 ## Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
