@@ -75,7 +75,7 @@ Perform the following steps to create a new bandwidth template.
          
             Repeat the above steps to define multiple schedules for your template until you are done.
 
-   6. Click **Add** to start creating a bandwidth template. The created template is added to the list of bandwidth templates.
+        5. Click **Add** to start creating a bandwidth template. The created template is added to the list of bandwidth templates.
       
 
 ## Edit a bandwidth template

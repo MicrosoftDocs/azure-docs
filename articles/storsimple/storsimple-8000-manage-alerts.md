@@ -67,6 +67,7 @@ After you enable email notification for a device, members of the notification li
    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
       
 3. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
+
     ![Alert settings](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
 4. You see a notification when the test email is sent. 

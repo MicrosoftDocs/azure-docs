@@ -45,19 +45,29 @@ To install this feature on your Windows Server host, complete the following proc
 #### To install MPIO on the host
 
 1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If the Server Manager is not already open, click **Start > Server Manager**.
+   
    ![Server Manager](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 
 2. Click **Server Manager > Dashboard > Add roles and features**. This starts the **Add Roles and Features** wizard.
+   
    ![Add Roles And Features Wizard 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
 3. In the **Add Roles and Features** wizard, perform the following steps:
    
    1. On the **Before you begin** page, click **Next**.
-   2. On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.![Add Roles And Features Wizard 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
+   2. On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.
+   
+       ![Add Roles And Features Wizard 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
    3. On the **Select destination server** page, choose **Select a server from the server pool**. Your host server should be discovered automatically. Click **Next**.
    4. On the **Select server roles** page, click **Next**.
-   5. On the **Select features** page, select **Multipath I/O**, and click **Next**.![Add Roles And Features Wizard 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-   6. On the **Confirm installation selections** page, confirm the selection, and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.![Add Roles And Features Wizard 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
-   7. You are notified when the installation is complete. Click **Close** to close the wizard.![Add Roles And Features Wizard 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
+   5. On the **Select features** page, select **Multipath I/O**, and click **Next**.
+   
+       ![Add Roles And Features Wizard 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
+   6. On the **Confirm installation selections** page, confirm the selection, and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.
+   
+       ![Add Roles And Features Wizard 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
+   7. You are notified when the installation is complete. Click **Close** to close the wizard.
+   
+       ![Add Roles And Features Wizard 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
 ## Step 2: Configure MPIO for StorSimple volumes
 
@@ -73,7 +83,8 @@ MPIO must be configured to identify StorSimple volumes. To configure MPIO to rec
 5. In the **MPIO Properties** dialog box, click the **MPIO Devices** tab. Click **Add**.
     </br>![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. In the **Add MPIO Support** dialog box, under **Device Hardware ID**, enter your device serial number. To get the device serial number, access your StorSimple Device Manager service. Navigate to **Devices > Dashboard**. The device serial number is displayed in the right **Quick Glance** pane of the device dashboard.
-    </br>![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
+    </br>
+    ![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reboot the server when prompted.
 
 ## Step 3: Mount StorSimple volumes on the host
@@ -115,9 +126,11 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
     4. Click **OK** to return to the iSCSI Initiator Properties dialog box. You have added a second session to the target.
 12. Open **Computer Management** by navigating to **Server Manager > Dashboard > Computer Management**. In the left pane, click **Storage > Disk Management**. The volume created on the StorSimple device that are visible to this host appears under **Disk Management** as new disk(s).
 13. Initialize the disk and create a new volume. During the format process, select a block size of 64 KB.
+    
     ![Disk Management](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Under **Disk Management**, right-click the **Disk** and select **Properties**.
 15. In the StorSimple Model #### **Multi-Path Disk Device Properties** dialog box, click the **MPIO** tab.
+    
     ![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. In the **DSM Name** section, click **Details** and verify that the parameters are set to the default parameters. The default parameters are:
     
