@@ -19,7 +19,7 @@ ms.author: rajani-janaki-ram
 # Delete Recovery Services vault
 Dependencies prevent you from deleting recovery services vault and the actions you need to take varies based on the type of Azure Site Recovery scenario – VMWare to Azure, Hyper-V (with and without VMM) to Azure,  and Azure Backup. To delete a vault used in Azure Backup, check [this](../backup/backup-azure-delete-vault.md) link.
 
->Important
+>[!Important]
 >If you are testing the product, and want to rapidly delete the vault and are not concerned about data loss, then you can use the force delete method to remove vault and all its dependencies.
 
 Follow recommended steps (in given order) for your scenario to delete the vault
