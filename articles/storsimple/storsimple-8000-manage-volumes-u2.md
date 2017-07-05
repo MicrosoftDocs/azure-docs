@@ -120,7 +120,7 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
 
         ![Connected hosts](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
 
-    7. In the **Connected hosts** blade, choose an existing ACRor add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host). Click **Create**. A volume is created with the specified settings.
+    7. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host). Click **Create**. A volume is created with the specified settings.
 
         ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
