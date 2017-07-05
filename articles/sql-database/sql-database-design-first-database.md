@@ -105,7 +105,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
    > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
    > 
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
@@ -133,7 +133,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-   ![connection information](./media/sql-database-get-started-portal/server-name.png)
+   ![connection information](./media/sql-database-connect-query-dotnet/server-name.png)
 
 ## Connect to the database with SSMS
 
