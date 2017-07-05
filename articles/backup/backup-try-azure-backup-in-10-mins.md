@@ -162,7 +162,7 @@ The agent is now installed and your machine is registered to the vault. You're r
 
 ## Network and Connectivity Requirements
 
-If your machine/proxy has limited internet access, ensure that firewall settings on the Windows server/client with Azure Recovery Services Agent are configured to allow the following URLs: <br>
+If your machine/proxy has limited internet access, ensure that firewall settings on the mcahine/proxy are configured to allow the following URLs: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
     3. *.WindowsAzure.com
