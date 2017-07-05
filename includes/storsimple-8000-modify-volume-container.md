@@ -19,7 +19,7 @@
       
        ![Change bandwidth setting](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
-   2.  Click.
+   2.  Click **OK**.
 4. In the next page of the **Modify Volume Container** dialog box:
    
    1. From the drop-down list, choose an existing bandwidth template.
