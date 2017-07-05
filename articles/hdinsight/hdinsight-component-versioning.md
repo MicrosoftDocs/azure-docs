@@ -94,10 +94,56 @@ The following table lists the versions of HDInsight currently available, the cor
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |Yes |10/28/2013 |No |05/12/2014 |05/31/2015 |
 | HDI 1.6 |HDP 1.1 | |No |10/28/2013 |No |04/26/2014 |05/31/2015 |
 
-## HDI version 3.3 nearing retirement date
-The support for HDI 3.3 cluster expired on 06/27/2016 and it will be retired on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.6 soon. Retirement timelines for HDI 3.3 Windows may vary by region. If your region’s planned retirement date is different, you are notified separately.
+## HDInsight Windows Retirement
 
-### The service-level agreement for HDInsight cluster versions
+Microsoft Azure HDInsight (HDI) version 3.3 was the last version of HDInsight on Windows and will be retired on Jul 31st, 2018. If you have any HDI clusters running on Windows (3.3 or prior), you must migrate to HDInsight on Linux (HDI 3.5 or later) before Jul 31st, 2018 to retain the ability to create or resize HDI clusters. Support for HDI 3.3 on Windows expired on June 27th, 2016. 
+ 
+Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only: Apache Ranger, Kafka, Interactive Hive, Spark, HDInsight applications, and Azure Data Lake Store as primary file system. Future releases of HDInsight will be available only on Linux OS. There will not be any future releases of HDInsight on the Windows OS.
+
+### FAQs
+
+### What is the timeline for retiring HDInsight on Windows?
+July 31st, 2018 is the retirement date for HDInsight on Windows. If your region's planned retirement date is different, then you are notified separately. 
+
+### What will be the impact of retiring HDInsight on Windows for existing customers?
+* It will not be possible to create a new HDI on Windows cluster after the retirement date.
+* It will not be possible to resize an existing HDInsight on Windows cluster after the retirement date. 
+ * Future releases of HDInsight will be available only on the Linux OS. There will be no future releases of HDInsight on the Windows OS.
+* Note that support for HDInsight 3.3 expired Jun 27th, 2016. Therefore, there is no support or bug fixes for HDInsight 3.3 or prior versions. 
+ 
+### Which versions of HDInsight on Windows are impacted?
+Azure HDInsight version 3.3 was the last version of HDInsight for Windows. Any HDInsight cluster running on Windows (3.3 or prior) must be migrated to HDInsight on Linux (3.5 or later) before the retirement date to retain the ability to create new or resize existing HDI clusters. 
+
+### What do I need to do?
+Refer to [this](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) document to migrate Windows based HDInsight clusters to a supported Linux based HDInsight cluster before Jul 31st, 2018. For information on supported HDI versions, visit [here](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) 
+
+### Where do I find the Cluster OS type?
+In the Azure portal, go to the HDInsight Cluster overview page. On that page, you will find Cluster type under Essentials. That will indicate the OS type of the Cluster. 
+
+### What will be the impact to my HDInsight Windows cluster if I can’t migrate to a Linux based cluster by Jul 31st, 2018?
+The HDInsight Windows cluster will run as-is, however you won’t be able to create a new HDInsight on Windows cluster, or resize an existing HDInsight on Windows cluster. 
+
+### My cluster has .NET dependency. How do I resolve this dependency on Linux?
+[Mono](http://www.mono-project.com/), an open source implementation of .NET, is available on HDInsight Linux clusters. Refer to [this](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) document for more details. 
+
+### I am a new customer trying to create an HDInsight Windows based cluster, however I don’t see the option in the Azure portal, or I am unable to create this from PowerShell or SDK. How can I create an HDI Windows based cluster?
+As of July 3rd, 2017, only existing HDInsight Windows-based customers can create new HDI Windows-based clusters (until the retirement date). We recommend you create a Linux-based HDI cluster. 
+
+### Is there pricing impact associated with moving from HDInsight on Windows to HDInsight on Linux?
+No, the pricing is the same for HDInsight on either OS. 
+
+### What are the customer advantages associated with the move to HDInsight only on the Linux OS?
+* Faster time-to-market for open source big data technologies through the HDInsight service
+* A large community and ecosystem for support
+* Better ability to leverage active development by the open source community for Hadoop and newer big data technologies
+
+### Does HDInsight on Linux provide additional functionality beyond that available in HDInsight on Windows?
+Starting with HDInsight version 3.4, MSFT has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only – Apache Ranger, Kafka, Interactive Hive, Spark, HDInsight applications, and Azure Data Lake Store as primary FS. 
+
+### Whom should I contact for any additional questions?
+Contact [support](https://azure.microsoft.com/en-us/support/options/) for any additional questions
+
+## The service-level agreement for HDInsight cluster versions
 The SLA is defined in terms of a **Support Window**. A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a **Support Expiration Date** in the past, the HDInsight cluster is outside the Support Window. A list of supported HDInsight cluster versions can be found in the preceding table. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
 
 * Formula 1: Add 180 days to the date HDInsight cluster version X was released.
