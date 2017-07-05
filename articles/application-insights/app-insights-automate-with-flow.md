@@ -36,7 +36,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 1. Select **Schedule**, and then select **Schedule - Recurrence**.
 2. In the **Frequency** box, select **Day**, and in the **Interval** box, enter 1.
 
-![Microsoft Flow trigger dialog box](./media/app-insights-automate-with-flow/flow1.png)
+    ![Microsoft Flow trigger dialog box](./media/app-insights-automate-with-flow/flow1.png)
 
 
 ### Step 3: Add an Application Insights action
@@ -44,7 +44,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 2. Search for **Azure Application Insights**.
 3. Click **Azure Application Insights – Visualize Analytics query Preview**.
 
-![Run Analytics query window](./media/app-insights-automate-with-flow/flow2.png)
+    ![Run Analytics query window](./media/app-insights-automate-with-flow/flow2.png)
 
 ### Step 4: Connect to an Application Insights resource
 
