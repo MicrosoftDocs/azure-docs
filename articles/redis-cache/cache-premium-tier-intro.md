@@ -67,6 +67,8 @@ For more information, see [Reboot](cache-administration.md#reboot) and [Reboot F
 
 >[!NOTE]
 >Reboot functionality is now enabled for all Azure Redis Cache tiers.
+>
+>
 
 ## Schedule updates
 The scheduled updates feature allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. To designate a maintenance window, select the desired days and specify the maintenance window start hour for each day. Note that the maintenance window time is in UTC. 
@@ -77,6 +79,13 @@ For more information, see [Schedule updates](cache-administration.md#schedule-up
 > Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
 > 
 > 
+
+## Geo-replication
+
+**Geo-replication** provides a mechanism for linking two Premium tier Azure Redis Cache instances. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions.
+
+For more information, see [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md).
+
 
 ## To scale to the premium tier
 To scale to the premium tier, simply choose one of the premium tiers in the **Change pricing tier** blade. You can also scale your cache to the premium tier using PowerShell and CLI. For step-by-step instructions, see [How to Scale Azure Redis Cache](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
