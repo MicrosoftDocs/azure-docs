@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: cfreeman
 
 ---
@@ -2605,12 +2605,24 @@ The series_outliers() function takes a column containing dynamic array as input 
 **Syntax**  
 
 ```
-series_outliers(x,kind)  
+series_outliers(x,kind,ignore_val,min_percentile,max_percentile)  
 ```
 **Arguments** 
 * *x:* Dynamic array cell which is an array of numeric values. The values are assumed to be equidistant, otherwise it may yield unexpected results.  
-* *kind:* Algorithm of outlier detection. Currently supports "tukey".  
-Most convenient way of using this function is applying it to results of make-series operator.  
+* *kind:* Algorithm of outlier detection. Currently supports "tukey" and "ctukey". Default is "ctukey".  
+* *ignore_val:* numeric value indicating missing values in the series, default is double(null).
+* *min_percentile:*  for calulation of the normal inter-quantile range, default is 10 (ctukey only).
+* *max_percentile:*  for calulation of the normal inter-quantile range, default is 90 (ctukey only).
+
+The following table describes differences between "tukey" and "ctukey":
+
+|Algorithm|Default quantile range|Supports custom quantile range|
+|---------|----------------------|------------------------------|
+|"tukey"|25% / 75%|No|
+|"ctukey"|10% / 90%|Yes|
+
+**Important note** 
+The most convenient way of using this function is applying it to results of the `make-series` operator.
 
 **Examples** 
 
