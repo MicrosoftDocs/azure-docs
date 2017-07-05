@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/05/2017
 ms.author: maheshu
 
 ---
@@ -90,12 +90,21 @@ That's it - you are now ready to connect to the managed domain using secure LDAP
 >
 
 
-## Secure access to your managed domain via LDAPS over the internet
-**Optional task** - If you have not enabled access to the managed domain using LDAPS over the internet, skip this configuration task.
+## Lock-down LDAPS access to your managed domain over the internet
+> [!NOTE]
+> **Optional task** - If you have not enabled LDAPS access to the managed domain over the internet, skip this configuration task.
+>
+>
 
 Before you begin this task, ensure you have completed the steps outlined in [Task 4](#task-4---enable-secure-ldap-access-over-the-internet).
 
-Exposing your managed domain for LDAPS access over the internet represents a security threat. Therefore, you can choose to restrict access to the managed domain to specific known IP addresses. [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to specify the external IP addresses that should be allowed to connect via secure LDAP over the internet. 
+Exposing your managed domain for LDAPS access over the internet represents a security threat. The managed domain is reachable from the internet at the port used for secure LDAP (i.e. port 636). Therefore, you can choose to restrict access to the managed domain to specific known IP addresses. For improved security, create a network security group (NSG) and associate it with the virtual network. The NSG
+
+The following table illustrates a sample NSG you can configure, to lock down secure LDAP access over the internet. The NSG contains a set of rules that allow inbound LDAPS access over TCP port 636 only from a specified set of IP addresses. The default 'DenyAll' rule applies to all other inbound traffic from the internet. The NSG rule to allow LDAPS access over the internet from specified IP addresses has a higher priority than the DenyAll NSG rule.
+
+![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+
+**More information** - [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to specify the external IP addresses that should be allowed to connect via secure LDAP over the internet.
 
 <br>
 
