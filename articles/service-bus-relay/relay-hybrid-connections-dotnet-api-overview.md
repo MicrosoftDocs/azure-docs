@@ -41,7 +41,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-You can also pass a connection string directly to the `RelayConnectionStringBuilder` method. This enables you to verify that the connection string is in a valid format. The constructor generates an `ArgumentException` if any of the parameters are invalid.
+You can also pass a connection string directly to the `RelayConnectionStringBuilder` method. This operation enables you to verify that the connection string is in a valid format. If any of the parameters are invalid, the constructor generates an `ArgumentException`.
 
 ```csharp
 var myConnectionString = "{RelayConnectionString}";
@@ -86,7 +86,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### Receiving data
-The [HybridConnectionStream][HCStream] class enables two way communication. In most cases, you will continuously receive from the stream. If you are reading text from the stream, you may also want to use a [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
+The [HybridConnectionStream][HCStream] class enables two-way communication. In most cases, you continuously receive from the stream. If you are reading text from the stream, you may also want to use a [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
 
 The following code reads individual lines of text from the stream until a cancellation is requested:
 
