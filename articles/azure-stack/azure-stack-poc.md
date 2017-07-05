@@ -20,9 +20,9 @@ ms.custom: mvc
 ---
 # What is Azure Stack?
 
-Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter.  Azure Stack was designed to help you in key scenarios, like meeting security or compliance requirements, or where you need to access Azure resources without internet connectivity.  
+Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter.  Azure Stack was designed to help you in key scenarios, like meeting security and compliance requirements, or where you need to access Azure resources without internet connectivity.  
 
-## What is Azure Stack Development Kit?
+## Azure Stack Development Kit
 Microsoft Azure Stack Development Kit is a single-node version of Azure Stack, which you can use to evaluate and learn about Azure Stack.  You can also use the Azure Stack Development Kit as a developer environment, where you can develop using consistent APIs and tooling.  
 
 You should be aware of these points with Azure Stack Development Kit:
