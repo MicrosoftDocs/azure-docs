@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2017
+ms.date: 07/05/2017
 ms.author: alkohli
 
 ---
@@ -41,14 +41,14 @@ You can share your manually generated support package with Microsoft Support ove
     `Start PowerShell`
 2. In the Windows PowerShell session, connect to the SSAdmin Console of your device:
    
-   * At the command prompt, enter:
+   1. At the command prompt, enter:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   * In the dialog box that opens, enter your device administrator password. The default password is _Password1_.
+   2. In the dialog box that opens, enter your device administrator password. The default password is _Password1_.
      
       ![PowerShell credential dialog box](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   * Select **OK**.
-   * At the command prompt, enter:
+   3. Select **OK**.
+   4. At the command prompt, enter:
      
       `Enter-PSSession $MS`
 3. In the session that opens, enter the appropriate command.
