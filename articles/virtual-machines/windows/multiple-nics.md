@@ -27,13 +27,15 @@ Make sure that you have the [latest Azure PowerShell version installed and confi
 
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
+
+## Create a VM with multiple NICs
 First, create a resource group. The following example creates a resource group named *myResourceGroup* in the *EastUs* location:
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## Create virtual network and subnets
+### Create virtual network and subnets
 1. Define two virtual network subnets with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) - one for front-end traffic and one for back-end traffic. The following example defines the subnets for *mySubnetFrontEnd* and *mySubnetBackEnd*:
 
     ```powershell
@@ -54,7 +56,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
     ```
 
 
-## Create multiple NICs
+### Create multiple NICs
 Create two NICs with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Attach one NIC to the front-end subnet and one NIC to the back-end subnet. The following example creates NICs named *myNic1* and *myNic2*:
 
 ```powershell
@@ -73,7 +75,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
 
 Typically you also create a [network security group](../../virtual-network/virtual-networks-nsg.md) or [load balancer](../../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multiple-NIC VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a network security group and assigning NICs.
 
-## Create the virtual machine
+### Create the virtual machine
 Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. For more information, see [Windows VM sizes](sizes.md).
 
 1. Set your VM credentials to the `$cred` variable as follows:
@@ -111,7 +113,7 @@ Now start to build your VM configuration. Each VM size has a limit for the total
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Finally, create a VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Finally, create your VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
@@ -132,11 +134,11 @@ To add a virtual NIC to an existing VM, you dellocate the VM, add the virtual NI
     $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. The following example creates a virtual NIC with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) named *myNic3* that is attached to the *mySubnetBackEnd* subnet. The virtual NIC is then attached to the VM named *myVM* in *myResourceGroup* with [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
+3. The following example creates a virtual NIC with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) named *myNic3* that is attached to *mySubnetBackEnd*. The virtual NIC is then attached to the VM named *myVM* in *myResourceGroup* with [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
     ```powershell
     # Get info for the back end subnet
-    $myVnet=Get-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
+    $myVnet = Get-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
     $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 
     # Create a virtual NIC
@@ -151,12 +153,10 @@ To add a virtual NIC to an existing VM, you dellocate the VM, add the virtual NI
     ```
 
     ### Primary virtual NICs
-    One of the NICs on a multiple-NIC VM needs to be primary. If one of the existing virtual NICs on the VM is already set as primary, you can skip this step. If you need to set the `-Primary` switch on the VM, follow these steps:
+    One of the NICs on a multi-NIC VM needs to be primary. If one of the existing virtual NICs on the VM is already set as primary, you can skip this step. The following example assumes that two virtual NICs are now present on a VM and you wish to add the first NIC (`[0]`) as the primary:
         
     ```powershell
-    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
-    
-    # Find out all the NICs on the VM and find which one is primary
+    # List existing NICs on the VM and find which one is primary
     $vm.NetworkProfile.NetworkInterfaces
     
     # Set NIC 0 to be primary
@@ -176,7 +176,7 @@ To add a virtual NIC to an existing VM, you dellocate the VM, add the virtual NI
 ## Remove a NIC from an existing VM
 To remove a virtual NIC from an existing VM, you dellocate the VM, remove the virtual NIC, then start the VM.
 
-1. DDeallocate the VM with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
+1. Deallocate the VM with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 
     ```powershell
     Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -191,25 +191,27 @@ To remove a virtual NIC from an existing VM, you dellocate the VM, remove the vi
 3. Get information about the NIC to remove with [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). The following example gets information about *myNic3*:
 
     ```powershell
+    # List existing NICs on the VM if you need to determine NIC name
     $vm.NetworkProfile.NetworkInterfaces
+
     $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-    4. Remove the NIC with [Remove-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface) and then updated the VM with [Update-AzureRmVm](/powershell/module/azurerm.compute/update-azurermvm). The following example removes *myNic3* as obtained in `$nicId` in the preceding step:
+4. Remove the NIC with [Remove-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface) and then update the VM with [Update-AzureRmVm](/powershell/module/azurerm.compute/update-azurermvm). The following example removes *myNic3* as obtained by `$nicId` in the preceding step:
 
     ```powershell
     Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
         Update-AzureRmVm -ResourceGroupName "myResourceGroup"
     ```   
 
-4. Start the VM with [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
+5. Start the VM with [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
 
     ```powershell
     Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```   
 
 ## Create multiple NICs by using Resource Manager templates
-Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
+Azure Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. Resource Manager templates use declarative JSON files to define your environment. For more information, see [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). You can use *copy* to specify the number of instances to create:
 
 ```json
 "copy": {
@@ -218,7 +220,7 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-Read more about [creating multiple instances by using *copy*](../../resource-group-create-multiple.md). 
+For more information, see [creating multiple instances by using *copy*](../../resource-group-create-multiple.md). 
 
 You can also use `copyIndex()` to append a number to a resource name. You can then create *myNic1*, *MyNic2* and so on. The following code shows an example of appending the index value:
 
