@@ -1,5 +1,5 @@
 ---
-title: What is Azure Stack Development Kit? | Microsoft Docs
+title: What is Azure Stack? | Microsoft Docs
 description: Azure Stack Development Kit is an environment for evaluating Azure Stack features and scenarios.
 services: azure-stack
 documentationcenter: ''
@@ -18,11 +18,20 @@ ms.author: helaw
 ms.custom: mvc
 
 ---
-# What is Azure Stack Development Kit?
+# What is Azure Stack?
 
-Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Development Kit is a single-node version of Azure Stack, which you can use to evaluate and learn about Azure Stack.  You can also use the Azure Stack Development Kit as a developer environment, where you can develop using consistent APIs and tooling.  
+Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter.  Azure Stack was designed to help you in key scenarios, like:
 
-## Scope of Azure Stack Development Kit
+* Meeting security or compliance requirements for your business.
+* Disconnected environments, where you need local Azure resources without connectivity to the Internet.
+* Enabling consistency between on-premise resources and cloud resources.  You can develop your applications to run anywhere.  
+
+
+## What is Azure Stack Development Kit?
+Microsoft Azure Stack Development Kit is a single-node version of Azure Stack, which you can use to evaluate and learn about Azure Stack.  You can also use the Azure Stack Development Kit as a developer environment, where you can develop using consistent APIs and tooling.  
+
+You should be aware of these points with Azure Stack Development Kit:
+  
 * Azure Stack Development Kit must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
 * Your deployment of Azure Stack is associated with a single Azure Active Directory or Active Directory Federation Services identity provider. You can create multiple users in this directory and assign subscriptions to each user.
 * With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale or performance evaluation.
