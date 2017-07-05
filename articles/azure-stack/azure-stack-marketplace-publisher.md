@@ -87,7 +87,7 @@ In this section, you publish your newly created marketplace item your Azure Stac
     |-----|-----|
     | Service Admin Name | Service Administrator account.  Example:  ServiceAdmin@mydomain.onmicrosoft.com |
     | Password | Password for Service Administrator account. |
-    | API Endpoint | Azure Stack Azure Resource Manager endpoint.  Example: api.azurestack.local |
+    | API Endpoint | Azure Stack Azure Resource Manager endpoint.  Example: management.local.azurestack.external |
 2.  Click **Publish** and the publishing log is displayed.
 3.  You are now able to deploy your published item via the Azure Stack portal.
 
