@@ -62,8 +62,8 @@ EndpointSuffix=local.azurestack.external;" />
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
 ```
-var blobSvc = azure.createBlobService(‘'myaccount', ‘mykey’,
-‘myaccount.blob.local.azurestack.external’);
+var blobSvc = azure.createBlobService('myaccount', 'mykey',
+'myaccount.blob.local.azurestack.external');
 ```
 
 #### Python
