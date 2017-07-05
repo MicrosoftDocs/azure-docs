@@ -133,6 +133,8 @@
         href: azure-stack-download-azure-marketplace-item.md
       - name: Create and publish a marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
+      - name: Use the Marketplace Publishing tool
+        href: azure-stack-marketplace-publisher.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
       - name: Deploy Linux virtual machines
