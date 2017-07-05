@@ -29,7 +29,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
-| Telemetry |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221 |443 |
+| Telemetry |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## Status Monitor
@@ -199,3 +199,12 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 | --- | --- | --- | --- |
 | Agent | agent.azureserviceprofiler.net | dynamic | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
+| Storage | *.core.windows.net | dynamic | 443
+
+## Snapshot Debugger
+
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| Agent | ppe.azureserviceprofiler.net | dynamic | 443
+| Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
+| Storage | *.core.windows.net | dyanmic | 443

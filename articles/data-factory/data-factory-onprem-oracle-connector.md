@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/15/2017
 ms.author: jingwang
 
 ---
@@ -40,11 +40,16 @@ Gateway is required even if the Oracle is hosted in an Azure IaaS VM. You can in
 ## Supported versions and installation
 This Oracle connector support two versions of drivers:
 
-- **Microsoft driver for Oracle (recommended)**: starting from Data Management Gateway version 2.7, a Microsoft driver for Oracle is automatically installed along with the gateway, so you don't need to additionally handle the driver in order to establish connectivity to Oracle, and you can also experience better copy performance using this driver. Oracle Database version 10g Release 2 or later are supported.
+- **Microsoft driver for Oracle (recommended)**: starting from Data Management Gateway version 2.7, a Microsoft driver for Oracle is automatically installed along with the gateway, so you don't need to additionally handle the driver in order to establish connectivity to Oracle, and you can also experience better copy performance using this driver. Below versions of Oracle databases are supported:
+    - Oracle 12c R1 (12.1)
+    - Oracle 11g R1, R2 (11.1, 11.2)
+    - Oracle 10g R1, R2 (10.1, 10.2)
+    - Oracle 9i R1, R2 (9.0.1, 9.2)
+    - Oracle 8i R3 (8.1.7)
 
-    > [!IMPORTANT]
-    > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
-    >
+> [!IMPORTANT]
+> Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
+>
 
 - **Oracle Data Provider for .NET:** you can also choose to use Oracle Data Provider to copy data from/to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
 

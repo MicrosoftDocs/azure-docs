@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 04/20/2017
@@ -27,7 +27,7 @@ This sample scales container throughput for any kind of Azure Cosmos DB containe
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-throughput/scale-cosmosdb-throughput.sh?highlight=40-46 "Scale Azure Cosmos DB throughput")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-throughput/scale-cosmosdb-throughput.sh?highlight=40-46 "Scale Azure Cosmos DB throughput")]
 
 ## Clean up deployment
 

@@ -12,7 +12,7 @@ ms.custom: quick start create
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: hero-article
-Ms.date: 05/10/2017
+ms.date: 05/10/2017
 ---
 # Create an Azure Database for PostgreSQL using the Azure CLI
 

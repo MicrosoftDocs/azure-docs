@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 04/06/2017
+ms.date: 05/15/2017
 ms.author: maroche
 
 ---

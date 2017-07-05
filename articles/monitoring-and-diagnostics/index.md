@@ -35,7 +35,25 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
             </div>
         </div>
         </a>
-    </li>    
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=monitor">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Monitor video center</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/monitoring-and-diagnostics/insights-alerts-portal">
         <div class="cardSize">
@@ -174,20 +192,6 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Diagnostics extension schema 1.0</a></p>
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Diagnostics extension schema 1.2</a></p>
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Diagnostics extension schema 1.3 to 1.7</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Resources</h3>
-                        <p><a href="/azure/monitoring-and-diagnostics/insights-powershell-samples">PowerShell samples</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/insights-cli-samples">Azure CLI 1.0 samples</a></p>
-                        <p><a href="https://azure.microsoft.com/resources/videos/index/?services=monitor">Videos</a></p>
                     </div>
                 </div>
             </div>

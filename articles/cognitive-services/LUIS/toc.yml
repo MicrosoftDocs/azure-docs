@@ -67,8 +67,10 @@
       href: luis-how-to-collaborate.md    
 - name: Reference
   items: 
-  - name: LUIS API
+  - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
+  - name: Endpoint API
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
   - name: SDKs
     items:
     - name: Android

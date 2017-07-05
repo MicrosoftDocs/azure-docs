@@ -46,9 +46,6 @@
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/
-  - name: Logic Apps
-    tocHref: /azure/logic-apps/
-    topicHref: /azure/logic-apps/
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
@@ -106,12 +103,40 @@
   - name: Cognitive Services
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/
+    items: 
+    - name: Bing Custom Search
+      tocHref: /azure/cognitive-services/bing-custom-search/
+      topicHref: /azure/cognitive-services/bing-custom-search/
+    - name: Bing Web Search
+      tocHref: /azure/cognitive-services/bing-web-search/
+      topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Computer Vision
+      tocHref: /azure/cognitive-services/computer-vision/
+      topicHref: /azure/cognitive-services/computer-vision/
+    - name: Custom Speach Service
+      tocHref: /azure/cognitive-services/custom-speech-service/
+      topicHref: /azure/cognitive-services/custom-speech-service/
+    - name: Custom Vision Service
+      tocHref: /azure/cognitive-services/custom-vision-service/
+      topicHref: /azure/cognitive-services/custom-vision-service/
+    - name: Face
+      tocHref: /azure/cognitive-services/face/
+      topicHref: /azure/cognitive-services/face/
+    - name: Language Understanding Intelligent Service (LUIS)
+      tocHref: /azure/cognitive-services/LUIS/
+      topicHref: /azure/cognitive-services/LUIS/
+    - name: Video Indexer
+      tocHref: /azure/cognitive-services/video-indexer/
+      topicHref: /azure/cognitive-services/video-indexer/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
+  - name: CosmosDB
+    tocHref: /azure/cosmos-db/
+    topicHref: /azure/cosmos-db/
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -130,9 +155,6 @@
   - name: DNS
     tocHref: /azure/dns/
     topicHref: /azure/dns/
-  - name: DocumentDB
-    tocHref: /azure/documentdb/
-    topicHref: /azure/documentdb/
   - name: Event Hubs
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/
@@ -160,6 +182,9 @@
   - name: Log Analytics
     tocHref: /azure/log-analytics/
     topicHref: /azure/log-analytics/
+  - name: Logic Apps
+    tocHref: /azure/logic-apps/
+    topicHref: /azure/logic-apps/
   - name: Machine Learning
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
@@ -188,6 +213,9 @@
       - name: User Guide
         tocHref: /azure/multi-factor-authentication/end-user/
         topicHref: /azure/multi-factor-authentication/end-user/
+  - name: MySQL
+    tocHref: /azure/mysql/
+    topicHref: /azure/mysql/
   - name: Network Watcher
     tocHref: /azure/network-watcher/
     topicHref: /azure/network-watcher/
@@ -200,6 +228,9 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
+  - name: PostgreSQL
+    tocHref: /azure/postgresql/
+    topicHref: /azure/postgresql/
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/

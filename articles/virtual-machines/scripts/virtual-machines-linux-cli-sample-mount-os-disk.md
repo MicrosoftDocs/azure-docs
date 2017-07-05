@@ -28,7 +28,7 @@ This script mounts the operating system disk of a failed or problematic virtual 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Quick Create VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Quick Create VM")]
 
 ## Script explanation
 

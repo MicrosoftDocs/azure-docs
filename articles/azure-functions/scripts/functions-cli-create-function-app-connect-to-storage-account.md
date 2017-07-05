@@ -10,7 +10,7 @@ tags: functions
 ms.assetid: 
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
@@ -26,7 +26,7 @@ This sample script creates a Function App and Storage Account.
 
 This sample creates an Azure Function app and adds the storage connection string to an app setting.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
 ## Clean up deployment

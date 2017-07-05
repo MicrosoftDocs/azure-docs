@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: bbbdbc42-efb5-4b4f-8ba6-c03c9d16a7ea
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
@@ -26,7 +26,7 @@ In this scenario you will learn how to create an Azure Cosmos DB account and an 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/connect-to-documentdb/connect-to-documentdb.sh "Azure Cosmos DB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-documentdb/connect-to-documentdb.sh "Azure Cosmos DB")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

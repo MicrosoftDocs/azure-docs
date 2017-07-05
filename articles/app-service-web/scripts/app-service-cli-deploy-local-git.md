@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ---
@@ -26,7 +26,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Create a web app and deploy code from a local Git repository")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Create a web app and deploy code from a local Git repository")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

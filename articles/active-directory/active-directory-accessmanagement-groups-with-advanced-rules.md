@@ -1,6 +1,6 @@
 ---
-title: Using attributes to create advanced rules| Microsoft Docs
-description: How-to's to create advanced rules for a group including supported expression rule operators and parameters.
+title: Populate groups dynamically based on user attributes in Azure Active Directory | Microsoft Docs
+description: How-to's to create advanced rules for group membership including supported expression rule operators and parameters.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/14/2017
 ms.author: curtand
 
 ---
-# Using attributes to create advanced rules
-The Azure classic portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
+# Populate groups dynamically based on user attributes 
+The Azure classic portal provides you with the ability to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
 
 When any attributes of a user change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user would trigger any group adds or removes. If a user satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
 

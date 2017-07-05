@@ -28,7 +28,7 @@ This script creates an Azure Virtual Machine with an Ubuntu operating system. Af
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.sh "Quick Create VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.sh "Quick Create VM")]
 
 ## Clean up deployment 
 

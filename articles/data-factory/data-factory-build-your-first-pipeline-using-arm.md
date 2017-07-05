@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build your first data factory (Resource Manager template) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
@@ -138,7 +138,6 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
                     "clusterSize": 1,
-                    "version": "3.2",
                     "timeToLive": "00:05:00",
                     "osType": "windows",
                     "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
@@ -416,7 +415,6 @@ See [Compute linked services](data-factory-compute-linked-services.md#azure-hdin
   		"type": "HDInsightOnDemand",
   		"typeProperties": {
     		"clusterSize": 1,
-    		"version": "3.2",
     		"timeToLive": "00:05:00",
     		"osType": "windows",
     		"linkedServiceName": "[variables('azureStorageLinkedServiceName')]"

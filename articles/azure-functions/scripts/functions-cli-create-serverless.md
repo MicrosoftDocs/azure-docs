@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 04/11/2017
@@ -28,7 +28,7 @@ This sample script creates an Azure Function App, which is a container for your 
 
 This script creates an Azure Function app using the [consumption plan](../functions-scale.md#consumption-plan).
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
