@@ -24,8 +24,7 @@ ms.author: cynthn
 
 To reuse virtual machines (VMs) deployed in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to uplaod a generalized VHD to Azure and then capture an image with the Azure CLI 2.0. 
 
-> [!TIP]
-> If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, or upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
+If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, or upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
 
 
 ## Before you begin
