@@ -5,7 +5,7 @@ Key transactions (Max transactions allowed in 10 seconds, per vault per region<s
 |**Software-key**<br>Create Key<br>All other transactions|<br>10<br>2000|<br>10<br>500|<br>10<br>250|
 |
 
-Secrets, Managed Storage Account Keys and vault transactions:
+Secrets, Managed Storage Account Keys, and vault transactions:
 | Transactions Type | Max transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
 | --- | --- |
 | All operations |2000 |
