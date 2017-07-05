@@ -1,5 +1,5 @@
 ---
-title: Breakdown of your Microsoft Azure invoice | Microsoft Docs
+title: Understand your Azure invoice | Microsoft Docs
 description: Learn how to read and understand the usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''
