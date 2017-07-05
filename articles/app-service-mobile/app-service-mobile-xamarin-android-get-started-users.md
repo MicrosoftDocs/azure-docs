@@ -4,7 +4,7 @@ description: Learn how to use Mobile Apps to authenticate users of your Xamarin 
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: adrianha
+manager: panarasi
 editor: ''
 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
+ms.date: 07/05/2017
+ms.author: panarasi
 
 ---
 # Add authentication to your Xamarin.Android app
@@ -26,6 +26,20 @@ This tutorial is based on the Mobile App quickstart. You must also first complet
 
 ## <a name="register"></a>Register your app for authentication and configure App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+
+## <a name="redirecturl"></a>Add your app to the Allowed External Redirect URLs
+
+Secure authentication requires that you define a new URL scheme for your app. This allows the authentication system to redirect back to your app once the authentication process is complete. In this tutorial, we use the URL scheme _appname_ throughout. However, you can use any URL scheme you choose. It should be unique to your mobile application. To enable the redirection on the server side:
+
+1. In the [Azure portal], select your App Service.
+
+2. Click the **Authentication / Authorization** menu option.
+
+3. In the **Allowed External Redirect URLs**, enter `url_scheme_of_your_app://easyauth.callback`.  The **url_scheme_of_your_app** in this string is the URL Scheme for your mobile application.  It should follow normal URL specification for a protocol (use letters and numbers only, and start with a letter).  You should make a note of the string that you choose as you will need to adjust your mobile application code with the URL Scheme in several places.
+
+4. Click **OK**.
+
+5. Click **Save**.
 
 ## <a name="permissions"></a>Restrict permissions to authenticated users
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -48,7 +62,7 @@ The app is updated to require users to tap the **Sign in** button and authentica
                 {
                     // Sign in with Facebook login using a server-managed flow.
                     user = await client.LoginAsync(this,
-                        MobileServiceAuthenticationProvider.Facebook);
+                        MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                     CreateAndShowDialog(string.Format("you are now logged in - {0}",
                         user.UserId), "Logged in!");
    
@@ -95,9 +109,18 @@ The app is updated to require users to tap the **Sign in** button and authentica
 4. Add the following element to the Strings.xml resources file:
    
         <string name="login_button_text">Sign in</string>
-5. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider.
-   
-       When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
+5. Open the AndroidManifest.xml file, add the following code inside `<application>` XML element:
+
+        <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
+          <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
+          </intent-filter>
+        </activity>
+
+6. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider. When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
 
 <!-- URLs. -->
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md

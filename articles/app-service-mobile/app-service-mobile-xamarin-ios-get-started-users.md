@@ -4,7 +4,7 @@ description: Learn how to use Mobile Apps to authenticate users of your Xamarin 
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: adrianha
+manager: panarasi
 editor: ''
 
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
+ms.date: 07/05/2017
+ms.author: panarasi
 
 ---
 # Add authentication to your Xamarin.iOS app
@@ -26,6 +26,20 @@ You must first complete the tutorial [Create a Xamarin.iOS app]. If you do not u
 
 ## Register your app for authentication and configure App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+
+## Add your app to the Allowed External Redirect URLs
+
+Secure authentication requires that you define a new URL scheme for your app. This allows the authentication system to redirect back to your app once the authentication process is complete. In this tutorial, we use the URL scheme _appname_ throughout. However, you can use any URL scheme you choose. It should be unique to your mobile application. To enable the redirection on the server side:
+
+1. In the [Azure portal], select your App Service.
+
+2. Click the **Authentication / Authorization** menu option.
+
+3. In the **Allowed External Redirect URLs**, enter `url_scheme_of_your_app://easyauth.callback`.  The **url_scheme_of_your_app** in this string is the URL Scheme for your mobile application.  It should follow normal URL specification for a protocol (use letters and numbers only, and start with a letter).  You should make a note of the string that you choose as you will need to adjust your mobile application code with the URL Scheme in several places.
+
+4. Click **OK**.
+
+5. Click **Save**.
 
 ## Restrict permissions to authenticated users
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -40,11 +54,9 @@ Next, you will update the client app to request resources from the Mobile App ba
 In this section, you will modify the app to display a login screen before displaying data. When the app starts, it will not not connect to your App Service and will not display any data. After the first time that the user performs the refresh gesture, the login screen will appear; after successful login the list of todo items will be displayed.
 
 1. In the client project, open the file **QSTodoService.cs** and add the following using statement and `MobileServiceUser` with accessor to the QSTodoService class:
-   
-    ```
+ 
         using UIKit;
-    ```
-   
+       
         // Logged in user
         private MobileServiceUser user;
         public MobileServiceUser User { get { return user; } }
@@ -54,7 +66,8 @@ In this section, you will modify the app to display a login screen before displa
         {
             try
             {
-                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook);
+                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
+                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
             }
             catch (Exception ex)
             {
@@ -64,34 +77,43 @@ In this section, you will modify the app to display a login screen before displa
 
     >[AZURE.NOTE] If you are using an identity provider other than a Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-1. Open **QSTodoListViewController.cs**. Modify the method definition of **ViewDidLoad** removing the call to **RefreshAsync()** near the end:
+3. Open **QSTodoListViewController.cs**. Modify the method definition of **ViewDidLoad** removing the call to **RefreshAsync()** near the end:
    
         public override async void ViewDidLoad ()
         {
             base.ViewDidLoad ();
    
             todoService = QSTodoService.DefaultService;
-           await todoService.InitializeStoreAsync ();
+            await todoService.InitializeStoreAsync();
    
-           RefreshControl.ValueChanged += async (sender, e) => {
-                await RefreshAsync ();
-           }
+            RefreshControl.ValueChanged += async (sender, e) => {
+                await RefreshAsync();
+            }
    
             // Comment out the call to RefreshAsync
-            // await RefreshAsync ();
+            // await RefreshAsync();
         }
-2. Modify the method **RefreshAsync** to authenticate if the **User** property is null. Add the following code at the top of the method definition:
+4. Modify the method **RefreshAsync** to authenticate if the **User** property is null. Add the following code at the top of the method definition:
    
         // start of RefreshAsync method
         if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate (this);
+            await QSTodoService.DefaultService.Authenticate(this);
             if (todoService.User == null) {
-                Console.WriteLine ("couldn't login!!");
+                Console.WriteLine("couldn't login!!");
                 return;
             }
         }
         // rest of RefreshAsync method
-3. In Visual Studio or Xamarin Studio connected to your Xamarin Build Host on your Mac, run the client project targeting a device or emulator. Verify that the app displays no data.
+5. Open **AppDelegate.cs**, add the following method:
+
+        public static Func<NSUrl, bool> ResumeWithURL;
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            return ResumeWithURL != null && ResumeWithURL(url);
+        }
+6. Open **Info.plist** file, navigate to **URL Types** in the **Advanced** section. Now configure the **Identifier** and the **URL Schemes** of your URL Type and click **Add URL Type**. **URL Schemes** should be the same as your {url_scheme_of_your_app}.
+7. In Visual Studio or Xamarin Studio connected to your Xamarin Build Host on your Mac, run the client project targeting a device or emulator. Verify that the app displays no data.
    
     Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items, and you can make updates to the data.
 
