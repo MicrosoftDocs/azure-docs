@@ -394,6 +394,8 @@
       href: boot-diagnostics.md
     - name: Access to applications
       href: troubleshoot-app-connection.md
+    - name: Device Names are changed
+      href: troubleshoot-device-names-problems.md
     - name: Allocation failures
       href: allocation-failure.md
     - name: Deployment issues
