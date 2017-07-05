@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Create a virtual machine with Accelerated Networking
 
-In this tutorial, you learn how to create an Azure Virtual Machine (VM) with Accelerated Networking. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two virtual machines (VM) with and without accelerated networking:
+In this tutorial, you learn how to create an Azure Virtual Machine (VM) with Accelerated Networking. Accelerated Networking is now GA for Windows and in a preview for specific Linux distribution. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two virtual machines (VM) with and without accelerated networking:
 
 ![Comparison](./media/virtual-network-create-vm-accelerated-networking/image1.png)
 
@@ -152,19 +152,11 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 5. Click the **Connect** button in the **Remote Desktop Connection** box that appears, notifying you that the publisher of the remote connection can't be identified.
 6. In the **Windows Security** box that appears, click **More choices**, then click **Use a different account**. Enter the username and password you entered in step 4, then click the **OK** button.
 7. Click the **Yes** button in the Remote Desktop Connection box that appears, notifying you that the identity of the remote computer cannot be verified.
-8. On the MyVm VM, click the Windows Start button and click **Internet Explorer**.
-9. In the **Internet Explorer 11** box that appears, click **Use recommended security, privacy, and compatibility settings**, then click **OK**.
-10. In the Internet Explorer address bar, enter https://gallery.technet.microsoft.com/Azure-Accelerated-471b5d84, then the Enter key.
-11. In the **Security Alert** box that appears, click **OK**.
-12. In the **Internet Explorer** box that appears, click **Add**, click the **Add** button in the **Trusted sites** box, then click the **Close** button. Complete these steps for any subsequent boxes that appear.
-13. To download the file, click it.
-14. When the **License, Terms of Use** box appears, click **I agree**.
-15. Allow Internet Explorer to save the file by clicking the **Save** button in the box that appears at the bottom of the screen, then click the **Open folder** button.
-16. To install the accelerated networking driver, double-click the file. During the installation wizard, accept all defaults and click the **Yes** button at the end of the wizard to restart the VM.
-17. Once the VM restarts, complete steps 9-12 again to connect to the VM.
-18. Right-click the Windows Start button and click **Device Manager**. Expand the **Network adapters** node. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following picture:
+8. Right-click the Windows Start button and click **Device Manager**. Expand the **Network adapters** node. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following picture:
    
     ![Device Manager](./media/virtual-network-create-vm-accelerated-networking/image2.png)
+
+9. Accelerated Networking is now enabled for your VM.
 
 ## Create a Linux VM
 You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS VMs there is a different workflow.  Please see the instructions below.
@@ -244,13 +236,16 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       -PublicIpAddressId $Pip.Id `
       -EnableAcceleratedNetworking
      
-    # Define a credential object for the VM. PowerShell prompts you for a username and password.
-    $Cred = Get-Credential
-
-    $OSDiskName = "MyOSDiskName"
+    # Create a new Storage account and define the new VM’s OSDisk name and its URI
+    # Must end with ".vhd" extension
+    $OSDiskName = "MyOsDiskName.vhd"
+    # Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     $OSDiskSAName = "thestorageaccountname"  
     $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $RgName -Name $OSDiskSAName -Type "Standard_GRS" -Location $Location
     $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName
+ 
+    # Define a credential object for the VM. PowerShell prompts you for a username and password.
+    $Cred = Get-Credential
 
     # Create a virtual machine configuration
     $VmConfig = New-AzureRmVMConfig `
@@ -265,14 +260,15 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       -Skus 16.04-LTS `
       -Version latest | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
-    Set-AzureRmVMOSDisk -Name $OSDiskName -VhdUri $OSDiskUri -CreateOption FromImage
+    Set-AzureRmVMOSDisk -Name $OSDiskName `
+      -VhdUri $OSDiskUri `
+      -CreateOption FromImage 
 
     # Create the virtual machine.    
     New-AzureRmVM `
       -ResourceGroupName $RgName `
       -Location $Location `
       -VM $VmConfig
-    #
     ```
     
 6. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. If the script fails, confirm that:
@@ -324,7 +320,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
 1.	Provision a non-SRIOV CentOS 7.3 VM on Azure
 
 2.	Install LIS 4.2.1:
-
+    
     ```bash
     wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
     tar -xvf lis-rpms-4.2.1-1.tar.gz
@@ -332,7 +328,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     ```
 
 3.	Download config files
-
+    
     ```bash
     cd /etc/udev/rules.d/  
     sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/60-hyperv-vf-name.rules 
@@ -396,11 +392,12 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     # Specify the base image's VHD URI (from phase one step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
     # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
-    $OSDiskName = "MyOSDiskName.vhd"
+    # This is just an example URI, you will need to replace this when running this script
     $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
 
     # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
-    $destOsDiskName = "MyOsDiskName.vhd" # Must end with ".vhd" extension
+    # Must end with ".vhd" extension
+    $destOsDiskName = "MyOsDiskName.vhd" 
     $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
     
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
@@ -409,7 +406,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     # Create a custom virtual machine configuration
     $VmConfig = New-AzureRmVMConfig `
      -VMName MyVM -VMSize Standard_DS4_v2 | `
-     Set-AzureRmVMOperatingSystem `
+    Set-AzureRmVMOperatingSystem `
      -Linux `
      -ComputerName myVM `
      -Credential $Cred | `
