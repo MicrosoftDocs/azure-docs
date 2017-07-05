@@ -86,7 +86,7 @@ Before running the application, you need to select a target Configuration, Platf
 Here you can see the results of querying the Bing Web Search API using the extracted text and open the linked pages within the application.  As before, you can also use the navigation bar to return to the OCR Results Page. 
 
 6) Finally, selecting an item from the Web Results Page opens a WebView showing the content at that Bing result.  
-![WebViewPage Example](./media/computer-vision-web-search/WebViewPage.png)
+![WebViewPage Example](./media/computer-vision-web-search/WebViewPage.png)  
 From here, you can interact with the website as if it were loaded within a standard browser, or use the navigation bar to return to the Web Results Page. 
 
 Note the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
@@ -330,7 +330,7 @@ This function handles the 202 response by pinging the URI extracted from the res
             obj = JObject.Parse(responseString);
         }
         return obj;
-    } 
+    }
 
 ### Web Results Page
 The final page that we'll discuss is the Web Results Page, which constructs Bing Web Search URI requests, sends them to the endpoint, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.
