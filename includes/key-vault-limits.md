@@ -8,6 +8,6 @@ Key transactions (Max transactions allowed in 10 seconds, per vault per region<s
 Secrets, Managed Storage Account Keys, and vault transactions:
 | Transactions Type | Max transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
 | --- | --- |
-| All operations |2000 |
+| All transactions |2000 |
 
 <sup>1</sup> There is a subscription-wide limit for all transaction types, that is 5x per key vault limit. For example, HSM- other transactions per subscription are limited to 5000 transactions in 10 seconds per subscription.
