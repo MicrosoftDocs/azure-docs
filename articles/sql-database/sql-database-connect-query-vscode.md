@@ -56,7 +56,7 @@ No special configuration needed.
 
 No special configuration needed.
 
-## Get connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 

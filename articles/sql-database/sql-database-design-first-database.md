@@ -125,7 +125,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
 
-## Get connection information in the Azure portal
+## SQL server connection information in the Azure portal
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
