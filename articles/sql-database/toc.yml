@@ -33,9 +33,9 @@
       href: sql-database-connect-query-ruby.md
 - name: Tutorials
   items:
-  - name: 1 - Create/design new SQL DB using SSMS
+  - name: 1 - Design DB using SSMS
     href: sql-database-design-first-database.md
-  - name: 1 - Create/design new SQL DB using .NET
+  - name: 1 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
   - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
@@ -161,12 +161,12 @@
       href: sql-database-in-memory-oltp-monitoring.md
   - name: Scale out apps
     items:
+    - name: Overview
+      href: sql-database-elastic-scale-introduction.md
     - name: SaaS design patterns
       href: sql-database-design-patterns-multi-tenancy-saas-applications.md
     - name: SaaS app security
       href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Sharded databases
-      href: sql-database-elastic-scale-introduction.md
     - name: Elastic client library
       href: sql-database-elastic-database-client-library.md
     - name: Shard maps
