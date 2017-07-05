@@ -61,11 +61,11 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
 
     | To see this... | Use this... |
     | ----- | ----- |
-    | Disk usage | `Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR` |
-    | CPU usage | `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR` |
-    | Incoming messages per second | `Type=kafkametrics_CL ClusterName_s="kafkaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR` |
-    | Incoming bytes per second | `Type=kafkametrics_CL HostName_s="wn0-kafkao" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR` |
-    | Outgoing bytes per second | `Type=kafkametrics_CL ClusterName_s="kafkaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | measure avg(kafka-BrokerTopicMetrics-BytesOutPerSec-Count_value_d) interval 1HOUR` |
+    | Disk usage | </code>Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR</code> |
+    | CPU usage | <code>Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR</code> |
+    | Incoming messages per second | <code>Type=kafkametrics_CL ClusterName_s="kafkaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR</code> |
+    | Incoming bytes per second | <code>Type=kafkametrics_CL HostName_s="wn0-kafkao" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR</code> |
+    | Outgoing bytes per second | <code>Type=kafkametrics_CL ClusterName_s="kafkaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | measure avg(kafka-BrokerTopicMetrics-BytesOutPerSec-Count_value_d) interval 1HOUR</code> |
 
     You can also enter `*` to search all types logged. Currently we capture the following information:
 
