@@ -73,7 +73,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
     </ItemGroup>
     ```
 
-## Insert code to query your Azure SQL database
+## Insert code to query SQL database
 
 1. In your development environment or favorite text editor open **Program.cs**
 
