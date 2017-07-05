@@ -27,7 +27,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 ### What's new
 - You can now use CLI 2.0 to manage Azure Stack resources from a commandline on popular operating systems.
 - DSV2 virtual machine sizes enable template portability between Azure and Azure Stack.
-- Cloud operators can preview the capacity management experience with the capacity management blade.
+- Cloud operators can preview the capacity management experience within the capacity management blade.
 - You can now use Azure Diagnostics extension to gather diagnostic data from your virtual machines.  Capturing this data is useful when analyzing workload performance, and for investigating issues.
 - A new [deployment experience](azure-stack-run-powershell-script.md) replaces previous scripted steps for deployment.  The new deployment experience provides a common graphical interface through the entire deployment lifecycle.
 - Microsoft Accounts (MSA) are now supported during deployment.
