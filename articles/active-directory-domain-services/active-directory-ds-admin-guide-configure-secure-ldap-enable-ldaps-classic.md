@@ -70,7 +70,7 @@ To enable secure LDAP, perform the following configuration steps:
 ## Task 4 - enable secure LDAP access over the internet
 **Optional task** - If you do not plan to access the managed domain using LDAPS over the internet, skip this configuration task.
 
-Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain).
+Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-classic-azure-portal).
 
 1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This option is set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
 

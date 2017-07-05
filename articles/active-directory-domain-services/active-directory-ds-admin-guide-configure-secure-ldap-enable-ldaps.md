@@ -72,9 +72,12 @@ To enable secure LDAP, perform the following configuration steps:
 <br>
 
 ## Task 4 - configure DNS to access the managed domain from the internet
-**Optional task** - If you do not plan to access the managed domain using LDAPS over the internet, skip this configuration task.
+> [!NOTE]
+> **Optional task** - If you do not plan to access the managed domain using LDAPS over the internet, skip this configuration task.
+>
+>
 
-Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain).
+Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
 Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 3, an external IP address is displayed on the **Properties** blade in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
@@ -90,13 +93,13 @@ That's it - you are now ready to connect to the managed domain using secure LDAP
 >
 
 
-## Lock-down LDAPS access to your managed domain over the internet
+## Task 5 - lock-down LDAPS access to your managed domain over the internet
 > [!NOTE]
 > **Optional task** - If you have not enabled LDAPS access to the managed domain over the internet, skip this configuration task.
 >
 >
 
-Before you begin this task, ensure you have completed the steps outlined in [Task 4](#task-4---enable-secure-ldap-access-over-the-internet).
+Before you begin this task, ensure you have completed the steps outlined in [Task 4](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
 Exposing your managed domain for LDAPS access over the internet represents a security threat. The managed domain is reachable from the internet at the port used for secure LDAP (that is, port 636). Therefore, you can choose to restrict access to the managed domain to specific known IP addresses. For improved security, create a network security group (NSG) and associate it with the virtual network. The NSG
 
