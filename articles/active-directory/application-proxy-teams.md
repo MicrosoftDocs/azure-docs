@@ -34,17 +34,17 @@ Once the app is published through Application Proxy, let your users know that th
 
 1. Navigate to the Teams channel where you want to add this app and select **+** to add a tab.
 
-   [Select Add a tab](./media/application-proxy-teams/add-tab.png)
+   ![Select Add a tab](./media/application-proxy-teams/add-tab.png)
 
 2. Select **Website** from the tab options.
 
-   [Add a website](./media/application-proxy-teams/website.png)
+   ![Add a website](./media/application-proxy-teams/website.png)
 
 3. Give the tab a name and set the URL to the Application Proxy external URL. 
 
-   [Configure tab name and URL](./media/application-proxy-teams/tab-name-url.png)
+   ![Configure tab name and URL](./media/application-proxy-teams/tab-name-url.png)
 
 ## Next steps
 
 - Learn how to [publish on-premises SharePoint sites](application-proxy-enable-remote-access-sharepoint.md) with Application Proxy.
-- Configure your apps to use [custom domains](active-directoy-application-proxy-custom-domains.md) for their external URL. 
+- Configure your apps to use [custom domains](active-directory-application-proxy-custom-domains.md) for their external URL. 
