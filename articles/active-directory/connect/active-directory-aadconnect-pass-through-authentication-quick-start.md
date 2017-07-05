@@ -85,8 +85,8 @@ AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 ### Register the Authentication Agent with Azure AD
 
 1.	Open a PowerShell window as an Administrator.
-2.	Navigate to **C:\Program Files\Microsoft AAD App Proxy agent** and run the script as follows:
-`.\Registeragent.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy agent\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
+2.	Navigate to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script as follows:
+`.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
 3.	When prompted, enter the credentials of the Global Administrator account on your Azure AD tenant.
 
 ## Next steps
