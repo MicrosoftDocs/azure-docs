@@ -1,4 +1,3 @@
-
 ---
 title: Track changes with Azure Log Analytics | Microsoft Docs
 description: The Change Tracking solution in Log Analytics helps you identify software and Windows Service changes that occur in your environment.
