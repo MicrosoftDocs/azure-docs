@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/05/2017
 ms.author: sdanie
 
 ---
@@ -99,6 +99,7 @@ After Geo-replication is configured, the following restrictions apply to your li
 - [Can I use Geo-replication with my caches in a VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [Can I use PowerShell or Azure CLI to manage Geo-replication?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [What region should I use for my secondary linked cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
 ### Can I use Geo-replication with a Standard or Basic tier cache?
@@ -107,7 +108,8 @@ No, Geo-replication is only available for Premium tier caches.
 
 ### Is my cache available for use during the linking or unlinking process?
 
-During the linking process, the primary linked cache remains available for use but the secondary linked cache is not available until the linking process completes.
+- When linking two caches together for Geo-replication, the primary linked cache remains available for use but the secondary linked cache is not available until the linking process completes.
+- When removing the Geo-replication link between two caches, both caches remain available for use.
 
 ### Can I link more than two caches together?
 
@@ -139,6 +141,10 @@ At this time you can't, but it is coming soon.
 ### How much does it cost to replicate my data across Azure regions?
 
 When using Geo-replication, data from the primary linked cache is replicated to the secondary linked cache. If the two linked caches are in the same Azure region, there is no charge for the data transfer. If the two linked caches are in different Azure regions, the Geo-Replication data transfer charge is the bandwidth cost of replicating that data to the other Azure region. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+### What region should I use for my secondary linked cache?
+
+This depends on the architecture and distribution of your application that uses the cache. For best performance, your cache should be in the same Azure region as the application that uses the cache. If you are using other Azure services in your application that have pre-configured primary and secondary regions, you should place your secondary linked cache in that region. For an example of primary/secondary regions as used by Azure Storage, see [Azure Storage replication - Geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage)
 
 ### How does failing over to the secondary linked cache work?
 

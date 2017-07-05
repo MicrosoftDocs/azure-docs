@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 06/07/2017
+ms.date: 07/05/2017
 ms.author: sdanie
 
 ---
@@ -47,6 +47,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Redis cluster size](#cluster-size)
 	* [Redis data persistence](#redis-data-persistence)
 	* [Schedule updates](#schedule-updates)
+	* [Geo-replication](#geo-replication)
 	* [Virtual Network](#virtual-network)
 	* [Firewall](#firewall)
 	* [Properties](#properties)
@@ -258,7 +259,14 @@ To specify a maintenance window, check the desired days and specify the maintena
 > 
 > 
 
+### Geo-replication
 
+The **Geo-replication** blade provides a mechanism for linking two Premium tier Azure Redis Cache instances. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions.
+
+> [!IMPORTANT]
+> **Geo-replication** is only available for Premium tier caches. For more information and instructions, see [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md).
+> 
+> 
 
 ### Virtual Network
 The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
@@ -296,7 +304,7 @@ The **Locks** section allows you to lock a subscription, resource group, or reso
 Click **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Administration settings
-The settings in the **Administration** section allow you to perform the following administrative tasks for your premium cache. 
+The settings in the **Administration** section allow you to perform the following administrative tasks for your cache. 
 
 ![Administration](./media/cache-configure/redis-cache-administration.png)
 
@@ -304,11 +312,6 @@ The settings in the **Administration** section allow you to perform the followin
 * [Export data](#importexport)
 * [Reboot](#reboot)
 
-
-> [!IMPORTANT]
-> The settings in this section are only available for Premium tier caches.
-> 
-> 
 
 ### Import/Export
 Import/Export is an Azure Redis Cache data management operation, which allows you to import and export data in the cache by importing and exporting a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. Import/Export enables you to migrate between different Azure Redis Cache instances or populate the cache with data before use.
@@ -334,7 +337,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 To reboot one or more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 > [!IMPORTANT]
-> Reboot is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Reboot](cache-administration.md#reboot).
+> Reboot is now available for all pricing tiers. For more information and instructions, see [Azure Redis Cache administration - Reboot](cache-administration.md#reboot).
 > 
 > 
 
