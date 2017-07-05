@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/26/2017
+ms.date: 06/30/2017
 ms.author: steveesp
 
 ---
@@ -53,7 +53,7 @@ RSS is always enabled by default in an Azure Linux VM. Linux kernels released si
 
 ### Ubuntu
 
-In order to get the optimization, first update to the latest supported version, as of January 2017, which is:
+In order to get the optimization, first update to the latest supported version, as of June 2017, which is:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -100,21 +100,21 @@ In order to get the optimization, first update to the latest supported version, 
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7.3"
-"Version": "7.3.20161104"
+"Version": "7.3.2017062722"
 ```
 After the update is complete, install the latest Linux Integration Services (LIS).
-The throughput optimization is in LIS, starting from 4.1.3. Enter the following commands to download and install LIS:
+The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
 
 ```bash
-mkdir lis4.1.3
-cd lis4.1.3
-wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
-tar xvzf lis-rpms-4.1.3.tar.gz
+mkdir lis4.2.1
+cd lis4.2.1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+tar xvzf lis-rpms-4.2.1-1.tar.gz
 cd LISISO
-install.sh #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if prior LIS was previously installed
 ```
 
-Learn more about Linux Integration Services Version 4.1 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=51612).
+Learn more about Linux Integration Services Version 4.2 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## Next steps
 * Now that the VM is optimized, see the result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
