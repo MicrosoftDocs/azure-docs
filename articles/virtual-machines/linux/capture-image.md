@@ -1,9 +1,9 @@
 ---
-title: Capture a Linux VM with Azure CLI 2.0 | Microsoft Docs
-description: How to capture and generalize an image of a Linux-based Azure virtual machine (VM) using managed disks created with the Azure CLI 2.0
+title: Upload a Linux VHD and capture an image with Azure CLI 2.0 | Microsoft Docs
+description: How to upload a Linux VHD to Azure and capture an image to use for mass deployments with the Azure CLI 2.0.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: iainfou
+ms.date: 07/05/2017
+ms.author: cynthn
 
 ---
-# How to generalize and capture a Linux virtual machine
+# How to upload Linux VHD and create an image
 
 <!-- generalize, upload, image -->
 
-To reuse virtual machines (VMs) deployed and configured in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to capture a VM image with the Azure CLI 2.0 for a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md). This article details how to capture a Linux VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](capture-image-nodejs.md).
+To reuse virtual machines (VMs) deployed in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to uplaod a generalized VHD to Azure and then capture an image with the Azure CLI 2.0. 
 
 > [!TIP]
-> If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, see [Create a copy of a Linux virtual machine running on Azure](copy-vm.md). And if you want to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
+> If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, or upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
 
 
 ## Before you begin
