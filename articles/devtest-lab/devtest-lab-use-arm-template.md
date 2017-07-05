@@ -48,10 +48,10 @@ The remainder of this article discusses Resource Manager templates that use Miro
 1. Enter the required information for your virtual machine and add any artifacts you want for this VM.
 1. At the bottom of the Configure settings window, choose **View ARM template**.
 
-   ![View ARM template button](./media/devtest-lab-use-arm-template/devtestlab-lab-view-arm-template.png)
+   ![View ARM template button](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Copy and save the Resource Manager template to use later to create another virtual machine.
 
-   ![Resource manager template to save for later use](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-arm-template.png)
+   ![Resource manager template to save for later use](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 
 After you have saved the Resource Manager template, you must update the parameters section of the template before you can use it. You can create a parameter.json that customizes just the parameters, outside of the actual Resource Manager template. 
 
