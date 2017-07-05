@@ -18,7 +18,7 @@ ms.author: iainfou
 
 ---
 # Create and manage a Windows virtual machine that has multiple NICs
-Virtual machines (VMs) in Azure can have multiple virtual network interface cards (NICs) attached to them. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM that has multiple NICs attached to it, as well as how to add or remove NICs from an existing VM. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
+Virtual machines (VMs) in Azure can have multiple virtual network interface cards (NICs) attached to them. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article details how to create a VM that has multiple NICs attached to it. You also learn how to add or remove NICs from an existing VM. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
 
 For detailed information, including how to create multiple NICs within your own PowerShell scripts, see [deploying multiple-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
@@ -120,7 +120,7 @@ Now start to build your VM configuration. Each VM size has a limit for the total
     ```
 
 ## Add a NIC to an existing VM
-To add a virtual NIC to an existing VM, you dellocate the VM, add the virtual NIC, then start the VM.
+To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM.
 
 1. Deallocate the VM with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 
@@ -174,7 +174,7 @@ To add a virtual NIC to an existing VM, you dellocate the VM, add the virtual NI
     ```
 
 ## Remove a NIC from an existing VM
-To remove a virtual NIC from an existing VM, you dellocate the VM, remove the virtual NIC, then start the VM.
+To remove a virtual NIC from an existing VM, you deallocate the VM, remove the virtual NIC, then start the VM.
 
 1. Deallocate the VM with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 
@@ -188,7 +188,7 @@ To remove a virtual NIC from an existing VM, you dellocate the VM, remove the vi
     $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. Get information about the NIC to remove with [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). The following example gets information about *myNic3*:
+3. Get information about the NIC remove with [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). The following example gets information about *myNic3*:
 
     ```powershell
     # List existing NICs on the VM if you need to determine NIC name
