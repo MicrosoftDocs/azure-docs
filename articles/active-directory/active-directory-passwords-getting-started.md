@@ -70,7 +70,7 @@ To enable on-premises identity synchronization to Azure AD, you need to install 
 
 ## Disabling self-service password reset
 
-Disabling self-service password reset is as simple as opening your Azure AD tenant and going to **Password Reset &gt; Properties** &gt; choose **Nobody** under **Self Service Password Reset Enabled**
+Disabling self-service password reset is as simple as opening your Azure AD tenant and going to **Password Reset > Properties** > choose **Nobody** under **Self Service Password Reset Enabled**
 
 ## Next steps
 The following links provide additional information regarding password reset using Azure AD

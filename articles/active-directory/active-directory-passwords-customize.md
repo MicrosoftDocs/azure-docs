@@ -37,9 +37,9 @@ In all cases, a maximum of 100 recipients are notified.
 
 If your organization does not want administrators notified about password reset requests, the following configuration can be enabled
 
-* Enable self-service password reset for all end users. This option is under **Password Reset &gt; Properties**.
+* Enable self-service password reset for all end users. This option is under **Password Reset > Properties**.
     * If you do not wish users to reset their own passwords, you can scope access to an empty group **we do not recommend this option**.
-* Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset &gt; Customization &gt; Custom helpdesk email or URL**.
+* Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset > Customization > Custom helpdesk email or URL**.
 
 ## Customize ADFS sign-in page for SSPR
 
@@ -78,13 +78,13 @@ The following settings allow you to add text to the sign-in page relevant to you
 
 ### Keep me signed in disabled
 
-The option "Keep me signed in disabled" allows users to remain signed in when they close and reopen their browser window. This option does not impact session lifetimes. This setting is found under **Azure Active Directory &gt; Company branding &gt; Edit company branding**.
+The option "Keep me signed in disabled" allows users to remain signed in when they close and reopen their browser window. This option does not impact session lifetimes. This setting is found under **Azure Active Directory > Company branding > Edit company branding**.
 
 Some features of SharePoint Online and Office 2010 have a dependency on users being able to check this box. If you hide this option, users may get additional and unexpected sign-in prompts.
 
 ### Directory name
 
-You can change the name attribute under **Azure Active Directory &gt; Properties** to show a friendly organization name seen in the portal and automated communications. This option is most visible in the form of automated emails in the forms that follow
+You can change the name attribute under **Azure Active Directory > Properties** to show a friendly organization name seen in the portal and automated communications. This option is most visible in the form of automated emails in the forms that follow
 
 * Friendly name in email “Microsoft on behalf of CONTOSO demo”
 * Subject line in email “CONTOSO demo account email verification code”
