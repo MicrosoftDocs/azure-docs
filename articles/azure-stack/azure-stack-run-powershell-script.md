@@ -56,8 +56,19 @@ To deploy the development kit, you must complete the following steps:
 2. Make sure the development kit host meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
 3. Sign in as the Local Administrator to your development kit host.
 4. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
-5. Copy the development kit installer file (asdk-installer.ps1) from the [Github repository](https://github.com/Azure/AzureStack-Tools/tree/master/Deployment) to a folder on the development kit host.
-6. Run the asdk-installer.ps1 script > click **Prepare vhdx**.
+5. Run the folloiwing scrip to download the development kit installer file (asdk-installer.ps1) to the c:\AzureStack_Installer folder on your development kit host.
+```powershell
+# Variables
+$Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
+$LocalPath = 'c:\AzureStack_Installer'
+
+# Create folder
+New-Item $LocalPath -Type directory
+
+# Download file
+Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
+```
+6. Open an elevated PowerShell console > navigate to the asdk-installer.ps1 script > execute it > click **Prepare vhdx**.
 7. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the cloudbuilder.vhdx file that you downloaded in the previous steps.
 8. Optional: Check the **Add drivers** box to specifiy a folder containing additional drivers that you want on the host.
 9. On the **Optional settings** page, provide the local administrator account for the development kit host. If you don't provide these credentials, you'll need KVM access to the host during the install process below.
@@ -67,7 +78,7 @@ To deploy the development kit, you must complete the following steps:
     - **Static IP configuration**: Sets your deployment to use a static IP address. Otherwise, when the installer reboots into the cloudbuilder.vhx, the network interfaces will be configured with DHCP.
 11. Click **Next**.
 12. If you chose a static IP configuration in the previous step, you must now:
-    - Select a network adapter. Make sure you can connect to the adapter befre you click **Next**.
+    - Select a network adapter. Make sure you can connect to the adapter before you click **Next**.
     - Make sure that the **IP address**, **Gateway**, and **DNS** values are correct and then click **Next**.
 13. Click **Next** to start the preparation process.
 14. When the preparation indicates **Completed**, click **Next**.
@@ -81,7 +92,7 @@ To deploy the development kit, you must complete the following steps:
     
 2. Open an elevated PowerShell console > navigate to the asdk-installer.ps1 script > execute it > click **Install**.
 3. In the **Type** box select **Azure Cloud** or **ADFS**.
-    - **Azure Cloud**: Azure Active Directory is the identity provider. You must specify the credentials of an account with the Global Admin role in an Azure Active Directory tenant. This account is used to administer your development kit. If this account is part of multiple active directory tenants, you can override the default TenantID value with the name of the desired directory tenant for the installation.
+    - **Azure Cloud**: Azure Active Directory is the identity provider. Use this parameter to specify a specific directory where the AAD account has global admin permissions. Full name of an AAD Directory tenant in the format of .onmicrosoft.com. 
     - **ADFS**: The default stamp Directory Service is the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
 4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
 5. Select a network adapter to use for the development kit and then click **Next**.
@@ -92,9 +103,13 @@ To deploy the development kit, you must complete the following steps:
     - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). 
     - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
     - **Time server**: Sets a specific time server. 
-8. Click **Next** and then click **Deploy**.
-9. If you're using an AAD deployment, you'll be asked to enter your Azure credentials global account.
-10. The deployment process can take a few hours, during which the system automatically reboots once.
+8. Click **Next**. 
+9. On the **Verifying network interface card properties** page, you'll see a progress bar. 
+    - If it says **An update cannot be downloaded**, follow the instructions on the page.
+    - When it says **Completed**, click **Next**.
+10. On **Summary** page, click **Deploy**.
+11. If you're using an Azure Active Directory deployment, you'll be asked to enter your Azure credentials global account.
+12. The deployment process can take a few hours, during which the system automatically reboots once.
    
    > [!IMPORTANT]
    > If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
@@ -103,7 +118,7 @@ To deploy the development kit, you must complete the following steps:
    
     When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**.
    
-    If the deployment fails, you can try run the script again using the -rerun parameter. Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
+    If the deployment fails, you can rerun the script and choose the **Rerun installation** option. Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
 
 ## Reset the password expiration to 180 days
