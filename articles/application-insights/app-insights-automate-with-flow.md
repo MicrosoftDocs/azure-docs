@@ -1,6 +1,6 @@
 ---
 title: Automate Azure Application Insights processes with Microsoft Flow
-description: Learn how you can use Microsoft Flow to quickly automate repeatable processes using the Application Insights connector for Flow.
+description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Application Insights connector.
 services: application-insights
 documentationcenter: ''
 author: CFreemanwa
@@ -18,7 +18,7 @@ ms.author: cfreeman
 
 Do you find yourself repeatedly running the same queries on your telemetry data to check that your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector (Preview) for Microsoft Flow is the right tool for these purposes.
 
-With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, it automatically runs your Application Insights Analytics query. 
+With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, the flow automatically runs your Application Insights Analytics query. 
 
 You can add additional actions as well. Microsoft Flow makes hundreds of actions available. For example, you can use Microsoft Flow to automatically send an email notification or create a bug in Visual Studio Team Services. You can also use one of the many [templates](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) that are available for the connector for Microsoft Flow. These templates speed up the process of creating a flow. 
 
@@ -40,7 +40,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 
 
 ### Step 3: Add an Application Insights action
-1. Click **New step** and then on **Add an action**.
+1. Click **New step**, and then click **Add an action**.
 2. Search for **Azure Application Insights**.
 3. Click **Azure Application Insights – Visualize Analytics query Preview**.
 
@@ -56,7 +56,7 @@ To complete this step, you need an application ID and an API key for your resour
 
 - Provide a name for your connection, along with the application ID and API key.
 
-![Microsoft Flow connection window](./media/app-insights-automate-with-flow/flow3.png)
+    ![Microsoft Flow connection window](./media/app-insights-automate-with-flow/flow3.png)
 
 ### Step 5: Specify the Analytics query and chart type
 This example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Analytics correlates them based on the operation_Id identifier. The query then segments the results by using the autocluster algorithm. 
@@ -65,26 +65,26 @@ When you create your own queries, verify that they are working properly in Analy
 
 - Add the following Analytics query, and then select the HTML table chart type. 
 
-```
-requests
-| where timestamp > ago(1d)
-| where success == "False"
-| project name, operation_Id
-| join ( exceptions
-    | project problemId, outerMessage, operation_Id
-) on operation_Id
-| evaluate autocluster()
-```
-
-![Analytics query configuration window](./media/app-insights-automate-with-flow/flow4.png)
+    ```
+    requests
+    | where timestamp > ago(1d)
+    | where success == "False"
+    | project name, operation_Id
+    | join ( exceptions
+        | project problemId, outerMessage, operation_Id
+    ) on operation_Id
+    | evaluate autocluster()
+    ```
+    
+    ![Analytics query configuration window](./media/app-insights-automate-with-flow/flow4.png)
 
 ### Step 6: Configure the flow to send email
 
-1. Click **New step**, and then select **Add an action**.
+1. Click **New step**, and then click **Add an action**.
 2. Search for **Office 365 Outlook**.
 3. Click **Office 365 Outlook – Send an email**.
 
-![Office 365 Outlook selection window](./media/app-insights-automate-with-flow/flow2b.png)
+    ![Office 365 Outlook selection window](./media/app-insights-automate-with-flow/flow2b.png)
 
 4. In the **Send an email** window, do the following:
 
