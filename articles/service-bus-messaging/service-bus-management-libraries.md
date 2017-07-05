@@ -48,10 +48,7 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
    ```csharp
    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
 
-   var result = await context.AcquireTokenAsync(
-       "https://management.core.windows.net/",
-       new ClientCredential(clientId, clientSecret)
-   );
+   var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
 
 1. Create the `ServiceBusManagementClient` object.
