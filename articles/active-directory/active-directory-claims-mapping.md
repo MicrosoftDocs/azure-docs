@@ -1,5 +1,5 @@
 ---
-title: 'Claims mapping in Azure Active Directory (Public Preview)| Microsoft Docs'
+title: 'Claims mapping in Azure Active Directory (public preview)| Microsoft Docs'
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
 author: billmath
@@ -14,7 +14,7 @@ ms.author: billmath
 
 ---
 
-# Claims mapping in Azure Active Directory (Public Preview)
+# Claims mapping in Azure Active Directory (public preview)
 
 >[!NOTE]
 >This feature replaces and supersedes the claims customization offered through the portal today (as documented [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)). If you customize claims using the portal in addition to the Graph/Powershell method detailed in this document on the same application, tokens issued for that application will ignore the configuration in the portal.
@@ -27,7 +27,7 @@ This feature is used by tenant admins to customize the claims emitted in tokens 
 - Choose or change the source of data emitted in specific claims.
 
 >[!NOTE]
->This capability currently is in Public Preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory subscription during Public Preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory (Azure AD) Premium subscription.
+>This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory (Azure AD) premium subscription.
 
 ## Claims mapping policy type
 In Azure AD, a **Policy** object represents a set of rules enforced on individual applications, or on all applications in an organization. Each type of policy has a unique structure, with a set of properties that are then applied to objects to which they are assigned.
@@ -47,7 +47,7 @@ The basic claim set includes the claims that are emitted by default for tokens (
 Restricted claims cannot be modified by using policy. The data source cannot be changed, and no transformation is applied when generating these claims.
 
 #### Table 1 - JSON Web Token (JWT) restricted claim set
-|Claim Type (Name)|
+|Claim type (name)|
 | ----- |
 |_claim_names|
 |_claim_sources|
@@ -181,7 +181,7 @@ Restricted claims cannot be modified by using policy. The data source cannot be 
 |win_ver|
 
 #### Table 2 - Security Assertion Markup Language (SAML) restricted claim set
-|Claim Type (URI)|
+|Claim type (URI)|
 | ----- |
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
@@ -424,7 +424,7 @@ In the following examples, you create, update, link, and delete policies for ser
 To get started, do the following steps:
 
 
-1. Download the latest [Azure AD PowerShell Module Public Preview release](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
+1. Download the latest [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
 2.	Run the Connect command to sign in to your Azure AD admin account. Run this command each time you start a new session.
 	
 	 ``` powershell
