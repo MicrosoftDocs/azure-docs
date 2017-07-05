@@ -15,7 +15,6 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-
 ---
 
 # Performance metrics
@@ -45,13 +44,13 @@ For the machines in your cluster, consider collecting the following performance 
 | Memory | Available MBytes |
 | PagingFile | % Usage |
 | Process(Total) | % Processor Time |
-| Process(per service) | % Processor Time |
-| Process(per service) | ID Process |
-| Process(per service) | Private Bytes |
-| Process(per service) | Thread Count |
-| Process(per service) | Virtual Bytes |
-| Process(per service) | Working Set |
-| Process(per service) | Working Set - Private |
+| Process (per service) | % Processor Time |
+| Process (per service) | ID Process |
+| Process (per service) | Private Bytes |
+| Process (per service) | Thread Count |
+| Process (per service) | Virtual Bytes |
+| Process (per service) | Working Set |
+| Process (per service) | Working Set - Private |
 
 ## .NET applications and services
 
