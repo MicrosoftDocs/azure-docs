@@ -36,7 +36,7 @@ To deploy the development kit, you must complete the following steps:
    * [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
 
 2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
-3. Under **Download the software**, click **Azure Stack Developer Kit**.
+3. Under **Download the software**, click **Azure Stack Development Kit**.
 4. Run the downloaded AzureStackDownloader.exe file.
 5. In the **Azure Stack Development Kit Downloader** window, follow steps 1 through 5.
 6. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
