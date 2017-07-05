@@ -160,7 +160,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.png)| [HPE SaaS](active-directory-saas-hpesaas-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-hr2day-tutorial.png)| [HR2day by Merces](active-directory-saas-hr2day-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-huddle-tutorial.png)| [Huddle](active-directory-saas-huddle-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-kenexasurvey-tutorial.png.png)| [IBM Kenexa Survey Enterprise](active-directory-saas-kenexasurvey-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-kenexasurvey-tutorial.png)| [IBM Kenexa Survey Enterprise](active-directory-saas-kenexasurvey-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Icertis.png)| [Icertis Contract Management Platform](active-directory-saas-icertisicm-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ICIMS.png)| [ICIMS](active-directory-saas-icims-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_IdeaScale.png)| [IdeaScale](active-directory-saas-ideascale-tutorial.md)|
@@ -169,10 +169,10 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ImageRelay.png)| [Image Relay](active-directory-saas-imagerelay-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_InforRetail.png)| [Infor Retail – Information Management](active-directory-saas-inforretailinformationmanagement-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Inkling.png)| [Inkling](active-directory-saas-inkling-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-innotas-tutorial.png.png)| [Innotas](active-directory-saas-innotas-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-innotas-tutorial.png)| [Innotas](active-directory-saas-innotas-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-insideview-tutorial.png)| [InsideView](active-directory-saas-insideview-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Insperity.png)| [Insperity ExpensAble](active-directory-saas-insperityexpensable-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-intacct-tutorial.png.png)| [Intacct](active-directory-saas-intacct-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-intacct-tutorial.png)| [Intacct](active-directory-saas-intacct-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Intralinks.png)| [Intralinks](active-directory-saas-intralinks-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-itslearning-tutorial.png)| [itslearning](active-directory-saas-itslearning-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-itrp-tutorial.png)| [ITRP](active-directory-saas-itrp-tutorial.md)|
