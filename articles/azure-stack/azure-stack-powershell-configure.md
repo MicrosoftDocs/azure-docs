@@ -99,9 +99,7 @@ To configure your Azure Stack environment, do the following:
 
 ## Sign in to Azure Stack
 
-To sign in to your Azure Stack environment, do the following:
-
-1. Sign in to the Azure Stack environment by using one of the following two cmdlets:
+Sign in to the Azure Stack environment by using one of the following two cmdlets:
 
    * To sign in to the **administrative portal**, use:
     
@@ -118,6 +116,22 @@ To sign in to your Azure Stack environment, do the following:
          -EnvironmentName "AzureStackUser" `
          -TenantId $TenantID `
        ```
+
+## Register resource providers
+
+After you sign in to the administrator or user portal, you can issue operations against the registered resource providers. By default, all the foundational resource providers are registered in the Default Provider Subscription (administrator subscription).
+
+When you operate on a newly created user subscription, which doesn’t have any resources deployed through the portal, the resource providers aren't automatically registered. You should explicitly register the resource providers by using the following script:
+
+```powershell
+
+foreach($s in (Get-AzureRmSubscription)) {
+        Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
+        Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
+Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -Force
+    } 
+```
+
 
 ## Next steps
 * [Develop templates for Azure Stack](azure-stack-develop-templates.md)
