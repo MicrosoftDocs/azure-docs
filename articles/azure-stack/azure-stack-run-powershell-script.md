@@ -118,7 +118,7 @@ To deploy the development kit, you must complete the following steps:
    
     When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**.
    
-    If the deployment fails, you can rerun the script and choose the **Rerun installation** option. Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
+    If the deployment fails, you can rerun the installer and choose the **Rerun installation** option. Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
 
 ## Reset the password expiration to 180 days
