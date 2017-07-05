@@ -144,6 +144,8 @@ When using Geo-replication, data from the primary linked cache is replicated to 
 
 ### What region should I use for my secondary linked cache?
 
+In general, it is recommended for your cache to exist in the same Azure region as the application that accesses it. If your application has a primary and fallback region, then your primary and secondary caches should exist in those same regions. For more information about paired regions, see [Best Practices –Azure Paired regions](../best-practices-availability-paired-regions.md).
+
 This depends on the architecture and distribution of your application that uses the cache. For best performance, your cache should be in the same Azure region as the application that uses the cache. If you are using other Azure services in your application that have pre-configured primary and secondary regions, you should place your secondary linked cache in that region. For an example of primary/secondary regions as used by Azure Storage, see [Azure Storage replication - Geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage).
 
 ### How does failing over to the secondary linked cache work?
