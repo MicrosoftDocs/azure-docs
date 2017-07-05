@@ -63,23 +63,23 @@ sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
-print "Connection established"
+print("Connection established")
 
 cursor = conn.cursor()
 
 # Drop previous table of same name if one exists
 cursor.execute("DROP TABLE IF EXISTS inventory;")
-print "Finished dropping table (if existed)"
+print("Finished dropping table (if existed)")
 
 # Create table
 cursor.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
-print "Finished creating table"
+print("Finished creating table")
 
 # Insert some data into table
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("banana", 150))
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("orange", 154))
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
-print "Inserted 3 rows of data"
+print("Inserted 3 rows of data")
 
 conn.commit()
 ```
@@ -100,7 +100,7 @@ sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
-print "Connection established"
+print("Connection established")
 
 cursor = conn.cursor()
 
@@ -110,7 +110,7 @@ rows = cursor.fetchall()
 
 # Print all rows
 for row in rows:
-	print "Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2]))
+	print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
 
 conn.commit()
 ```
@@ -131,13 +131,13 @@ sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
-print "Connection established"
+print("Connection established")
 
 cursor = conn.cursor()
 
 # Update a data row in the table
 cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
-print "Updated 1 row of data"
+print("Updated 1 row of data")
 
 conn.commit()
 ```
@@ -158,13 +158,13 @@ sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
-print "Connection established"
+print("Connection established")
 
 cursor = conn.cursor()
 
 # Delete data row from table
 cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
-print ("Deleted 1 row of data")
+print("Deleted 1 row of data")
 
 conn.commit()
 ```
