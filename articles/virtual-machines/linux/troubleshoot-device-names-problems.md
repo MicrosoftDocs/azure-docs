@@ -19,15 +19,15 @@ ms.author: genli
 ---
 # Troubleshooting: Linux VM Device Names are changed
 
-The article explains why Device Names are changed after you restart an Linxu virtual machine (VM), or reattach the disks. It also provides the solution for this problem.
+The article explains why Device Names are changed after you restart a Linux virtual machine (VM), or reattach the disks. It also provides the solution for this problem.
 
 ## Symptom
 
-You may experience the following problems when running Linux virtual machines (VMs) in Microsoft Azure.
+You may experience the following problems when running Linux VMs in Microsoft Azure.
 
 - Fail to boot after a restart.
 
-- If data disks are detached an reattached, the devices names for disks are changed.
+- If data disks are detached and reattached, the devices names for disks are changed.
 
 - An application or script referencing a disk by using device name fails. You find that the device name of disk is changed.
 
@@ -44,12 +44,12 @@ system in the same order after every restart. Additionally, detaching
 and reattaching disk in a different order while a Linux VM is running
 may cause the device name to change when the numbers are reused.
 
-## Soluton
+## Solution
 
 To address this issue, use persistent naming. For example,
 device and partition UUIDs are considered stable, and are used as a best
 practice in fstab and to discover Device Names. For more information about how to
-configure an Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-dis.mdk#connect-to-the-linux-vm-to-mount-the-new-disk).
+configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-dis.mdk#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 The use of the [mount option
 *nofail*](http://www.man7.org/linux/man-pages/man5/fstab.5.html) for
@@ -172,9 +172,9 @@ partition data. For example, using the az cli:
 
 ## Next steps
 
-- [Ubuntu:UsingUUID](https://help.ubuntu.com/community/UsingUUID)
+- [Ubuntu: Using UUID](https://help.ubuntu.com/community/UsingUUID)
 
--  [Red Hat: Storage Administration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.htm)
+- [Red Hat: Storage Administration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.htm)
 
 - [Linux: What UUIDs can do for you](https://www.linux.com/news/what-uuids-can-do-you)
 
