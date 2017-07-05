@@ -84,15 +84,13 @@ After you enable email notification for a device, members of the notification li
 
 The StorSimple Device Manager service summary blade provides you with a quick glance at the number of alerts on your devices, arranged by severity level.
 
-![Alerts dashboard](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
+![Alerts dashboard](./media/storsimple-8000-manage-alerts/device-summary4.png)
 
 Clicking the severity level opens the **Alerts** blade. The results include only the alerts that match that severity level.
 
-![Alerts report scoped to alert type](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
-
 Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert. If it is a hardware alert, it will also identify the hardware component.
 
-![Hardware alert example](./media/storsimple-8000-manage-alerts/configure-alerts-email12.png)
+![Hardware alert example](./media/storsimple-8000-manage-alerts/configure-alerts-email14.png)
 
 You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** blade and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
