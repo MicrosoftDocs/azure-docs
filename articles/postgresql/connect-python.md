@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 06/23/2017
+ms.date: 07/05/2017
 ---
 # Azure Database for PostgreSQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
@@ -53,9 +53,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -89,9 +90,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -119,9 +121,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -145,9 +148,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
