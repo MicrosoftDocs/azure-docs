@@ -157,7 +157,7 @@ To change the number of AUs for your Data Lake Analytics account:
 1. In the Azure portal, go to your Data Lake Analytics account.
 2. Click **Properties**.
 3. Under **Maximum AUs**, move the slider to select a value, or enter the value in the text box. 
-4. Click **Save**
+4. Click **Save**.
 
 > [!NOTE]
 > If you need more than the default (250) AUs, in the portal, click **Help+Support** to submit a support request. The number of AUs available in your Data Lake Analytics account can be increased.
@@ -171,7 +171,7 @@ To change the number of jobs that can run simultaneously:
 1. In the Azure portal, go to your Data Lake Analytics account.
 2. Click **Properties**.
 3. Under **Maximum Number of Running Jobs**, move the slider to select a value, or enter the value in the text box. 
-4. Click **Save**
+4. Click **Save**.
 
 > [!NOTE]
 > If you need to run more than the default (20) number of jobs, in the portal, click **Help+Support** to submit a support request. The number of jobs that can run simultaneously in your Data Lake Analytics account can be increased.
@@ -185,7 +185,7 @@ To change how long to keep job metadata and resources:
 1. In the Azure portal, go to your Data Lake Analytics account.
 2. Click **Properties**.
 3. Under **Days to Retain Job Queries**, move the slider to select a value, or enter the value in the text box.  
-4. Click **Save**
+4. Click **Save**.
 
 ### Job-level policies
 With job-level policies, you can control the maximum AUs and the maximum priority that individual users (or members of specific security groups) can set on jobs that they submit. This lets you control the costs incurred by users. It also lets you control the effect that scheduled jobs might have on high-priority production jobs that are running in the same Data Lake Analytics account.
@@ -211,7 +211,7 @@ There is a default policy set on every account. The default policy applies to al
     3. **Set the Job AU Limit**: Set the AU limit that applies to the selected user or group.
     4. **Set the Priority Limit**: Set the priority limit that applies to the selected user or group.
 
-4. Click **Ok**
+4. Click **Ok**.
 
 5. The new policy is listed in the **Default** policy table, under **Job Submission Limits**. 
 
