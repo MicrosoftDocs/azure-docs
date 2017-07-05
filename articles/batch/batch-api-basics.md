@@ -235,7 +235,7 @@ The optional *start task* executes on each node as that node joins the pool, and
 You can specify [application packages](#application-packages) to deploy to the compute nodes in the pool. Application packages provide simplified deployment and versioning of the applications that your tasks run. Application packages that you specify for a pool are installed on every node that joins that pool, and every time a node is rebooted or reimaged.
 
 > [!NOTE]
-> Application packages are supported on all Batch pools created after XXX June 2017. They are supported on Batch pools created between 10 March 2016 and XXX June 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages. For more information about using application packages to deploy your applications to your Batch nodes, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
+> Application packages are supported on all Batch pools created after 5 July 2017. They are supported on Batch pools created between 10 March 2016 and 5 July 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages. For more information about using application packages to deploy your applications to your Batch nodes, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
 >
 >
 

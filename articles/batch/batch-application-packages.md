@@ -35,7 +35,7 @@ To use application packages, you need to [link an Azure Storage account](#link-a
 This feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2 and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
 
 > [!NOTE]
-> Application packages are supported on all Batch pools created after XXX June 2017. They are supported on Batch pools created between 10 March 2016 and XXX June 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages.
+> Application packages are supported on all Batch pools created after 5 July 2017. They are supported on Batch pools created between 10 March 2016 and 5 July 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages.
 >
 >
 
