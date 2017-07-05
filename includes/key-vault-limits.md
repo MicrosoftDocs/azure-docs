@@ -1,8 +1,8 @@
 Key transactions (Max transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
 |Transaction type|RSA 2048-bit|RSA 3072-bit|RSA 4096-bit|
 |:---|---:|---:|---:|
-|**HSM-key**<br>CREATE KEY<br>All other transactions|<br>5<br>1000|<br>5<br>250|<br>5<br>125|
-|**Software-key**<br>CREATE KEY<br>All other transactions|<br>10<br>2000|<br>10<br>500|<br>5<br>250|
+|**HSM-key**<br>Create Key<br>All other transactions|<br>5<br>1000|<br>5<br>250|<br>5<br>125|
+|**Software-key**<br>Create Key<br>All other transactions|<br>10<br>2000|<br>10<br>500|<br>10<br>250|
 |
 
 Secrets, Managed Storage Account Keys, and vault transactions:
