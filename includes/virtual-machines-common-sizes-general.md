@@ -21,7 +21,7 @@ ACU: 210-250
 | Standard_DS4_v2 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |32 |64,000 / 512 (688) |51,200 / 768 |8 / 6000 - 12000 &#8224;|
 
-
+&#8224; 16 core performance will consistently reach the upper limit in an upcoming release.
 
 ## Dv2-series
 
@@ -35,7 +35,7 @@ ACU: 210-250
 | Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / 6000                     |
 | Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / 6000 - 12000 &#8224;          |
 
-
+&#8224; 16 core performance will consistently reach the upper limit in an upcoming release.
 <br>
 
 ## DS-series
