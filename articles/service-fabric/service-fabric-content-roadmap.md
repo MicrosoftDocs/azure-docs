@@ -172,7 +172,7 @@ The Service Fabric reporters monitor identified conditions of interest. They rep
 
 Reporting can be done from:
 * The monitored Service Fabric service replica or instance.
-* Internal watchdogs deployed as a Service Fabric service (for example, a Service Fabric stateless service that monitors conditions and issues reports). The watchdogs can be deployed an all nodes or can be affinitized to the monitored service.
+* Internal watchdogs deployed as a Service Fabric service (for example, a Service Fabric stateless service that monitors conditions and issues reports). The watchdogs can be deployed on all nodes or can be affinitized to the monitored service.
 * Internal watchdogs that run on the Service Fabric nodes but are not implemented as Service Fabric services.
 * External watchdogs that probe the resource from outside the Service Fabric cluster (for example, monitoring service like Gomez).
 
