@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: sdanie
 
 ---
@@ -40,10 +40,11 @@ After Geo-replication is configured, the following restrictions apply to your li
 - You can't initiate a [scaling operation](cache-how-to-scale.md) on either cache or [change the number of shards](cache-how-to-premium-clustering.md) if the cache has clustering enabled.
 - You can't enable persistence on either cache.
 - You can use [Export](cache-how-to-import-export-data.md#export) with either cache, but you can only [Import](cache-how-to-import-export-data.md#import) into the primary linked cache.
+- You can't delete either linked cache, or the resource group that contains them, until you remove the Geo-replication link. For more information, see [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - If the two caches are in different regions, network egress costs will apply to the data replicated across regions to the secondary linked cache. For more information, see [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - There is no automatic failover to the secondary linked cache if the primary cache (and its replica) go down. In order to failover client applications, you would need to manually remove the Geo-replication link and point the client applications to the cache that was formerly the secondary linked cache. For more information, see [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-## To add a cache replication link
+## Add a Geo-replication link
 
 1. To link two premium caches together for geo-replication, click **Geo-replication** from the Resource menu of the cache intended as the primary linked cache, and then click **Add cache replication link** from the **Geo-replication** blade.
 
@@ -75,7 +76,7 @@ After Geo-replication is configured, the following restrictions apply to your li
 
     During the linking process, the primary linked cache remains available for use but the secondary linked cache is not available until the linking process completes.
 
-## To remove a Geo-replication link
+## Remove a Geo-replication link
 
 1. To remove the link between two caches and stop Geo-replication, click **Unlink caches** from the **Geo-replication** blade.
     
@@ -99,6 +100,7 @@ After Geo-replication is configured, the following restrictions apply to your li
 - [Can I use Geo-replication with my caches in a VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [Can I use PowerShell or Azure CLI to manage Geo-replication?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [What region should I use for my secondary linked cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
@@ -141,6 +143,10 @@ At this time you can only manage Geo-replication using the Azure portal.
 ### How much does it cost to replicate my data across Azure regions?
 
 When using Geo-replication, data from the primary linked cache is replicated to the secondary linked cache. If the two linked caches are in the same Azure region, there is no charge for the data transfer. If the two linked caches are in different Azure regions, the Geo-Replication data transfer charge is the bandwidth cost of replicating that data to the other Azure region. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+### Why did the operation fail when I tried to delete my linked cache?
+
+When two caches are linked together, you can't delete either cache or the resource group that contains them. If you attempt to delete the resource group that contains one or both of the linked caches, the other resources in the resource group are deleted, but the resource group stays in the `deleting` state and any linked caches in the resource group remain in the `running` state. To complete the deletion of the resource group and the linked caches within it, break the Geo-replication link as described in [Remove a Geo-replication link](#remove-a-geo-replication-link).
 
 ### What region should I use for my secondary linked cache?
 
