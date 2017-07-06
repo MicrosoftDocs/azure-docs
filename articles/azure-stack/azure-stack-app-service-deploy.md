@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/6/2017
+ms.date: 7/3/2017
 ms.author: anwestg
 
 ---
@@ -25,17 +25,18 @@ If you want to give your tenants the ability to create Web, Mobile, and API appl
 2. Create certificates to be used by App Service on Azure Stack.
 3. Use the installer to download, stage and, install App Service.
 4. Validate App Service Installation.
-5. Configure Single Sign On for Kudu and the Azure Functions Portal.
+5. Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools.
 6. Test Drive the App Service Resource Provider.
 
 ## Download the required components
 
-1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmastp3installer).
-2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmastp3helper).
+1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
+2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
 3. Extract the files from the helper scripts zip file.  Once extracted the following files and folder structure
    - Create-AppServiceCerts.ps1
    - Create-IdentityApp.ps1
    - Modules
+      - AzureStack.Identity.psm1
       - GraphAPI.psm1
    
 ## Create certificates required by App Service on Azure Stack
@@ -51,7 +52,7 @@ This first script works with the Azure Stack certificate authority to create thr
 | --- | --- | --- | --- |
 | pfxPassword | Required | null | Password used to protect the certificate private key |
 | DomainName | Required | local.azurestack.external | Azure Stack Region and Domain Suffix |
-| CertificateAuthority | Required | MAS-CA01.azurestack.local | Certificate Authority Endpoint |
+| CertificateAuthority | Required | AzS-CA01.azurestack.local | Certificate Authority Endpoint |
 
 ## Use the installer to download and install App Service on Azure Stack
 
@@ -92,7 +93,7 @@ The following steps guide you through the installation stages:
     ![App Service on Azure Stack Technical Preview 3 Subscription Selection][3]
 9. Enter the **Resource Group Name** for your App Service deployment, by default this is set to **APPSERVICE-LOCAL**.
 10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
-11. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name, is populated with the default SQL RP information, but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
+11. Enter the **SQL Server details** for the instance that will be used to host the App Service RP Databases.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
 ![App Service on Azure Stack Technical Preview 3 Resource Group, Storage, and SQL Server information][4]
 12. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates, then select the corresponding certificate.
 13. Enter the **certificate password** that you set when you created the certificates.
@@ -110,7 +111,7 @@ The following steps guide you through the installation stages:
 ![App Service on Azure Stack Technical Preview 3 Role Configuration][6]
 
     > [!NOTE]
-    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This will remain for single node PoC but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
+    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This will remain for single node Development Kit but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
 
 19. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
    ![App Service on Azure Stack Technical Preview 3 VM Image Selection][7]
@@ -135,7 +136,7 @@ The following steps guide you through the installation stages:
 > You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
 ![App Service on Azure Stack Technical Preview 3 Managed Servers Status][11]
 
-## Configure Single-Sign-On (SSO) for the Azure Functions Portal and Advanced Developer Tools
+## Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
 
 >[!NOTE]
 > These steps are only applicable to AAD secured Azure Stack Environments.  It is not possible to enable SSO or the Azure Functions Portal in ADFS-based environments at present.
@@ -153,28 +154,25 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 > Make note of the **ApplicationID** that is returned in the PowerShell output.  You will need this to search for it in step 13.
 
 7. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
-8. On the CN0-VM machine, open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to.
-9. Now run the script file.  This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all Front-End and Management roles.
-10. Open a new browser window and login to the **Azure portal (portal.azure.com)** as the **Azure Active Directory Service Admin**.
-11. Open the **Azure Active Directory resource provider**.
-12. Click **App Registrations**.
-13. Search for the **Application ID** returned as part of step 6. An App Service application is listed.
-14. Click the **Application** in the list and open the **Keys** blade
-15. Add a new key with **Description - FunctionsPortal** and set the **Expiration Date to NeverExpires**
-16. Click Save and then copy the key generated.
+8. Open a new browser window and login to the **Azure portal (portal.azure.com)** as the **Azure Active Directory Service Admin**.
+9. Open the **Azure Active Directory resource provider**.
+10. Click **App Registrations**.
+11. Search for the **Application ID** returned as part of step 6. An App Service application is listed.
+12. Click the **Application** in the list and open the **Keys** blade
+13. Add a new key with **Description - FunctionsPortal** and set the **Expiration Date to NeverExpires**
+14. Click Save and then copy the key generated.
 >[!NOTE]
 > Before sure to note or copy the key when generated.  Once saved it can't be viewed again and you need to regenerate a new key.
 ![App Service on Azure Stack Technical Preview 3 Application Keys][12]
+15. Return to the **Application Registration** in the **Azure Active Directory**.
+26. Click **Required Permissions** and then click **Grant Permissions** and click **Yes**.
+![App Service on Azure Stack Technical Preview 3 SSO Grant][13]
 17. Return to **CN0-VM** and open the **Web Cloud Management Console** once more.
 18. Select the **Settings** node on the left-hand pane and look for the **ApplicationClientSecret** Setting.
 19. **Right click and select Edit**.  **Paste the key** generated in step 15 and click **OK**.
-20. Select the **Managed Servers** node under **Web Cloud**.
-21. In the **Actions** pane, on the right-hand side, click **Repair all servers in role..**
-22. In the dropdownlist, select **Management** and click **OK**.  This applies the setting to all Management Roles.
-23. Return to the **Application Registration** in the **Azure Active Directory** within the **Azure portal (portal.azure.com)**.
-24. Click **Required Permissions** and then click **Grant Permissions** and click **Yes**.
-![App Service on Azure Stack Technical Preview 3 SSO Grant][13]
-
+![App Service on Azure Stack Technical Preview 3 Application Keys][12]
+20. Open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to in step 7.
+21. Now run the script file.  This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all Front-End and Management roles.
 
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
