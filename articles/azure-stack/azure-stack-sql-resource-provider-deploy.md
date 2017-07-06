@@ -163,7 +163,7 @@ You can specify these parameters in the command line. If you do not, or any para
 	![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.PNG)
 
     > [!NOTE]
-    > As long as the SQL instance can be accessed by the tenant and admin ARM, it can be placed under control of the the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
+    > As long as the SQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
 
 5. As you add servers, you will need to assign them to a new or existing SKU. This allows differentiation of service offerings. For example, you could have a SQL Enterprise instance providing database capacity and automatic backup, reserve high performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
 
