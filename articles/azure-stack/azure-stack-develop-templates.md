@@ -28,7 +28,7 @@ Because Azure Stack is hosted in your datacenter, it has different service endpo
       '/',variables('OSDiskName'),'.vhd')]"}}
 
 ## API versioning
-Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack TP3, the following are valid API versions for each Resource Provider:
+Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack, the following are valid API versions for each Resource Provider:
 
 | Resource Provider | apiVersion |
 | --- | --- |
