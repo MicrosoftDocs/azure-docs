@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 07/05/2017
 ms.author: glenga, donnam
 ---
 # Azure Functions Tools for Visual Studio  
@@ -64,9 +64,9 @@ When you create a new project using the Azure Functions template, you get an emp
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. To set the storage account connection string:
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account, click **All settings** > **Access keys**, then copy the **Connection string** for one of your keys. 
+1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.   
 
-2. In your project in Visual Studio, open the local.settings.json project file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
+2. In your project, open the local.settings.json project file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
 3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.  
 
@@ -80,7 +80,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    A connection string key named **QueueStorage** is supplied, which is defined in the local.settings.json file. The class name 
+    A connection string key named **QueueStorage** is supplied, which is defined in the local.settings.json file. 
  
 3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function. 
 
@@ -120,8 +120,11 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
+Any settings you added in the local.settings.json must be also added to the function app in Azure. These are not created for you. To learn how to add these settings using the [Azure Portal](https://portal.azure.com), see the [Application Settings](functions-how-to-use-azure-function-app-settings.md#settings) section. You can also create application settings [using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+
 ## Next steps
 
 For more information about Azure Functions Tools, see the Common Questions section of the [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post.
 
 To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
+To learn more about developing functions as .NET class libraries, see [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md). This topic also provides examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
