@@ -136,7 +136,7 @@ Yes, Geo-replication of caches in VNETs are supported.
 
 ### Can I use PowerShell or Azure CLI to manage Geo-replication?
 
-At this time you can't, but it is coming soon.
+At this time you can only manage Geo-replication using the Azure portal.
 
 ### How much does it cost to replicate my data across Azure regions?
 
@@ -150,7 +150,7 @@ In general, it is recommended for your cache to exist in the same Azure region a
 
 In the initial release of Geo-replication, Azure Redis Cache does not support automatic failover across Azure regions. Geo-replication is used primarily in a disaster recovery scenario. In a distater recovery scenario, customers should bring up the entire application stack in a backup region in a coordinated manner rather than letting individual application components decide when to switch to their backups on their own. This is especially relevant to Redis. One of the key benefits of Redis is that it is a very low-latency store. If Redis used by an application fails over to a different Azure region but the compute tier does not, the added round trip time would have a noticeable impact on performance. For this reason, we would like to avoid Redis failing over automatically due to transient availability issues.
 
-Currently, to initiate the failover, you need to remove the Geo-replication link in the Azure portal, and then change the connection end-point in the Redis client from the primary linked cache to the (formerly linked) secondary cache. You will be able to do this using the Azure management SDK’s and command-line tools soon, so that you can script and automate the sequence if needed. When the two caches are disassociated, the replica becomes a regular read-write cache again and accepts requests directly from Redis clients.
+Currently, to initiate the failover, you need to remove the Geo-replication link in the Azure portal, and then change the connection end-point in the Redis client from the primary linked cache to the (formerly linked) secondary cache. When the two caches are disassociated, the replica becomes a regular read-write cache again and accepts requests directly from Redis clients.
 
 
 ## Next steps
