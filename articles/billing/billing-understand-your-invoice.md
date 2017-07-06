@@ -8,7 +8,6 @@ manager: tonguyen
 editor: ''
 tags: billing
 
-ms.assetid: 14e4d357-26db-4ce0-b76b-d57970edaab2
 ms.service: billing
 ms.devlang: na
 ms.topic: article
