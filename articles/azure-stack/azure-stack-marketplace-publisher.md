@@ -29,7 +29,7 @@ Adding your content to the [Azure Stack Marketplace](azure-stack-marketplace.md)
 
  - Download the [Azure Gallery Packaging tool](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
- - Publishing to the marketplace requires icons and a thumbnail file.  You can use your own, or save the [sample](azure-stack-marketplace-publisher.md#support-files) files locally for this example:
+ - Publishing to the marketplace requires icons and a thumbnail file.  You can use your own, or save the [sample](azure-stack-marketplace-publisher.md#support-files) files locally for this example.
 
 ## Download the tool
 The Marketplace Publishing tool is hosted in the Azure Stack Tools repo, and can be downloaded with the following PowerShell:
@@ -59,10 +59,10 @@ In this section, you use the Marketplace Publishing tool to create a marketplace
     .\MarketplacePublisher.ps1
 ```
 
-2. Click the **Solution** tab.  This screen accepts information about your marketplace item. Enter information about your item as you want it to appear in the marketplace.  You can also specify a [parameters file][azure-stack-marketplace-publisher.md#Use-a-parameters-file] to prepopulate the form.  
+2. Click the **Solution** tab.  This screen accepts information about your marketplace item. Enter information about your item as you want it to appear in the marketplace.  You can also specify a [parameters file](azure-stack-marketplace-publisher.md#Use-a-parameters-file) to prepopulate the form.  
     
     ![screenshot of Marketplace Publisher first screen](./media/azure-stack-marketplace-publisher/image7.png)
-3. Click **Browse** and select an image file for icon and screenshot fields.  You can use your own icons, or the sample icons in the [support files](azure-stack-marketplace-publisher.md#support-files) section.
+3. Click **Browse** and select an image file for each icon and screenshot field.  You can use your own icons, or the sample icons in the [support files](azure-stack-marketplace-publisher.md#support-files) section.
 4. Once all fields are populated, select "Preview Solution" for a preview of the solution within the Marketplace.  You can revise and edit the text, images, and screenshot before clicking **Next**.  
 
 ### Import template and create package
