@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/06/2017
 ms.author: genli
 
 ---
@@ -91,11 +91,15 @@ You might see **There are no offers available in your region or country at this 
 
 ## What does switching Azure offers do to my service and billing?
 
-Here are the details of what happens when you switch Azure plans in the Account Center.
+Here are the details of what happens when you switch Azure offers in the Account Center.
 
 ### No service downtime
 
 There is no service downtime for any users associated with the subscription. However, the offer you switch to may have restrictions. For instance, some offers prohibit production use, so you would need to move production resources to another subscription.
+
+### Quota increases are reset
+
+When you switch offers, any [limit or quota increases above the default limit](../azure-supportability/resource-manager-core-quotas-request.md) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that uses the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
 
 ### Billing
 
