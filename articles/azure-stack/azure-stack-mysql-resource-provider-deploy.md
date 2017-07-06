@@ -150,7 +150,7 @@ Depending on the system performance and download speeds, installation may take a
 3. Fill the form with the connection details of your MySQL Server instance. Provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. This installation no longer provides a default MySQL instance. The size provided helps the resource provider manage the database capacity. It should be close to the physical capacity of the database server.
 
     > [!NOTE]
-    > As long as the MySQL instance can be accessed by the tenant and admin ARM, it can be placed under control of the the resource provider. The MySQL instance __must__ be allocated exclusively to the RP.
+    > As long as the MySQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the the resource provider. The MySQL instance __must__ be allocated exclusively to the RP.
 
 4. As you add servers, you will need to assign them to a new or existing SKU. This allows differentiation of service offerings. For example, you could have an enterprise instance providing database capacity and automatic backup, reserve high performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
 
