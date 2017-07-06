@@ -56,7 +56,7 @@ The Service Bus or Event Hubs namespace does not have to be in the same subscrip
 ### Via PowerShell Cmdlets
 To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
 
-```
+```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
@@ -65,7 +65,7 @@ The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}
 ### Via Azure CLI
 To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
 
-```
+```cli
 azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
@@ -81,7 +81,7 @@ To configure it, select an existing Event Hubs namespace. The namespace selected
 ## How do I consume the log data from Event Hubs?
 Here is sample output data from Event Hubs:
 
-```
+```json
 {
     "records": [
         {
