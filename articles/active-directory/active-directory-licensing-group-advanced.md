@@ -243,6 +243,8 @@ If you use group-based licensing, it's a good idea to familiarize yourself with 
 
   As a workaround to these types of limitations, you can go to the **Group** blade in Azure AD, and click **Reprocess**. This command processes all users in that group and resolves the error states, if possible.
 
+- Group-based licensing does not record errors when a license could not be assigned to a user due to a duplicate proxy address configuration in Exchange Online; such users are skipped during license assignment. For more information about how to identify and solve this problem, see [this section](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
+
 ## Next steps
 
 To learn more about other scenarios for license management through group-based licensing, see:
