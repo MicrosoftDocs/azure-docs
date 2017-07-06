@@ -118,6 +118,8 @@ Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.co
 ```
 > [This article](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online) contains more details about this problem, including information on [how to connect to Exchange Online using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
 
+After proxy address problems have been resolved for the affected users, make sure to force license processing on the group to make sure licenses can now be applied again.
+
 ## How do you force license processing in a group to resolve errors?
 
 Depending on what steps you've taken to resolve errors, it might be necessary to manually trigger processing of a group to update the user state.
