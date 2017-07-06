@@ -7,37 +7,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create C-Series container
-    href: cseries-quick-start.md
 - name: Tutorials
   items:
-  - name: 1 - Create application
-    href: 1.md
-  - name: 2 - Use Azure Container Registry
-    href: 2.md
-  - name: 3 - Create C-Series container
-    href: 3.md
-  - name: 4 - Get container logs
-    href: 4.md
 - name: How-to guides
   items:
-  - name: Use Azure Storage with C-Series
-    href: azure-files.md
 - name: Reference
   items:
-  - name: Azure CLI 2.0
-    href: /cli/azure/cseries
-  - name: REST
-    href: /rest/api/compute/cseries
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: FAQ
-    href: cseries.md
   - name: Templates - C-Series
     href: https://github.com/microsoft/azure-cseries-preview
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cseries/
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
