@@ -26,28 +26,30 @@ Azure Marketplace UI with the creation of a Marketplace item.
 
 You can use the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
 
-1. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
+1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+
+2. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
    
    * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) contains image preparation instructions in the **Prepare the VHD for upload** section.
    * For Linux images, follow the steps to
      prepare the image or use an existing Azure Stack Linux image as described in
      the article [Deploy Linux virtual machines on Azure
      Stack](azure-stack-linux.md).
-2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the Connect and ComputeAdmin modules:
+3. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the Connect and ComputeAdmin modules:
    
    ```powershell
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-3. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
+4. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
    ```powershell
    Add-AzureStackAzureRmEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
    ```
 
-4. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+5. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
     a. **Azure Active Directory**, use the following cmdlet:
     
@@ -64,7 +66,7 @@ You can use the steps described in this article either from the Azure Stack Deve
       -EnvironmentName AzureStackAdmin 
     ```
 
-5. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
+6. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
      
      ```powershell
      Add-AzsVMImage `
