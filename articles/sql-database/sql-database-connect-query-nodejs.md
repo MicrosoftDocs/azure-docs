@@ -1,6 +1,6 @@
 ---
 title: Use Node.js to query Azure SQL Database | Microsoft Docs
-description: This topic shows you how to use node.js core to create a program that connects to an Azure SQL Database and query it using Transact-SQL.
+description: This topic shows you how to use Node.js core to create a program that connects to an Azure SQL Database and query it using Transact-SQL.
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -20,7 +20,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database: Use Node.js to connect and query an Azure SQL database
 
-This quick start tutorial emonstrates how to use [Node.js](https://nodejs.org/en/) to create a program to connect to an Azure SQL database and query data using Transact-SQL statements to query data.
+This quick start tutorial demonstrates how to use [Node.js](https://nodejs.org/en/) to create a program to connect to an Azure SQL database and query data use Transact-SQL statements to query data.
 
 ## Prerequisites
 
@@ -133,7 +133,7 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
 
 2. Verify that the top 20 rows are returned and then close the application window.
 
-## Next Steps
+## Next steps
 
 - Learn about the [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
 - Learn how to [connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
