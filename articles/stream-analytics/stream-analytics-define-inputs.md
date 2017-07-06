@@ -41,7 +41,7 @@ The default timestamp of events coming from Event Hubs in Stream Analytics is th
 ### Consumer groups
 You should configure each Stream Analytics event hub input to have its own consumer group. When a job contains a self-join or when it has multiple inputs, some input might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Event Hubs limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job. There is also a limit of 20 consumer groups per event hub. For more information, see [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 
-### Configure an event hub as an input data stream
+### Configure an event hub as a data stream input
 The following table explains each property in the **New input** blade in the Azure portal when you configure an event hub as input.
 
 | Property | Description |
@@ -85,7 +85,7 @@ The default timestamp of events coming from an IoT hub in Stream Analytics is th
 ### Consumer groups
 You should configure each Stream Analytics IoT hub input to have its own consumer group. When a job contains a self-join or when it has multiple inputs, some input might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Azure IoT Hub limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job.
 
-### Configure an IoT hub as an data stream input
+### Configure an IoT hub as a data stream input
 The following table explains each property in the **New input** blade in the Azure portal when you configure an IoT hub as input.
 
 | Property | Description |
@@ -124,6 +124,8 @@ CSV-formatted inputs *require* a header row to define fields for the data set. I
 > [!NOTE]
 > Stream Analytics does not support adding content to an existing blob. Stream Analytics will view a blob only once, and any changes that occur in the blob after the job has read the data are not processed. A best practice is to upload all the data once and then not add events to that blob store.
 > 
+
+### Configure Blob storage as a data stream input
 
 The following table explains each property in the **New input** blade in the Azure portal when you configure Blob storage as input.
 
