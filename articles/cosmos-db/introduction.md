@@ -111,7 +111,7 @@ All the data within a Cosmos DB container (for example, a document collection, t
 
 You can elastically scale throughput of an Azure Cosmos DB container by programmatically provisioning throughput using [request units per second (RU/s)](request-units.md). Internally, the service transparently manages resource partitions to deliver the throughput on a given container. Cosmos DB ensures that the throughput is available for use across all the regions associated with the container. The new throughput is effective within five seconds of the change in the configured throughput value. 
 
-You can provision throughput on a Cosmos DB container at both, per-second and at [per-minute (RU/m)](request-units-per-minute.md) granularities. The provisioned throughput at per-minute granularity is used to manage unexpected spikes in the workload occurring at a per-second granularity. 
+You can provision throughput on a Cosmos DB container at both per-second and [per-minute (RU/m)](request-units-per-minute.md) granularities. The provisioned throughput at per-minute granularity is used to manage unexpected spikes in the workload occurring at a per-second granularity. 
 
 <a id="low-latency"></a>
 ## Low latency guarantees at the 99th percentile
