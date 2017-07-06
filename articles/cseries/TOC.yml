@@ -7,8 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create CSeries container
+  - name: Create C-Series container
     href: cseries-quick-start.md
+- name: Tutorials
   items:
   - name: 1 - Create application
     href: 1.md
@@ -34,7 +35,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: FAQ
     href: cseries.md
-  - name: Templates - CSeries
+  - name: Templates - C-Series
     href: https://github.com/microsoft/azure-cseries-preview
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cseries/
