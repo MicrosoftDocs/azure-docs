@@ -12,9 +12,9 @@
   items:
   - name: 1 - Create application
     href: 1.md
-  - name: 2 - Create container registry
+  - name: 2 - Use Azure Container Registry
     href: 2.md
-  - name: 3 - Create CSeries containers
+  - name: 3 - Create C-Series container
     href: 3.md
   - name: 4 - Get container logs
     href: 4.md
