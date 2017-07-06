@@ -25,21 +25,21 @@ Dependencies prevent you from deleting recovery services vault and the actions y
 Follow recommended steps (in given order) for your scenario to delete the vault
 
 ## Delete Vault, used in Site Recovery for protecting VMWare VMs to Azure:
-- Ensure all Protected VMs are deleted, see [how to](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-- Ensure all replication policies are deleted, see [how to](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
--	Ensure references to vCenter are deleted, see [how to](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
--	Ensure the Configuration server is deleted, see [how to](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
--	Now try deleting the vault.
+1. Ensure all Protected VMs are deleted, see [how to](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+2.  Ensure all replication policies are deleted, see [how to](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+3.	Ensure references to vCenter are deleted, see [how to](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
+4. Ensure the Configuration server is deleted, see [how to](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
+5. Now try deleting the vault.
 
 
 ## Delete Vault, used in Site Recovery for protecting Hyper-V VMs (with VMM) to Azure:
-- Ensure all Protected VMs are deleted, see [how to](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+1.  Ensure all Protected VMs are deleted, see [how to](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
 - Ensure all replication policies are deleted, see [how to](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
 -	Delete references to VMM Servers, see [how to](site-recovery-manage-registration-and-protection.md##unregister-a-connected-vmm-server)
 -	Now try deleting the vault.
 
 ## Delete Vault, used in Site Recovery  for protecting Hyper-V VMs (without VMM) to Azure:
-- Ensure all Protected VMs are deleted, see [how to](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+1. Ensure all Protected VMs are deleted, see [how to](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
 - Ensure all replication policies are deleted, see [how to](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
 -	Delete references to Hyper-V Servers, see [how to](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
 -	Delete Hyper-V site.
