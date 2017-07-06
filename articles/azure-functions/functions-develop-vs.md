@@ -51,7 +51,7 @@ You can [download and install the extension package](https://marketplace.visuals
 
 ## Create an Azure Functions project 
 
-[!INCLUDE [Create a project using the Azure Functions ](../../includes/functions-vstools-create.md)]
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
 
 ## Configure the project for local development
@@ -121,7 +121,7 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
 >[!NOTE]  
->Any settings you added in the local.settings.json must be also added to the function app in Azure. These are not added automatically. To learn how to add settings using the [Azure Portal](https://portal.azure.com), see the [Application Settings](functions-how-to-use-azure-function-app-settings.md#settings) section. You can also add application settings [using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+>Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not added automatically. To learn how to add settings using the [Azure portal](https://portal.azure.com), see the [Application Settings](functions-how-to-use-azure-function-app-settings.md#settings) section. You can also add application settings [using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
 
 ## Next steps
 
