@@ -33,9 +33,9 @@ In addition, the App Service on Azure Stack installer will create a file server.
 ![App Service in the Azure Stack Portal][1]
 
 Release Candidate One of App Service on Azure Stack, builds on top of the third preview and brings a number of new capabilities and improvements:
-* Azure Functions is now available in ADFS based Azure Stack environments, including Single Sign on Support for the Functions Portal and Advanced Developer tools (Kudu)
+* Azure Functions is now available in ADFS-based Azure Stack environments, including Single Sign on Support for the Functions Portal and Advanced Developer tools (Kudu)
 * Java Support for Web/Mobile/API Applications
-* App Service now manages worker tiers using Virtual Machine Scale sets, improving scale out capabilities for Service Administrators
+* App Service now manages worker tiers using virtual machine scale sets, improving scale-out capabilities for Service Administrators
 * Localization of Admin Experience
 * New improvements to the stability of the service
 * Updates to the Tenant Portal experience and updates to the install process

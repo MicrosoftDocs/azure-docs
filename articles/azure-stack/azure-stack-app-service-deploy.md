@@ -84,7 +84,7 @@ The following steps guide you through the installation stages:
 ![App Service on Azure Stack App Service Cloud Configuration][2]
 
     > [!NOTE]
-    > The App Service on Azure Stack Installer provides the default values for a One Node Azure Stack Installation.  If you have customized any of the options when you deployed Azure Stack, for example domain suffix, you need to edit the values in this window accordingly.  For example, if you are using the domain suffix mycloud.com your Admin ARM endpoint would need to change to adminmanagement.[region].mycloud.com
+    > The App Service on Azure Stack Installer provides the default values for a One Node Azure Stack Installation.  If you have customized any of the options when you deployed Azure Stack, for example domain suffix, you need to edit the values in this window accordingly.  For example, if you are using the domain suffix mycloud.com your Admin Azure Resource Manager endpoint would need to change to adminmanagement.[region].mycloud.com
 
 6. Click **Connect** (Next to the Azure Stack Subscriptions box).
    - If you are using AAD, then you must provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.  You **must** enter the Azure Active Directory account that you provided when you deployed Azure Stack.
@@ -105,14 +105,14 @@ The following steps guide you through the installation stages:
 ![App Service on Azure Stack Certificate Details][5]
 18. Review the **App Service Role Configuration**.  The defaults are populated with the minimum recommended instance SKUs for each role.  A summary of core and memory requirements is provided to help plan your deployment.  Once you have made your selections, click **Next** to advance.
   - **Controller**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Controller role is responsible for managing and maintaining the health of the App Service cloud.
-  - **Management**: By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service ARM and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service.
+  - **Management**: By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service Azure Resource Manager and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service.
   - **Publisher**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
   - **FrontEnd**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications.
   - **Shared Worker**: By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
 ![App Service on Azure Stack Role Configuration][6]
 
     > [!NOTE]
-    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This will remain for single node Development Kit but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
+    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the fAzure Resource Manager.  This will remain for single node Development Kit but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
 
 19. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
    ![App Service on Azure Stack VM Image Selection][7]
@@ -179,7 +179,7 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Mandatory | null | Azure Active Directory Tenant Id, provide the GUID or string, for example, myazureaaddirectory.onmicrosoft.com |
-| TenantArmEndpoint | Mandatory | management.local.azurestack.external | The Tenant ARM Endpoint |
+| TenantAzure Resource ManagerEndpoint | Mandatory | management.local.azurestack.external | The Tenant Azure Resource Manager Endpoint |
 | AzureStackCredential | Mandatory | null | AAD Administrator |
 | CertificateFilePath | Mandatory | null | Path to the identity application certificate file generated earlier |
 | CertificatePassword | Mandatory | null | Password used to protect the certificate private key |
@@ -191,7 +191,7 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 >[!NOTE]
 > These steps are only applicable to ADFS secured Azure Stack Environments.
 
-To configure service principal for VMSS integration on Worker Tiers to scale out and To enable the advanced developer tools within App Service - Kudu - and to enable the use of the Azure Functions Portal experience, administrators need to configure SSO. 
+To configure service principal for virtual machine scale set integration on Worker Tiers to scale out and To enable the advanced developer tools within App Service - Kudu - and to enable the use of the Azure Functions Portal experience, administrators need to configure SSO. 
 
 1. Open a PowerShell instance as **azurestack\azurestackadmin**.
 2. Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
@@ -199,7 +199,7 @@ To configure service principal for VMSS integration on Worker Tiers to scale out
 4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter '**ADFS**'
 5. In the Credential window provide your **ADFS Service Admin account** and **password**, and then Click **Ok**.
 6. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
-7. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
+7. The script creates a new application in the Tenant Azure Active Directory and generates a new PowerShell Script.
 8. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
 9. Return to **CN0-VM**
 10. Open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to in step 7.
@@ -208,7 +208,7 @@ To configure service principal for VMSS integration on Worker Tiers to scale out
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Mandatory | null | use 'ADFS' for ADFS environment |
-| TenantArmEndpoint | Mandatory | management.local.azurestack.external | The Tenant ARM Endpoint |
+| TenantAzure Resource ManagerEndpoint | Mandatory | management.local.azurestack.external | The Tenant Azure Resource Manager Endpoint |
 | AzureStackCredential | Mandatory | null | The ADFS Service Admin Account |
 | CertificateFilePath | Mandatory | null | Path to the identity application certificate file generated earlier |
 | CertificatePassword | Mandatory | null | Password used to protect the certificate private key |
