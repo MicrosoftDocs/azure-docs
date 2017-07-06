@@ -36,7 +36,7 @@ The following steps help you isolate the source of the failure and figure out so
 
 2. Select **Settings** to examine endpoints, IP addresses, network security groups, and other settings.
 
-   The VM should have an endpoint defined for SSH traffic that you can view in **Endpoints** or **[Network security group](../../virtual-network/virtual-networks-nsg.md)**. Endpoints in VMs that were created by using Resource Manager are stored in a network securit group. Also, verify that the rules have been applied to the network security group and that they're referenced in the subnet.
+   The VM should have an endpoint defined for SSH traffic that you can view in **Endpoints** or **[Network security group](../../virtual-network/virtual-networks-nsg.md)**. Endpoints in VMs that were created by using Resource Manager are stored in a network security group. Also, verify that the rules have been applied to the network security group and that they're referenced in the subnet.
 
 To verify network connectivity, check the configured endpoints and see if you can reach the VM through another protocol, such as HTTP or another service.
 
