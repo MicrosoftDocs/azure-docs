@@ -110,7 +110,7 @@ Prior to reaching general availability Azure AD PIM was in preview and there wer
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Dash.png
+[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
 [3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
 [4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
