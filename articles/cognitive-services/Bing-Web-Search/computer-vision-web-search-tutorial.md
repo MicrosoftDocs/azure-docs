@@ -54,14 +54,14 @@ Now, click "Modify" in the bottom right corner of the window, and wait for Xamar
 #### MacOS
 Xamarin should come pre-packaged with Visual Studio for Mac.
 
-## Building and running the sample app
+## Building and Running the Sample
 ### Step 0: Download the sample
 The sample can be found at [XamFormsVisualSearch](https://github.com/Azure-Samples/XamFormsVisualSearch). You can download it using Visual Studio or directly from GitHub.
 
 ### Step 1: Install the sample
 In Visual Studio, open *XamFormsVisualSearch\VisualSearchApp.sln*.  It may take a few moments to initialize all of the required components. 
 
-### Step 2: Install required NuGet Packages
+### Step 2: Install required NuGet packages
 This application requires two NuGet packages to be installed: the Json.NET Parser, and the Xamarin Media Plugin.  You can open the NuGet Package Manager in *Tools > NuGet Package Manager > Manage NuGet Packages For Solution*, or by right-clicking on your solution and selecting *Manage NuGet Packages*.  
 
 From here, search and install the Xamarin Media plugin (*Xam.Plugin.Media*) and Json.NET (*Newtonsoft.Json*) packages.
