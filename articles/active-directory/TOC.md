@@ -215,6 +215,7 @@
 ##### [Native client apps](active-directory-application-proxy-native-client.md)
 ##### [Silent install](active-directory-application-proxy-silent-installation.md)
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
+##### [Translate inline links](application-proxy-link-translation.md)
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)

@@ -31,6 +31,30 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.557.0
+Status: July 2017
+
+>[!NOTE]
+>This build is not available to customers through the Azure AD Connect Auto Upgrade feature.
+
+### Azure AD Connect
+
+#### Fixed issue
+* Fixed an issue with the Initialize-ADSyncDomainJoinedComputerSync cmdlet that caused the verified domain configured on the existing service connection point object to be changed even if it is still a valid domain. This issue occurs when your Azure AD tenant has more than one verified domains that can be used for configuring the service connection point.
+
+#### New features and improvements
+* Password writeback is now available for preview with Microsoft Azure Government cloud and Microsoft Cloud Germany. For more information about Azure AD Connect support for the different service instances, refer to article [Azure AD Connect: Special considerations for instances](active-directory-aadconnect-instances.md).
+
+* The Initialize-ADSyncDomainJoinedComputerSync cmdlet now has a new optional parameter named AzureADDomain. This parameter lets you specify which verified domain to be used for configuring the service connection point.
+
+### Pass-through Authentication
+
+#### New features and improvements
+* The name of the agent required for Pass-through Authentication has been changed from *Microsoft Azure AD Application Proxy Connector* to *Microsoft Azure AD Connect Authentication Agent*.
+
+* Enabling Pass-through Authentication no longer enables Password Hash Synchronization by default.
+
+
 ## 1.1.553.0
 Status: June 2017
 
@@ -46,7 +70,7 @@ Status: June 2017
   * If OU-based filtering is enabled, the **Sync selected domains and OUs** option is selected.
   * Otherwise, the **Sync all domains and OUs** option is selected.
 
-The issue it is that the **Sync all domains and OUs** option is selected, even if OU-based filtering is enabled. Before saving any synchronization configuration changes in the wizard, make sure the **Sync selected domains and OUs** option is selected first. Otherwise, OU-based filtering will be disabled.
+The issue that arises is that the **Sync all domains and OUs option** is always selected when you run the Wizard.  This occurs even if OU-based filtering was previously configured. Before saving any AAD Connect configuration changes, make sure the **Sync selected domains and OUs option is selected** and confirm that all OUs that need to synchronize are enabled again. Otherwise, OU-based filtering will be disabled.
 
 #### Fixed issues
 
