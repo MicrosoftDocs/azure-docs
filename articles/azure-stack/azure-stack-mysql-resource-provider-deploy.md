@@ -160,7 +160,8 @@ The size provided helps the resource provider manage the database capacity. It s
 ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE] SKUs can take up to an hour to be visible in the portal. You cannot create a database until this completes.
+>[!NOTE]
+SKUs can take up to an hour to be visible in the portal. You cannot create a database until this completes.
 
 
 ## Create your first MySQL database to test your deployment
