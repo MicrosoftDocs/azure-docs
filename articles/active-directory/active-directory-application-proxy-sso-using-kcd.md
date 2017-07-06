@@ -85,7 +85,7 @@ The Active Directory configuration varies, depending on whether your Application
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
 2. After your application appears in the list of enterprise applications, select it and click **Single sign-on**.
 3. Set the single sign-on mode to **Integrated Windows Authentication**.  
-4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.  
+4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/www.contoso.com.  
 
    ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 
