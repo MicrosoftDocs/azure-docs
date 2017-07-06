@@ -173,20 +173,19 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 
 3. Fill in the form with the database details.
 
-![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
 
-4. Select a SKU
+4. Select a SKU.
 
-![Select a SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![Select a SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
 
-5. Create a login setting
-The login setting can be reused or a new one created. This contains the user name and password for the database.
+5. Create a login setting. The login setting can be reused or a new one created. This contains the user name and password for the database.
 
-![Create a new database login](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
+    ![Create a new database login](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
 
-The connections string includes the real database server name. Copy it from the portal.
+    The connections string includes the real database server name. Copy it from the portal.
 
-![Get the connection string for the MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+    ![Get the connection string for the MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
 
 > [!NOTE]
 > The length of the user names cannot exceed 32 characters with MySQL 5.7 or 16 characters in earlier editions. This is a limitation of the MySQL implementations.
