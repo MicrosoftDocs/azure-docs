@@ -28,11 +28,11 @@ You can view two types of logs for Azure Service Bus:
 
 Diagnostics logs are disabled by default. To enable diagnostic logs, perform the following steps:
 
-1.	In the [Azure portal](https://portal.azure.com), go to the streaming job blade.
+1.	In the [Azure portal](https://portal.azure.com), under **Monitoring + Management**, click **Diagnostics logs**.
 
-2.	Under **Monitoring**, go to the **Diagnostics logs** blade.
+	![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)
 
-	![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)  
+2. Click the resource you want to monitor.  
 
 3.	Click **Turn on diagnostics**.
 
@@ -42,11 +42,9 @@ Diagnostics logs are disabled by default. To enable diagnostic logs, perform the
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-5.	Set the archival target that you want; for example, a storage account, an Event Hub, or Azure Log Analytics.
+5.	Set the archive target that you want; for example, a storage account, an Event Hub, or Azure Log Analytics.
 
-6.	Select the categories of logs that you want to collect; for example, **Execution** or **Authoring**.
-
-7.	Save the new diagnostics settings.
+6.	Save the new diagnostics settings.
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
 
@@ -56,11 +54,11 @@ For more information about configuring diagnostics, see the [overview of Azure d
 
 All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following section.
 
-## Operation logs example
+## Operational logs schema
 
 Logs in the **OperationalLogs** category capture what happens during Service Bus operations. Specifically, these logs capture the operation type, including queue creation, resources used, and the status of the operation.
 
-Operation log JSON strings include elements listed in the following table:
+Operational log JSON strings include elements listed in the following table:
 
 Name | Description
 ------- | -------
