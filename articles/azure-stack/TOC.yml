@@ -238,7 +238,7 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/azure/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
   - name: Azure Roadmap
