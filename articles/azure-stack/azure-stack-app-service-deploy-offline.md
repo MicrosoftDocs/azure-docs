@@ -45,9 +45,9 @@ To deploy App Service in an isolated environment, you need must create an offlin
 
 1. Run the **App Service on Azure Stack preview installer** (AppService.exe) from a machine with connectivity to the internet.
 2. Click the **Advanced** tab and click **Create offline installation package**.
-![App Service on Azure Stack Technical Preview 3 Advanced Options Create Offline Installation Package][1]
+![App Service on Azure Stack Advanced Options Create Offline Installation Package][1]
 3. The App Service installer will create an offline installation package and then display the path and give an option to open the folder.
-![App Service on Azure Stack Technical Preview 3 Offline Installation Package][2]
+![App Service on Azure Stack Offline Installation Package][2]
 4. Now copy the **App Service on Azure Stack preview installer** (AppService.exe) and the Offline Installation Package to the Azure Stack Host machine.
 
 ## Create certificates to be used by App Service on Azure Stack
@@ -72,13 +72,13 @@ This first script works with the Azure Stack certificate authority to create thr
 
 1. Run appservice.exe as **azurestack\administrator**.
 2. Click the **Advanced** tab and click **Complete offline installation**.
-![App Service on Azure Stack Technical Preview 3 Advanced Options Complete Offline Installation][3]
+![App Service on Azure Stack Advanced Options Complete Offline Installation][3]
 3. **Specify the location of the offline installation package** you previously created and then click **Next**
-![App Service on Azure Stack Technical Preview 3 Location of Offline Installation Package][4]
+![App Service on Azure Stack Location of Offline Installation Package][4]
 4. Review and accept the Microsoft Software Pre-Release License Terms, and then click **Next**.
 5. Review and accept the third-party license terms, and then click **Next**.
 6. Review the App Cloud Service configuration information and click **Next**.
-![App Service on Azure Stack Technical Preview 3 App Service Cloud Configuration][5]
+![App Service on Azure Stack Cloud Configuration][5]
 > [!NOTE]
 > The App Service on Azure Stack Installer provides the default values for a One Node Azure Stack Installation.  If you have customized any of the options when you deployed Azure Stack, for example domain suffix, you need to edit the values in this window accordingly.  For example, if you are using the domain suffix mycloud.com your Admin ARM endpoint would need to change to adminmanagement.[region].mycloud.com
 
@@ -87,7 +87,7 @@ This first script works with the Azure Stack certificate authority to create thr
 9. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
    - Select the location corresponding to the region you are deploying, for example, **Local**
    - Click **Next**    
-![App Service on Azure Stack Technical Preview 3 Subscription Selection][6]
+![App Service on Azure Stack Subscription Selection][6]
 10. Enter the **Resource Group Name** for your App Service deployment, by default this is set to **APPSERVICE-LOCAL**.
 11. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
 12. Enter the **SQL Server details** for the instance that will be used to host the App Service RP Databases.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
@@ -98,27 +98,27 @@ Storage, and
 16. Enter the **certificate password** that you set when you created the certificates.  
 17. Click **Browse** next to the **Resource Provider Root Certificate File** and navigate to the **AzureStackCertificationAuthority** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 18. Click **Next** the installer verifies the certificate password provided.
-![App Service on Azure Stack Technical Preview 3 Certificate Details][8]
+![App Service on Azure Stack Certificate Details][8]
 19. Review the **App Service Role Configuration**.  The defaults are populated with the minimum recommended instance SKUs for each role.  A summary of core and memory requirements is provided to help plan your deployment.  Once you have made your selections click **Next** to advance.
   - **Controller**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Controller role is responsible for managing and maintaining the health of the App Service cloud.
   - **Management**: By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service ARM and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service
   - **Publisher**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
   - **FrontEnd**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
   - **Shared Worker**: By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
-![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
+![App Service on Azure Stack Role Configuration][9]
 
     > [!NOTE]
     > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
 
 20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.     
-![App Service on Azure Stack Technical Preview 3 VM Image Selection][10]
+![App Service on Azure Stack VM Image Selection][10]
 21. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all **other App Service roles** and click **Next**.
-![App Service on Azure Stack Technical Preview 3 Credential Entry][11]
+![App Service on Azure Stack Credential Entry][11]
 22. The summary listing displays the result of all the selections you have made for verification.   If you wish to make any changes navigate back through the screens and amend the selections.  If the configuration is as desired **check the checkbox** and click **Next**. 
-![App Service on Azure Stack Technical Preview 3 Selection Summary][12]
+![App Service on Azure Stack Selection Summary][12]
 23. The installer will begin the deployment of App Service on Azure Stack.
 24. The final step of deploying App Service on Azure Stack will take about 45-60 minutes to complete based on the default selections.
-![App Service on Azure Stack Technical Preview 3 Installation Progress][13]
+![App Service on Azure Stack Installation Progress][13]
 25. After the installer successfully completes, click **Exit**.
 
 ## Validate App Service on Azure Stack Installation
@@ -133,7 +133,7 @@ Storage, and
     > [!NOTE]
     > You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
     
-    ![App Service on Azure Stack Technical Preview 3 Managed Servers Status][14]
+    ![App Service on Azure Stack Managed Servers Status][14]
 
 ## Test Drive App Service on Azure Stack
 
