@@ -5,7 +5,7 @@ This guide demonstrates how a native iOS application (Swift) can get an access t
 
 At the end of this guide, your application will be able to call a protected API using personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has Azure Active Directory.
 
-> ### Pre-Requisites
+> ### Pre-requisites
 > - XCode 8.x is required for this guide. You can download XCode [from here](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 > - [Carthage](https://github.com/Carthage/Carthage) for package management
 
@@ -25,7 +25,7 @@ APIs such as Microsoft Graph require an access token to allow accessing specific
 MSAL manages caching and refreshing access tokens for you, so your application doesn't need to.
 
 
-### NuGet Packages
+### NuGet packages
 
 This guide uses the following NuGet packages:
 

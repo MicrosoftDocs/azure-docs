@@ -12,7 +12,7 @@ The first time you sign in to your application, you will be presented with a con
 
 ![Consent Screen](media/active-directory-mobileanddesktopapp-ios-test/iosconsentscreen.png)
 
-### Expected Results
+### Expected results
 You should see user profile information returned by the Microsoft Graph API call in the *Logging* section.
 
 <!--start-collapse-->

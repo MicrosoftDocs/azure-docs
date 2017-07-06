@@ -3,7 +3,7 @@
 
 In this step, you need to configure the Redirect URL of your application registration information and then add the Application Id to your JavaScript SPA application.
 
-### Configure Redirect URL
+### Configure redirect URL
 
 Configure the `Redirect URL` field above with the URL for your index.html page based on your web server, then click *Update*.
 
