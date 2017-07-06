@@ -50,11 +50,11 @@ To complete this operation, you need the following parts from your Feather M0 Wi
 
 You also need the following things for your development environment:
 
+* An active Azure subscription. If you don't have an Azure account, [create a free Azure trial account](https://azure.microsoft.com/free/) in just a few minutes.
 * A Mac or PC that is running Windows or Ubuntu.
 * A wireless network for Feather M0 WiFi to connect to.
 * An Internet connection to download the configuration tool.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 or later. Earlier versions don't work with the Azure IoT library.
-
+* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 or later. Earlier versions don't work with the AzureIoT library.
 
 If you don’t have a sensor, the following items are optional. You also have the option of using simulated sensor data:
 

@@ -80,7 +80,6 @@
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metrics](app-insights-metrics-explorer.md)
 #### [Live stream](app-insights-live-stream.md)
-#### [Funnels](app-insights-understand-usage-patterns.md)
 #### [Application Map](app-insights-app-map.md)
 #### [HockeyApp data](app-insights-hockeyapp-bridge-app.md)
 
@@ -93,6 +92,7 @@
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
+#### [Funnels](app-insights-understand-usage-patterns.md)
 #### [Retention](app-insights-usage-retention.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
 
@@ -111,6 +111,7 @@
 ### [Set alerts](app-insights-powershell-alerts.md)
 ### [Get Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
 ### [Automate with Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automate with an Azure Logic App](automate-with-logic-apps.md)
 
 ## Develop
 
