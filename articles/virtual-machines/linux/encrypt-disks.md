@@ -36,7 +36,7 @@ az group create --name myResourceGroup --location eastus
 Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#create) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyvault_name* as follows:
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
+keyvault_name=mykeyvaultikf
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -62,8 +62,8 @@ Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyva
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
-    --key-permissions all \
-    --secret-permissions all
+    --key-permissions wrapKey \
+    --secret-permissions set
 ```
 
 Create a VM with [az vm create](/cli/azure/vm#create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named `myVM` using a **CentOS 7.2n** image:
@@ -196,8 +196,8 @@ To successfully encrypt or decrypt virtual disks, permissions on the cryptograph
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
-  --key-permissions all \
-  --secret-permissions all
+  --key-permissions wrapKey \
+  --secret-permissions set
 ```
 
 
