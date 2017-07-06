@@ -17,8 +17,8 @@ ms.author: billmath
 # Claims mapping in Azure Active Directory (public preview)
 
 >[!NOTE]
->This feature replaces and supersedes the claims customization offered through the portal today (as documented [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)). If you customize claims using the portal in addition to the Graph/Powershell method detailed in this document on the same application, tokens issued for that application will ignore the configuration in the portal.
-Configurations made through the methods detailed in this document will not reflect in the portal.
+>This feature replaces and supersedes the [claims customization](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) offered through the portal today. If you customize claims using the portal in addition to the Graph/PowerShell method detailed in this document on the same application, tokens issued for that application will ignore the configuration in the portal.
+Configurations made through the methods detailed in this document will not be reflected in the portal.
 
 This feature is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. You can use claims mapping policies to:
 
@@ -27,7 +27,7 @@ This feature is used by tenant admins to customize the claims emitted in tokens 
 - Choose or change the source of data emitted in specific claims.
 
 >[!NOTE]
->This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory (Azure AD) premium subscription.
+>This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory premium subscription.
 
 ## Claims mapping policy type
 In Azure AD, a **Policy** object represents a set of rules enforced on individual applications, or on all applications in an organization. Each type of policy has a unique structure, with a set of properties that are then applied to objects to which they are assigned.
@@ -46,7 +46,7 @@ The basic claim set includes the claims that are emitted by default for tokens (
 ### Restricted claim set
 Restricted claims cannot be modified by using policy. The data source cannot be changed, and no transformation is applied when generating these claims.
 
-#### Table 1 - JSON Web Token (JWT) restricted claim set
+#### Table 1: JSON Web Token (JWT) restricted claim set
 |Claim type (name)|
 | ----- |
 |_claim_names|
@@ -180,7 +180,7 @@ Restricted claims cannot be modified by using policy. The data source cannot be 
 |wids|
 |win_ver|
 
-#### Table 2 - Security Assertion Markup Language (SAML) restricted claim set
+#### Table 2: Security Assertion Markup Language (SAML) restricted claim set
 |Claim type (URI)|
 | ----- |
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
@@ -276,7 +276,7 @@ If the source is transformation, the **TransformationID** element must be includ
 
 The ID element identifies which property on the source provides the value for the claim. The following table lists the values of ID valid for each value of Source.
 
-#### Table 3 - Valid ID values per source
+#### Table 3: Valid ID values per source
 |Source|ID|Description|
 |-----|-----|-----|
 |User|surname|Family Name|
@@ -342,15 +342,14 @@ The ID element identifies which property on the source provides the value for th
 **Data type:** JSON blob, with one or more transformation entries 
 
 **Summary:** Use this property to apply common transformations to source data, to generate the output data for claims specified in the Claims Schema.
-Transformation Entry Elements
 
-**ID:** Use the ID element to reference this transformation entry in the TransformationID a Claims Schema entry. This value must be unique for each transformation entry within this policy.
+**ID:** Use the ID element to reference this transformation entry in the TransformationID Claims Schema entry. This value must be unique for each transformation entry within this policy.
 
 **TransformationMethod:** The TransformationMethod element identifies which operation is performed to generate the data for the claim.
 
 Based on the method chosen, a set of inputs and outputs is expected. These are defined by using the **InputClaims**, **InputParameters** and **OutputClaims** elements.
 
-#### Table 4 - Transformation methods and expected inputs and outputs
+#### Table 4: Transformation methods and expected inputs and outputs
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
@@ -376,7 +375,7 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 
 **SAML NameID and UPN:** The attributes from which you source the NameID and UPN values, and the claims transformations that are permitted, are limited.
 
-#### Table 5 - Attributes allowed as a data source for SAML NameID
+#### Table 5: Attributes allowed as a data source for SAML NameID
 |Source|ID|Description|
 |-----|-----|-----|
 |User|mail|Email Address|
@@ -399,7 +398,7 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 |User|extensionattribute14|Extension Attribute 14|
 |User|extensionattribute15|Extension Attribute 15|
 
-#### Table 6 - Transformation methods allowed for SAML NameID
+#### Table 6: Transformation methods allowed for SAML NameID
 |TransformationMethod|Restrictions|
 | ----- | ----- |
 |ExtractMailPrefix|None|
