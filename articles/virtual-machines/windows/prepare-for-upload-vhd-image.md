@@ -95,7 +95,7 @@ On the VM you plan to upload to Azure, run all the following commands from the c
     ```
 
 ## Check the Windows services
-Make sure that each of the following Windows services is set to the **Windows default values**. Below is the minimum services that need to be set up to make sure that the machine has connectivity. To reset the startup settings, run the following commands:
+Make sure that each of the following Windows services is set to the **Windows default values**. Below are the minimum services that need to be set up to make sure that the machine has connectivity. To reset the startup settings, run the following commands:
    
 ```PowerShell
 Set-Service -Name bfe -StartupType Auto
@@ -359,7 +359,7 @@ Not every role or application installed on a Windows machine supports this gener
 ### Steps to generalized a VHD
 
 >[!NOTE]
-> Once you run the **sysprep.exe** as specify below, just shut down the VM and do not turn the VM on until you create an image from it in Azure.
+> Once you run the **sysprep** as specify below, just shut down the VM and do not turn the VM on until you create an image from it in Azure.
 
 1. Sign in to the Windows VM.
 2. Run **Command Prompt** as an administrator. 
