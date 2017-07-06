@@ -140,9 +140,6 @@ No, the pricing is the same for HDInsight on either OS.
 ### Does HDInsight on Linux provide additional functionality beyond that available in HDInsight on Windows?
 Starting with HDInsight version 3.4, MSFT has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only – Apache Ranger, Kafka, Interactive Hive, Spark, HDInsight applications, and Azure Data Lake Store as primary FS. 
 
-### Whom should I contact for any additional questions?
-Contact [support](https://azure.microsoft.com/en-us/support/options/) for any additional questions
-
 ## The service-level agreement for HDInsight cluster versions
 The SLA is defined in terms of a **Support Window**. A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a **Support Expiration Date** in the past, the HDInsight cluster is outside the Support Window. A list of supported HDInsight cluster versions can be found in the preceding table. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
 
