@@ -16,11 +16,11 @@ ms.author: cfreeman
 
 # Automate Application Insights processes by using Logic Apps
 
-Do you find yourself repeatedly running the same queries on your telemetry data to check whether your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector (Preview) for Logic Apps is the right tool for this purpose.
+Do you find yourself repeatedly running the same queries on your telemetry data to check whether your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector (preview) for Logic Apps is the right tool for this purpose.
 
 With this integration, you can automate numerous processes without writing a single line of code. You can create a logic app with the Application Insights connector to quickly automate any Application Insights process. 
 
-You can add additional actions as well. The Logic Apps service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Visual Studio Team Services. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) to help speed up the process of creating your logic app. 
+You can add additional actions as well. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Visual Studio Team Services. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) to help speed up the process of creating your logic app. 
 
 ## Create a logic app for Application Insights
 
@@ -51,8 +51,6 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
     ![Logic App Designer "Choose an action" window](./media/automate-with-logic-apps/flow2.png)
 
 ### Step 4: Connect to an Application Insights resource
-
-**Prerequisites**
 
 To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as shown in the following diagram:
 
