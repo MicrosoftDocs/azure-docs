@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/06/17
 ms.author: asteen
-
+ms.reviwer: japere
 ---
 
 # Problem signing in to the access panel website
@@ -59,14 +59,12 @@ For password-based SSO, the end user’s browsers can be:
 
 -   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
 
+-   Edge on Windows 10 Anniversary Edition or later 
+
 -   Chrome -- on Windows 7 or later, and on MacOS X or later
 
 -   Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
->[!NOTE] 
->The password-based SSO extension become available for Edge in Windows 10 when browser extensions become supported for Edge.
->
->
 
 ## Problems with the user’s account
 
