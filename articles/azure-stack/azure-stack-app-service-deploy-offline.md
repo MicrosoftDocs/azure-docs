@@ -31,8 +31,8 @@ If you are running Azure Stack in an isolated environment secured by ADFS and yo
 
 ## Download the required components
 
-1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmastp3installer).
-2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmastp3helper).
+1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
+2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
 3. Extract the files from the helper scripts zip file.  Once extracted you see the following files and folder structure
    - Create-AppServiceCerts.ps1
    - Create-IdentityApp.ps1

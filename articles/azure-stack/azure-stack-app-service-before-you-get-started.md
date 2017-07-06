@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/6/2017
+ms.date: 7/3/2017
 ms.author: anwestg
 
 ---
@@ -21,7 +21,7 @@ ms.author: anwestg
 
 You need a few items to install App Service on Azure Stack:
 
-- A completed deployment of [Azure Stack Technical Preview 3](azure-stack-run-powershell-script.md)
+- A completed deployment of [Azure Stack Development Kit](azure-stack-run-powershell-script.md)
 - Enough space in your Azure Stack system for a small deployment of App Service on Azure Stack.  The required space is roughly 20 GB of disk space.
 - A Windows Server VM Image for use when creating Virtual Machines for App Service on Azure Stack
 - [A server that's running SQL Server](#SQL-Server).
@@ -37,7 +37,7 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 
 1.	Sign in to the Azure Stack proof-of-concept (POC) computer as **AzureStack/administrator**, and then open **Server Manager**.
 2.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
-3.	Sign in to the MAS-CON01.AzureStack.local virtual machine as an administrator, and then open **Server Manager**.
+3.	Sign in to the MAS-CON01.AzureStack.local virtualAzure stack host machine as an administrator, and then open **Server Manager**.
 4.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
 
 ## Enable cookies
@@ -62,9 +62,7 @@ App Service deploys a number of virtual machines and as such requires a Windows 
 
 ## <a name="SQL-Server"></a>SQL Server
 
-By default, the App Service on Azure Stack installer is set to use the SQL Server that is installed along with the Azure Stack SQL Resource Provider. When you install the SQL Server Resource Provider (SQL RP), ensure you take note of the database administrator username and password. You need both when you install App Service on Azure Stack.
->[!NOTE]
-> You can deploy and use another server to run SQL Server. You can choose the SQL Server instance to use when you complete the options in the App Service on Azure Stack installer.
+App Service on Azure Stack requires access to a SQL Server Instance to create and host two databases to run the App Service Resource provider.  You can choose the SQL Server instance to use when you complete the options in the App Service on Azure Stack installer.
 
 ## Next steps
 
