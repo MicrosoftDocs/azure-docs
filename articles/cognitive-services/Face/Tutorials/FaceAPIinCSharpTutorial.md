@@ -33,7 +33,7 @@ Once you have successfully subscribed make a note of the key and endpoint you ar
   - "**Endpoint**" is `https://westcentralus.api.cognitive.microsoft.com/face/v1.0` 
   - "**Key 1**" value is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` (your's will be more realistic)
 
-![Face API Endpoint and Keys](../images/FaceApiEndpointAndKey.png)
+![Face API Endpoint and Keys](../Images/FaceApiEndpointAndKey.png)
 
 ## <a name="step2"></a>Step 2: Create the application framework
 
