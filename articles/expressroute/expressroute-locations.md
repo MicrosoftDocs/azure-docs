@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/03/2017
 ms.author: kaanan
 
 ---
@@ -97,7 +97,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Supported |Supported |Newport(Wales) |
 | **NEXTDC** |Supported |Supported |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Supported |Supported |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
-| **NTT SmartConnect** |Coming soon |Coming soon |Osaka |
+| **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Supported |Supported |Osaka |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Hong Kong, London, Paris+, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Supported |Supported |Hong Kong |
 | **Sejong Telecom** |Supported |Supported |Seoul |
@@ -173,6 +173,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
+| **[BroadBand Tower, Inc.](http://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokyo |
 | **[C3ntro Telecom](http://www.c3ntro.com/data/cloud-conectivity/)** | Equinix, Megaport | Dallas |
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)** | Equinix | Dallas, Silicon Valley, Washington DC | 
@@ -184,7 +185,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[Gtt Communications Inc](https://www.gtt.net/wp-content/uploads/2017/04/EtherCloud-Data-Sheet.pdf)** |Equinix | Washington DC |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
 | **LGA Telecom** |Equinix |Singapore|
-| **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |New York, Washington DC |
+| **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix | Chicago, New York, Washington DC |
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hong Kong |
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
@@ -200,12 +201,12 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Silicon Valley, Washington DC |
 | **Zain** |Equinix |London|
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
-| **[Zirro](https://zirro.com/services/)**| Equinix | Toronto, Montreal |
+| **[Zirro](https://zirro.com/services/)**| Equinix | Montreal, Toronto |
 
 ## Connectivity Through Datacenter Providers
 | **Provider** | **Exchange** |
 | --- | --- |
-| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/)** | Megaport |
+| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport |
 | **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
 | **[RagingWire Data Centers](http://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | Console |
