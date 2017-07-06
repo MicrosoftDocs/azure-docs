@@ -7,8 +7,18 @@
 ## [Compatible third-party software](active-directory-ds-compatible-software.md)
 
 # Get started
-## [Azure classic portal](active-directory-ds-getting-started-create-group.md)
-## [Azure portal - PREVIEW](active-directory-ds-getting-started.md)
+## Azure classic portal
+### [Task 1: create the administrator group](active-directory-ds-getting-started-create-group.md)
+### [Task 2: create or select virtual network](active-directory-ds-getting-started-vnet.md)
+### [Task 3: enable Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
+### [Task 4: update DNS settings for virtual network](active-directory-ds-getting-started-update-dns.md)
+### [Task 5: enable password synchronization](active-directory-ds-getting-started-password-sync.md)
+## Azure portal (Preview)
+### [Task 1: configure basic settings](active-directory-ds-getting-started.md)
+### [Task 2: configure network settings](active-directory-ds-getting-started-network.md)
+### [Task 3: configure administrator group and enable Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+### [Task 4: update DNS settings for virtual network](active-directory-ds-getting-started-dns.md)
+### [Task 5: enable password synchronization](active-directory-ds-getting-started-password-sync.md)
 
 # How to
 ## Join a managed domain
@@ -18,7 +28,11 @@
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
-### [Configure secure LDAP for a managed domain](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### Configure secure LDAP for a managed domain
+#### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
+#### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+#### [Task 3: enable secure LDAP for the managed domain](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+
 ### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
 ### [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Select a virtual network](active-directory-ds-networking.md)

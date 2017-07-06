@@ -7,13 +7,13 @@ author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
 
-ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
+ms.assetid: 9d563c45-9578-410d-96c8-355af64feae8
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: maheshu
 
 ---
