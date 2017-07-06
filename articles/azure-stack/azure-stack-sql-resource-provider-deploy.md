@@ -152,20 +152,20 @@ You can specify these parameters in the command line. If you do not, or any para
 
 2. Create a SQL virtual machine, unless you have one already available. Marketplace Management offers some options for deploying SQL VMs.
 
-2. Click **Resource Providers** &gt; **SQLAdapter** &gt; **Hosting Servers** &gt; **+Add**.
+3. Click **Resource Providers** &gt; **SQLAdapter** &gt; **Hosting Servers** &gt; **+Add**.
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
 	![Hosting Servers](./media/azure-stack-sql-rp-deploy/multiplehostingservers.PNG)
 
-3. Fill the form with the connection details of your SQL Server instance.
+4. Fill the form with the connection details of your SQL Server instance.
 
 	![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.PNG)
 
-> [!NOTE]
-> As long as the SQL instance can be accessed by the tenant and admin ARM, it can be placed under control of the the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
+    > [!NOTE]
+    > As long as the SQL instance can be accessed by the tenant and admin ARM, it can be placed under control of the the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
 
-4. 	As you add servers, you will need to assign them to a new or existing SKU. This allows differentiation of service offerings. For example, you could have a SQL Enterprise instance providing database capacity and automatic backup, reserve high performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
+5. As you add servers, you will need to assign them to a new or existing SKU. This allows differentiation of service offerings. For example, you could have a SQL Enterprise instance providing database capacity and automatic backup, reserve high performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
 
 	An example:
 
@@ -179,7 +179,7 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 
 1. Sign in to the Azure Stack admin portal as service admin.
 
-2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**
+2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**.
 
 3. Fill in the form with database details, including a **Database Name**, **Maximum Size**, and change the other parameters as necessary. Fill in the Login Settings: **Database login**, and **Password**. These is a SQL Authentication credential that will be created for your access to this database only. The login user name must be globally unique.
 
@@ -192,15 +192,15 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 
 5. Create or select a login. You can reuse login settings for other databases using the same SKU.
 
-![Create a new database login](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+    ![Create a new database login](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 
 
 6. Submit the form and wait for the deployment to complete.
 
-In the resulting blade, notice the “Connection string” field. You can use that string in any application that requires SQL Server access (for example, a web app) in your Azure Stack.
+    In the resulting blade, notice the “Connection string” field. You can use that string in any application that requires SQL Server access (for example, a web app) in your Azure Stack.
 
-![Retrieve the connection string](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+    ![Retrieve the connection string](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
 ## Add capacity
 
