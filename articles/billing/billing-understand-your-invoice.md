@@ -8,14 +8,14 @@ manager: tonguyen
 editor: ''
 tags: billing
 
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
+ms.assetid: 14e4d357-26db-4ce0-b76b-d57970edaab2
 ms.service: billing
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
-ms.author: tonguyen
+ms.author: tonguyen10
 
 ---
 # Understand terms on your Microsoft Azure invoice
