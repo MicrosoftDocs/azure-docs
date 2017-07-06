@@ -25,8 +25,9 @@ If you want to give your tenants the ability to create Web, Mobile, and API appl
 2. Create certificates to be used by App Service on Azure Stack.
 3. Use the installer to download, stage and, install App Service.
 4. Validate App Service Installation.
-5. Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools.
-6. Test Drive the App Service Resource Provider.
+5. AAD Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools.
+6. ADFS Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools.
+7. Test Drive the App Service Resource Provider.
 
 ## Download the required components
 
@@ -136,53 +137,83 @@ The following steps guide you through the installation stages:
 > You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
 ![App Service on Azure Stack Managed Servers Status][11]
 
-## Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
+## AAD Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
 
 >[!NOTE]
-> These steps are only applicable to AAD secured Azure Stack Environments.  It is not possible to enable SSO or the Azure Functions Portal in ADFS-based environments at present.
+> These steps are only applicable to AAD secured Azure Stack Environments.
 
 To enable the advanced developer tools within App Service - Kudu - and to enable the use of the Azure Functions Portal experience, administrators need to configure SSO.
 
-1. Open a PowerShell instance as **azurestack\administrator**.
+1. Open a PowerShell instance as **azurestack\azurestackadmin**.
 2. Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3. Run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example **myazurestack.onmicrosoft.com**.
-4. In the Credential window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Ok**.
-5. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
-6. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
+3. [Install and configure Azure Stack PowerShell environment](azure-stack-powershell-configure.md).  Follow instructions to create **AzureStackAdmin** environment and login to the AzureStackAdmin environment.
+4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example **myazurestack.onmicrosoft.com**.
+5. In the Credential window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Ok**.
+6. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
+7. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
 
 >[!NOTE]
-> Make note of the **ApplicationID** that is returned in the PowerShell output.  You will need this to search for it in step 13.
+> Make note of the **ApplicationID** that is returned in the PowerShell output.  You will need this to search for it in step 12.
 
-7. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
-8. Open a new browser window and login to the **Azure portal (portal.azure.com)** as the **Azure Active Directory Service Admin**.
-9. Open the **Azure Active Directory resource provider**.
-10. Click **App Registrations**.
-11. Search for the **Application ID** returned as part of step 6. An App Service application is listed.
-12. Click the **Application** in the list and open the **Keys** blade
-13. Add a new key with **Description - FunctionsPortal** and set the **Expiration Date to NeverExpires**
-14. Click Save and then copy the key generated.
+8. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
+9. Open a new browser window and login to the **Azure portal (portal.azure.com)** as the **Azure Active Directory Service Admin**.
+10. Open the **Azure Active Directory resource provider**.
+11. Click **App Registrations**.
+12. Search for the **Application ID** returned as part of step 6. An App Service application is listed.
+13. Click the **Application** in the list and open the **Keys** blade
+14. Add a new key with **Description - FunctionsPortal** and set the **Expiration Date to NeverExpires**
+15. Click Save and then copy the key generated.
 >[!NOTE]
 > Before sure to note or copy the key when generated.  Once saved it can't be viewed again and you need to regenerate a new key.
 ![App Service on Azure Stack Application Keys][12]
-15. Return to the **Application Registration** in the **Azure Active Directory**.
-16. Click **Required Permissions** and then click **Grant Permissions** and click **Yes**.
+16. Return to the **Application Registration** in the **Azure Active Directory**.
+17. Click **Required Permissions** and then click **Grant Permissions** and click **Yes**.
 ![App Service on Azure Stack SSO Grant][13]
-17. Return to **CN0-VM** and open the **Web Cloud Management Console** once more.
-18. Select the **Settings** node on the left-hand pane and look for the **ApplicationClientSecret** Setting.
-19. **Right click and select Edit**.  **Paste the key** generated in step 15 and click **OK**.
+18. Return to **CN0-VM** and open the **Web Cloud Management Console** once more.
+19. Select the **Settings** node on the left-hand pane and look for the **ApplicationClientSecret** Setting.
+20. **Right click and select Edit**.  **Paste the key** generated in step 15 and click **OK**.
 ![App Service on Azure Stack Application Keys][12]
-20. Open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to in step 7.
-21. Now run the script file.  This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all Front-End and Management roles.
+21. Open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to in step 7.
+22. Now run the script file.  This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all Front-End and Management roles.
 
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Mandatory | null | Azure Active Directory Tenant Id, provide the GUID or string, for example, myazureaaddirectory.onmicrosoft.com |
 | TenantArmEndpoint | Mandatory | management.local.azurestack.external | The Tenant ARM Endpoint |
-| AzureStackCredential | Mandatory | api.appservice.local.azurestack.external | AAD Administrator |
+| AzureStackCredential | Mandatory | null | AAD Administrator |
 | CertificateFilePath | Mandatory | null | Path to the identity application certificate file generated earlier |
 | CertificatePassword | Mandatory | null | Password used to protect the certificate private key |
 | DomainName | Required | local.azurestack.external | Azure Stack Region and Domain Suffix |
 | AdfsMachineName | Optional | Ignore in case of AAD Deployment but required in ADFS deployment. ADFS machine name for example AzS-ADFS01.azurestack.local |
+
+## ADFS Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
+
+>[!NOTE]
+> These steps are only applicable to ADFS secured Azure Stack Environments.
+
+To configure service principal for VMSS integration on Worker Tiers to scale out and To enable the advanced developer tools within App Service - Kudu - and to enable the use of the Azure Functions Portal experience, administrators need to configure SSO. 
+
+1. Open a PowerShell instance as **azurestack\azurestackadmin**.
+2. Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
+3. [Install and configure Azure Stack PowerShell environment](azure-stack-powershell-configure.md).  Follow instructions to create **AzureStackAdmin** environment and login to the AzureStackAdmin environment.
+4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter '**ADFS**'
+5. In the Credential window provide your **ADFS Service Admin account** and **password**, and then Click **Ok**.
+6. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
+7. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
+8. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
+9. Return to **CN0-VM**
+10. Open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to in step 7.
+11. Now run the script file.  This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all Front-End and Management roles.
+
+| Parameter | Required/Optional | Default Value | Description |
+| --- | --- | --- | --- |
+| DirectoryTenantName | Mandatory | null | use 'ADFS' for ADFS environment |
+| TenantArmEndpoint | Mandatory | management.local.azurestack.external | The Tenant ARM Endpoint |
+| AzureStackCredential | Mandatory | null | The ADFS Service Admin Account |
+| CertificateFilePath | Mandatory | null | Path to the identity application certificate file generated earlier |
+| CertificatePassword | Mandatory | null | Password used to protect the certificate private key |
+| DomainName | Required | local.azurestack.external | Azure Stack Region and Domain Suffix |
+| AdfsMachineName | Optional | ADFS machine name for example AzS-ADFS01.azurestack.local |
 
 ## Test Drive App Service on Azure Stack
 

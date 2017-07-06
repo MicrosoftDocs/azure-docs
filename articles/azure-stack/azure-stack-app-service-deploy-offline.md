@@ -25,8 +25,9 @@ If you are running Azure Stack in an isolated environment secured by ADFS and yo
 2. Use the installer to create an offline installation package.
 3. Create certificates to be used by App Service on Azure Stack.
 4. Use the installer to complete the offline installation of App Service.
-5. Validate App Service Installation.
-6. Test Drive the App Service Resource Provider.
+5. ADFS Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
+6. Validate App Service Installation.
+7. Test Drive the App Service Resource Provider.
 
 ## Download the required components
 
@@ -120,6 +121,36 @@ Storage, and
 24. The final step of deploying App Service on Azure Stack will take about 45-60 minutes to complete based on the default selections.
 ![App Service on Azure Stack Installation Progress][13]
 25. After the installer successfully completes, click **Exit**.
+
+## ADFS Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
+
+>[!NOTE]
+> These steps are only applicable to ADFS secured Azure Stack Environments.
+
+To configure service principal for VMSS integration on Worker Tiers to scale out and To enable the advanced developer tools within App Service - Kudu - and to enable the use of the Azure Functions Portal experience, administrators need to configure SSO. 
+
+1. Open a PowerShell instance as **azurestack\azurestackadmin**.
+2. Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
+3. [Install and configure Azure Stack PowerShell environment](azure-stack-powershell-configure.md).  Follow instructions to create **AzureStackAdmin** environment and login to the AzureStackAdmin environment.
+4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter '**ADFS**'
+5. In the Credential window provide your **ADFS Service Admin account** and **password**, and then Click **Ok**.
+6. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
+7. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
+8. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
+9. Return to **CN0-VM**
+10. Open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to in step 7.
+11. Now run the script file.  This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all Front-End and Management roles.
+
+| Parameter | Required/Optional | Default Value | Description |
+| --- | --- | --- | --- |
+| DirectoryTenantName | Mandatory | null | use 'ADFS' for ADFS environment |
+| TenantArmEndpoint | Mandatory | management.local.azurestack.external | The Tenant ARM Endpoint |
+| AzureStackCredential | Mandatory | null | The ADFS Service Admin Account |
+| CertificateFilePath | Mandatory | null | Path to the identity application certificate file generated earlier |
+| CertificatePassword | Mandatory | null | Password used to protect the certificate private key |
+| DomainName | Required | local.azurestack.external | Azure Stack Region and Domain Suffix |
+| AdfsMachineName | Optional | ADFS machine name for example AzS-ADFS01.azurestack.local |
+
 
 ## Validate App Service on Azure Stack Installation
 
