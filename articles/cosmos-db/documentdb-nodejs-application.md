@@ -46,7 +46,7 @@ that you have the following:
 
    OR
 
-   A local installation of the [Azure Cosmos DB Emulator](local-emulator.md).
+   A local installation of the [Azure Cosmos DB Emulator](local-emulator.md) (Windows only).
 * [Node.js][Node.js] version v0.10.29 or higher.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
