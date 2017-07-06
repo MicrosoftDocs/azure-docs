@@ -41,7 +41,7 @@ There's a detailed account of the architecture in the [MyDriving Reference Guide
 So, let's see how we set up all of that. 
 
 > [!NOTE] 
-> Many of the steps are optional.
+> Many of the following steps are optional.
 >
 >
 
