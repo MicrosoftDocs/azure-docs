@@ -44,10 +44,10 @@ To attain 30-day trial keys to these APIs, see [this page](https://azure.microso
 ### Installing Xamarin 
 #### Windows   
 With Visual Studio 2017 installed, open the Visual Studio Installer, select the hamburger menu associated with your Visual Studio installation, and select "Modify."
-![A picture of the visual studio installer](./media/computer-vision-web-search/VisualStudioInstallerPhoto.PNG) 
+![A picture of the visual studio installer](./media/computer-vision-web-search-tutorial/VisualStudioInstallerPhoto.PNG) 
 
 Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile Development with .NET"
-![A picture showing that Xamarin.Forms is installed](./media/computer-vision-web-search/XamarinFormsIsEnabled.PNG)
+![A picture showing that Xamarin.Forms is installed](./media/computer-vision-web-search-tutorial/XamarinFormsIsEnabled.PNG)
 
 Now, click "Modify" in the bottom right corner of the window, and wait for Xamarin to install.
 
@@ -71,25 +71,25 @@ Press *Ctrl+Shift+B*, or click *Build* on the ribbon menu, then select *Build So
 
 ### Step 4: Configure your deployment
 Before running the application, you need to select a target Configuration, Platform, and Project.  Xamarin.Forms applications compile to native code for Windows, Android, and iOS.  This guide includes screenshots from the Windows compilation of the codebase.  However, all compilations are functionally equivalent.  
-![An image showing Visual Studio configured to compile for an Android phone](./media/computer-vision-web-search/ConfigurationSelection.PNG)
+![An image showing Visual Studio configured to compile for an Android phone](./media/computer-vision-web-search-tutorial/ConfigurationSelection.PNG)
 
 ### Step 5: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5**.  This deploys your solution to your target platform.  
 
-2) The application should launch and open to the following page (defined in the codebase at *AddKeysPage.xaml*, and referenced in this guide as the Add Keys Page).  ![A picture of the page where a user can add their Cognitive Services keys](./media/computer-vision-web-search/AddKeysPage.png)  
+2) The application should launch and open to the following page (defined in the codebase at *AddKeysPage.xaml*, and referenced in this guide as the Add Keys Page).  ![A picture of the page where a user can add their Cognitive Services keys](./media/computer-vision-web-search-tutorial/AddKeysPage.png)  
 Here you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the *App.xaml.cs* page of the codebase. 
 
 3) Adding a set of working Azure keys takes you to the following page (defined in the codebase at *OcrSelectPage.xaml*, and referenced in this guide as the OCR Select Page). ![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/computer-vision-web-search/OcrSelectPage.png)  
 Here you can either import or capture a new photo and then pass that photo to the Print or Handwritten OCR service for processing. 
 
-4) The next screen displays the text extracted by the Azure Computer Vision API (defined in the codebase at *OcrResultsPage.xaml*, and referenced in this guide as the OCR Results Page).  ![OcrResultsPage Example](./media/computer-vision-web-search/OcrResultsPage.png)  
+4) The next screen displays the text extracted by the Azure Computer Vision API (defined in the codebase at *OcrResultsPage.xaml*, and referenced in this guide as the OCR Results Page).  ![OcrResultsPage Example](./media/computer-vision-web-search-tutorial/OcrResultsPage.png)  
 Here you can select a line from the parsed text to find Bing search results for that content, or you can use the navigation bar to return to the OCR Select Page.
 
-5) Selecting an item from the OCR Results Page takes you to the following screen (defined in the codebase at *WebResultsPage.xaml*, and referenced in this guide as the Web Results Page) ![WebResultsPage ExampleS](./media/computer-vision-web-search/WebResultsPage.png)  
+5) Selecting an item from the OCR Results Page takes you to the following screen (defined in the codebase at *WebResultsPage.xaml*, and referenced in this guide as the Web Results Page) ![WebResultsPage ExampleS](./media/computer-vision-web-search-tutorial/WebResultsPage.png)  
 Here you can see the results of querying the Bing Web Search API using the extracted text and open the linked pages within the application.  As before, you can also use the navigation bar to return to the OCR Results Page. 
 
 6) Finally, selecting an item from the Web Results Page opens a WebView showing the content at that Bing result.  
-![WebViewPage Example](./media/computer-vision-web-search/WebViewPage.png)  
+![WebViewPage Example](./media/computer-vision-web-search-tutorial/WebViewPage.png)  
 From here, you can interact with the website as if it were loaded within a standard browser, or use the navigation bar to return to the Web Results Page. 
 
 [!NOTE]
