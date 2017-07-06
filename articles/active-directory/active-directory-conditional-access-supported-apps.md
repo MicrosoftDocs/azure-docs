@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2017
+ms.date: 07/06/2017
 ms.author: markvi
 
 ---
@@ -36,7 +36,7 @@ The following applications support conditional access for Office 365 and other A
 
 | Target Service| Platform| Application |
 | --- | --- | --- |
-| Any My Apps app service| Android and iOS| Any My Apps app service|
+| Any My Apps app service| Android and iOS| MFA and location policy for apps. Device based policies are not supported. |
 | Azure Remote App service| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X| Azure Remote app|
 | Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, and Android| Dynamics CRM app|
 | Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS/Android and MAC OSX| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, MAC OS X, iOS, Android, WP, and web client|
