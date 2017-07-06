@@ -192,6 +192,16 @@
 ### [Spark troubleshooting](hdinsight-troubleshoot-spark.md)
 ### [STORM troubleshooting](hdinsight-troubleshoot-storm.md)
 ### [YARN troubleshooting](hdinsight-troubleshoot-yarn.md)
+### [Resources]
+#### [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)
+#### [Hadoop memory and performance](hdinsight-hadoop-stack-trace-error-messages.md)
+#### [Access Hadoop YARN application logs on Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+#### [Enable heap dumps for Hadoop services](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+#### [Analyze HDInsight logs](hdinsight-debug-jobs.md)
+#### [Understand and resolve WebHCat errors](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
+#### [Hive settings fix Out of Memory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
+#### [Use Ambari Views to debug Tez Jobs](hdinsight-debug-ambari-tez-view.md)
+#### [Optimize Hive queries](hdinsight-hadoop-optimize-hive-query.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
