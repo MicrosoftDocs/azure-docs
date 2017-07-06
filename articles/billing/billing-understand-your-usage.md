@@ -8,14 +8,14 @@ manager: tonguyen
 editor: ''
 tags: billing
 
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
+ms.assetid: 8da458ec-e6fb-48d4-8afb-7e069a8e149f
 ms.service: billing
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
-ms.author: tonguyen
+ms.author: tonguyen10
 
 ---
 # Understand terms on your Microsoft Azure detailed usage charges 
