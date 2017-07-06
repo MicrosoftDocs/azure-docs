@@ -1,5 +1,5 @@
-A---
-title: Optimize content delivery for your scenario
+---
+title: Optimize Azure content delivery for your scenario
 description: How to optimize delivery of your content for specific scenarios
 services: cdn
 documentationcenter: ''
