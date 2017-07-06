@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/06/17
 ms.author: asteen
-
+ms.reviwer: japere
 ---
 
 # An assigned application is not appearing on the access panel
@@ -35,7 +35,7 @@ The type of apps a user may be seeing fall in the following categories:
 
 -   If an application was just added to a user, try to sign in and out again into the user’s Access Panel after a few minutes to see if the application is added.
 
--   If a license was just removed from a user or group the user is a member of this may take a long time, depending on the size and complexity of the group for changes to be made. allow for extra time before signing into the Access Panel.
+-   If a license was just removed from a user or group the user is a member of this may take a long time, depending on the size and complexity of the group for changes to be made. Allow for extra time before signing into the Access Panel.
 
 ## Problems related to application configuration
 
@@ -51,7 +51,7 @@ An application may not be appearing in a user’s Access Panel because it is not
 
 ### How to configure federated single sign-on for an Azure AD gallery application
 
-All application in the Azure AD gallery enabled with Enterprise Single Sign-On capability has a step-by-step tutorial available. You can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for a detail step-by-step guidance.
+All applications in the Azure AD gallery enabled with Enterprise Single Sign-On capability has a step-by-step tutorial available. You can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for a detail step-by-step guidance.
 
 To configure an application from the Azure AD gallery you need to:
 
@@ -127,11 +127,11 @@ To configure single sign-on for an application, follow the steps below:
 
    1. click **Add attribute**. Enter the **Name** and the select the **Value** from the dropdown.
 
-   2. Click **Save.** You see the new attribute in the table.
+   2. click **Save.** You see the new attribute in the table.
 
 13. click **Configure &lt;application name&gt;** to access documentation on how to configure single sign-on in the application. Also, you has the metadata URLs and certificate required to setup SSO with the application.
 
-14. Click **Save** to save the configuration.
+14. click **Save** to save the configuration.
 
 15. Assign users to the application.
 
@@ -168,7 +168,7 @@ To select the User Identifier or add user attributes, follow the steps below:
 
    1. click **Add attribute**. Enter the **Name** and the select the **Value** from the dropdown.
 
-   2. Click **Save.** You see the new attribute in the table.
+   2. click **Save.** You will see the new attribute in the table.
 
 #### Download the Azure AD metadata or certificate
 
