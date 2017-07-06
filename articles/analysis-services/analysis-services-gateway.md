@@ -96,7 +96,7 @@ The following are the fully qualified domain names used by the gateway.
 | *.powerbi.com |80 |HTTP used to download the installer. |
 | *.powerbi.com |443 |HTTPS |
 | *.analysis.windows.net |443 |HTTPS |
-| *.login.microsoftonline.com |443 |HTTPS |
+| *.login.windows.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
 | *.servicebus.windows.net |443, 9350-9354 |Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
 | *.frontend.clouddatahub.net |443 |HTTPS |
