@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 High availability and disaster recovery are important aspects of running your mission-critical SAP HANA on Azure (large instances) servers. It's important to work with SAP, your system integrator, or Microsoft to properly architect and implement the right high-availability/disaster-recovery strategy. It is also important to consider the recovery point objective and recovery time objective, which are specific to your environment.
 
-## High availability
+## High Availability 
 
 Microsoft supports some SAP HANA high-availability methods "out of the box" with HANA Large Instances. These include:
 
@@ -38,9 +38,9 @@ For more information on SAP HANA high availability, see the following SAP inform
 - [SAP Support Note #2165547 – SAP HANA Backup and Restore within SAP HANA System Replication Environment](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Support Note #1984882 – Using SAP HANA System Replication for Hardware Exchange with Minimum/Zero Downtime](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 
-## Disaster recovery
+## Disaster recovery requirements
 
-SAP HANA on Azure (large instances) is offered in two Azure regions in meanwhile three different geopolitical regions (U.S., Australia and Europe). Two different regions hosting HANA Large Instance stamps are connected with separate dedicated network circuits that are used for replicating storage snapshots to provide disaster recovery methods. The replication is not established by default. It is setup for customers that ordered disaster recovery functionality. 
+SAP HANA on Azure (large instances) is offered in two Azure regions in meanwhile three different geopolitical regions (U.S., Australia and Europe). Two different regions hosting HANA Large Instance stamps are connected with separate dedicated network circuits that are used for replicating storage snapshots to provide disaster recovery methods. The replication is not established by default. It is setup for customers that ordered disaster recovery functionality. It is also not possible to choose an Azure Region as DR region which is in a different geopolitical area.
 
 However, to take advantage of the disaster recovery, you need to start to design the network connectivity to the two different Azure regions. To do so, you need an Azure ExpressRoute circuit connection from on-premises in your main Azure region and another circuit connection from on-premises to your disaster-recovery region. This measure would cover a situation in which a complete Azure region, including a Microsoft Enterprise Edge router (MSEE) location, has an issue.
 
@@ -59,20 +59,8 @@ The next requirements for a disaster-recovery setup are:
 - You must order SAP HANA on Azure (large instances) SKUs of the same size as your production SKUs and deploy them in the disaster-recovery region. These instances can be used to run test, sandbox, or QA HANA instances. We refer to them as multi-usage units since we expect those units to have two HANA instances installed. One instance which is running and used as QA or test instance. Plus a dormant instance which would be the HANA instance taking over the production data in DR case. This instance is not up and running.  
 - You must order additional storage on the DR site for each of your SAP HANA on Azure (large instances) SKUs that you want to recover in the disaster-recovery site, if necessary. This action leads to the allocation of storage volumes, which are the target of the storage replication from your production Azure region into the disaster-recovery Azure region.
 
-The basis of the disaster recovery functionality offered, is storage replication functionality offered by the HANA Large Instance infrastructure. In order to replicate any data, you as a customer need o initiate regular storage snapshots. The way how to setup storage snapshots and the way how those should be scheduled on a regular basis will be described in a later section in this document.
-
-After you execute these snapshots, an initial replica of the volumes is seeded on the volumes that are associated with your disaster-recovery volumes in the disaster-recovery Azure region.
-
-Subsequently, the most recent storage snapshot for HANA data volumes is used every hour to replicate the deltas that develop on the storage volumes. Whereas the HANA backup log volumes can be copied every 15 minutes if you as a customer create new snapshots within a 15 minute period. 
-
-The recovery point objective that's achieved with this configuration is from 15 to 20 minutes. To achieve a better recovery point objective in the disaster-recovery case, copy the HANA transaction log backups from SAP HANA on Azure (large instances) to the other Azure region. To achieve this recovery point objective, do the following:
-
-1. Back up the HANA transaction log as frequently as possible to /hana/log/backups.
-2. Copy the transaction log backups, using rsync, when they are finished to NFS share hosted Azure virtual machines (VM), which are in Azure virtual networks in the Azure production region and in the DR regions. Both VNets need to be connected to the ER circuit connecting the production HANA Large Instances to Azure. 
-3. 
-4. Keep the transaction log backups in that region in the VM.
-5. In case of disaster, after the disaster-recovery volumes have been mounted to the former QA HANA Large Instance unit, the transaction log backups not yet showing up in the newly mounted (and formerly replicated) /hana/log/backups volume would be copied from the NFS share into that volume. 
-6. Now you could start a transaction log backup restore to the latest backup that could be saved over to the DR region. 
+More details on Disaster Recovery are following in the last chapters of the document.
+ 
 
 ## Backup and restore
 
@@ -357,7 +345,7 @@ If the test snapshot has been executed successfully with the script, everything 
 
 
 
-### Step 7: Perform on-demand snapshots
+### Step 7: Perform snapshots
 
 As all the preparation steps have been finished we can now start to configure the actual storage snapshot configuration. The script to be scheduled works with SAP HANA scale-up and scale-out configurations. The idea is that you schedule the execution of the scripts via cron. 
 
@@ -632,7 +620,7 @@ To recover to a point in time between the HANA snapshot (included in the storage
 2. Begin the procedure under "Recovering to the most recent state."
 3. In step 2 of the procedure, in the **Specify Recovery Type** window, select **Recover the database to the following point in time**, specify the point in time, and then complete steps 3-6.
 
-## Monitoring the execution of snapshots
+### Monitoring the execution of snapshots
 
 You need to monitor the execution of storage snapshots. The script that executes a storage snapshot writes output to a file and then saves it to the same location as the Perl scripts. A separate file is written for each snapshot. The output of each file clearly shows the various phases that the snapshot script executes:
 
@@ -666,5 +654,119 @@ HANA snapshot deletion successfully.
 ```
 You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the snapshots on each of the worker nodes. Then the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted.
 
-## Disaster Recovery
-With HANA Large Instances we offer a disaster recovery functionality between HANA Large Instance stamps in different Azure regions.
+
+## Disaster Recovery principles
+With HANA Large Instances we offer a disaster recovery functionality between HANA Large Instance stamps in different Azure regions. Means if you deploy HANA large Instance units in the US West Region of Azure, you could leverage HANA Large Instance units in the US East region as Disaster Recovery units. As mentioned earlier, disaster recovery is not configured automatically since it requires you to pay for another HANA Large Instance unit in the DR region as well. The disaster recovery setup works for scale-up as well as scale-out setups. 
+
+In the scenarios deployed so far, the customers used the unit in the DR region to run some QA or test systems that leveraged an installed HANA instance. The HANA Large Instance unit needs to be of the same SKU as the SKU used for production purposes. You then need to order some more disk volumes in order to have those used as targets for the storage replication from the production system into the DR site. The volumes which actually are getting replicated to the DR site are covering:
+
+- /hana/data
+- /hana/log
+- /hana/shared
+- /hana/log/backup
+- /usr/sap
+
+The basis of the disaster recovery functionality offered, is storage replication functionality offered by the HANA Large Instance infrastructure. the functionality used on the storage side is not a constant stream of changes being replicated in an asynchronous manner as changes happen to the storage. Instead it is a mechanism that relies on the fact that snapshots are created on a regular basis of these volumes. The changes between an already replicated snapshots and the snapshots not yet replicated are then transferred to the disaster recovery site into matching disk volumes (same size as production volumes. Sure the first time the complete data of a volume needs to be transferred before the amount of data is becoming smaller with deltas between snapshots. As a result the volumes in the DR site contain everyone of the volume snapshots performed in the production site. This allows you to eventually use that DR system to an earlier status in order to recover lost data without rolling back the production system.
+
+
+>[!NOTE]
+>In order to use the storage replication functionality, you need to first establish a storage snapshot schedule.
+
+In order to minimize the Recovery Point Objective, we recommend the following storage snapshot schedule:
+- One 'hana' type snapshot (see step 7 - Perform snapshots) every one hour
+- One 'logs' type of snapshot every 5-15 minutes. This will give you an RPO of around 15-25 minutes.
+
+To achieve a better recovery point objective in the disaster-recovery case, copy the HANA transaction log backups from SAP HANA on Azure (large instances) to the other Azure region. To achieve this recovery point objective reduction, do the following:
+
+1. Back up the HANA transaction log as frequently as possible to /hana/log/backups.
+2. Copy the transaction log backups, using rsync, when they are finished to NFS share hosted Azure virtual machines (VM), which are in Azure virtual networks in the Azure production region and in the DR regions. Both VNets need to be connected to the ExpressRoute circuit connecting the production HANA Large Instances to Azure (see graphics in the section: 'Disaster recovery requirements' of this document). 
+3. Keep the transaction log backups in that region in the VM.
+4. In case of disaster, after the disaster-recovery volumes have been mounted to the former QA HANA Large Instance unit, the transaction log backups not yet showing up in the newly mounted (and formerly replicated) /hana/log/backups volume would be copied from the NFS share into that volume. 
+5. Now you could start a transaction log backup restore to the latest backup that could be saved over to the DR region.
+
+## Disaster Recovery fail-over procedure
+In case you want or need to fail over to the DR site, you look at a process where you will need to interact with the SAP HANA on Azure Operations. In rough steps the process so far looks like:
+
+- Since you are running a QA or test instance of HANA on the DR unit of HANA Large Instances. You need to shutdown this instance. we assume that there is a dormant HANA production instance installed.
+- You need to make sure that no SAP HANA processes are running anymore. You can do this check with the command: /usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList. the output should show you the hdbdeamon process in a stopped state and no other HANA processes in a running or started state.
+- Now you need to check to which snapshot name or HANA backupid you want to have the DR site restored. In real DR cases this is usually the latest one. However you might be in a situation where you need to recover lost data. Hence you would need to pick an earlier snapshot.
+- You need to contact the SAP HANA on Azure Service Management through a high priority support request and ask for the restore of that snapshot/HANA backupid on the DR site. On the opreations side, the following steps will happen:
+	- The replication of snapshots from production volume to DR volumes will be stopped
+	- The storage snapshot/backupID you chose is getting restored
+	- After the restore the volumes will be made mountable
+- The next step on your side as customer is to mount the DR volumes to the DR HANA Large Instance unit 
+- Now you can start the so far dormant SAP HANA production instance.
+- if you chose to copy transaction log backup logs additionally to reduce th RPO time, you need to merge those transaction log backups into the newly mounted DR /hana/log/backups directory. Don't overwrite existing backups, but, just copy newer ones that have not been replicated by the storage.
+
+The next sequence of steps involves the recovering the SAP HANA production instance based on the restored storage snapshot and the transaction log backups that are available. the steps look like:
+
+Change the backup location to /hana/log/backups using SAP HANA Studio as seen below
+ ![Change backup location for DR recovery](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
+
+SAP HANA will scan through the backup file locations and suggest the most recent transaction log backup to be restored to. the scan can take a few minutes until a screen like the one below is shown:
+ ![List of transaction log backups for DR recovery](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.png)
+
+In the next step you need to adjust some default settings by:
+
+- De-Selecting 'Use Delta Backups'
+- Selecting 'Initialize Log Area'
+as shown below:
+
+ ![Set initialize Log area](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.png)
+
+In the next screen simply press finish as shown below:
+
+ ![Finish DR restore](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.png)
+
+A progress window like this should appear. Please note the example is of a DR restore of a 3-node scale-out setup.
+
+ ![Restore progress](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.png)
+
+In cases where the restore seems to hang in the 'finish screen' and does not come up with the progress screen, check whether all the SAP HANA instances on the worker nodes are running. if necessary start them manually.
+
+
+### Fail-back from DR to production site
+We assume that the fail-over into the DR site was caused by issues in the production Azure region and not by you requiring to get back lost data. means you now were in production or a while in the DR site. As the problems in the production site are resolved, you would like to fail back with your production site. Since you can't lose data, the step back into the production site involves several steps and close cooperation with SAP HANA on Azure Operations. It is on you as a customer to trigger the operations to start synchronizing back to the production site once the problems got resolved.
+
+The sequence of steps looks like:
+
+- Operations gets the trigger to synchronize the production volumes from the Dr volumes which are representing production state now. In this state the HANA Large Instance unit in the production site is shutdown.
+- Operations monitors the replication and makes sure that a catch up is achieved before informing you as a customer
+- You need to shutdown the applications which use the production HANA Instance in the DR site. Then perform a HANA transaction log backup and then stop the HANA instance running on the HANA Large Instance units in the DR site
+- After the HANA instance running in HANA Large Instance unit in the DR site is shut down, operation needs to manually synchronize the the disk volumes again.
+- Operations will start the HANA Large Instance unit in the production site again and hand it over to you. Please make sure that the SAP HANA instance is shutdown.
+- Now you need to perform the same steps database restore steps as you did them failing over to the DR site.
+
+### Monitoring Disaster Recovery Replication
+
+You are able to monitor the status of your storage replication progress by running the  script azure\_hana\_replication\_status.pl. This script must be run from the Disaster Recovery location otherwise it will not function as expected. The script will work regardless if replication is active.  The script can be run for every SAP HANA instance in the disaster recovery location. It cannot be used to obtain details about the boot volume.
+
+Call the script like:
+```
+./replication_status.pl <HANA SID>
+```
+
+The output is broken down by volume into the following:  Link Status, Current Replication Activity,  Latest Snapshot Replicated, Size of Latest Snapshot, and Current lag time between last completed snapshot replication and now.  The link status will either show as Active unless the link between locations is down or a failover event is currently ongoing.  The replication activity addresses whether any data is currently being replicated, idle, or if other activities are currently happening to the link.  The last snapshot replicated should only display as snapmirror…. If the log_backups volume is displayed otherwise only the latest customer-generated snapshot will appear.  This is a good indication that either a snapshot was not created by you or there is an issue with replication.  The size of the last snapshot is then displayed. Finally, the lag time is shown. The lag time represents the time from the scheduled replication time to when the replication finishes.  A lag time may show greater than an hour for data replication even though replication has started.  The lag time will continue to increase until the ongoing replication finishes.
+
+An example of an output can look like:
+
+```
+hana_data_hm3_mnt00002_t020_dp
+-------------------------------------------------
+Link Status: Broken-Off
+Current Replication Activity: Idle
+Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154095454.2017-04-21_051515
+Size of Latest Snapshot Replicated: 244KB
+Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
+```
+
+
+
+
+
+
+
+
+
+
+
