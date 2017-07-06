@@ -72,9 +72,13 @@ The vCenter account-access procedure is as follows:
 2. Assign the following permissions to this role:
 
     * **Datastore**: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
+
     * **Network**: Network assign
+
     * **Resource**: Assign VM to resource pool, Migrate powered off VM, Migrate powered on VM
+
     * **Tasks**: Create task, Update task
+
     * **Virtual machine**: 
         * Configuration > all
         * Interaction > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
