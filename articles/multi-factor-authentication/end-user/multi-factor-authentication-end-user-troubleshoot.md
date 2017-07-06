@@ -27,7 +27,7 @@ Two-step verification is a security feature that your organization chose to use 
 
 Microsoft offers two-step verification, but your organization chooses to use the feature. You can't opt out if your IT department requires it of you, just like you can't opt out of using a password to protect your account. 
 
-If you have two-step verification turned on for your *personal* Microsoft account and want to change your settings, read [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) instead. 
+If you have two-step verification turned on for your personal Microsoft account and want to change your settings, read [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) instead. 
 
 ## I don't have my phone with me today
 
@@ -58,14 +58,10 @@ To sign in using the alternate phone number, follow these steps:
 1. Sign in as you normally would.
 2. When prompted to further verify your account, choose **Use a different verification option**.
    
-    ![Different Verification](./media/multi-factor-authentication-end-user-manage/differentverification.png)
-3. Select the phone number that you have access to.
-   
-    ![Alternate phone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-4. After you're back in your account, [manage your settings](multi-factor-authentication-end-user-manage-settings.md) to change your authentication phone number.
+   ![Different Verification](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 
-> [!IMPORTANT]
-> It is important to configure a secondary authentication phone number. If your primary phone number and your mobile app are on the same phone, you need a third option if your phone is lost or stolen.   
+3. Select the phone number or device that you have access to.
+4. After you're back in your account, [manage your settings](multi-factor-authentication-end-user-manage-settings.md) to change your authentication phone number.
 
 ### Clear your settings
 If you have not configured a secondary authentication phone number, you have to contact your IT department for help. Have them clear your settings so the next time you sign in, you will be prompted to [register for two-step verification](multi-factor-authentication-end-user-first-time.md) again.
