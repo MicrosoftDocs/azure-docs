@@ -29,6 +29,7 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
+### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
