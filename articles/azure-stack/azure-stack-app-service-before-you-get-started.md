@@ -37,7 +37,7 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 
 1.	Sign in to the Azure Stack proof-of-concept (POC) computer as **AzureStack/administrator**, and then open **Server Manager**.
 2.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
-3.	Sign in to the MAS-CON01.AzureStack.local virtualAzure stack host machine as an administrator, and then open **Server Manager**.
+3.	Sign in to the Azure stack host machine as an administrator, and then open **Server Manager**.
 4.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
 
 ## Enable cookies
