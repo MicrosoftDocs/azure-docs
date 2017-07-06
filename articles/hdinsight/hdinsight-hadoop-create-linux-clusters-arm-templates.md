@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/14/2017
+ms.date: 06/30/2017
 ms.author: jgao
 
 ---
@@ -172,7 +172,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).
 
-## Appendix: Resource Manager template
+## Appendix: Resource Manager template to create a Hadoop cluster
 The following Azure Resource Manager template creates a Linux-based Hadoop cluster with the dependent Azure storage account.
 
 > [!NOTE]
@@ -377,4 +377,153 @@ The following Azure Resource Manager template creates a Linux-based Hadoop clust
         "value": "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
         }
     }
+    }
+
+## Appendix: Resource Manager template to create a Spark cluster
+
+This section provides a Resource Manager template that you can use to create an HDInsight Spark cluster. This template includes configurations for `spark-defaults` and `spark-thrift-sparkconf` (for Spark 1.6 clusters) and `spark2-defaults` and `spark2-thrift-sparkconf` (for Spark 2 clusters). In addition to this, HDInsight calculates and sets configurations such as `spark.executor.instances`, `spark.executor.memory`, and `spark.executor.cores` based on the cluster size. 
+
+If you set any one parameter in a section as part of the template itself, HDInsight does not calculate and set the other parameters of the same section. For example, parameter `spark.executor.instances` is in the  `spark-defaults` configuration. If you set another parameter (for example, `spark.yarn.exector.memoryOverhead`) in the `spark-defaults` configuration, HDInsight does not calculate and set the `spark.executor.instances` parameter as well.
+
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "0.9.0.0",
+    "parameters": {
+        "clusterName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the HDInsight cluster to create."
+            }
+        },
+        "clusterLoginUserName": {
+            "type": "string",
+            "defaultValue": "admin",
+            "metadata": {
+                "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+            }
+        },
+        "clusterLoginPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "southcentralus",
+            "metadata": {
+                "description": "The location where all azure resources will be deployed."
+            }
+        },
+        "clusterVersion": {
+            "type": "string",
+            "defaultValue": "3.5",
+            "metadata": {
+                "description": "HDInsight cluster version."
+            }
+        },
+        "clusterWorkerNodeCount": {
+            "type": "int",
+            "defaultValue": 4,
+            "metadata": {
+                "description": "The number of nodes in the HDInsight cluster."
+            }
+        },
+        "clusterKind": {
+            "type": "string",
+            "defaultValue": "SPARK",
+            "metadata": {
+                "description": "The type of the HDInsight cluster to create."
+            }
+        },
+        "sshUserName": {
+            "type": "string",
+            "defaultValue": "sshuser",
+            "metadata": {
+                "description": "These credentials can be used to remotely access the cluster."
+            }
+        },
+        "sshPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-03-01-preview",
+            "name": "[parameters('clusterName')]",
+            "type": "Microsoft.HDInsight/clusters",
+            "location": "[parameters('location')]",
+            "dependsOn": [],
+            "properties": {
+                "clusterVersion": "[parameters('clusterVersion')]",
+                "osType": "Linux",
+                "tier": "standard",
+                "clusterDefinition": {
+                    "kind": "[parameters('clusterKind')]",
+                    "configurations": {
+                        "gateway": {
+                            "restAuthCredential.isEnabled": true,
+                            "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+                            "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+                        },
+						"spark-defaults": {
+                            "spark.executor.cores": "2"
+                        },
+						"spark-thrift-sparkconf": {
+                            "spark.yarn.executor.memoryOverhead": "896"
+                        }
+                    }
+                },
+                "storageProfile": {
+                    "storageaccounts": [
+                        {
+                            "name": "[concat(variables('clusterStorageAccountName'),'.blob.core.windows.net')]",
+                            "isDefault": true,
+                            "container": "[parameters('clusterName')]",
+                            "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).key1]"
+                        }
+                    ]
+                },
+                "computeProfile": {
+                    "roles": [
+                        {
+                            "name": "headnode",
+                            "minInstanceCount": 1,
+                            "targetInstanceCount": 2,
+                            "hardwareProfile": {
+                                "vmSize": "Standard_D12"
+                            },
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "username": "[parameters('sshUserName')]",
+                                    "password": "[parameters('sshPassword')]"
+                                }
+                            },
+                            "virtualNetworkProfile": null,
+                            "scriptActions": []
+                        },
+                        {
+                            "name": "workernode",
+                            "minInstanceCount": 1,
+                            "targetInstanceCount": 4,
+                            "hardwareProfile": {
+                                "vmSize": "Standard_D4"
+                            },
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "username": "[parameters('sshUserName')]",
+                                    "password": "[parameters('sshPassword')]"
+                                    }
+                                },
+                                "virtualNetworkProfile": null,
+                                "scriptActions": []
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
     }
