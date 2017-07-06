@@ -53,16 +53,16 @@ cd AzureStack-Tools-master
 ##  Create marketplace items
 In this section, you use the Marketplace Publishing tool to create a marketplace item package in .azpkg format.  
 
-### Provide marketplace information with Wizard
+### Provide marketplace information with wizard
 1. Run the Marketplace Publisher in the previously opened PowerShell session:
 ```PowerShell
     .\MarketplacePublisher.ps1
 ```
 
-2. Click the **Solution** tab.  This screen accepts information about your marketplace item. Enter information about your item as you want it to appear in the marketplace.  You can also specify a (parameters file)[azure-stack-marketplace-publisher.md#Use-a-parameters-file] to prepopulate the form.  
+2. Click the **Solution** tab.  This screen accepts information about your marketplace item. Enter information about your item as you want it to appear in the marketplace.  You can also specify a [parameters file][azure-stack-marketplace-publisher.md#Use-a-parameters-file] to prepopulate the form.  
     
     ![screenshot of Marketplace Publisher first screen](./media/azure-stack-marketplace-publisher/image7.png)
-3. Click **Browse** and select an image file for icon and screenshot fields.
+3. Click **Browse** and select an image file for icon and screenshot fields.  You can use your own icons, or the sample icons in the [support files](azure-stack-marketplace-publisher.md#support-files) section.
 4. Once all fields are populated, select "Preview Solution" for a preview of the solution within the Marketplace.  You can revise and edit the text, images, and screenshot before clicking **Next**.  
 
 ### Import template and create package
@@ -77,7 +77,7 @@ In this section, you import the template and work with input for your solution.
 
 
 ## Publish marketplace items
-In this section, you publish your newly created marketplace item your Azure Stack Marketplace.
+In this section, you publish the marketplace item to your Azure Stack Marketplace.
 
 ![screenshot of Marketplace Publisher first screen](./media/azure-stack-marketplace-publisher/image9.png)
 
