@@ -26,12 +26,7 @@ The recommendations for troubleshooting issues that are described in this sectio
 
 ## Deployment
 ### Deployment failure
-If you experience a failure during installation, you can use the -rerun parameter of the Azure Stack install script to try again from the failed step.  Run the following from the PowerShell session where you noticed the failure:
-
-```PowerShell
-cd C:\CloudDeployment\Setup
-.\InstallAzureStackPOC.ps1 -rerun
-```
+If you experience a failure during installation, you can use use the rerun option of the deployment script to restart the deployment from the failed step.  
 
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
@@ -49,7 +44,7 @@ You can also use the Azure Stack templates already provided in the [GitHub repos
 
 ## Virtual machines
 ### Default image and gallery item
-You must first add a Windows Server image and gallery item before deploying VMs in Azure Stack TP3.
+You must first add a Windows Server image and gallery item before deploying VMs in Azure Stack.
 
 ### After restarting my Azure Stack host, some VMs may not automatically start.
 After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
@@ -84,11 +79,8 @@ When connecting to tenant subscriptions with PowerShell, you will notice that th
 ## CLI
 
 * The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
-
 * To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
-
 * Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. And this URNmust match the image specifications as derived from the `az vm images list` command.
-
 * By default, CLI 2.0 uses “Standard_DS1_v2” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
 
 
@@ -99,6 +91,5 @@ When connecting to tenant subscriptions with PowerShell, you will notice that th
     * The dashboard titles may not appear. If this issue occurs, you must manually add them back.
     * Some tiles may not show correctly when you first add them to the dashboard. To fix this issue, refresh the browser.
 
-## Next steps
-[Frequently asked questions](azure-stack-faq.md)
+
 
