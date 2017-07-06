@@ -65,7 +65,7 @@ The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}
 ### Via Azure CLI
 To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
 
-```cli
+```azurecli
 azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
