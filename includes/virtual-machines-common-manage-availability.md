@@ -1,13 +1,20 @@
-## Understand planned vs. unplanned maintenance
-There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
+## Understand VM Reboots - maintenance vs. downtime
+There are three scenarios which can lead to virtual machine in Azure being impacted: unplanned hardware maintenance, unexpected downtime and planned maintenance.
 
-* **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. Most of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
-* **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform automatically migrates your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot.
+* **Unplanned Hardware Maintenance Event** occurs when the Azure platform performs a maintenance operation due to changes required in the underlying hardware hosting a Virtual Machine. If the Azure platform predicts the hardware or any platform component associated to a physical machine is about to fail, the platform will issue an unplanned hardware maintenance operation to avoid or reduce the impact to the virtual machines running on that hardware. Azure uses Live Migration technology to migrate the Virtual Machines from the failing hardware to a healthy physical machine. Live Migration is a VM preserving operation resulting in a very short pause to the Virtual Machine (memory, open files and network connections are maintained but performance might be reduced for some period before and/or after the VM Preserving Maintenance operation). 
+
+In cases where Live Migration cannot be used to protect the VM from the predicted hardware failure, then the VM will experience Unexpected Downtime, as described below, if or when the hardware does fail as predicted.
+
+* **An Unexpected Downtime** impacting virtual machines rarely occurs when the hardware or the physical infrastructure underlying your Virtual Machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform automatically migrates (heals) your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. Note that Virtual Disks are always preserved. 
+
+* **Planned Maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. Most of these updates are performed without any impact upon your Virtual Machines or Cloud Services (see VM Preserving Maintenance). Platform attempts to use VM Preserving Maintenance in all possible occasions. However, there are rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. Platform will attempt to avoid any reboot due to Planned Maintenance but if in a rare case such a reboot is unavoidable, customer can perform Azure Planned Maintenance with Maintenance-Redeploy operation by initiating the maintenance for his/hers VMs in the suitable time window. For more information, see [Planned Maintenance for Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/).
+
 
 To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
 
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Use managed disks for VMs in an availability set]
+* [Use Scheduled Events to proactively response to VM impacting events ] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configure each application tier into separate availability sets]
 * [Combine a Load Balancer with availability sets]
 
