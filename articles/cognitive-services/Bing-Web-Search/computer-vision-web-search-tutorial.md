@@ -79,7 +79,7 @@ Before running the application, you need to select a target Configuration, Platf
 2) The application should launch and open to the following page (defined in the codebase at *AddKeysPage.xaml*, and referenced in this guide as the Add Keys Page).  ![A picture of the page where a user can add their Cognitive Services keys](./media/computer-vision-web-search-tutorial/AddKeysPage.png)  
 Here you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the *App.xaml.cs* page of the codebase. 
 
-3) Adding a set of working Azure keys takes you to the following page (defined in the codebase at *OcrSelectPage.xaml*, and referenced in this guide as the OCR Select Page). ![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/computer-vision-web-search/OcrSelectPage.png)  
+3) Adding a set of working Azure keys takes you to the following page (defined in the codebase at *OcrSelectPage.xaml*, and referenced in this guide as the OCR Select Page). ![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/computer-vision-web-search-tutorial/OcrSelectPage.png)  
 Here you can either import or capture a new photo and then pass that photo to the Print or Handwritten OCR service for processing. 
 
 4) The next screen displays the text extracted by the Azure Computer Vision API (defined in the codebase at *OcrResultsPage.xaml*, and referenced in this guide as the OCR Results Page).  ![OcrResultsPage Example](./media/computer-vision-web-search-tutorial/OcrResultsPage.png)  
