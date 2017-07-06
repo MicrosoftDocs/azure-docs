@@ -30,7 +30,7 @@ Before you use Azure AD Privileged Identity Management, you need to add the appl
 3. Select **More services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
 4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application opens.
 
-If you're the first person to use Azure AD Privileged Identity Management in your directory, then the [security wizard](active-directory-privileged-identity-management-security-wizard.md) walks you through the initial assignment experience. After that, you will automatically become the first **Security administrator** and **Privileged role administrator** of the directory. Only privileged role administrators can manage role assignments of users in your directory.  
+If you're the first person to use Azure AD Privileged Identity Management in your directory, you will automatically become the first **Security administrator** and **Privileged role administrator** of the directory. Only privileged role administrators can manage role assignments of users in your directory. In addition, you may choose to run the [security wizard.](active-directory-privileged-identity-management-security-wizard.md) that walks you through the initial discovery and assignment experience.
 
 ## Navigate to your tasks
 Once Azure AD Privileged Identity Management is set up, you'll see the navigation blade whenever you open the application. Use this blade to accomplish your identity management tasks.
