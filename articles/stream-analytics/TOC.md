@@ -42,7 +42,6 @@
 ### [Job reliability during updates](stream-analytics-job-reliability.md)
 
 ## Troubleshoot
-### [Add alerts](stream-analytics-set-up-alerts.md)
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
 ### [Resource health blade](stream-analytics-resource-health.md)
 ### [Job diagram and metrics](stream-analytics-job-diagram-with-metrics.md)
