@@ -44,6 +44,8 @@ Azure's industry leading 99.99% availability service level agreement (SLA), powe
 ## Secure your data
 Azure database services have a tradition of data security that Azure Database for MySQL upholds with features that limit access, protect data at-rest and in-motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/en-us/TrustCenter/Security/default.aspx) for information about Azure's platform security.
 
+The Azure Database for MySQL service uses storage encryption. All the data, including backups, are encrypted on disk. The service uses AES 256-bit cipher that is included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and cannot be disabled.
+
 ## Next Steps
 Now that you've read an introduction to Azure Database for MySQL and answered the question "What is Azure Database for MySQL?", you're ready to:
 - See the pricing page for cost comparisons and calculators. [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
