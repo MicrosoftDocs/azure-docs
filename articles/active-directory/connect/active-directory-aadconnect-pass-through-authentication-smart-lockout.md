@@ -20,16 +20,16 @@ ms.author: billmath
 
 ## Overview
 
-Azure AD provides protection against brute force password attacks on user accounts, while preventing genuine users from being locked out of their Office 365 and SaaS applications. This capability, called **Smart Lockout**, is supported when you use Pass-through Authentication as your sign-in method. Smart Lockout is enabled by default for all tenants and are protecting your user accounts all the time; there is no need to turn it on.
+Azure AD protects against brute force password attacks and prevents genuine users from being locked out of their Office 365 and SaaS applications. This capability, called **Smart Lockout**, is supported when you use Pass-through Authentication as your sign-in method. Smart Lockout is enabled by default for all tenants and are protecting your user accounts all the time; there is no need to turn it on.
 
-Smart Lockout works by keeping track of failed sign-in attempts, and after a certain **Lockout Threshold**, starting a **Lockout Duration**. Any sign-in attempts from the attacker during the Lockout Duration are rejected. If the attack continues, the subsequent failed sign-in attempts after the Lockout Duration ends will result in longer Lockout Durations.
+Smart Lockout works by keeping track of failed sign-in attempts, and after a certain **Lockout Threshold**, starting a **Lockout Duration**. Any sign-in attempts from the attacker during the Lockout Duration are rejected. If the attack continues, the subsequent failed sign-in attempts after the Lockout Duration ends result in longer Lockout Durations.
 
 >[!NOTE]
 >The default Lockout Threshold is 10 failed attempts, and the default Lockout Duration is 60 seconds.
 
-Smart Lockout also distinguishes between sign-ins from genuine users and from attackers and only locks out the attackers in most cases; this prevents attackers from maliciously locking out genuine users. We use past sign-in behavior, users’ devices & browsers and other signals to distinguish between genuine users and attackers. We are constantly improving our algorithms.
+Smart Lockout also distinguishes between sign-ins from genuine users and from attackers and only locks out the attackers in most cases. This functionality prevents attackers from maliciously locking out genuine users. We use past sign-in behavior, users’ devices & browsers and other signals to distinguish between genuine users and attackers. We are constantly improving our algorithms.
 
-Because Pass-through Authentication forwards password validation requests onto your on-premises Active Directory (AD), you need to take care to prevent attackers from locking out your users’ on-premises AD accounts. Since you’ll have your own AD **Account Lockout** policies (specifically, [**Account Lockout Threshold**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) and [**Reset Account Lockout Counter After policies**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), you’ll need to configure Azure AD’s Lockout Threshold and Lockout Duration values appropriately to filter out attacks in the cloud before they reach your on-premises AD.
+Because Pass-through Authentication forwards password validation requests onto your on-premises Active Directory (AD), you need to prevent attackers from locking out your users’ AD accounts. Since you have your own AD Account Lockout policies (specifically, [**Account Lockout Threshold**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) and [**Reset Account Lockout Counter After policies**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), you need to configure Azure AD’s Lockout Threshold and Lockout Duration values appropriately to filter out attacks in the cloud before they reach your on-premises AD.
 
 >[!NOTE]
 >While the Smart Lockout feature itself is free, modifying Azure AD’s Lockout Threshold and Lockout Duration values using Graph API is an Azure AD Premium P2 feature. It also needs you to be a Global Administrator on your tenant.
@@ -55,7 +55,7 @@ Use the following instructions to verify your AD Account Lockout policies:
 >[!IMPORTANT]
 >Modifying Azure AD’s Lockout Threshold and Lockout Duration values using Graph API is an Azure AD Premium P2 feature. It also needs you to be a Global Administrator on your tenant.
 
-You can use (Graph Explorer)[https://developer.microsoft.com/en-us/graph/graph-explorer] to read, set and update Azure AD’s Smart Lockout values. But you can also do these operations programmatically.
+You can use (Graph Explorer)[https://developer.microsoft.com/en-us/graph/graph-explorer] to read, set, and update Azure AD’s Smart Lockout values. But you can also do these operations programmatically.
 
 ### Read Smart Lockout values
 
@@ -64,7 +64,7 @@ Follow these steps to read your tenant’s Smart Lockout values:
 1. Sign into Graph Explorer as a Global Administrator of your tenant. If prompted, grant access for the requested permissions.
 2. Click “Modify permissions” and select the “Directory.ReadWrite.All” permission.
 3. Configure the Graph API request as follows: Set version to “BETA”, request type to “GET” and URL to `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Click "Run Query" to see your tenant's Smart Lockout values. If you haven't set your tenant's values before, you'll see an empty set.
+4. Click "Run Query" to see your tenant's Smart Lockout values. If you haven't set your tenant's values before, you see an empty set.
 
 ### Set Smart Lockout values
 
