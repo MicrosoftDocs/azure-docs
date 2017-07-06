@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
 
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
@@ -13,10 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 07/05/2017
 ms.author: kgremban
-
-ms.custom: H1Hack27Feb2017
+ms.reviewer: harshja
+ms.custom: H1Hack27Feb2017, it-pro
 ---
 
 # Provide single sign-on to your apps with Application Proxy
@@ -24,14 +23,14 @@ Single sign-on is a key element of Azure AD Application Proxy. It provides the b
 
 1. A user signs in to the cloud.  
 2. All security validations happen in the cloud (preauthentication).  
-3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user. The backend application thinks this is a regular user coming from a domain-joined device.
+3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user. The backend application thinks the request is from a regular user on a domain-joined device.
 
 ![Access diagram from end user, through Application Proxy, to the corporate network](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
 Azure AD Application Proxy helps you provide a single sign-on (SSO) experience for your users. Use the following instructions to publish your apps using SSO:
 
 ## SSO for on-prem IWA apps using KCD with Application Proxy
-You can enable single sign-on to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy Connectors permission in Active Directory to impersonate users, and send and receive tokens on their behalf.
+You can enable single sign-on to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy connectors permission in Active Directory to impersonate users. The connectors use this permission to send and receive tokens on their behalf.
 
 ### Network diagram
 This diagram explains the flow when a user attempts to access an on-prem application that uses IWA.
@@ -53,7 +52,7 @@ Before you get started with SSO for Application Proxy, make sure your environmen
 * Your apps, like SharePoint Web apps, are set to use Integrated Windows Authentication. For more information, see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
 * All your apps have Service Principal Names.
 * The server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
-* The server running the Connector has access to read the TokenGroupsGlobalAndUniversal for users. This is a default setting that might have been impacted by security hardening the environment. Get more help with this setting in [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
+* The server running the Connector has access to read the TokenGroupsGlobalAndUniversal for users. This default setting might have been impacted by security hardening the environment. Get more help with this setting in [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
 
 ### Active Directory configuration
 The Active Directory configuration varies, depending on whether your Application Proxy Connector and the published server are in the same domain or not.
@@ -61,7 +60,7 @@ The Active Directory configuration varies, depending on whether your Application
 #### Connector and published server in the same domain
 1. In Active Directory, go to **Tools** > **Users and Computers**.
 2. Select the server running the Connector.
-.3. Right-click and select **Properties** > **Delegation**.
+3. Right-click and select **Properties** > **Delegation**.
 4. Select **Trust this computer for delegation to specified services only**. Under **Services to which this account can present delegated credentials** add the value for the SPN identity of the application server.
 5. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
@@ -83,11 +82,12 @@ The Active Directory configuration varies, depending on whether your Application
 >
 
 ### Azure classic portal configuration
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
-2. After your application appears in the list of applications, select it and click **Configure**.
-3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.  
-   ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
+2. After your application appears in the list of enterprise applications, select it and click **Single sign-on**.
+3. Set the single sign-on mode to **Integrated Windows Authentication**.  
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.  
+
+   ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 
 > [!IMPORTANT]
 > If your on-premises UPN and the UPN in Azure Active Directory are not identical, you need to configure the [delegated login identity](#delegated-login-identity) in order for preauthentication to work.
@@ -100,7 +100,7 @@ The Active Directory configuration varies, depending on whether your Application
 | Internal Application SPN |This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Azure AD. The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using KCD. |
 
 ## SSO for non-Windows apps
-The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy Connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. There are several protocols that define how to send such requests. Most non-Windows servers expect Negotiate/SPNego that is now supported on Azure AD Application Proxy.
+The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. There are several protocols that define how to send such requests. Most non-Windows servers expect Negotiate/SPNego that is now supported on Azure AD Application Proxy.
 
 ![Non-Windows SSO diagram](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
@@ -126,9 +126,9 @@ This capability allows many organizations that have different on-prem and cloud 
 * Have multiple domains internally (joe@us.contoso.com, joe@eu.contoso.com) and a single domain in the cloud (joe@contoso.com).
 * Have non-routable domain name internally (joe@contoso.usa) and a legal one in the cloud.
 * Do not use domain names internally (joe)
-* Use different aliases on-prem and in the cloud. E.g. joe-johns@contoso.com vs. joej@contoso.com  
+* Use different aliases on-prem and in the cloud. For example, joe-johns@contoso.com vs. joej@contoso.com  
 
-It also helps with applications that do not accept addresses in the form of email address, which is a very common scenario for non-Windows backend servers.
+It also helps with applications that do not accept addresses in the form of email address, which is a common scenario for non-Windows backend servers.
 
 ### Setting SSO for different cloud and on-prem identities
 1. Configure Azure AD Connect settings so the main identity is the email address (mail). This is done as part of the customize process, by changing the **User Principal Name** field in the sync settings. These settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
