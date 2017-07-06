@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/05/2017
 ms.author: markvi
 
 ---
@@ -35,8 +35,8 @@ ms.author: markvi
 
 ---
 
-## What happens when your Azure Active Directory premium trial expires?
+## What happens when your Azure Active Directory Premium 2 trial expires?
 
-**A:** You still have access to Identity Protection even though your Azure Active Directory premium trial has expired. 
+**A:** If your Azure Active Directory Premium 2 trial edition has expired on your Azure Active Directory Free, Basic or Premium 1 edition, and you had Identity Protection enabled, you still have access to it even though you are not in compliance with licensing.
 
 ---
