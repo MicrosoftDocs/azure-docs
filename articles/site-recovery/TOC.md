@@ -122,6 +122,7 @@
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
+### [Delete Recovery Services vault](delete-vault.md)
 
 ## Monitor and troubleshoot
 ### [Azure to Azure replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
