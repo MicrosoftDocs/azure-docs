@@ -26,7 +26,7 @@ Learn how to use Apache Hive to process Twitter data. The result is a list of Tw
 > [!IMPORTANT]
 > The steps in this document were tested on HDInsight 3.5.
 >
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Get the data
 

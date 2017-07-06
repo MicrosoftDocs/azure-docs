@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2017
+ms.date: 07/02/2017
 ms.author: msfussell
 
 ---
@@ -31,7 +31,7 @@ These business needs are affecting *how* we build applications.
 For more information about the approach of Azure to microservices, read [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## Monolithic vs. microservice design approach
-All applications evolve over time. Successful applications evolve by being useful to people. Unsuccessful applications do not evolve and eventually are deprecated. The question becomes: How much do you know about your requirements today, and what will they be in the future? For example, let's say that you are building a reporting application for a department. You are sure that the application will remain within the scope of your company and that the reports will be short-lived. Your choice of approach is different from, say, building a service that delivers video content to tens of millions of customers. 
+All applications evolve over time. Successful applications evolve by being useful to people. Unsuccessful applications do not evolve and eventually are deprecated. The question becomes: How much do you know about your requirements today, and what will they be in the future? For example, let's say that you are building a reporting application for a department. You are sure that the application remains within the scope of your company and that the reports are short-lived. Your choice of approach is different from, say, building a service that delivers video content to tens of millions of customers. 
 
 Sometimes, getting something out the door as proof of concept is the driving factor, while you know that the application can be redesigned later. There is little point in over-engineering something that never gets used. It’s the usual engineering trade-off. On the other hand, when companies talk about building for the cloud, the expectation is growth and usage. The issue is that growth and scale are unpredictable. We would like to be able to prototype quickly while also knowing that we are on a path to deal with future success. This is the lean startup approach: build, measure, learn, and iterate.
 
@@ -54,12 +54,15 @@ As more cloud apps are produced, people discover that this decomposition of the 
 ## Comparison between application development approaches
 ![Service Fabric platform application development][Image1]
 
-* A monolithic app contains domain-specific functionality and is normally divided by functional layers, such as web, business, and data.
-* You scale a monolithic app by cloning it on multiple servers/virtual machines/containers.
-* A microservice application separates functionality into separate smaller services.
-* The microservices approach scales out by deploying each service independently, creating instances of these services across servers/virtual machines/containers.
+1) A monolithic app contains domain-specific functionality and is normally divided by functional layers, such as web, business, and data.
 
-Designing with a microservice approach is not a panacea for all projects, but it does align more closely with the business objectives described earlier. Starting with a monolithic approach might be acceptable if you know that you will not have the opportunity to rework the code later into a microservice design if necessary. More commonly, you begin with a monolithic app and slowly break it up in stages, starting with the functional areas that need to be more scalable or agile.
+2) You scale a monolithic app by cloning it on multiple servers/virtual machines/containers.
+
+3) A microservice application separates functionality into separate smaller services.
+
+4) The microservices approach scales out by deploying each service independently, creating instances of these services across servers/virtual machines/containers.
+
+Designing with a microservice approach is not a panacea for all projects, but it does align more closely with the business objectives described earlier. Starting with a monolithic approach might be acceptable if you know that you will have the opportunity to rework the code later into a microservices design. More commonly, you begin with a monolithic application and slowly break it up in stages, starting with the functional areas that need to be more scalable or agile.
 
 To summarize, the microservice approach is to compose your application of many small services. The services run in containers that are deployed across a cluster of machines. Smaller teams develop a service that focuses on a scenario and independently test, version, deploy, and scale each service so that the entire application can evolve.
 
@@ -99,7 +102,7 @@ Returning to the monolithic versus microservice approach for a moment, the follo
 
 In a monolithic approach, typically the application uses a single database. The advantage is that it is a single location, which makes it easy to deploy. Each component can have a single table to store its state. Teams need to strictly separate state, which is a challenge. Inevitably there are temptations to add a new column to an existing customer table, do a join between tables, and create dependencies at the storage layer. After this happens, you can't scale individual components. 
 
-In the microservices approach, each service manages and stores its own state. Each service is responsible for scaling both code and state together to meet the demands of the service. A downside is that when there is a need to create views, or queries, of your application’s data, you will need to query across disparate state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you need to perform multiple impromptu queries on the data, each microservice should consider writing its data to a data warehousing service for offline analytics.
+In the microservices approach, each service manages and stores its own state. Each service is responsible for scaling both code and state together to meet the demands of the service. A downside is that when there is a need to create views, or queries, of your application’s data, you need to query across disparate state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you need to perform multiple impromptu queries on the data, each microservice should consider writing its data to a data warehousing service for offline analytics.
 
 Versioning is specific to the deployed version of a microservice so that multiple, different versions deploy and run side by side. Versioning addresses the scenarios where a newer version of a microservice fails during upgrade and needs to roll back to an earlier version. The other scenario for versioning is performing A/B-style testing, where different users experience different versions of the service. For example, it is common to upgrade a microservice for a specific set of customers to test new functionality before rolling it out more widely. After lifecycle management of microservices, this now brings us to communication between them.
 
@@ -107,7 +110,7 @@ Versioning is specific to the deployed version of a microservice so that multipl
 This topic needs little attention here, because extensive literature about service-oriented architecture that has been published over the past 10 years describes communication patterns. Generally, service communication uses a REST approach with HTTP and TCP protocols and XML or JSON as the serialization format. From an interface perspective, it is about embracing the web design approach. But nothing stops you from using binary protocols or your own data formats. Be prepared for people to have a harder time using your microservices if these are openly available.
 
 ### Has a unique name (URL) used to resolve its location
-Remember how we keep saying that the microservice approach is like the web? Like the web, your microservice needs to be addressable wherever it is running. If you are thinking about machines and which one is running a particular microservice, things will go bad quickly. 
+Remember how we keep saying that the microservice approach is like the web? Like the web, your microservice needs to be addressable wherever it is running. If you are thinking about machines and which one is running a particular microservice, things go bad quickly. 
 
 In the same way that DNS resolves a particular URL to a particular machine, your microservice needs to have a unique name so that its current location is discoverable. Microservices need addressable names that make them independent from the infrastructure that they are running on. This implies that there is an interaction between how your service is deployed and how it is discovered, because there needs to be a service registry. Equally, when a machine fails, the registry service must tell you where the service is now running. 
 
@@ -130,12 +133,41 @@ Azure Service Fabric emerged from a transition by Microsoft from delivering box 
 
 ***The aim of Service Fabric is to solve the hard problems of building and running a service and utilize infrastructure resources efficiently, so that teams can solve business problems using a microservices approach.***
 
-Service Fabric provides two broad areas to help you build applications that use a microservices approach:
+Service Fabric provides three broad areas to help you build applications that use a microservices approach:
 
-* A platform that provides system services to deploy, upgrade, detect, and restart failed services, discover service location, manage state, and monitor health. These system services in effect enable many of the characteristics of microservices previously described.
-* Programming APIs, or frameworks, to help you build applications as microservices: [reliable actors and reliable services](service-fabric-choose-framework.md). Of course, you can choose any code to build your microservice. But these APIs make the job more straightforward, and they integrate with the platform at a deeper level. This way, for example, you can get health and diagnostics information, or you can take advantage of built-in high availability.
+* A platform that provides system services to deploy, upgrade, detect, and restart failed services, discover services, route messages, manage state, and monitor health. These system services in effect enable many of the characteristics of microservices previously described.
+* Ability to deploy applications either running in containers or as processes. Service Fabric is a container and process orchestrator.
+* Productive programming APIs,  to help you build applications as microservices: [ASP.NET Core, Reliable Actors, and Reliable Services](service-fabric-choose-framework.md). You can choose any code to build your microservice. But these APIs make the job more straightforward, and they integrate with the platform at a deeper level. This way, for example, you can get health and diagnostics information, or you can take advantage of built-in high availability.
 
-***Service Fabric is agnostic on how you build your service, and you can use any technology.However, it does provide built-in programming APIs that make it easier to build microservices.***
+***Service Fabric is agnostic on how you build your service, and you can use any technology. However, it does provide built-in programming APIs that make it easier to build microservices.***
+
+### Migrating existing applications to Service Fabric
+A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application monderization, and you can start and stop at any of the stages. These are;
+
+1) Take a traditional monolithic application
+2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.
+3) Modernization - New microservices added alongside existing containerized code. 
+4) Innovate - Break the monolithic into microservices purely based on need.
+5) Transformed into microservices - the transformation of existing monolithic applications or building new greenfield applications.
+
+![Migration to Microservices][Image3]
+
+It is important to emphasis again, that you can **start and stop and any of these stages**, you are not compelled to moved to the next stage. Let's now look at examples for each of these stages.
+
+**Lift and Shift** - large numbers of companies are lifting and shifting existing monolithic applications into containers to for two reasons;
+
+- Cost reduction either due to consolidation and removal  of existing hardware or running applications at higher density. 
+- Consistent deployment contract between development and operations.
+
+Cost reductions are understandable and within Microsoft large numbers of existing applications are being containerized simply to millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
+
+Many organizations stop here. They already have the benefits of containers and Service Fabric provides the complete management experience from deployment, upgrades, versioning, rollbacks, health monitoring etc.
+
+**Modernization** - is the addition of new services alongside existing containerized code. If you are going to write new code, it is best to decide to take small steps down the microservices path. This could be adding a new REST API endpoint, or new business logic. This way, you start on the journey of building new microservices and practice developing and deploying them.
+
+**Innovate** - remember those original changing business needs at the start of this article, that are driving the microservices approach? At this stage the decision is, are these happening to my current application and if so, I need to start splitting the monolith, or innovating. An example here is when a database becomes a processing bottleneck, since it is being used as a workflow queue. As the number of workflow requests increasing the work needs to be distributed for scale. So for that particular piece of the application that is not scaling, or you need to update more frequently, split this out into a microservice and innovate. 
+
+**Transformed into microservices** - this is where your application is fully composed of (or decomposed into) microservices. To reach here, you have made the microservices journey. You can start here, but to do this without a microservices platform to help you is a significant investment. 
 
 ### Are microservices right for my application?
 Maybe. What we experienced was that as more and more teams in Microsoft began to build for the cloud for business reasons, many of them realized the benefits of taking a microservice-like approach. Bing, for example, has been developing microservices in search for years. For other teams, the microservices approach was new. Teams found that there were hard problems to solve outside of their core areas of strength. This is why Service Fabric gained traction as the technology of choice for building services.
@@ -150,3 +182,4 @@ The objective of Service Fabric is to reduce the complexities of building applic
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
+[Image3]: media/service-fabric-overview-microservices/microservices-migration.png
