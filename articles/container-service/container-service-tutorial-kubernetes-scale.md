@@ -15,13 +15,13 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 07/06/2017
 ms.author: danlep
 ---
 
 # Scale Kubernetes pods and Kubernetes infrastructure
 
-If you have been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 
+If you've been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 
 
 In this tutorial, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of agent nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
 
@@ -56,7 +56,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command. This example increases the number to 4:
+Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command. This example increases the number to 5:
 
 ```bash
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -71,12 +71,13 @@ kubectl get pods
 Output:
 
 ```bash
-NAME                               READY     STATUS    RESTARTS   AGE
-azure-vote-back-2549686872-4d2r5   1/1       Running   0          33m
-azure-vote-front-848767080-1kt72   1/1       Running   0          1m
-azure-vote-front-848767080-2b62d   1/1       Running   0          1m
-azure-vote-front-848767080-78rf0   1/1       Running   0          1m
-azure-vote-front-848767080-tf34m   1/1       Running   0          33m
+NAME                                READY     STATUS    RESTARTS   AGE
+azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
+azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
+azure-vote-front-3309479140-bzt05   1/1       Running   0          3m
+azure-vote-front-3309479140-fvcvm   1/1       Running   0          3m
+azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
+azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
 ## Autoscale pods
