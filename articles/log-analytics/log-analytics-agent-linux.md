@@ -215,8 +215,9 @@ If a workspace ID and key were not provided during the bundle installation, the 
 Run the omsadmin.sh command supplying the workspace id and key for your workspace. This command must be run as root (with sudo elevation):
 ```
 cd /opt/microsoft/omsagent/bin
-sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
+sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key> [-p <proxy>] [-v]
 ```
+The optional -v switch will enable verbose logging during the onboarding process. All the information will be showed on the screen where shell script is executed.
 
 ### Onboarding using a file
 1.	Create the file `/etc/omsagent-onboard.conf`. The file must be readable and writable for root.

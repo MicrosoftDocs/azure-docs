@@ -72,6 +72,7 @@
 ### Examples
 #### [Tags](resource-manager-policy-tags.md)
 #### [Naming conventions](resource-manager-policy-naming-convention.md)
+#### [Network](resource-manager-policy-network.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

@@ -14,13 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/03/2017
+ms.date: 07/05/2017
 ms.author: carlrab
 
 ---
 # Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
 
-This quick start tutorial demonstrates how to use [.NET core](https://www.microsoft.com/net/) on Windows/Linux/macOS to create a C# program with Visual Studio to connect to an Azure SQL database and query data using Transact-SQL statements to query data.
+This quick start tutorial demonstrates how to use [.NET core](https://www.microsoft.com/net/) on Windows/Linux/macOS to create a C# program to connect to an Azure SQL database and query data using Transact-SQL statements to query data.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To complete this quick start tutorial, make sure you have the following:
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 - You have installed [.NET Core for your operating system](https://www.microsoft.com/net/core). 
 
-## Get Azure SQL server connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
@@ -57,7 +57,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 > You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 >
   
-## Create a new .NET project and add dependencies
+## Create a new .NET project
 
 1. Open a command prompt and create a folder named *sqltest*. Navigate to the folder you created and run the following command:
 
@@ -73,7 +73,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
     </ItemGroup>
     ```
 
-## Insert code into the project to query your Azure SQL database
+## Insert code to query SQL database
 
 1. In your development environment or favorite text editor open **Program.cs**
 
@@ -137,7 +137,7 @@ namespace sqltest
 
 1. At the command prompt, run the following commands:
 
-   ```
+   ```csharp
    dotnet restore
    dotnet run
    ```
