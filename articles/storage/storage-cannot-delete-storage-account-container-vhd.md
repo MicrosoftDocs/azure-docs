@@ -135,4 +135,3 @@ A "Stopped (deallocated)" status releases the computer resources, such as the CP
 
 ## Next steps
 * [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
-* [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

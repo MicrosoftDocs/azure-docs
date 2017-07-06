@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: cfreeman
 
 ---
@@ -30,7 +30,7 @@ Additional sources of information:
 ## Index
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster_v2) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns_v2) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -314,14 +314,16 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster_v2) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns_v2) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
-#### evaluate autocluster
+#### evaluate autocluster (Deprecated)
      T | evaluate autocluster()
 
 Autocluster is a quick way to find the natural groupings in a set of data. For example, from a mass of request data, you might quickly identify that 80% of the 404 failures were requests for one particular URL, made by a client in a particular city.
 
 AutoCluster finds common patterns of discrete attributes (dimensions) in the data and will reduce the results of the original query (whether it's 100 or 100k rows) to a small number of patterns. AutoCluster was developed to help analyze failures (e.g. exceptions, crashes) but can potentially work on any filtered data set. 
+
+**This version of `autocluster` is deprecated. Please use [autocluster_v2](#evaluate-autocluster_v2).**
 
 **Syntax**
 
@@ -370,6 +372,98 @@ Note that the patterns are not disjoint: they may be overlapping, and usually do
   
     Example: `T | evaluate autocluster("weight_column=sample_Count")` 
 
+<a name="evaluate-autocluster_v2"></a>
+
+#### evaluate autocluster_v2
+
+    T | evaluate autocluster_v2()
+
+AutoCluster finds common patterns of discrete attributes (dimensions) in the data and will reduce the results of the original query (whether it's 100 or 100k rows) to a small number of patterns. AutoCluster was developed to help analyze failures (e.g. exceptions, crashes) but can potentially work on any filtered data set. The AutoCluster algorithm was developed by the Developer Analytics research team (KustoML@microsoft.com).
+
+This plugin replaces the deprecated autocluster plugin syntax.     
+
+**Syntax**
+`T | evaluate autocluster_v2( arguments )`
+
+**Returns**
+AutoCluster returns a (usually small) set of patterns that capture portions of the data with shared common values across multiple discrete attributes. Each pattern is represented by a row in the results. 
+The first column is the segment Id. The next two columns are the count and percentage of rows out of the original query that are captured by the pattern. The remaining columns are from the original query and their value is either a specific value from the column or a wildcard value (which are by default null) meaning variable values. 
+Note that the patterns are not distinct: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
+
+**Tips**
+Use `where` and `project` in the input pipe to reduce the data to just what you're interested in.
+When you find an interesting row, you might want to drill into it further by adding its specific values to your `where` filter.
+
+**Arguments (all optional)**
+`T | evaluate autocluster_V2([*SizeWight*,*WeightColumn*,*NumSeeds*,*CustomWildcard*,...])
+
+All arguments are optional, but they must be ordered as above. To indicate that the default value should be used, put the string tilde value - '~' (see examples below).
+
+**Available arguments**
+
+- SizeWeight - 0<*double* <1 [default 0.5]
+Gives you some control over the balance between generic (high coverage) and informative (many shared values). Increasing the value usually reduces the number of patterns, and each pattern tends to cover a larger percentage. Decreasing the value usually produces more specific patterns with more shared values and smaller percentage coverage. The under the hood formula is a weighted geometric mean between the normalized generic score and informative score with *SizeWeight* and *1-SizeWeight* as the weights. 
+
+**Example**
+`T | evaluate autocluster_v2(0.8)`
+
+- WeightColumn - *column_name*
+
+Considers each row in the input according to the specified weight (by default each row has a weight of '1'). The argument must be a name of a numeric column (e.g. int, long, real). A common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+**Example**
+`T | evaluate autocluster_v2('~', sample_Count)`
+
+`- NumSeeds - *int* [default 25]
+
+The number of seeds determines the number of initial local search points of the algorithm. In some cases, depending on the structure of the data, increasing the number of seeds increases the number (or quality) of the results through increased search space at slower query tradeoff. The value has diminishing results in both directions so decreasing it below 5 will achieve negligible performance improvents and increasing above 50 will rarely generate additional patterns.
+
+**Example**
+`T | evaluate autocluster_v2('~','~',15)`
+
+- CustomWildcard - *any_value_per_type*
+
+Sets the wildcard value for a specific type in the result table that will indicate that the current pattern doesn't have a restriction on this column. Default is null, for string default is an empty string. If the default is a viable value in the data, a different wildcard value should be used (e.g. *).
+
+**Example**
+
+`T | evaluate autocluster_v2('~','~','~',int (-1), double(-1), long(0), datetime(1900-1-1))`
+
+**Example**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage
+| evaluate autocluster_v2(0.6)
+```
+**Results**
+|SegmentId|Count|Percent|State|EventType|Damage|
+----------|-----|-------|-----|---------|------|
+0|2278|38.7||Hail|NO
+1|512|8.7||Thunderstorm Wind|YES
+2|898|15.3|TEXAS|||
+
+**Example with custom wildcards**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage 
+| evaluate autocluster_v2(0.2, '~', '~', '*')
+```
+**Results**
+|SegmentId|Count|Percent|State|EventType|Damage|
+----------|-----|-------|-----|---------|------|
+0|2278|38.7|\*|Hail|NO
+1|512|8.7|\*|Thunderstorm Wind|YES
+2|898|15.3|TEXAS|\*|\*|
+
+**Additional information**
+
+-  AutoCluster is largely based on the Seed-Expand algorithm from the following paper: [Algorithms for Telemetry Data Mining using Discrete Attributes](http://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1), full text link: [pdf](https://kusto.azurewebsites.net/docs/queryLanguage/images/queries/ICPRAM17telemetry.pdf). 
+
+
 #### evaluate basket (deprecated)
 
      T | evaluate basket()
@@ -413,9 +507,13 @@ Replaces the deprecated `evaluate basket` syntax.
 
 **Returns**
 
-All patterns appearing in more than a specified fraction (default 0.05) of the events. For each pattern, columns that are not set in the pattern (i.e. without restricition on a specific value) will contain a wildcard value which are by default null values (see in the Arguments section below how they can be manually changed).
+Basket returns all frequent patterns appearing in above the ratio threshold (default: 0.05) of the rows Each pattern is represented by a row in the results.
+
+The first column is the segment Id. The next two columns are the count and percentage of rows out of the original query that are captured by the pattern. The remaining columns are from the original query and their value is either a specific value from the column or a wildcard value (which are by default null) meaning variable values.
 
 **Arguments (all optional)**
+
+Example: `T | evaluate basket_v2([Threshold, WeightColumn, MaxDimensions, CustomWildcard, CustomWildcard, ...])`
 
 All arguments are optional, but must be in the following order. To indicate that a default value should be used, use the tilde character '~' (see examples below).
 
@@ -423,31 +521,68 @@ All arguments are optional, but must be in the following order. To indicate that
   
     Sets the minimal ratio of the rows to be considered frequent (patterns with smaller ratio will not be returned).
   
-    Example: `T | evaluate basket(0.02)`
-* Weight column *itemCount*
+    Example: `T | evaluate basket_v2(0.02)`
+* Weight column *-column_name*
   
-    Use this to take into account sampling and metric pre-aggregation. Each row is attributed the weight specified in this column. By default each row has a weight of '1'. This takes into account the bucketing or aggregation of the data that is already embedded into each row.
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'). The argument must be a name of a numeric column (e.g. int, long, real). A common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
   
-    Example: `T | evaluate basket('~', itemCount)`
+    Example: `T | evaluate basket_v2('~', sample_Count)`
 * Max dimensions: 1 < *int* (default: 5)
   
     Sets the maximal number of uncorrelated dimensions per basket, limited by default to decrease the query runtime.
 
-    Example: `T | evaluate basket('~', '~', 3)`
+    Example: `T | evaluate basket_v2('~', '~', 3)`
 * Custom wildcard types: *any value per type*
   
     Sets the wildcard value for a specific type in the result table that will indicate that the current pattern doesn't have a restriction on this column. Default is null, for string default is an empty string. If the default is a viable value in the data, a different wildcard value should be used (e.g. *).
 
     Example: `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
 
-**Example**
+**Examples**
 
-``` AIQL
-requests 
-| evaluate basket_v2(0.7, itemCount)
+``` 
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2)
 ```
+Results
 
-#### evaluate diffpatterns
+|SegmentId|Count|Percent|State|EventType|Damage|DamageCrops
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77.7|||NO|0
+1|2278|38.7||Hail|NO|0
+2|5675|96.4||||0
+3|2371|40.3||Hail||0
+4|1279|21.7||Thunderstorm Wind||0
+5|2468|41.9||Hail|||
+6|1310|22.3|||YES||
+7|1291|21.9||Thunderstorm Wind||
+
+Example with custom wildcards
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2, '~', '~', '*', int(-1))
+```
+Results
+
+|SegmentId|Count|Percent|State|EventType|Damage|DamageCrops
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77.7|\*|\*|NO|0
+1|2278|38.7|\*|Hail|NO|0
+2|5675|96.4|\*|\*|\*|0
+3|2371|40.3|\*|Hail|\*|0
+4|1279|21.7|\*|Thunderstorm Wind|\*|0
+5|2468|41.9|\*|Hail|\*|-1|
+6|1310|22.3|\*|\*|YES|-1|
+7|1291|21.9|\*|Thunderstorm Wind|\*|-1|
+
+#### evaluate diffpatterns (Deprecated)
+**This version of the diffpatterns plugin is deprecated. Please use the new [diffpatterns](#evaluate-diffpatterns_v2) plugin syntax.**
      requests | evaluate diffpatterns("split=success")
 
 Diffpatterns identifies the differences between two datasets of the same structure - for example, the request log at the time of an incident, and normal request logs. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
@@ -498,6 +633,110 @@ Note that the patterns are not distinct: they may be overlapping, and usually do
     Considers each row in the input according to the specified weight (by default each row has a weight of '1'). A common use of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
   
     `requests | evaluate autocluster("weight_column=itemCount")`
+
+<a name="evaluate-diffpatterns_v2"></a>
+#### evaluate diffpatterns_v2
+'T | evaluate diffpatterns_v2(splitColumn)`
+
+Diffpatterns compares two data sets of the same structure and finds patterns of discrete attributes (dimensions) that characterize differences between the two data sets. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. The Diffpatterns algorithm was developed by the Developer Analytics research team (KustoML@microsoft.com).
+
+This plugin replaces the deprecated diffpatterns plugin syntax.
+
+**Syntax**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, arguments] )`
+
+**Returns**
+
+Diffpatterns returns a (usually small) set of patterns that capture different portions of the data in the two sets (i.e. a pattern capturing a large percentage of the rows in the first data set and low percentage of the rows in the second set). Each pattern is represented by a row in the results.
+The first column is the segment Id. The following four columns are the count and percentage of rows out of the original query that are captured by the pattern in each set, the sixth column is the difference (in absolute percentage points) between the two sets. The remaining columns are from the original query.
+For each pattern, columns that are not set in the pattern (i.e. without restricition on a specific value) will contain a wildcard value which is null by default (see in the Arguments section below how wildcards can be manually changed).
+Note that the patterns are not distinct: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
+
+**Tips**
+
+Use where and project in the input pipe to reduce the data to just what you're interested in.
+When you find an interesting row, you might want to drill into it further by adding its specific values to your `where` filter.
+
+**Required arguments**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
+
+- SplitColumn - *column_name* 
+
+Tells the algorithm how to split the query into data sets. According to the specified values for the SplitValueA and SplitValueB arguments (see below), the algorithm splits the query into two data sets, “A” and “B”, and analyze the differences between them. As such, the split column must have at least two distinct values.
+
+- SplitValueA - *string*
+
+A string representation of one of the values in the SplitColumn that was specified. All the rows which have this value in their SplitColumn considered as data set “A”.
+
+- SplitValueB - *string*
+
+A string representation of one of the values in the SplitColumn that was specified. All the rows which have this value in their SplitColumn considered as data set “B”.
+
+**Example**
+
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure")
+```
+**Optional Arguments**
+
+All other arguments are optional, but they must be ordered as below. To indicate that the default value should be used, put the string tilde value - '~' (see examples below).
+
+- WeightColumn - *column_name*
+
+Considers each row in the input according to the specified weight (by default each row has a weight of '1'). The argument must be a name of a numeric column (e.g. int, long, real). A common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+**Example**
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", sample_Count)
+```
+- Threshold - 0.015 < double < 1 [default: 0.05]
+
+Sets the minimal pattern (ratio) difference between the two sets.
+
+**Example**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", 0.04)
+```
+- MaxDimensions - 0 < int [default: unlimited]
+
+Sets the maximal number of uncorrelated dimensions per result pattern, specifying a limit decreases the query runtime.
+
+**Example**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", 3)
+```
+- CustomWildcard - *any_value_per_type*
+
+Sets the wildcard value for a specific type in the result table that will indicate that the current pattern doesn't have a restriction on this column. Default is null, for string default is an empty string. If the default is a viable value in the data, a different wildcard value should be used (e.g. *). See an example below.
+
+**Example**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))
+```
+
+**Example**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , 1 , 0)
+| project State , EventType , Source , Damage, DamageCrops
+| evaluate diffpatterns_v2(Damage, "0", "1" )
+```
+**Results**
+
+|SegmentId|CountA|CountB|PercentA|PercentB|DiffAB|State|EventType|Source|DamageCrops
+----------|------|------|--------|--------|------|-----|---------|------|-----------
+0|2278|93|49.8|7.1|42.7||Hail||0
+1|779|512|17.03|39.08|22.05||Thunderstorm Wind|||
+2|1098|118|24.01|9.01|15|||Trained Spotter|0|
+3|136|158|2.97|12.06|9.09|||Newspaper||
+4|359|214|7.85|16.34|8.49||Flash Flood|||
+5|50|122|1.09|9.31|8.22|IOWA||||
+6|655|279|14.32|21.3|6.98|||Law Enforcement||
+7|150|117|3.28|8.93|5.65||Flood|||
+8|362|176|7.91|13.44|5.52|||Emergency Manager||
 
 #### evaluate extractcolumns
      exceptions | take 1000 | evaluate extractcolumns("details=json") 
@@ -2361,17 +2600,29 @@ range t from 1 to 1 step 1
 |4.0|10.0|
 ### series_outliers 
 
-The series_outliers() function takes a column containing dynamic array as input and generates a dynamic numeric array of the same length as the input. Each value of the array indicates a score indicating a possible anomaly using Tukey's test. A value greater than 1.5 or less than -1.5 indicates a rise or decline anomaly respectively in the same element of the input.  
+The series_outliers() function takes a column containing a dynamic array as input and generates a dynamic numeric array of the same length as the input. Each value of the array indicates a score indicating a possible anomaly using Tukey's test. A value greater than 1.5 or less than -1.5 indicates a rise or decline anomaly respectively in the same element of the input.  
 
 **Syntax**  
 
 ```
-series_outliers(x,kind)  
+series_outliers(x,kind,ignore_val,min_percentile,max_percentile)  
 ```
 **Arguments** 
 * *x:* Dynamic array cell which is an array of numeric values. The values are assumed to be equidistant, otherwise it may yield unexpected results.  
-* *kind:* Algorithm of outlier detection. Currently supports "tukey".  
-Most convenient way of using this function is applying it to results of make-series operator.  
+* *kind:* Algorithm of outlier detection. Currently supports "tukey" and "ctukey". Default is "ctukey".  
+* *ignore_val:* numeric value indicating missing values in the series, default is double(null).
+* *min_percentile:*  for calulation of the normal inter-quantile range, default is 10 (ctukey only).
+* *max_percentile:*  for calulation of the normal inter-quantile range, default is 90 (ctukey only).
+
+The following table describes differences between "tukey" and "ctukey":
+
+|Algorithm|Default quantile range|Supports custom quantile range|
+|---------|----------------------|------------------------------|
+|"tukey"|25% / 75%|No|
+|"ctukey"|10% / 90%|Yes|
+
+**Important note** 
+The most convenient way of using this function is applying it to results of the `make-series` operator.
 
 **Examples** 
 

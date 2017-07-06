@@ -17,7 +17,10 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 
 ## Types of disks 
 
-There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.  
+Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
+
+There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.
+
 
 ### Standard storage 
 
@@ -50,7 +53,7 @@ The following table provides a comparison of Premium vs Standard for both unmana
 | Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
 | Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
 | Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
-| Disk Size | P4: 32 GB<br>P6: 64 GB<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Disk Size | P4: 32 GB (Managed Disks only)<br>P6: 64 GB (Managed Disks only)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
 | Max Throughput per Disk | 250 MB/s | 60 MB/s | 
 | Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
 

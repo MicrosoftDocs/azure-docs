@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/05/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -47,6 +47,9 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.15.0"/>1.15.0
+*	Added the support for specifying custom JsonSerializerSettings while instantiating DocumentClient.
 
 ### <a name="1.14.1"/>1.14.1
 *	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running DocumentDB API queries.
@@ -239,6 +242,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |June 30, 2017 |--- |
 | [1.14.1](#1.14.1) |May 23, 2017 |--- |
 | [1.14.0](#1.14.0) |May 10, 2017 |--- |
 | [1.13.4](#1.13.4) |May 09, 2017 |--- |

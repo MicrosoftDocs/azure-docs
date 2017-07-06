@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### Integrate with API Management
+#### [Overview](service-fabric-api-management-overview.md)
+#### [Quick start](service-fabric-api-management-quick-start.md)
+
 ### Migrate from Cloud Services
 #### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -142,6 +146,7 @@
 ### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Upgrade an application
@@ -215,7 +220,8 @@
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
+### [Manage a cluster using XPlat CLI](service-fabric-azure-cli.md)
+### [Manage a cluster using Azure CLI 2.0 commands](service-fabric-azure-cli-2-0.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
@@ -239,6 +245,7 @@
 #### [Generate infrastructure level events](service-fabric-diagnostics-event-generation-infra.md)
 ##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
+##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
 #### [Generate application level events](service-fabric-diagnostics-event-generation-app.md)
 ### Inspect application and cluster health
 #### [Monitor Service Fabric health](service-fabric-health-introduction.md)

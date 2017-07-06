@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. Using the following example, update the name with some random characters.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Managed_Standard --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
 ```
 
 ## Get ACR information 
