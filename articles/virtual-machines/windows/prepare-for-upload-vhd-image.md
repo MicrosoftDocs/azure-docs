@@ -115,7 +115,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 Make share that the following settings are configured correctly for remote desktop connection:
 
 >[!Note] 
->You may receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; &lt;value&gt;** command in the step 1, 5, 6, 7 and 8. The error mesage can be safely ignored. It juse means the domain is not pushing that configuration through GPO.
+>You may receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; &lt;value&gt;** command in the step 1, 5, 6, 7 and 8. The error message can be safely ignored. It just means the domain is not pushing that configuration through GPO.
 >
 >
 
@@ -156,41 +156,26 @@ Make share that the following settings are configured correctly for remote deskt
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp ' -name "KeepAliveTimeout" 1
     ```
-
-6. Keep-Alive value：
-    
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" 1
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp ' -name "KeepAliveTimeout" 1
-    ```
-7. Keep-Alive value：
-    
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" 1
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp ' -name "KeepAliveTimeout" 1
-    ```
-8. Reconnect：
+6. Reconnect：
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" 0
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" 1
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" 0
     ```
-9. Limit the number of concurrent connections：
+7. Limit the number of concurrent connections：
     
     ```PowerShell
     Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash"
     ```
-10. If there are any self-signed certificates tied to the RDP listener, remove them:
+8. If there are any self-signed certificates tied to the RDP listener, remove them:
     
     ```PowerShell
     Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash"
     ```
     This is to make sure that you can connect at the beginning when you deploy the VM. You could review this on a later stage after the VM is deployed in Azure if needed.
 
-11. If the VM will be part of a Domain,  all these settings should be checked and make sure that the former settings are not getting reverted. The policies that must be checked are:
+9. If the VM will be part of a Domain,  all these settings should be checked and make sure that the former settings are not getting reverted. The policies that must be checked are:
     
     - RDP is enabled:
 
@@ -373,7 +358,10 @@ Not every role or application installed on a Windows machine supports this gener
 
 ### Steps to generalized a VHD
 
-1. Sign in to the Windows VM
+>[!NOTE]
+> Once you run the **sysprep.exe** as specify below, just shut down the VM and do not turn the VM on until you create an image from it in Azure.
+
+1. Sign in to the Windows VM.
 2. Run **Command Prompt** as an administrator. 
 3. Change the directory to: **%windir%\system32\sysprep**, and then run **sysprep.exe**.
 3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
