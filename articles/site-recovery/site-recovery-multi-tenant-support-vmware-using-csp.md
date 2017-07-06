@@ -39,8 +39,8 @@ The basic requirement in a multi-tenant scenario is to isolate the various tenan
 
 The architecture is presented in the following diagram:
 
-![Shared HSP with one vCenter](./media/site-recovery-multi-tenant-support-vmware-using-csp/shared-hosting-scenario.png)
-**Figure 1: Shared-hosting scenario with one vCenter**
+![Shared HSP with one vCenter](./media/site-recovery-multi-tenant-support-vmware-using-csp/shared-hosting-scenario.png)  
+**Shared-hosting scenario with one vCenter**
 
 As seen in the preceding diagram, each customer has a separate management server. This configuration limits tenant access to tenant-specific VMs and enables tenant isolation. A VMware virtual-machine replication scenario uses the configuration server to manage accounts to discover VMs and install agents. We follow the same principles for multi-tenant environments, with the addition of restricting VM discovery through vCenter access control.
 
@@ -49,7 +49,7 @@ The data-isolation requirement necessitates that all sensitive infrastructure in
 * Process server (PS)
 * Master target server (MT) 
 
-This arrangement includes a scale-out PS.
+A scale-out PS is also under the partner's control.
 
 ### Every CS in the multi-tenant scenario uses two accounts
 
@@ -67,7 +67,7 @@ The alternative is to assign the user account and role at the datacenter object 
 
 The vCenter account-access procedure is as follows:
 
-1.	Create a new role by cloning the pre-defined *Read-only* role, and then give it a convenient name (such as Azure Site Recovery, as used in this example).
+1.	Create a new role by cloning the pre-defined *Read-only* role, and then give it a convenient name (such as Azure_Site_Recovery, as shown in this example).
 
 2.	Assign the following permissions to this role:
 
@@ -89,16 +89,16 @@ The vCenter account-access procedure is as follows:
 >| Object | Role | Remarks |
 >| --- | --- | --- |
 >| vCenter | Read-Only | Needed only to allow vCenter access for managing different objects. You can remove this permission if the account is never going to be provided to a tenant or used for any management operations on the vCenter. |
->| Datacenter | Azure Site Recovery |  |
->| Host and host cluster | Azure Site Recovery | Re-ensures that access is at the object level, so that only accessible hosts have tenant VMs before failover and after failback. |
+>| Datacenter | Azure_Site_Recovery |  |
+>| Host and host cluster | Azure_Site_Recovery | Re-ensures that access is at the object level, so that only accessible hosts have tenant VMs before failover and after failback. |
 >| Datastore and datastore cluster | Azure_Site_Recovery | Same as preceding. |
->| Network | Azure Site Recovery |  |
+>| Network | Azure_Site_Recovery |  |
 >| Management server | Azure_Site_Recovery | Includes access to all components (CS, PS, and MT) if any are outside the CS machine. |
->| Tenant VMs | Azure Site Recovery | Ensures that any new tenant VMs of a particular tenant also get this access, or they will not be discoverable through the Azure portal. |
+>| Tenant VMs | Azure_Site_Recovery | Ensures that any new tenant VMs of a particular tenant also get this access, or they will not be discoverable through the Azure portal. |
 
 The vCenter account access is now complete. This step fulfills the minimum permissions requirement to complete failback operations. You can also use these access permissions with your existing policies. Just modify your existing permissions set to include role permissions from step 2, detailed previously.
 
-To restrict disaster-recovery operations until the failover state (that is, without failback capabilities), follow the preceding  procedure, with an exception: instead of assigning the *Azure Site Recovery* role to the vCenter access account, assign only a *Read-Only* role to that account. This permission set allows VM replication and failover, and it does not allow failback. Everything else in the preceding process remains as is. To ensure tenant isolation and restrict VM discovery, every permission is still assigned at the object level only and not propagated to child objects.
+To restrict disaster-recovery operations until the failover state (that is, without failback capabilities), follow the preceding  procedure, with an exception: instead of assigning the *Azure_Site_Recovery* role to the vCenter access account, assign only a *Read-Only* role to that account. This permission set allows VM replication and failover, and it does not allow failback. Everything else in the preceding process remains as is. To ensure tenant isolation and restrict VM discovery, every permission is still assigned at the object level only and not propagated to child objects.
 
 ## Other multi-tenant environments
 
@@ -108,7 +108,7 @@ The preceding section described how to set up a multi-tenant environment for a s
 
 As shown in the following diagram, the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only. Because tenants are isolated through separate vCenters, the hosting provider must still follow the CSP steps provided for shared hosting but does not need to worry about tenant isolation. CSP setup remains unchanged.
 
-![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
 **Dedicated hosting scenario with multiple vCenters**
 
 ### Managed service solution
