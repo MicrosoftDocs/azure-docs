@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 06/23/2017
+ms.date: 07/05/2017
 ---
 # Azure Database for PostgreSQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
@@ -41,7 +41,14 @@ Get the connection information needed to connect to the Azure Database for Postg
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-python/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
-   
+
+## Run Python code
+- Using your favorite text editor, create a new file called postgres.py in a folder. Copy and paste the one of the code blocks inside it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
+- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then, type the python command followed by the file name, such as `python postgresql.py`.
+
+> [!NOTE]
+> Starting in Python version 3, you may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the code blocks below. If that happens, replace each call to the command `print "string"` with a function call using parenthesis, such as `print("string")`.
+
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function with **INSERT** SQL statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function is used to execute the SQL query against PostgreSQL database. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
@@ -53,9 +60,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -89,9 +97,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -119,9 +128,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -145,9 +155,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -155,7 +166,7 @@ cursor = conn.cursor()
 
 # Delete data row from table
 cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
-print ("Deleted 1 row of data")
+print "Deleted 1 row of data"
 
 conn.commit()
 ```
