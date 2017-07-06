@@ -13,6 +13,7 @@ ms.author: t-jolanz
 ---
 
 # Bing Web Search And Computer Vision API Tutorial: 
+
 This tutorial explores the Azure Computer Vision and Bing Web Search API endpoints, and how they can be used to build a basic visual search application in Xamarin.Forms.  Overall, this tutorial covers the following topics: 
 * Setting up your system for Xamarin.Forms development
 * Using the Xamarin Media Plugin to capture and import image data in a Xamarin.Forms application
@@ -20,6 +21,8 @@ This tutorial explores the Azure Computer Vision and Bing Web Search API endpoin
 * Structuring and sending text-based requests to the Bing Web Search API
 * Parsing responses from the Bing Web Search and Computer Vision APIs with the Json.NET parser (with LINQ and model object deserialization)
 * Integrating these APIs into a C# based Xamarin.Forms application 
+
+
 
 ## Prerequisites
 ### Platform Requirements
@@ -33,7 +36,7 @@ This sample makes use of the following NuGet Packages:
 ### Azure Services
 This sample utilizes the following Cognitive APIs:
 * [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) 
-*  [Azure Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  
+* [Azure Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  
 
 To attain 30-day trial keys to these APIs, see [this page](https://azure.microsoft.com/en-us/try/cognitive-services/).  For more information about attaining keys for professional use, see [Pricing](https://azure.microsoft.com/en-us/pricing/calculator/).
 
@@ -89,8 +92,8 @@ Here you can see the results of querying the Bing Web Search API using the extra
 ![WebViewPage Example](./media/computer-vision-web-search/WebViewPage.png)  
 From here, you can interact with the website as if it were loaded within a standard browser, or use the navigation bar to return to the Web Results Page. 
 
-[!Note]
-> Note that The Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
+[!NOTE]
+> The Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
 
 ## Review and Learn:
 Now that the sample's up and running, let's jump in and explore exactly how it utilizes resources from the Azure toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it is valuable to walk through the application screen by screen and examine exactly how it works.
@@ -195,7 +198,7 @@ And here's the utility function used to convert a MediaFile into a byte array:
 
 The photo import utility works in a similar way, and can be found in *OcrSelectPage.xaml.cs*  
 [!NOTE]
->Note the downscaling done by setting **PhotoSize = PhotoSize.Medium** on the **mediaOptions** object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all filesize-related issues.  If your device takes exceptionally high quality photos and you are getting errors, you might try setting **PhotoSize = PhotoSize.Small** here.  
+>The downscaling done by setting **PhotoSize = PhotoSize.Medium** on the **mediaOptions** object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all filesize-related issues.  If your device takes exceptionally high quality photos and you are getting errors, you might try setting **PhotoSize = PhotoSize.Small** here.  
 
 ### OCR Results Page
 The OCR Results Page is where we extract text from each of the OCR endpoints and then pull text from the endpoint response using the Json.NET  [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them before going into parsing.
@@ -226,8 +229,8 @@ With that out of the way, we can jump into our API functions.
 
 *FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here follows a similar structure to the call carried out in the Add Keys Page, but here we send a HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a ByteArrayContent object, and add a header to this ByteArrayContent object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
 
-[!NOTE]
-> Note the use of the Json.NET [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are are joined from a list of individual parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned.
+[!TIP]
+> Note the use of the Json.NET [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are joined from a list of individually parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned.
 
     // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchPrintedWordList()
@@ -376,12 +379,18 @@ Finally, we send this data to the Web Results Page, which constructs [Bing Web S
         }
         return webResults;
     }
-**Final commentary queued for post external review.**
 
-Est per cursus. Nec justo eu vehicula lobortis amet vel suscipit orci aliquet nibh turpis. Ornare in donec. Eros libero massa. Ac ultricies purus placerat dignissim suspendisse consectetuer consequat sed.  Nunc pellentesque dolor fermentum viverra maecenas consectetuer laborum sit. Vel suspendisse et dolor tellus eget. Tortor cras dolor. Integer mattis wisi curabitur vestibulum id. Arcu aenean ac. Tincidunt varius a ultricies odio ante. Vitae leo sodales sit egestas condimentum. Auctor mauris ligula. Ullamcorper fermentum lorem integer neque pellentesque quam eget in mi tristique nec. Scelerisque elit posuere nunc ante posuere.
+It's important to acknowledge here that the Web Search API functions best when a maximal number of case-specific headers and parameters are used to personalize and optimze your call.  Whatever your domain, you will want to spend some time considering how you would like to tailor results that you serve to your users.  The simplest way to ensure this is through utilizing parameters such as **mkt** and the **responseFilter**, but for certain applications it might be valuable to explore the [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/).
 
-Cursus ut mi et amet erat diam nunc et neque dictum varius. Amet ex mollis. Accumsan ipsum amet. Faucibus sodales eget duis irure amet. Et augue vehicula. Pharetra ut maecenas. Penatibus nulla viverra. Neque integer vel. Quia amet wisi velit maecenas ligula eget etiam risus magna neque taciti vehicula molestie et. Magna sem nunc. Vestibulum nisl consectetuer. Rerum neque rhoncus lorem rhoncus ante. Ad ullamcorper et integer nec ut. Diam molestie sapien. Ante mollis elit. Praesent augue ut. Orci gravida auctor id velit quis rhoncus proin accumsan inceptos tellus et mauris pede sollicitudin. Urna sapien condimentum. Sapien dolor amet at aliquam sed eget eget sociis ornare integer quam. Lectus pede in enim ante eu nonummy vitae rutrum. Quam aenean duis. Ut in quis. Sapien ipsum suscipit tempus felis fusce. Urna eu sollicitudin non aenean aliquam. Per vitae sociis. Metus laoreet varius. Odio laoreet aenean. A mollis aliquam. In gravida cubilia nec sed felis. Nascetur urna lectus. Dis euismod scelerisque sed amet varius. Venenatis diam vestibulum sem vel eros magna maecenas in. Velit odio dolor duis semper dapibus. Aliquam quis consectetuer non donec tristique mi aliquet accumsan vitae aenean lorem nibh magna velit purus nulla donec augue pellentesque amet. Rutrum nec pulvinar est eu vestibulum nam a tempus mauris sagittis phasellus.
 
+[!NOTE]
+> The Bing Web Search API query used in this sample was kept simple in order to keep the source code legible, simple and extendable.  However in a professional application, there are a few additional headers that you will want to add to your HTTP request for improved results.  They are as follows:  
+> * User-Agent  
+> * X-MSEdge-ClientID  
+> * X-Search-ClientIP  
+> * X-Search-Location  
+>
+> These paramters will help better tailor your results to the the specific needs of your users, and help your search system grow and evolve with the needs of your users over time.  You can learn more about these header values in the [Bing Web Search API Reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference#headers)
 
 ## Looking Forward
 This application provides a general framework for a Xamarin.Forms application implementing basic visual search.  However, Azure provides many utilities that could easily be integrated into this application.  For example, you could:
@@ -389,10 +398,8 @@ This application provides a general framework for a Xamarin.Forms application im
 * Use the [Bing Image Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/) image insights capability to learn more about your captured image and find similar images on the web
 * Leverage [Bing Spell Check](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) to further improve the quality of your parsed text
 * Integrate the [Microsoft Translator](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/) to see your extracted text in different languages  
-* Mix and match countless other services from the [Azure Cognitive Services Portal](https://azure.microsoft.com/en-us/services/cognitive-services/).  
+* Mix and match countless other services from the [Azure Cognitive Services Portal](https://azure.microsoft.com/en-us/services/cognitive-services/). 
 
-### Final Considerations:
-* The **Web Search API** requires adherence to the Bing Web Search [Use and Display Requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Web-Search/UseAndDisplayRequirements)
-* The **Computer Vision API** asks you to acknowledge that Microsoft receives the images that you upload to the Computer Vision APIs and may use them to improve their systems.  By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).  
-* The **ImageResizer.cs** file falls within an Apache 2.0 license.  You can attain a copy of this license at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
-* The **VisualSearchApp Codebase** is registered under the [MIT Open Source License](https://microsoft.mit-license.org/).  You can use it as a reference or template when building own applications utilizing the Microsoft Computer Vision and Web Search APIs. 
+## Related Topics
+ * [C# Ranking Tutorial](./csharp-ranking-tutorial.md)
+ * [Computer Vision Tutorial](../Computer-vision/Tutorials/CSharpTutorial.md)
