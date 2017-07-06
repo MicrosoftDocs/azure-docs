@@ -27,17 +27,17 @@ Here are just a few ways you might use the streaming capability for Diagnostic L
 * **View service health by streaming “hot path” data to PowerBI** – Using Event Hubs, Stream Analytics, and PowerBI, you can easily transform your diagnostics data into near real-time insights on your Azure services. [This documentation article gives a great overview of how to set up an Event Hubs, process data with Stream Analytics, and use PowerBI as an output](../stream-analytics/stream-analytics-power-bi-dashboard.md). Here’s a few tips for getting set up with Diagnostic Logs:
   
   * The Event Hubs for a category of Diagnostic Logs is created automatically when you check the option in the portal or enable it through PowerShell, so you want to select the Event Hubs in the Service Bus namespace with the name that starts with “insights-”
-  * Here’s a sample Stream Analytics query you can use to simply parse all the log data in to a PowerBI table:
+  * Here's a sample Stream Analytics query you can use to simply parse all the log data in to a PowerBI table:
 
-```
-SELECT
-records.ArrayValue.[Properties you want to track]
-INTO
-[OutputSourceName – the PowerBI source]
-FROM
-[InputSourceName] AS e
-CROSS APPLY GetArrayElements(e.records) AS records
-```
+    ```sql
+    SELECT
+    records.ArrayValue.[Properties you want to track]
+    INTO
+    [OutputSourceName – the PowerBI source]
+    FROM
+    [InputSourceName] AS e
+    CROSS APPLY GetArrayElements(e.records) AS records
+    ```
 
 * **Build a custom telemetry and logging platform** – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostic logs. [See Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform here](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
@@ -72,14 +72,14 @@ azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serv
 Use the same format for Service Bus Rule ID as explained for the PowerShell Cmdlet.
 
 ### Via Azure Portal
-To enable streaming via the Azure Portal, navigate to the diagnostics settings of a resource and select ‘Export to Event Hub.’
+To enable streaming via the Azure Portal, navigate to the diagnostics settings of a resource and select **Export to Event Hub**.
 
 ![Export to Event Hubs in the Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
-To configure it, select an existing Event Hubs namespace. The namespace selected will be where the Event Hubs is created (if this is your first time streaming diagnostic logs) or streamed to (if there are already resources that are streaming that log category to this namespace), and the policy defines the permissions that the streaming mechanism has. Today, streaming to an Event Hubs requires Manage, Send, and Listen permissions. You can create or modify Event Hubs namespace shared access policies in the classic portal under the “Configure” tab for your namespace. To update one of these Diagnostic Settings, the client must have the **ListKey** permission on the Event Hubs authorization rule.
+To configure it, select an existing Event Hubs namespace. The namespace selected will be where the event hub is created (if this is your first time streaming diagnostic logs) or streamed to (if there are already resources that are streaming that log category to this namespace), and the policy defines the permissions that the streaming mechanism has. Today, streaming to an event hub requires Manage, Send, and Listen permissions. You can create or modify Event Hubs namespace shared access policies in the portal under the **Configure** tab for your namespace. To update one of these diagnostic settings, the client must have the **ListKey** permission on the Event Hubs authorization rule.
 
 ## How do I consume the log data from Event Hubs?
-Here is sample output data from the Event Hubs:
+Here is sample output data from Event Hubs:
 
 ```
 {

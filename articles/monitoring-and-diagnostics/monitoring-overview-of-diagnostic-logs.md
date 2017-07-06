@@ -93,7 +93,7 @@ To enable Diagnostic Logs via the Azure PowerShell Cmdlets, use the following co
 To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 The Storage Account ID is the resource id for the storage account to which you want to send the logs.
@@ -101,7 +101,7 @@ The Storage Account ID is the resource id for the storage account to which you w
 To enable streaming of Diagnostic Logs to an event hub, use this command:
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -109,7 +109,7 @@ The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 You can obtain the resource id of your Log Analytics workspace using the following command:
@@ -126,7 +126,7 @@ To enable Diagnostic Logs via the Azure CLI, use the following commands:
 To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
 ```
 
 The Storage Account ID is the resource id for the storage account to which you want to send the logs.
@@ -134,7 +134,7 @@ The Storage Account ID is the resource id for the storage account to which you w
 To enable streaming of Diagnostic Logs to an event hub, use this command:
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
 The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -142,7 +142,7 @@ The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 ```
 
 You can combine these parameters to enable multiple output options.
