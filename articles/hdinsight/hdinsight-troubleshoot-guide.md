@@ -10,15 +10,12 @@ ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing - page
-ms.date: 7/05/2017
+ms.date: 7/06/2017
 ms.author: arijitt
 ---
 
 
 # Azure HDInsight troubleshooting
-
-## Troubleshooting with Apache Ambari
-The following top issues and their resolutions may help troubleshoot any HDInsight cluster problems by using Apache Ambari. 
 
 | Apache Workload | Top questions |
 |---|---|
