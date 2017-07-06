@@ -1,6 +1,6 @@
 ---
-title: Prerequisites for replication to Azure using Azure Site Recovery | Microsoft Docs
-description: This article summarizes prerequisites for replicating VMs and physical machines to Azure using the Azure Site Recovery service.
+title: Prerequisites for replication to Azure by using Azure Site Recovery | Microsoft Docs
+description: Learn about the prerequisites for replicating VMs and physical machines to Azure by using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
 author: rajani-janaki-ram
@@ -17,32 +17,32 @@ ms.date: 06/23/2017
 ms.author: rajanaki
 ---
 
-#  Prerequisites for replication from on-premises to Azure using Azure Site Recovery
+#  Prerequisites for replication from on-premises to Azure by using Azure Site Recovery
 
 > [!div class="op_single_selector"]
 > * [Replicate from Azure to Azure](site-recovery-azure-to-azure-prereq.md)
 > * [Replicate from on-premises to Azure](site-recovery-prereq.md)
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of Azure virtiual machine to another Azure region and on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
+Azure Site Recovery helps support your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of an Azure virtual machine (VM) to another Azure region. Site Recovery also replicates on-premises physical servers and VMs to the cloud (Azure), or to a secondary datacenter. If an outage occurs at your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operation. For more information about Site Recovery, see [What is Site Recovery](site-recovery-overview.md).
 
-This article summarizes the prerequisites required to begin Site Recovery replication from on-premises to Azure.
+In this article, we summarize the prerequisites for beginning Site Recovery replication from on-premises to Azure.
 
-Post any comments at the bottom of the article, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post any comments at the bottom of the article, or ask technical questions in the [Azure Recovery Services forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Azure requirements
 
 **Requirement** | **Details**
 --- | ---
 **Azure account** | A [Microsoft Azure](http://azure.microsoft.com/) account.<br/><br/> You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-**Site Recovery service** | For more about Site Recovery pricing, see [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/). |
-**Azure storage** | You need an Azure storage account to store replicated data, and it must be in the same region as the Recovery Services vault. Replicated data is stored in Azure storage, and Azure VMs are created when failover occurs.<br/><br/> Depending on the resource model you want to use for failed over Azure VMs, you can set up an account in the [Azure Resource Manager model](../storage/storage-create-storage-account.md) or in the [classic model](../storage/storage-create-storage-account-classic-portal.md).<br/><br/>You can use [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) or locally redundant storage. We recommend geo-redundant storage so that data is resilient if a regional outage occurs, or if the primary region can't be recovered.<br/><br/> You can use standard or premium storage. [Premium storage](https://docs.microsoft.com/azure/storage/storage-premium-storage) is typically used for virtual machines that need a consistently high IO performance and low latency to host IO intensive workloads. If you use premium storage for replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.<br/><br/>
-**Storage limitations** | You can't move storage accounts used in Site Recovery across resource groups, or within or across subscriptions.<br/><br/> Replicating to premium storage accounts in Central India and South India isn't currently supported.
-**Azure network** | You need an Azure network to which Azure VMs will connect after failover, and it must be in the same region as the Recovery Services vault.<br/><br/> In the Azure portal, you can create networks in the [Resource Manager model](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or in the [classic model](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).<br/><br/> If you replicate from System Center Virtual Machine Manager to Azure, you will set up network mapping between Virtual Machine Manager VM networks and Azure networks to ensure that Azure VMs connect to appropriate networks after failover.
+**Site Recovery service** | For more information about Site Recovery pricing, see [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/). |
+**Azure Storage** | You need an Azure Storage account to store replicated data. The storage account must be in the same region as the Azure Recovery Services vault. Replicated data is stored in Azure storage. Azure VMs are created when failover occurs.<br/><br/> Depending on the resource model you want to use for failover Azure VMs, you can set up an account in the [Azure Resource Manager deployment model](../storage/storage-create-storage-account.md) or in the [classic deployment model](../storage/storage-create-storage-account-classic-portal.md).<br/><br/>You can use [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) or locally redundant storage. We recommend geo-redundant storage so that data is resilient if a regional outage occurs or if the primary region can't be recovered.<br/><br/> You can use standard or premium storage. [Premium storage](https://docs.microsoft.com/azure/storage/storage-premium-storage) typically is used for virtual machines that need a consistently high I/O performance and low latency, so they can host I/O-intensive workloads. If you use premium storage for replicated data, you also need a standard storage account. A standard storage account stores replication logs that capture ongoing changes to on-premises data.<br/><br/>
+**Storage limitations** | You can't move storage accounts used in Site Recovery across resource groups, or within or across subscriptions.<br/><br/> Currently, replicating to premium storage accounts in Central India and South India isn't supported.
+**Azure network** | You need an Azure network to which Azure VMs will connect after failover. The Azure network must be in the same region as the Recovery Services vault.<br/><br/> In the Azure portal, you can create networks by using the [Resource Manager deployment model](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or the [classic deployment model](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).<br/><br/>. If you replicate from System Center Virtual Machine Manager to Azure, you must set up network mapping between Virtual Machine Manager VM networks and Azure networks to ensure that Azure VMs connect to appropriate networks after failover.
 **Network limitations** | You can't move network accounts used in Site Recovery across resource groups, or within or across subscriptions.
-**Network mapping** | If you replicate Hyper-V VMs in Virtual Machine Manager clouds, you need to set up network mapping so that Azure VMs are connected to appropriate networks when they're created after failover.
+**Network mapping** | If you replicate Hyper-V VMs in Virtual Machine Manager clouds, you must set up network mapping so that Azure VMs are connected to appropriate networks when they're created after failover.
 
->[!NOTE]
->The following sections describe the prerequisites for various components in the customer environment. For more details about support for specific configurations, read the [support matrix](site-recovery-support-matrix.md).
+> [!NOTE]
+> The following sections describe the prerequisites for various components in the customer environment. For more details about support for specific configurations, see the [support matrix](site-recovery-support-matrix.md).
 >
 
 ## Disaster recovery of VMware virtual machines or physical Windows or Linux servers to Azure
