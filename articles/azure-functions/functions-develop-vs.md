@@ -120,11 +120,12 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]Any settings you added in the local.settings.json must be also added to the function app in Azure. These are not added automatically. To learn how to add settings using the [Azure Portal](https://portal.azure.com), see the [Application Settings](functions-how-to-use-azure-function-app-settings.md#settings) section. You can also add application settings [using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+>[!NOTE]  
+>Any settings you added in the local.settings.json must be also added to the function app in Azure. These are not added automatically. To learn how to add settings using the [Azure Portal](https://portal.azure.com), see the [Application Settings](functions-how-to-use-azure-function-app-settings.md#settings) section. You can also add application settings [using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
 
 ## Next steps
 
 For more information about Azure Functions Tools, see the Common Questions section of the [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post.
 
-To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
+To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).  
 To learn more about developing functions as .NET class libraries, see [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md). This topic also provides examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
