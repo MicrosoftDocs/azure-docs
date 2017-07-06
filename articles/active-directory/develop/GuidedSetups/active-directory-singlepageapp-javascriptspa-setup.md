@@ -39,14 +39,11 @@ If you are using Visual Studio and are creating a new project, follow the steps 
 ## Create your project (Python only)
 
 Make sure you have installed Python, then follow the steps below:
-1.	Create a folder to host your application
-2.	Open *Command Prompt* 
-3.	Name your application and click *OK*
-4.	Under `New ASP.NET Web Application`, select `Empty`
+1.	Create a folder to host your application.
 
 
 ## Create your single page application’s UI
-1.	Create an index.html file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page` and name it index.html
+1.	Create an *index.html* file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page` and name it index.html
 2.	Add the following code to your page:
 ```html
 <!DOCTYPE html>
@@ -78,6 +75,8 @@ Make sure you have installed Python, then follow the steps below:
         <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+
+        <!-- Add your <script> blocks below this line -->
     </body>
 </html>
 ````
