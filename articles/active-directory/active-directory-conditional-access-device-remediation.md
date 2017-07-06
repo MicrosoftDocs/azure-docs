@@ -42,7 +42,7 @@ You can easily identify whether you can't access a resource due to an unsupporte
 
 !["You can't get there from here" message for unsupported browsers](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
 
-The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
 
 
 ## Supported versions of Windows
