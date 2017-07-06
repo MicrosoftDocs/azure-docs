@@ -72,7 +72,7 @@ Status | Operation status
 Caller | Caller of operation (Azure portal or management client)
 category | OperationalLogs
 
-Here's an example of an operation log JSON string:
+Here's an example of an operational log JSON string:
 
 ```json
 {
