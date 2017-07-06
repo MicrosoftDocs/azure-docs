@@ -57,7 +57,7 @@ This problem occurs if the root certificate public key is not uploaded into the 
 
 ### Solution
 
-To resolve this problem, check the status of the root certificate in the Azure portal to see whether it has been revoked. If it is not revoked, try to delete the root certificate and reupload. For more information, see [Create certificates](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+To resolve this problem, check the status of the root certificate in the Azure portal to see whether it was revoked. If it is not revoked, try to delete the root certificate and reupload. For more information, see [Create certificates](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## VPN client error: A certificate chain processed but terminated 
 
@@ -220,7 +220,7 @@ Therefore, a route is added based on the following static mapping:
 
 If address belongs to class A --> apply /8
 
-If address belongs to class B --> app
+If address belongs to class B --> apply /16
 
 If address belongs to class C --> apply /24
 
