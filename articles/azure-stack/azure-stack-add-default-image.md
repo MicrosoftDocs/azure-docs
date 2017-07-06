@@ -19,7 +19,7 @@ ms.author: sngun
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack marketplace
 
-By default, there aren’t any virtual machine images available in the Azure Stack marketplace. The administrator must add an image to the marketplace before users can use them. You can add the Windows Server 2016 image to the Azure Stack marketplace by using one of the following two methods:
+By default, there aren’t any virtual machine images available in the Azure Stack marketplace. The Cloud Administrator must add an image to the marketplace before users can use them. You can add the Windows Server 2016 image to the Azure Stack marketplace by using one of the following two methods:
 
 * [Add the image by downloading it from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-Azure-marketplace) - Use this option if you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure.
 
@@ -55,7 +55,7 @@ After the download completes, the image is added to the **Marketplace Management
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ```
-7. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
+7. Create the Azure Stack Cloud Administrator's AzureRM environment by using the following cmdlet:
 
    ```powershell
    Add-AzureStackAzureRmEnvironment `

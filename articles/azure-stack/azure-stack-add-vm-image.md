@@ -18,7 +18,7 @@ ms.author: sngun
 
 ---
 # Make a custom virtual machine image available in Azure Stack
-Azure Stack enables administrators to make custom virtual machine images available to their tenants. These images can
+Azure Stack enables Cloud Administrators to make custom virtual machine images available to their tenants. These images can
 be referenced by Azure Resource Manager templates or added to the
 Azure Marketplace UI with the creation of a Marketplace item. 
 
@@ -40,7 +40,7 @@ You can use the steps described in this article either from the Azure Stack Deve
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-3. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
+3. Create the Azure Stack Cloud Administrator's AzureRM environment by using the following cmdlet:
    ```powershell
    Add-AzureStackAzureRmEnvironment `
      -Name "AzureStackAdmin" `
@@ -139,7 +139,7 @@ One requirement of images is that they can be referenced by a Blob storage URI. 
 
    ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as an administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
+2. Sign in to Azure Stack as a Cloud Administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
 
 3. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version
    of the virtual machine image. These name segments refer to the VM
