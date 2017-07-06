@@ -36,7 +36,8 @@ The resource provider is made up of three components:
 
 This release no longer creates a SQL instance. You will need to create one (or more) and/or provide access to external SQL instances. There are a number of options available to you including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) and Marketplace items. 
 
->[!NOTE] If you have downloaded any SQL Marketplace items, make sure you also download the SQL IaaS Extension or these will not deploy.
+>[!NOTE]
+If you have downloaded any SQL Marketplace items, make sure you also download the SQL IaaS Extension or these will not deploy.
 
 
 ## Deploy the resource provider
@@ -170,7 +171,8 @@ You can specify these parameters in the command line. If you do not, or any para
 
 	![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
->[!NOTE] SKUs can take up to an hour to be visible in the portal. You cannot create a database until this completes.
+>[!NOTE]
+SKUs can take up to an hour to be visible in the portal. You cannot create a database until this completes.
 
 
 ## Create your first SQL database to test your deployment
