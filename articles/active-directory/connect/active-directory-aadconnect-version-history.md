@@ -31,8 +31,8 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-## 1.1.570.0
-Status: Not yet released
+## 1.1.557.0
+Status: July 2017
 
 >[!NOTE]
 >This build is not available to customers through the Azure AD Connect Auto Upgrade feature.
@@ -46,6 +46,13 @@ Status: Not yet released
 * Password writeback is now available for preview with Microsoft Azure Government cloud and Microsoft Cloud Germany. For more information about Azure AD Connect support for the different service instances, refer to article [Azure AD Connect: Special considerations for instances](active-directory-aadconnect-instances.md).
 
 * The Initialize-ADSyncDomainJoinedComputerSync cmdlet now has a new optional parameter named AzureADDomain. This parameter lets you specify which verified domain to be used for configuring the service connection point.
+
+### Pass-through Authentication
+
+#### New features and improvements
+* The name of the agent required for Pass-through Authentication has been changed from *Microsoft Azure AD Application Proxy Connector* to *Microsoft Azure AD Connect Authentication Agent*.
+
+* Enabling Pass-through Authentication no longer enables Password Hash Synchronization by default.
 
 
 ## 1.1.553.0
