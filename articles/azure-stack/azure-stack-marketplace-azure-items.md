@@ -60,7 +60,7 @@ Microsoft Azure Stack supports the following Azure marketplace items.
 | ![](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql?tab=Overview) | The most popular database system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.nginxstack?tab=Overview) | A complete PHP, MySQL and Nginx development environment. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/owncloud.png) | [ownCloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.owncloud?tab=Overview) | Popular open source file sync and share solution. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/piwik.png) | [Piwik](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.piwik?tab=Overview) | Real time web analytics software program. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/piwik.png) | [Piwik](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.piwik?tab=Overview) | Real-time web analytics software program. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.rabbitmq?tab=Overview) | Efficient messaging broker offering a common platform. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.redis?tab=Overview) | Powerful Open Source key-value store. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.redmine?tab=Overview) | Powerful project management web app | Bitnami |
@@ -75,7 +75,7 @@ Microsoft Azure Stack supports the following Azure marketplace items.
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch and Traffic Manager. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased69?tab=Overview) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3 HPC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | Best-in-class open source infrastructure management . | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | Best-in-class open source infrastructure management. | SUSE |
 
 ### Next steps
 [Download a marketplace item](azure-stack-download-azure-marketplace-item.md)
