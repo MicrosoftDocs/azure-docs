@@ -98,7 +98,7 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 
 -   A table cannot have an identity column that is not the primary key.
 
--   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([) or right square bracket (]).
+-   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
 ### Limitations on service and database dimensions
 
