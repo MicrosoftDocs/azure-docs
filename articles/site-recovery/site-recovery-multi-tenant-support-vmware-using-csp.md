@@ -67,9 +67,9 @@ The alternative is to assign the user account and role at the datacenter object 
 
 The vCenter account-access procedure is as follows:
 
-1.	Create a new role by cloning the pre-defined *Read-only* role, and then give it a convenient name (such as Azure_Site_Recovery, as shown in this example).
+1. Create a new role by cloning the pre-defined *Read-only* role, and then give it a convenient name (such as Azure_Site_Recovery, as shown in this example).
 
-2.	Assign the following permissions to this role:
+2. Assign the following permissions to this role:
 
     * **Datastore**: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
     * **Network**: Network assign
@@ -115,7 +115,7 @@ As shown in the following diagram, the architectural difference in a dedicated h
 
 As shown in the following diagram, the architectural difference in a managed service solution is that each tenant’s infrastructure is also physically separate from other tenants' infrastructure. This scenario usually exists when the tenant owns the infrastructure and wants a solution provider to manage disaster recovery. Again, because tenants are physically isolated through different infrastructures, the partner needs to follow the CSP steps provided for shared hosting but does not need to worry about tenant isolation. CSP provisioning remains unchanged.
 
-![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Managed service scenario with multiple vCenters**
 
 ## CSP program overview
