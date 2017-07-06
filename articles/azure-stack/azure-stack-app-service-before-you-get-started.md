@@ -27,7 +27,7 @@ You need a few items to install App Service on Azure Stack:
 - [A server that's running SQL Server](#SQL-Server).
 
 >[!NOTE] 
-> The following steps ALL take place on the MAS-CON01 VM.
+> The following steps ALL take place on the Azure Stack Host Machine.
 
 ## Before you deploy App Service on Azure Stack
 
@@ -35,9 +35,9 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 
 ## Turn off Internet Explorer enhanced security
 
-1.	Sign in to the Azure Stack proof-of-concept (POC) computer as **AzureStack/administrator**, and then open **Server Manager**.
+1.	Sign in to the Azure Stack Development Kit machine as **AzureStack/administrator**, and then open **Server Manager**.
 2.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
-3.	Sign in to the Azure Stack host machine as an administrator, and then open **Server Manager**.
+3.	Sign in to the Azure Stack Development Kit machine as an administrator, and then open **Server Manager**.
 4.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
 
 ## Enable cookies
