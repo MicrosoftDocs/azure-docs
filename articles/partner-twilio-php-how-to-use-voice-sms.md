@@ -44,7 +44,7 @@ The following is a list of Twilio verbs. Learn about the other verbs and capabil
 * **&lt;Gather&gt;**: Collects numeric digits entered on the telephone keypad.
 * **&lt;Hangup&gt;**: Ends a call.
 * **&lt;Play&gt;**: Plays an audio file.
-* **&lt;Pause&gt;**: Waits silently for a specified number of seconds.
+* **&lt;Queue&gt;**: Add the to a queue of callers.
 * **&lt;Record&gt;**: Records the caller's voice and returns a URL of a file that contains the recording.
 * **&lt;Redirect&gt;**: Transfers control of a call or SMS to the TwiML at a different URL.
 * **&lt;Reject&gt;**: Rejects an incoming call to your Twilio number without billing you
@@ -56,10 +56,12 @@ TwiML is a set of XML-based instructions based on the Twilio verbs that inform T
 
 As an example, the following TwiML would convert the text **Hello World** to speech.
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Response>
-       <Say>Hello World</Say>
-    </Response>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+   <Say>Hello World</Say>
+</Response>
+```
 
 When your application calls the Twilio API, one of the API parameters is the URL that returns the TwiML response. For development purposes, you can use Twilio-provided URLs to provide the TwiML responses used by your applications. You could also host your own URLs to produce the TwiML responses, and another option is to use the **TwiMLResponse** object.
 
@@ -68,71 +70,79 @@ For more information about Twilio verbs, their attributes, and TwiML, see [TwiML
 ## <a id="CreateAccount"></a>Create a Twilio Account
 When you're ready to get a Twilio account, sign up at [Try Twilio][try_twilio]. You can start with a free account, and upgrade your account later.
 
-When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page][twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
+When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio Console][twilio_console], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
 ## <a id="create_app"></a>Create a PHP Application
-A PHP application that uses the Twilio service and is running in Azure is no different than any other PHP application that uses the Twilio service. While Twilio services are REST-based and can be called from PHP in several ways, this article will focus on how to use Twilio services with [Twilio library for PHP from GitHub][twilio_php]. For more information about using the Twilio library for PHP, see [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs].
+A PHP application that uses the Twilio service and is running in Azure is no different than any other PHP application that uses the Twilio service. While Twilio services are REST-based and can be called from PHP in several ways, this article will focus on how to use Twilio services with [Twilio library for PHP from GitHub][twilio_php]. For more information about using the Twilio library for PHP, see [https://twilio.github.io/twilio-php/][twilio_lib_docs].
 
 Detailed instructions for building and deploying a Twilio/PHP application to Azure are available at [How to Make a Phone Call Using Twilio in a PHP Application on Azure][howto_phonecall_php].
 
 ## <a id="configure_app"></a>Configure Your Application to Use Twilio Libraries
-You can configure your application to use the Twilio library for PHP in two ways:
 
-1. Download the Twilio library for PHP from GitHub ([https://github.com/twilio/twilio-php][twilio_php]) and add the **Services** directory to your application.
-   
-    -OR-
-2. Install the Twilio library for PHP as a PEAR package. It can be installed with the following commands:
-   
-        $ pear channel-discover twilio.github.com/pear
-        $ pear install twilio/Services_Twilio
+First, Install the Twilio library for PHP using [composer][composer], then you use composer to install the library with the following command:
 
-Once you have installed the Twilio library for PHP, you can then add a **require_once** statement at the top of your PHP files to reference the library:
+```sh
+$ composer install twilio/sdk
+```
 
-        require_once 'Services/Twilio.php';
+Once you have installed Twilio SDK, you can then use the library as follows:
+
+```php
+// Required if your environment does not handle autoloading
+require __DIR__ . '/vendor/autoload.php';
+
+// Use the REST API Client to make requests to the Twilio REST API
+use Twilio\Rest\Client;
+
+// Your Account SID and Auth Token from twilio.com/console
+$sid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+$token = 'your_auth_token';
+$client = new Client($sid, $token);
+```
 
 For more information, see [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 
 ## <a id="howto_make_call"></a>How to: Make an outgoing call
 The following shows how to make an outgoing call using the **Services_Twilio** class. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
 
-    // Include the Twilio PHP library.
-    require_once 'Services/Twilio.php';
+```php
+// Required if your environment does not handle autoloading
+require __DIR__ . '/vendor/autoload.php';
 
-    // Library version.
-    $version = "2010-04-01";
+// Use the REST API Client to make requests to the Twilio REST API
+use Twilio\Rest\Client;
 
-    // Set your account ID and authentication token.
-    $sid = "your_twilio_account_sid";
-    $token = "your_twilio_authentication_token";
+// Your Account SID and Auth Token from twilio.com/console
+$sid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+$token = 'your_auth_token';
+$client = new Client($sid, $token);
 
-    // The number of the phone initiating the the call.
-    $from_number = "NNNNNNNNNNN";
+// The number of the phone initiating the the call.
+$from_number = "NNNNNNNNNNN";
 
-    // The number of the phone receiving call.
-    $to_number = "NNNNNNNNNNN";
+// The number of the phone receiving call.
+$to_number = "NNNNNNNNNNN";
 
-    // Use the Twilio-provided site for the TwiML response.
-    $url = "http://twimlets.com/message";
+// Use the Twilio-provided site for the TwiML response.
+$url = "http://twimlets.com/message";
 
-    // The phone message text.
-    $message = "Hello world.";
+// The phone message text.
+$message = "Hello World!";
 
-    // Create the call client.
-    $client = new Services_Twilio($sid, $token, $version);
-
-    //Make the call.
-    try
-    {
-        $call = $client->account->calls->create(
-            $from_number, 
-            $to_number,
-              $url.'?Message='.urlencode($message)
-        );
-    }
-    catch (Exception $e) 
-    {
-        echo 'Error: ' . $e->getMessage();
-    }
+//Make the call.
+try
+{
+    $call = $client->calls->create(
+        $to_number, 
+        $from_number,
+        ['url' => $url.'?Message='.urlencode($message)]
+    );
+}
+catch (Exception $e) 
+{
+    echo 'Error: ' . $e->getMessage();
+}
+```
 
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
@@ -141,33 +151,38 @@ As mentioned, this code uses a Twilio-provided site to return the TwiML response
 ## <a id="howto_send_sms"></a>How to: Send an SMS message
 The following shows how to send an SMS message using the **Services_Twilio** class. The **From** number is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
 
-    // Include the Twilio PHP library.
-    require_once 'Services/Twilio.php';
+```php
+// Required if your environment does not handle autoloading
+require __DIR__ . '/vendor/autoload.php';
 
-    // Library version.
-    $version = "2010-04-01";
+// Use the REST API Client to make requests to the Twilio REST API
+use Twilio\Rest\Client;
 
-    // Set your account ID and authentication token.
-    $sid = "your_twilio_account_sid";
-    $token = "your_twilio_authentication_token";
+// Your Account SID and Auth Token from twilio.com/console
+$sid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+$token = 'your_auth_token';
+$client = new Client($sid, $token);
 
+$from_number = "NNNNNNNNNNN"; // With trial account, texts can only be sent from your Twilio number.
+$to_number = "NNNNNNNNNNN";
+$message = "Hello World!";
 
-    $from_number = "NNNNNNNNNNN"; // With trial account, texts can only be sent from your Twilio number.
-    $to_number = "NNNNNNNNNNN";
-    $message = "Hello world.";
-
-    // Create the call client.
-    $client = new Services_Twilio($sid, $token, $version);
-
-    // Send the SMS message.
-    try
-    {
-        $client->$client->account->messages->sendMessage($from_number, $to_number, $message);
-    }
-    catch (Exception $e) 
-    {
-        echo 'Error: ' . $e->getMessage();
-    }
+// Send the SMS message.
+try
+{
+    $client->messages->create(
+        $to_number,
+        [
+            'from' => $from_number,
+            'body' => $message
+        ]
+    );
+}
+catch (Exception $e) 
+{
+    echo 'Error: ' . $e->getMessage();
+}
+```
 
 ## <a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own Website
 When your application initiates a call to the Twilio API, Twilio will send your request to a URL that is expected to return a TwiML response. The example above uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url]. (While TwiML is designed for use by Twilio, you can view the it in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty `<Response>` element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a `<Response>` element that contains a `<Say>` element.)
@@ -176,51 +191,60 @@ Instead of relying on the Twilio-provided URL, you can create your own site that
 
 The following PHP page results in a TwiML response that says **Hello World** on the call.
 
-    <?php    
-        header("content-type: text/xml");    
-        echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-    ?>
-    <Response>    
-        <Say>Hello world.</Say>
-    </Response>
+```html
+<?php
+    header("content-type: text/xml");
+    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+?>
+<Response>
+    <Say>Hello world.</Say>
+</Response>
+```
 
-As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for PHP contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **Services\_Twilio\_Twiml** class in the Twilio library for PHP:
+As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for PHP contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **Twilio\Twiml** class in the Twilio library for PHP:
 
-    require_once('Services/Twilio.php');
-
-    $response = new Services_Twilio_Twiml();
-    $response->say("Hello world.");
-    print $response;
+```php
+$response = new Twilio\Twiml();
+$response->say('Hello');
+print $response;
+```
 
 For more information about TwiML, see [https://www.twilio.com/docs/api/twiml][twiml_reference]. 
 
-Once you have your PHP page set up to provide TwiML responses, use the URL of the PHP page as the URL passed into the  `Services_Twilio->account->calls->create`  method. For example, if you have a Web application named **MyTwiML** deployed to an Azure hosted service, and the name of the PHP page is **mytwiml.php**, the URL can be passed to  **Services_Twilio->account->calls->create**  as shown in the following example:
+Once you have your PHP page set up to provide TwiML responses, use the URL of the PHP page as the URL passed into the `Services_Twilio->account->calls->create` method. For example, if you have a Web application named **MyTwiML** deployed to an Azure hosted service, and the name of the PHP page is **mytwiml.php**, the URL can be passed to  **Client->calls->create** as shown in the following example:
 
-    require_once 'Services/Twilio.php';
+```php
+// Required if your environment does not handle autoloading
+require __DIR__ . '/vendor/autoload.php';
 
-    $sid = "your_twilio_account_sid";
-    $token = "your_twilio_authentication_token";
-    $from_number = "NNNNNNNNNNN";
-    $to_number = "NNNNNNNNNNN";
-    $url = "http://<your_hosted_service>.cloudapp.net/MyTwiML/mytwiml.php";
+// Use the REST API Client to make requests to the Twilio REST API
+use Twilio\Rest\Client;
 
-    // The phone message text.
-    $message = "Hello world.";
+// Your Account SID and Auth Token from twilio.com/console
+$sid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+$token = 'your_auth_token';
+$client = new Client($sid, $token);
 
-    $client = new Services_Twilio($sid, $token, "2010-04-01");
+$from_number = "NNNNNNNNNNN";
+$to_number = "NNNNNNNNNNN";
+$url = "http://<your_hosted_service>.cloudapp.net/MyTwiML/mytwiml.php";
 
-    try
-    {
-        $call = $client->account->calls->create(
-            $from_number, 
-            $to_number,
-              $url.'?Message='.urlencode($message)
-        );
-    }
-    catch (Exception $e) 
-    {
-        echo 'Error: ' . $e->getMessage();
-    }
+// The phone message text.
+$message = "Hello world.";
+
+try
+{
+    $call = $client->calls->create(
+        $to_number, 
+        $from_number,
+        ['url' => $url.'?Message='.urlencode($message)]
+    );
+}
+catch (Exception $e) 
+{
+    echo 'Error: ' . $e->getMessage();
+}
+```
 
 For additional information about using Twilio in Azure with PHP, see [How to Make a Phone Call Using Twilio in a PHP Application on Azure][howto_phonecall_php].
 
@@ -232,12 +256,12 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 
 * [Twilio Security Guidelines][twilio_security_guidelines]
 * [Twilio HowTo's and Example Code][twilio_howtos]
-* [Twilio Quickstart Tutorials][twilio_quickstarts] 
+* [Twilio Quickstart Tutorials][twilio_quickstarts]
 * [Twilio on GitHub][twilio_on_github]
 * [Talk to Twilio Support][twilio_support]
 
 [twilio_php]: https://github.com/twilio/twilio-php
-[twilio_lib_docs]: http://readthedocs.org/docs/twilio-php/en/latest/index.html
+[twilio_lib_docs]: https://www.twilio.com/docs/libraries/php
 [twilio_github_readme]: https://github.com/twilio/twilio-php/blob/master/README.md
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_api_service]: https://api.twilio.com
@@ -251,14 +275,19 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_pricing]: http://www.twilio.com/pricing
 [special_offer]: http://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/docs/api/rest
 [try_twilio]: https://www.twilio.com/try-twilio
-[twilio_account]:  https://www.twilio.com/user/account
-[verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
-[twilio_api_documentation]: http://www.twilio.com/api
+[twilio_console]: https://www.twilio.com/console
+[verify_phone]: https://www.twilio.com/console/phone-numbers/verified
+[twilio_api_documentation]: http://www.twilio.com/docs/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security
 [twilio_howtos]: http://www.twilio.com/docs/howto
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+[azure_vm_setup]: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal
+[azure_vm_endpoint_setup]: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-nsg-quickstart-portal
+[azure_nsg]: https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups
+[azure_ips]: https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FPublicIpAddresses
+[composer]: https://getcomposer.org/doc/00-intro.md#system-requirements
