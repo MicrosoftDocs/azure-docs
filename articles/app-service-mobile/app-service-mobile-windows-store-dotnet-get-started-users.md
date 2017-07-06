@@ -3,7 +3,7 @@ title: Add authentication to your Universal Windows Platform (UWP) app | Microso
 description: 'Learn how to use Azure App Service Mobile Apps to authenticate users of your Universal Windows Platform (UWP) app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
-author: adrianhall
+author: dhei
 manager: panarasi
 editor: ''
 
