@@ -34,7 +34,7 @@ For a set of Azure CLI and PowerShell samples, see:
 
 Azure Database for PostgreSQL service currently offers two service tiers: Basic, and Standard. Each service tier offers [different levels of performance, IOPS guarantees and capabilities](concepts-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small server for a few bucks a month and then [change the performance level](scripts/sample-scale-server-up-or-down.md) within service tier manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your application or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
-## Monitoring and Alerting
+## Monitoring and alerting
 How do you decide when to dial up and down? You use the built-in performance monitoring and alerting features, combined with the performance ratings based on Compute Units. Using these tools, you can quickly assess the impact of scaling Compute Units up or down based on your current or projected performance needs. For details, see [Azure Database for PostgreSQL options and performance: Understand what's available in each service tier](./concepts-service-tiers.md).
 
 ## Keep your app and business running
