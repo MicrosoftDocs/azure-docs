@@ -28,7 +28,6 @@
 ### [U-SQL R extensions](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
-### [Use the U-SQL Interactive tutorial](data-lake-analytics-use-interactive-tutorials.md)
 
 ## Debug U-SQL programs
 ### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
