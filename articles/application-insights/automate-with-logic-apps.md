@@ -43,7 +43,9 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 ### Step 3: Add an Application Insights action
 1. Click **New step**, and then click **Add an action**.
+
 2. In the **Choose an action** search box, type **Azure Application Insights**.
+
 3. Under **Actions**, click **Azure Application Insights – Visualize Analytics query Preview**.
 
     ![Logic App Designer "Choose an action" window](./media/automate-with-logic-apps/flow2.png)
@@ -85,7 +87,9 @@ When you create your own queries, verify that they are working properly in Analy
 ### Step 6: Configure the logic app to send email
 
 1. Click **New step**, and then select **Add an action**.
+
 2. In the search box, type **Office 365 Outlook**.
+
 3. Click **Office 365 Outlook – Send an email**.
 
     ![Office 365 Outlook selection](./media/automate-with-logic-apps/flow2b.png)
@@ -117,11 +121,11 @@ When you create your own queries, verify that they are working properly in Analy
 
 You can wait for the trigger to run the logic app, or you can run the logic app immediately by selecting **Run**.
 
-    ![Logic app creation screen](./media/automate-with-logic-apps/step7.png)
+![Logic app creation screen](./media/automate-with-logic-apps/step7.png)
 
 When your logic app runs, the recipients you specified in the email list will receive an email that looks like the following:
 
-![Logic app email](./media/automate-with-logic-apps/flow9.png)
+![Logic app email message](./media/automate-with-logic-apps/flow9.png)
 
 ## Next steps
 
