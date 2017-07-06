@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
-ms.author: toguyen
+ms.author: toguyen10
 
 ---
 # Understand your bill for Microsoft Azure
