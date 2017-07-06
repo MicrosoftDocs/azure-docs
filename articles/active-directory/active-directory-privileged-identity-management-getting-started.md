@@ -30,16 +30,18 @@ Before you use Azure AD Privileged Identity Management, you need to add the appl
 3. Select **More services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
 4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application opens.
 
-If you're the first person to use Azure AD Privileged Identity Management in your directory, then the [security wizard](active-directory-privileged-identity-management-security-wizard.md) walks you through the initial assignment experience. After that, you will automatically become the first **Security administrator** and **Privileged role administrator** of the directory. Only a privileged role administrator can access this application to manage the access for other administrators.  
+If you're the first person to use Azure AD Privileged Identity Management in your directory, then the [security wizard](active-directory-privileged-identity-management-security-wizard.md) walks you through the initial assignment experience. After that, you will automatically become the first **Security administrator** and **Privileged role administrator** of the directory. Only privileged role administrators can manage role assignments of users in your directory.  
 
 ## Navigate to your tasks
 Once Azure AD Privileged Identity Management is set up, you'll see the navigation blade whenever you open the application. Use this blade to accomplish your identity management tasks.
 
-![Top-level tasks for PIM - screenshot](./media/active-directory-privileged-identity-management-getting-started/pim_tasks.png)
+![Top-level tasks for PIM - screenshot](./media/active-directory-privileged-identity-management-getting-started/PIM_Tasks_New.png)
 
-* **Activate my roles** takes you to the list of roles that are assigned to you. This is where you will activate any roles that you are eligible for.
-* **Manage privileged roles** is the dashboard for privileged role admins to manage role assignments, change role activation settings, start access reviews, and more. The options in this dashboard are disabled for anyone who isn't a privileged role administrator.
-* **Review privileged access** takes you to any pending access reviews that you need to complete, whether you're reviewing access for yourself or someone else. 
+* **My Roles** takes you to a list of roles that are assigned to you. This is where you will activate any roles that you are eligible for.
+* **Approve Requests (Preview)** displays a list of pending requests to activate from users in your directory. [Learn more.](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
+* **Pending Requests (Preview)** displays any current requests to have made to activate.
+* **Review Access** takes you to any pending access reviews that you need to complete, whether you're reviewing access for yourself or someone else.
+* **Azure AD Directory Roles** located under the 'Manage' section is the dashboard for privileged role admins to manage role assignments, change role activation settings, start access reviews, and more. The options in this dashboard are disabled for anyone who isn't a privileged role administrator.
 
 ## Next steps
 The [Azure AD Privileged Identity Management overview](active-directory-privileged-identity-management-configure.md) includes more details on how you can manage administrative access in your organization.
