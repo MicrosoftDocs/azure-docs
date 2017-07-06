@@ -19,7 +19,7 @@ ms.author: erikje
 ---
 # Azure marketplace items available for Azure Stack
 
-Microsoft Azure Stack supports the following Azure marketplace items.
+Microsoft Azure Stack supports the following Azure marketplace items:
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
@@ -42,11 +42,11 @@ Microsoft Azure Stack supports the following Azure marketplace items.
 | ![](media/azure-stack-marketplace-azure-items/elasticsearch.png) | [Elasticsearch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.elastic-search?tab=Overview) | Flexible and powerful open source analytics engine. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/elk.png) | [ELK](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.elk?tab=Overview) | Big data suite consisting of Elasticsearch, Kibana, and Logstash. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.gitlab?tab=Overview) | Fast, secure Git management software. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.hadoop?tab=Overview) | Framework for reliable, scalable and distributed computing. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=Overview) | Integration server supporting SCM tools: CVS, Subversion and Git. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.hadoop?tab=Overview) | Framework for reliable, scalable, and distributed computing. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=Overview) | Integration server supporting SCM tools: CVS, Subversion, and Git. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/joomla.png) | [Joomla!](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.joomla?tab=Overview) | User-friendly CMS for easy website builds. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.kafka?tab=Overview) | Powerful distributed publish-subscribe messaging system. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.lampstack?tab=Overview) | Fully-integrated and ready to run development environment. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.lampstack?tab=Overview) | Fully integrated and ready to run development environment. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/limesurvey.png) | [LimeSurvey](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.limesurvey?tab=Overview) | Question-and-answer poll management system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/magento.png) | [Magento](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.magento?tab=Overview) | Popular eCommerce software and platform. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/mantis.png) | [Mantis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mantis?tab=Overview) | Advanced bug-tracking system. | Bitnami |
@@ -58,7 +58,7 @@ Microsoft Azure Stack supports the following Azure marketplace items.
 | ![](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.moodle?tab=Overview) | Effective CMS designed for online learning communities. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.multicraft?tab=Overview) | Minecraft server hosting solution and control panel. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql?tab=Overview) | The most popular database system. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.nginxstack?tab=Overview) | A complete PHP, MySQL and Nginx development environment. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.nginxstack?tab=Overview) | A complete PHP, MySQL, and Nginx development environment. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/owncloud.png) | [ownCloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.owncloud?tab=Overview) | Popular open source file sync and share solution. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/piwik.png) | [Piwik](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.piwik?tab=Overview) | Real-time web analytics software program. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.rabbitmq?tab=Overview) | Efficient messaging broker offering a common platform. | Bitnami |
@@ -69,10 +69,10 @@ Microsoft Azure Stack supports the following Azure marketplace items.
 | ![](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.sugarcrm?tab=Overview) | Flexible customer relationship management solution. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.suitecrm?tab=Overview) | Popular Enterprise-grade CRM application. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/tomcat.png) | [Tomcat](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.tom-cat?tab=Overview) | Popular platform implementing specifications from Java Community. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.wildfly?tab=Overview) | Application Server that includes Apache, WildFly, MySQL and Java. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.wildfly?tab=Overview) | Application Server that includes Apache, WildFly, MySQL, and Java. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.wordpress?tab=Overview) | The most popular and ready-to-go CMS. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie" with backports kernel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
-| ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch and Traffic Manager. | KEMP Technologies Inc. |
+| ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch, and Traffic Manager. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased69?tab=Overview) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3 HPC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | Best-in-class open source infrastructure management. | SUSE |
