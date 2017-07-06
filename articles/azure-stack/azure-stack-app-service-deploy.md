@@ -176,12 +176,13 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
-| AadTenantId | Mandatory | null | Azure Active Directory Tenant Id, provide the GUID or string, for example, myazureaaddirectory.onmicrosoft.com |
+| DirectoryTenantName | Mandatory | null | Azure Active Directory Tenant Id, provide the GUID or string, for example, myazureaaddirectory.onmicrosoft.com |
 | TenantArmEndpoint | Mandatory | management.local.azurestack.external | The Tenant ARM Endpoint |
 | AzureStackCredential | Mandatory | api.appservice.local.azurestack.external | AAD Administrator |
 | CertificateFilePath | Mandatory | null | Path to the identity application certificate file generated earlier |
 | CertificatePassword | Mandatory | null | Password used to protect the certificate private key |
-| $DomainName | Required | local.azurestack.external | Azure Stack Region and Domain Suffix |
+| DomainName | Required | local.azurestack.external | Azure Stack Region and Domain Suffix |
+| AdfsMachineName | Optional | Ignore in case of AAD Deployment but required in ADFS deployment. ADFS machine name for example AzS-ADFS01.azurestack.local |
 
 ## Test Drive App Service on Azure Stack
 
