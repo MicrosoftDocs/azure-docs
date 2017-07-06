@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 07/05/2017
 ms.author: sashan
 
 ---
@@ -120,7 +120,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 ## Programmatically managing active geo-replication
 As discussed previously, auto-failover groups (in-preview) and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available.
 
-**Azure Resource Manager API and role-based security**: Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+**Azure Resource Manager API and role-based security**: Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
 > Many new features of active geo-replication are only supported using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) based [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) and [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The [(classic) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) and [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility so using the Azure Resource Manager-based APIs are recommended. 

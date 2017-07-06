@@ -4,9 +4,9 @@ description: Get a basic understanding of Microsoft Azure identity solution term
 keywords:
 author: jeffgilb
 manager: femila
-editor: jsnow
+ms.reviewer: jsnow
 ms.author: jeffgilb
-ms.date: 6/6/2017
+ms.date: 7/5/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -101,6 +101,7 @@ Here are some common identity and access scenarios with recommendations as to wh
 
 Now that you understand Azure identity concepts and the options available to you, you can use the following resources to get started implementing the option you’ve chosen:
 
+[Learn more about Azure hybrid identity solutions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
 
