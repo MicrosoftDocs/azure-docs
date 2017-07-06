@@ -146,7 +146,7 @@ When using Geo-replication, data from the primary linked cache is replicated to 
 
 ### Why did the operation fail when I tried to delete my linked cache?
 
-When two caches are linked together, you can't delete either cache or the resource group that contains them. If you attempt to delete the resource group that contains one or both of the linked caches, the other resources in the resource group are deleted, but the resource group stays in the `deleting` state and any linked caches in the resource group remain in the `running` state. To complete the deletion of the resource group and the linked caches within it, break the Geo-replication link as described in [Remove a Geo-replication link](#remove-a-geo-replication-link).
+When two caches are linked together, you can't delete either cache or the resource group that contains them until you remove the Geo-replication link. If you attempt to delete the resource group that contains one or both of the linked caches, the other resources in the resource group are deleted, but the resource group stays in the `deleting` state and any linked caches in the resource group remain in the `running` state. To complete the deletion of the resource group and the linked caches within it, break the Geo-replication link as described in [Remove a Geo-replication link](#remove-a-geo-replication-link).
 
 ### What region should I use for my secondary linked cache?
 
