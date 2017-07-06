@@ -165,7 +165,7 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 > Before sure to note or copy the key when generated.  Once saved it can't be viewed again and you need to regenerate a new key.
 ![App Service on Azure Stack Technical Preview 3 Application Keys][12]
 15. Return to the **Application Registration** in the **Azure Active Directory**.
-26. Click **Required Permissions** and then click **Grant Permissions** and click **Yes**.
+16. Click **Required Permissions** and then click **Grant Permissions** and click **Yes**.
 ![App Service on Azure Stack Technical Preview 3 SSO Grant][13]
 17. Return to **CN0-VM** and open the **Web Cloud Management Console** once more.
 18. Select the **Settings** node on the left-hand pane and look for the **ApplicationClientSecret** Setting.
