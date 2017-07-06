@@ -1,4 +1,4 @@
-## General considerations for N-series VMs
+## Deployment considerations
 
 * For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
 
@@ -6,7 +6,7 @@
 
 * When creating an N-series VM using the Azure portal, on the **Basics** blade, select a **VM disk type** of **HDD**. To choose an available N-series size, on the **Size** blade, click **View all**.
 
-* N-series VMs do not support VM disks that are backed by Azure premium storage.
+* N-series VMs do not support VM disks that are backed by Azure Premium storage.
 
 * If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 
