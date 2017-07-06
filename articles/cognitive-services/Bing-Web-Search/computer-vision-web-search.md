@@ -89,7 +89,8 @@ Here you can see the results of querying the Bing Web Search API using the extra
 ![WebViewPage Example](./media/computer-vision-web-search/WebViewPage.png)  
 From here, you can interact with the website as if it were loaded within a standard browser, or use the navigation bar to return to the Web Results Page. 
 
-Note the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
+[!Note]
+> Note that The Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
 
 ## Review and Learn:
 Now that the sample's up and running, let's jump in and explore exactly how it utilizes resources from the Azure toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it is valuable to walk through the application screen by screen and examine exactly how it works.
@@ -151,7 +152,7 @@ The following function provides an example of how to use the Xamarin Media Plugi
 4) Unpack the MediaFile into a byte array.
 5) Return the byte array for further processing.
 
-Here's the function that uses the Xamarin Media Plugin for photo capture.  Note the downscaling done by setting **PhotoSize = PhotoSize.Medium** on the **mediaOptions** object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all filesize-related issues.  If your device takes exceptionally high quality photos and you are getting errors, you might try setting **PhotoSize = PhotoSize.Small** here.  
+Here's the function that uses the Xamarin Media Plugin for photo capture.  
 
     // Uses the Xamarin Media Plugin to take photos using the native camera application
     async Task<byte[]> TakePhoto()
@@ -192,7 +193,9 @@ And here's the utility function used to convert a MediaFile into a byte array:
         }
     }
 
-The photo import utility works in a similar way, and can be found in *OcrSelectPage.xaml.cs*
+The photo import utility works in a similar way, and can be found in *OcrSelectPage.xaml.cs*  
+[!NOTE]
+>Note the downscaling done by setting **PhotoSize = PhotoSize.Medium** on the **mediaOptions** object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all filesize-related issues.  If your device takes exceptionally high quality photos and you are getting errors, you might try setting **PhotoSize = PhotoSize.Small** here.  
 
 ### OCR Results Page
 The OCR Results Page is where we extract text from each of the OCR endpoints and then pull text from the endpoint response using the Json.NET  [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them before going into parsing.
@@ -208,7 +211,7 @@ Let's first look at the Print OCR endpoint. The Azure Computer Vision OCR API is
         */
     public const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=en&detectOrientation=true";
 
-Next, we set the parameters for the the Handwritten OCR endpoint.  The Handwritten OCR endpoint is still in Preview, and contemporarily only works with English text.  Its only parameter right now is a flag recognizing whether the endpoint is parsing printed or handwritten text.  Although the handwritten API is able to parse printed text without this flag, setting *handwriting=false* will yeild better results on non-handwritten text.  Given that my application is optimized for English, I could have used only the Handwritten OCR endpoint and gotten comparable results.  However, for the sake of illustration both endpoints were used.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Handwritten Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).
+Next, we set the parameters for Handwritten OCR.  The Handwritten OCR endpoint is still in Preview, and currently only works with English text.  Because of this, its only current parameter is a flag determining whether or not to parse handwritten text at all.  Although the handwritten API is able to parse both machine printed and handwritten text, *handwriting=false* will yeild better results on non-handwritten text.  Given that my application is optimized for English, I could have used only the Handwritten OCR endpoint for this sample, setting the flag to true or false depending on content type.  However, for the sake of illustration both endpoints were used.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Handwritten Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).
 
     /* This is the url that will be passed into the POST request for parsing handwritten text.  Its parameters are as follows:
         * [handwriting = True] This tells the system to try to parse handwritten text from the image.  If set to False, this API will perform processing similar to the print OCR endpoint. 
@@ -221,9 +224,10 @@ Next, we set the parameters for the the Handwritten OCR endpoint.  The Handwritt
 
 With that out of the way, we can jump into our API functions. 
 
-*FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here follows a similar structure to the call carried out in the Add Keys Page, but here we send a HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a ByteArrayContent object, and add a header to this ByteArrayContent object indicating this.  Other content types can be read about in the API reference linked above.  
+*FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here follows a similar structure to the call carried out in the Add Keys Page, but here we send a HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a ByteArrayContent object, and add a header to this ByteArrayContent object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
 
-Note the use of the Json.NET [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are are joined from a list of individual parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned.
+[!NOTE]
+> Note the use of the Json.NET [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are are joined from a list of individual parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned.
 
     // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchPrintedWordList()
