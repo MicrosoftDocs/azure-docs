@@ -73,7 +73,7 @@ public partial class App : Application
 The section below shows how an application can query a protected backend server like Microsoft Graph. 
 A MainWindow.xaml file should automatically be created as a part of your project template. Open this file this file and then follow the instructions below:
 
-1.	Replace your application’s `<Grid>` with be the following:
+Replace your application’s `<Grid>` with be the following:
 
 ```xml
 <Grid>

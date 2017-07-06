@@ -1,28 +1,9 @@
----
-title: Azure AD v2 JS SPA Guided Setup - Setup | Microsoft Docs
-description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 06/01/2017
-ms.author: andret
-
----
-
-## Setting up your Web Server or Project
+## Setting up your web server or project
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
 
-## Pre-requisites
+## Prerequisites
 A local web server such as [Python](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup. 
 
 Instructions in this guide are based on both Python and Visual Studio 2017, but feel free to use any other development environment or Web Server.

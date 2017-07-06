@@ -1,7 +1,7 @@
 
 ## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
-1.	Add the following code to your `index.html` inside the `<body>` tag:
+Add the following code to your `index.html` inside the `<body>` tag:
 
 ```html
 <script type="text/javascript">
@@ -113,7 +113,7 @@ Another scenario where `acquireTokenSilent` will fail is when the user has not y
 
 ## Call the Microsoft Graph API using the token you just obtained
 
-1.	Add the following code to your index.html inside the `<body>` tag:
+Add the following code to your index.html inside the `<body>` tag:
 
 ```html
  <script type="text/javascript">
@@ -166,7 +166,7 @@ In the sample application created by this guide, the `callWebApiWithToken()` met
 
 ## Add a method to sign out the user
 
-1.	Add the following code to your index.html inside the `<body>` tag:
+Add the following code to your index.html inside the `<body>` tag:
 
 ```html
  <script type="text/javascript">
