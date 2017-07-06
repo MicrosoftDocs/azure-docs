@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/3/2017
+ms.date: 4/6/2017
 ms.author: anwestg
 
 ---
@@ -36,7 +36,6 @@ If you are running Azure Stack in an isolated environment secured by ADFS and yo
    - Create-AppServiceCerts.ps1
    - Create-IdentityApp.ps1
    - Modules
-      - AzureStack.Identity.psm1
       - GraphAPI.psm1
 
 ## Create an Offline Installation Package
@@ -63,7 +62,7 @@ This first script works with the Azure Stack certificate authority to create thr
 | --- | --- | --- | --- |
 | pfxPassword | Required | null | Password used to protect the certificate private key |
 | DomainName | Required | local.azurestack.external | Azure Stack Region and Domain Suffix |
-| CertificateAuthority | Required | AzS-CA01.azurestack.local | Certificate Authority Endpoint |
+| CertificateAuthority | Required | MAS-CA01.azurestack.local | Certificate Authority Endpoint |
 
 ## Complete the offline installation of App Service on Azure Stack
 
@@ -90,7 +89,7 @@ This first script works with the Azure Stack certificate authority to create thr
 ![App Service on Azure Stack Technical Preview 3 Subscription Selection][6]
 10. Enter the **Resource Group Name** for your App Service deployment, by default this is set to **APPSERVICE-LOCAL**.
 11. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
-12. Enter the **SQL Server details** for the instance that will be used to host the App Service RP Databases.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
+12. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name is populated with the default SQL RP information but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
 Storage, and
 13. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates, then select the corresponding certificate.
 14. Enter the **certificate password** that you set when you created the certificates.
