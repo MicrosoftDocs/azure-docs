@@ -16,9 +16,11 @@ ms.author: cfreeman
 
 # Automate Application Insights processes by using Logic Apps
 
-Do you find yourself repeatedly running the same queries on your telemetry data to check whether your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Application Insights connector (Preview) for Logic Apps is the right tool for this purpose.
+Do you find yourself repeatedly running the same queries on your telemetry data to check whether your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector (Preview) for Logic Apps is the right tool for this purpose.
 
-With this integration, you can automate numerous processes without writing a single line of code. You can create your logic app with the Application Insights connector to quickly automate any Application Insights process. You can add additional actions as well. The Logic Apps service makes hundreds of actions available. For example, you can automatically send an email notification or create a bug in Visual Studio Team Services as part of your logic app. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) that can speed up the process of creating your logic app. 
+With this integration, you can automate numerous processes without writing a single line of code. You can create a logic app with the Application Insights connector to quickly automate any Application Insights process. 
+
+You can add additional actions as well. The Logic Apps service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Visual Studio Team Services. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) to help speed up the process of creating your logic app. 
 
 ## Create a logic app for Application Insights
 
@@ -35,11 +37,11 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
     ![Logic App Designer window](./media/automate-with-logic-apps/logicapp2.png)
 
-2. In the **Recurrence** window, in the **Frequency** box, select **Day** and then, in the **Interval** box, type **1**.
+2. In the **Frequency** box, select **Day** and then, in the **Interval** box, type **1**.
 
     ![Logic App Designer "Recurrence" window](./media/automate-with-logic-apps/step2b.png)
 
-### Step 3: Add an Azure Application Insights action
+### Step 3: Add an Application Insights action
 1. Click **New step**, and then click **Add an action**.
 2. In the **Choose an action** search box, type **Azure Application Insights**.
 3. Under **Actions**, click **Azure Application Insights – Visualize Analytics query Preview**.
@@ -50,7 +52,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 **Prerequisites**
 
-To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as demonstrated in the following diagram:
+To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as shown in the following diagram:
 
 ![Application ID in the Azure portal](./media/automate-with-logic-apps/appid.png) 
 
@@ -90,26 +92,30 @@ When you create your own queries, verify that they are working properly in Analy
 
 4. In the **Send an email** window, do the following:
 
-    a. Specify the email address of the recipient
+   a. Type the email address of the recipient.
 
-    b. Provide a subject for the email
+   b. Type a subject for the email.
 
-    c. Place your cursor in the **Body** field, and from the dynamic content menu that opens on the right, select **Body**.
+   c. Click anywhere in the **Body** box and then, on the dynamic content menu that opens at the right, select **Body**.
 
-    d. Click on **Show advanced options**.
+   d. Click **Show advanced options**.
 
       ![Office 365 Outlook configuration](./media/automate-with-logic-apps/flow5.png)
 
-5. From the dynamic content menu do the following:
-    - Select **Attachment Name**
-    - Select **Attachment Content**
-    - Select **Yes** in the **Is HTML** field
+5. On the dynamic content menu, do the following:
 
-        ![Office 365 email configuration screen](./media/automate-with-logic-apps/flow7.png)
+    a. Select **Attachment Name**.
+
+    b. Select **Attachment Content**.
+    
+    c. In the **Is HTML** box, select **Yes**.
+
+      ![Office 365 email configuration screen](./media/automate-with-logic-apps/flow7.png)
 
 ### Step 7: Save and test your logic app
-1. Click **Save** to save your changes.
-2. You can either wait for the trigger to run the logic app, or you can run it immediately by choosing **Run**.
+* Click **Save** to save your changes.
+
+You can wait for the trigger to run the logic app, or you can run the logic app immediately by selecting **Run**.
 
     ![Logic app creation screen](./media/automate-with-logic-apps/step7.png)
 
