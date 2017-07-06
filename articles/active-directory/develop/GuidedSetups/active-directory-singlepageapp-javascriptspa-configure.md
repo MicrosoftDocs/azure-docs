@@ -35,10 +35,10 @@ Now you need to register your application in Microsoft Application Registration 
 5. Add a redirect URL to your application. A redirect URL is the URL for your `index.html` page based on your web server
 6. Click *Save*
 
-> #### Visual Studio instructions for obtaining redirect URL using SSL
-> If you are using Visual Studio, configure your project to use SSL, and then use the SSL URL to configure your application’s registration information using the instructions below:
+> #### Visual Studio instructions for obtaining redirect URL
+**************************** I am HERE
+> If you are using Visual Studio,please follow the instructions below to obtain your Redirect URL:
 > 1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
-> 2.	Change `SSL Enabled` to `True`
 > 3.	Copy the value from `SSL URL` to the clipboard:<br/> ![Project properties](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 4.	Select the `Project` menu and then select `{Project} Properties...` (where {Project} is the name of your project)
 > 5.	Open the `Web` tab
