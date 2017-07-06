@@ -27,7 +27,12 @@ See:
 * [Audit logs](active-directory-reporting-azure-portal.md#audit-logs)  for more conceptual information
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
-For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
+
+For:
+
+- Frequently asked questions, read our [FAQ](active-directory/active-directory-reporting-faq.md) 
+- Issues, please [file a support ticket](active-directory-troubleshooting-support-howto.md) 
+
 
 ## Who can access the data?
 * Users in the Security Admin or Security Reader role
