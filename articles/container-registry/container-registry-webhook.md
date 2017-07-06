@@ -30,7 +30,8 @@ For more background and concepts, see the [overview](./container-registry-intro.
 - Azure container registry - Create a container registry in your Azure subscription. For example, use the Azure portal, the Azure CLI 2.0, or PowerShell. 
 - Docker CLI - To set up your local computer as a Docker host and access the Docker CLI commands, install Docker Engine. 
  
-!! Note: Webhooks are not available for the Basic tier of Container Registries. 
+> [!NOTE] Webhooks are not available for the Basic tier of Container Registries. 
+>
 
 ## Create webhook Azure Portal
 
@@ -42,7 +43,7 @@ For more background and concepts, see the [overview](./container-registry-intro.
 
 4. Complete the *Create Webhook* form with the following information:
 
-| Value | |
+| Value | Description |
 |---|---|
 | Name | The name you want to give to the webhook. It can only contain lowercase letters and numbers and between 5-50 characters. |
 | Service URI | The URI where the webhook should send POST notifications. |
@@ -58,7 +59,17 @@ Example webhook form:
 > [!NOTE]
 > Currently the request body cannot be modified. If the specified service URI requires a body in a specific format, a conversion mechanism will need to be used.
 
+## Create webhook Azure CLI
+
+To create a webhook using the Azure CLI, use the [az acr webhook create](/cli/azure/acr/webhook#create) command.
+
+```azurecli-interactive
+az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
+```
+
 ## Test webhook
+
+### Azure Portal
 
 Prior to using the webhook on container image push and delete actions, it can be tested using the **Ping** button. When used, the Ping sends a generic post request to the specified endpoint and logs the response. This is helpful to verify that the webhook has been set up correctly.
 
@@ -66,6 +77,28 @@ Prior to using the webhook on container image push and delete actions, it can be
 2. In the top toolbar select the "Ping" action. 
 3. Check the request and response.
 
+### Azure CLI
+
+To test an ACR webhook with the Azure CLI, use the [az acr webhook ping](/cli/azure/acr/webhook#ping) command.
+
+```azurecli-interactive
+az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
+```
+
+To see the results, use the [az acr webhook list-events](/cli/azure/acr/webhook#list-events) command. 
+
+```azurecli-interactive
+az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
+```
+
 ## Delete webhook
 
+### Azure Portal
+
 Each webhook can be deleted by selecting the webhook and then the delete button on the Azure portal.
+
+### Azure CLI
+
+```azurecli-interactive
+az acr webhook de.ete --registry mycontainerregistry --name myacrwebhook01
+```
