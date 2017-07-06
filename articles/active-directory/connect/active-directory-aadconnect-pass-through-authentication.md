@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 07/06/2017
 ms.author: billmath
 ---
 
@@ -55,6 +55,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - It can be enabled via [Azure AD Connect](active-directory-aadconnect.md).
 - It uses a lightweight on-premises agent that listens for and responds to password validation requests.
 - Installing multiple agents provides high availability of sign-in requests.
+- It [protects](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) your on-premises accounts against brute force password attacks in the cloud.
 
 ## Next steps
 
