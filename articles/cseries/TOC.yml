@@ -1,8 +1,8 @@
-- name: CSeries Documentation
+- name: C-Series Documentation
   href: ./index.yml
 - name: Overview
   items:
-  - name: About CSeries
+  - name: About C-Series containers
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -21,7 +21,7 @@
     href: 4.md
 - name: How-to guides
   items:
-  - name: Use Azure Storage with CSeries
+  - name: Use Azure Storage with C-Series
     href: azure-files.md
 - name: Reference
   items:
