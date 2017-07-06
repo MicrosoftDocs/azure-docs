@@ -114,7 +114,7 @@ In order to mount an Azure File share outside of the Azure region it is hosted i
 >   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 >   ```
 
-## Next Steps
+## Next steps
 See these links for more information about Azure File storage.
 
 * [FAQ](storage-files-faq.md)

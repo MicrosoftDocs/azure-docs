@@ -135,7 +135,7 @@ ms.author: renash
     You can refer to [Azure File Storage Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance. 
 
 
-## Also See
+## See also
 See these links for more information about Azure File storage.
 
 ### Conceptual articles and videos
