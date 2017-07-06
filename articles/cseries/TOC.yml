@@ -1,5 +1,3 @@
-- name: C-Series Documentation
-  href: ./index.yml
 - name: Overview
   items:
   - name: About C-Series containers
