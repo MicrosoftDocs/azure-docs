@@ -37,8 +37,6 @@
       href: azure-stack-deploy.md
     - name: Deploy
       href: azure-stack-run-powershell-script.md
-    - name: Activate portals
-      href: azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals
     - name: Register
       href: azure-stack-register.md
     - name: Connect to Azure Stack
@@ -131,6 +129,8 @@
         href: azure-stack-marketplace.md
       - name: Download marketplace items
         href: azure-stack-download-azure-marketplace-item.md
+      - name: Azure marketplace items for Azure Stack
+        href: azure-stack-marketplace-azure-items.md
       - name: Create and publish a marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
       - name: Add a custom virtual machine image
@@ -238,7 +238,7 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/azure/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
   - name: Azure Roadmap
