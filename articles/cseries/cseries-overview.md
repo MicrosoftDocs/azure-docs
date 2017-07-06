@@ -1,5 +1,5 @@
 ---
-title: C-Series API Overview | Microsoft Docs
+title: C-Series API Overview | Azure Docs
 description: Understand the C-Series API
 services: container-service
 documentationcenter: ''
@@ -45,7 +45,7 @@ By separating these operations into different containers, they can be built by d
 
 The C-Series resource provider operates exclusively on container groups. However, because single container groups are very common, the C-Series CLI operations are optimized for dealing with individual containers, with groups implicitly created to wrap them.
 
-**Note**: Because they are scheduled on the same host, all containers in a group must share a base OS type (Linux or Windows). 
+Because they are scheduled on the same host, all containers in a group must share a base OS type (Linux or Windows). 
 
 ### Containers
 
@@ -72,7 +72,7 @@ In this case, the group will be allocated 2 CPU (ceiling(0.75+0.5)) and 2GB of R
 
 You can expose your C-Series to the internet by requesting a public IP address. The IP is allocated to the container group and any ports specified on that IP will be forwarded on to the corresponding port of the container. Note that since containers within a group share a local network, they must listen on distinct ports. Port mapping is not supported.
 
-**Note:** We intend to add support for putting a container group into a virtual network and for fronting container groups with a load balancer, but neither of these capabilities exist yet.
+We intend to add support for putting a container group into a virtual network and for fronting container groups with a load balancer, but neither of these capabilities exist yet.
 
 ## Logs
 

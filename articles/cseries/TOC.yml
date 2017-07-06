@@ -1,7 +1,7 @@
 - name: Overview
   items:
   - name: About C-Series containers
-    href: overview.md
+    href: cseries-overview.md
 - name: Quickstarts
   expanded: true
   items:
