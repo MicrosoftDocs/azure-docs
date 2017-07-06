@@ -18,6 +18,7 @@ ms.author: markvi
 ---
 # Azure Active Directory Identity Protection FAQ
 
+
 ## Why do some risk events have “Closed (system)” status?
 
 **A:** These are events that Azure Active Directory Identity Protection detected and later closed because the events were no longer considered risky. These events do not count towards the user’s risk level. 
@@ -34,4 +35,8 @@ ms.author: markvi
 
 ---
 
+## What happens when your Azure Active Directory premium trial expires?
 
+**A:** You still have access to Identity Protection even though your Azure Active Directory premium trial has expired. 
+
+---
