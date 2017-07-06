@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/06/17
 ms.author: asteen
-
+ms.reviewr: japere
 ---
 
 # How applications appear on the access panel
@@ -25,7 +25,7 @@ The Access Panel is a web-based portal which enables a user with a work or schoo
 
 -   If an application was just removed from a user or group the user is a member of, try to sign in and out again into the user’s Access Panel after a few minutes to see if the application is removed.
 
--   If a license was just removed from a user or group the user is a member of this may take a long time, depending on the size and complexity of the group for changes to be made. allow for extra time before signing into the Access Panel.
+-   If a license was just removed from a user or group the user is a member of this may take a long time, depending on the size and complexity of the group for changes to be made. Allow for extra time before signing into the Access Panel.
 
 ## Problems related to assigning applications to users
 
