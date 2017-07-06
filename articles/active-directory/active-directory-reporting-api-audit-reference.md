@@ -31,7 +31,7 @@ See:
 
 For:
 
-- Frequently asked questions, read our [FAQ](active-directory/active-directory-reporting-faq.md) 
+- Frequently asked questions, read our [FAQ](active-directory-reporting-faq.md) 
 
 - Issues, please [file a support ticket](active-directory-troubleshooting-support-howto.md) 
 
