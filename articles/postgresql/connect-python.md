@@ -46,6 +46,9 @@ Get the connection information needed to connect to the Azure Database for Postg
 - Using your favorite text editor, create a new file called postgres.py in a folder. Copy and paste the one of the code blocks inside it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
 - To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then type the command `python postgresql.py` to run the application.
 
+> [!NOTE]
+> Starting in Python version 3, print became a function `print()` instead of a keyword `print`.  You may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the code samples on that version. If that happens, replace each call to `print "string"` to include parenthesis such as `print("string")`.
+
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function with **INSERT** SQL statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function is used to execute the SQL query against PostgreSQL database. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
