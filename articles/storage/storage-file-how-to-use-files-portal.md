@@ -68,7 +68,7 @@ The [Azure portal](https://portal.azure.com) provides a user interface for manag
 **Tip:**  
 To find the storage account access key for mounting, click on **View access keys for this storage account** at the bottom of the connect page.
 
-## Also See
+## See also
 See these links for more information about Azure File storage.
 
 * [FAQ](storage-files-faq.md)

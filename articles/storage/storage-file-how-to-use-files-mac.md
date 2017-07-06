@@ -60,7 +60,7 @@ ms.author: renash
 
     ![A snapshot of the mounted Azure File share](./media/storage-file-how-to-use-files-mac/mount-via-terminal-1.png)
 
-## Next Steps
+## Next steps
 See these links for more information about Azure File storage.
 
 * [Apple Support Article - How to connect with File Sharing on your Mac](https://support.apple.com/HT204445)

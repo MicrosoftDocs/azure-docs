@@ -80,7 +80,7 @@ AzCopy is a Windows command-line utility designed for copying data to and from M
 To learn more, please visit [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 #### Using SMB
-Azure File storage offers file shares in the cloud using the standard SMB protocol. You can mount a file share from a client on premises or in Azure. Once mounted, tools such as Robocopy can be used to copy files over to Azure File shares. For more information, see [how to mount Azure File Share on Windows](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) and [how to mount Azure File share on Linux](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share).
+Azure File storage offers file shares in the cloud using the standard SMB protocol. You can mount a file share from a client on premises or in Azure. Once mounted, tools such as Robocopy can be used to copy files over to Azure File shares. For more information, see [how to mount Azure File Share on Windows](storage-file-how-to-use-files-windows.md) and [how to mount Azure File share on Linux](storage-how-to-use-files-linux.md).
 
 
 #### Using the Storage Client Libraries

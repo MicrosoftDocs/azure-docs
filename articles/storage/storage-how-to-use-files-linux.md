@@ -108,7 +108,7 @@ Linux users, we want to hear from you!
 
 The Azure File storage for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure File Storage Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
 
-## Next Steps
+## Next steps
 See these links for more information about Azure File storage.
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [Using Azure PowerShell with Azure storage](storage-powershell-guide-full.md)

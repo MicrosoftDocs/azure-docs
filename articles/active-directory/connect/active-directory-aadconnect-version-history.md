@@ -31,15 +31,46 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.557.0
+Status: July 2017
+
+>[!NOTE]
+>This build is not available to customers through the Azure AD Connect Auto Upgrade feature.
+
+### Azure AD Connect
+
+#### Fixed issue
+* Fixed an issue with the Initialize-ADSyncDomainJoinedComputerSync cmdlet that caused the verified domain configured on the existing service connection point object to be changed even if it is still a valid domain. This issue occurs when your Azure AD tenant has more than one verified domains that can be used for configuring the service connection point.
+
+#### New features and improvements
+* Password writeback is now available for preview with Microsoft Azure Government cloud and Microsoft Cloud Germany. For more information about Azure AD Connect support for the different service instances, refer to article [Azure AD Connect: Special considerations for instances](active-directory-aadconnect-instances.md).
+
+* The Initialize-ADSyncDomainJoinedComputerSync cmdlet now has a new optional parameter named AzureADDomain. This parameter lets you specify which verified domain to be used for configuring the service connection point.
+
+### Pass-through Authentication
+
+#### New features and improvements
+* The name of the agent required for Pass-through Authentication has been changed from *Microsoft Azure AD Application Proxy Connector* to *Microsoft Azure AD Connect Authentication Agent*.
+
+* Enabling Pass-through Authentication no longer enables Password Hash Synchronization by default.
+
+
 ## 1.1.553.0
 Status: June 2017
 
 > [!IMPORTANT]
-> There are schema and sync rule changes introduced in this build. Azure AD Connect Synchronization Service will trigger Full Import and Full Sync steps after upgrade. Details of the changes are described below.
+> There are schema and sync rule changes introduced in this build. Azure AD Connect Synchronization Service will trigger Full Import and Full Synchronization steps after upgrade. Details of the changes are described below. To temporarily defer Full Import and Full Synchronization steps after upgrade, refer to article [How to defer full synchronization after upgrade](active-directory-aadconnect-upgrade-previous-version.md#how-to-defer-full-synchronization-after-upgrade).
 >
 >
 
 ### Azure AD Connect Sync
+
+#### Known issue
+* There is an issue that affects customers who are using [OU-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) with Azure AD Connect sync. When you navigate to the [Domain and OU Filtering page](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the Azure AD Connect wizard, the following behavior is expected:
+  * If OU-based filtering is enabled, the **Sync selected domains and OUs** option is selected.
+  * Otherwise, the **Sync all domains and OUs** option is selected.
+
+The issue that arises is that the **Sync all domains and OUs option** is always selected when you run the Wizard.  This occurs even if OU-based filtering was previously configured. Before saving any AAD Connect configuration changes, make sure the **Sync selected domains and OUs option is selected** and confirm that all OUs that need to synchronize are enabled again. Otherwise, OU-based filtering will be disabled.
 
 #### Fixed issues
 

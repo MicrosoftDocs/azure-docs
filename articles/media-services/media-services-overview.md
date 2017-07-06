@@ -13,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/28/2017
+ms.date: 06/29/2017
 ms.author: juliako;anilmur
 
 ---
 # Azure Media Services overview and common scenarios
 
-Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
+Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services.
 
@@ -67,7 +67,7 @@ To start using Azure Media Services, you should have the following:
 ## Concepts and overview
 For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 
-For a how-to series that introduces you to all the main components of Azure Media Services, see [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). This series has a great overview of concepts and it uses the AMSE tool to demonstrate AMS tasks. Note that AMSE tool is a Windows tool. This tool supports most of the tasks you can achieve programmatically with [AMS SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), or  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+For a how-to series that introduces you to all the main components of Azure Media Services, see [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). This series has a great overview of concepts and it uses the AMSE tool to demonstrate AMS tasks. AMSE tool is a Windows tool. This tool supports most of the tasks you can achieve programmatically with [AMS SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), or  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ## <a id="vod_scenarios"></a>Delivering Media on-demand with Azure Media Services: common scenarios and tasks
 This section describes common scenarios and provides links to relevant topics. The following diagram shows the major parts of the Media Services platform that are involved in delivering content on demand.
@@ -127,7 +127,7 @@ When working with Live Streaming the following components are commonly involved:
 * A camera that is used to broadcast an event.
 * A live video encoder that converts signals from the camera to streams that are sent to a live streaming service.
 
-Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronizationto achieve seamless failover with no data loss.
+Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronization to achieve seamless failover with no data loss.
 
 * A live streaming service that enables you to do the following:
 * ingest live content using various live streaming protocols (for example RTMP or Smooth Streaming),
@@ -174,14 +174,14 @@ For more information, see [Working with Channels that are Enabled to Perform Liv
 |Azure Media Face Detector|Preview|All|
 |Azure Media Hyperlapse|Preview|All|
 |Azure Media Indexer|GA|All|
-|Azure Media Motion Detector|Perview|All|
+|Azure Media Motion Detector|Preview|All|
 |Azure Media OCR|Preview|All|
 |Azure Media Redactor|Preview|All|
 |Azure Media Stabilizer|Preview|All|
 |Azure Media Video Thumbnails|Preview|All|
 |Media Encoder Standard|GA|All|
-|Media Indexer v2|Preview|All execpt China and Federal Goverment region|
-|Media Encoder Premium Workflow|GA|All, except China|
+|Media Indexer v2|Preview|All except China and Federal Government region|
+|Media Encoder Premium Workflow|GA|All except China|
 
 ## Consuming content
 Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. The following topic provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Media Services.

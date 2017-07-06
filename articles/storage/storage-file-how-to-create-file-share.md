@@ -87,7 +87,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
     az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
     ```
 
-## Next Steps
+## Next steps
 * [Connect and Mount File Share - Windows](storage-file-how-to-use-files-windows.md)
 * [Connect and Mount File Share - Linux](storage-how-to-use-files-linux.md)
 * [Connect and Mount File Share - macOS](storage-file-how-to-use-files-mac.md)

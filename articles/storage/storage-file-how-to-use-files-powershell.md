@@ -90,7 +90,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 # copy a blob to a file directory
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
-## Next Steps
+## Next steps
 See these links for more information about Azure File storage.
 
 * [FAQ](storage-files-faq.md)

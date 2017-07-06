@@ -350,7 +350,7 @@ if (share.exists())
 
 }
 ```
-## Next Steps
+## Next steps
 To learn more about Azure Storage, explore these resources:
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)

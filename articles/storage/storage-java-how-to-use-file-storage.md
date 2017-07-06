@@ -31,7 +31,7 @@ This tutorial will demonstrate the basics of using Java to develop applications 
 * Upload, download, and delete a file
 
 > [!Note]  
-> Because Azure File Storage may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure File Storage REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure File Storage.
+> Because Azure File Storage may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure File Storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure File Storage.
 
 ## Create a Java application
 To build the samples, you will need the Java Development Kit (JDK) and the [Azure Storage SDK for Java][]. You should also have created an Azure storage account.
