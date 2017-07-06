@@ -32,11 +32,6 @@ pip install psycopg2
 ```
 Make sure to use an up-to-date version of pip (you can upgrade it using something like `pip install -U pip`)
 
-## Run Python code
-- Paste the code into a text editor, and save the file into a project folder, such as `C:\postgres\read.py` or `/home/username/postgres/read.py`.  Make sure to select UTF-8 encoding when saving the file in the Windows OS, and use file extension **.py**. 
-- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgres`. Then type the command `python read.py` to run the application.
-
-
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
@@ -46,7 +41,11 @@ Get the connection information needed to connect to the Azure Database for Postg
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-python/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
-   
+
+## Run Python code
+- Using your favorite text editor, create a new file called postgres.py in a folder. Copy and paste the one of the code blocks inside it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
+- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then type the command `python postgresql.py` to run the application.
+
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function with **INSERT** SQL statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function is used to execute the SQL query against PostgreSQL database. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
@@ -63,23 +62,23 @@ sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
-print("Connection established")
+print "Connection established"
 
 cursor = conn.cursor()
 
 # Drop previous table of same name if one exists
 cursor.execute("DROP TABLE IF EXISTS inventory;")
-print("Finished dropping table (if existed)")
+print "Finished dropping table (if existed)"
 
 # Create table
 cursor.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
-print("Finished creating table")
+print "Finished creating table"
 
 # Insert some data into table
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("banana", 150))
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("orange", 154))
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
-print("Inserted 3 rows of data")
+print "Inserted 3 rows of data"
 
 conn.commit()
 ```
@@ -100,7 +99,7 @@ sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
-print("Connection established")
+print "Connection established"
 
 cursor = conn.cursor()
 
@@ -110,7 +109,7 @@ rows = cursor.fetchall()
 
 # Print all rows
 for row in rows:
-	print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
+	print "Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2]))
 
 conn.commit()
 ```
@@ -131,13 +130,13 @@ sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
-print("Connection established")
+print "Connection established"
 
 cursor = conn.cursor()
 
 # Update a data row in the table
 cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
-print("Updated 1 row of data")
+print "Updated 1 row of data"
 
 conn.commit()
 ```
@@ -158,13 +157,13 @@ sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
-print("Connection established")
+print "Connection established"
 
 cursor = conn.cursor()
 
 # Delete data row from table
 cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
-print("Deleted 1 row of data")
+print "Deleted 1 row of data"
 
 conn.commit()
 ```
