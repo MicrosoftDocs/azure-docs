@@ -433,7 +433,15 @@ Output:
 
 
 ## Create an availability set
-Availability sets help spread your VMs across fault domains and update domains. Even though you only create one VM right now, it's best practice to use availability sets to make it easier to expand in the future. Create an availability set for your VM with [az vm availability-set create](/cli/azure/vm/availability-set#create). The following example creates an availability set named *myAvailabilitySet*:
+Availability sets help spread your VMs across fault domains and update domains. Even though you only create one VM right now, it's best practice to use availability sets to make it easier to expand in the future. 
+
+Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. A hardware issue in one of these fault domains does not affect every VM that is running your app.
+
+Update domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. During planned maintenance, the order in which update domains are rebooted might not be sequential, but only one update domain is rebooted at a time.
+
+Azure automatically distributes VMs across the fault and update domains when placing them in an availability set. For more information, see [managing the availability of VMs](manage-availability.md).
+
+Create an availability set for your VM with [az vm availability-set create](/cli/azure/vm/availability-set#create). The following example creates an availability set named *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -464,17 +472,11 @@ The output notes fault domains and update domains:
 }
 ```
 
-Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. A hardware issue in one of these fault domains does not affect every VM that is running your app. Azure automatically distributes VMs across the fault domains when placing them in an availability set.
-
-Update domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. During planned maintenance, the order in which update domains are rebooted might not be sequential, but only one update domain is rebooted at a time. Again, Azure automatically distributes your VMs across update domains when placing them in an availability set.
-
-For more information, see [managing the availability of VMs](manage-availability.md).
-
 
 ## Create the Linux VMs
-You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](cli-ps-findimage.md).
+You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an SSH key. In this case, we're going to create an Ubuntu VM based on the most recent LTS. You can find additional images with [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](cli-ps-findimage.md).
 
-We also specify an SSH key to use for authentication. If you do not have any SSH keys, you can create them by using [these instructions](mac-create-ssh-keys.md). Alternatively, you can use the `--admin-password` method to authenticate your SSH connections after the VM is created. A password is typically less secure and not recommended.
+We also specify an SSH key to use for authentication. If you do not have an SSH public key pair, you can [create them](mac-create-ssh-keys.md) or use the `--generate-ssh-keys` parameter to create them for you. If you already a key pair, this parameter uses existing keys in `~/.ssh`.
 
 Create the VM by bringing all our resources and information together with the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named *myVM*:
 
@@ -542,7 +544,7 @@ See "man sudo_root" for details.
 azureuser@myVM:~$
 ```
 
-You now have an Ubuntu VM in Azure that uses public key authentication. You can install NGINX or Apache, deploy a web app, and see the traffic flow to the VM. Install NGINX as follows:
+You can install NGINX and see the traffic flow to the VM. Install NGINX as follows:
 
 ```bash
 sudo apt-get install -y nginx
