@@ -16,7 +16,7 @@ ms.author: cfreeman
 
 # Automate Azure Application Insights processes with the connector for Microsoft Flow
 
-Do you find yourself repeatedly running the same queries on your telemetry data to check that your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector (Preview) for Microsoft Flow is the right tool for these purposes.
+Do you find yourself repeatedly running the same queries on your telemetry data to check that your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector (preview) for Microsoft Flow is the right tool for these purposes.
 
 With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, the flow automatically runs your Application Insights Analytics query. 
 
@@ -34,7 +34,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 
 ### Step 2: Create a trigger for your flow
 1. Select **Schedule**, and then select **Schedule - Recurrence**.
-2. In the **Frequency** box, select **Day**, and in the **Interval** box, enter 1.
+2. In the **Frequency** box, select **Day**, and in the **Interval** box, enter **1**.
 
     ![Microsoft Flow trigger dialog box](./media/app-insights-automate-with-flow/flow1.png)
 
@@ -47,8 +47,6 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
     ![Run Analytics query window](./media/app-insights-automate-with-flow/flow2.png)
 
 ### Step 4: Connect to an Application Insights resource
-
-**Prerequisites**
 
 To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as shown in the following diagram:
 
