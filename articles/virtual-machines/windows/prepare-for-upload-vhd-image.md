@@ -115,7 +115,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 Make share that the following settings are configured correctly for remote desktop connection:
 
 >[!Note] 
->You may receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; &lt;value&gt;** command in the step 1, 5, 6, 7 and 8. The error message can be safely ignored. It just means the domain is not pushing that configuration through GPO.
+>You may receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; &lt;value&gt;** command in the step 1, step 5 and step 6. The error message can be safely ignored. It just means the domain is not pushing that configuration through GPO.
 >
 >
 
@@ -124,7 +124,7 @@ Make share that the following settings are configured correctly for remote deskt
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
 
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Service' -name "fDenyTSConnections" -Value 0
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0
     ```
    
 2. The RDP port is properly set up (Default port 3389):
@@ -291,7 +291,7 @@ Make share that the following settings are configured correctly for remote deskt
 
     A. Follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
 
-    B. Make sure that you know the DSRM password in case you need to boot the machine in DSRM at some point. You may want to refer to this link to set the [DSRM password](https://technet.microsoft.com/en-us/library/cc754363(v=ws.11).aspx)
+    B. Make sure that you know the DSRM password in case you need to boot the machine in DSRM at some point. You may want to refer to this link to set the [DSRM password](https://technet.microsoft.com/en-us/library/cc754363(v=ws.11).aspx).
 
 6. Make sure that the Built-in Administrator account and password are known to you. You may want to reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection. This access permission is controlled by the "Allow log on through Remote Desktop Services" Group Policy object. You can view this object in the Local Group Policy Editor under:
 
@@ -370,7 +370,7 @@ Not every role or application installed on a Windows machine supports this gener
 4. In **Shutdown Options**, select **Shutdown**.
 5. Click **OK**.
 6. When Sysprep completes, shut down the VM. Note that do not use **Restart** to shut down the VM.
-7. Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md)
+7. Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md).
 
 
 ## Complete recommended configurations
