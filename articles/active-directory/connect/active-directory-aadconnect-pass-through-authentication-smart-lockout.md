@@ -20,16 +20,16 @@ ms.author: billmath
 
 ## Overview
 
-Azure AD provides protection against brute force password attacks on user accounts, while preventing genuine users from being locked out of their Office 365 and SaaS applications. This capability, called *Smart Lockout*, is supported when you use Pass-through Authentication as your sign-in method. Smart Lockout is enabled by default for all tenants and are protecting your user accounts all the time; there is no need to turn it on.
+Azure AD provides protection against brute force password attacks on user accounts, while preventing genuine users from being locked out of their Office 365 and SaaS applications. This capability, called **Smart Lockout**, is supported when you use Pass-through Authentication as your sign-in method. Smart Lockout is enabled by default for all tenants and are protecting your user accounts all the time; there is no need to turn it on.
 
-Smart Lockout works by keeping track of failed sign-in attempts, and after a certain *Lockout Threshold*, starting a *Lockout Duration*. Any sign-in attempts from the attacker during the Lockout Duration are rejected. If the attack continues, the subsequent failed sign-in attempts after the Lockout Duration ends will result in longer Lockout Durations.
+Smart Lockout works by keeping track of failed sign-in attempts, and after a certain **Lockout Threshold**, starting a **Lockout Duration**. Any sign-in attempts from the attacker during the Lockout Duration are rejected. If the attack continues, the subsequent failed sign-in attempts after the Lockout Duration ends will result in longer Lockout Durations.
 
 >[!NOTE]
 >The default Lockout Threshold is 10 failed attempts, and the default Lockout Duration is 60 seconds.
 
 Smart Lockout also distinguishes between sign-ins from genuine users and from attackers and only locks out the attackers in most cases; this prevents attackers from maliciously locking out genuine users. We use past sign-in behavior, users’ devices & browsers and other signals to distinguish between genuine users and attackers. We are constantly improving our algorithms.
 
-Because Pass-through Authentication forwards password validation requests onto your on-premises Active Directory (AD), you need to take care to prevent attackers from locking out your users’ on-premises AD accounts. Since you’ll have your own AD *Account Lockout* policies (specifically, [*Account Lockout Threshold*](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) and [*Reset Account Lockout Counter After policies*](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), you’ll need to configure Azure AD’s Lockout Threshold and Lockout Duration values appropriately to filter out attacks in the cloud before they reach your on-premises AD.
+Because Pass-through Authentication forwards password validation requests onto your on-premises Active Directory (AD), you need to take care to prevent attackers from locking out your users’ on-premises AD accounts. Since you’ll have your own AD *Account Lockout* policies (specifically, [**Account Lockout Threshold**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) and [**Reset Account Lockout Counter After policies**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), you’ll need to configure Azure AD’s Lockout Threshold and Lockout Duration values appropriately to filter out attacks in the cloud before they reach your on-premises AD.
 
 >[!NOTE]
 >While the Smart Lockout feature itself is free, modifying Azure AD’s Lockout Threshold and Lockout Duration values using Graph API is an Azure AD Premium P2 feature. It also needs you to be a Global Administrator on your tenant.
@@ -101,7 +101,7 @@ Follow these steps to set your tenant’s Smart Lockout values (for the first ti
 ```
 
 >[!NOTE]
->If you are not using them, you can leave the *BannedPasswordList* and *EnableBannedPasswordCheck* values as empty ("") and "false" respectively.
+>If you are not using them, you can leave the **BannedPasswordList** and **EnableBannedPasswordCheck** values as empty ("") and "false" respectively.
 
 Verify that you have set your tenant's Smart Lockout values correctly using [these steps](#read-smart-lockout-values).
 
