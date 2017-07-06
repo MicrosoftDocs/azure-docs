@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 06/26/2017
+ms.date: 07/05/2017
 ms.author: carlrab
 
 ---
@@ -60,7 +60,7 @@ An Azure Database logical server:
 - Is the parent resource for databases, elastic pools, and data warehouses
 - Provides a namespace for databases, elastic pools, and data warehouses
 - Is a logical container with strong lifetime semantics - delete a server and it deletes the contained databases, elastic pools, and data warehouses
-- Participates in [Azure role-based access control (RBAC)](/active-directory/role-based-access-control-configure.md) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
+- Participates in [Azure role-based access control (RBAC)](/active-directory/role-based-access-control-what-is.md) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
 - Is a high-order element of the identity of databases, elastic pools, and data warehouses for Azure resource management purposes (see the URL scheme for databases and pools)
 - Collocates resources in a region
 - Provides a connection endpoint for database access (<serverName>.database.windows.net)
