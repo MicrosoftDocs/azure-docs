@@ -22,7 +22,7 @@ ms.author: sethm;babanisa
 
 You can view two types of logs for Azure Event Hubs:
 * **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. These logs have information about operations performed on a job. The logs are always enabled.
-* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs for a richer view into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
+* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs for a richer view of everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
 Diagnostics logs are disabled by default. To enable diagnostic logs:
@@ -56,7 +56,7 @@ Event Hubs captures diagnostic logs for two categories:
 * **OperationalLogs**: information about what is happening during Event Hubs operations, specifically, the operation type, including event hub creation, resources used, and the status of the operation.
 
 ## Diagnostic logs schema
-All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following examples.
+All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following sections.
 
 ### Archive logs schema
 
@@ -77,7 +77,7 @@ durationInSeconds | Duration of failure.
 message | Error message.
 category | ArchiveLogs
 
-The following is an example of an archive log JSON string:
+The following code is an example of an archive log JSON string:
 
 ```json
 {
@@ -112,7 +112,7 @@ Status | Operation status.
 Caller | Caller of operation (Azure portal or management client).
 category | OperationalLogs
 
-The following is an example of an operational log JSON string:
+The following code is an example of an operational log JSON string:
 
 ```json
 Example:
