@@ -22,6 +22,22 @@ Dependencies prevent you from deleting recovery services vault and the actions y
 >[!Important]
 >If you are testing the product, and want to rapidly delete the vault and are not concerned about data loss, then you can use the force delete method to remove vault and all its dependencies.
 
+> Please note that the PowerShell command will delete all the contents of the vault and is not a reversible step
+
+## Force delete vault using Powershell
+
+Follow below steps to delete Site Recovery vault even if there are protected items
+
+    Login-AzureRmAccount
+
+    Select-AzureRmSubscription -SubscriptionName "XXXXX"
+
+    $vault = Get-AzureRmSiteRecoveryVault -Name "vaultname"
+
+    Remove-AzureRmSiteRecoveryVault -Vault $vault
+
+
+
 Follow recommended steps (in given order) for your scenario to delete the vault
 
 ## Delete Vault, used in Site Recovery for protecting VMWare VMs to Azure:
