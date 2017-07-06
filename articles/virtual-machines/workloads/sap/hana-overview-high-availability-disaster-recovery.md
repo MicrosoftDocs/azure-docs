@@ -371,7 +371,6 @@ The call syntax for these three different types of snapshots would look like:
 HANA backup covering /hana/data, /hana/log, /hana/shared and /usr/sap
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
-
 For /hana/log/backups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
@@ -403,9 +402,6 @@ The retention period is strictly administered, with the number of snapshots subm
 >[!NOTE]
 >As soon as you change the label, the counting starts again. Means you need to be strict in labeling.
 
-
-Additionally, if you are no longer interested in maintaining a set of snapshots with that prefix, you can execute the script with 0 as the retention number and the script will remove all snapshots matching that prefix and then the script will exit. 
-Due to concerns with the storage replication functionality used for disaster recovery, you need to wait at least one hour between the previous time you ran the script to when you run it again to reduce the number within the script.  The script is designed to check any snapshot that is being deleted by having the total number of snapshots kept reduced to see if it is aged at least one hour. If the snapshot that needs to be deleted is not aged at least one hour, the script terminates at the first sign of non-compliance.  If a snapshot is currently the oldest snapshot in the volume and is aged less than 1h, that snapshot cannot be deleted.  Therefore, the script throws an error and instructs the customer to wait at least an hour before reducing the number of snapshots that exist in the volume.
 
 We encourage you to perform scheduled storage snapshots using cron, and we recommend that you use the same script for all backups and disaster-recovery needs (modifying the script inputs to match the various requested backup times). These are all scheduled differently in cron depending on their execution time: hourly, 12-hour, daily, or weekly. The cron schedule is designed to create storage snapshots that match the previously discussed retention labeling for long-term off-site backup. The script includes commands to back up all production volumes, depending on their requested frequency (data and log files are backed up hourly, whereas the boot volume is backed up daily).
 
@@ -441,16 +437,21 @@ In the range of log backups, create a snapshot of the backup log volume as well.
 - Have the contiguous log backups needed to perform point-in-time recoveries.
 - Prevent the SAP HANA log volume from running out of space.
 
-
-One of the last steps is to schedule SAP HANA backup logs in SAP HANA Studio. The SAP HANA backup log target destination is the specially created hana/log\_backups volume with the mount point of /hana/log/backups.
+In order to be able to benefit from storage snapshots and eventual storage replication of transaction log backups, you need to change the location SAP HANA writes the log backups to. This can be done in HANA Studio below. Though SAP HANA is backing up full log segments automatically, you might want to specify a log backup intervall to be deterministic. Especially with using the disaster recovery option, you usually want to execute log backups with a deterministic period. In the case below we took 15 minutes as log backup interval.
 
 ![Schedule SAP HANA backup logs in SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image5-schedule-backup.png)
 
-You can choose backups that are more frequent than every 15 minutes. Some users even perform log backups every minute, although we do not recommend going _over_ 15 minutes.
+You can choose backups that are more frequent than every 15 minutes. Some users even perform log backups every minute, although we do not recommend going _over_ 15 minutes. 
 
-The final step is to perform a file-based backup (after the initial installation of SAP HANA) to create a single backup entry that must exist within the backup catalog. Otherwise SAP HANA cannot initiate your specified log backups.
+The final step is to perform a file-based database backup if the database has never been backed up before to create a single backup entry that must exist within the backup catalog. Otherwise SAP HANA cannot initiate your specified log backups.
 
 ![Make a file-based backup to create a single backup entry](./media/hana-overview-high-availability-disaster-recovery/image6-make-backup.png)
+
+
+After your first successful storage snapshots have been executed you also can delete the test snapshot that was executed in step 6. In order to do so, you need to run the script removeTestStorageSnapshot.pl like shown below:
+```
+./removeTestStorageSnapshot.pl <hana instance>
+```
 
 ### Monitoring the number and size of snapshots on the disk volume
 
@@ -462,16 +463,59 @@ On a particular storage volume, you can monitor the number of snapshots and the 
 
 Use these commands to make sure that the snapshots that are taken and stored are not consuming all the storage on the volumes.
 
+>[!NOTE]
+>The snapshots of the boot LUN are not visible with the commands above.
+
+### Getting details of snapshots
+In order to get more details on snapshots you also can use the script azure\_hana\_snapshot\_details.pl. This script. This script can be run in either location if there is an active server in the Disaster Recovery Location.  The script provides the following broken down by each volume that contains snapshots: the size of total snapshots in a volume, and then each snapshot in that volume with the following details: the snapshot name, create time, size of snapshot, the frequency of the snapshot, and the HANA Backup ID associated with that snapshot (if relevant). The execution syntax of the script looks like:
+
+```
+./azure_hana_snapshot_details.pl 
+```
+
+Since the script tries to retrieve the HANA backupid, it needs to connect to the SAP HANA instance and thus requires the configuration file HANABackupCustomerDetails.txt to be correctly set. An output of two snapshots on of a volume could look like:
+
+```
+**********************************************************
+****Volume: hana_shared_SAPTSTHDB100_t020_vol       ***********
+**********************************************************
+Total Snapshot Size:  411.8MB
+----------------------------------------------------------
+Snapshot:   customer.2016-09-20_1404.0
+Create Time:   "Tue Sep 20 18:08:35 2016"
+Size:   2.10MB
+Frequency:   customer 
+HANA Backup ID:   
+----------------------------------------------------------
+Snapshot:   customer2.2016-09-20_1532.0
+Create Time:   "Tue Sep 20 19:36:21 2016"
+Size:   2.37MB
+Frequency:   customer2
+HANA Backup ID:   
+```
+
+
+### File level restore from storage snapshot
+For the snapshot types 'hana' and 'logs' you are able to access the snapshots directly on the volumes in the directory '.snapshot'. You will find a sub directory for each of the snapshots. You should be able to copy each file that got covered by the snapshot in the state it had at the point of the snapshot from that sub directory into the actual directory structure.
+
+>[!NOTE]
+>Single file restore will not work for snapshots of the boot LUN. You will not see the .snapshot directory in the boot LUN/volume. 
+
+
 ### Reducing the number of snapshots on a server
 
 As explained earlier, you can reduce the number of certain labels of snapshots that you store. The last two parameters of the command to initiate a snapshot are a label and the number of snapshots you want to retain.
+
 ```
-./azure_hana_backup.pl lhanad01 customer 20
+./azure_hana_backup.pl hana HM3 customer 20
 ```
+
 In the previous example, the snapshot label is _customer_ and the number of snapshots with this label to be retained is _20_. As you respond to disk space consumption, you might want to reduce the number of stored snapshots. The easy way to reduce the number of snapshots is to run the script with the last parameter set to 5:
+
 ```
-./azure_hana_backup.pl lhanad01 customer 5
+./azure_hana_backup.pl hana HM3 customer 5
 ```
+
 As a result of running the script with this setting, the number of snapshots, including the new storage snapshot, is _5_.
 
  >[!NOTE]
@@ -480,6 +524,22 @@ As a result of running the script with this setting, the number of snapshots, in
 These restrictions are related to the optional disaster-recovery functionality offered.
 
 If you no longer want to maintain a set of snapshots with that prefix, you can execute the script with _0_ as the retention number to remove all snapshots matching that prefix. However, removing all snapshots can affect the capabilities of disaster recovery.
+
+A second possibility to delete specific snapshots is to use the script azure\_hana\_snapshot\_delelte.pl. This script is designed to delete a snapshot or set of snapshots by either using the HANA backupid as found in studio or by the snapshot name itself.  Currently, the backupid is only tied to the snapshots created for the 'hana' snapshot type. If the snapshot name is entered it will seek all snapshots that match the entered snapshot. The call syntax of the script is:
+
+```
+./azure_hana_snapshot_delete.pl 
+
+```
+
+You need to execute the script as user _root_
+
+If you selects snapshot, you have the capability of deleting each snapshot individually.  You will be asked first for the volume that contains the snapshot and then the actual snapshot name.  If the snapshot exists in that volume and is aged more than one hour, it will be deleted. You can find the volume names and snapshot names from the azure_hana_snapshot_details script. 
+
+>[!IMPORTANT]
+>If there is data that only exists on the snapshot you are deleting then the execution of the deletion means that the data is lost forever.
+
+   
 
 ### Recovering to the most recent HANA snapshot
 
@@ -605,3 +665,6 @@ Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN
 HANA snapshot deletion successfully.
 ```
 You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the snapshots on each of the worker nodes. Then the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted.
+
+## Disaster Recovery
+With HANA Large Instances we offer a disaster recovery functionality between HANA Large Instance stamps in different Azure regions.
