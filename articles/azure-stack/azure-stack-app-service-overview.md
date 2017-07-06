@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/6/2017
+ms.date: 7/3/2017
 ms.author: anwestg
 
 ---
@@ -29,10 +29,16 @@ App Service on Azure Stack is the Azure offering brought to Azure Stack. The App
 
 In addition, the App Service on Azure Stack installer will create a file server.
 	
-## What's New in Technical Preview 3 of App Service on Azure Stack?
+## What's New in Release Candidate One of App Service on Azure Stack?
 ![App Service in the Azure Stack Portal][1]
 
-Technical Preview 3 of App Service on Azure Stack, builds on top of the second preview and brings a preview of Azure Functions to Azure Stack.  Azure Functions is an event-based serverless compute experience to accelerate your development.  New improvements to the stability of the service, updates to the Tenant Portal experience along with updates to the installer experience to give more configuration options.
+Release Candidate One of App Service on Azure Stack, builds on top of the third preview and brings a number of new capabilities and improvements:
+* Azure Functions is now available in ADFS based Azure Stack environments, including Single Sign on Support for the Functions Portal and Advanced Developer tools (Kudu)
+* Java Support for Web/Mobile/API Applications
+* App Service now manages worker tiers using Virtual Machine Scale sets, improving scale out capabilities for Service Administrators
+* Localization of Admin Experience
+* New improvements to the stability of the service
+* Updates to the Tenant Portal experience and updates to the install process
 
 ## Limitations of the Technical Preview
 
