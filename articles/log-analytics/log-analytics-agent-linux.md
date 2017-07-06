@@ -50,8 +50,8 @@ The information below list the proxy and firewall configuration information requ
 |------|---------|  
 |*.ods.opinsights.azure.com | Port 443|   
 |*.oms.opinsights.azure.com | Port 443|   
-|ods.systemcenteradvisor.com | Port 443|   
 |*.blob.core.windows.net/ | Port 443|   
+|*.azure-automation.net | Port 441|  
 
 ### Package requirements
 
