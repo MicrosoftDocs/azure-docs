@@ -29,19 +29,19 @@ To resolve the problem, first try to [reset the Azure VPN gateway](vpn-gateway-r
 
 ### Prerequisite step
 
-Check the type of the Azure virtual network gateway.
+Check the type of the Azure VPN gateway.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-2. Check the **Overview** page of the virtual network gateway for the type information.
+2. Check the **Overview** page of the VPN gateway for the type information.
     
-    ![The overview of the gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![Overview of the gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
 
 ### Step 1. Check whether the on-premises VPN device is validated
 
 1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If the device is not a validated VPN device, you might have to contact the device manufacturer to see if there is a compatibility issue.
 
-2. Make sure that the VPN device is correctly configured. For more information, see [Editing device configuration samples](/vpn-gateway-about-vpn-devices.md#editing).
+2. Make sure that the VPN device is correctly configured. For more information, see [Edit device configuration samples](/vpn-gateway-about-vpn-devices.md#editing).
 
 ### Step 2. Verify the shared key
 
