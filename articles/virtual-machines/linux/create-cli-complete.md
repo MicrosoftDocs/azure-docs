@@ -552,7 +552,7 @@ To see the default NGINX site in action, open your web browser and enter your FQ
 
 ![Default NGINX site on your VM](media/create-cli-complete/nginx.png)
 
-## Export the environment as a template
+## Export as a template
 What if you now want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or export an existing environment to create the JSON template for you. Use [az group export](/cli/azure/group#export) to export your resource group as follows:
 
 ```azurecli
