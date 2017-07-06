@@ -192,7 +192,7 @@
 ### [Spark troubleshooting](hdinsight-troubleshoot-spark.md)
 ### [STORM troubleshooting](hdinsight-troubleshoot-storm.md)
 ### [YARN troubleshooting](hdinsight-troubleshoot-yarn.md)
-### [Resources]
+### Resources
 #### [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)
 #### [Hadoop memory and performance](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Access Hadoop YARN application logs on Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
