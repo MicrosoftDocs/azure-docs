@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 07/05/2017
 ms.author: alkohli
 
 ---
-# Use the StorSimple Device Manager service i Azure portal to manage backup policies
+# Use the StorSimple Device Manager service in Azure portal to manage backup policies
 
 
 ## Overview

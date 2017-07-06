@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 07/05/2017
 ms.author: alkohli
 
 ---
@@ -88,7 +88,7 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 * You can no longer manage your devices from the classic portal.
 
-* The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the ARM.
+* The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager.
 
 * Your service and device configuration are retained. All your volumes and backups are also transitioned to the Azure portal.
 
