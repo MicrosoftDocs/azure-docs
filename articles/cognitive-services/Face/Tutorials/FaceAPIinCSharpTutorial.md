@@ -26,7 +26,14 @@ To use the tutorial, you will need the following prerequisites:
 
 ## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
 
-Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both primary and secondary key can be used in this tutorial.
+Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). 
+
+Once you have successfully subscribed make a note of the key and endpoint you are assigned, you will need them both later.  For example, in the screenshot below: 
+
+  - "**Endpoint**" is `https://westcentralus.api.cognitive.microsoft.com/face/v1.0` 
+  - "**Key 1**" value is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` (your's will be more realistic)
+
+![Face API Endpoint and Keys](../images/FaceApiEndpointAndKey.png)
 
 ## <a name="step2"></a>Step 2: Create the application framework
 
@@ -109,9 +116,14 @@ Follow the instructions below to configure the client library:
         using Microsoft.ProjectOxford.Face;
         using Microsoft.ProjectOxford.Face.Contract; 
         
-5. Insert the following code in the MainWindow class: 
-        private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("_key_"); 
-   Replace the word _key_ with the subscription key you obtained in step 1.
+5. Insert the following code in the MainWindow class, replacing the `key` and `endpoint` placeholders with the Face API key and endpoint you retrieved previously:
+
+        private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("key","endpoint");
+
+    For example, using the endpoint and examply key we retrieved previously, we would use:
+
+        private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
+
 6. Now you are ready to call the Face API from your application. 
 
 ## <a name="step4"></a>Step 4: Upload images to detect faces
