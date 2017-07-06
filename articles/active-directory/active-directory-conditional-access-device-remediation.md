@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/05/2017
 ms.author: markvi
 
 ---
