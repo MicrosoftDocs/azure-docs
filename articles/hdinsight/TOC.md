@@ -191,7 +191,7 @@
 ### [HIVE troubleshooting](hdinsight-troubleshoot-hive.md)
 ### [Spark troubleshooting](hdinsight-troubleshoot-spark.md)
 ### [STORM troubleshooting](hdinsight-troubleshoot-storm.md)
-### [YARN troubleshooting](hdinsight-troubleshoot-storm.md)
+### [YARN troubleshooting](hdinsight-troubleshoot-yarn.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
