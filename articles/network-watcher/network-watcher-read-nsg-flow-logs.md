@@ -20,11 +20,11 @@ ms.author: gwallace
 
 Learn how to read NSG flow logs entries with PowerShell.
 
-NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data.
+NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data. In this article you learn how to read portions of the flow logs.
 
 ## Scenario
 
-In the following scenario, we step through how to read the latest event in an NSG flow log.
+In the following scenario, you have an example flow log that is stored in a storage account. You step through how to read the latest event in the NSG flow log.
 
 ## Setup
 
@@ -32,26 +32,26 @@ Before you begin, you must have Network Security Group Flow Logging enabled on o
 
 ## Retrieve the block list
 
-The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the block blob.
+The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 # The SubscriptionID to use
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
 
 # Resource group that contains the Network Security Group
-$resourceGroupName = "ContosoRG"
+$resourceGroupName = "<resourceGroupName>"
 
 # The name of the Network Security Group
-$nsgName = "ContosoNSG"
+$nsgName = "<NSGName"
 
 # The date and time for the log to be queried, logs are stored in hour intervals.
 [datetime]$logtime = "06/16/2017 20:00"
 
 # The storage account name that contains the NSG logs
-$storageAccountName = "contosostorageaccount" 
+$storageAccountName = "<storageAccountName>" 
 
 # The storage account key to access the NSG logs
-$StorageAccountKey = "q5Mxi5ZMK/N88spLOfu9djfSyXTDue5S9D/bZPCt+mXxB5MbCLbdY+flaf+uLvDFDKMASvq4kqIC2rEJ5xAm5Q=="
+$StorageAccountKey = "<storageAccountKey>"
 
 # Setup a new storage context to be used to query the logs
 $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
