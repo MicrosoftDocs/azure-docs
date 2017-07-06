@@ -18,10 +18,10 @@ ms.author: helaw
 
 ---
 # Deploy templates in Azure Stack using PowerShell
-Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack development kit.  Resource Manager templates deploy and provision all resources for your application in a single, coordinated operation.
+Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack Development Kit.  Resource Manager templates deploy and provision all resources for your application in a single, coordinated operation.
 
 ## Run AzureRM PowerShell cmdlets
-In this example, you run a script to deploy a virtual machine to Azure Stack development kit using a Resource Manager template.  Before proceeding, ensure you have [configured PowerShell](azure-stack-powershell-configure.md)  
+In this example, you run a script to deploy a virtual machine to Azure Stack Development Kit using a Resource Manager template.  Before proceeding, ensure you have [configured PowerShell](azure-stack-powershell-configure.md)  
 
 The VHD used in this example template is WindowsServer-2012-R2-Datacenter.
 
