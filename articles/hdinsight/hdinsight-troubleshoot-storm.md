@@ -1,5 +1,5 @@
 ---
-title: Answers to common questions on Storm on HDInsight | Microsoft Docs
+title: STORM troubleshooting - Azure HDInsight | Microsoft Docs
 description: Use the Storm FAQ for answers to common questions on Storm on Azure HDInsight platform.
 keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
 services: Azure HDInsight
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/8/2017
+ms.date: 7/7/2017
 ms.author: raviperi
 ---
 

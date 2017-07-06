@@ -1,5 +1,5 @@
 ---
-title: Answers to common questions on Hadoop HDFS on HDInsight | Microsoft Docs
+title: HDFS troubleshooting - Azure HDinsight| Microsoft Docs
 description: Use the HDFS FAQ for answers to common questions on HDFS on Azure HDInsight platform.
 keywords: Azure HDInsight, HDFS, FAQ, troubleshooting guide, common questions
 services: Azure HDInsight
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/8/2017
+ms.date: 7/7/2017
 ms.author: arijitt
 ---
 

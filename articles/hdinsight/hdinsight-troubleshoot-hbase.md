@@ -1,5 +1,5 @@
 ---
-title: HBase Hbck command reporting holes in the chain of regions | Microsoft Docs
+title: HBase troubleshooting - Azure HDInsight | Microsoft Docs
 description: Troubleshooting the cause of holes in the chain of regions.
 services: hdinsight
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 6/8/2017
+ms.date: 7/7/2017
 ms.author: nitinver
 ---
 

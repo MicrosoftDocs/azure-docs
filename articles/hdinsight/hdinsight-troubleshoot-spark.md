@@ -1,5 +1,5 @@
 ---
-title: Answers to common questions on Spark on HDInsight | Microsoft Docs
+title: Spark troubleshooting - Azure HDInsight | Microsoft Docs
 description: Use the Spark FAQ for answers to common questions on Spark on Azure HDInsight platform.
 keywords: Azure HDInsight, Spark, FAQ, troubleshooting guide, common problems, application configuration, Ambari
 services: Azure HDInsight
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/8/2017
+ms.date: 7/7/2017
 ms.author: arijitt
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Answers to common questions on Hadoop YARN on HDInsight | Microsoft Docs
+title: YARN troubleshooting - Azure HDInsight | Microsoft Docs
 description: Use the Yarn FAQ for answers to common questions on Yarn on Azure HDInsight platform.
 keywords: Azure HDInsight, Yarn, FAQ, troubleshooting guide, common questions
 services: Azure HDInsight
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/8/2017
+ms.date: 7/7/2017
 ms.author: arijitt
 
 ---
