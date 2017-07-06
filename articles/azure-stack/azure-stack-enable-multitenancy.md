@@ -43,21 +43,6 @@ There are a few pre-requisites to account for before you configure multi-tenancy
 ## Configure Azure Stack directory
 In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure AD directory tenants.
 
-### Create Azure AD applications
-First, you must publish Azure AD applications to Azure Resource Manager to allow access to Azure Stack.  This step only needs to be completed once, regardless of additional guest tenants in the future.  Run this PowerShell as the Azure Stack Service Administrator from the Azure Stack host.
-
-````PowerShell 
-$adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
-    
-# Replace the value below with the Azure Stack directory.
-$azureStackDirectoryTenant = "contoso.onmicrosoft.com"
-
-Publish-AzureStackApplicationsToARM` 
- -AdminResourceManagerEndpoint $adminARMEndpoint`
- -DirectoryTenantName $azureStackDirectoryTenant 
-````
-
-
 ### Onboard guest directory tenant
 Next, onboard the Guest Directory Tenant (Fabrikam) to Azure Stack.  This step configures Azure Resource Manager to accept users and service principals from the guest directory tenant.
 
