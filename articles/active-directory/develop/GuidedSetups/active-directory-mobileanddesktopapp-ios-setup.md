@@ -7,9 +7,9 @@ This section provides step-by-step instructions for how to create a new project 
 
 
 ## Install Carthage to download and build MSAL
-Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft to make changes to the library. Follow the instructions below to install Carthage:
+Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft to make changes to the library.
 
-1.	Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases "Carthage download URL")
+- Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases "Carthage download URL")
 
 ## Creating your application
 

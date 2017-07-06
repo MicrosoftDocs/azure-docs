@@ -20,9 +20,7 @@ ms.author: andret
 
 ## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
-This section shows how to use MSAL to get a token to call the Microsoft Graph API.
-
-1.	Open `ViewController.swift` and replace the code with:
+Open `ViewController.swift` and replace the code with:
 
 ```swift
 import UIKit
@@ -151,6 +149,7 @@ Eventually, `acquireTokenSilent` will fail – e.g. the user has signed out, or 
 ## Call the Microsoft Graph API using the token you just obtained
 
 Add the new method below to `ViewController.swift`. This method is used to make a `GET` request against the Microsoft Graph API using an *HTTP Authorization header*:
+
 ```swift
 func getContentWithToken() {
     
@@ -180,9 +179,9 @@ func getContentWithToken() {
 In this sample application, the `getContentWithToken()` method is used to make an HTTP `GET` request against a protected resource that requires a token and then return the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. For this sample, the resource is the Microsoft Graph API *me* endpoint – which displays the user's profile information.
 <!--end-collapse-->
 
-## Setup sign-out
+## Set up sign-out
 
-1.	Add the following method to `ViewController.swift` to sign out the user:
+Add the following method to `ViewController.swift` to sign out the user:
 
 ```swift 
 @IBAction func signoutButton(_ sender: UIButton) {
