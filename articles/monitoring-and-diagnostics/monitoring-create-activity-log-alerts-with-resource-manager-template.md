@@ -101,5 +101,5 @@ You can also [visit our Quickstart Gallery](https://azure.microsoft.com/resource
 ## Next Steps
 - Learn more about [Alerts](monitoring-overview-alerts.md)  
 - How to add [action groups using a Resource Manager template](monitoring-create-action-group-with-resource-manager-template.md)
-- [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
