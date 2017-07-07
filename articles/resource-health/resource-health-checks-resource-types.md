@@ -84,7 +84,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.search/searchServices
 |Executed Checks|
 |---|
-|<ul><li>Can diagnostics operations be performed on the cluster?</li></ul>|
+|<ul><li>Is the search service available and responding to connection requests?</li></ul>|
 
 ## Microsoft.SQL/Server/database
 |Executed Checks|
