@@ -53,7 +53,7 @@ Once a role has been activated, it automatically deactivates when its time limit
 If you complete your admin tasks early, you can also deactivate a role manually in the Azure AD Privileged Identity Management application.  Select **My Roles**, choose the role you're done using from the **Active role assignments** grouping, and select **Deactivate**.  
 
 ## Cancel a pending request
-In the event you do not require activation of a role that requires approval, you may cancel a pending request at any time by selecting the **My Roles** navigation option in the Azure AD Privileged Identity Management application's left navigation column.
+In the event you do not require activation of a role that requires approval, you may cancel a pending request at any time. Simply select the **My Roles** navigation option in the Azure AD Privileged Identity Management application's left navigation column.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the Azure AD Privileged Identity Management tile.
 2. Select **My Roles**. A list of your assigned eligible roles appear in the grouping at the top of the page.
