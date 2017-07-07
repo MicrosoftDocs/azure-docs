@@ -43,7 +43,7 @@ To attain 30-day trial keys to these APIs, see [this page](https://azure.microso
 ## Environment Setup  
 ### Installing Xamarin 
 #### Windows   
-With Visual Studio 2017 installed, open the Visual Studio Installer, select the hamburger menu associated with your Visual Studio installation, and select "Modify."
+With Visual Studio 2017 installed, open the Visual Studio Installer, select the hamburger menu associated with your Visual Studio installation, and select "Modify".
 ![A picture of the visual studio installer](./media/computer-vision-web-search-tutorial/VisualStudioInstallerPhoto.PNG) 
 
 Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile Development with .NET"
@@ -109,41 +109,43 @@ The Add Keys Page is where the user inputs their Azure API keys so that the Cogn
  
 Step 1 is carried out in the first few lines of our class.  Here, we initialize our endpoint URIs as constants to be accessed later.
 
-    public partial class AddKeysPage : ContentPage
-	{
-        // booleans set when the keys are proven to work
-        private bool computerVisionKeyWorks = false;
-        private bool bingSearchKeyWorks = false;
+```
+public partial class AddKeysPage : ContentPage
+{
+    // booleans set when the keys are proven to work
+    private bool computerVisionKeyWorks = false;
+    private bool bingSearchKeyWorks = false;
 
-        // URIs of the endpoints used in the test requests
-        private const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?";
-        private const string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?q=test";";
-        //CLASS CONTINUES BELOW
-
+    // URIs of the endpoints used in the test requests
+    private const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?";
+    private const string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?q=test";";
+    //CLASS CONTINUES BELOW
+```
 Steps 2 through 6 are then executed within their respective functions.  In the context of the key entry page, we're only checking to see if the Http request returned a 401 error, which would indicate that the API key was invalid.  In later functions, further checking and unpacking of the http response is done.  The function that checks the validity of the Bing Search API key follows:
 
-    // send a test GET request to see if the Bing Search API key is functional
-    async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
+```
+// send a test GET request to see if the Bing Search API key is functional
+async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
+{
+    HttpResponseMessage response;
+    HttpClient SearchApiClient = new HttpClient();
+
+    SearchApiClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", BingSearchKeyEntry.Text);
+
+    response = await SearchApiClient.GetAsync(searchUri);
+    if ((int)response.StatusCode != 401)
     {
-        HttpResponseMessage response;
-        HttpClient SearchApiClient = new HttpClient();
-
-        SearchApiClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", BingSearchKeyEntry.Text);
-
-        response = await SearchApiClient.GetAsync(searchUri);
-        if ((int)response.StatusCode != 401)
-        {
-            BingSearchKeyEntry.BackgroundColor = Color.Green;
-            ApiKeys.bingSearchKey = BingSearchKeyEntry.Text;
-            bingSearchKeyWorks = true;
-        }
-        else
-        {
-            BingSearchKeyEntry.BackgroundColor = Color.Red;
-            bingSearchKeyWorks = false;
-        }
+        BingSearchKeyEntry.BackgroundColor = Color.Green;
+        ApiKeys.bingSearchKey = BingSearchKeyEntry.Text;
+        bingSearchKeyWorks = true;
     }
-
+    else
+    {
+        BingSearchKeyEntry.BackgroundColor = Color.Red;
+        bingSearchKeyWorks = false;
+    }
+}
+```
 
 ### OCR Select Page:
 The OCR Select Page has two main roles.  First, it is where the user determines what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally cumbersome in a cross-platform application, as different logic has to be written for photo capture and import photos per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
@@ -157,44 +159,48 @@ The following function provides an example of how to use the Xamarin Media Plugi
 
 Here's the function that uses the Xamarin Media Plugin for photo capture.  
 
-    // Uses the Xamarin Media Plugin to take photos using the native camera application
-    async Task<byte[]> TakePhoto()
+```
+// Uses the Xamarin Media Plugin to take photos using the native camera application
+async Task<byte[]> TakePhoto()
+{
+    MediaFile photoMediaFile = null;
+    byte[] photoByteArray = null;
+
+    if (CrossMedia.Current.IsCameraAvailable)
     {
-        MediaFile photoMediaFile = null;
-        byte[] photoByteArray = null;
-
-        if (CrossMedia.Current.IsCameraAvailable)
+        var mediaOptions = new StoreCameraMediaOptions
         {
-            var mediaOptions = new StoreCameraMediaOptions
-            {
-                PhotoSize = PhotoSize.Medium,
-                AllowCropping = true,
-                SaveToAlbum = true,
-                Name = $"{DateTime.UtcNow}.jpg"
-            };
-            photoMediaFile = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
-            photoByteArray = MediaFileToByteArray(photoMediaFile);
-        }
-        else
-        {
-            Device.BeginInvokeOnMainThread(() => {
-                DisplayAlert("Error", "No camera found", "OK");
-            });
-        }
-
-        return photoByteArray;
+            PhotoSize = PhotoSize.Medium,
+            AllowCropping = true,
+            SaveToAlbum = true,
+            Name = $"{DateTime.UtcNow}.jpg"
+        };
+        photoMediaFile = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
+        photoByteArray = MediaFileToByteArray(photoMediaFile);
     }
+    else
+    {
+        Device.BeginInvokeOnMainThread(() => {
+            DisplayAlert("Error", "No camera found", "OK");
+        });
+    }
+
+    return photoByteArray;
+}
+```
 
 And here's the utility function used to convert a MediaFile into a byte array: 
 
-    byte[] MediaFileToByteArray(MediaFile photoMediaFile)
+```
+byte[] MediaFileToByteArray(MediaFile photoMediaFile)
+{
+    using (var memStream = new MemoryStream())
     {
-        using (var memStream = new MemoryStream())
-        {
-            photoMediaFile.GetStream().CopyTo(memStream);
-            return memStream.ToArray();
-        }
+        photoMediaFile.GetStream().CopyTo(memStream);
+        return memStream.ToArray();
     }
+}
+```
 
 The photo import utility works in a similar way, and can be found in *OcrSelectPage.xaml.cs*  
 [!NOTE]
@@ -205,25 +211,28 @@ The OCR Results Page is where we extract text from each of the OCR endpoints and
 
 Let's first look at the Print OCR endpoint. The Azure Computer Vision OCR API is capable of parsing and text from an undetermined language, but here we tell the endpoint to search for English text to improve results.  We're also letting the endpoint determine text orientation. Setting this flag to false might improve our parsing results, but in a mobile application  orientation detection can be useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
 
-    /* This is the url that will be passed into the POST request for parsing printed text.  It's parameters are as follows:
-        * [language = en] Tells the system to look for english printed text.  Other options are unk (unknown), and a series of other languages listed on the API reference site.
-        * [detectOrientation = True] This allows the system to attempt to rotate the photo to improve parse results.
-        * 
-        * [Note] This API is only available on Azure servers in the following domains: westus, eastus2, westcentralus, westeurope, souteheastasia. 
-        * [API Reference] https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc
-        */
-    public const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=en&detectOrientation=true";
+```
+/* This is the url that will be passed into the POST request for parsing printed text.  It's parameters are as follows:
+    * [language = en] Tells the system to look for english printed text.  Other options are unk (unknown), and a series of other languages listed on the API reference site.
+    * [detectOrientation = True] This allows the system to attempt to rotate the photo to improve parse results.
+    * 
+    * [Note] This API is only available on Azure servers in the following domains: westus, eastus2, westcentralus, westeurope, souteheastasia. 
+    * [API Reference] https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc
+    */
+public const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=en&detectOrientation=true";
+```
 
 Next, we set the parameters for Handwritten OCR.  The Handwritten OCR endpoint is still in Preview, and currently only works with English text.  Because of this, its only current parameter is a flag determining whether or not to parse handwritten text at all.  Although the handwritten API is able to parse both machine printed and handwritten text, *handwriting=false* yields better results on non-handwritten text.  Given that my application is optimized for English, I could have used only the Handwritten OCR endpoint for this sample, setting the flag to true or false depending on content type.  However, for the sake of illustration both endpoints were used.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Handwritten Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).
 
-    /* This is the url that will be passed into the POST request for parsing handwritten text.  Its parameters are as follows:
-        * [handwriting = True] This tells the system to try to parse handwritten text from the image.  If set to False, this API will perform processing similar to the print OCR endpoint. 
-        * 
-        * [Note] This API is only available on Azure servers in the following domains: westus, eastus2, westcentralus, westeurope, souteheastasia. 
-        * [API Reference] https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200
-        */
-    public const string handwritingUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true";
-
+```
+/* This is the url that will be passed into the POST request for parsing handwritten text.  Its parameters are as follows:
+    * [handwriting = True] This tells the system to try to parse handwritten text from the image.  If set to False, this API will perform processing similar to the print OCR endpoint. 
+    * 
+    * [Note] This API is only available on Azure servers in the following domains: westus, eastus2, westcentralus, westeurope, souteheastasia. 
+    * [API Reference] https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200
+    */
+public const string handwritingUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true";
+```
 
 With that out of the way, we can jump into our API functions. 
 
@@ -232,153 +241,162 @@ With that out of the way, we can jump into our API functions.
 [!TIP]
 > Note the use of the Json.NET [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are joined from a list of individually parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned.
 
-    // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
-    async Task<ObservableCollection<string>> FetchPrintedWordList()
+```
+// Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
+async Task<ObservableCollection<string>> FetchPrintedWordList()
+{
+    ObservableCollection<string> wordList = new ObservableCollection<string>();
+    if (photo != null)
     {
-        ObservableCollection<string> wordList = new ObservableCollection<string>();
-        if (photo != null)
+        HttpResponseMessage response = null;
+        using (var content = new ByteArrayContent(photo))
         {
-            HttpResponseMessage response = null;
-            using (var content = new ByteArrayContent(photo))
-            {
-                // The media type of the body sent to the API. "application/octet-stream" defines an image represented as a byte array
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await VisionApiClient.PostAsync(ocrUri, content);
-            }
-
-            if ((response != null) && ((int)response.StatusCode == 200))
-            {
-                string ResponseString = await response.Content.ReadAsStringAsync();
-                JObject json = JObject.Parse(ResponseString);
-                IEnumerable<JToken> lines = json.SelectTokens("$.regions[*].lines[*]");
-                foreach (JToken line in lines)
-                {
-                    IEnumerable<JToken> words = line.SelectTokens("$.words[*].text");
-                    wordList.Add(string.Join(" ", words.Select(x=> x.ToString())));
-                }
-            }
+            // The media type of the body sent to the API. "application/octet-stream" defines an image represented as a byte array
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            response = await VisionApiClient.PostAsync(ocrUri, content);
         }
 
-        if (!wordList.Any())
+        if ((response != null) && ((int)response.StatusCode == 200))
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            string ResponseString = await response.Content.ReadAsStringAsync();
+            JObject json = JObject.Parse(ResponseString);
+            IEnumerable<JToken> lines = json.SelectTokens("$.regions[*].lines[*]");
+            foreach (JToken line in lines)
             {
-                await DisplayAlert("Error", "No words found.", "OK");
-                await Task.Delay(TimeSpan.FromSeconds(0.1d));
-                await Navigation.PopAsync(true);
-            });
+                IEnumerable<JToken> words = line.SelectTokens("$.words[*].text");
+                wordList.Add(string.Join(" ", words.Select(x=> x.ToString())));
+            }
         }
-
-        return wordList;
     }
+
+    if (!wordList.Any())
+    {
+        Device.BeginInvokeOnMainThread(async () =>
+        {
+            await DisplayAlert("Error", "No words found.", "OK");
+            await Task.Delay(TimeSpan.FromSeconds(0.1d));
+            await Navigation.PopAsync(true);
+        });
+    }
+
+    return wordList;
+}
+```
 
 Structurally, the primary difference between the Handwritten OCR and Print OCR request is that Handwritten OCR returns an HTTP 202 response, which signals that processing has begun and returns an endpoint that the client must check to attain their completed response.  
 
-    // Uses the Microsoft Computer Vision Handwritten OCR API to parse handwritten text from the photo set in the constructor
-    async Task<ObservableCollection<string>> FetchHandwrittenWordList()
+// Uses the Microsoft Computer Vision Handwritten OCR API to parse handwritten text from the photo set in the constructor
+
+```
+async Task<ObservableCollection<string>> FetchHandwrittenWordList()
+{
+    ObservableCollection<string> wordList = new ObservableCollection<string>();
+    if (photo != null)
     {
-        ObservableCollection<string> wordList = new ObservableCollection<string>();
-        if (photo != null)
+        HttpResponseMessage response = null;
+        using (var content = new ByteArrayContent(photo))
         {
-            HttpResponseMessage response = null;
-            using (var content = new ByteArrayContent(photo))
+            // The media type of the body sent to the API. "application/octet-stream" defines an image represented as a byte array
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            response = await VisionApiClient.PostAsync(handwritingUri, content);
+        }
+        if ((response != null) && ((int)response.StatusCode == 202))
+        {
+            IEnumerable<string> values;
+            string statusUri = string.Empty;
+            if (response.Headers.TryGetValues("Operation-Location", out values))
             {
-                // The media type of the body sent to the API. "application/octet-stream" defines an image represented as a byte array
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await VisionApiClient.PostAsync(handwritingUri, content);
-            }
-            if ((response != null) && ((int)response.StatusCode == 202))
-            {
-                IEnumerable<string> values;
-                string statusUri = string.Empty;
-                if (response.Headers.TryGetValues("Operation-Location", out values))
+                statusUri = values.FirstOrDefault();
+
+                // Open a new thread to intermittently ping the statusUri endpoint and wait for processing to finish
+                JObject obj = await FetchResultFromStatusUri(statusUri);
+
+                IEnumerable<JToken> strings = obj.SelectTokens("$.recognitionResult.lines[*].text");
+                foreach (string s in strings)
                 {
-                    statusUri = values.FirstOrDefault();
-
-                    // Open a new thread to intermittently ping the statusUri endpoint and wait for processing to finish
-                    JObject obj = await FetchResultFromStatusUri(statusUri);
-
-                    IEnumerable<JToken> strings = obj.SelectTokens("$.recognitionResult.lines[*].text");
-                    foreach (string s in strings)
-                    {
-                        wordList.Add((string)s);
-                    }
+                    wordList.Add((string)s);
                 }
             }
         }
-        if (!wordList.Any())
-        {
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                await DisplayAlert("Error", "No words found.", "OK");
-                await Task.Delay(TimeSpan.FromSeconds(0.1d));
-                await Navigation.PopAsync(true);
-            });
-        }
-
-        return wordList;
     }
+    if (!wordList.Any())
+    {
+        Device.BeginInvokeOnMainThread(async () =>
+        {
+            await DisplayAlert("Error", "No words found.", "OK");
+            await Task.Delay(TimeSpan.FromSeconds(0.1d));
+            await Navigation.PopAsync(true);
+        });
+    }
+
+    return wordList;
+}
+```
 
 This function handles the 202 response by pinging the URI extracted from the response's metadata either until a result is attained or the function times out.  It's important to note that this function is called asynchronously on its own thread as otherwise this method would lock down the application until processing was complete.
 
-    // Takes in the url to check for handwritten text parsing results, and pings it per second until processing is finished
-    // Returns the JObject holding data for a successful parse
-    async Task<JObject> FetchResultFromStatusUri(string statusUri)
-    {
-        JObject obj = null;
-        int timeoutcounter = 0;
-        HttpResponseMessage response = await VisionApiClient.GetAsync(statusUri);
-        string responseString = await response.Content.ReadAsStringAsync();
-        obj = JObject.Parse(responseString);
+```
+// Takes in the url to check for handwritten text parsing results, and pings it per second until processing is finished
+// Returns the JObject holding data for a successful parse
+async Task<JObject> FetchResultFromStatusUri(string statusUri)
+{
+    JObject obj = null;
+    int timeoutcounter = 0;
+    HttpResponseMessage response = await VisionApiClient.GetAsync(statusUri);
+    string responseString = await response.Content.ReadAsStringAsync();
+    obj = JObject.Parse(responseString);
 
-        while ((!((string)obj.SelectToken("status")).Equals("Succeeded")) && (timeoutcounter++ < 60))
-        {
-            await Task.Delay(1000);
-            response = await VisionApiClient.GetAsync(statusUri);
-            responseString = await response.Content.ReadAsStringAsync();
-            obj = JObject.Parse(responseString);
-        }
-        return obj;
+    while ((!((string)obj.SelectToken("status")).Equals("Succeeded")) && (timeoutcounter++ < 60))
+    {
+        await Task.Delay(1000);
+        response = await VisionApiClient.GetAsync(statusUri);
+        responseString = await response.Content.ReadAsStringAsync();
+        obj = JObject.Parse(responseString);
     }
+    return obj;
+}
+```
 
 ### Web Results Page
 Finally, we send this data to the Web Results Page, which constructs [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) requests, sends them to Azure, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.  
 
-    async Task<WebResultsList> GetQueryResults()
+```
+async Task<WebResultsList> GetQueryResults()
+{
+    WebResultsList webResults = new WebResultsList { name = queryTerm };
+    try
     {
-        WebResultsList webResults = new WebResultsList { name = queryTerm };
-        try
-        {
-            var queryString = System.Net.WebUtility.UrlEncode(queryTerm);
+        var queryString = System.Net.WebUtility.UrlEncode(queryTerm);
 
-            /* Here we encode the URL that will be used for the GET request to find query results.  Its arguments are as follows:
-                * [count=20] This sets the number of webpage objects returned at "$.webpages" in the JSON response.  Currently, the API aks for 20 webpages in the response
-                * [mkt=en-US] This sets the market where the results come from.  Currently, the API looks for english results based in the United States.
-                * [q=queryString] This sets the string queried using the Search API.   
-                * [responseFilter=Webpages] This filters the response to only include Webpage results.  This tag can take a comma seperated list of response types that you are looking for.  If left blank, all responses (webPages, News, Videos, etc) are returned.
-                * [setLang=en] This sets the languge for user interface strings.  To learn more about UI strings, check the Web Search API reference.
-                * 
-                * [API Reference] https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference
-                */
-            string uri = SearchUri + $"count=20&mkt=en-US&q={queryString}&responseFilter=Webpages&setLang=en";
+        /* Here we encode the URL that will be used for the GET request to find query results.  Its arguments are as follows:
+            * [count=20] This sets the number of webpage objects returned at "$.webpages" in the JSON response.  Currently, the API aks for 20 webpages in the response
+            * [mkt=en-US] This sets the market where the results come from.  Currently, the API looks for english results based in the United States.
+            * [q=queryString] This sets the string queried using the Search API.   
+            * [responseFilter=Webpages] This filters the response to only include Webpage results.  This tag can take a comma seperated list of response types that you are looking for.  If left blank, all responses (webPages, News, Videos, etc) are returned.
+            * [setLang=en] This sets the languge for user interface strings.  To learn more about UI strings, check the Web Search API reference.
+            * 
+            * [API Reference] https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference
+            */
+        string uri = SearchUri + $"count=20&mkt=en-US&q={queryString}&responseFilter=Webpages&setLang=en";
 
-            HttpResponseMessage httpResponseMessage = await SearchApiClient.GetAsync(uri);
-            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+        HttpResponseMessage httpResponseMessage = await SearchApiClient.GetAsync(uri);
+        var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
 
-            JObject json = JObject.Parse(responseContentString);
-            JToken resultBlock = json.SelectToken("$.webPages");
-            webResults = JsonConvert.DeserializeObject<WebResultsList>(resultBlock.ToString());
-        }
-        catch
-        {
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                await DisplayAlert("Error", "Error fetching results.", "OK");
-                await Task.Delay(TimeSpan.FromSeconds(0.1d));
-            });
-        }
-        return webResults;
+        JObject json = JObject.Parse(responseContentString);
+        JToken resultBlock = json.SelectToken("$.webPages");
+        webResults = JsonConvert.DeserializeObject<WebResultsList>(resultBlock.ToString());
     }
+    catch
+    {
+        Device.BeginInvokeOnMainThread(async () =>
+        {
+            await DisplayAlert("Error", "Error fetching results.", "OK");
+            await Task.Delay(TimeSpan.FromSeconds(0.1d));
+        });
+    }
+    return webResults;
+}
+```
 
 It's important to acknowledge here that the Web Search API functions best when a maximal number of case-specific headers and parameters are used to personalize and optimize your call.  Whatever your domain, you should spend some time considering how you would like to tailor results that you serve to your users.  The simplest way to ensure this is through utilizing parameters such as **mkt** and the **responseFilter**, but for certain applications it might be valuable to explore the [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/).
 
