@@ -212,17 +212,17 @@ This document describes the criteria that are used to validate that Office 365 w
 |14.2|For bots, your bot may not transmit financial instrument details through the user to bot interface. Your bot may transmit links to secure payment services to users; however, you must disclose this in your app’s terms of use and privacy policy (and any profile page or website for the app) before a user agrees to use your bot.|
 |14.3|Your Microsoft Teams app must not launch functionality outside of the Microsoft Teams app experience without the explicit permission of the user.|
 |14.4|Deleted.|
-|14.5|Microsoft Teams apps must respond in a reasonable time frame.|
-|14.5.1|For tabs, no action should take more than three seconds to respond without some type of loading UX or warning.|
-|14.5.2|For bots, you must respond to user command with 1-2 seconds. If longer processing is required, use a typing indicator.|
-|14.5.3|For compose extensions, you must respond to a user command within 5 seconds.|
+|14.5|Microsoft Teams apps must respond in a reasonable timeframe.|
+|14.5.1|For tabs, if a response to an action takes more than three seconds, you must provide a loading message or warning.|
+|14.5.2|For bots, a response to a user command must occure within two seconds. If longer processing is required, you must use a typing indicator.|
+|14.5.3|For compose extensions, a respones to a user command must occur within five seconds.|
 |14.6|Your Microsoft Teams app must be fully functional on the following operating systems and browsers:<br/><br/>Window 7 and later<br/>Mac 10.10 and later<br/>Microsoft Edge 12 and later<br/>Internet Explorer 11 and later<br/>Firefox 47.0 and later<br/>Chrome 51.0 and later<br/><br/>Your bot experience must be fully function on iOS (9.0 and later), Android (4.4 and later), and Windows Phone (10.0.10586 and later).|
 |14.7|You must submit a Terms of Service link.|
 |14.8|For bots and compose extensions, you will need to ensure that you follow the privacy notice requirements as communicated in the [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
 |14.9|Your bot and compose extension must operate in accordance with the requirements set forth in the [Microsoft Bot Framework Online Services Agreement](https://www.botframework.com/Content/Microsoft-Bot-Framework-Preview-Online-Services-Agreement.htm) and [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
 |14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.0.|
 |14.11|For bots, all manifest information must be consistent with your bot’s Bot Framework metadata: bot name, logo, privacy link, and terms of service link.|                
-|14.12|Your Microsoft Teams app name may not include “app”, “plug-in”, or derivatives.|
+|14.12|Your Microsoft Teams app name may not include "app", "plug-in", or derivatives.|
 |14.13|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
 |14.14|Microsoft's review and publication of your Microsoft Teams app to the Microsoft Teams gallery is not an endorsement of your Microsoft Teams app.|
 
@@ -246,7 +246,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
-|2.2|July 7, 2017|Removed policy 14.4, updated and added policies 14.5, 14.5.1, 14.5.2 and 14.5.3|
+|2.2|July 7, 2017|Removed policy 14.4.  Updated 14.5, 14.6, 14.8 and 14.9|
 |2.2|May 4, 2017|Added section 14 for Microsoft Teams apps.|
 |2.1|February 15, 2017|Updated policy 4.12.1 for Outlook add-ins.|
 |2.1|February 8, 2017|Added section 13 for Power BI custom visuals.|
