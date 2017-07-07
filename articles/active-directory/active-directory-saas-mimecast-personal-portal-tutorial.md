@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/10/2017
 ms.author: jeedes
 
 ---
@@ -171,10 +171,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     e. In **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
    
     f. In **Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
-   
-    >[!NOTE]
-    >The Login URL value and the Logout URL value are for the -on at Mimecast Personal Portal the same.
-   
+
 	g. Open your **base-64** encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate (Metadata)** textbox.
 
     h. Select **Allow Single Sign On**.
