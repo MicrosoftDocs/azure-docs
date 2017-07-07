@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate HR2day by Merces with Azure Active 
 Integrating HR2day by Merces with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to HR2day by Merces.
-- You can enable your users to automatically get signed-in to HR2day by Merces with their Azure AD accounts.
+- You can enable your users to automatically get signed in to HR2day by Merces with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
 For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -45,7 +45,7 @@ To test the steps in this tutorial, follow these recommendations:
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario that's outlined here tutorial consists of two main building blocks:
+The scenario that's outlined here consists of two main building blocks:
 
 1. Adding HR2day by Merces from the gallery.
 2. Configuring and testing Azure AD single sign-on.
@@ -80,7 +80,7 @@ In this section, you configure and test Azure AD single sign-on with HR2day by M
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in HR2day by Merces is to a user in Azure AD. In other words, a link needs to be established between an Azure AD user and the related user in HR2day by Merces.
 
-In HR2day by Merces, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the relationship.
+In HR2day by Merces, assign the **user name** in Azure AD to  **Username** to establish the relationship.
 
 To configure and test Azure AD single sign-on with HR2day by Merces, you need to complete the following building blocks:
 
