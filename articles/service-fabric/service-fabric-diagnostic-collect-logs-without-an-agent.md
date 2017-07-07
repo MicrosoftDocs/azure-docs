@@ -16,6 +16,8 @@ ms.workload: NA
 ms.date: 01/18/2017
 ms.author: karolz
 
+redirect_url: /azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow
+
 ---
 # Collect logs directly from an Azure Service Fabric service process
 ## In-process log collection

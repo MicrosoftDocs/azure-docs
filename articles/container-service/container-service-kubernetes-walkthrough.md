@@ -59,7 +59,6 @@ The following example creates a cluster named *myK8sCluster* with one Linux mast
 az acs create --orchestrator-type=kubernetes \
     --resource-group myResourceGroup \
     --name=myK8sCluster \
-    --agent-count=2 \
     --generate-ssh-keys 
 ```
 

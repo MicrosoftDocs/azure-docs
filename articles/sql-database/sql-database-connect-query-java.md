@@ -53,7 +53,7 @@ sudo apt-get install maven
 ### **Windows**
 Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. 
 
-## Get connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
