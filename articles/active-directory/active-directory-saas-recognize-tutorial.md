@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 07/10/2017
 ms.author: jeedes
 
 ---
@@ -113,10 +113,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-domain>`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Recognize Client support team](mailto:support@recognizeapp.com) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Recognize Client support team](mailto:support@recognizeapp.com) to get Sign-On URL and you can get Identifier value by opening the Service Provider Metadata URL from the SSO Settings section that is explained later in the tutorial. . 
  
-
-
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_certificate.png) 
@@ -159,7 +157,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_003.png)
 
-12. Open the **Metadata URL link** under a blank browser to download the metadata document. Then use the EntityDescriptor value Recognize provided you for **Identifier** on the **Configure App Settings** dialog.
+12. Open the **Metadata URL link** under a blank browser to download the metadata document. Then copy the EntityDescriptor value(entityID) from the file and paste it in **Identifier** textbox in **Recognize Domain and URLs section** on Azure portal.
     
     ![Configure Single Sign-On On App side](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_004.png)
 
