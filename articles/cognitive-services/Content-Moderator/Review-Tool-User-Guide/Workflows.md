@@ -20,15 +20,15 @@ Workflows “connect” to the Content Moderator API using connectors. In additi
 
 ## Creating a workflow ##
 
-1. Select Workflows from the Settings tab.
+1.  Select Workflows from the Settings tab.
 
 ![Content Moderation Workflow](images/2-workflows-0.png)
 
-2. Click the Add Workflows button.
+2.  Click the Add Workflows button.
 
 ![Content Moderation Workflow](images/2-workflows-1.png)
 
-3. Name your workflow, provide a description, and select whether you want to process images or text. 
+3.  Name your workflow, provide a description, and select whether you want to process images or text. 
 
 ![Content Moderation Workflow](images/2-Workflows-2.PNG)
 
