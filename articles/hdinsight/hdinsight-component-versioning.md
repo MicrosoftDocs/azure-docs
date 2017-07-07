@@ -187,7 +187,7 @@ The following table lists the HDInsight cluster type and Premium support matrix.
 
 | Cluster type | Standard | Premium (Preview) |
 | --- | --- | --- |
-| Hadoop |Yes |Yes (HDInsight 3.5 & 3.6 only) |
+| Hadoop |Yes |Yes (HDInsight 3.6 only) |
 | Spark |Yes |No |
 | HBase |Yes |No |
 | Storm |Yes |No |
