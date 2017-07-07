@@ -1,3 +1,4 @@
+---
 title: 'M0 to cloud: Connect Feather M0 WiFi to Azure IoT Hub | Microsoft Docs'
 description: Learn how to set up and connect Adafruit Feather M0 WiFi to Azure IoT Hub to send data to the Azure cloud platform in this tutorial.
 services: iot-hub
@@ -53,7 +54,7 @@ You also need the following things for your development environment:
 * A Mac or PC that is running Windows or Ubuntu.
 * A wireless network for Feather M0 WiFi to connect to.
 * An Internet connection to download the configuration tool.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 or later. Earlier versions don't work with the AzureIoT library.
+* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 or later. Earlier versions don't work with the Azure IoT Hub library.
 
 If you don’t have a sensor, the following items are optional. You also have the option of using simulated sensor data:
 
@@ -76,7 +77,7 @@ Use the breadboard and jumper wires to make the connection. If you don’t have 
 For sensor pins, use the following wiring:
 
 
-| Start (Sensor)           | End (Board)            | Cable Color   |
+| Start (sensor)           | End (board)            | Cable color   |
 | -----------------------  | ---------------------- | ------------: |
 | VDD (Pin 27A)            | 3V (Pin 3A)            | Red cable     |
 | GND (Pin 29A)            | GND (Pin 6A)           | Black cable   |
