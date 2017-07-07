@@ -255,10 +255,10 @@ Example output:
 ```
 
 ## Multiple IP addresses per NIC
-Every NIC attached to a VM in a scaleset can have one or more IP configurations associated to it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated to it .There is a limit to how many IP addresses can be assigned to a NIC. There is also a limit to how many public IP addresses that can be used in an Azure subscription. See [Azure limits](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.
+Every NIC attached to a VM in a scaleset can have one or more IP configurations associated to it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated to it .There is a limit to how many IP addresses can be assigned to a NIC. There is also a limit to how many public IP addresses that can be used in an Azure subscription. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.
 
 ## Multiple NICs per virtual machine
-You can have up to 8 NICs per virtual machine, depending on machine size. The [VM size article](../articles/virtual-machines/windows/sizes.md) has this information.  The following example is a scale set networkProfile showing multiple NIC entries (also showing multiple public IPs per virtual machine):
+You can have up to 8 NICs per virtual machine, depending on machine size. The [VM size article](../virtual-machines/windows/sizes.md) has this information.  The following example is a scale set networkProfile showing multiple NIC entries (also showing multiple public IPs per virtual machine):
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
