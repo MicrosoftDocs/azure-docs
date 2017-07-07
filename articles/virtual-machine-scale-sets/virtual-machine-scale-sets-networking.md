@@ -18,14 +18,14 @@ ms.date: 07/06/2017
 ms.author: guybo
 
 ---
-# Networking for Azure virtual Machine scale sets
+# Networking for Azure virtual machine scale sets
 
 When you deploy an Azure virtual machine scale set through the portal, certain network properties are defaulted, for example an Azure Load Balancer with inbound NAT rules. This article describes how to use some of the more advanced networking features that you can configure with scale sets.
 
 You can configure all of the features covered in this article using Azure Resource Manager templates. Azure CLI examples are alose included for selected features below. Use a July 2017 or later CLI verion. Additional CLI, and PowerShell, examples will be added soon.
 
 ## Accelerated Networking
-Azure [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-vm-accelerated-networking) improves  network performance by enabling single root I/O virtualization (SR-IOV) to a VM. To use accelerated networking with scale sets, set enableAcceleratedNetworking to _true_ in your scale set's networkInterfaceConfigurations settings. For example:
+Azure [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-vm-accelerated-networking) improves  network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To use accelerated networking with scale sets, set enableAcceleratedNetworking to _true_ in your scale set's networkInterfaceConfigurations settings. For example:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -53,7 +53,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 ```
 
 ## Configurable DNS Settings
-By default, scale sets take on the specific DNS settings of the VNET and subnet they were created in. You can however, configure the DNS settings for a scale set directly. The DNS settings will then apply to all VMs in the scale set.
+By default, scale sets take on the specific DNS settings of the VNET and subnet they were created in. You can however, configure the DNS settings for a scale set directly. The DNS settings will then apply to all virtual machines in the scale set.
 
 ### Creating a scale set with configurable DNS servers
 To create a scale set with a custom DNS configuration using CLI 2.0, add the --dns-servers argument to the _vmss create_ command, followed by space separated server ip addresses. For example:
@@ -68,7 +68,7 @@ To configure custom DNS servers in an Azure template, add a dnsSettings property
 ```
 
 ### Creating a scale set with configurable domain name
-To create a VM scale set with a custom DNS name using CLI 2.0, add the _--vm-domain-name_ argument to the _vmss create_ command, followed by a string representing the domain name.
+To create a scale set with a custom DNS name using CLI 2.0, add the _--vm-domain-name_ argument to the _vmss create_ command, followed by a string representing the domain name.
 
 To set the domain name in an Azure template, add a dnsSettings property to the scale set networkInterfaceConfigurations section. For example:
 
@@ -169,7 +169,7 @@ Define any load balancer rules:
     }
 }
 ```
-Lastly, reference the IPv6 pool in the VMSS IPConfigurations section of the scale set network properties:
+Lastly, reference the IPv6 pool in the IPConfigurations section of the scale set network properties:
 ```json
 {
     "name": "ipv6IPConfig",
@@ -185,18 +185,18 @@ Lastly, reference the IPv6 pool in the VMSS IPConfigurations section of the scal
 ```
 Notes:
 
-1.	VMSS Network Profile -> NetworkInterfaceConfiguration supports 2 networkInterfaceIPConfigurations (one for IPv4, one for IPv6).
+1.	Network Profile -> NetworkInterfaceConfiguration supports 2 networkInterfaceIPConfigurations (one for IPv4, one for IPv6).
 2.	The networkInterfaceIPConfiguration has an enum – privateIPAddressVersion = IPv4 or IPv6 – in order to identify which one is IPv4 and which one is IPv6.
 3.	The subnet on an IPv6 ipconfiguration is null.
 4.	The virtualMachineScaleSet API version must be at least 2017-03-30.
 5.	The load balancer needs to have both an IPv4 and  IPv6 configuration – 2 public IP’s (distinguished by publicIPAddressVersion = IPv4|IPv6), 2 backend address pools, and load balancer rules. The IPv4 NIC ipconfig refers to IPv4 load balancer backend pools and IPv6 refers to ipv6 pools.
 
-## Public IPv4 per VM
-In general Azure scale set VMs do not require their own public IP addresses, because rather than each VM directly facing the internet, it is more economical and secure to associate a public IP address to a load balancer or an individual VM (aka a jumpbox), which then routes incoming connections to scale set VMs as needed (for example, through inbound NAT rules).
+## Public IPv4 per virtual machine
+In general, Azure scale set virtual machines do not require their own public IP addresses. It is usually more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (aka a jumpbox), which then routes incoming connections to scale set virtual machiness as needed (for example, through inbound NAT rules).
 
-However some scenarios do require scale set VMs to have their own public IP addresses. An example of this is gaming, where a console needs to make a direct connection to a cloud virtual machine which is doing game physics processing. Another example is where virtual machines need to make external connections to one another across regions in a distributed database.
+However some scenarios do require scale set virtual machines to have their own public IP addresses. An example of this is gaming, where a console needs to make a direct connection to a cloud virtual machine which is doing game physics processing. Another example is where virtual machines need to make external connections to one another across regions in a distributed database.
 
-### Creating a scale set with public IP per VM
+### Creating a scale set with public IP per virtual machine
 To create a scale set that assigns a public IP address to each virtual machine with CLI 2.0, add the _--public-ip-per-vm_ parameter to the _vmss create_ command. 
 
 To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least 2017-03-30, and add a _publicipaddressconfiguration_ JSON property to the scale set ipConfigurations section. For example:
@@ -211,7 +211,7 @@ To create a scale set using an Azure template, make sure the API version of the 
 ```
 Example template: [azuredeploypip.json](https://github.com/gbowerman/azure-myriad/blob/master/preview/network/azuredeploypip.json)
 
-### Querying the public IP address of the VMs in a scale set
+### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using CLI 2.0, use the _az vmss list-instance-public-ips_ command.
 
 You can also query the public IP addresses assigned to scale set virtual machines using the [Azure Resource Explorer](https://resources.azure.com), or the Azure REST API with version _2017-03-30_ or higher.
@@ -220,7 +220,7 @@ To view public IP addresses for a scale set using the Resource Explorer, look at
 https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
 ```
-GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSS name}/publicipaddresses?api-version=2017-03-30
+GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
 Example output:
@@ -264,8 +264,8 @@ Example output:
 ## Multiple IP addresses per NIC
 You can have up to 50 public IP addresses per NIC.
 
-## Multiple NICs per VM
-You can have up to 8 NICs per VM depending on VM size. The following is an example scale set networkProfile showing multiple nic entries (also showing multiple public IP per VM):
+## Multiple NICs per virtual machine
+You can have up to 8 NICs per virtual machine, depending on machine size. The following is an example scale set networkProfile showing multiple nic entries (also showing multiple public IPs per virtual machine):
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -337,7 +337,7 @@ You can have up to 8 NICs per VM depending on VM size. The following is an examp
 }
 ```
 
-## NSG for VMSS
+## NSG per scale set
 Network Security Groups can be applied directly to a scale set, by adding a refernce to the network interface configuration section of the scale set virtual machine properties.
 
 For example: 
