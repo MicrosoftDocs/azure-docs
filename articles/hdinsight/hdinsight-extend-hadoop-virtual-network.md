@@ -122,11 +122,13 @@ If you restrict access to the virtual network you must allow access to the manag
 | Country | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
 | Asia | East Asia | 23.102.235.122</br>52.175.32.59 | 443 |
+| Australia | Australia East | 104.210.84.115</br>13.75.152.195 | 443 |
 | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 |
 | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 |
 | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 |
 | China | China North | 42.159.96.170</br>139.217.2.219 | 443 |
 | &nbsp; | China East | 42.159.198.178</br>42.159.234.157 | 443 |
+| Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 |
 | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 |
 | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 |
 | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 |
