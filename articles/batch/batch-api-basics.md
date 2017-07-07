@@ -97,7 +97,7 @@ To decide which account configuration to use, consider which best fits your scen
 
 
 ## Compute node
-A compute node is an Azure virtual machine (VM) or cloud service VM that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Azure Cloud Services or Virtual Machines Marketplace images. See the following [Pool](#pool) section for more information on these options.
+A compute node is an Azure virtual machine (VM) or cloud service VM that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using Azure Cloud Services, images from the [Azure Virtual Machines Marketplace][vm_marketplace], or custom images that you prepare. See the following [Pool](#pool) section for more information on these options.
 
 Nodes can run any executable or script that is supported by the operating system environment of the node. This includes \*.exe, \*.cmd, \*.bat and PowerShell scripts for Windows--and binaries, shell, and Python scripts for Linux.
 
@@ -153,7 +153,9 @@ See the [Account](#account) section for information on setting the pool allocati
 
 #### Custom images for Virtual Machine pools
 
-To use custom images for your Virtual Machine pools, create your Batch account with the User Subscription account configuration. With this configuration, Batch pools are allocated into the subscription where the account resides. See the [Account](#account) section for information on setting the pool allocation mode when you create a Batch account.
+To use a custom image to provision Virtual Machine pools, create your Batch account with the User Subscription account configuration. With this configuration, Batch pools are allocated into the subscription where the account resides. See the [Account](#account) section for information on setting the pool allocation mode when you create a Batch account.
+
+To use a custom image, you'll need to prepare the image by generalizing it. For information about preparing custom Linux images from Azure VMs, see [Capture an Azure Linux VM to use as a template](../virtual-machines/linux/capture-image-nodejs). For information about preparing custom Windows images from Azure VMs, see [Create custom VM images with Azure PowerShell](../virtual-machines/windows/tutorial-custom-images)
 
 To create a Virtual Machine Configuration pool using a custom image, you'll need one or more standard Azure Storage accounts to store your custom VHD images. Custom images are stored as blobs. To reference your custom images when you create a pool, specify the URIs of the custom image VHD blobs for the [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) property of the [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) property.
 
@@ -413,26 +415,38 @@ At the other end of the spectrum, if having jobs start immediately is the highes
 
 A combined approach is typically used for handling a variable, but ongoing, load. You can have a pool that multiple jobs are submitted to, but can scale the number of nodes up or down according to the job load (see [Scaling compute resources](#scaling-compute-resources) in the following section). You can do this reactively, based on current load, or proactively, if load can be predicted.
 
-## Pool network configuration
+## Virtual network (VNet) and firewall configuration 
 
-When you create a pool of compute nodes in Azure Batch, you can specify a subnet ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created.
+When you provision a pool of compute nodes in Azure Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To learn more about creating a VNet with subnets, see [Create an Azure virtual network with subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
-* The VNet must be:
+ * The VNet associated with a pool must be:
 
    * In the same Azure **region** as the Azure Batch account.
    * In the same **subscription** as the Azure Batch account.
 
 * The type of VNet supported depends on how pools are being allocated for the Batch account:
-    - If the Batch account was created with its **poolAllocationMode** property set to 'BatchService', then the specified VNet must be a classic VNet.
-    - If the Batch account was created with its **poolAllocationMode** property set to 'UserSubscription', then the specified VNet may be a classic VNet or an Azure Resource Manager       VNet. Pools must be created with a virtual machine configuration in order to use a VNet. Pools created with a cloud service configuration are not supported.
 
-* If the Batch account was created with its **poolAllocationMode** property set to 'BatchService', then you must provide permissions for the Batch service principal to access the VNet. The Batch service principal, named 'Microsoft Azure Batch' or 'MicrosoftAzureBatch', must have the [Classic Virtual Machine Contributor Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) role for the specified VNet. If the specified RBAC role is not provided, the Batch service returns 400 (Bad Request).
+    - If your Batch account configuration is set to Batch Service, then you can assign a VNet only to pools created with the **Cloud Services Configuration**. Additionally, the specified VNet must be created with the classic deployment model. VNets created with the Azure Resource Manager deployment model are not supported.
+ 
+    - If your Batch account configuration is set to User Subscription, then you can assign a VNet only to pools created with the **Virtual Machine Configuration**. Pools created with the **Cloud Service Configuration** are not supported. Additionally, the associated VNet must be a **Resource Manager** based VNet. VNets created with the classic deployment model are not supported.
+
+
+* If the Batch account was created with its **poolAllocationMode** property set to Batch Service, then you must provide permissions for the Batch service principal to access the VNet. The VNet must assign the [Classic Virtual Machine Contributor Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) role to the Batch service principal. If the specified RBAC role is not provided, the Batch service returns 400 (Bad Request). To add the role in the Azure portal:
+
+  1. Select the **VNet**, then **Access control (IAM)** > **Roles** > **Classic Virtual Machine Contributor** > **Add**.
+  2. On the **Add permissions** blade, select the **Classic Virtual Machine Contributor** role.
+  3. On the **Add permissions** blade, search for the Batch API. Search for each of these strings in turn until you find the API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
+  3. Check the **MicrosoftAzureBatch** check box.
+  4. Click the **Select** button.
 
 * The specified subnet should have enough free **IP addresses** to accommodate the total number of target nodes; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
 
 * The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**.
 
-* If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Additionally, enable outbound connections to Azure Storage on port 443.
+* If the specified VNet has associated **Network Security Groups (NSGs)** and/or a **firewall**, then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Additionally, enable outbound connections to Azure Storage on port 443.
 
     The following table describes the inbound ports that you need to enable for pools that you created with the virtual machine configuration:
 
@@ -446,29 +460,6 @@ When you create a pool of compute nodes in Azure Batch, you can specify a subnet
     |    Outbound Port(s)    |    Destination    |    Does Batch add NSGs?    |    Required for VM to be usable?    |    Action from user    |
     |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
     |    443    |    Azure Storage    |    No    |    Yes    |    If you add any NSGs, then ensure that this port is open to outbound   traffic.    |
-
-
-Additional settings for the VNet depend on the pool allocation mode of the Batch account.
-
-### VNets for pools provisioned in the Batch service
-
-In Batch service allocation mode, only **Cloud Services Configuration** pools can be assigned a VNet. Additionally, the specified VNet must be a  **classic** VNet. VNets created with the Azure Resource Manager deployment model are not supported.
-
-
-
-* The *MicrosoftAzureBatch* service principal must have the [Classic Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) Role-Based Access Control (RBAC) role for the specified VNet. In the Azure portal:
-
-  * Select the **VNet**, then **Access control (IAM)** > **Roles** > **Classic Virtual Machine Contributor** > **Add**
-  * Enter "MicrosoftAzureBatch" in the **Search** box
-  * Check the **MicrosoftAzureBatch** check box
-  * Select the **Select** button
-
-
-
-### VNets for pools provisioned in a user subscription
-
-In user subscription allocation mode, only **Virtual Machine Configuration** pools are supported and can be assigned a VNet. Additionally, the specified VNet must be a **Resource Manager** based VNet. VNets created with the classic deployment model are not supported.
-
 
 
 ## Scaling compute resources
