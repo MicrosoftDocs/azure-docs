@@ -106,6 +106,20 @@ Azure AD attempts to assign all licenses that are specified in the group to each
 
 You'll be able to see the users who failed to get assigned failed and check which products have been affected by this.
 
+## License assignment fails silently for a user due to duplicate proxy addresses in Exchange Online
+
+If you are using Exchange Online, some users in your tenant may be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it will fail and will not record an error (unlike in the other error cases described above) - this is a limitation in the preview version of this feature and we are going to address it before *General Availability*.
+
+> [!TIP]
+> If you notice that some users did not receive a license and there is no error recorded on those users, first check if they have duplicate proxy address.
+> This can be done by executing the following PowerShell cmdlet against Exchange Online:
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> [This article](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online) contains more details about this problem, including information on [how to connect to Exchange Online using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
+
+After proxy address problems have been resolved for the affected users, make sure to force license processing on the group to make sure licenses can now be applied again.
+
 ## How do you force license processing in a group to resolve errors?
 
 Depending on what steps you've taken to resolve errors, it might be necessary to manually trigger processing of a group to update the user state.
