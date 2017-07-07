@@ -22,20 +22,38 @@ ms.author: genli
 
 Your Microsoft Azure subscription has a [resource policy](resource-manager-policy.md) configured. When you try to perform an action during deployment, you might receive a **RequestDisallowedByPolicy** error that prevents the action be performed. The following is a sample of the error:
 
-
 ```
-{
-  "statusCode": "Forbidden",
-  "serviceRequestId": null,
-  "statusMessage": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"The resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/<ID>/providers/Microsoft.Authorization/policyDefinitions/SDOStdPolicyNetwork'.\"}}",
-  "responseBody": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"The resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/<ID>/providers/Microsoft.Authorization/policyDefinitions/SDOStdPolicyNetwork'.\"}}"
-}
+Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
+
+## Troubleshooting
+
+To retrieve details about the policy that blocked your deployment, use the following one of the methods:
+
+### Method 1
+
+In **PowerShell**, provide that policy identifier as the **Id** parameter to retrieve details about the policy that blocked your deployment.
+
+```PowerShell
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```
+
+### Method 2 
+
+In Azure CLI 2.0, provide the name of the policy definition: 
+
+```Azure CLI
+az policy definition show --name regionPolicyAssignment
 ```
 
 ## Solution
 
-For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User-Defined Routes, or route tables if your subscription has an ExpressRoute circuit. In the sample of the error that is described in "Symptoms", the policy is named **SDOStdPolicyNetwork**. The name could be different in your subscription. 
- 
+For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User-Defined Routes, or route tables if your subscription has an ExpressRoute circuit. In the sample of the error that is described in "Symptoms", the policy is named **regionPolicyDefinition**.
+
+## More information
+
+[Resource policy overview](resource-manager-policy.md)
+[Common deployment errors-RequestDisallowedByPolicy](resource-manager-common-deployment-errors.md#requestdisallowedbypolicy)
 
  
 
