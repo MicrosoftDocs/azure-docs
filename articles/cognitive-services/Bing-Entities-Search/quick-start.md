@@ -24,7 +24,7 @@ Entity results include persons, places, or things. Place in this context is tour
 
 ## First steps
 
-Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api).
+Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (If the Entities Search API isn't visible at the top, click the **Search** tab and scroll down until you see it.)
 
 ## The endpoint
 
