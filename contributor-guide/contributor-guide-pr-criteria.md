@@ -34,13 +34,12 @@ The updates in the pull request must comply with the following criteria to be me
 | Site/design functionality | When a new article is added, the TOC is updated at the same time. |
 | Markdown |HTML: Source content does not contain HTML at the block level – minor inline HTML is permitted – such as superscript, subscript, special characters, and other minor things that you can’t do with markdown. HTML tables are allowed ONLY if the table contains bulleted or numbered lists, but that is usually an indication the content needs to be simplified so the source can be coded in markdown. |
 | Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the [!NOTE] extension, not as plain text. |
-| SEO |The " &#124; Microsoft Docs" site identifier is required. We no longer use the " &#124; Microsoft Azure" site identifier |
 | SEO |The *title* metadata value must include the word "Azure" (Intune, Operations Management Suite [OMS], and StorSimple articles are excepted) |
 | SEO |The H1 title contains sufficient information to describe the content of the article, to differentiate it from other Azure articles, and to map to likely customer keywords. For example "Overview" as the H1 title is a fail. |
 | Terminology |The use of the ARM acronym, V1, or V2 as references to the classic and Resource Manager deployment models is a blocking terminology item. |
 | Images |Animated GIFs and PDN files are not accepted into the repo. |
 | Images |Images have clear resolution, are free of misspelled words, and contain no private information |
-| Localizability | Links to pages on azure.microsoft.com, TechNet, and MSDN are coded as locale agnostic. Do not include en-us, en-gb, en-in, or any other locale in links to these sites. |
+| Localizability | Links to pages on azure.microsoft.com, TechNet, and MSDN are coded as locale agnostic. Do not include en-us, en-gb, en-in, or any other locale in links to these sites. TechNet/MSDN forum links are an exception - locales cannot be removed from forum links on these sites. |
 | Staging |The article preview must be clean on staging. It cannot contain any obvious formatting issues: <br>- A numbered or bulleted list that appears as a paragraph<br>- Code in a code block appearing partly in the code block and partly outside it<br>- Numbered steps numbered incorrectly due to faulty indentation<br>- Leftover merge conflict markers |
 
 ## Non-blocking content quality items
@@ -48,7 +47,7 @@ For these items, pull request reviewers provide feedback and instructions for th
 
 | Category | Quality review item |
 | --- | --- |
-| Content |Articles should have a “Next steps” at the end with 1-3 relevant and compelling next steps. Brief text should be included that helps the customer understand why the next steps are relevant. (New articles only). Example: <https://docs.microsoft.com/en-us/documentation/articles/xplat-cli-install/><br>![](media/contributor-guide-pr-criteria/nextstepsexample.PNG) |
+| Content |Articles should have a “Next steps” at the end with 1-3 relevant and compelling next steps. Brief text should be included that helps the customer understand why the next steps are relevant. (New articles only). Example: <https://docs.microsoft.com/en-us/cli/azure/install-azure-cli><br>![](media/contributor-guide-pr-criteria/nextstepsexample.PNG) |
 | Content |Spelling, grammar, and other writing issues - pull request reviewers may provide feedback on a few minor issues as non-blocking feedback. If there are more than a few editorial issues, reviewers log an edit request for the article for a post-publication edit. |
 | Images |Images use the correct callout style and color, and screenshots use the correct border and placeholder style. [See the image guidance](create-images-markdown.md). |
 | Images |Images include alt text. [See the image guidance](create-images-markdown.md). |

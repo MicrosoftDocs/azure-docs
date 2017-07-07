@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure reserved IP addresses (Classic) - PowerShell | Microsoft Docs
 description: Understand reserved IP addresses (Classic) and how to manage them using PowerShell.
 services: virtual-network
@@ -54,7 +54,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 
 ## Manage reserved VIPs
 
-Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](/powershell/azureps-cmdlets-docs) article. 
+Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](/powershell/azure/overview) article. 
 
 Before you can use reserved IPs, you must add it to your subscription. To create a reserved IP from the pool of public IP addresses available in the *Central US* location, run the following command:
 

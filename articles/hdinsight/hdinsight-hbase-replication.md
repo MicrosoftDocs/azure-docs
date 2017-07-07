@@ -1,5 +1,5 @@
 ﻿---
-title: Configure HBase replication | Microsoft Docs
+title: Configure HBase cluster replication within virtual networks - Azure  | Microsoft Docs
 description: Learn how to configure HBase replication for load balancing, high availability, zero-downtime migration/update from one HDInsight version to another, and disaster recovery.
 services: hdinsight,virtual-network
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
-# Configure HBase replication
+# Configure HBase cluster replication within virtual networks
 
 Learn how to configure HBase replication within one virtual network (VNet) or between two virtual networks.
 
@@ -245,7 +245,7 @@ In this tutorial, you learned how to configure HBase replication across two data
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md

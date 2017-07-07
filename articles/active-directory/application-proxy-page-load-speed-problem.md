@@ -22,7 +22,7 @@ ms.author: asteen
 This article help you to understand why an Azure AD Application Proxy application may take a long time to load, and what you can do to resolve this issue.
 
 ## Overview
-If your applications are working but you see a long latency, there may be some minor tweaks in your network topology that you can consider to improve the speed. For an evaluation of different topologies, see the [network considerations document](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-network-topology-considerations).
+If your applications are working but you see a long latency, there may be some minor tweaks in your network topology that you can consider to improve the speed. For an evaluation of different topologies, see the [network considerations document](https://docs.microsoft.com/azure/active-directory/application-proxy-network-topology-considerations).
 
 If those considerations don’t help, we unfortunately don’t have currently have further recommendations for performance tuning. As the Application Proxy service expands to more data centers that may be closer to you, you may start to see improved latency directly. To see the full list of Azure data centers, you can see the [latency test page](http://www.azurespeed.com/Azure/Latency). 
 

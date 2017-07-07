@@ -1,4 +1,3 @@
 ---
-redirect_url: /azure/virtual-machines/windows/generalize-vhd
-redirect_document_id: true
+redirect_url: /azure/virtual-machines/windows/upload-generalized-managed
 ---

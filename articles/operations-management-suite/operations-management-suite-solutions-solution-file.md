@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 04/30/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -41,7 +41,7 @@ The basic structure of a management solution file is the same as a [Resource Man
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
+       "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },
        "resources": [  ],
@@ -91,8 +91,8 @@ The following table lists the standard parameters for all management solutions. 
 | workspaceName |string |Log Analytics workspace name. |
 | workspaceRegionId |string |Region of the Log Analytics workspace. |
 
-### Sample
-Following is a sample parameter entity for a solution.  This includes all of the standard  parameters and two additional parameters in the same category.
+
+Following is the structure of the standard parameters that you can copy and paste into your solution file.  
 
     "parameters": {
         "workspaceName": {
@@ -124,23 +124,8 @@ Following is a sample parameter entity for a solution.  This includes all of the
             "metadata": {
                 "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
             }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
-            }
         }
+	}
 
 
 You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('workspaceName')**

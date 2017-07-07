@@ -35,13 +35,13 @@ There are three ways to resolve this issue. The choices below are in listed in i
 
     If you change the internal URL but don’t want to change the landing page for users, change the Home page URL to the previously published internal URL. This can be done by going to “Azure Active Directory” -&gt; App Registrations -&gt; select the application -&gt; Properties. In this properties tab, you see the field “Home Page URL” which you can adjust to be the desired landing page.
 
-2.  If your applications use fully qualified domain names (FQDNs), use [custom domains](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains) to publish your applications. This feature allows the same URL to be used both internally and externally.
+2.  If your applications use fully qualified domain names (FQDNs), use [custom domains](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) to publish your applications. This feature allows the same URL to be used both internally and externally.
 
     This option ensures that the links in your application are externally accessible through Application Proxy since the links within the application to internal URLs are also recognized externally. Note that all links still need to belong to a published application. However, with this option the links do not need to belong to the same application and can belong to multiple applications.
 
 3.  If neither of these options are feasible, you join the preview for a new feature that do URL translation/rewriting. With this option, internal URLs or links that exist in the HTML body of your applications be translated, or “mapped”, to the published external App Proxy URLs. This only works for links in the HTML or CSS, and this not help if your link is generated through JS. 
 
-As a result, we strongly recommend using the [custom domains](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains) solution if possible. If you do want to join the preview, email <aadapfeedback@microsoft.com> with the applicationId(s).
+As a result, we strongly recommend using the [custom domains](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) solution if possible. If you do want to join the preview, email <aadapfeedback@microsoft.com> with the applicationId(s).
 
 ## Next steps
 [Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md)

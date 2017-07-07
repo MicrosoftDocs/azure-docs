@@ -35,7 +35,9 @@ You can retrieve events from your Activity Log using the Azure portal, CLI, Powe
 >
 
 View the following video introducing the Activity Log.
-[!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> 
+>
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:

@@ -1,5 +1,5 @@
 ---
-title: Manage Hadoop clusters in HDInsight with .NET SDK | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight with .NET SDK - Azure | Microsoft Docs
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using HDInsight .NET SDK.
 services: hdinsight
 editor: cgronlun
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
@@ -162,7 +162,7 @@ The impact of changing the number of data nodes for each type of cluster support
     
     The Storm web UI is available on the HDInsight cluster:
     
-    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
     Here is an example how to use the CLI command to rebalance the Storm topology:
     
@@ -264,8 +264,8 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md

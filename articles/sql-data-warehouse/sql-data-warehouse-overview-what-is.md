@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 ms.date: 2/28/2017
-ms.author: jrj;mausher;kevin;barbkess;elbutter
+ms.author: jrj;barbkess
 
 ---
 # What is Azure SQL Data Warehouse?
@@ -141,7 +141,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Customer success stories]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
+[Customer success stories]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse

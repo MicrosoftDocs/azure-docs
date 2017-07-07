@@ -1,5 +1,5 @@
 ---
-title: Azure Monitoring and Diagnostics Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Monitor Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use monitoring and diagnostics services to track performance, maintain security, and identify trends. API references, best practices, and more.
 services: monitoring-and-diagnostics
 author: carolz
@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-# Monitoring and Diagnostics Documentation
+# Azure Monitor Documentation
 
 Learn how to use Azure monitoring and diagnostics services to track performance, maintain security, and identify trends. Tutorials, API references, best practices, and other documentation help you understand the uses of monitoring and diagnostics and how to plan and deploy scalable and reliable solutions.
 
@@ -35,7 +35,25 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
             </div>
         </div>
         </a>
-    </li>    
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=monitor">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Monitor video center</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/monitoring-and-diagnostics/insights-alerts-portal">
         <div class="cardSize">
@@ -144,7 +162,7 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">REST API Reference</a></p>
+                        <p><a href="/rest/api/monitor/">REST API reference</a></p>
                     </div>
                 </div>
             </div>
@@ -169,10 +187,11 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
                 <div class="card">
                     <div class="cardText">
                         <h3>Diagnostics</h3>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Diagnostics Schema</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Diagnostics Schema 1.0</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Diagnostics Schema 1.2</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Diagnostics Schema 1.3 to 1.5</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-versioning-history">Azure Diagnostics extension version history</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Diagnostics extension schema</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Diagnostics extension schema 1.0</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Diagnostics extension schema 1.2</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Diagnostics extension schema 1.3 and later</a></p>
                     </div>
                 </div>
             </div>

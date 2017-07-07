@@ -40,17 +40,15 @@ SSH is an encrypted connection protocol that allows secure logins over unsecured
 If you do not wish to use SSH keys, you can still log in to your Linux VMs using a password. If your VM is not exposed to the Internet, using passwords may be sufficient. However, you still need to manage your passwords for each Linux VM and maintain healthy password policies and practices, such as minimum password length and regularly updating them. The use of SSH keys reduces the complexity of managing individual credentials across multiple VMs.
 
 ## Windows packages and SSH clients
-You connect to and manage Linux VMs in Azure using an **SSH client**. Windows computers do not typically have an SSH client installed. Common Windows SSH clients you can install are included in the following packages:
+You connect to and manage Linux VMs in Azure using an **SSH client**. Windows computers do not typically have an SSH client installed. The Windows 10 Anniversary Update added Bash for Windows, and the latest Windows 10 Creators Update provides additional updates. This Windows Subsystem for Linux allows you to run and access utilities such as an SSH client natively within a Bash shell. You can then follow any of the Linux docs, such as [How to generate SSH key pairs for Linux](mac-create-ssh-keys.md). Bash for Windows is still under development, and is considered a beta release. For more information about Bash for Windows, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
+
+If you wish to use something other than Bash for Windows, common Windows SSH clients you can install are included in the following packages:
 
 * [Git For Windows](https://git-for-windows.github.io/)
 * [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [MobaXterm](http://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-> [!NOTE]
-> The latest Windows 10 Anniversary Update includes Bash for Windows. This feature allows you to run the Windows Subsystem for Linux and access utilities such as an SSH client. Bash for Windows is still under development, and is considered a beta release. For more information about Bash for Windows, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
->
->
 
 ## Which key files do you need to create?
 Azure requires at least 2048-bit, **ssh-rsa** formatted public and private keys. If you are managing Azure resources using the Classic deployment model, you also need to generate a PEM (`.pem` file).

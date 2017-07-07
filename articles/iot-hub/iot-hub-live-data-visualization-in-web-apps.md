@@ -20,10 +20,9 @@ ms.author: xshi
 ---
 # Visualize real-time sensor data from Azure IoT Hub using Azure Web Apps
 
-![Connection between sensor, IoT device, IoT Hub and Azure web app](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/5.png)
 
-> [!NOTE]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## What you learn
 
@@ -39,7 +38,7 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
 
 ## What you need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
@@ -54,16 +53,7 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
 
    ![Create a Azure web app](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
-## Add a consumer group to your IoT hub
-
-Consumer groups are used by applications to pull data from Azure IoT Hub. In this lesson, you create a consumer group to be used by the web app to read data from your IoT hub.
-
-To add a consumer group to your IoT hub, follow these steps:
-
-1. In the [Azure portal](https://ms.portal.azure.com/), open your IoT hub.
-1. Click **Endpoints** on the left pane, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
-
-   ![Create consumer group in Azure IoT Hub](media/iot-hub-live-data-visualization-in-web-apps/3_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## Configure the web app to read data from your IoT hub
 
@@ -72,25 +62,25 @@ To add a consumer group to your IoT hub, follow these steps:
 
    | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | Obtained from IoT Hub Explorer                               |
-   | Azure.IoT.IoTHub.DeviceId             | Obtained from IoT Hub Explorer                               |
+   | Azure.IoT.IoTHub.ConnectionString     | Obtained from iothub-explorer                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
 
    ![Add settings to Azure web app with key value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
+
+1. In **Application settings**, toggle the Web sockets option under General settings. Save all your changes before you move to next step.
+
+   ![Toggle Web sockets option](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
 
 ## Upload a web application to be hosted by the web app
 
 We made available a web application on GitHub which displays real-time sensor data from your IoT hub. All you need to do is to configure the web app to work with a Git repository, download the web application from GitHub and upload it to Azure for the web app to host.
 
-1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**.
+1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**, and then click **OK**.
 
    ![Configure your Azure web app deployment to use local git repository](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-1. Click **Setup connection**, create a user name and password that will be used to connect to the Git repository in Azure, and then click **OK**.
+1. Click **Deployment Credentials**, create a user name and password that will be used to connect to the Git repository in Azure, and then click **OK**.
 
-   ![Set user name and password for the git repository in Azure for your web app](media/iot-hub-live-data-visualization-in-web-apps/6_web-app-set-user-password-git-repo-azure.png)
-
-1. Click **OK** to finish the configuration.
 1. Click **Overview** and make a note of the value of **Git clone url**.
 
    ![Get the git clone URL of your Azure web app](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
@@ -100,6 +90,7 @@ We made available a web application on GitHub which displays real-time sensor da
 
    ```bash
    git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
+   cd web-apps-node-iot-hub-data-visualization
    git remote add webapp <Git clone URL>
    git push webapp master:master
    ```
@@ -118,12 +109,8 @@ You should see the real-time temperature and humidity data from your IoT hub.
 ![Azure web app page showing real-time temperature and humidity](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 ## Next steps
-You’ve successfully used an Azure web app to visualize real-time sensor data from your Azure IoT hub.
+You've successfully used an Azure web app to visualize real-time sensor data from your Azure IoT hub.
 
 There is an alternate way to visualize data from Azure IoT Hub. See [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
-
-- [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-- [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

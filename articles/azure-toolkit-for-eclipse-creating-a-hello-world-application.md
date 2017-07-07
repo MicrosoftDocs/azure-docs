@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 
 ---
@@ -34,39 +34,53 @@ The application will look similar to the following:
 ## To create a Hello World application
 First, we'll start off with creating a Java project.
 
-* Start Eclipse, and at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don't see **Dynamic Web Project** listed as an available project after clicking **File**, **New**, then do the following: click **File**, click **New**, click **Project...**, expand **Web**, click **Dynamic Web Project**, and click **Next**.)
-* For purposes of this tutorial, name the project **MyHelloWorld**. (Ensure you use this name, subsequent steps in this tutorial expect your WAR file to be named MyHelloWorld). Your screen will appear similar to the following:
+1. Start Eclipse, and at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don't see **Dynamic Web Project** listed as an available project after clicking **File**, **New**, then do the following: click **File**, click **New**, click **Project...**, expand **Web**, click **Dynamic Web Project**, and click **Next**.)
+
+1. For purposes of this tutorial, name the project **MyHelloWorld**. (Ensure you use this name, subsequent steps in this tutorial expect your WAR file to be named MyHelloWorld). Your screen will appear similar to the following:
+
    ![][ic589576]
-* Click **Finish**.
-* Within Eclipse's Project Explorer view, expand **MyHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
-* In the **New JSP File** dialog, name the file **index.jsp**. Keep the parent folder as **MyHelloWorld/WebContent**, as shown in the following:
-    ![][ic659262]
-* In the **Select JSP Template** dialog, for purposes of this tutorial select **New JSP File (html)** and click **Finish**.
-* When the index.jsp file opens in Eclipse, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should appear as the following:
-  ```
-    <body>
-    <b><% out.println("Hello World!"); %></b>
-    </body>
-  ```
-* Save index.jsp.
+
+1. Click **Finish**.
+
+1. Within Eclipse's Project Explorer view, expand **MyHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
+
+1. In the **New JSP File** dialog, name the file **index.jsp**. Keep the parent folder as **MyHelloWorld/WebContent**, as shown in the following:
+
+   ![][ic659262]
+
+1. In the **Select JSP Template** dialog, for purposes of this tutorial select **New JSP File (html)** and click **Finish**.
+
+1. When the index.jsp file opens in Eclipse, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should appear as the following:
+   ```
+   <body>
+   <b><% out.println("Hello World!"); %></b>
+   </body>
+   ```
+1. Save index.jsp.
 
 ## To deploy your application to Azure, the quick and simple way
 As soon as you have a Java web application ready to test, you can use the following shortcut to try it out directly on the Azure cloud.
 
 1. In Eclipse's Project Explorer, click **MyHelloWorld**.
+
 2. In the Eclipse toolbar, click the **Publish** drop down button and then click **Publish As Azure Cloud Service**
-    ![][publishDropdownButton]
+
+   ![][publishDropdownButton]
+
 3. If you are publishing this application to Azure for the first time and you have not created an Azure deployment project for this application before, an Azure deployment project be created for you automatically. You should see the following prompt, which also lists the JDK package and application server that will be automatically deployed to run your application.
-    ![][ic789598]
+
+   ![][ic789598]
    
-    This shortcut approach enables a quick and easy way to test your application in Azure without having to configure a specific server or JDK that is different from the defaults. If you are satisfied with the defaults, you can click **OK** to continue with the following steps.
-    However, if you want to change the JDK or application server to use for your application, you can do that later by editing the Azure deployment project that was automatically created for you, or you can click **Cancel** now and read the **About Azure deployment projects section** of this tutorial.
+   This shortcut approach enables a quick and easy way to test your application in Azure without having to configure a specific server or JDK that is different from the defaults. If you are satisfied with the defaults, you can click **OK** to continue with the following steps.
+   However, if you want to change the JDK or application server to use for your application, you can do that later by editing the Azure deployment project that was automatically created for you, or you can click **Cancel** now and read the **About Azure deployment projects section** of this tutorial.
+
 4. In the **Publish to Azure** dialog:
+
    1. If there are no subscriptions to select in the **Subscription** list yet, follow these steps to import your subscription information:
       1. Click **Import from PUBLISH-SETTINGS file**.
       2. In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you'll be prompted to save an Azure publish settings file. Save it to your local machine.
       3. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally in the previous step, and then click **Open**. Your screen should look similar to the following:
-          ![][ic644267]
+         ![][ic644267]
       4. Click **OK**.
    2. For **Subscription**, select the subscription that you want use for your deployment.
    3. For **Storage account**, select the storage account that you want to use, or click **New** to create a new storage account.
@@ -74,16 +88,20 @@ As soon as you have a Java web application ready to test, you can use the follow
    5. For **Target OS**, select the version of the operating system that you want to use for your deployment.
    6. For **Target environment**, for purposes of this tutorial, select **Staging**. (When you're ready to deploy to your production site, you'll change this to **Production**.)
    7. Optional: Ensure that **Overwrite previous deployment** is checked if you want your new deployment to automatically overwrite the previous deployment. When you enable this option, you will not experience "409 conflict" issues when publishing to the same location.
-       Note that the **Publish to Azure** dialog contains a section for **Remote Access**. By default, Remote Access is not enabled and we will not enable it for this example. To enable Remote Access, you would enter a user name and password to use when remotely logging in. For more information about Remote Access, see [Enabling Remote Access for Azure Deployments in Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
-       Your **Publish to Azure** dialog will appear similar to the following:
-       ![][ic719488]
+      Note that the **Publish to Azure** dialog contains a section for **Remote Access**. By default, Remote Access is not enabled and we will not enable it for this example. To enable Remote Access, you would enter a user name and password to use when remotely logging in. For more information about Remote Access, see [Enabling Remote Access for Azure Deployments in Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
+      Your **Publish to Azure** dialog will appear similar to the following:
+      ![][ic719488]
+
 5. Click **Publish** to publish to the Staging environment.
-    When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
-    An **Azure Activity Log** will display in your Eclipse tabbed views section.
-    ![][ic719489]
-    You can use this log, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the [Azure Management Portal][Azure Management Portal], and use the **Cloud Services** section to monitor the status.
+
+   When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
+   An **Azure Activity Log** will display in your Eclipse tabbed views section.
+   ![][ic719489]
+   You can use this log, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the [Azure Management Portal][Azure Management Portal], and use the **Cloud Services** section to monitor the status.
+
 6. When your deployment is successfully deployed, the **Azure Activity Log** will show a status of **Published**. Click **Published**, as shown in the following image, and your browser will open an instance of your deployment.
-    ![][ic719490]
+
+   ![][ic719490]
 
 Because this was a deployment to a staging environment, the DNS name will be of the form http://&lt;*guid*&gt;.cloudapp.net, and the URL will contain the DNS name plus a suffix for your application. For example, http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (The **MyHelloWorld** portion is case-sensitive.) You can also see the DNS name if you click the deployment name in the Azure Platform Management Portal (within the Cloud Services portion of the management portal).
 
@@ -99,7 +117,7 @@ In order to deploy one or more Java applications to Azure, an Azure Deployment P
 
 Besides the information about your applications, an Azure deployment project also contains information about other key components of your deployment, most importantly: the application server container to run your web app in, and the Java runtime to run it on. Azure supports a large selection of Java runtimes and Java application servers you can choose from.
 
-Although the example used here is greatly simplified for educational purposes, an Azure deployment project can also contain other important configuration information that enables you to create almost arbitrarily complex, scalable, highly available, multi-tier cloud services with your applications. You can enable **session affinity ("sticky sessions")**, **fast caching**, **remote debugging**, **SSL offloading**, **firewall/port routing**, **remote access**, and a number of other powerful capabilities.
+Although the example used here is greatly simplified for educational purposes, an Azure deployment project can also contain other important configuration information that enables you to create almost arbitrarily complex, scalable, highly available, multi-tier cloud services with your applications. You can enable **session affinity ("sticky sessions")**, **fast caching**, **SSL offloading**, **firewall/port routing**, **remote access**, and a number of other powerful capabilities.
 
 If you've completed the previous section of this tutorial ("To deploy your application to Azure, the quick and simple way"), you will now see a new Azure deployment project in the Project Explorer generated for you automatically and named "**MyHelloWorld_onAzure**".
 
@@ -112,13 +130,17 @@ Regardless of whether you are working with an already existing Azure deployment 
 To change the JDK, or the application server, or the application list in an existing Azure deployment project:
 
 1. Expand the project node (e.g. **MyHelloWorld_onAzure**) in the Project Explorer
+
 2. Right-click **WorkerRole1**
+
 3. Expand the **Azure** submenu in the context menu
+
 4. Click **Server Configuration**
 
 Regardless of whether you started these server configuration steps by editing an existing Azure deployment project as shown above, or creating a new one from scratch, you will see the same type of dialogs allowing you to configure your JDK, server and application components. To learn more how to change the settings in those dialogs, for example to change the JDK, the application server and add or remove applications in a deployment, see the [Server configuration properties][Server configuration properties] article.
 
 ## Windows only: To deploy your application to the compute emulator
+
 > [!NOTE]
 > The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows.
 > 
@@ -127,13 +149,21 @@ Regardless of whether you started these server configuration steps by editing an
 If you have created a new Azure deployment project following the steps described earlier, i.e. implicitly, by publishing your application to Azure, the JDK and application servers have been configured for the cloud, but not for local emulation. To prepare your project for testing in the local emulator, follow these steps:
 
 1. In Eclipse's Project Explorer, click **MyHelloWorld_onAzure**.
+
 2. Right-click on **WorkerRole1**.
+
 3. Expand the **Azure** submenu in the context menu.
+
 4. Click **Server Configuration**.
+
 5. On the **JDK** tab, check if the toolkit has pre-configured a default local JDK for you. If not, or if you want to change the assumed defaults, ensure that the **Use the JDK from this file path for testing locally** checkbox is checked and the JDK installation location that you want to use is specified. If you want to change it, click the **Browse** button and using the browse control, select the directory location of the JDK to use.
+
 6. Click the **Server** tab.
+
 7. In the **Local server path** text box at the bottom of the dialog box, enter the path of a locally-installed server that matches the type and major version number of the server selected at the top of the dialog box, under the **Deploy a server of this type** checkbox. If you want to use a different type or major version of the application server, change the selection under that checkbox first.
+
 8. Click **OK**.
+
 9. In the Eclipse toolbar, click the **Run in Azure Emulator** button, ![][ic710879]. If the **Run in Azure Emulator** button is not enabled, ensure that **MyHelloWorld_onAzure** is selected in Eclipse's Project Explorer, and ensure that Eclipse's Project Explorer has focus as the current window. This will first start a full build of your project and then launch your Java web application in the compute emulator. (Note that depending on your computer's performance characteristics, the first build may take between a few seconds to a few minutes, but subsequent builds will get faster.) After the first build step has been completed, you will be prompted by Windows User Account Control (UAC) to allow this command to make changes to your computer. Click **Yes**.
 
 > [!IMPORTANT]
@@ -142,8 +172,10 @@ If you have created a new Azure deployment project following the steps described
 > 
 
 1. Examine the output of the compute emulator UI to determine if there are any issues with your project. Depending on the contents of your deployment, it may take a couple minutes for your application to be fully started within the compute emulator.
+
 2. Start your browser and use the URL `http://localhost:8080/MyHelloWorld` as the address (the `MyHelloWorld` portion of the URL is case-sensitive). You should see your MyHelloWorld application (the output of index.jsp), similar to the following image:
-    ![][ic589579]
+
+   ![][ic589579]
 
 When you are ready to stop your application from running in the compute emulator, in the Eclipse toolbar, click the **Reset Azure Emulator** button, ![][ic710880].
 

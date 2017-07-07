@@ -14,21 +14,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 05/15/2017
 ms.author: kgremban
-
+ms.custom: end-user
 ---
 # Set up my account for two-step verification
 Two-step verification is an additional security step that helps protect your account by making it harder for other people to break in. If you're reading this article, you probably got an email from your work or school admin about Multi-Factor Authentication. Or maybe you tried to sign in and got a message asking you to set up additional security verification. If that's the case, **you cannot sign in until you have completed the auto-enrollment process**.
 
 This article helps you set up your **work or school account**. If you want to enable two-step verification for your own, personal Microsoft account, see [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-## Determine how you will use multi-factor authentication
-Two-step verification works by prompting you for two pieces of identification when you sign in. First, we ask for your username and password as usual. Then, we contact a phone that we know belongs to you, and you confirm that the sign-in attempt was legitimate.  
+## Set up your account
 
-To get started with the setup process, try to sign in to your account like you usually do. If your admin has configured your account for two-step verification, you will be prompted to begin the auto-enrollment process. Begin this process by clicking **Set it up now.**
+When your IT department requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional secuirty verification**:
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time/first.png)
+
+To get started, select **Set it up now.**
+
+If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) to find the settings page where you can manage your verification options. 
+
+## Decide how you want to verify your sign-ins
 
 The first question in the enrollment process is how you want us to contact you. Take a look at the options in the table, and use the links to go to the setup steps for each method.
 
@@ -44,16 +49,19 @@ Using this method requires that you install an authenticator app on your phone o
 1. Select **Mobile app** from the drop-down list.
 2. Select either **Receive notifications for verification** or **Use verification code**, then select **Set up**.
 
-    ![Additional security verification screen](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+   ![Additional security verification screen](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+
 3. On your phone or tablet, open the app and select **+** to add an account. (On Android devices, select the three dots, then **Add account**.)
 4. Specify that you want to add a work or school account. The QR code scanner on your phone opens. If your camera is not working properly, you can select to enter your company information manually. For more information, see [Add an account manually](#add-an-account-manually).  
 5. Scan the QR code picture that appeared with the screen for configuring the mobile app.  Select **Done** to close the QR code screen.  
 
-    ![QR code screen](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+   ![QR code screen](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+
 6. When activation finishes on the phone, select **Contact me**.  This step sends either a notification or a verification code to your phone. Select **Verify**.  
 7. If your company requires a PIN for approving sign-in verification, enter it.
 
-    ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+   ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+
 8. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
 9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
 10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.

@@ -13,14 +13,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/22/2017
+ms.date: 05/02/2017
 ms.author: vturecek
-
 ---
 
 # ASP.NET Core in Service Fabric Reliable Services
 
-ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. While ASP.NET Core apps can run on .NET Core or on the full .NET Framework, Service Fabric services currently can only run on the full .NET Framework. This means when you build an ASP.NET Core Service Fabric service, you must still target the full .NET Framework.
+ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. 
+
+This article is an in-depth guide to hosting ASP.NET Core services in Service Fabric Reliable Services using the **Microsoft.ServiceFabric.AspNetCore.*** set of NuGet packages.
+
+For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment set up, see [Building a web front-end for your application using ASP.NET Core](service-fabric-add-a-web-frontend.md).
+
+The rest of this article assumes you are already familiar with ASP.NET Core. If not, we recommend reading through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
+
+## ASP.NET Core in the Service Fabric environment
+
+While ASP.NET Core apps can run on .NET Core or on the full .NET Framework, Service Fabric services currently can only run on the full .NET Framework. This means when you build an ASP.NET  Core Service Fabric service, you must still target the full .NET Framework.
 
 ASP.NET Core can be used in two different ways in Service Fabric:
  - **Hosted as a guest executable**. This is primarily used to run existing ASP.NET Core applications on Service Fabric with no code changes.
@@ -28,13 +37,8 @@ ASP.NET Core can be used in two different ways in Service Fabric:
 
 The rest of this article explains how to use ASP.NET Core inside a Reliable Service using the ASP.NET Core integration components that ship with the Service Fabric SDK. 
 
-> [!NOTE]
->The rest of this article assumes you are familiar with hosting in ASP.NET Core. To learn more about hosting in ASP.NET Core, see: [Introduction to hosting in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/hosting).
-
-> [!NOTE]
-> To develop Reliable Services with ASP.NET Core in Visual Studio 2015, you will need to have [.NET Core VS 2015 Tooling Preview 2](https://www.microsoft.com/net/download/core) installed.
-
 ## Service Fabric service hosting
+
 In Service Fabric, one or more instances and/or replicas of your service run in a *service host process*, an executable file that runs your service code. You, as a service author, own the service host process and Service Fabric activates and monitors it for you.
 
 Traditional ASP.NET (up to MVC 5) is tightly coupled to IIS through System.Web.dll. ASP.NET Core provides a separation between the web server and your web application. This allows web applications to be portable between different web servers and also allows web servers to be *self-hosted*, which means you can start a web server in your own process, as opposed to a process that is owned by dedicated web server software such as IIS. 
@@ -115,7 +119,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
                         services => services
                             .AddSingleton<StatelessServiceContext>(serviceContext))
                     .UseContentRoot(Directory.GetCurrentDirectory())
-                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                     .UseStartup<Startup>()
                     .UseUrls(url)
                     .Build()))

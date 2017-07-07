@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'control led with arduino'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: d7a25430-450e-43c4-a3ed-1eed995b8b7e
 ms.service: iot-hub
 ms.devlang: arduino

@@ -1,5 +1,5 @@
 ---
-title: Use MapReduce and PowerShell with Hadoop | Microsoft Docs
+title: Use MapReduce and PowerShell with Hadoop - Azure HDInsight | Microsoft Docs
 description: Learn how to use PowerShell to remotely run MapReduce jobs with Hadoop on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 
 ---
@@ -30,7 +30,7 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 * **An Azure HDInsight (Hadoop on HDInsight) cluster**
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * **A workstation with Azure PowerShell**.
 
@@ -52,18 +52,18 @@ The following cmdlets are used when running MapReduce jobs in a remote HDInsight
 
 The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster.
 
-1. Using an editor, save the following code as **mapreducejob.ps1**..
+1. Using an editor, save the following code as **mapreducejob.ps1**.
 
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **mapreducejob.ps1** file, then use the following command to run the script:
-   
+
         .\mapreducejob.ps1
-   
+
     When you run the script, you are prompted for the name of the HDInsight cluster and the HTTPS/Admin account name and password for the cluster. You may also be prompted to authenticate to your Azure subscription.
 
 3. When the job completes, you receive output similar to the following text:
-    
+
         Cluster         : CLUSTERNAME
         ExitCode        : 0
         Name            : wordcount
@@ -73,12 +73,12 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
-    
+
     This output indicates that the job completed successfully.
-    
+
     > [!NOTE]
     > If the **ExitCode** is a value other than 0, see [Troubleshooting](#troubleshooting).
-    
+
     This example also stores the downloaded files to an **output.txt** file in the directory that you run the script from.
 
 ### View output
@@ -118,4 +118,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-

@@ -7,7 +7,7 @@ To create a premium cache, sign-in to the [Azure portal](https://portal.azure.co
 > 
 > 
 
-To configure premium features, first select one of the premium pricing tiers in the **Choose your pricing tier** blade.
+To configure premium features, first select one of the premium pricing tiers in the **Pricing tier** drop-down list. For more information about each pricing tier, click **View full pricing details** and select a pricing tier from the **Choose your pricing tier** blade.
 
 ![Choose your pricing tier](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

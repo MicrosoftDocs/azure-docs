@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'arduino development tools, iot development, iot software, internet of things software, install git on windows, install node js windows'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: 7d29a358-544d-4657-a504-5ed9b79c2925
 ms.service: iot-hub
 ms.devlang: c

@@ -35,7 +35,7 @@ This overview describes how scale out works with SQL Data Warehouse and how to u
 ## How compute management operations work in SQL Data Warehouse
 The architecture for SQL Data Warehouse consists of a control node, compute nodes, and the storage layer spread across 60 distributions. 
 
-During a normal active session in SQL Data Warehouse, your system's head node that manages the metadata and contains the distributed query optimizer. Beneath this head node are your compute nodes and your storage layer. For a DWU 400, your system has one head node, four compute nodes, and the storage layer, consisting of 60 distributions. 
+During a normal active session in SQL Data Warehouse, your system's head node manages the metadata and contains the distributed query optimizer. Beneath this head node are your compute nodes and your storage layer. For a DWU 400, your system has one head node, four compute nodes, and the storage layer, consisting of 60 distributions. 
 
 When you undergo a scale or pause operation, the system first kills all incoming queries and then rolls back transactions to ensure a consistent state. For scale operations, scaling will only occur once this transactional rollback has completed. For a scale-up operation, the system provisions the extra desired number of compute nodes, and then begins reattaching the compute nodes to the storage layer. For a scale-down operation, the unneeded nodes are released and the remaining compute nodes reattach themselves to the appropriate number of distributions. For a pause operation, all compute nodes are released and your system will undergo a variety of metadata operations to leave your final system in a stable state.
 

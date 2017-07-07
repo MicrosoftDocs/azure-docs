@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 
 ---
 # How to update a cloud service
-## Overview
-At 10,000 feet, updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
+
+Updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
 
 ## Update an Azure Service
 Azure organizes your role instances into logical groupings called upgrade domains (UD). Upgrade domains (UD) are logical sets of role instances that are updated as a group.  Azure updates a cloud service one UD at a time, which allows instances in other UDs to continue serving traffic.
@@ -63,9 +63,9 @@ The following table shows the allowed changes to a service during an update:
 | Change existing certificates |Yes |Yes |Yes |
 | Deploy new code |Yes |Yes |Yes |
 
-<sup>1</sup>Size change limited to the subset of sizes available for the cloud service.
+<sup>1</sup> Size change limited to the subset of sizes available for the cloud service.
 
-<sup>2</sup>Requires Azure SDK 1.5 or later versions.
+<sup>2</sup> Requires Azure SDK 1.5 or later versions.
 
 > [!WARNING]
 > Changing the virtual machine size will destroy local data.

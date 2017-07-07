@@ -37,9 +37,11 @@ Starting April 1, 2017, any Job record in your account older than 90 days will b
 >[!NOTE]
 > You should use the same policy ID if you are always using the same days / access permissions / etc. For information and an example, see [this](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) section.
 
-<sup>7</sup>If you are uploading content to an Asset in Azure Media Services with the intent to process it with one of the media processors in our service (i.e. encoders like Media Encoder Standard and Media Encoder Premium Workflow, or analysis engines like Face Detector), then you should be aware of the following limits. 
+<sup>7</sup>If you are uploading content to an Asset in Azure Media Services with the intent to process it with one of the media processors in our service (i.e. encoders like Media Encoder Standard and Media Encoder Premium Workflow, or analysis engines like Face Detector), then you should be aware of the constraint on the maximum size. 
 
-| Media Reserved Unit type | Maximum File Size (GB)| 
+As of May 15, 2017, the maximum size supported for a single blob is 195 TB - with file largers than this limit, your Task will fail. We are working a fix to address this limit. In addition, the constraint on the maximum size of the Asset is as follows.
+
+| Media Reserved Unit type | Maximum Input Size (GB)| 
 | --- | --- | 
 |S1	| 325|
 |S2	| 640|

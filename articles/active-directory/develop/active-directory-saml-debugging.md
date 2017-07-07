@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: asmalser
+ms.custom: aaddev
 
 ---
 # How to debug SAML-based single sign-on to applications in Azure Active Directory
@@ -33,4 +34,4 @@ You can view the SAML token by selecting this line and then selecting the **Insp
 * [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-debugging/fiddler.png
+[1]: ../media/active-directory-saml-debugging/fiddler.png

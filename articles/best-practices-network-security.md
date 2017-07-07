@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure network security best practices | Microsoft Docs
 description: Learn some of the key features available in Azure to help create secure network environments
 services: virtual-network
@@ -511,7 +511,7 @@ The addition of an ExpressRoute Private Peering network connection can extend th
 ## References
 ### Helpful websites and documentation
 * Access Azure with Azure Resource Manager:
-* Accessing Azure with PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azureps-cmdlets-docs)
+* Accessing Azure with PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
 * Virtual networking documentation: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
 * Network security group documentation: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
 * User-defined routing documentation: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)

@@ -38,7 +38,7 @@ This article provides instructions on using a custom domain name that was purcha
 ## Add a DNS record for your custom domain
 To associate your custom domain with a web app in App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by GoDaddy. Use the following steps to locate the DNS tools for GoDaddy.com
 
-1. Log on to your account with GoDaddy.com, and select **My Account** and then **Manage my domains**. Finally, select the drop-down menu for the domain name that you wish to use with your Azure web app and select **Manage DNS**.
+1. Log on to your account with GoDaddy.com, and select **My Account** and then **Manage my domains**. Select the drop-down menu for the domain name that you wish to use with your Azure web app and select **Manage DNS**.
    
     ![custom domain page for GoDaddy](./media/web-sites-godaddy-custom-domain-name/godaddy-customdomain.png)
 2. From the **Domain details** page, scroll to the **DNS Zone File** tab. This is the section used for adding and modifying DNS records for your domain name.

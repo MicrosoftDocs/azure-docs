@@ -3,7 +3,7 @@ title: Set up web app analytics for ASP.NET with Azure Application Insights | Mi
 description: Configure performance, availability, and usage analytics for your ASP.NET website, hosted on-premises or in Azure.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
-ms.author: awills
+ms.date: 05/15/2017
+ms.author: cfreeman
 
 ---
 # Set up Application Insights for your ASP.NET website
@@ -47,7 +47,12 @@ Continue to the Application Insights configuration page:
 
 **a.** Select the account and subscription that you use to access Azure.
 
-**b.** Select the resource in Azure where you want to see the data from your app. Usually you create a separate resource for a each app. If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
+**b.** Select the resource in Azure where you want to see the data from your app. Usually:
+
+* Use a [single resource for different components](app-insights-monitor-multi-role-apps.md) of a single application. 
+* Create separate resources for unrelated applications.
+ 
+If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
 
 **c.** Set a cap at the free data volume limit, to avoid charges. Application Insights is free up to a certain volume of telemetry. After the resource is created, you can change your selection in the portal by opening  **Features + pricing** > **Data volume management** > **Daily volume cap**.
 

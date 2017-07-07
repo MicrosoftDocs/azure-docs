@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/virtual-machines/workloads/sap/deployment-guide.md
+redirect_url: /azure/virtual-machines/workloads/sap/deployment-guide
 ---

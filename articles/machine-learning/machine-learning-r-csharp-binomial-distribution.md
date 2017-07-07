@@ -1,24 +1,24 @@
 ---
-title: (deprecated) Binomial Distribution Suite - Azure | Microsoft Docs
-description: (deprecated) Binomial Distribution Suite
-services: machine-learning
-documentationcenter: ''
-author: ireiter
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 6d102d57-8f20-4ab3-be31-02fcfe4d15ed
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
+title: (deprecated) Binomial Distribution Suite - Azure | Microsoft Docs 
+description: (deprecated) Binomial Distribution Suite 
+services: machine-learning 
+documentationcenter: '' 
+author: ireiter 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 6d102d57-8f20-4ab3-be31-02fcfe4d15ed 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
 ms.author: ireiter
 
-ROBOTS: NOINDEX, NOFOLLOW
-#To remove completely, uncomment the following metadata
-#redirect_url: https://gallery.cortanaintelligence.com/
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
 
 ---
 # (deprecated) Binomial Distribution Suite

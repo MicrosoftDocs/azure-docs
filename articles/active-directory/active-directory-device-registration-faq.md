@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
 
 ---
@@ -35,7 +35,7 @@ Only the following devices are listed under the USER info:
 
 **A:** Currently, there is no way to see all registered devices in the Azure portal. 
 You can use Azure PowerShell to find all devices. 
-For more details, see the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet.
+For more details, see the [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 --- 
 

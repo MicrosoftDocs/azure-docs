@@ -3,8 +3,8 @@ title: Get started with Azure Application Insights with Java in Eclipse | Micros
 description: Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights
 services: application-insights
 documentationcenter: java
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: e88c9f53-cd90-4abc-b097-1f170937908e
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Get started with Application Insights with Java in Eclipse
@@ -221,7 +221,7 @@ You can insert code both in web page JavaScript and in the server-side Java.
 
 #### Track usage
 * [Add web client telemetry][usage] to monitor page views and basic user metrics.
-* [Track custom events and metrics][track] to learn about how your application is used, both at the client and the server.
+* [Track custom events and metrics](app-insights-web-track-usage.md) to learn about how your application is used, both at the client and the server.
 
 <!--Link references-->
 
@@ -231,4 +231,4 @@ You can insert code both in web page JavaScript and in the server-side Java.
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md

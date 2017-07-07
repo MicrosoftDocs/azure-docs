@@ -1,0 +1,26 @@
+- name: Translator API Documentation
+  href: ../index.md
+- name: Overview
+  items: 
+  - name: Learn about the Translator API
+    href: translator-info-overview.md
+- name: Get started
+  items: 
+  - name: Languages
+    href: languages.md
+  - name: Hub
+    href: translator-hub-overview.md
+  - name: CTF
+    href: collaborative-translation-framework-reporting-api.md
+  - name: Translator Speech API overview
+    href: speech-overview.md
+- name: Reference
+  items: 
+  - name: Translator Speech API reference
+    href: http://docs.microsofttranslator.com/speech-translate.html
+  - name: Translator Text API reference
+    href: http://docs.microsofttranslator.com/text-translate.html
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

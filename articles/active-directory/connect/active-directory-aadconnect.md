@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 04/11/2017
 ms.author: billmath
 
 ---
-# Connect Active Directory with Azure Active Directory.
+# Integrate your on-premises directories with Azure Active Directory
 Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. This topic will guide you through the planning, deployment, and operation steps. It is a collection of links to the topics related to this area.
 
 > [!IMPORTANT]
@@ -140,6 +140,7 @@ if your ADFS server has not been configured to automatically update certificates
 |Version history | [Version history](active-directory-aadconnect-version-history.md)|
 |Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)|
+|Configuring a SAML 2.0 Idp|[Using a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)|
 |Attributes synchronized | [Attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Monitoring using Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Frequently Asked Questions | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md)|

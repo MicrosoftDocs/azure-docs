@@ -13,12 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: padmavc
-
 ms.custom: H1Hack27Feb2017 
-
+ms.date: 01/27/2017
+ms.author: LADocs; padmavc
 ---
+
 # Start or enable logging of AS2, X12, and EDIFACT messages to monitor success, errors, and message properties
 
 B2B communication involves message exchanges between two running business processes or applications. The relationship defines an agreement between business processes. 

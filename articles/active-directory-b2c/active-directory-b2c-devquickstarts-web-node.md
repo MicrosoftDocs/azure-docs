@@ -3,7 +3,7 @@ title: Add sign-in to a Node.js web app for Azure B2C | Microsoft Docs
 description: How to build a Node.js web app that signs in users by using a B2C tenant.
 services: active-directory-b2c
 documentationcenter: ''
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 03/10/2017
-ms.author: brandwe
+ms.author: xerners
 
 ---
 
 # Azure AD B2C: Add sign-in to a Node.js web app
 
-**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. 
+**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more.
 
 We have developed a strategy for Azure Active Directory (Azure AD). You will install this module and then add the Azure AD `passport-azure-ad` plug-in.
 
@@ -36,9 +36,6 @@ The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQ
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 The completed application is provided at the end of this tutorial.
-
-> [!WARNING]
-For now, you must use the same **Client ID**/**Application ID** and policies for both the web API task server and the client that connects to it. This is also true for the iOS and Android tutorials. If you have previously created an application in either of those Quickstarts, use those values; don't create new ones.
 
 ## Get an Azure AD B2C directory
 

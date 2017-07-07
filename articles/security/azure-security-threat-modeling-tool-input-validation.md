@@ -24,7 +24,7 @@ ms.author: rodsan
 | Web Application | <ul><li>[Disable XSLT scripting for all transforms using untrusted style sheets](#disable-xslt)</li><li>[Ensure that each page that could contain user controllable content opts out of automatic MIME sniffing](#out-sniffing)</li><li>[Harden or Disable XML Entity Resolution](#xml-resolution)</li><li>[Applications utilizing http.sys perform URL canonicalization verification](#app-verification)</li><li>[Ensure appropriate controls are in place when accepting files from users](#controls-users)</li><li>[Ensure that type-safe parameters are used in Web Application for data access](#typesafe)</li><li>[Use separate model binding classes or binding filter lists to prevent MVC mass assignment vulnerability](#binding-mvc)</li><li>[Encode untrusted web output prior to rendering](#rendering)</li><li>[Perform input validation and filtering on all string type Model properties](#typemodel)</li><li>[Sanitization should be applied on form fields that accept all characters e.g, rich text editor](#richtext)</li><li>[Do not assign DOM elements to sinks that do not have inbuilt encoding](#inbuilt-encode)</li><li>[Validate all redirects within the application are closed or done safely](#redirect-safe)</li><li>[Implement input validation on all string type parameters accepted by Controller methods](#string-method)</li><li>[Set upper limit timeout for regular expression processing to prevent DoS due to bad regular expressions](#dos-expression)</li><li>[Avoid using Html.Raw in Razor views](#html-razor)</li></ul> | 
 | Database | <ul><li>[Do not use dynamic queries in stored procedures](#stored-proc)</li></ul> | 
 | Web API | <ul><li>[Ensure that model validation is done on Web API methods](#validation-api)</li><li>[Implement input validation on all string type parameters accepted by Web API methods](#string-api)</li><li>[Ensure that type-safe parameters are used in Web API for data access](#typesafe-api)</li></ul> | 
-| Azure Document DB | <ul><li>[Use parametrized SQL queries for DocumentDB](#sql-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[Use parametrized SQL queries for Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | WCF | <ul><li>[WCF Input validation through Schema binding](#schema-binding)</li><li>[WCF- Input validation through Parameter Inspectors](#parameters)</li></ul> | 
 
 ## <a id="disable-xslt"></a>Disable XSLT scripting for all transforms using untrusted style sheets
@@ -650,7 +650,7 @@ myCommand.Fill(userDataset);
 ```
 In the preceding code example, the input value cannot be longer than 11 characters. If the data does not conform to the type or length defined by the parameter, the SqlParameter class throws an exception. 
 
-## <a id="sql-docdb"></a>Use parametrized SQL queries for DocumentDB
+## <a id="sql-docdb"></a>Use parametrized SQL queries for Cosmos DB
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -658,8 +658,8 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Announcing SQL Parameterization in DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| Steps | Although DocumentDB only supports read-only queries, SQL injection is still possible if queries are constructed by concatenating with user input. It might be possible for a user to gain access to data they shouldn’t be accessing within the same collection by crafting malicious SQL queries. Use parameterized SQL queries if queries are constructed based on user input. |
+| References              | [Announcing SQL Parameterization in Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| Steps | Although Cosmos DB only supports read-only queries, SQL injection is still possible if queries are constructed by concatenating with user input. It might be possible for a user to gain access to data they shouldn’t be accessing within the same collection by crafting malicious SQL queries. Use parameterized SQL queries if queries are constructed based on user input. |
 
 ## <a id="schema-binding"></a>WCF Input validation through Schema binding
 

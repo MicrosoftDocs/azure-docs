@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'arduino development tools, iot development, iot software, internet of things software, install git on ubuntu, install node js ubuntu'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: 4c7b8e04-b892-459b-8b03-85bcaff2465c
 ms.service: iot-hub
 ms.devlang: c

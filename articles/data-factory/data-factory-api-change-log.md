@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/05/2017
 ms.author: spelluru
 
 ---
@@ -165,7 +165,7 @@ The following classes have been renamed. The new names were the original names o
     var pipelines = new List<Pipeline>(response.Pipelines);
 
     string nextLink = response.NextLink;
-    while (string.IsNullOrEmpty(response.NextLink))
+    while (!string.IsNullOrEmpty(nextLink))
     {
         PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
         pipelines.AddRange(nextResponse.Pipelines);

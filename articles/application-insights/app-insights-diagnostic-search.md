@@ -3,7 +3,7 @@ title: Using Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Using Search in Application Insights
@@ -161,7 +161,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 * Capture log traces from your favorite logging framework in [.NET](app-insights-asp-net-trace-logs.md) or [Java](app-insights-java-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
 * [Write code](app-insights-api-custom-events-metrics.md) to send custom events, page views, and exceptions. 
 
-[Learn how to send logs and custom telemetry to Application Insights](app-insights-search-diagnostic-logs.md).
+[Learn how to send logs and custom telemetry to Application Insights](app-insights-asp-net-trace-logs.md).
 
 ## <a name="questions"></a>Q & A
 ### <a name="limits"></a>How much data is retained?
@@ -169,7 +169,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 See the [Limits summary](app-insights-pricing.md#limits-summary).
 
 ### How can I see POST data in my server requests?
-We don't log the POST data automatically, but you can use [TrackTrace or log calls](app-insights-search-diagnostic-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
+We don't log the POST data automatically, but you can use [TrackTrace or log calls](app-insights-asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
 
 ## Video
 
@@ -177,6 +177,6 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 
 ## <a name="add"></a>Next steps
 * [Write complex queries in Analytics](app-insights-analytics-tour.md)
-* [Send logs and custom telemetry to Application Insights](app-insights-search-diagnostic-logs.md)
+* [Send logs and custom telemetry to Application Insights](app-insights-asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](app-insights-monitor-web-app-availability.md)
 * [Troubleshooting](app-insights-troubleshoot-faq.md)

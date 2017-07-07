@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure N-series driver setup for Windows | Microsoft Docs
 description: How to set up NVIDIA GPU drivers for N-series VMs running Windows in Azure
 services: virtual-machines-windows
@@ -60,13 +60,17 @@ You can verify driver installation in Device Manager. The following example show
 
 ![GPU driver properties](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
+To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver.
+
+1. Open a command prompt and change into the **C:\Program Files\NVIDIA Corporation\NVSMI** directory.
+
+2. Run **nvidia-smi**. If the driver is installed you will see output similar to below. Note that **GPU-Util** will show **0%** unless you are currently running a GPU workload on the VM.
 
 ![NVIDIA device status](./media/n-series-driver-setup/smi.png)  
 
 ## RDMA network for NC24r VMs
 
-RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. To add the VM extension to an NC24r VM, use [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlets for Azure Resource Manager.
+RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. To add the VM extension to an NC24r VM, use [Azure PowerShell](/powershell/azure/overview) cmdlets for Azure Resource Manager.
 
 > [!NOTE]
 > Currently, only Windows Server 2012 R2 supports the RDMA network on NC24r VMs.

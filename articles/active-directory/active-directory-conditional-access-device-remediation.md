@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting you can't get there from here on the Azure portal from a Windows device| Microsoft Docs
-description: Learn steps that you can take to resolve access issues with your organization's online resources.
+title: You can't get there from here on the Azure portal from a Windows device| Microsoft Docs
+description: Learn where you can't get there from here comes from and what you could check to avoid running into this dialog.
 services: active-directory
 keywords: device-based conditional access, device registration, enable device registration, device registration and MDM
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/11/2017
 ms.author: markvi
 
 ---

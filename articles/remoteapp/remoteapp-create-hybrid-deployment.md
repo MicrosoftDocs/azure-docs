@@ -1,4 +1,4 @@
----
+﻿---
 title: How to create a hybrid collection for Azure RemoteApp | Microsoft Docs
 description: Learn how to create a deployment of RemoteApp that connects to your internal network.
 services: remoteapp
@@ -13,7 +13,7 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 
 ---
@@ -48,7 +48,7 @@ You need to do the following before creating the collection:
 * [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp.
 * Create a user account in Active Directory to use as the Azure RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 * Gather information about your on-premises network: IP address information and VPN device details.
-* Install the [Azure PowerShell](/powershell/azureps-cmdlets-docs) module.
+* Install the [Azure PowerShell](/powershell/azure/overview) module.
 * Gather information about the users that you want to grant access to. You will need the Azure Active Directory user principal name (for example, name@contoso.com) for each user. Make sure that the UPN matches between Azure AD and Active Directory.
 * Choose your template image. An Azure RemoteApp template image contains the apps and programs that you want to publish for your users. See [Azure RemoteApp image options](remoteapp-imageoptions.md) for more information.
 * Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).

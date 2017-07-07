@@ -3,7 +3,7 @@ title: Monitor a live ASP.NET web app with Azure Application Insights  | Microso
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
+ms.date: 05/05/2017
+ms.author: cfreeman
 
 ---
 # Instrument web apps at runtime with Application Insights
@@ -56,6 +56,20 @@ If your application is running as an Azure web service, here's how to switch on 
     ![Click through to Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Monitoring Cloud and VM apps](app-insights-azure.md).
+
+### Enable client-side monitoring in Azure
+
+If you have enabled Application Insights in Azure, you can add page view and user telemetry.
+
+1. Select Settings > Application Settings
+2.  Under App Settings, add a new key value pair: 
+   
+    Key: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Value: `true`
+3. **Save** the settings and **Restart** your app.
+
+The Application Insights JavaScript SDK is now injected into each web page.
 
 ## Monitor a live IIS web app
 
@@ -182,6 +196,54 @@ Find out which apps are being monitored:
 
 * Downloads the latest Application Insights SDK to the server.
 
+## <a name="questions"></a>Questions about Status Monitor
+
+### What is Status Monitor?
+
+A desktop application that you install in your IIS web server. It helps you instrument and configure web apps. 
+
+### When do I use Status Monitor?
+
+* To instrument any web app that is running on your IIS server - even if it is already running.
+* To enable additional telemetry for web apps that have been [built with the Application Insights SDK](app-insights-asp-net.md) at compile time. 
+
+### Can I close it after it runs?
+
+Yes. After it has instrumented the websites you select, you can close it.
+
+It doesn't collect telemetry by itself. It just configures the web apps and sets some permissions.
+
+### What does Status Monitor do?
+
+When you select a web app for Status Monitor to instrument:
+
+* Downloads and places the Application Insights assemblies and .config file in the web app's binaries folder.
+* Modifies `web.config` to add the Application Insights HTTP tracking module.
+* Enables CLR profiling to collect dependency calls.
+
+### Do I need to run Status Monitor whenever I update the app?
+
+Not if you redeploy incrementally. 
+
+If you select the 'delete existing files' option in the publish process, you would need to re-run Status Monitor to configure Application Insights.
+
+### What telemetry is collected?
+
+For applications that you instrument only at run-time by using Status Monitor:
+
+* HTTP requests
+* Calls to dependencies
+* Exceptions
+* Performance counters
+
+For applications already instrumented at compile time:
+
+ * Process counters.
+ * Dependency calls (.NET 4.5); return values in dependency calls (.NET 4.6).
+ * Exception stack trace values.
+
+[Learn more](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -210,4 +272,4 @@ Add more telemetry:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md

@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'arduino troubleshooting'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: fe20f2fe-490c-4910-82e1-578ed504ae86
 ms.service: iot-hub
 ms.devlang: c

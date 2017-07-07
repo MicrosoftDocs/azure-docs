@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'retrieve data from cloud, iot cloud service'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: 8ca78045-ad92-4a6a-90f1-05f9668e6f0e
 ms.service: iot-hub
 ms.devlang: c

@@ -1,24 +1,24 @@
 ---
-title: (deprecated) Survival Analysis with Azure Machine Learning | Microsoft Docs
-description: (deprecated) Survival Analysis event occurrence probability
-services: machine-learning
-documentationcenter: ''
-author: zhangya
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: a142fc45-cdfb-4971-910e-05dab8bc699e
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
+title: (deprecated) Survival Analysis with Azure Machine Learning | Microsoft Docs 
+description: (deprecated) Survival Analysis event occurrence probability 
+services: machine-learning 
+documentationcenter: '' 
+author: zhangya 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: a142fc45-cdfb-4971-910e-05dab8bc699e 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
 ms.author: zhangya
 
-ROBOTS: NOINDEX, NOFOLLOW
-#To remove completely, uncomment the following metadata
-#redirect_url: https://gallery.cortanaintelligence.com/
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
 
 ---
 # (deprecated) Survival Analysis

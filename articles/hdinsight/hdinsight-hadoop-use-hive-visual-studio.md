@@ -1,6 +1,6 @@
 ---
-title: Hive query with Hadoop tools for Visual Studio | Microsoft Docs
-description: Learn how to use Hive with Hadoop in HDInsight using Visual Studio Hadoop tools.
+title: Hive with Data Lake (Hadoop) tools for Visual Studio - Azure HDInsight | Microsoft Docs
+description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,29 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 05/22/2017
 ms.author: larryfr
 
 ---
-# Run Hive queries using the HDInsight tools for Visual Studio
+# Run Hive queries using the Data Lake tools for Visual Studio
 
-[!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
-
-Learn how to submit Hive queries to an HDInsight cluster using the HDInsight tools for Visual Studio.
+Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The Data Lake tools allow you to easily create, submit, and monitor Hive queries to Hadoop on Azure HDInsight.
 
 ## <a id="prereq"></a>Prerequisites
-
-To complete the steps in this article, you need the following.
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Visual Studio (one of the following versions):
-  
+
     * Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
-  
+
     * Visual Studio 2015 (any edition)
 
     * Visual Studio 2017 (any edition)
@@ -58,16 +54,16 @@ To complete the steps in this article, you need the following.
    STORED AS TEXTFILE LOCATION '/example/data/';
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
-   
+
     These statements perform the following actions:
-   
+
    * `DROP TABLE`: If the table exists, this statement deletes it.
 
    * `CREATE EXTERNAL TABLE`: Creates a new 'external' table in Hive. External tables only store the table definition in Hive (the data is left in the original location).
-     
+
      > [!NOTE]
-     > External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
-     > 
+     > External tables should be used when you expect the underlying data to be updated by an external source. For example, a MapReduce job or Azure service.
+     >
      > Dropping an external table does **not** delete the data, only the table definition.
 
    * `ROW FORMAT`: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
@@ -91,7 +87,7 @@ To complete the steps in this article, you need the following.
 6. You can also run Hive queries without creating a project. Using **Server Explorer**, expand **Azure** > **HDInsight**, right-click your HDInsight server, and then select **Write a Hive Query**.
 
 7. In the **temp.hql** document that appears, add the following HiveQL statements:
-   
+
    ```hiveql
    set hive.execution.engine=tez;
    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -99,9 +95,9 @@ To complete the steps in this article, you need the following.
    ```
 
     These statements perform the following actions:
-   
+
    * `CREATE TABLE IF NOT EXISTS`: Creates a table if it does not already exist. Because the `EXTERNAL` keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed by Hive.
-     
+
      > [!NOTE]
      > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
@@ -111,7 +107,7 @@ To complete the steps in this article, you need the following.
 
 8. From the toolbar, select **Submit** to run the job. Use the **Job Status** to determine that the job has completed successfully.
 
-9. To verify that the job created a new table, use **Server Explorer** and expand **Azure** > **HDInsight** > your HDInsight cluster > **Hive Databases** > **default**. The **errorLogs** table and the **log4jLogs** table are listed.
+9. To verify that the job created the table, use **Server Explorer** and expand **Azure** > **HDInsight** > your HDInsight cluster > **Hive Databases** > **default**. The **errorLogs** table and the **log4jLogs** table are listed.
 
 ## <a id="nextsteps"></a>Next steps
 
@@ -151,7 +147,7 @@ For more information about the HDInsight tools for Visual Studio:
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 04/24/2017
 ms.author: dobett
 
 ---
@@ -39,6 +39,7 @@ The following table shows how the solutions map to specific IoT features:
 | --- | --- | --- | --- | --- | --- | --- |
 | [Remote monitoring][lnk-getstarted-preconfigured] |Yes |Yes |Yes |Yes |Yes |- |
 | [Predictive maintenance][lnk-predictive-maintenance] |Yes |Yes |- |Yes |Yes |Yes |
+| [Connected factory][lnk-getstarted-factory] |Yes |Yes |Yes |Yes |Yes |- |
 
 * *Data ingestion*: Ingress of data at scale to the cloud.
 * *Device identity*: Manage unique device identities and control device access to the solution.
@@ -102,7 +103,7 @@ The device management capability of IoT Hub enables you to manage your device pr
 ## Azure Stream Analytics
 The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jobs to filter the telemetry stream from the devices:
 
-* *DeviceInfo job* - outputs data to an Event hub that routes device registration-specific messages to the solution device registry (a DocumentDB database). This message is sent when a device first connects or in response to a **Change device state** command.
+* *DeviceInfo job* - outputs data to an Event hub that routes device registration-specific messages to the solution device registry (an Azure Cosmos DB database). This message is sent when a device first connects or in response to a **Change device state** command.
 * *Telemetry job* - sends all raw telemetry to Azure blob storage for cold storage and calculates telemetry aggregations that display in the solution dashboard.
 * *Rules job* - filters the telemetry stream for values that exceed any rule thresholds and outputs the data to an Event hub. When a rule fires, the solution portal dashboard view displays this event as a new row in the alarm history table. These rules can also trigger an action based on the settings defined on the **Rules** and **Actions** views in the solution portal.
 
@@ -112,10 +113,10 @@ In this preconfigured solution, the ASA jobs form part of to the **IoT solution 
 In this preconfigured solution, the event processor forms part of the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back-end services. The solution uses an [EventProcessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses:
-- The **DeviceInfo** data to update the device data in the DocumentDB database.
+- The **DeviceInfo** data to update the device data in the Cosmos DB database.
 - The **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
 
-## Device identity registry, device twin, and DocumentDB
+## Device identity registry, device twin, and Cosmos DB
 Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.
 
 A [device twin][lnk-device-twin] is a JSON document managed by the IoT Hub. A device twin for a device contains:
@@ -124,9 +125,9 @@ A [device twin][lnk-device-twin] is a JSON document managed by the IoT Hub. A de
 - Desired properties that you want to send to the device. You can set these properties in the solution portal.
 - Tags that exist only in the device twin and not on the device. You can use these tags to filter lists of devices in the solution portal.
 
-This solution uses device twins to manage device metadata. The solution also uses a DocumentDB database to store additional solution-specific device data such as the commands supported by each device and the command history.
+This solution uses device twins to manage device metadata. The solution also uses a Cosmos DB database to store additional solution-specific device data such as the commands supported by each device and the command history.
 
-The solution must also keep the information in the device identity registry synchronized with the contents of the DocumentDB database. The **EventProcessorHost** uses the data from **DeviceInfo** stream analytics job to manage the synchronization.
+The solution must also keep the information in the device identity registry synchronized with the contents of the Cosmos DB database. The **EventProcessorHost** uses the data from **DeviceInfo** stream analytics job to manage the synchronization.
 
 ## Solution portal
 ![solution portal][img-dashboard]
@@ -162,3 +163,4 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md

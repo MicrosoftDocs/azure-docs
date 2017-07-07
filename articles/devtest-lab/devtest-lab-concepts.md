@@ -18,15 +18,6 @@ ms.author: tarcher
 
 ---
 # DevTest Labs concepts
-> [!NOTE]
-> This article is part 3 of a 3 part series:
->
-> 1. [What is DevTest Labs?](devtest-lab-overview.md)
-> 2. [Why DevTest Labs?](devtest-lab-why.md)
-> 3. **[DevTest Labs concepts](devtest-lab-concepts.md)**
->
->
-
 ## Overview
 The following list contains key DevTest Labs concepts and definitions:
 

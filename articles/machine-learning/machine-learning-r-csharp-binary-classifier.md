@@ -1,24 +1,24 @@
 ---
-title: (deprecated) Binary Classifier - Azure | Microsoft Docs
-description: (deprecated) Binary Classifier
-services: machine-learning
-documentationcenter: ''
-author: jaymathe
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 8045038a-9dcf-44b9-a6de-7f1f8e791575
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
+title: (deprecated) Binary Classifier - Azure | Microsoft Docs 
+description: (deprecated) Binary Classifier 
+services: machine-learning 
+documentationcenter: '' 
+author: jaymathe 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 8045038a-9dcf-44b9-a6de-7f1f8e791575 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
 ms.author: jaymathe
 
-ROBOTS: NOINDEX, NOFOLLOW
-#To remove completely, uncomment the following metadata
-#redirect_url: https://gallery.cortanaintelligence.com/
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
 
 ---
 # (deprecated) Binary Classifier

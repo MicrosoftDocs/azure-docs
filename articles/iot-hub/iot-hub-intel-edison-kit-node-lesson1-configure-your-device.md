@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'arduino set up, connect arduino to pc, setup arduino, arduino board'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
+
 ms.assetid: 372c9b6d-e701-4ff6-8151-d262aa76aa55
 ms.service: iot-hub
 ms.devlang: nodejs

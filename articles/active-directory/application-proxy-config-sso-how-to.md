@@ -24,18 +24,18 @@ Single sign-on (SSO) allows your users to access an application without authenti
 ## How to configure single-sign on
 To configure SSO, first make sure that your application is configured for Pre-Authentication through Azure Active Directory. To do this, go to **Azure Active Directory** -&gt; **Enterprise Applications** -&gt; **All Applications** -&gt; Your application **-&gt; Application Proxy**. On this page, you see the “Pre Authentication” field, and make sure that is set to “Azure Active Directory. 
 
-For more information on the Pre-Authentication methods, see step four of the [app publishing document](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal).
+For more information on the Pre-Authentication methods, see step four of the [app publishing document](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
-   ![App proxy](./media/application-proxy-config-sso/app-proxy.png)
+   ![Pre-authentication method in Azure Portal](./media/application-proxy-config-sso-how-to/app-proxy.png)
 
 ## Configuring single sign-on modes for Application Proxy Applications
 Next we configure the specific type of single sign-on. The sign-on methods are classified based on what type of authentication the backend application uses. App Proxy applications supports three types of sign-on:
 
--   **Password-based Sign-On**: Password-based sign-on can be used for any application that uses username and password fields to sign-on. Configuration steps can be found in our [password-SSO configuration documentation](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#bring-your-own-password-sso-applications).
+-   **Password-based Sign-On**: Password-based sign-on can be used for any application that uses username and password fields to sign-on. Configuration steps can be found in our [password-SSO configuration documentation](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#bring-your-own-password-sso-applications).
 
--   **Integrated Windows Authentication**: For applications using Integrated Windows Authentication (IWA), single sign-on is enabled through Kerberos Constrained Delegation (KCD). This gives Application Proxy Connectors permission in Active Directory to impersonate users, and to send and receive tokens on their behalf. Details on configuring KCD can be found in the [Single Sign-On with KCD documentation](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-sso-using-kcd).
+-   **Integrated Windows Authentication**: For applications using Integrated Windows Authentication (IWA), single sign-on is enabled through Kerberos Constrained Delegation (KCD). This gives Application Proxy Connectors permission in Active Directory to impersonate users, and to send and receive tokens on their behalf. Details on configuring KCD can be found in the [Single Sign-On with KCD documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd).
 
--   **Header-based Sign-On**: Header-based sign on is enabled through a partnership and does require some additional configuration. For details on the partnership and step-by-step instructions for configuring single sign-on to an application that uses headers for authentication, see the [PingAccess for Azure AD documentation](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-ping-access).
+-   **Header-based Sign-On**: Header-based sign on is enabled through a partnership and does require some additional configuration. For details on the partnership and step-by-step instructions for configuring single sign-on to an application that uses headers for authentication, see the [PingAccess for Azure AD documentation](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access).
 
 Each of these options can be found by going to your application in “Enterprise Applications”, and opening the **Single Sign-On** page on the left menu. note that if your application was created in the old portal, you may not see all these options.
 

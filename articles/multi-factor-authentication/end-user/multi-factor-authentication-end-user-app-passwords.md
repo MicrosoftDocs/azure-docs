@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 05/15/2017
 ms.author: kgremban
-
+ms.custom: end-user
 ---
 # What are App Passwords in Azure Multi-Factor Authentication?
 Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
@@ -58,8 +58,9 @@ If you use two-step verification with Azure, you want to create app passwords th
 4. Click **Create**.
 5. Enter a name for the app password and click **Next**
 6. Copy the app password to the clipboard and paste it into your app.
-
+   
    ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
+
 
 ### To delete app passwords in the Azure portal
 1. Sign in to the Azure classic portal.
@@ -77,17 +78,14 @@ If you are not sure how you use multi-factor authentication, then you can always
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Click your name at the top right, and choose **Profile**.
 3. Select **Additional Security Verification**.
-
    ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 
 4. Select **app passwords**.
-
    ![Select app passwords - screenshot](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Click **Create**.
 6. Enter a name for the app password and click **Next**.
 7. Copy the app password to the clipboard and paste it into your app.
-
    ![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
 ### To delete an app password using the Myapps portal

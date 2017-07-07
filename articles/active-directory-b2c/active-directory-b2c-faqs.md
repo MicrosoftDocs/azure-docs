@@ -32,7 +32,7 @@ In an Azure AD tenant, every user in the tenant (except users with existing Micr
 In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account. Today, we also support arbitrary user names (just plain strings) as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types in the Azure AD B2C service.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
-We currently support Facebook, Google+, LinkedIn, and Amazon. We will add support for other popular social identity providers based on customer demand.
+You can find the list of identity providers supported via built-in policies in the left navigation menu: Guides > Configure identity providers. You can add your own identity provider using [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom). We will continue adding support for other popular social identity providers via built-in policies based on customer demand, let us know which ones you'd like to see via the [Azure AD B2C Feedback Forum](http://aka.ms/aadb2cuv).
 
 ### Can I configure scopes to gather more information about consumers from various social identity providers?
 No, but this feature is on our roadmap. The default scopes used for our supported set of social identity providers are:
@@ -77,7 +77,7 @@ The Azure AD B2C password policy for local accounts is based on the policy for A
 No, Azure AD Connect is not designed to work with Azure AD B2C. We will provide various migration options and tools out-of-the-box in the future.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
-No, for security reasons, Azure AD B2C pages, which are served under the `login.microsftonline.com` domain, cannot be opened within an iFrame. You have to always redirect to Azure AD B2C for all consumer experiences.
+No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit this.  The security community in general and the OAUTH2 specification, recommend against using iframes for identity experiences due to the risk of clickjacking.
 
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
 Not currently. Integrating these systems is on our roadmap.
@@ -89,7 +89,10 @@ Not currently. Azure AD B2C doesn't have support for SAML 1.1 tokens that portal
 Read this article about [external identities](../active-directory/active-directory-b2b-compare-external-identities.md) to learn more about applying the appropriate features to your external identity scenarios.
 
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
-No, Azure AD B2C does not support the same set of reports as Azure AD Premium. Azure AD B2C will be releasing basic reporting and auditing APIs soon.
+No, Azure AD B2C does not support the same set of reports as Azure AD Premium. However there are many commonalities.  
+* The signin reports provide a record of each signin with reduced details.  
+* Audit reports are available in the Azure portal, under Azure Active Directory> ACTIVITY: Audit logs>Choose B2C and apply filters as desired. Both admin activity as well as application activity are covered. 
+* A usage report, covering number of users, number of logins, and volume of MFA is available at [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 Currently, Azure AD B2C is optimized for English only. We plan to roll out localization features as soon as possible.
@@ -118,6 +121,4 @@ No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise 
 ### How do I report issues with Azure AD B2C?
 See [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
 
-## More information
-You also might want to review current [service limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
 
