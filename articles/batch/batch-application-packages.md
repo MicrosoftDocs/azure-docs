@@ -25,7 +25,10 @@ The application packages feature of Azure Batch provides easy management of task
 In this article, you will learn how to upload and manage application packages in the Azure portal. You will then learn how to install them on a pool's compute nodes with the [Batch .NET][api_net] library.
 
 > [!NOTE]
-> The application packages feature described here supersedes the "Batch Apps" feature available in previous versions of the service.
+> 
+> Application packages are supported on all Batch pools created after 5 July 2017. They are supported on Batch pools created between 10 March 2016 and 5 July 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages.
+>
+> The application packages feature described here supersedes the Batch Apps feature available in previous versions of the service.
 > 
 > 
 
