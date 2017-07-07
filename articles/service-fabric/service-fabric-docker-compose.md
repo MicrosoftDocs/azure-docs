@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 07/06/2017
 ms.author: subramar
 ---
 # Compose Application support in Service Fabric (Preview)
@@ -62,7 +62,7 @@ Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerAp
 Alternatively, use the following Azure CLI command:
 
 ```azurecli
-az sf compose create --application-id fabric:/TestContainerApp --file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+az sf compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
 Once the application has been created, you can check the status of the application using the following command:

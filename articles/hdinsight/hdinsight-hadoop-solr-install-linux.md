@@ -24,7 +24,7 @@ ms.author: larryfr
 Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop.
 
 > [!IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!IMPORTANT]
 > The sample script used in this document installs Solr 4.9 with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries.

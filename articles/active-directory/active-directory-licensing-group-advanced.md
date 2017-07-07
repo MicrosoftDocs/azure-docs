@@ -121,7 +121,7 @@ Here is an example of what this process may look like:
 
 1. Originally, you assigned the *Office 365 Enterprise E5* product to several groups. One of those groups, called *O365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
 
-2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. On the day the change became effective, you can do the following:
+2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your tenant, you can do the following:
 
 3. Go to the [**Azure Active Directory > Licenses > All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) blade and select *Office 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
 
@@ -139,7 +139,7 @@ Here is an example of what this process may look like:
 6. If needed, perform the same steps for other groups with this product assigned.
 
 ## Use PowerShell to see who has inherited and direct licenses
-While group-based licensing is in public preview, PowerShell cannot be used to fully control group license assignments. However, you can use it to discover basic information about user state, and see whether licenses are inherited from a group or assigned directly. The following code example shows how an administrator can produce a basic report about license assignments.
+You can use a PowerShell script to check if users have a license assigned directly or inherited from a group.
 
 1. Run the `connect-msolservice` cmdlet to authenticate and connect to your tenant.
 
@@ -147,83 +147,7 @@ While group-based licensing is in public preview, PowerShell cannot be used to f
 
   ![Screenshot of the Get-Msolaccountsku cmdlet](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. In this example, you want to find out which users have the Enterprise Mobility + Security license assigned directly, from a group, or both. You can use the following script:
-
-  ```
-  #Returns TRUE if the user has the license assigned directly
-  function UserHasLicenseAssignedDirectly
-  {
-      Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-      foreach($license in $user.Licenses)
-      {
-          #we look for the specific license SKU in all licenses assigned to the user
-          if ($license.AccountSkuId -ieq $skuId)
-          {
-              #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-              #This could be a group object or a user object (contrary to what the name suggests)
-              #If the collection is empty, this means the license is assigned directly. This is the case for users who have never been licensed via groups in the past
-              if ($license.GroupsAssigningLicense.Count -eq 0)
-              {
-                  return $true
-              }
-              \#If the collection contains the ID of the user object, this means the license is assigned directly
-              #Note: the license may also be assigned through one or more groups in addition to being assigned directly
-              foreach ($assignmentSource in $license.GroupsAssigningLicense)
-              {
-                  if ($assignmentSource -ieq $user.ObjectId)
-                  {
-                      return $true
-                  }
-              }
-              return $false
-          }
-      }
-      return $false
-  }
-  #Returns TRUE if the user is inheriting the license from a group
-  function UserHasLicenseAssignedFromGroup
-  {
-    Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-     foreach($license in $user.Licenses)
-     {
-        #we look for the specific license SKU in all licenses assigned to the user
-        if ($license.AccountSkuId -ieq $skuId)
-        {
-          #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-          #This could be a group object or a user object (contrary to what the name suggests)
-            foreach ($assignmentSource in $license.GroupsAssigningLicense)
-          {
-                  #If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
-                  #Note: the license may also be assigned directly in addition to being inherited
-                  if ($assignmentSource -ine $user.ObjectId)
-
-            {
-                      return $true
-            }
-          }
-              return $false
-        }
-      }
-      return $false
-  }
-  ```
-
-4. The rest of the script gets all users, and runs these functions on each user. Then it formats the output into a table.
-
-  ```
-  #the license SKU we are interested in
-  $skuId = "reseller-account:EMS"
-  #find all users that have the SKU license assigned
-  Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID -eq $skuId} | select `
-      ObjectId, `
-      @{Name="SkuId";Expression={$skuId}}, `
-      @{Name="AssignedDirectly";Expression={(UserHasLicenseAssignedDirectly $_ $skuId)}}, `
-      @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
-  ```
-
-5. The output of the complete script is similar to this example:
-
-  ![Screenshot of PowerShell script output](media/active-directory-licensing-group-advanced/powershell-script-output.png)
+3. Use the *AccountSkuId* value for the license you are interested in with [this PowerShell script](./active-directory-licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). This will produce a list of users who have this license with the information about how the license is assigned.
 
 ## Limitations and known issues
 
@@ -242,6 +166,8 @@ If you use group-based licensing, it's a good idea to familiarize yourself with 
 - License management automation does not automatically react to all types of changes in the environment. For example, you might have run out of licenses, causing some users to be in an error state. To free up the available seat count, you can remove some directly assigned licenses from other users. However, the system does not automatically react to this change and fix users in that error state.
 
   As a workaround to these types of limitations, you can go to the **Group** blade in Azure AD, and click **Reprocess**. This command processes all users in that group and resolves the error states, if possible.
+
+- Group-based licensing does not record errors when a license could not be assigned to a user due to a duplicate proxy address configuration in Exchange Online; such users are skipped during license assignment. For more information about how to identify and solve this problem, see [this section](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## Next steps
 

@@ -28,7 +28,7 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 * An Azure HDInsight (Hadoop on HDInsight) cluster
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio (one of the following versions):
 
