@@ -5,7 +5,7 @@
 # Get Started
 ## [Create a registry - portal](container-registry-get-started-portal.md)
 ## [Create a managed registry - portal](container-registry-managed-get-started-portal.md)
-## [Create a registry with - CLI](container-registry-get-started-azure-cli.md)
+## [Create a registry - CLI](container-registry-get-started-azure-cli.md)
 ## [Create a managed registry - CLI](container-registry-managed-get-started-azure-cli.md)
 ## [Create a registry - PowerShell](container-registry-get-started-powershell.md)
 
