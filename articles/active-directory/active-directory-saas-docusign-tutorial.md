@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/07/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Docusign, you need the following items:
 
 - An Azure AD subscription
-- A Docusign single-sign on enabled subscription
+- A Docusign single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_samlbase.png)
 
-3. On the **SAML Signing Certificate** section, click **Certificate(Base 64)** and then save Certificate file on your computer.
+3. On the **SAML Signing Certificate** section, click **Certificate(Base 64)** and then save certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_certificate.png) 
 
@@ -136,17 +136,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Name** textbox, type a unique name for your configuration. Do not use spaces.
 
-    b. Paste **Azure AD SMAL Entity ID** into the **Identity Provider Issuer** textbox.
+    b. Paste **SAML Entity ID** into the **Identity Provider Issuer** textbox.
 
-    c. Paste **Azure AD Single Sign-On Service URL** into the **Identity Provider Login URL** textbox.
+    c. Paste **SAML Single Sign-On Service URL** into the **Identity Provider Login URL** textbox.
 
-    d. Paste **Azure AD Sign Out URL** into the **Identity Provider Logout URL** textbox.
+    d. Paste **Sign-Out URL** into the **Identity Provider Logout URL** textbox.
 
     e. Select **Sign AuthN Request**.
 
     f. As **Send AuthN request by**, select **POST**.
 
-    g. As **Send logout request by**, select **POST**.
+    g. As **Send logout request by**, select **GET**.
+
 12. In the **Custom Attribute Mapping** section, choose the field you want to map with Azure AD Claim. In this example, the **emailaddress** claim is mapped with the value of **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. It is the default claim name from Azure AD for email claim. 
    
 	> [!NOTE]
@@ -215,7 +216,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Docusign test user
 
-Application supports **Just in time user provisioning** and after authentication users will be created in the application automatically.
+Application supports **Just in time user provisioning** and after authentication users are created in the application automatically.
 
 ### Assigning the Azure AD test user
 
@@ -251,7 +252,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the Docusign tile in the Access Panel, you should get automatically signed-on to your Docusign application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
