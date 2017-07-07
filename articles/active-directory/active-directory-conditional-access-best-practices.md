@@ -24,20 +24,27 @@ This topic provides you with information about things you should know and what i
 
 ## What you should know
 
-### Do I need to assign a user to my policy?
+### What’s required to make a policy work?
 
-When configuring a conditional access policy, you should at least assign one group to it. A conditional access policy that has no users and groups assigned, is never triggered.
+When configuring a conditional access policy, you must configure the following:
 
-When you intend to assign several users and groups to a policy, you should start small by assigning only one user or group, and then test your configuration. If your policy works as expected, you can then add additional assignments to it.  
+![Cloud apps](./media/active-directory-conditional-access-best-practices/02.png)
 
 
-### Do I need to assign a cloud app to my policy?
+- **Users and groups** - You need assign to assign at least one group to your policy. A conditional access policy that has no users and groups assigned, is never triggered.
 
-When configuring a conditional access policy, you should either assign **All cloud apps** or **Select apps** your policy applies to.
+- **Cloud apps** - You need to either assign all cloud apps or specific apps to your policy. This is because the goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.
 
-![Cloud apps](./media/active-directory-conditional-access-best-practices/01.png)
+    ![Cloud apps](./media/active-directory-conditional-access-best-practices/01.png)
 
-This is because the goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.
+- **Access Controls** - You need to either configure the desired access or sessions. This is because the policy processor needs to know what to do if your conditions are satisfied.
+
+
+In addition to these basic requirements, in many cases, you should also configure a condition. While a policy would also work without a configured condition, conditions are the driving factor for fine-tuning access to your apps.
+
+
+![Cloud apps](./media/active-directory-conditional-access-best-practices/04.png)
+
 
 
 ### How are assignments evaluated?
