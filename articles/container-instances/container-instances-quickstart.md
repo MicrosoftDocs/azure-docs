@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a container
 
-You can create a container using the [Azure CLI][azure-cli] by providing a name for the container, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address.
+You can create a container by providing a name for the container, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address.
 
 To begin, create a resource group to store your containers:
 

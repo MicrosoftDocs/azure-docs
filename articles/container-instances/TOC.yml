@@ -7,8 +7,6 @@
   items:
   - name: Create container instance
     href: container-instances-quickstart.md
-  expanded: true
-  items:
 - name: Tutorials
   items:
 - name: How-to guides
