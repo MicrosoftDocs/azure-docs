@@ -98,6 +98,7 @@ Ready to give it a try? Let's get started.
     
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Navigator window](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
 11. Click **Edit** to launch the Query Editor so we can transform the data.
+
 ## Flattening and transforming JSON documents
 1. In the Power BI Query Editor, you should see a **Document** column in the center pane.
    ![Power BI Desktop Query Editor](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
