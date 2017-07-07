@@ -67,8 +67,8 @@ To configure custom DNS servers in an Azure template, add a dnsSettings property
 }
 ```
 
-### Creating a scale set with configurable domain name
-To create a scale set with a custom DNS name using CLI 2.0, add the _--vm-domain-name_ argument to the _vmss create_ command, followed by a string representing the domain name.
+### Creating a scale set with configurable virtual machine domain names
+To create a scale set with a custom DNS name for virtual machines using CLI 2.0, add the _--vm-domain-name_ argument to the _vmss create_ command, followed by a string representing the domain name.
 
 To set the domain name in an Azure template, add a dnsSettings property to the scale set networkInterfaceConfigurations section. For example:
 
@@ -107,8 +107,8 @@ The output, for an individual virtual machine dns name would look like this:
 <vmname><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
-## IPv6 support for private IPs and Load Balancer pools
-You can configure IPv6 public IP addresses on an Azure Load Balancer, and route connections to virtual machine scale set backend pools. To use IPv6, first create an IPv6 public address resource. For example:
+## IPv6 preview for public IPs and Load Balancer pools
+You can configure IPv6 public IP addresses on an Azure Load Balancer, and route connections to virtual machine scale set backend pools. To use IPv6, currently in preview, first create an IPv6 public address resource. For example:
 ```json
 {
     "apiVersion": "2016-03-30",
