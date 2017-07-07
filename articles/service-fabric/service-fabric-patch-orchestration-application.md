@@ -55,7 +55,7 @@ The patch orchestration app is composed of the following subcomponents:
 #### Azure clusters
 The patch orchestration app must be run on Azure clusters that have Service Fabric runtime version v5.5 or later.
 
-#### Standalone On-Premise Clusters
+#### Standalone on-premises Clusters
 The patch orchestration app must be run on Standalone clusters that have Service Fabric runtime version v5.6 or later.
 
 ### Enable the repair manager service (if it's not running already)
