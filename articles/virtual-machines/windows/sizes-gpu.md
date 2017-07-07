@@ -23,11 +23,11 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
-## Supported operating systems
-
-For supported operating systems and driver requirements, see [N-series driver setup for Windows](n-series-driver-setup.md).
-
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+[!INCLUDE [virtual-machines-windows-n-series-support](../../../includes/virtual-machines-windows-n-series-support.md)]
+
+For driver installation and verification steps, see [N-series driver setup for Windows](n-series-driver-setup.md).
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
