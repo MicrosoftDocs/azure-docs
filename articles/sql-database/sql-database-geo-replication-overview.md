@@ -48,7 +48,6 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Active geo-replication capabilities
 The active geo-replication feature provides the following essential capabilities:
-
 * **Automatic Asynchronous Replication**: You can only create a secondary database by adding to an existing database. The secondary can be created in any Azure SQL Database server. Once created, the secondary database is populated with the data copied from the primary database. This process is known as seeding. After secondary database has been created and seeded, updates to the primary database are asynchronously replicated to the secondary database automatically. Asynchronous replication means that transactions are committed on the primary database before they are replicated to the secondary database. 
 * **Readable secondary databases**: An application can access a secondary database for read-only operations using the same or different security principals used for accessing the primary database. The secondary databases operate in snapshot isolation mode to ensure replication of the updates of the primary (log replay) is not delayed by queries executed on the secondary.
 
@@ -80,7 +79,7 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
    > When adding a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server. 
    >
 
-prevent * **Failover group read-write listener**: A DNS CNAME record that points to the current primary server URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover. 
+* **Failover group read-write listener**: A DNS CNAME record that points to the current primary server URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover. 
 * **Failover group read-only listener**: A DNS CNAME record that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules. Optionally you can specify if you want the read-only traffic to be automatically re-directed to the primary server when the secondary server is not available.
 * **Automatic failover policy**: By default, the failover group is configured with an automatic failover policy. The system triggers failover as soon as the failure is detected. If you want to control the failover workflow from the application, you can turn off automatic failover. 
 * **Manual failover**: You can initiate failover manually at any time regardless of the automatic failover configuration. If automatic failover policy is not configured manual failover is required to recover databases in the failover group. You can initiate forced or friendly failover (with full data synchronization). The latter could be used to relocate the active server to the primary region. When failover is completed the DNS records are automatically updated to ensure connectivity to the correct server.
