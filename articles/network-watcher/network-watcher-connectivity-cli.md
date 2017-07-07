@@ -47,25 +47,28 @@ This article assumes you have the following resources:
 Connectivity is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
 
 ```azurecli 
-azure feature register  Microsoft.Network AllowNetworkWatcherConnectivityCheck  
+az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
 
-azure provider register Microsoft.Network 
+az provider register --namespace Microsoft.Network 
 ``` 
 
 To verify the registration was successful, run the following CLI command:
 
 ```azurecli
-azure feature show Microsoft.Network AllowNetworkWatcherConnectivityCheck 
+az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
 ```
 
 If the feature was properly registered, the output should match the following: 
 
-```azurecli
-info:    Executing command feature show 
-data:    Feature Name:       AllowNetworkWatcher 
-data:    Provider Name:      Microsoft.Network 
-data:    Registration State: Registered 
-info:    feature show command OK 
+```json
+{
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowNetworkWatcherConnectivityCheck",
+  "name": "Microsoft.Network/AllowNetworkWatcherConnectivityCheck",
+  "properties": {
+    "state": "Registered"
+  },
+  "type": "Microsoft.Features/providers/features"
+}
 ``` 
 
 ## Test virtual machine connectivity
