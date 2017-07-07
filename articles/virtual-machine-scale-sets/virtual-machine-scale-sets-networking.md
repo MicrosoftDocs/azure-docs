@@ -183,13 +183,6 @@ Lastly, reference the IPv6 pool in the IPConfigurations section of the scale set
     }
 }
 ```
-Notes:
-
-1.	Network Profile -> NetworkInterfaceConfiguration supports 2 networkInterfaceIPConfigurations (one for IPv4, one for IPv6).
-2.	The networkInterfaceIPConfiguration has an enum – privateIPAddressVersion = IPv4 or IPv6 – in order to identify which one is IPv4 and which one is IPv6.
-3.	The subnet on an IPv6 IP configuration is null.
-4.	The virtualMachineScaleSet API version must be at least 2017-03-30.
-5.	The load balancer needs to have both an IPv4 and  IPv6 configuration – two public IP’s (distinguished by publicIPAddressVersion = IPv4|IPv6), two backend address pools, and load balancer rules. The IPv4 NIC ipconfig refers to IPv4 load balancer backend pools and IPv6 refers to ipv6 pools.
 
 ## Public IPv4 per virtual machine
 In general, Azure scale set virtual machines do not require their own public IP addresses. It is usually more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (aka a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
@@ -377,3 +370,5 @@ For example:
 }
 ```
 
+## Next steps
+For more information about Azure virtual networks refer to [this documentation](../virtual-network/virtual-networks-overview.md).
