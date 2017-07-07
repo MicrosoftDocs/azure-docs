@@ -42,7 +42,7 @@ Azure Active Directory is Microsoft's cloud-based, multi-tenant identity provide
 ### Active Directory Federation Services
 You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Development Kit supports the following AD FS scenarios:
 
-- Sign in to the POC deployment by using AD FS.
+- Sign in to the deployment by using AD FS.
 - Create a virtual machine with secrets in Key Vault
 - Create a vault for storing/accessing secrets
 - Create custom RBAC roles in subscription
