@@ -27,7 +27,7 @@ To manage resources, you must connect to the Azure Stack Development Kit. This t
 ## Connect with Remote Desktop
 With a Remote Desktop connection, a single concurrent user can work with the portal to manage resources.
 
-1. Open a Remote Desktop Connection and connect to the development kit. Enter **AzureStack\AzureStackAdmin** as the username, and the administrative password you provided during Azure Stack setup.  
+1. Open a Remote Desktop Connection and connect to the development kit. Enter **AzureStack\AzureStackAdmin** as the username, and the administrative password that you provided during Azure Stack setup.  
 
 2. From the development kit computer, open Server Manager, click **Local Server**, turn off Internet Explorer Enhanced Security, and then close Server Manager.
 
@@ -68,7 +68,7 @@ To create a VPN connection to the development kit, run the following steps on yo
     #Change the IP address in the following command to match your Azure Stack host IP address
     $hostIP = "<Azure Stack host IP address>"
     
-    # Change the password in the following command to the administrator password that is provided when deploying Azure Stack. 
+    # Change the password in the following command to the administrative password that is provided when deploying Azure Stack. 
     $Password = ConvertTo-SecureString `
       "<Administrator password provided when deploying Azure Stack>" `
       -AsPlainText `
