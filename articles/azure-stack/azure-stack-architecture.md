@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Stack Development Kit architecture | Microsoft Docs
-description: View the Microsoft Azure Stack POC architecture.
+description: View the Microsoft Azure Stack Development Kit architecture.
 services: azure-stack
 documentationcenter: ''
 author: heathl17
