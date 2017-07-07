@@ -106,7 +106,7 @@ To restrict disaster-recovery operations until the failover state (that is, with
 
 ## Other multi-tenant environments
 
-The preceding section described how to set up a multi-tenant environment for a shared hosting solution. The other two major solutions are dedicated hosting and managed service. The architecture for these solutions is described in the following sections:
+The preceding section described how to set up a multi-tenant environment for a shared hosting solution. The other two major solutions are dedicated hosting and managed service. The architecture for these solutions is described in the following sections.
 
 ### Dedicated hosting solution
 
