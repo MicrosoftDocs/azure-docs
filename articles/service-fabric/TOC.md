@@ -2,11 +2,11 @@
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
+## [Big picture](service-fabric-content-roadmap.md)
 ## [Application scenarios](service-fabric-application-scenarios.md)
 ## [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
-## [Primer](service-fabric-content-roadmap.md)
 
 # Get started
 ## Set up your development environment
@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### Integrate with API Management
+#### [Overview](service-fabric-api-management-overview.md)
+#### [Quick start](service-fabric-api-management-quick-start.md)
+
 ### Migrate from Cloud Services
 #### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -142,6 +146,7 @@
 ### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Upgrade an application
@@ -189,7 +194,6 @@
 #### Create 
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-##### [Visual Studio and Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### Scale 
 ##### [Manually](service-fabric-cluster-scale-up-down.md)
 ##### [Programmatically](service-fabric-cluster-programmatic-scaling.md)
@@ -203,7 +207,6 @@
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Create
 ##### [Create on-premises](service-fabric-cluster-creation-for-windows-server.md)
-##### [Create on Azure virtual machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Secure using certs](service-fabric-windows-cluster-x509-security.md)  
 ##### [Secure using Windows security](service-fabric-windows-cluster-windows-security.md)
 ##### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)
@@ -215,7 +218,8 @@
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
+### [Manage a cluster using XPlat CLI](service-fabric-azure-cli.md)
+### [Manage a cluster using Azure CLI 2.0 commands](service-fabric-azure-cli-2-0.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
@@ -239,6 +243,7 @@
 #### [Generate infrastructure level events](service-fabric-diagnostics-event-generation-infra.md)
 ##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
+##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
 #### [Generate application level events](service-fabric-diagnostics-event-generation-app.md)
 ### Inspect application and cluster health
 #### [Monitor Service Fabric health](service-fabric-health-introduction.md)

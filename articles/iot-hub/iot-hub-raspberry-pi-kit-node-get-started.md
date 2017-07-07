@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi to cloud (Node.js) - Connect Raspberry Pi to Azure IoT Hub | Microsoft Docs
-description: Connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud.
+description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 services: iot-hub
 documentationcenter: ''
 author: shizn
