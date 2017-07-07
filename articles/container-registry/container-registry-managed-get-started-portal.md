@@ -36,7 +36,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 4. Click **Create** which will open the ACR creation blade.
 
-    ![Container registry settings](./media/container-registry-get-started-portal/container-registry-settings.png)
+    ![Container registry settings](./media/container-registry-get-started-portal/managed-container-registry-settings.png)
 
 5. In the **Azure Container Registry** blade, enter the following information. Click **Create** when you are done.
 
