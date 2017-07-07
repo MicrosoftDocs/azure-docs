@@ -30,7 +30,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 ## Sample script
 
 
-[!code-azurecli[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Virtual network for multi-tier application")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Virtual network for multi-tier application")]
 
 ## Clean up deployment 
 

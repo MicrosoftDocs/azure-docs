@@ -30,7 +30,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 ## Sample script
 
 
-[!code-azurecli[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filter VM network traffic")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filter VM network traffic")]
 
 ## Clean up deployment 
 

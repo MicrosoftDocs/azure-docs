@@ -30,7 +30,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 ## Sample script
 
 
-[!code-azurecli[main](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Route traffic through a network virtual appliance")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Route traffic through a network virtual appliance")]
 
 ## Clean up deployment 
 

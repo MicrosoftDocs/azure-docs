@@ -28,7 +28,7 @@ This script creates and connects two virtual networks in the same region trhough
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.sh "Peer two networks")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.sh "Peer two networks")]
 
 ## Clean up deployment 
 
