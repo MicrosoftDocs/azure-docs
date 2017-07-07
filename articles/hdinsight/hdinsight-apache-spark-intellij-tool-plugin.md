@@ -65,7 +65,8 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
    - In the left pane, select **HDInsight**.
    - In the right pane, select **Spark on HDInsight (Scala)**.
-2. The Scala project creation wizard auto detects whether you installed Scala plugin or not. Click the **CLICK** link to install Scala plugin.
+   - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according need.
+2. The Scala project creation wizard auto detects whether you installed Scala plugin or not. Click the **Install** to continue.
 
     ![scala check](./media/hdinsight-apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
 3. Click **OK** to download the Scala plugin. Follow the instructions to restart IntelliJ. 
@@ -179,6 +180,7 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
    
     - In the left pane, select **HDInsight**.
     - In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
+    - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according need.
     ![Selections in New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
 2. In the next window, provide the following project details, and then click **Finish**.
    
