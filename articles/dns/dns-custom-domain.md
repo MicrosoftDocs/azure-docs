@@ -21,7 +21,7 @@ You can use Azure DNS to host a custom domain for any of your Azure resources th
 
 ## Prerequisites
 
-In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](../dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation.
+In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation.
 
 ## Retrieve the DNS name to alias
 
