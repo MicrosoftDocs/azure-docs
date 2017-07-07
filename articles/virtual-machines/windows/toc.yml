@@ -94,6 +94,9 @@
       href: sizes-storage.md
     - name: GPU optimized
       href: sizes-gpu.md
+      items:
+      - name: GPU drivers
+        href: n-series-driver-setup.md
     - name: High performance compute
       href: sizes-hpc.md
       items:
