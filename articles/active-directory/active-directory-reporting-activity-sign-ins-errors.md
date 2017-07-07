@@ -17,9 +17,21 @@ ms.date: 07/05/2017
 ms.author: markvi
 
 ---
-# Sign-in activity report error codes
+# Sign-in activity report error codes in the Azure Active Directory portal
 
-# Error codes
+With the information provided by the user sign-in report, you find answers to questions such as:
+
+* What is the sign-in pattern of a user?
+* How many users have users signed in over a week?
+* What’s the status of these sign-ins?
+
+[Screenshot of a sign-in activity error]
+
+![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/43.png "Sign-in activity")
+
+## Sign-in activity report error codes
+
+## Error codes
 
 | Error| Description |
 | --- | --- |
@@ -61,5 +73,6 @@ ms.author: markvi
 
 
 ## Next steps
-See the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+
+For more details, see the [Sign-in activity reports in the Azure Active Directory portal](active-directory-reporting-activity-sign-ins.md).
 
