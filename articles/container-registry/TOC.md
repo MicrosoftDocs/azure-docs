@@ -13,6 +13,7 @@
 
 ## [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 ## [Authenticate with a registry](container-registry-authentication.md)
+## [Use ACR webhooks](./container-registry-webhook.md)
 
 # Reference
 
