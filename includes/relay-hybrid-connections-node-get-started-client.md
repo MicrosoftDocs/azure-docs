@@ -1,10 +1,13 @@
 ### Create a Node.js application
-* Create a new JavaScript file called `sender.js`.
+
+Create a new JavaScript file called `sender.js`.
 
 ### Add the Relay NPM package
-* Run `npm install hyco-ws` from a Node command prompt in your project folder.
+
+Run `npm install hyco-ws` from a Node command prompt in your project folder.
 
 ### Write some code to send messages
+
 1. Add the following `constants` to the top of the `sender.js` file.
    
     ```js
@@ -15,7 +18,7 @@
             output: process.stdout
         });;
     ```
-2. Add the following Relay `constants` to the `sender.js` for the hybrid connection details. Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
+2. Add the following constants to the `sender.js` file for the hybrid connection details. Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
    
    1. `const ns` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
    2. `const path` - The name of the hybrid connection.
