@@ -185,7 +185,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. Select **Use a proxy server for your LAN**.
 
-    b. In the Address textbox, type **gateway.zscalerone.net**.
+    b. In the Address textbox, type **gateway.zscaler.net**.
 
     c. In the Port textbox, type **80**.
 
