@@ -18,8 +18,8 @@ ms.author: sngun
 
 ---
 # Make a custom virtual machine image available in Azure Stack
-Azure Stack enables cloud administrators to make custom virtual machine images available to their users. These images can
-be referenced by Azure Resource Manager templates or added to the
+
+Azure Stack enables cloud administrators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the
 Azure Marketplace UI with the creation of a Marketplace item. 
 
 ## Add a VM image to marketplace with PowerShell
