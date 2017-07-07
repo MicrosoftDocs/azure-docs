@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to administer Azure Redis Cache | Microsoft Docs
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Redis Cache
 services: redis-cache
@@ -13,17 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 07/05/2017
 ms.author: sdanie
 
 ---
 # How to administer Azure Redis Cache
 This topic describes how to perform administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Redis Cache instances.
-
-> [!IMPORTANT]
-> The settings and features described in this article are only available for Premium tier caches.
-> 
-> 
 
 ## Reboot
 The **Reboot** blade allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
@@ -48,7 +43,7 @@ The impact on client applications varies depending on which nodes that you reboo
 * **Nodes of a premium cache with clustering enabled** - When you reboot one or more nodes of a premium cache with clustering enabled, the behavior for the selected nodes is the same as when you reboot the corresponding node or nodes of a non-clustered cache.
 
 > [!IMPORTANT]
-> Reboot is only available for Premium tier caches.
+> Reboot is now available for all pricing tiers.
 > 
 > 
 
@@ -79,10 +74,10 @@ If you reboot just one of the nodes, data is not typically lost, but it still ma
 Yes, for PowerShell instructions see [To reboot a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### What pricing tiers can use the reboot functionality?
-Reboot is available only in the premium pricing tier.
+Reboot is available for all pricing tiers.
 
 ## Schedule updates
-The **Schedule updates** blade allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. 
+The **Schedule updates** blade allows you to designate a maintenance window for your Premium tier cache. When the maintenance window is specified, any Redis server updates are made during this window. 
 
 > [!NOTE] 
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
