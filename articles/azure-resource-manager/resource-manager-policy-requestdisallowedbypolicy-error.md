@@ -20,7 +20,7 @@ ms.author: genli
 
 ## Symptoms
 
-Your Microsoft Azure subscription has a [resource policy](resource-manager-policy.md) configured. When you try to perform an action during deployment, you might receive a **RequestDisallowedByPolicy** error that prevents the action be performed. The following is a sample of the error:
+When you try to perform an action during deployment, you might receive a **RequestDisallowedByPolicy** error that prevents the action be performed. The following is a sample of the error:
 
 ```
 Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
