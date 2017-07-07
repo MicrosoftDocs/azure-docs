@@ -24,20 +24,21 @@ See [Azure Diagnostics Overview](../monitoring-and-diagnostics/azure-diagnostics
 This walk through describes how to remotely install Diagnostics to an Azure virtual machine from a development computer. You also learn how to implement an application that runs on that Azure virtual machine and emits telemetry data using the .NET [EventSource Class][EventSource Class]. Azure Diagnostics is used to collect the telemetry and store it in an Azure storage account.
 
 ### Pre-requisites
-This walk through assumes you have an Azure subscription and are using Visual Studio 2013 with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Free Trial][Free Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later].
+This walk through assumes you have an Azure subscription and are using Visual Studio 2017 with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Free Trial][Free Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### Step 1: Create a Virtual Machine
-1. On your development computer, launch Visual Studio 2013.
+1. On your development computer, launch Visual Studio 2017.
 2. In the Visual Studio **Server Explorer** expand **Azure**, right-click **Virtual Machines** then select **Create Virtual Machine**.
 3. Select your Azure subscription in the **Choose a Subscription** dialog and click **Next**.
-4. Select **Windows Server 2012 R2 Datacenter, November 2014** in the **Select a Virtual Machine Image** dialog and click **Next**.
+4. Select **Windows Server 2012 R2 Datacenter, June 2017** in the **Select a Virtual Machine Image** dialog and click **Next**.
 5. In the **Virtual Machine Basic Settings**, set the virtual machine name to "wadexample". Set your Administrator user name and password and click **Next**.
 6. In the **Cloud Service Settings** dialog create a new cloud service named "wadexampleVM". Create a new Storage account named "wadexample" and click **Next**.
 7. Click **Create**.
 
 ### Step 2: Create your Application
-1. On your development computer, launch Visual Studio 2013.
+1. On your development computer, launch Visual Studio 2017.
 2. Create a new Visual C# Console Application that targets .NET Framework 4.5. Name the project "WadExampleVM".
+
    ![CloudServices_diag_new_project](./media/virtual-machines-dotnet-diagnostics/NewProject.png)
 3. Replace the contents of Program.cs with the following code. The class **SampleEventSourceWriter** implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the WriteEvent method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
 
@@ -143,18 +144,18 @@ This walk through assumes you have an Azure subscription and are using Visual St
 The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension, and Remove-AzureVMDiagnosticsExtension.
 
 1. On your developer computer, open Azure PowerShell.
-2. Execute the script to remotely install Diagnostics on your VM (Replace *StorageAccountKey* with the storage account key for your wadexamplevm storage account):
-
+2. Execute the script to remotely install Diagnostics on your VM (Replace `<user>` with your user directory name. Replace `<StorageAccountKey>` with the storage account key for your wadexamplevm storage account):
+```
      $storage_name = "wadexamplevm"
      $key = "<StorageAccountKey>"
-     $config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
+     $config_path="c:\users\<user>\documents\visual studio 2017\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
      $service_name="wadexamplevm"
      $vm_name="WadExample"
      $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key
      $VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name
      $VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext
      $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
-
+```
 ### Step 6: Look at your telemetry data
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the VM has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
 
