@@ -22,7 +22,7 @@ ms.author: sngun
 
 Virtual machines in Azure Stack give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. When you use Virtual Machines, understand that there are some differences between the features that are available in Azure and Azure Stack, refer to the [Considerations for virtual machines in Azure Stack](azure-stack-vm-considerations.md) topic to learn about these differences. 
 
-This guide details using PowerShell to create a Windows Server 2016 virtual machine in Azure Stack. You can run the steps described in this article either from the Azure Stack POC, or from a Windows-based external client if you are connected through VPN. 
+This guide details using PowerShell to create a Windows Server 2016 virtual machine in Azure Stack. You can run the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN. 
 
 ## Prerequisites
 
@@ -203,7 +203,7 @@ New-AzureRmVM `
 
 ## Connect to the virtual machine
 
-After the virtual machine is successfully created, open a Remote Desktop connection to the virtual machine from the Azure Stack POC, or from a Windows-based external client if you are connected through VPN. To remote into the virtual machine that you created in the previous step, you need its public IP address. Run the following command to get the public IP address of the virtual machine: 
+After the virtual machine is successfully created, open a Remote Desktop connection to the virtual machine from the development kit, or from a Windows-based external client if you are connected through VPN. To remote into the virtual machine that you created in the previous step, you need its public IP address. Run the following command to get the public IP address of the virtual machine: 
 
 ```powershell
 Get-AzureRmPublicIpAddress `
