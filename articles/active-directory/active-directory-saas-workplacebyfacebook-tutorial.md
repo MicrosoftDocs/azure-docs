@@ -164,7 +164,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 ### Configuring Reauthentication Frequency
 
-You can configure Workplace to prompt for a SAML check every day, 3 days, week, 2 weeks, month or never.
+You can configure Workplace to prompt for a SAML check every day, three days, week, two weeks, month or never.
 
 > [!NOTE] 
 >The minimum value for the SAML check on mobile applications is set to one week.
