@@ -18,7 +18,7 @@ ms.date: 07/06/2017
 ms.author: jeffstok
 ---
 
-# Sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
+# Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
 This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning. You use a Machine Learning sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score in real time. Using the Cortana Intelligence Suite lets you accomplish this task without worrying about the intricacies of building a sentiment analytics model.
 
 You can apply what you learn from this article to scenarios such as these:
@@ -51,10 +51,10 @@ At a high level, to complete the tasks demonstrated in this article, you do the 
 5. Create a Stream Analytics job that calls this web service as a function in order to determine sentiment for the text input.
 6. Start the Stream Analytics job and check the output.
 
-## Create a storage blob and upload the CSV input file
+## Create a storage container and upload the CSV input file
 For this step, you can use any CSV file, such as the one available from GitHub.
 
-1. In the Azure portal, click **New** and then click **Storage account**.
+1. In the Azure portal, click **New** &gt; **Storage** &gt; **Storage account**.
 
    ![create new storage account](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -64,7 +64,7 @@ For this step, you can use any CSV file, such as the one available from GitHub.
 
     ![provide storage account details](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
 
-4. In the portal, select the storage account. In the storage account blade, click **Containers** and then click **+&nbsp;Container** to create blob storage.
+4. In the Azure portal, select the storage account. In the storage account blade, click **Containers** and then click **+&nbsp;Container** to create blob storage.
 
     ![create blob container](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
 
@@ -134,7 +134,7 @@ You can now create a Stream Analytics job that reads the sample tweets from the 
    ![specify settings for new Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
    
 
-### Create input for the job
+### Configure the job input
 The job gets its input from the CSV file that you uploaded earlier to blob storage.
 
 1. After the job has been created, under **Job Topology** in the job blade, click the **Inputs** box.  
@@ -159,7 +159,7 @@ The job gets its input from the CSV file that you uploaded earlier to blob stora
 
 4. Click **Create**.
 
-### Create output for the job
+### Configure the job output
 The job sends results to the same blob storage where it gets input. 
 
 1. Under **Job Topology** in the job blade, click the **Outputs** box.  
@@ -260,7 +260,7 @@ You can now start the Stream Analytics job.
 
 
 ### View metrics
-You also can view Azure Machine Learning function-related metrics. The following function-related metrics are displayed in the **Monitor** box in the job blade:
+You also can view Azure Machine Learning function-related metrics. The following function-related metrics are displayed in the **Monitoring** box in the job blade:
 
 * **Function Requests** indicates the number of requests sent to a Machine Learning web service.  
 * **Function Events** indicates the number of events in the request. By default, each request to a Machine Learning web service contains up to 1,000 events.  
