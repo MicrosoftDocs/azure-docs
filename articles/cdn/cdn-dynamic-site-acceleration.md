@@ -98,3 +98,16 @@ Most websites consist of an HTML page which references various other resources s
 
 With prefetch the **prefetch** option turned on at the time when the CDN serves the HTML base page to the client’s browser, the CDN will parse the HTML file and make additional requests for any linked resources and store it in its cache. When the client makes the requests for the linked assets, the CDN edge server will already have the requested objects and can serve it immediately without a round trip to the origin. This optimization will benefit both cacheable and non-cacheable content.
 
+## Adaptive Image Compression
+
+Some devices, especially mobile ones, experience slower network speeds from time to time. In these scenarios, it is more beneficial for the user to receive smaller images in their webpage more quickly rather than waiting a long time for full resolution images.
+
+This feature automatically monitors network quality, and employs standard JPEG compression methods when network speeds are slower to improve delivery time.
+
+Adaptive Image Compression | File Extensions  
+--- | ---  
+JPEG compression | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
+
+
+
+
