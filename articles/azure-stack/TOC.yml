@@ -103,6 +103,8 @@
         href: azure-stack-delegated-provider.md
     - name: Offer SQL or MySQL as PaaS
       items:
+      - name: PaaS services overview
+        href: azure-stack-tools-paas-services.md
       - name: Deploy MySQL resource provider
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
