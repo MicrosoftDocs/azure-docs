@@ -29,7 +29,7 @@ For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM s
 
 
 
-[!INCLUDE [virtual-machines-windows-n-series-support](../../../includes/virtual-machines-windows-n-series-support.md)]
+[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
 ## Install GRID drivers for NV VMs
 

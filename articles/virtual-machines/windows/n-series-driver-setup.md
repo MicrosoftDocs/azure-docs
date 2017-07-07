@@ -25,7 +25,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs running Windows 
 For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
-[!INCLUDE [virtual-machines-windows-n-series-support](../../../includes/virtual-machines-windows-n-series-support.md)]
+[!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
 
 

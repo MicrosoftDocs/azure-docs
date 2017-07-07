@@ -25,7 +25,7 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-[!INCLUDE [virtual-machines-windows-n-series-support](../../../includes/virtual-machines-windows-n-series-support.md)]
+[!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
 For driver installation and verification steps, see [N-series driver setup for Windows](n-series-driver-setup.md).
 

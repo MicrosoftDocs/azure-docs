@@ -26,7 +26,7 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-[!INCLUDE [virtual-machines-linux-n-series-support](../../../includes/virtual-machines-linux-n-series-support.md)]
+[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
 For driver installation and verification steps, see [N-series driver setup for Linux](n-series-driver-setup.md).
 
