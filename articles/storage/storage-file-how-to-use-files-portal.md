@@ -24,7 +24,7 @@ The [Azure portal](https://portal.azure.com) provides a user interface for manag
 * Upload and download files to and from your file share.
 * Monitor the actual usage of each file share.
 * Adjust the file share size quota.
-* Copy the `net use` command to use to mount your file share from a Windows client.
+* Copy the mount commands to use to mount your file share from a Windows or Linux client.
 
 ## Create file share
 1. Sign in to the Azure portal.
