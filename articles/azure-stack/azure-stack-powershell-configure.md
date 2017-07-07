@@ -43,7 +43,7 @@ To configure your Azure Stack environment, do the following:
 
 1. Register an AzureRM environment that targets your Azure Stack instance by using one of the following cmdlets:
 
-   * **Administrative environment**
+   * **Cloud administrative environment**
 
        ```PowerShell
        Add-AzureStackAzureRmEnvironment `
@@ -67,7 +67,7 @@ To configure your Azure Stack environment, do the following:
 
    * **Azure Active Directory (Azure AD)**
    
-      * To access the **administrative environment**, use:
+      * To access the **cloud administrative environment**, use:
         ```PowerShell
         $TenantID = Get-AzsDirectoryTenantId `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -83,7 +83,7 @@ To configure your Azure Stack environment, do the following:
 
    * **Active Directory Federation Services**
    
-      * To access the **administrative environment**, use:
+      * To access the **cloud administrative environment**, use:
         ```PowerShell
         $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
@@ -119,7 +119,7 @@ Sign in to the Azure Stack environment by using one of the following two cmdlets
 
 ## Register resource providers
 
-After you sign in to the administrator or user portal, you can issue operations against the registered resource providers. By default, all the foundational resource providers are registered in the Default Provider Subscription (administrator subscription).
+After you sign in to the administrator or user portal, you can issue operations against the registered resource providers. By default, all the foundational resource providers are registered in the Default Provider Subscription (the cloud administrator's subscription).
 
 When you operate on a newly created user subscription, which doesn’t have any resources deployed through the portal, the resource providers aren't automatically registered. You should explicitly register the resource providers by using the following script:
 
