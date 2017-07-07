@@ -27,10 +27,12 @@ In this tutorial, you begin by learning the basics of working with Raspberry Pi 
 
 If you have physical devices, visit [Connect Raspberry Pi to Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) to get started. 
 
-<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="700">
+<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="300">
 
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted"><img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="700">
-
+<div id="wrapper" style="width:100%; text-align:center">
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted">
+<img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="300">
+</div>
 
 ## What you do
 
