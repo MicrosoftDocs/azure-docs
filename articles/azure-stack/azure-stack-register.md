@@ -22,7 +22,7 @@ ms.author: erikje
 For Azure Active Directory deployments, you can register Azure Stack with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. 
 
 > [!NOTE]
->In TP3, registering Azure Stack is not required because you don't have to select a business model or connection option. However, you can test the process and provide feedback about it.
+>Registration is recommended because it enables you to test important Azure Stack functionality, like marketplace syndication and usage reporting. Once you register Azure Stack, usage will be reported to Azure commerce, and you will be able to see it under the subscription you used for registration. Azure Stack Development Kit users will not be charged for any usage they report.
 >
 
 
@@ -30,7 +30,7 @@ For Azure Active Directory deployments, you can register Azure Stack with Azure 
 
 Before registering Azure Stack with Azure, you must have:
 
-- The subscription ID for an Azure subscription. To get this, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the **Subscription ID**. China, Germany, government cloud, and CSP subscriptions are not supported in TP3.
+- The subscription ID for an Azure subscription. To get this, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the **Subscription ID**. China, Germany, and US government cloud subscriptions are not currently supported.
 - The username and password for an account that is an owner for the subscription (Hotmail.com, live.com domains and 2FA accounts are not supported).
 - The AAD directory for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal. 
 
