@@ -112,11 +112,9 @@ You can choose to represent some features as bit vectors, where each bit corresp
 
 The 1-hot encoding is typical for categorical features such as "geographical region" which do not have an inherently meaningful numerical representation. It is also advisable for numerical features whose influence on the reward is likely to be non-linear. For example, a given article could be relevant to a particular age group, and irrelevant to anyone older or younger.
 
-Any string-valued feature is 1-hot encoded by default: a distinct internal feature is created for every possible value. We do not currently provide 1-hot encoding for numerical features and/or with customized ranges.
+Any string-valued feature is 1-hot encoded by default: a distinct internal feature is created for every possible value. We do not currently provide automatic 1-hot encoding for numerical features and/or with customized ranges.
 
-In slightly more depth, our machine learning algorithms treat all possible values of a feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows each range of values to receive a more individual treatment. 
-
-When choosing the ranges for the 1-hot encoding, keep in mind that all values within each range is treated uniformly. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
+[!TIP] Our machine learning algorithms treat all possible values of a given internal feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows a separate coefficient for each range of values. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
 
 ## Feature specification
 
@@ -133,7 +131,7 @@ You can specify features using a simple JSON format and several ancillary APIs. 
 
 Here `<name>` and `<value>` stand for feature name and feature value, respectively. `<value>` can be a string, an integer, a float, a boolean, or an  array. A feature not wrapped into a namespace is automatically assigned into the default namespace.
 
-To represent a string as a bit vector over words, use a special syntax `"_text":"string"` instead of 
+To represent a string as a bag-of-words, use a special syntax `"_text":"string"` instead of 
 `"<name>":<value>`. Then a separate internal feature with value `1` is created for each word in the string.
 
 If `<name>` starts with "_" (and is not `"_text"`), then the feature is ignored.
