@@ -7,7 +7,6 @@ author: shizn
 manager: timtl
 tags: ''
 keywords: 'raspberry pi simulator, azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud'
-experimental: true
 experiment_id: "bfcb8ffc-3d7a-4d"
 
 ms.service: iot-hub
@@ -28,6 +27,9 @@ In this tutorial, you begin by learning the basics of working with Raspberry Pi 
 
 If you have physical devices, visit [Connect Raspberry Pi to Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) to get started. 
 
+![Connect Raspberry Pi web simulator to Azure IoT Hub](media/iot-hub-raspberry-pi-web-simulator/3_banner.png)
+![Start Raspberry Pi simulator](media/iot-hub-raspberry-pi-web-simulator/6_button_default.png)(https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
+
 ## What you do
 
 * Learn the basics of Raspberry Pi online simulator.
@@ -45,10 +47,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 
 ## Overview of Raspberry Pi web simulator
 
-Click the button to launch Raspberry Pi online simulator.
-
-> [!div class="button"]
-[Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/)
+Click above button to launch Raspberry Pi online simulator.
 
 There are three areas in the web simulator.
 * Assembly area - The default circuit is that a Pi connects with a BME280 sensor and an LED. The area is locked in preview version so currently you cannot do customization.
