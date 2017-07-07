@@ -25,7 +25,7 @@
     href: azure-stack-asdk-release-notes.md
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: POC architecture
+  - name: Azure Stack Development Kit architecture
     href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
@@ -233,7 +233,7 @@
       href: azure-stack-troubleshooting.md
     - name: Diagnostics in Azure Stack
       href: azure-stack-diagnostics.md
-    - name: Redeploy Azure Stack POC
+    - name: Redeploy Azure Stack Development Kit
       href: azure-stack-redeploy.md
 - name: Reference
   items:
