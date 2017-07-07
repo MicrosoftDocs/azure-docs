@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Relay Hybrid Connections in Node | Microsoft Docs
-description: How to write a Node console application for Hybrid Connections
+description: Write a Node.js console application for Azure Relay Hybrid Connections.
 services: service-bus-relay
 documentationcenter: node
 author: sethmanheim
@@ -20,6 +20,8 @@ ms.author: sethm
 # Get started with Relay Hybrid Connections
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
+
+This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections), and shows how to use Node.js to create a client application that sends messages to a corresponding listener application. 
 
 ## What will be accomplished
 
