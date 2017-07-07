@@ -32,7 +32,7 @@ Because Hybrid Connections requires both a client and a server component, we wil
 
 ## Prerequisites
 
-1. [Node.js](https://nodejs.org/en/) (This sample uses Node 7.0).
+1. [Node.js](https://nodejs.org/en/).
 2. An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -45,7 +45,7 @@ If you already have a Relay namespace created, jump to the [Create a hybrid conn
 
 ## 2. Create a hybrid connection using the Azure portal
 
-If you already have a Hybrid connection created, jump to the [Create a server application](#3-create-a-server-application-listener) section.
+If you already have a hybrid connection created, jump to the [Create a server application](#3-create-a-server-application-listener) section.
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
@@ -63,8 +63,8 @@ To send messages to the Relay, we will write a Node.js console application.
 
 ## 5. Run the applications
 
-1. Run the server application.
-2. Run the client application and enter some text.
+1. Run the server application: from a Node.js command prompt type `node listener.js`.
+2. Run the client application: from a Node.js command prompt type `node sender.js`, and enter some text.
 3. Ensure that the server application console outputs the text that was entered in the client application.
 
 ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
