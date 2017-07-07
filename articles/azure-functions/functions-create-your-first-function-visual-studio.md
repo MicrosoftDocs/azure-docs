@@ -37,9 +37,9 @@ To complete this tutorial, install:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Install Azure Functions Tools for Visual Studio 2017
+## Install Azure Functions Tools for Visual Studio 2017 Preview 15.3+
 
-Before you begin, you must download and install the Azure Functions Tools for Visual Studio 2017. These tools can only be used with Visual Studio 2017 Preview version 15.3, or a later version. If you have already installed the Azure Functions Tools, you can skip this section.
+Before you begin, you must download and install the Azure Functions Tools for Visual Studio 2017. **These tools can only be used with [Visual Studio 2017 Preview version 15.3](](https://www.visualstudio.com/vs/preview/)), or a later version.** If you have already installed the Azure Functions Tools, you can skip this section.
 
 [!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)]   
 
