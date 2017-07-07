@@ -1,21 +1,7 @@
 ---
-title: Connect Linux computers to Azure Log Analytics | Microsoft Docs
-description: Using Log Analytics, you can collect and act on data generated from Linux computers.
-services: log-analytics
-documentationcenter: ''
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/29/2017
-ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-
+redirect_url: /azure/log-analytics/log-analytics-agent-linux 
+redirect_document_id: TRUE 
+ROBOTS: NOINDEX
 ---
 # Connect your Linux computers to Log Analytics
 Using Log Analytics, you can collect and act on data generated from Linux computers. Adding data collected from Linux to OMS allows you to manage Linux systems and container solutions like Docker, regardless of where your computers are located — virtually anywhere. Data sources might reside in your on-premises datacenter as physical servers, virtual computers in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure, or even the laptop on your desk. In addition, OMS also collects data from Windows computers similarly, so it supports a truly hybrid IT environment.

@@ -411,7 +411,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
      -ComputerName myVM `
      -Credential $Cred | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
-    Set-AzureRmVMOSDisk 
+    Set-AzureRmVMOSDisk `
      -Name $OSDiskName `
      -SourceImageUri $sourceUri `
      -VhdUri $destOsDiskUri `
