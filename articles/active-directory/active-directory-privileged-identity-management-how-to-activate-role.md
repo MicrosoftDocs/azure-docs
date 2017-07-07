@@ -36,7 +36,7 @@ Use the Azure AD Privileged Identity Management application in the [Azure portal
 When you need to take on a role, you can request activation by selecting the **My Roles** navigation option in the Azure AD Privileged Identity Management application's left navigation column.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the Azure AD Privileged Identity Management tile.
-2. Select **My Roles**. A list of your assigned eligible roles appear at the top of the page.
+2. Select **My Roles**. A list of your assigned eligible roles appear in the grouping at the top of the page.
 3. Select a role to activate.
 4. Select **Activate**. The **Request role activation** blade appears.
 5. Some roles require Multi-Factor Authentication (MFA) before you can activate the role. You only have to authenticate once per session.
@@ -52,6 +52,17 @@ Once a role has been activated, it automatically deactivates when its time limit
 
 If you complete your admin tasks early, you can also deactivate a role manually in the Azure AD Privileged Identity Management application.  Select **My Roles**, choose the role you're done using from the **Active role assignments** grouping, and select **Deactivate**.  
 
+## Cancel a pending request
+In the event you do not require activation of a role that requires approval, you may cancel a pending request at any time by selecting the **My Roles** navigation option in the Azure AD Privileged Identity Management application's left navigation column.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and select the Azure AD Privileged Identity Management tile.
+2. Select **My Roles**. A list of your assigned eligible roles appear in the grouping at the top of the page.
+3. Select a role.
+4. Select the **Activation is pending approval** banner on the role activation details blade.
+5. Select **Cancel** at the top of the **Pending approval** blade.
+
+   ![Cancel pending request screenshot][4]
+
 ## Next steps
 If you're interested in learning more about Azure AD Privileged Identity Management, the following links have more information.
 
@@ -62,3 +73,4 @@ If you're interested in learning more about Azure AD Privileged Identity Managem
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
 [3]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast.png
+[4]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png
