@@ -65,7 +65,7 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 #### Before you transition
 
-* Your device is running Update 3.0 or later. If your device is running an older version, install the lastest updates. For more information, go to [Install Update 4](storsimple-8000-install-update-4.md).
+* Your device is running Update 3.0 or later. If your device is running an older version, install the lastest updates. For more information, go to [Install Update 4](storsimple-8000-install-update-4.md). If using a StorSimple Cloud Appliance (8010/8020), create a new cloud appliance with Update 4.0. 
 
 * Once you are transitioned to the new Azure portal, you cannot use the Azure classic portal to manage your StorSimple device.
 
@@ -103,7 +103,6 @@ Perform the following steps to transition your service to the Azure portal.
 3. Click **Migrate**. The transition begins and takes a few minutes to complete.
 
 Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal.
-
 
 ## Delete a service
 
