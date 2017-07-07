@@ -155,8 +155,6 @@ Perform the following steps to regenerate a service registration key.
 
 4. A new service registration key will appear.
 
-    ![Regnerated registration key](./media/storsimple-8000-manage-service/regenregkey7.png)
-
 5. Copy this key and save it for registering any new devices with this service.
 
 
