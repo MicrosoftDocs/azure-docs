@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2017
+ms.date: 07/06/2017
 ms.author: mimig
 
 ---
@@ -165,10 +165,20 @@ During the preview period, when [SDKs](../cosmos-db/table-sdk-dotnet.md) are ava
 ### Do I need a new SDK to use the Table API (Preview)? 
 Yes, the [Windows Azure Storage premium table (Preview) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) is available on NuGet. Additional information is available on the [Azure Cosmos DB Table .NET API: Download and release notes](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md) page. 
 
+### How does Azure Cosmos DB support columnar data models?
+
+The database engine of Azure Cosmos DB is designed with the following building blocks:
+1. ARS: Atoms, records, and sequences, which can be easily mapped and projected to various data models. For the columnar data model, every column is simply an attribute in a record. 
+2. A schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, or tree) which decouple the storage layout from the index and query processing subsystems.
+3. A log structured storage engine capable of ingesting sustained volumes of updates and synchronously and automatically indexing all of the ingested content without requiring any schema. A latch free, highly concurrent btree which is layered on top of the storage engine to support low latency queries.
+4. Ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2). 
+
+Graphs, documents, column-family, key-value (and a subset of relational) are all natively supported because of these building blocks. We have exposed the APIs for a subset of models right now and will continue to add more models in the future. 
+
 ### How do I provide feedback about the SDK or bugs?
 You can share your feedback in any of the following ways:
 
-* [Uservoice](https://feedback.azure.com/forums/263030-documentdb)
+* [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 * [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
 
@@ -214,7 +224,7 @@ Yes, you can connect by creating two separate instances of the CloudTableClient,
 To take advantage of the new Table API offering on your existing Table storage data, contact [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
 
 ### What is the roadmap for this service, and when will you offer other standard Table API functionality?
-We plan to add support for SAS tokens, ServiceContext, Stats, Client side Encryption, Analytics and other features as we proceed toward GA. You can give us feedback on [Uservoice](https://feedback.azure.com/forums/263030-documentdb). 
+We plan to add support for SAS tokens, ServiceContext, Stats, Client side Encryption, Analytics and other features as we proceed toward GA. You can give us feedback on [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api). 
 
 ### How is expansion of the storage size done for this service if, for example, I start with *n* GB of data and my data will grow to 1 TB over time? 
 Azure Cosmos DB is designed to provide unlimited storage via the use of horizontal scaling. The service can monitor and effectively increase your storage. 
