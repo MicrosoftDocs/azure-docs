@@ -28,9 +28,6 @@ When you register data assets from the following data sources, Azure Data Catalo
 - MySQL
 - Oracle
 
-> [!NOTE]
-> We are planning to support more data sources in future releases.   
-
 ## View related data assets
 To view data assets that are related to a selected dataset, use the **Relationships** tab as shown in the following image: 
 
