@@ -39,9 +39,6 @@ A single service can manage multiple devices. However, a device cannot span mult
 > [!NOTE]
 > You need separate instances of StorSimple Device Manager service to manage StorSimple 8000 series devices and StorSimple Virtual Arrays.
 
-> [!IMPORTANT] 
-> If you have an unused service created (no device operations were performed on this resource) prior to August 2016, it cannot be managed via Azure portal or Azure classic portal. We recommend that you create a new service in the Azure portal.
-
 Perform the following steps to create a service.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
