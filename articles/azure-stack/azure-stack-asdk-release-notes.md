@@ -43,6 +43,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
 * Tenants are able to browse the full marketplace without a subscription, and will see administrative items like plans and offers.  These items are non-functional to tenants.
 * When selecting an infrastructure role instance,  you see an error showing a reference error. Use the browser’s refresh functionality to refresh the Admin Portal.
+* The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
 
 #### Services
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
@@ -55,6 +56,8 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
 * Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
 * Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration causes virtual machine creation to fail.
+* It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
+* Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in mismatched state.
 
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
