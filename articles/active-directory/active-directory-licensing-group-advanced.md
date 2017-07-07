@@ -238,11 +238,11 @@ You can use [Azure AD audit logs](./active-directory-reporting-activity-audit-lo
 ### Find out who modified a group license
 
 1. Set the **Activity** filter to *Set group license* and click **Apply**.
-2. The results include all cases of licenses being set or modified on group.
+2. The results include all cases of licenses being set or modified on groups.
 >[!TIP]
-> You can type the name of the group in the *Target* filter to limit the results.
+> You can also type the name of the group in the *Target* filter to scope the results.
 
-3. Click an item in the list view to see the details of what has changed. Under *Modified Properties* both old and new values for the license assignment are listed - this is how you can tell what has changed.
+3. Click an item in the list view to see the details of what has changed. Under *Modified Properties* both old and new values for the license assignment are listed.
 
 Here is an example of recent group license changes, with details:
 
@@ -254,20 +254,20 @@ When a license changes on a group, Azure AD will start applying the changes to a
 
 1. To see when groups started processing, set the **Activity** filter to *Start applying group based license to users*. Note that the actor for the operation is *Microsoft Azure AD Group-Based Licensing* - a system account that is used to execute all group license changes.
 >[!TIP]
-> Click an item in the list to see the *Modified Properties* field - it shows the license changes that were picked up for processing. This is useful if you made multiple changes to a group and are not sure which one was processed.
+> Click an item in the list to see the *Modified Properties* field - it shows the license changes that were picked up for processing. This is useful if you made multiple changes to a group and you are not sure which one was processed.
 
 2. Similarly, to see when groups finished processing, use the filter value *Finish applying group based license to users*.
 >[!TIP]
-> In this case, the *Modified Properties* field contains a summary of the results - this is useful to quickly check if processing resulted in any errors. Here is a sample output:
+> In this case, the *Modified Properties* field contains a summary of the results - this is useful to quickly check if processing resulted in any errors. Sample output:
 > ```
 Modified Properties
 ...
 Name : Result
 Old Value : []
-New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];**
+New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
 > ```
 
-3. To see the complete log for how a group was processed, including all users whose license were modified, set the following filters:
+3. To see the complete log for how a group was processed, including all user changes, set the following filters:
   - **Initiated By (Actor)**: "Microsoft Azure AD Group-Based Licensing"
   - **Date Range** (optional): custom range for when you know a specific group started and finished processing
 
