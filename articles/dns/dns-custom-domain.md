@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure DNS into your custom domain | Microsoft Docs
+title: Integrate Azure DNS into your custom domain for Azure resources | Microsoft Docs
 description: Learn how to use Azure DNS along with a custom domain to provide DNS for your service.
 services: dns
 documentationcenter: na
@@ -17,11 +17,20 @@ ms.author: gwallace
 
 # Use Azure DNS when setting your custom domain settings for a service
 
-You can use Azure DNS to host a custom domain for any of your Azure resources that support custom domains. For example, you are creating an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN.
+You can use Azure DNS to provide DNS for a custom domain for any of your Azure resources that support custom domains. For example, you are creating an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN.
 
 ## Prerequisites
 
-In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation.
+In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you are able to configure the DNS records needed.
+
+The following resources allow for custom domains
+
+* Azure Active Directory
+* App Service (Web Apps)
+* Azure CDN
+* Blob storage
+* Azure Functions
+* Azure IOT
 
 ## Retrieve the DNS name to alias
 
