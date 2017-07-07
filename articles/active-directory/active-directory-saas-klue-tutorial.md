@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/08/2017
 ms.author: jeedes
 
 ---
@@ -108,18 +108,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-klue-tutorial/tutorial_klue_url1.png)
 
-    a. In the **Identifier** textbox, type the value: `urn:klue:piedpiper`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `urn:klue:<Customer ID>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.klue.com/account/auth/saml/<uniqueid>/callback`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-klue-tutorial/tutorial_klue_url2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.klue.com/account/auth/saml/<uniqueid>/`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Klue Client support team](mailto:gsar@klue.com) to get these values.
+	> These values are not real. Update these values with the actual Reply URL, Identifier, and Sign-On URL. Contact [Klue Client support team](mailto:gsar@klue.com) to get these values.
 
 5. The Klue application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
 
