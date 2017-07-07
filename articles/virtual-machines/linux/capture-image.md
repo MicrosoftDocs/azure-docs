@@ -20,7 +20,7 @@ ms.author: cynthn
 ---
 # How to create an image of a virtual machine or VHD
 
-<!-- generalize, image extended version of the tutorial-->
+<!-- generalize, image - extended version of the tutorial-->
 
 To create multiple copies of a virtual machine (VM) to use in Azure, you capture an image of the VM or the OS VHD. The process also involves generalizing the VM to remove personal account information which makes it safer to deploy multiple times. In the following steps you deprovision an existing VM, deallocate and generalize the VM resource, then create an image. You can use this image to create VMs across any resource group within your subscription.
 
@@ -50,11 +50,12 @@ You deprovision the VM, using the Azure VM agent, to delete machine specific fil
     ```bash
     sudo waagent -deprovision+user
     ```
+<br>
    > [!NOTE]
    > Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The *+user* parameter also removes the last provisioned user account. If you want to keep account credentials in the VM, just use *-deprovision* to leave the user account in place.
  
-3. Type *y* to continue. You can add the *-force* parameter to avoid this confirmation step.
-4. After the command completes, type `exit`. This step closes the SSH client.
+3. Type **y** to continue. You can add the **-force** parameter to avoid this confirmation step.
+4. After the command completes, type **exit**. This step closes the SSH client.
 
 ## Step 2: Create VM image
 Use the Azure CLI 2.0 to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
@@ -62,19 +63,25 @@ Use the Azure CLI 2.0 to generalize and capture the VM. In the following example
 1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli//azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
    
     ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
+    az vm deallocate \
+	  --resource-group myResourceGroup \
+	  --name myVM
     ```
 
 2. Generalize the VM with [az vm generalize](/cli//azure/vm#generalize). If you have used a tool such as [Packer](http://www.packer.io) to build your source VM, skip this step as your image has already been generalized. The following example generalizes the VM named *myVM* in the resource group named *myResourceGroup*:
    
     ```azurecli
-    az vm generalize --resource-group myResourceGroup --name myVM
+    az vm generalize \
+	  --resource-group myResourceGroup \
+	  --name myVM
     ```
 
 3. Now create an image of the VM resource with [az image create](/cli//azure/image#create). The following example creates an image named *myImage* in the resource group named *myResourceGroup* using the VM resource named *myVM*:
    
     ```azurecli
-    az image create --resource-group myResourceGroup --name myImage --source myVM
+    az image create \
+	  --resource-group myResourceGroup \
+	  --name myImage --source myVM
     ```
    
    > [!NOTE]
@@ -84,8 +91,12 @@ Use the Azure CLI 2.0 to generalize and capture the VM. In the following example
 Create a VM using the image you created with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMDeployed* from the image named *myImage*:
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVMDeployed --image myImage
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
+az vm create \
+   --resource-group myResourceGroup \
+   --name myVMDeployed \
+   --image myImage\
+   --admin-username azureuser \
+   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 With managed disks, you can create VMs from an image in any resource group within your subscription. This behavior is a change from unmanaged disks where you could only create VMs in the same storage account as your source VHD. To create a VM in a different resource group than the image, specify the full resource ID to your image. Use [az image list](/cli/azure/image#list) to view a list of images. The output is similar to the following example:
@@ -99,9 +110,12 @@ With managed disks, you can create VMs from an image in any resource group withi
 The following example uses [az vm create](/cli/azure/vm#create) to create a VM in a different resource group than the source image by specifying the image resource ID:
 
 ```azurecli
-az vm create --resource-group myOtherResourceGroup --name myOtherVMDeployed 
-    --image "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage"
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
+az vm create \
+   --resource-group myOtherResourceGroup \
+   --name myOtherVMDeployed \
+   --image "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage" \
+   --admin-username azureuser \
+   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 
@@ -110,7 +124,10 @@ az vm create --resource-group myOtherResourceGroup --name myOtherVMDeployed
 Now SSH to the virtual machine you created to verify the deployment and start using the new VM. To connect via SSH, find the IP address or FQDN of your VM with [az vm show](/cli/azure/vm#show):
 
 ```azurecli
-az vm show --resource-group myResourceGroup --name myVM --show-details
+az vm show \
+   --resource-group myResourceGroup \
+   --name myVM \
+   --show-details
 ```
 
 ## Next steps
