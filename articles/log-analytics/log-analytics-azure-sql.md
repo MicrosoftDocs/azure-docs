@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: banders
 
 ---
@@ -98,19 +98,28 @@ Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashbo
 
 ### Analyze data and create alerts
 
-The solution includes useful queries to help get you analyzing your data. If you scroll to the right, the dashboard will list several common queries that you can click on to perform a [log search](log-analytics-log-searches.md) for Azure SQL data.
+You can easily create alerts with the data coming from Azure SQL Database resources. Here are a couple of useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
 
-![queries](./media/log-analytics-azure-sql/azure-sql-queries.png)
+*High DTU on Azure SQL Database*
 
-The solution includes some *alert-based queries*, as shown above that you can use to alert on specific thresholds for both Azure SQL databases and elastic pools.
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+```
+
+*High DTU on Azure SQL Database Elastic Pool*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+```
+
+You can use these alert-based queries to alert on specific thresholds for both Azure SQL Database and elastic pools. To configure an alert for your OMS workspace:
 
 #### To configure an alert for your workspace
 
 1. Go to the [OMS portal](http://mms.microsoft.com/) and sign in.
 2. Open the workspace that you have configured for the solution.
 3. On the Overview page, click the **Azure SQL Analytics (Preview)** tile.
-4. Scroll to the right and click a query to start creating an alert.  
-![alert query](./media/log-analytics-azure-sql/alert-query.png)
+4. Run one of the example queries.
 5. In Log Search, click **Alert**.  
 ![create alert in search](./media/log-analytics-azure-sql/create-alert01.png)
 6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**.  
