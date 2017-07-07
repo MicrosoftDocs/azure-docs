@@ -3,7 +3,7 @@ title: Understand your Azure detailed usage | Microsoft Docs
 description: Learn how to read and understand the sections of your detailed usage CSV for your Azure subscription
 services: ''
 documentationcenter: ''
-author: tonguyen
+author: tonguyen10
 manager: tonguyen
 editor: ''
 tags: billing
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
-ms.author: tonguyen10
+ms.author: tonguyen
 
 ---
 # Understand terms on your Microsoft Azure detailed usage charges 
