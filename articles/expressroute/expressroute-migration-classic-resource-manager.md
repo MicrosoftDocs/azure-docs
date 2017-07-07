@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 07/06/2017
 ms.author: ganesr;cherylmc
 
 ---
@@ -51,43 +51,6 @@ You must move an ExpressRoute circuit from the classic to the Resource Manager e
 * Use the Azure Service Management portal. You can follow the workflow to [create a new ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and select the import option. 
 
 This operation does not involve downtime. You can continue to transfer data between your premises and Microsoft while the migration is in progress.
-
-## Prepare your virtual network for migration
-You must ensure that the network of your virtual network to be migrated does not have unnecessary artifacts. To download your virtual network configuration and update it as needed, run the following PowerShell cmdlet:
-
-```powershell
-Add-AzureAccount
-Select-AzureSubscription -SubscriptionName <VNET Subscription>
-Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
-```
-      
-You must ensure that all references to `<ConnectionsToLocalNetwork>` are removed from the virtual networks to be migrated. A sample network configuration is shown in the following snippet. Notice that there are no references between the `<ConnectionsToLocalNetwork>` lines:
-
-```
-	<VirtualNetworkSite name="MyVNet" Location="East US">
-		<AddressSpace>
-			<AddressPrefix>10.0.0.0/8</AddressPrefix>
-		</AddressSpace>
-		<Subnets>
-			<Subnet name="Subnet-1">
-				<AddressPrefix>10.0.0.0/11</AddressPrefix>
-	        </Subnet>
-	        <Subnet name="GatewaySubnet">
-	        	<AddressPrefix>10.32.0.0/28</AddressPrefix>
-	        </Subnet>
-	    </Subnets>
-	    <Gateway>
-	    	<ConnectionsToLocalNetwork>
-	        </ConnectionsToLocalNetwork>
-		</Gateway>
-	</VirtualNetworkSite>
-```
- 
-If `<ConnectionsToLocalNetwork>` is not empty, delete the references under it and resubmit your network configuration. You can do so by running the following PowerShell cmdlet:
-
-```powershell
-Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
-```
 
 ## Migrate virtual networks, gateways, and associated deployments
 
