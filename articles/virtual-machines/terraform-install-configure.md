@@ -80,7 +80,6 @@ az vm list-sizes --location westus
 To use a Windows machine to write and execute your Terraform scripts and to use PowerShell for configuration tasks, configure your machine with the right PowerShell tools. 
 
 1. Install PowerShell tools by following the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps). 
-
 2. Download and execute the [azure-setup.ps1 script](https://github.com/echuvyrov/terraform101/blob/master/azureSetup.ps1) from the PowerShell console. 
 3. To run the azure-setup.ps1 script, download it and execute the `./azure-setup.ps1 setup` command from the PowerShell console. Then sign in to your Azure subscription with administrative privileges. 
 4. Provide an application name (arbitrary string, required) when prompted. Optionally, supply a strong password when prompted. If you don't provide a password, a strong password is generated for you by using .NET security libraries.
@@ -89,9 +88,7 @@ To use a Windows machine to write and execute your Terraform scripts and to use 
 To get started with Terraform on Linux machines or Macs with Azure CLI 1.0, install the proper libraries on your machine.  
 
 1. Install Azure xPlat CLI tools by following the steps in [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
-
-2. Download and install a JSON processor by following the instructions in [Download jq](https://stedolan.github.io/jq/download/).  
-
+2. Download and install a JSON processor by following the instructions in [Download jq](https://stedolan.github.io/jq/download/).
 3. Download and execute the [azure-setup.sh script](https://github.com/mitchellh/packer/blob/master/contrib/azure-setup.sh) bash script from the console. 
 4. To run the azure-setup.sh script, download it and execute the `./azure-setup setup` command from the console. Then sign in to your Azure subscription with administrative privileges. 
 5. Provide an application name (arbitrary string, required) when prompted. Optionally, supply a strong password when prompted. If you don't provide a password, a strong password is generated for you by using .NET security libraries.
