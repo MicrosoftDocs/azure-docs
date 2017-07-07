@@ -59,8 +59,9 @@ Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyva
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
-  --key-permissions all \
-  --secret-permissions all
+  --key-permissions encrypt decrypt wrapKey unwrapKey sign verify get list create update im
+port delete backup restore recover purge \
+  --secret-permissions get list set delete backup restore recover purge
 ```
 
 Create a VM with [az vm create](/cli/azure/vm#create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named `myVM` using a **CentOS 7.2n** image:
