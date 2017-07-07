@@ -27,9 +27,9 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 ### What's new
 - You can now use CLI 2.0 to manage Azure Stack resources from a commandline on popular operating systems.
 - DSV2 virtual machine sizes enable template portability between Azure and Azure Stack.
-- Cloud operators can preview the capacity management experience with the capacity management blade.
-- You can now use Azure Diagnostics extension to gather diagnostic data from your virtual machines.  Capturing this data is useful when analyzing workload performance, and for investigating issues.
-- A new deployment experience replaces previous scripted steps for deployment.  The new deployment experience provides a common graphical interface through the entire deployment lifecycle.
+- Cloud operators can preview the capacity management experience within the capacity management blade.
+- You can now use the Azure Diagnostics extension to gather diagnostic data from your virtual machines.  Capturing this data is useful when analyzing workload performance and for investigating issues.
+- A new [deployment experience](azure-stack-run-powershell-script.md) replaces previous scripted steps for deployment.  The new deployment experience provides a common graphical interface through the entire deployment lifecycle.
 - Microsoft Accounts (MSA) are now supported during deployment.
 - Multi-Factor Authentication (MFA) is now supported during deployment.  Previously, MFA must be disabled during deployment.
 
@@ -37,12 +37,13 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 #### Deployment
 * You may notice deployment taking longer than previous releases. 
 * Get-AzureStackLogs generates diagnostic logs, however, does not log progress to the console.
-* Run this tool to modify network adapter configuration before deploying Azure Stack development kit, or deployment may fail.
+* You must use the new [deployment experience](azure-stack-run-powershell-script.md) to deploy Azure Stack, or deployment may fail.
 
 #### Portal
 * You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
 * Tenants are able to browse the full marketplace without a subscription, and will see administrative items like plans and offers.  These items are non-functional to tenants.
-* When selecting an infrastructure role instance,  you see an error showing a reference error. Use the browser’s refresh functionality to refresh the Admin Portal 
+* When selecting an infrastructure role instance,  you see an error showing a reference error. Use the browser’s refresh functionality to refresh the Admin Portal.
+* The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
 
 #### Services
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
@@ -51,12 +52,14 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * A tenant must have an existing storage account before creating a new Azure function.
 * VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null".  Redeployment of the virtual machine succeeds.  
-* Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources/resource group, then delete tenant subscriptions.  
+* Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources or entire resource group, and then delete tenant subscriptions.  
 * You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
 * Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
 * Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration causes virtual machine creation to fail.
+* It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
+* Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in mismatched state.
 
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
-* Compute resource provider displays an unknown state.
+* The compute resource provider displays an unknown state.
 * The BMC IP address & model are not shown in the essential information of a Scale Unit Node.  This behavior is expected in Azure Stack development kit.

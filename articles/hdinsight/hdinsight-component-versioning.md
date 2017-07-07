@@ -69,7 +69,7 @@ The Hadoop ecosystem component versions associated with HDInsight cluster versio
 For Windows-based clusters only: Another way to get component versions is to log in to a cluster by using Remote Desktop and examine the contents of the "C:\apps\dist\" directory directly.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [Windows retirement on HDInsight](#hdi-version-33-nearing-retirement-date). 
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [Windows retirement on HDInsight](#hdinsight-windows-retirement). 
 
 ### Release notes
 
@@ -187,7 +187,7 @@ The following table lists the HDInsight cluster type and Premium support matrix.
 
 | Cluster type | Standard | Premium (Preview) |
 | --- | --- | --- |
-| Hadoop |Yes |Yes (HDInsight 3.5 & 3.6 only) |
+| Hadoop |Yes |Yes (HDInsight 3.6 only) |
 | Spark |Yes |No |
 | HBase |Yes |No |
 | Storm |Yes |No |

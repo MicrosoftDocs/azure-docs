@@ -49,7 +49,7 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.15.0"/>1.15.0
-*	Added the support for specifying custom JsonSerializerSettings while instantiating DocumentClient.
+*	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="1.14.1"/>1.14.1
 *	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running DocumentDB API queries.
