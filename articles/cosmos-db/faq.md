@@ -172,7 +172,8 @@ The database engine of Azure Cosmos DB is designed with the following building b
     - Atoms: Primitive values including Booleans, strings, and numbers. 
     - Records: Objects or recursive composites of "named" values. 
     - Sequences: Arrays or ordered sequences of values.
-    Atoms, records, and sequences, can be easily mapped and projected to various data models. For the columnar data model, every column is simply an atom in a record. 
+    
+    Atoms, records, and sequences can be easily mapped and projected to various data models. For the columnar data model, every column is simply an atom in a record. 
 2. A schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, or tree) which decouple the storage layout from the index and query processing subsystems.
 3. A log structured storage engine capable of ingesting sustained volumes of updates and synchronously and automatically indexing all of the ingested content without requiring any schema. A latch free, highly concurrent btree which is layered on top of the storage engine to support low latency queries.
 4. Ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2). 
