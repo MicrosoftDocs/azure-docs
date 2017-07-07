@@ -29,8 +29,6 @@ There are two varieties of users for Microsoft Azure Stack, the cloud administra
 ## Portal
 The primary methods of interacting with Microsoft Azure Stack are the administrator portal, user portal, and PowerShell.
 
-![](media/azure-stack-key-features/image3.png)
-
 The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud administrator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
 
 ## Identity 
