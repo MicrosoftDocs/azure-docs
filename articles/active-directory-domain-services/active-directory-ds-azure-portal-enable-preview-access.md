@@ -30,7 +30,8 @@ This is because your existing managed domain has not been migrated over to the n
 ## Join the preview for the Azure portal experience for Azure AD Domain Services
 Follow the instructions on the [contact us](active-directory-ds-contact-us.md) page and email us. We are delighted to enable the Azure portal preview for your existing managed domain.
 
-> ![NOTE] When the new Azure portal experience for Azure AD Domain Services is generally available (GA), all existing managed domains will automatically be migrated. At that point, you will be able to manage your existing managed domain from the Azure portal.
+> [!NOTE]
+> When the new Azure portal experience for Azure AD Domain Services is generally available (GA), all existing managed domains will automatically be migrated. At that point, you will be able to manage your existing managed domain from the Azure portal.
 >
 >
 
