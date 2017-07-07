@@ -13,14 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/10/2017
 ms.author: sngun
 
 ---
 
 # Manage Key Vault in Azure Stack using PowerShell
 
-This article helps you get started to create and manage Key Vault in Azure Stack by using PowerShell. The Key Vault PowerShell commands described in this article are available as a part of the Azure PowerShell SDK. Following sections describe the PowerShell commands required to create a vault, store, and manage cryptographic keys and secrets as well as authorize users or applications to invoke operations in the vault. 
+This article helps you get started to create and manage Key Vault in Azure Stack by using PowerShell. The Key Vault PowerShell cmdlets described in this article are available as a part of the Azure PowerShell SDK. The following sections describe the PowerShell cmdlets that are required to create a vault, store, and manage cryptographic keys and secrets as well as authorize users or applications to invoke operations in the vault. 
 
 ## Prerequisites
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
@@ -48,7 +48,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 **Output**
 
-If the registration is successful, the output shows the following:
+If the registration is successful, the following output is returned:
 
 ![register](media/azure-stack-kv-manage-powershell/image2.png)
 
@@ -80,7 +80,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it uses the **Vault URI** property shown in the output. For example, the vault URI here is **https://vault01.vault.local.azurestack.external**. Applications interacting with this key vault through REST API must use this URI.
 
-In ADFS based deployments, when you create a key vault by using PowerShell, you might receive a warning that says "Access policy is not set. No user or application have access permission to use this vault". To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) command:
+In ADFS-based deployments, when you create a key vault by using PowerShell, you might receive a warning that says "Access policy is not set. No user or application has access permission to use this vault". To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) command:
 
 ```PowerShell
 # Obtain the security identifier(SID) of the active directory user
@@ -108,7 +108,7 @@ The **Destination** parameter is used to specify that the key is software protec
 
 ![New Key](media/azure-stack-kv-manage-powershell/image5.png)
 
-You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values specified in the new key.  You can access the previous version by using the version-specific URI of the key. For example, 
+You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values that are specified in the new key.  You can access the previous version by using the version-specific URI of the key. For example, 
 
 * Use **https://vault10.vault.local.azurestack.external:443/keys/key01** to always get the current version  
 * Use **https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a** to get this specific version
@@ -153,7 +153,7 @@ For example, if your vault name is ContosoKeyVault and the application you want 
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
-If you want to authorize that same application to read secrets in your vault, run the following:
+If you want to authorize that same application to read secrets in your vault, run the following cmdlet:
 
 ```PowerShell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get

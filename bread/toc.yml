@@ -126,8 +126,8 @@
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
     - name: Video Indexer
-      tocHref: /azure/cognitive-services/video-indexer/
-      topicHref: /azure/cognitive-services/video-indexer/
+      tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+      topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
