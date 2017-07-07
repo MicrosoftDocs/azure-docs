@@ -24,7 +24,7 @@ ms.author: gwallace
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
 > * [Azure CLI 2.0](application-gateway-ssl-cli.md)
 
-Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
+Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies certificate management at the front end server.
 
 ## Prerequisite: Install the Azure CLI 2.0
 
@@ -80,21 +80,11 @@ az network application-gateway address-pool create \
   --name "appGatewayBackendPool2" \
   --servers 10.0.0.7 10.0.0.8
 
-# Create a new probe
-az network application-gateway probe create \
-  --name "probe2" \
-  --host 127.0.0.1 \
-  --path "/" \
-  --protocol "Http"  \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
 # Create a new back-end HTTP settings using the new probe
 az network application-gateway http-settings create \
   --name "settings2" \
   --port 80 \
   --cookie-based-affinity Enabled \
-  --probe probe2 \
   --protocol "Http" \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"

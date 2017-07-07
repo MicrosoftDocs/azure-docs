@@ -28,7 +28,7 @@ ms.author: gwallace
 > * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
 > * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
+Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application.
 
 ## CLI versions to complete the task
 
@@ -51,8 +51,8 @@ In this scenario, you learn how to create an application gateway using the Azure
 This scenario will:
 
 * Create a medium application gateway with two instances.
-* Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
-* Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
+* Create a virtual network named AdatumAppGatewayVNET with the address space 10.0.0.0/16.
+* Create a subnet called Appgatewaysubnet with the address space 10.0.0.0/28.
 * Configure a certificate for SSL offload.
 
 ![Scenario example][scenario]
@@ -63,7 +63,7 @@ This scenario will:
 ## Before you begin
 
 Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
-only additional application gateways are able to be added to the subnet.
+only additional application gateways can be added to the subnet.
 
 ## Log in to Azure
 
@@ -96,47 +96,47 @@ Before creating the application gateway, a resource group is created to contain 
 az group create --name myresourcegroup --location "eastus"
 ```
 
-## Create a virtual network and subnet
-
-Once the resource group is created, a virtual network is created for the Application Gateway.  In the following example, the address space was as 10.0.0.0/16 is defined for the virtual network and 10.0.0.0/28 is used for the subnet as seen in the preceding scenario notes.
-
-```azurecli
-az network vnet create \
---name AdatumAppGatewayVNET \
---address-prefix 10.0.0.0/16 \
---subnet-name Appgatewaysubnet \
---subnet-prefix 10.0.0.0/28 \
---resource-group AdatumAppGateway \
---location eastus
-```
-
 ## Create the application gateway
 
-Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step:
-The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
+The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers. The following example creates an application gateway with additional configuration settings for http settings, ports and rules.
 
 ```azurecli
 az network application-gateway create \
 --name AdatumAppGateway \
 --location eastus \
 --resource-group AdatumAppGatewayRG \
---vnet-name AdatumAppGatewayVNET \
---vnet-address-prefix 10.0.0.0/16 \
---subnet Appgatewaysubnet \
---subnet-address-prefix 10.0.0.0/28 \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet" \
+--subnet-address-prefix "10.0.0.0/28" \
 --servers 10.0.0.4 10.0.0.5 \
---cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
---cert-password P@ssw0rd \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
---frontend-port 443 \
+--frontend-port 80 \
 --routing-rule-type Basic \
 --http-settings-port 80
+--public-ip-address "pip2" \
+--public-ip-address-allocation "dynamic" \
 
 ```
 
+The preceding example shows many properties that are not required during the creation of an application gateway. The following code example creates an application gateway with the minimally required information.
+
+```azurecli
+az network application-gateway create \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "AdatumAppGatewayRG" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet" \
+--subnet-address-prefix "10.0.0.0/28" \
+--servers "10.0.0.5"  \
+--public-ip-address pip
+```
+ 
 > [!NOTE]
 > For a list of parameters that can be provided during creation run the following command: **az network application-gateway create --help**.
 
