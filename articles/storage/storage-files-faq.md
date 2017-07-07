@@ -20,7 +20,7 @@ ms.author: renash
 ## General
 * **Q. What is Azure File Storage?**  
    
-    Azure File Storage is a distributed file system in Azure. It provides an SMB protocol interface which allows users to mount the storage as a native share on supportedAzure Virtual Machine or  on-premises machine.
+    Azure File Storage is a distributed file system in Azure. It provides an SMB protocol interface which allows users to mount the storage as a native share on supported Azure Virtual Machine or on-premises machine.
 
 * **Q. Why is Azure File Storage useful?**  
    
@@ -38,7 +38,7 @@ ms.author: renash
    
     Learn more on [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](storage-decide-blobs-files-disks.md)
 
-* **Q. How do I get started using Azure FIle Storage?**  
+* **Q. How do I get started using Azure File Storage?**  
    
     You can start by creating an Azure file share. You can create Azure File shares using Azure Portal, the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API.In this tutorial, you will learn:
 
@@ -48,7 +48,7 @@ ms.author: renash
 
 * **Q. What replications are supported by Azure File Storage?**  
    
-    Azure File stroage only supports LRS or GRS right now. We plan to support RA-GRS but there is no timeline to share yet.
+    Azure File storage only supports LRS or GRS right now. We plan to support RA-GRS but there is no timeline to share yet.
 
 ## Security, Authentication and Access Control
 
@@ -157,4 +157,3 @@ See these links for more information about Azure File storage.
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-
