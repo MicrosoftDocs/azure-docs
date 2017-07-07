@@ -56,9 +56,6 @@ Example webhook form:
 
 ![DCOS UI](./media/container-registry-webhook/webhook.png)
 
-> [!NOTE]
-> Currently the request body cannot be modified. If the specified service URI requires a body in a specific format, a conversion mechanism needs to be used.
-
 ## Create webhook Azure CLI
 
 To create a webhook using the Azure CLI, use the [az acr webhook create](/cli/azure/acr/webhook#create) command.
