@@ -363,7 +363,7 @@ When you create a pool with [CreatePool][net_pool_create], you specify several p
 You can also create pools of compute nodes that are Azure Virtual Machines (VMs) by specifying the [VirtualMachineConfiguration][net_virtualmachineconfiguration] for your pool. You can create a pool of VM compute nodes from either Windows or [Linux images](batch-linux-nodes.md). The source for your VM images can be either:
 
 - The [Azure Virtual Machines Marketplace][vm_marketplace], which provides both Windows and Linux images that are ready-to-use. 
-- A custom image that you prepare and provide. For more details about custom images, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md#pools).
+- A custom image that you prepare and provide. For more details about custom images, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicatedComputeNodes` to 1 before you run the sample.
