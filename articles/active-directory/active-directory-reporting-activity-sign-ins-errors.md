@@ -28,7 +28,7 @@ With the information provided by the user sign-in report, you find answers to qu
 This topic lists the error codes and the related descriptions. 
 
 
-## Sign-in activity report error codes
+## Sign-in activity report 
 
 
 [Screenshot of a sign-in activity error]
