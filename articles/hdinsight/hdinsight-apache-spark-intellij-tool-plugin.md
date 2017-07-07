@@ -145,15 +145,17 @@ If you select **Automated** mode, you get the following error:
 You can perform various operations by using Azure Toolkit for IntelliJ.
 
 ### Access the job view
-1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then click **Jobs**.
+1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then click **Jobs**.  
+       ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Click the name of the application for which you want to see more details.
        ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
 3. Hover on job graph, it displays basic running job info. Click on job graph, you can see the stages graph and info which every job generate.
        ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
-4. Several frequently-used log types: Driver Stderr,Driver Stdout,Directory Info which all list in **Log** tab.
+4. Frequently-used log including Driver Stderr, Driver Stdout, Directory Info are listed in **Log** tab.
        ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
 You can also open the Spark history UI and the YARN UI (at the application level) by clicking the respective hyplink at the top of the window.
+
 ### Access the Spark history server
 1. In Azure Explorer, expand **HDInsight**, right-click your Spark cluster name, and then select **Open Spark History UI**. When you're prompted, enter the admin credentials for the cluster. You must have specified these while provisioning the cluster.
 2. In the Spark history server dashboard, you can use the application name to look for the application that you just finished running. In the preceding code, you set the application name by using `val conf = new SparkConf().setAppName("MyClusterApp")`. Hence, your Spark application name was **MyClusterApp**.
