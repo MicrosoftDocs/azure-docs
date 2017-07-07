@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 07/06/2017
 ms.author: ancav
 
 ---
@@ -96,6 +96,10 @@ To create an activity log alert using a Resource Manager template, you create a 
 }
 ```
 
+You can also [visit our Quickstart Gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) for some examples of Activity Log alert templates.
+
 ## Next Steps
-Learn more about [Alerts](monitoring-overview-alerts.md)  
-How to add [action groups using a Resource Manager template](monitoring-create-action-group-with-resource-manager-template.md)
+- Learn more about [Alerts](monitoring-overview-alerts.md)  
+- How to add [action groups using a Resource Manager template](monitoring-create-action-group-with-resource-manager-template.md)
+- [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
