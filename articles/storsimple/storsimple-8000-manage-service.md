@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ms.author: alkohli
 
 ---
@@ -23,22 +23,7 @@ ms.author: alkohli
 
 The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. After you create the service, you can use it to manage all the devices that are connected to the StorSimple Device Manager service from a single, central location, thereby minimizing administrative burden.
 
-The common tasks related to a StorSimple Device Manager service are:
-
-* Create a service
-* Delete a service
-* Get the service registration key
-* Regenerate the service registration key
-* Move StorSimple service 
-
-This tutorial describes how to perform each of the preceding tasks. The information contained in this article is applicable only to StorSimple 8000 series devices. For more information on StorSimple Virtual Arrays, go to [deploy a StorSimple Device Manager service for your StorSimple Virtual Array](storsimple-virtual-array-manage-service.md).
-
-For each StorSimple Device Manager service, the following information is presented on the StorSimple Device Manager page:
-
-* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. The service name cannot be changed after the service is created.
-* **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
-* **Location** – The geographical location in which the StorSimple device will be deployed.
-* **Subscription** – The billing subscription that is associated with your service.
+This tutorial describes the steps required for the creation, deletion, migration of the service and the management of the service registration key. The information contained in this article is applicable only to StorSimple 8000 series devices. For more information on StorSimple Virtual Arrays, go to [deploy a StorSimple Device Manager service for your StorSimple Virtual Array](storsimple-virtual-array-manage-service.md).
 
 ## Create a service
 To create a StorSimple Device Manager service, you need to have:
@@ -62,6 +47,13 @@ Perform the following steps to create a service.
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
 
+For each StorSimple Device Manager service, the following information is presented on the StorSimple Device Manager blade:
+
+* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. The service name cannot be changed after the service is created.
+* **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
+* **Location** – The geographical location in which the StorSimple device will be deployed.
+* **Subscription** – The billing subscription that is associated with your service.
+
 ## Move a service to Azure portal
 StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal.
 
@@ -79,10 +71,13 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 * The transition is non-disruptive and there is no downtime for the device.
 
+* All the StorSimple Device Managers under the specified subscription are transitioned.
+
 #### During the transition
 
 * You cannot manage your device from the portal.
 * Operations such as tiering and scheduled backups continue to occur.
+* Do not delete the old StorSimple Device Managers while the transition is in progress.
 
 #### After the transition
 
