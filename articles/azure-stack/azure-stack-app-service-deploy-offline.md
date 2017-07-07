@@ -19,15 +19,7 @@ ms.author: anwestg
 ---
 # Add an App Service resource provider to a disconnected Azure Stack environment secured by ADFS
 
-If you are running Azure Stack in an isolated environment secured by ADFS and you want to give your tenants the ability to create Web, Mobile, and API applications and Azure Functions with their Azure Stack subscription, you must add an [App Service Resource Provider](azure-stack-app-service-overview.md) to your Azure Stack deployment. To do so, follow these steps:
-
-1. Download required components.
-2. Use the installer to create an offline installation package.
-3. Create certificates to be used by App Service on Azure Stack.
-4. Use the installer to complete the offline installation of App Service.
-5. ADFS Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
-6. Validate App Service Installation.
-7. Test Drive the App Service Resource Provider.
+If you are running Azure Stack in an isolated environment secured by ADFS and you want to give your tenants the ability to create Web, Mobile, and API applications and Azure Functions with their Azure Stack subscription, you must add an [App Service Resource Provider](azure-stack-app-service-overview.md) to your Azure Stack deployment. To do so, follow these steps below.
 
 ## Download the required components
 
@@ -48,7 +40,7 @@ To deploy App Service in an isolated environment, you need must create an offlin
 2. Click the **Advanced** tab and click **Create offline installation package**.
 ![App Service on Azure Stack Advanced Options Create Offline Installation Package][1]
 3. The App Service installer will create an offline installation package and then display the path and give an option to open the folder.
-![App Service on Azure Stack Offline Installation Package][2]
+   ![App Service on Azure Stack Offline Installation Package][2]
 4. Now copy the **App Service on Azure Stack preview installer** (AppService.exe) and the Offline Installation Package to the Azure Stack Host machine.
 
 ## Create certificates to be used by App Service on Azure Stack
@@ -86,8 +78,8 @@ This first script works with the Azure Stack certificate authority to create thr
 7. Click **Connect** (Next to the Azure Stack Subscriptions box).  Provide your **Admin Account (for example azurestackadmin@azurestack.local)** and **password** and then Click **Sign In**
 8. Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
 9. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
-   - Select the location corresponding to the region you are deploying, for example, **Local**
-   - Click **Next**    
+   * Select the location corresponding to the region you are deploying, for example, **Local**
+   * Click **Next**    
 ![App Service on Azure Stack Subscription Selection][6]
 10. Enter the **Resource Group Name** for your App Service deployment, by default this is set to **APPSERVICE-LOCAL**.
 11. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
@@ -109,7 +101,7 @@ Storage, and
 ![App Service on Azure Stack Role Configuration][9]
 
     > [!NOTE]
-    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the fAzure Resource Manager.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
+    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the Azure Resource Manager.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
 
 20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.     
 ![App Service on Azure Stack VM Image Selection][10]
@@ -122,7 +114,7 @@ Storage, and
 ![App Service on Azure Stack Installation Progress][13]
 25. After the installer successfully completes, click **Exit**.
 
-## ADFS Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
+## Configure ADFS Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for the Azure Functions Portal and Advanced Developer Tools
 
 >[!NOTE]
 > These steps are only applicable to ADFS secured Azure Stack Environments.

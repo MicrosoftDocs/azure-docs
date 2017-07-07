@@ -19,15 +19,7 @@ ms.author: anwestg
 ---
 # Add an App Service resource provider to Azure Stack
 
-If you want to give your tenants the ability to create Web, Mobile, and API applications with their Azure Stack subscription, you must add an [App Service Resource Provider](azure-stack-app-service-overview.md) to your Azure Stack deployment. To do so, follow these steps:
-
-1. Download required components.
-2. Create certificates to be used by App Service on Azure Stack.
-3. Use the installer to download, stage and, install App Service.
-4. Validate App Service Installation.
-5. AAD Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools.
-6. ADFS Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools.
-7. Test Drive the App Service Resource Provider.
+If you want to give your tenants the ability to create Web, Mobile, and API applications with their Azure Stack subscription, you must add an [App Service Resource Provider](azure-stack-app-service-overview.md) to your Azure Stack deployment. To do so, follow the steps below.
 
 ## Download the required components
 
@@ -112,18 +104,18 @@ The following steps guide you through the installation stages:
 ![App Service on Azure Stack Role Configuration][6]
 
     > [!NOTE]
-    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the fAzure Resource Manager.  This will remain for single node Development Kit but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
+    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the Azure Resource Manager.  This will remain for single node Development Kit but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
 
 19. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
    ![App Service on Azure Stack VM Image Selection][7]
-20. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all other **App Service** roles and click **Next**.
+21. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all other **App Service** roles and click **Next**.
    ![App Service on Azure Stack Credential Entry][8]
-21. The summary listing displays the result of all of the selections you have made for verification.   If you wish to make any changes navigate back through the screens and amend the selections.  If the configuration is as desired **check the checkbox** and click **Next**. 
+22. The summary listing displays the result of all of the selections you have made for verification.   If you wish to make any changes navigate back through the screens and amend the selections.  If the configuration is as desired **check the checkbox** and click **Next**.
    ![App Service on Azure Stack Selection Summary][9]
-22. The installer begins the deployment of App Service on Azure Stack.
-23. The final step of deploying App Service on Azure Stack will take about 45-60 minutes to complete based on the default selections.
+23. The installer begins the deployment of App Service on Azure Stack.
+24. The final step of deploying App Service on Azure Stack will take about 45-60 minutes to complete based on the default selections.
    ![App Service on Azure Stack Installation Progress][10]
-24. After the installer successfully completes, click **Exit**.
+25. After the installer successfully completes, click **Exit**.
 
 ## Validate App Service on Azure Stack Installation
 
@@ -137,7 +129,7 @@ The following steps guide you through the installation stages:
 > You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
 ![App Service on Azure Stack Managed Servers Status][11]
 
-## AAD Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
+## Configure AAD Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for the Azure Functions Portal and Advanced Developer Tools
 
 >[!NOTE]
 > These steps are only applicable to AAD secured Azure Stack Environments.
@@ -186,7 +178,7 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 | DomainName | Required | local.azurestack.external | Azure Stack Region and Domain Suffix |
 | AdfsMachineName | Optional | Ignore in case of AAD Deployment but required in ADFS deployment. ADFS machine name for example AzS-ADFS01.azurestack.local |
 
-## ADFS Based Deployments - Configure Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for Kudu and the Azure Functions Portal and Advanced Developer Tools
+## Configure ADFS Service Principal for Virtual Machine Scale Set Integration on Worker Tiers and Single Sign On for the Azure Functions Portal and Advanced Developer Tools
 
 >[!NOTE]
 > These steps are only applicable to ADFS secured Azure Stack Environments.
