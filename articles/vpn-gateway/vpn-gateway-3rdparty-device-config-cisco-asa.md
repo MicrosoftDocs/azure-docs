@@ -105,7 +105,8 @@ The script below provides a sample configuration based on the topology and param
 4. IPsec policy and parameters (Phase 2 or Quick Mode)
 5. Other parameters (TCP MSS clamping, etc.)
 
->[!IMPORTANT] Please make sure you complete the additional configuration listed below and replace the placeholders with the actual values:
+>[!IMPORTANT] 
+>Please make sure you complete the additional configuration listed below and replace the placeholders with the actual values:
 > 
 > - Interface configuration for both inside and outside interfaces
 > - Routes for your inside/private and outside/public networks
