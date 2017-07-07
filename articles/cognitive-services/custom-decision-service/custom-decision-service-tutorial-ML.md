@@ -33,10 +33,12 @@ Each action is represented by a vector of properties, henceforth called *feature
 
 You can specify features in a format most natural for your application, be it a number, a string, or an array. These features are called "native features." Custom Decision Service translates each native feature into one or more numeric features, called "internal features."
 
-You can customize some aspects of this translation:
+The translation into internal features is as follows:
 
-- a string can be represented as a bit vector: an internal feature is created for each word in the string, and its value is set to "true."
-- a feature can be represented as a bit vector: each bit is set if and only if the feature lies in a specified range of values (see [1-hot encoding](#1-hot-encoding)).
+- numeric features stay the same.
+- a numeric array translates to several numeric features, one for each element of the array.
+- a string-valued feature `"Name":"Value"` is by default translated  into a feature with name `"NameValue"` and value 1.
+- Optionally, a string can be represented as [bag-of-words](https://en.wikipedia.org/wiki/Bag-of-words_model). Then an internal feature is created for each word in the string, and its value is set to the number of occurrences of this word.
 
 #### Shared vs. action-dependent features
 
@@ -54,43 +56,22 @@ To account for interaction between features X and Y, create a *quadratic* featur
 
 In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way.
 
-#### 1-hot encoding
-
-You can choose to represent some features as bit vectors, where each bit corresponds to a range of possible values. This bit is set to 1 if and only if the feature lies in this range. Thus, there is one "hot" bit that is set to 1, and the others are set to 0. This representation is commonly known as *1-hot encoding*.
-
-The 1-hot encoding is typical for categorical features such as zipcode, which do not have an inherently meaningful numerical representation. It is also advisable for numerical features whose influence on the reward is likely to be non-linear. For example, a given article could be relevant to a particular age group, and irrelevant to anyone older or younger. 
-
-In slightly more depth, our machine learning algorithms treat all possible values of a feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows each range of values to receive a more individual treatment. 
-
-When choosing the ranges for the 1-hot encoding, keep in mind that all values within each range is treated uniformly. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
-
-#### Estimated average as a feature
-
-As a thought experiment, what would be the average reward of a given action if it were chosen for all decisions? Such average reward could be used as a measure of the "overall quality" of this action. It is not known exactly whenever other actions have been chosen instead in some decisions. However, it can be estimated via reinforcement learning techniques. The quality of this estimate typically improves over time.
-
-You can choose to include this "estimated average reward" as a feature for a given action. Then Custom Decision Service would automatically update this estimate as new data arrives. This feature is called the *marginal feature* of this action.
-
 #### Implementation via namespaces
 
-You can specify the featurization concepts discussed previously via a "VW arguments string" on the Portal. Custom Decision Service provides a flexible syntax based on the [Vowpal Wabbit](http://hunch.net/~vw/) command line.
+You can implement crossed features (as well as other featurization concepts) via the "VW command line" on the Portal. The syntax is based on the [Vowpal Wabbit](http://hunch.net/~vw/) command line.
 
-Central to the implementation is the concept of  *namespace*: a named subset of features. Each feature belongs to exactly one namespace. The namespace can be specified explicitly when the feature value is provided.
+Central to the implementation is the concept of  *namespace*: a named subset of features. Each feature belongs to exactly one namespace. The namespace can be specified explicitly when the feature value is provided to Custom Decision Service. It is the only way to refer to a feature in the VW command line.
 
-[!TIP] It is a good practice to specify a namespace explicitly for each feature. Else, the feature is automatically assigned to the default namespace.
+A namespace is either "shared" or "action-depepdent": either it consists only of shared features, or it consists only of action-dependent features of the same action.
 
-[!IMPORTANT] Features and namespaces do not need to be defined consistently across actions. In particular, a namespace can have different features for different actions. Moreover, a namespace can be defined for some actions and not for some others.
+[!TIP] It is a good practice to wrap each feature in an explicitly specified namespace. If the namespace is not provided, the feature is automatically assigned to the default namespace. However, you cannot refer to it from the VW command line. 
 
-While native features may have meaningful ids, such as 'age' or 'zipcode', internal features do not have individual feature ids. Namespaces are used instead.
+[!IMPORTANT] Features and namespaces do not need to be defined consistently across actions. In particular, a namespace can have different features for different actions. Moreover, a given namespace can be defined for some actions and not for some others.
 
-When a native feature such as a string is translated into multiple internal features, all internal features are grouped into the same namespace. Native features with the same feature id, but in different namespaces, are treated as distinct.
-
-
-
-
-
+When a native feature such as a string is translated into multiple internal features, all internal features are grouped into the same namespace. Any two native features that lie in different namespaces are treated as distinct, even if they have the same feature name. 
 
 [!IMPORTANT]
-While long, descriptive namespace ids are common, the system truncates each id to the first letter. Thus, all namespaces whose id starts with the same letter are treated as the same "logical namespace." In what follows, namespace ids are single letters, such as `x` and `y`.
+While long, descriptive namespace ids are common, the VW command line does not distinguish between namespaces whose id starts with the same letter.  In what follows, namespace ids are single letters, such as `x` and `y`.
 
 The implementation details are as follows:
 
@@ -98,10 +79,44 @@ The implementation details are as follows:
 
 - To ignore all features in namespace `x`, write `--ignore x`.
 
-- To create marginal features, write `--marginal x`, where `x` is a namespace that describes the action ids.
+These commands are applied to each action separately, whenever the namespaces are defined.
 
+#### Estimated average as a feature
 
-The above commands apply for each action separately. If a namespace is not defined for a given action, the corresponding command is ignored.
+As a thought experiment, what would be the average reward of a given action if it were chosen for all decisions? Such average reward could be used as a measure of the "overall quality" of this action. It is not known exactly whenever other actions have been chosen instead in some decisions. However, it can be estimated via reinforcement learning techniques. The quality of this estimate typically improves over time.
+
+You can choose to include this "estimated average reward" as a feature for a given action. Then Custom Decision Service would automatically update this estimate as new data arrives. This feature is called the *marginal feature* of this action.
+
+To add marginal features, write `--marginal <namespace>` in the VW command line. 
+Define `<namespace>` as follows:
+
+```
+{<namespace>: "feature_name":1 "action_id":1}
+```
+
+Insert this namespace along with other action-dependent features of a given action. Provide this definition for each decision, using the same `feature_name` and `action_id` for all decisions.
+
+The marginal feature is added for each action with `<namespace>`. The feature name is set to `feature_name`. In particular, marginal features with different `feature_name` are treated as different features. In other words, a different weight is learned for each `feature_name`. 
+
+The default usage is that `feature_name` is the same for all actions. Then one weight is learned for all marginal features.
+
+You can also specify multiple marginal features for the same action, with same values but different feature names.
+
+```
+{<namespace>: "fn1":1 "action_id":1 "fn2":1 "action_id":1}
+```
+
+#### 1-hot encoding
+
+You can choose to represent some features as bit vectors, where each bit corresponds to a range of possible values. This bit is set to 1 if and only if the feature lies in this range. Thus, there is one "hot" bit that is set to 1, and the others are set to 0. This representation is commonly known as *1-hot encoding*.
+
+The 1-hot encoding is typical for categorical features such as "geographical region" which do not have an inherently meaningful numerical representation. It is also advisable for numerical features whose influence on the reward is likely to be non-linear. For example, a given article could be relevant to a particular age group, and irrelevant to anyone older or younger.
+
+Any string-valued feature is 1-hot encoded by default: a distinct internal feature is created for every possible value. We do not currently provide 1-hot encoding for numerical features and/or with customized ranges.
+
+In slightly more depth, our machine learning algorithms treat all possible values of a feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows each range of values to receive a more individual treatment. 
+
+When choosing the ranges for the 1-hot encoding, keep in mind that all values within each range is treated uniformly. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
 
 ## Feature specification
 
@@ -125,7 +140,7 @@ If `<name>` starts with "_" (and is not `"_text"`), then the feature is ignored.
 
 #### Feature Set API 
 
-Feature Set API returns a list of features in the JSON format described previously. Several Feature Set APIs can be used, identified by feature set ids. The mapping between feature set ids and the corresponding URLs is set on the Portal.
+Feature Set API returns a list of features in the JSON format described previously. Several Feature Set APIs can be used, identified by feature set ids. The mapping between feature set ids and the corresponding URLs is set on the Portal. For action-dependent features, a call to Feature Set API is parameterized by the action id.
 
 #### Action Set API (JSON version)
 
