@@ -1,6 +1,6 @@
 ---
 title: 'Get started connecting physical devices to Azure IoT Hub | Microsoft Docs'
-description: 'Learn how to create physical IoT devices and connect them to Azure IoT Hub. Your devices can send telemtry to IoT Hub and Iot Hub can monitor and manage your devices.'
+description: 'Learn how to connect physical devices and boards to Azure IoT Hub. Your devices can send telemetry to IoT Hub and IoT Hub can monitor and manage your devices.'
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts
