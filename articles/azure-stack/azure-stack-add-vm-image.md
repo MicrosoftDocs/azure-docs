@@ -18,7 +18,7 @@ ms.author: sngun
 
 ---
 # Make a custom virtual machine image available in Azure Stack
-Azure Stack enables administrators to make custom virtual machine images available to their tenants. These images can
+Azure Stack enables cloud administrators to make custom virtual machine images available to their users. These images can
 be referenced by Azure Resource Manager templates or added to the
 Azure Marketplace UI with the creation of a Marketplace item. 
 
@@ -42,7 +42,7 @@ You can use the steps described in this article either from the Azure Stack Deve
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-4. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
+4. Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
    ```powershell
    Add-AzureStackAzureRmEnvironment `
      -Name "AzureStackAdmin" `
@@ -105,10 +105,10 @@ Remove-AzsVMImage `
 
 | Parameter | Description |
 | --- | --- |
-| **publisher** |The publisher name segment of the VM image that tenants use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field. |
-| **offer** |The offer name segment of the VM Image that tenants use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
-| **sku** |The SKU name segment of the VM Image that tenants use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
-| **version** |The version of the VM Image that tenants use when deploying the VM image. This version is in the format *\#.\#.\#*. An example is ‘1.0.0’. Do not include a space or other special characters in this field. |
+| **publisher** |The publisher name segment of the VM image that users use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field. |
+| **offer** |The offer name segment of the VM Image that users use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
+| **sku** |The SKU name segment of the VM Image that users use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
+| **version** |The version of the VM Image that users use when deploying the VM image. This version is in the format *\#.\#.\#*. An example is ‘1.0.0’. Do not include a space or other special characters in this field. |
 | **osType** |The osType of the image must be either ‘Windows’ or ‘Linux’. |
 | **osDiskLocalPath** |The local path to the OS disk VHD that you are uploading as a VM image to Azure Stack. |
 | **dataDiskLocalPaths** |An optional array of the local paths for data disks that can be uploaded as part of the VM image. |
@@ -141,7 +141,7 @@ One requirement of images is that they can be referenced by a Blob storage URI. 
 
    ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as an administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
+2. Sign in to Azure Stack as a cloud administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
 
 3. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version
    of the virtual machine image. These name segments refer to the VM
