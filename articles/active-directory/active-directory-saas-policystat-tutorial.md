@@ -129,11 +129,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. To add the required attribute mappings, perform the following steps:
 
-	| Attribute Name    |   Attribute Value |  
-   | ------------------- | -------------------- |    
-   | uid | ExtractMailPrefix([mail]) |
- 
-
+	| Attribute Name    |   Attribute Value |
+	|------------------- | -------------------- |
+	| uid | ExtractMailPrefix([mail]) |
+	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/tutorial_policystat_04.png)
