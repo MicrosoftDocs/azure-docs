@@ -1,6 +1,6 @@
 ---
-title: Azure virtual machine scale sets overview | Microsoft Docs
-description: Learn more about Azure virtual machine scale sets
+title: Networking for Azure virtual machine scale sets | Microsoft Docs
+description: Configuration networking properties for Azure virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gbowerman
