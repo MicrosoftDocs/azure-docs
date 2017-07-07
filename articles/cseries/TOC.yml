@@ -1,0 +1,21 @@
+- name: Overview
+  items:
+  - name: About C-Series containers
+    href: cseries-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+- name: Tutorials
+  items:
+- name: How-to guides
+  items:
+- name: Reference
+  items:
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Templates - C-Series
+    href: https://github.com/microsoft/azure-cseries-preview
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
