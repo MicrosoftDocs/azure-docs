@@ -51,7 +51,7 @@ The scenario that's outlined here consists of two main building blocks:
 2. Configuring and testing Azure AD single sign-on.
 
 ## Add HR2day by Merces from the gallery
-To configure the integration of HR2day by Merces into Azure AD, you need to add HR2day by Merces from the gallery to your list of managed SaaS apps.
+To configure the integration of HR2day by Merces into Azure AD, add HR2day by Merces from the gallery to your list of managed SaaS apps.
 
 **To add HR2day by Merces from the gallery, take the following steps:**
 
@@ -76,9 +76,9 @@ To configure the integration of HR2day by Merces into Azure AD, you need to add 
 	![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_addfromgallery.png)
 
 ##  Configure and test Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with HR2day by Merces based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with HR2day by Merces based on a test user called "Britta Simon."
 
-For single sign-on to work, Azure AD needs to know who the counterpart user in HR2day by Merces is to a user in Azure AD. In other words, a link needs to be established between an Azure AD user and the related user in HR2day by Merces.
+For single sign-on to work, Azure AD needs to know who the counterpart user in HR2day by Merces is to a user in Azure AD. In other words, you need to establish a link between an Azure AD user and the related user in HR2day by Merces.
 
 In HR2day by Merces, assign the **user name** in Azure AD to  **Username** to establish the relationship.
 
@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
 
-5. This section describes how to enable users to authenticate to HR2day by Merces with their account in Azure AD by using federation that's based on the SAML protocol.
+5. This section describes how to enable users to authenticate to HR2day by Merces with their account in Azure AD. They do this by using federation that's based on the SAML protocol.
 
     Your HR2day by Merces application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token. The following screenshot shows an example of this. 
 
@@ -142,9 +142,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** box, type **“ATTR_LOGINCLAIM”**.
+	b. In the **Name** box, type **“ATTR_LOGINCLAIM.”**
 
-	c. From the **Value** list, select **Join()**.
+	c. From the **Value** list, select **Join().**
 
 	d. From the **String1** list, select **user.mail**.
 
@@ -162,13 +162,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
 
-9. To configure SSO  for your application, contact the [HR2day by Merces Client support team](mailTo:servicedesk@merces.nl). Attach the downloaded **Certificate(Base64)** file to your email. Also provide the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** so that they can be configured for SSO integration.
+9. To configure SSO  for your application, contact the [HR2day by Merces client support team](mailTo:servicedesk@merces.nl). Attach the downloaded **Certificate(Base64)** file to your email. Also provide the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** so that they can be configured for SSO integration.
 
     > [!TIPS]
     >- Mention to the Merces team that this integration needs the Entity ID to be set with the pattern **https://hr2day.force.com/INSTANCENAME**.
    
    
-	>- You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+	>- You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab. Then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
@@ -207,7 +207,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in HR2day by Merces. To add the users in the HR2day account, work with the[HR2day by Merces client support team](mailto:servicedesk@merces.nl). 
 
 > [!NOTE]
-> If you need to create an user manually, contact the [HR2day by Merces client support team](mailto:servicedesk@merces.nl).
+> If you need to create a user manually, contact the [HR2day by Merces client support team](mailto:servicedesk@merces.nl).
 
 ### Assign the Azure AD test user
 
