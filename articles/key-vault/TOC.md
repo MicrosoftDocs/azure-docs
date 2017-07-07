@@ -17,13 +17,13 @@
 ### Overviews
 #### [Security worlds overview](key-vault-ovw-security-worlds.md)
 #### [Soft-delete overview](key-vault-ovw-soft-delete.md)
-#### [Storage account keys overview](key-vault-ovw-storage-keys.md)
 #### [Throttling overview](key-vault-ovw-throttling.md)
 
 ## Manage
 ### [Azure Key Vault logging](key-vault-logging.md)
 ### [Access behind firewalls](key-vault-access-behind-firewall.md)
 ### [Change tenant ID](key-vault-subscription-move-fix.md)
+### [Use groups to grant access](key-vault-group-permissions-for-apps.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
 

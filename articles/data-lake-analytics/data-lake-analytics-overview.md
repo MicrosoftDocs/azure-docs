@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/18/2017
+ms.date: 06/23/2017
 ms.author: saveenr
 
 ---
@@ -43,6 +43,6 @@ Azure Data Lake Analytics is an on-demand analytics job service to simplify big 
 
 ## Next steps
  
-  * Get Started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md) | [Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md) | [REST](data-lake-analytics-get-started-rest-api.md) | [Java](data-lake-analytics-get-started-java-sdk.md) | [Python](data-lake-analytics-get-started-python.md)
+  * Get Started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)
   * Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
   * [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) 

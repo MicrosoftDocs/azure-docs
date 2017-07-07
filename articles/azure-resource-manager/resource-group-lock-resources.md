@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 06/27/2017
 ms.author: tomfitz
 
 ---
@@ -92,7 +92,7 @@ Get-AzureRmResourceLock
 To get all locks for a resource, use:
 
 ```powershell
-New-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites `
+Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites `
   -ResourceGroupName exampleresourcegroup
 ```
 

@@ -174,5 +174,5 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 |  |***Internal load balancer (ILB)*** |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) | |
 
 ## Next steps
-* [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the classic portal.
+* [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the Azure portal.
 

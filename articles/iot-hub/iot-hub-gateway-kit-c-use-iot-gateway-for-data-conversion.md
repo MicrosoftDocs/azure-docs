@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 06/25/2017
 ms.author: xshi
 
 ---
@@ -68,11 +68,11 @@ You learn how to create a module to convert messages from the SensorTag into a d
 To compile the module, run the following commands:
 
 ```bash
-cd iot-hub-c-intel-nuc-gateway-customized-module
+cd iot-hub-c-intel-nuc-gateway-customized-module/my_module
 # change the build script runnable
 chmod 777 build.sh
 # remove the invalid windows character
-sed -i -e "s/\r$\/\/" build.sh
+sed -i -e "s/\r$//" build.sh
 # run the build shell script
 ./build.sh
 ```

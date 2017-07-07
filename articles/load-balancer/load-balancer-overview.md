@@ -115,6 +115,10 @@ You can assign more than one load-balanced public IP address to a set of virtual
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
+## Limitations
+
+Load Balancer backend pools can contain any VM SKU except Basic tier.
+
 ## Next steps
 
 [Internet-facing load balancer overview](load-balancer-internet-overview.md)
