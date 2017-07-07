@@ -47,9 +47,9 @@ Perform the following steps to create a service.
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
 
-For each StorSimple Device Manager service, the following information is presented on the StorSimple Device Manager blade:
+For each StorSimple Device Manager service, the following attributes exists:
 
-* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. The service name cannot be changed after the service is created.
+* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. **The service name cannot be changed after the service is created.**
 * **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
 * **Location** – The geographical location in which the StorSimple device will be deployed.
 * **Subscription** – The billing subscription that is associated with your service.
@@ -98,7 +98,7 @@ Perform the following steps to transition your service to the Azure portal.
     ![Migration notifiaction](./media/storsimple-8000-manage-service/service-transition1.jpg)
 
     1. Ensure that you have reviewed the full impact of migration.
-    2. Review the list of StorSimple services that will be moved from the classic portal.
+    2. Review the list of StorSimple Device Managers that will be moved from the classic portal.
 
 3. Click **Migrate**. The transition begins and takes a few minutes to complete.
 
