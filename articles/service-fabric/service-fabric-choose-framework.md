@@ -21,14 +21,14 @@ ms.author: vturecek
 Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of the platform's features and application frameworks. Services can also be any compiled executable program written in any language or code running in a container simply hosted on a Service Fabric cluster.
 
 ## Guest executables
-A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbitrary executable (written in any language) that can be run as a service in your application. Guest executables do not call the Service Fabric SDK APIs direcly. However they still benefit from features the platform offers, such as service discoverability, custom health and load reporting by calling REST APIs exposed by Service Fabric. They also have full application lifecycle support.
+A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbitrary executable (written in any language) that can be run as a service in your application. Guest executables do not call the Service Fabric SDK APIs directly. However they still benefit from features the platform offers, such as service discoverability, custom health and load reporting by calling REST APIs exposed by Service Fabric. They also have full application lifecycle support.
 
 Get started with guest executables by deploying your first [guest executable application](service-fabric-deploy-existing-app.md).
 
 ## Containers
 By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [containers](service-fabric-containers-overview.md). Service Fabric supports deployment of Linux containers and Windows containers on Windows Server 2016. Container images can be pulled from any container repository and deployed to the machine. You can deploy existing applications as guest exectuables, Service Fabric stateless or stateful Reliable services or Reliable Actors in containers, and you can mix services in processes and services in containers in the same application.
 
-[Learn more about Containerizing your services in Windows or Linux](service-fabric-deploy-container.md)
+[Learn more about containerizing your services in Windows or Linux](service-fabric-deploy-container.md)
 
 ## Reliable Services
 Reliable Services is a light-weight framework for writing services that integrate with the Service Fabric platform and benefit from the full set of platform features. Reliable Services provide a minimal set of APIs that allow the Service Fabric runtime to manage the lifecycle of your services and that allow your services to interact with the runtime. The application framework is minimal, giving you full control over design and implementation choices, and can be used to host any other application framework, such as ASP.NET Core.
