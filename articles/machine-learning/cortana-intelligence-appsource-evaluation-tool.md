@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
 --- 
 # Cortana Intelligence solution evaluation tool
@@ -20,7 +20,7 @@ ms.author: anupams;v-bruham;garye
 You can use the Cortana Intelligence solution evaluation tool to assess your advanced analytics applications for compliance with Microsoft-recommended best practices. Microsoft is excited to work with our partners (ISVs / SIs) to provide high-quality solutions for customers, resellers and implementation. This guide will walk through the process of using the Solution evaluation tool with your application and describe the specific best practices in checks for.
 
 ## Getting started
-Please [download](https://aka.ms/aa-evalution-tool-download) and install the Cortana Intelligence solution evaluation tool.
+Please [download](https://aka.ms/aa-evaluation-tool-download) and install the Cortana Intelligence solution evaluation tool.
 
 Prerequisites:
 - Windows 10: [Official site for Windows 10](https://www.microsoft.com/en-us/windows)
@@ -82,6 +82,8 @@ Your app may use IaaS virtual machines running Sql Server Analysis Services inst
 After completing the test cases, your evaluation package will be exported to a zip file and you will be asked to provide feedback on the evaluation tool.
 
 ![Grade evaluation tool](./media/cortana-intelligence-appsource-evaluation-tool/7-grade-evaluation-tool.png)
+
+Above section of this article covers various features of the tool, now let us review types of best practices that this tool evaluates.
 
 ## Security evaluation considerations
 ### Databases should use Azure Active Directory authentication
