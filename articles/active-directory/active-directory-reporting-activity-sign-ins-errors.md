@@ -25,11 +25,17 @@ With the information provided by the user sign-in report, you find answers to qu
 * How many users have users signed in over a week?
 * What’s the status of these sign-ins?
 
+This topic lists the error codes and the related descriptions. 
+
+
+## Sign-in activity report error codes
+
+
 [Screenshot of a sign-in activity error]
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/43.png "Sign-in activity")
 
-## Sign-in activity report error codes
+
 
 ## Error codes
 
