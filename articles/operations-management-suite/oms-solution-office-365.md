@@ -31,7 +31,10 @@ The Office 365 solution for Operations Management Suite (OMS) allows you to moni
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
 
-- Office 365 subscription and  credentials for a user account that is a Global Administrator. 
+- Organizational Office 365 subscription.
+- Credentials for a user account that is a Global Administrator.
+- To receive audit data, you must [configure auditing](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.
+ 
 
 
 ## Management packs
@@ -54,7 +57,7 @@ Once you [add the Office 365 solution to your subscription](../log-analytics/log
 The Office 365 solution doesn't retrieve data from any of the [OMS agents](../log-analytics/log-analytics-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
-To be completed.   
+Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created..
 
 ## Using the solution
 When you add the Office 365 solution to your OMS workspace, the **Office 365** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
@@ -285,9 +288,15 @@ The following table provides sample log searches for update records collected by
 
 ## Troubleshooting
 
-This section provides information to help troubleshoot issues with the Update Management solution.  
+If your Office 365 solution is not collecting data as expected, check its status in the OMS portal at **Settings** -> **Connected Sources** -> **Office 365**. The following table describes each status.
 
-To be completed.
+| Status | Description |
+|:--|:--|
+| Active | The Office 365 subscription is active and the workload is successfully connected to your OMS workspace. |
+| Pending | The Office 365 subscription is active but the workload is not yet connected to your OMS workspace successfully. The first time you connect the Office 365 subscription, all the workloads will be at this status until they are successfully connected. Please allow 24 hours for all the workloads to switch to Active. |
+| Inactive | The Office 365 subscription is in an inactive state. Check your Office 365 Admin page for details. After you activate your Office 365 subscription, unlink it from your OMS workspace and link it again to start receiving data. |
+
+
 
 ## Next steps
 * Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
