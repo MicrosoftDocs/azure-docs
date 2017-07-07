@@ -42,11 +42,11 @@ In PowerShell, provide that policy identifier as the **Id** parameter to retriev
 
 In Azure CLI 2.0, provide the name of the policy definition: 
 
-```Azure CLI
+```azurecli
 az policy definition show --name regionPolicyAssignment
 ```
 
-## Test
+## Solution
 
 For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User-Defined Routes, or route tables if your subscription has an ExpressRoute circuit. In the sample of the error that is described in "Symptoms", the policy is named **regionPolicyDefinition**.
 
