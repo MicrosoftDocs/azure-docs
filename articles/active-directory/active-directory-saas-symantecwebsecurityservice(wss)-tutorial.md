@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/08/2017
 ms.author: jeedes
 
 ---
@@ -108,8 +108,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_symantecwebsecurityservicewss_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.symantecwebsecurityservice.com/`
-
+    a. In the **Sign-on URL** textbox, mention the url, which you want to block according to the blocking policy of the Symantec Web Security Service (WSS).  
+	
 	b. In the **Identifier** textbox, type the URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
 
 	> [!NOTE] 
@@ -169,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
 In this section, you create a user called Britta Simon in Symantec Web Security Service (WSS). Work with [Symantec Web Security Service (WSS) support team](https://www.symantec.com/contact-us) to add the users in the Symantec Web Security Service (WSS) platform. Users must be created and activated before you use single sign-on. Also along with the user details you need to send the public IPaddress of the machine from which you are trying to access the application.
 
 > [!NOTE]
-> Please [Click here](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) to get your machine's public IPaddress.
+> Please [click here](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) to get your machine's public IPaddress.
 
 ### Assigning the Azure AD test user
 
@@ -205,7 +205,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Symantec Web Security Service (WSS) tile in the Access Panel, you should get login page of Symantec Web Security Service (WSS) application.
+When you click the Symantec Web Security Service (WSS) tile in the Access Panel, you get redirected to the blocking page for which the blocking policy has been configured.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
