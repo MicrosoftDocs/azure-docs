@@ -1,6 +1,6 @@
 ---
 title: M0 to cloud - Connect Feather M0 WiFi to Azure IoT Hub | Microsoft Docs
-description: Explains how to connect an Arduino device, called Adafruit Feather M0 WiFi, to Azure IoT Hub, which is a Microsoft cloud service that helps manage your IoT assets.
+description: Learn how to setup and connect Adafruit Feather M0 WiFi to Azure IoT Hub for it to send data to the Azure cloud platform in this tutorial.
 services: iot-hub
 documentationcenter: ''
 author: shizn
@@ -50,6 +50,7 @@ To complete this operation, you need the following parts from your Feather M0 Wi
 
 You also need the following things for your development environment:
 
+* An active Azure subscription. If you don't have an Azure account, [create a free Azure trial account](https://azure.microsoft.com/free/) in just a few minutes.
 * Mac or PC that is running Windows or Ubuntu.
 * Wireless network for Feather M0 WiFi to connect to.
 * Internet connection to download the configuration tool.
