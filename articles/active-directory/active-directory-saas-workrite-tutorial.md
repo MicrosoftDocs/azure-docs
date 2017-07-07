@@ -233,6 +233,7 @@ When you click the Workrite tile in the Access Panel, you should get automatical
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
+
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_01.png
