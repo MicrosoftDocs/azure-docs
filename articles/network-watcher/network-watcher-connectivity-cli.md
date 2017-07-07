@@ -42,6 +42,32 @@ This article assumes you have the following resources:
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
+## Register the preview capability 
+
+Connectivity is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
+
+```azurecli 
+azure feature register  Microsoft.Network AllowNetworkWatcherConnectivityCheck  
+
+azure provider register Microsoft.Network 
+``` 
+
+To verify the registration was successful, run the following CLI command:
+
+```azurecli
+azure feature show Microsoft.Network AllowNetworkWatcherConnectivityCheck 
+```
+
+If the feature was properly registered, the output should match the following: 
+
+```azurecli
+info:    Executing command feature show 
+data:    Feature Name:       AllowNetworkWatcher 
+data:    Provider Name:      Microsoft.Network 
+data:    Registration State: Registered 
+info:    feature show command OK 
+``` 
+
 ## Test virtual machine connectivity
 
 This example tests connecting to a database server over port 80. Connectivity to a database server should be locked down to only ports that are required for SQL connectivity.
