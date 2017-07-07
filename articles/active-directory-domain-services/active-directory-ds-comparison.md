@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 07/07/2017
 ms.author: maheshu
 
 ---
@@ -44,7 +44,7 @@ The following table helps you decide between using Azure AD Domain Services and 
 | [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
 | [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
-| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |Simple |Full |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
 | [**Geo-distributed deployments**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### Managed service
@@ -71,7 +71,7 @@ You do not have 'Domain Administrator' privileges on an Active Directory Domain 
 [More information](active-directory-ds-enable-kcd.md)
 
 #### Custom OU structure
-Members of the 'AAD DC Administrators' group can create custom OUs within the managed domain. Users who create custom OUs are granted full administrative privileges over the OU. 
+Members of the 'AAD DC Administrators' group can create custom OUs within the managed domain. Users who create custom OUs are granted full administrative privileges over the OU.
 [More information](active-directory-ds-admin-guide-create-ou.md)
 
 #### Schema extensions
