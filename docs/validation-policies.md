@@ -221,7 +221,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.8|For bots and compose extensions, you will need to ensure that you follow the privacy notice requirements as communicated in the [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
 |14.9|Your bot and compose extension must operate in accordance with the requirements set forth in the [Microsoft Bot Framework Online Services Agreement](https://www.botframework.com/Content/Microsoft-Bot-Framework-Preview-Online-Services-Agreement.htm) and [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
 |14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.0.|
-|14.11|For bots, all manifest information must be consistent with your bot’s Bot Framework metadata: bot name, logo, privacy link, and terms of service link.|                
+|14.11|For bots, all manifest information must be consistent with your bot’s Bot Framework metadata: bot name, logo, privacy link, and terms of service link.|
 |14.12|Your Microsoft Teams app name may not include "app", "plug-in", or derivatives.|
 |14.13|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
 |14.14|Microsoft's review and publication of your Microsoft Teams app to the Microsoft Teams gallery is not an endorsement of your Microsoft Teams app.|
