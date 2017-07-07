@@ -26,15 +26,15 @@ Before you start defining a workflow, make sure you have valid credentials for t
 
 1.	Select Connectors from the Settings tab in the Review Tool Dashboard.
 
-![Content Moderation Connectors](images/connectors-2.png)
+  ![Content Moderation Connectors](images/connectors-2.png)
 
 2.	Click the Edit symbol next to the connector for which you want credentials.
 
-![Content Moderation Connectors](images/connectors-3.png)
+  ![Content Moderation Connectors](images/connectors-3.png)
 
 3.	The subscription key displays. If you make any edits, click Save when you are done.
 
-![Content Moderation Connectors](images/connectors-4.png)
+  ![Content Moderation Connectors](images/connectors-4.png)
  
 ## Adding a Connector ##
 
@@ -42,11 +42,10 @@ Before you start defining a workflow, make sure you have valid credentials for t
 
 2.	Click Connectors. From the available connectors displayed in the Review Tool Dashboard, click Connect. A window opens, asking for your subscription key.
 
-![Content Moderation Connectors](images/connectors-5.png)
+  ![Content Moderation Connectors](images/connectors-5.png)
 
 3.	Paste the key you just copied into the Ocp-Admin-Subscription-Key field, then click Save.
 
 ## Next steps ##
 
 To learn how to use connectors to define custom workflows, see the [workflows](workflows.md) article.
-
