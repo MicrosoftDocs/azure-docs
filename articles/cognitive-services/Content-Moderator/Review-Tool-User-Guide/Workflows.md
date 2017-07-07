@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: sajagtap
 ---
-e
+
 # Defining, testing, and using workflows  #
 
 In addition to default workflow used for generating reviews, you can define custom workflows and thresholds based on content policies that are specific to your business.
