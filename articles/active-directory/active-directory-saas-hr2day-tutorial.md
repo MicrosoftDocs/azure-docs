@@ -164,11 +164,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. To configure SSO  for your application, contact the [HR2day by Merces client support team](mailTo:servicedesk@merces.nl). Attach the downloaded **Certificate(Base64)** file to your email. Also provide the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** so that they can be configured for SSO integration.
 
-    > [!TIPS]
+    > [!NOTE]
     >- Mention to the Merces team that this integration needs the Entity ID to be set with the pattern **https://hr2day.force.com/INSTANCENAME**.
-   
-   
-	>- You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab. Then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+
+	> [!TIP]
+   	>- You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab. Then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
