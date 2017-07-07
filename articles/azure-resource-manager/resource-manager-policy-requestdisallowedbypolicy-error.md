@@ -45,15 +45,14 @@ In Azure CLI 2.0, provide the name of the policy definition:
 ```Azure CLI
 az policy definition show --name regionPolicyAssignment
 ```
-
 ## Solution
 
 For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User-Defined Routes, or route tables if your subscription has an ExpressRoute circuit. In the sample of the error that is described in "Symptoms", the policy is named **regionPolicyDefinition**.
 
-## More information
+For more information, see the following articles:
 
-[Resource policy overview](resource-manager-policy.md)
-[Common deployment errors-RequestDisallowedByPolicy](resource-manager-common-deployment-errors.md#requestdisallowedbypolicy)
+- [Resource policy overview](resource-manager-policy.md)
+- [Common deployment errors-RequestDisallowedByPolicy](resource-manager-common-deployment-errors.md#requestdisallowedbypolicy)
 
  
 
