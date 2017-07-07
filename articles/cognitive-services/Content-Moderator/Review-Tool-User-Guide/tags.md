@@ -20,7 +20,7 @@ In addition to the two default tags (a – isadult and r – isracy), you can cr
 
 1.	Select Tags from the Settings tab.
 
-![Content Moderation Tags](images/tags-1.png)
+  ![Content Moderation Tags](images/tags-1.png)
 
 2.	Enter a two-letter Short code for the tag.
 3.	Enter a Name for the tag. Keep the name short and descriptive. For example, “isNudity”.
