@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 07/08/2017
 ms.author: jeedes
 
 ---
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [SD Elements support team](mailto:support@sdelements.com) to get these values.
 
-4. SD Elements application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **"Attribute"** tab of the application. The following screenshot shows an example for this.
+4. SD Elements application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **"User Attribute"** tab of the application. The following screenshot shows an example for this.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_attribute.png)
 
@@ -137,9 +137,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. From the **Value** list, type the attribute value shown for that row.
 
-	d. Leave the **Namespace** blank.
-	
-	e. Click **Ok**.
+	d. Click **Ok**.
  
 6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -151,15 +149,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. On the **SD Elements Configuration** section, click **Configure SD Elements** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_configure.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_configure.png)
 
-9. In a different browser window, sign-on to your SD Elements tenant as an administrator.
+9. To get single sign-on enabled, contact your [SD Elements support team](mailto:support@sdelements.com) and provide them with the downloaded certificate file. 
 
-10. In the menu on the top, click **System**, and then **Single Sign-on**. 
+10. In a different browser window, sign-on to your SD Elements tenant as an administrator.
+
+11. In the menu on the top, click **System**, and then **Single Sign-on**. 
    
     ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_09.png) 
 
-11. On the **Single Sign-On Settings** dialog, perform the following steps:
+12. On the **Single Sign-On Settings** dialog, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_10.png) 
    
