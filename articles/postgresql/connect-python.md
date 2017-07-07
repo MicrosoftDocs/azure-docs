@@ -32,11 +32,6 @@ pip install psycopg2
 ```
 Make sure to use an up-to-date version of pip (you can upgrade it using something like `pip install -U pip`)
 
-## Run Python code
-- Paste the code into a text editor, and save the file into a project folder, such as `C:\postgres\read.py` or `/home/username/postgres/read.py`.  Make sure to select UTF-8 encoding when saving the file in the Windows OS, and use file extension **.py**. 
-- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgres`. Then type the command `python read.py` to run the application.
-
-
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
@@ -46,7 +41,14 @@ Get the connection information needed to connect to the Azure Database for Postg
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-python/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
-   
+
+## Run Python code
+- Using your favorite text editor, create a new file called postgres.py in a folder. Copy and paste the one of the code blocks inside it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
+- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then, type the python command followed by the file name, such as `python postgresql.py`.
+
+> [!NOTE]
+> Starting in Python version 3, you may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the code blocks below. If that happens, replace each call to the command `print "string"` with a function call using parenthesis, such as `print("string")`.
+
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function with **INSERT** SQL statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function is used to execute the SQL query against PostgreSQL database. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
@@ -164,7 +166,7 @@ cursor = conn.cursor()
 
 # Delete data row from table
 cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
-print ("Deleted 1 row of data")
+print "Deleted 1 row of data"
 
 conn.commit()
 ```

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/07/2017
 ms.author: bwren
 
 ---
@@ -24,12 +24,12 @@ The Custom Logs data source in Log Analytics allows you to collect events from t
 
 The log files to be collected must match the following criteria.
 
-* The log must either have a single entry per line or use a timestamp matching one of the following formats at the start of each entry.
+- The log must either have a single entry per line or use a timestamp matching one of the following formats at the start of each entry.
   
-    YYYY-MM-DD HH:MM:SS <br>
-    M/D/YYYY HH:MM:SS AM/PM <br>
-    Mon DD,YYYY HH:MM:SS
-* The log file must not allow circular updates where the file is overwritten with new entries. 
+    YYYY-MM-DD HH:MM:SS<br>M/D/YYYY HH:MM:SS AM/PM <br>Mon DD,YYYY HH:MM:SS
+
+- The log file must not allow circular updates where the file is overwritten with new entries. 
+- The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
 
 ## Defining a custom log
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
