@@ -1,5 +1,5 @@
 ---
-title: About 3rd party VPN device configuration | Microsoft Docs
+title: About 3rd party VPN device configuration to connect to Azure VPN gateways | Microsoft Docs
 description: This article provides an overview of 3rd party VPN device configurations for connecting to Azure VPN gateways.
 services: vpn-gateway
 documentationcenter: na
