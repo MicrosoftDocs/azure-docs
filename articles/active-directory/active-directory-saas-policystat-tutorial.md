@@ -121,13 +121,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. The objective of this section is to outline how to enable users to authenticate to PolicyStat with their account in Azure AD using federation based on the SAML protocol.
 
-    The PolicyStat application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
+    The PolicyStat application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **SAML Token Attributes** configuration.  
 
      The following screenshot shows an example of this.
 
      ![Attributes](./media/active-directory-saas-policystat-tutorial/tutorial_policystat_attribute.png "Attributes")
 
 6. To add the required attribute mappings, perform the following steps:
+
+	| Attribute Name    |   Attribute Value |  
+   | ------------------- | -------------------- |    
+   | uid | ExtractMailPrefix([mail]) |
+ 
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
