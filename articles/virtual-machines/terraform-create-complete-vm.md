@@ -92,7 +92,7 @@ resource "azurerm_subnet" "helloterraformsubnet" {
     address_prefix = "10.0.2.0/24"
 }
 ~~~~
-The previous script creates a virtual network and a subnet within that virtual network. Note the reference to the resource group you have created already via "${azurerm_resource_group.helloterraform.name}" both in the virtual network and the subnet definition.
+The previous script creates a virtual network and a subnet within that virtual network. Note the reference to the resource group you have created already via "${azurerm_resource_group.helloterraform.name}" in both the virtual network and the subnet definition.
 
 ~~~~
 # create public IP
