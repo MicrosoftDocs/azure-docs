@@ -58,7 +58,7 @@ In Azure Stack, services are delivered to tenants using regions, subscriptions, 
 Example hierarchy of a tenant’s subscriptions to offers, each with varying plans and services.
 
 ### Regions
-Azure Stack regions are a basic element of scale and management. An organization may have multiple regions with resources available in each region. Regions may also have different service offerings available. In Azure Stack TP3, only a single region is supported, and is automatically named *local*.
+Azure Stack regions are a basic element of scale and management. An organization may have multiple regions with resources available in each region. Regions may also have different service offerings available. In Azure Stack Development Kit, only a single region is supported, and is automatically named *local*.
 
 ### Services
 Microsoft Azure Stack enables providers to deliver a wide variety of services and applications, such as virtual machines, SQL Server databases, SharePoint, Exchange, and more.
