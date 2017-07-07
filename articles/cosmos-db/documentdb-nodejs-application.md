@@ -1,10 +1,10 @@
 ---
-title: Learn Node.js - Azure Cosmos DB Node.js Tutorial | Microsoft Docs
-description: Learn Node.js! Tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
-keywords: Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure
+title: Build a Node.js web app for Azure Cosmos DB | Microsoft Docs
+description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
+keywords: Application development, database tutorial, learn node.js, node.js tutorial
 services: cosmos-db
 documentationcenter: nodejs
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 
@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: syamk
+ms.date: 07/06/2017
+ms.author: mimig
 
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB
@@ -431,69 +431,76 @@ Now let’s turn our attention to building the user interface so a user can actu
 
 1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website. 
 2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following:
-   
-        doctype html
-        html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+
+    ```
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          div.navbar-header
+            a.navbar-brand(href='#') My Tasks
+        block content
+        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+    ```
 
     This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
+
     Save and close this **layout.jade** file.
 
 3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
-   
-        extends layout
-        block content
-           h1 #{title}
-           br
-        
-           form(action="/completetask", method="post")
-             table.table.table-striped.table-bordered
-               tr
-                 td Name
-                 td Category
-                 td Date
-                 td Complete
-               if (typeof tasks === "undefined")
-                 tr
-                   td
-               else
-                 each task in tasks
-                   tr
-                     td #{task.name}
-                     td #{task.category}
-                     - var date  = new Date(task.date);
-                     - var day   = date.getDate();
-                     - var month = date.getMonth() + 1;
-                     - var year  = date.getFullYear();
-                     td #{month + "/" + day + "/" + year}
-                     td
-                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
-           hr
-           form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
-             br
-             button.btn(type="submit") Add item
-   
+
+    ```
+    extends layout
+    block content
+      h1 #{title}
+      br
+    
+      form(action="/completetask", method="post")
+        table.table.table-striped.table-bordered
+          tr
+            td Name
+            td Category
+            td Date
+            td Complete
+          if (typeof tasks === "undefined")
+            tr
+              td
+          else
+            each task in tasks
+              tr
+                td #{task.name}
+                td #{task.category}
+                - var date  = new Date(task.date);
+                - var day   = date.getDate();
+                - var month = date.getMonth() + 1;
+                - var year  = date.getFullYear();
+                td #{month + "/" + day + "/" + year}
+                td
+                  input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+        button.btn(type="submit") Update tasks
+      hr
+      form.well(action="/addtask", method="post")
+        label Item Name:
+        input(name="name", type="textbox")
+        label Item Category:
+        input(name="category", type="textbox")
+        br
+        button.btn(type="submit") Add item
+    ```
+
     This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
    
-    In this layout we created two HTML forms. 
+    In this layout we created two HTML forms.
+
     The first form contains a table for our data and a button that allows us to update items by posting to **/completetask** method of our controller.
+    
     The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
-   
+
     This should be all that we need for our application to work.
 4. Open the **style.css** file in **public\stylesheets** directory and replace the code with the following:
    
