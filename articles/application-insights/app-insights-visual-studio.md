@@ -1,5 +1,5 @@
 ---
-title: Working with Azure Application Insights on Visual Studio | Microsoft Docs
+title: Debug applications with Azure Application Insights in Visual Studio | Microsoft Docs
 description: Web app performance analysis and diagnostics during debugging and in production.
 services: application-insights
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2016
+ms.date: 07/7/2017
 ms.author: cfreeman
 
 ---
-# Working with Azure Application Insights in Visual Studio
+# Debug your applications with Azure Application Insights in Visual Studio
 In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](app-insights-overview.md).
 
 If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](app-insights-asp-net.md).
@@ -53,14 +53,14 @@ You can also open related items to help diagnose failed requests or exceptions.
 
 ![Under Request Details, scroll down to related items](./media/app-insights-visual-studio/41.png)
 
-## Exceptions and failed requests
+## View exceptions and failed requests
 Exception reports show in the Search window. (In some older types of ASP.NET application, you have to [set up exception monitoring](app-insights-asp-net-exceptions.md) to see exceptions that are handled by the framework.)
 
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
 ![Exception stack trace](./media/app-insights-visual-studio/17.png)
 
-## Request and exception summaries in the code
+## View request and exception summaries in the code
 In the Code Lens line above each handler method, you'll see a count of the requests and exceptions logged by Application Insights in the past 24h.
 
 ![Exception stack trace](./media/app-insights-visual-studio/21.png)
@@ -95,9 +95,9 @@ It's also useful if you have some [custom telemetry](app-insights-api-custom-eve
   * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
 
-## What's next?
+## Next steps
 |  |  |
 | --- | --- |
 | **[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio/64.png) |
-| **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio/62.png) |
+| **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>View dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and exported telemetry data. |![Visual studio](./media/app-insights-visual-studio/62.png) |
 
