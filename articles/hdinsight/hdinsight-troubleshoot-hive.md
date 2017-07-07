@@ -46,7 +46,7 @@ This will generate a file named `allatables.sql`.
 hive -f alltables.sql
 ```
 
-Note: This assumes that data paths on new cluster are same as on old. If not, you can manually edit the generated  
+This code assumes that data paths on new cluster are same as on old. If not, you can manually edit the generated  
 `alltables.sql`  file to reflect any changes.
 
 ### Further Reading:

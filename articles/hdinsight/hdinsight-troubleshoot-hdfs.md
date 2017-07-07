@@ -83,7 +83,7 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 
 Local HDFS is stuck in safe mode on HDInsight cluster.   
 
-### Detailed Description:
+### Detailed description:
 
 Fail to run simple HDFS command as follows:
 
@@ -145,7 +145,7 @@ It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode
 mkdir: Cannot create directory /temp. Name node is in safe mode.
 ```
 
-### Probable Cause:
+### Probable cause:
 
 HDInsight cluster has been scaled down to very few nodes below or close to HDFS replication factor.
 

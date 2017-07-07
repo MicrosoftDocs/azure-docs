@@ -43,14 +43,14 @@ Check the output of command in step 6 and ensure that all regions are being assi
 
 ## How do I fix timeout issues with hbck commands for region assignments
 
-### Probable Cause
+### Probable cause
 
 The potential cause here could be several regions under "in transition" state for a long time. 
 Those regions can be seen as offline from HBase Master UI. Due to high number of regions that are 
 attempting to transition, HBase Master could timeout and will be unable to bring those regions back
  to online state.
 
-### Resolution Steps
+### Resolution steps
 
 Below are the steps to fix the hbck timeout problem:
 
@@ -67,7 +67,7 @@ Below are the steps to fix the hbck timeout problem:
 
 Local HDFS is stuck in safe mode on HDInsight cluster.   
 
-### Detailed Description:
+### Detailed description:
 
 Fail to run simple HDFS command as follows:
 
@@ -129,11 +129,11 @@ It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode
 mkdir: Cannot create directory /temp. Name node is in safe mode.
 ```
 
-### Probable Cause:
+### Probable cause:
 
 HDInsight cluster has been scaled down to very few nodes below or close to HDFS replication factor.
 
-### Resolution Steps: 
+### Resolution steps: 
 
 - Report on the status of HDFS on the HDInsight cluster with the following commands:
 
@@ -219,7 +219,7 @@ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
 
 ## How do I fix JDBC or sqlline connectivity issues with Apache Phoenix
 
-### Resolution Steps:
+### Resolution steps:
 
 To connect with Apache phoenix, you must provide the IP of active zookeeper 
 node. Ensure that zookeeper service to which sqlline.py is trying to connect is up and running.
@@ -274,18 +274,18 @@ When Once the 'SYSTEM.CATALOG' table is back to normal, the connectivity issue t
 
 Atomic renaming failure
 
-### Detailed Description:
+### Detailed description:
 
 During startup process HMaster does lot of initialization steps including moving data from scratch (.tmp) folder to data folder; also looks at WALs (Write Ahead Logs) folder to see if there are any dead region servers and so on. 
 
 During all these situations it does a basic 'list' command on these folders. If at anytime it sees an unexpected file in any of these folders it will throw an exception and hence not start.  
 
-### Probable Cause:
+### Probable cause:
 
 Try to identify the timeline of the file creation and see if there was a process crash at around that time in region server logs (Contact any of the HBase crew to assist you in doing this). This helps us provide more robust mechanisms 
 to avoid hitting this bug and ensure graceful process shutdowns.
 
-### Resolution Steps:
+### Resolution steps:
 
 In such a situation try to check the call stack and see which folder might be causing problem (for instance is it WALs folder or .tmp folder). Then via Cloud Explorer or via hdfs commands try to locate the problem file - usually this is a *-renamePending.json file (a journal file used to implement Atomic Rename operation in WASB driver; due to bugs in this implementation such files can be left over in cases of process crash etc). Force delete this either via Cloud Explorer. 
 
@@ -297,11 +297,11 @@ Once this is done, HMaster should start up immediately.
 
 No server address listed in hbase: meta for region xxx
 
-### Detailed Description:
+### Detailed description:
 
 Customer met an issue on their Linux cluster that hbase: meta table was not online. Running hbck reported that "hbase: meta table replicaId 0 is not found on any region". After restarting HBase, the symptom became that the hmaster could not initialize. In the hmaster logs, it reported that "No server address listed in hbase: meta for region hbase: backup <region name>".  
 
-### Resolution Steps:
+### Resolution steps:
 
 - Type the following on HBase shell (change actual values as applicable),  
 
@@ -323,7 +323,7 @@ Customer met an issue on their Linux cluster that hbase: meta table was not onli
 hbase hbck -ignorePreCheckPermission -fixAssignments 
 ```
 
-### Further Reading:
+### Further reading:
 
 [Unable to process HBase table](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
@@ -332,15 +332,15 @@ hbase hbck -ignorePreCheckPermission -fixAssignments
 
 HMaster times out with fatal exception like java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned
 
-### Detailed Description:
+### Detailed description:
 
 Customer ran into this issue when apparently they had a lot of tables and regions and had not flushed when they restarted their HMaster services. Restart was failing with above message. No other error found.  
 
-### Probable Cause:
+### Probable cause:
 
 This is a known "defect" with the HMaster - general cluster startup tasks can take a long time and the HMaster shuts down because of the namespace table isn’t yet assigned - which is hit only in this scenario where large amount of unflushed data exists and a timeout of five minutes is not sufficient
   
-### Resolution Steps:
+### Resolution steps:
 
 - Access Ambari UI, go to HBase -> Configs, in custom hbase-site.xml add the following setting: 
 
@@ -354,7 +354,7 @@ Key: hbase.master.namespace.init.timeout Value: 2400000
 
 ## What causes a restart failure on a region server
 
-### Probable Cause:
+### Probable cause:
 
 First of all, the situation like this could be prevented by following best practices. It is advisable to pause the heavy workload activity when planning to restart HBase Region Servers. If the application continues to connect with region servers when shutdown is in progress, it will slow down the region server restart operation by several minutes. Also, it is advised the users to flush all the tables by following [HDInsight HBase: How to Improve HBase cluster restart time 
 by Flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) as a reference.
@@ -380,8 +380,7 @@ Below is what happens behind the scenes:
          2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
          2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
 ```
-
-ue to this abrupt shutdown, although the region server process gets killed, the port associated with the process may not be released, which eventually leads to AddressBindException as shown in the logs below while starting region server. One can verify this in region-server.log in /var/log/hbase directory on the worker nodes where region server start fails. 
+Because of this abrupt shutdown, the port associated with the process may not be released even though the region server process gets killed. This situation can lead to the AddressBindException as shown in the logs below while starting the region server. One can verify this in region-server.log in /var/log/hbase directory on the worker nodes where region server start fails. 
 
 ```apache
 

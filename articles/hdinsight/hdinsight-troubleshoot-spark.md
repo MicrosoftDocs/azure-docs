@@ -91,7 +91,7 @@ This procedure configuration values previously set in HDInsight Spark clusters. 
 
 1. Save the configuration and restart the service as described in steps 6 and 7.
 
-Note: These changes are cluster wide but can be overridden at actual Spark job submission time.
+These changes are cluster wide but can be overridden at actual Spark job submission time.
 
 ### Further Reading:
 
@@ -159,7 +159,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 Spark application failed with OutOfMemoryError exception.
 
-### Detailed Description:
+### Detailed description:
 
 Spark application fails with the following types of uncaught exceptions.  
 ```apache
@@ -202,7 +202,7 @@ java.lang.OutOfMemoryError
     at java.lang.Thread.run(Unknown Source) 
 ```
 
-### Probable Cause:
+### Probable cause:
 
 The most likely cause of this exception is not enough heap memory allocated to the Java Virtual Machine (JVM) that are launched as executors or driver as part of the Spark application. 
 

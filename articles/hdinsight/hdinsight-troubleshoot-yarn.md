@@ -40,21 +40,28 @@ In this example, two existing queues (default and thriftsvr) are both changed fr
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 1. Click the Abari Views icon, the grid pattern, and choose **Yarn Queue Manager**.
+
     ![Click the Ambari Views icon](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
 1. Select the **default** queue.
+
     ![Select default queue](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
 1. Change the **Capacity** from 50% to 25% for the **default** queue and also change it to 25% for the **thriftsvr** queue.
+
     ![Change the Capcity to 25% for the default and thriftsvr queues](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
 1. Click **Add Queue** to create a new queue.
+
     ![Click Add Queue](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
 1. Name the new queue.
+
     ![Name the queue Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
 1. Leave the **Capacity** values at 50% and click the **Actions** button.
+
     ![Click the Actions button](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
 1. Choose **Save and Refresh Queues**.
+
     ![Choose Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
 
-Note: These changes will be visible immediately on the Yarn Scheduler UI.
+These changes will be visible immediately on the Yarn Scheduler UI.
 
 ### Further Reading:
 
@@ -70,12 +77,12 @@ Need to download Yarn application master and other container logs from HDInsight
 #### Resolution Steps: 
 
 1. Connect to the HDInsight cluster with an Secure Shell (SSH) client (check Further Reading section below).
-1. List all the application ids of the currently running Yarn applications with the following command:
+1. List all the application IDs of the currently running Yarn applications with the following command:
 
 ```apache
 yarn top
 ```
-Note the application id from the `APPLICATIONID` column whose logs are to be downloaded.
+The IDs are listed in the `APPLICATIONID` column whose logs are to be downloaded.
 
 ```apache
 YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
