@@ -59,7 +59,7 @@ In this section, you use the Marketplace Publishing tool to create a marketplace
     .\MarketplacePublisher.ps1
 ```
 
-2. Click the **Solution** tab.  This screen accepts information about your marketplace item. Enter information about your item as you want it to appear in the marketplace.  You can also specify a [parameters file](azure-stack-marketplace-publisher.md#Use-a-parameters-file) to prepopulate the form.  
+2. Click the **Solution** tab.  This screen accepts information about your marketplace item. Enter information about your item as you want it to appear in the marketplace.  You can also specify a [parameters file](azure-stack-marketplace-publisher.md#use-a-parameters-file) to prepopulate the form.  
     
     ![screenshot of Marketplace Publisher first screen](./media/azure-stack-marketplace-publisher/image7.png)
 3. Click **Browse** and select an image file for each icon and screenshot field.  You can use your own icons, or the sample icons in the [support files](azure-stack-marketplace-publisher.md#support-files) section.
