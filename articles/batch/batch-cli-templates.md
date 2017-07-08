@@ -20,7 +20,7 @@ ms.author: markscu
 Using the Azure CLI it is possible to run Batch jobs end-to-end with no code.
 
 Template files can be created and used with the Azure CLI that allow Batch
-pools, jobs and tasks to be created. Job input files can be easily uploaded to
+pools, jobs, and tasks to be created. Job input files can be easily uploaded to
 the storage account associated with the Batch account and job output files
 downloaded.
 
@@ -42,7 +42,7 @@ are added over what is possible with the JSON files:
     being specified in the template body. A user who understands Batch and the
     applications to be run by Batch can create templates, specifying pool, job,
     and task property values. A user less familiar with Batch and/or the
-    applications simply only needs to specify the values for the defined
+    applications only needs to specify the values for the defined
     parameters.
 
 -   Job task factories enable multiple tasks to be easily created for a job,
@@ -60,8 +60,8 @@ ffmpeg to transcode source video files to different resolutions.
 
 -   A pool template is created. The user creating the template knows how to call
     the ffmpeg application and its requirements; they specify the appropriate
-    OS, VM size, how ffmpeg is installed (e.g. from application packages or
-    using a package manager), and other pool property values. Parameters are
+    OS, VM size, how ffmpeg is installed (from an application package or
+    using a package manager, for example), and other pool property values. Parameters are
     created so when the template is used, only the pool id and number of VMs
     need to be specified.
 
@@ -99,7 +99,7 @@ specifying a JSON file containing property names and values. For example:
 az batch pool create –-json-file AppPool.json
 ```
 
-Azure Batch templates are very similar to ARM templates, in functionality and
+Azure Batch templates are very similar to Azure Resource Manager templates, in functionality and
 syntax. They are JSON files that contain item property names and values, but add
 the following main concepts:
 
@@ -125,7 +125,8 @@ the following main concepts:
 
 -   **Higher-level Constructs**
 
-    -   Some higher-level constructs are available the template that are not yet
+    -   Some higher-level constructs are available in the template
+        that are not yet
         available in the Batch APIs. For example, a task factory can be defined
         in a job template that will create multiple tasks for the job using a
         common task definition. These constructs avoid the need to code to
@@ -313,7 +314,7 @@ storage account that is created by default for each Batch account.
 
 The concept of a file group has been introduced, which equates to a container
 that is created in the Azure storage account. The file group can have
-sub-folders.
+subfolders.
 
 CLI commands are provided that allow files to be uploaded from client to a
 specified file group and will download files from the specified file group to a
