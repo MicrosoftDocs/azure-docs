@@ -5,9 +5,37 @@
 
 - D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-- Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+- Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on a 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+
+- Dv3-series VMs are based on the latest generation 2.3 GHz Intel Xeon® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0.
 
 - The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see (Sizes for virtual machines)[virtual-machines-size-specs.md] and for VM pricing information, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+
+## DSv3-series
+
+ACU: ?-?
+
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_DS2_v3 |2 |8 |? |? |? |? |? |
+| Standard_DS4_v3 |4 |16 |? |? |? |? |? |
+| Standard_DS8_v3 |8 |32 |? |? |? |? |? |
+| Standard_DS16_v3 |16 |64 |? |? |? |? |? |
+| Standard_DS32_v3 |32 |128 |? |? |? |? |? |
+| Standard_DS64_v3 |64 |256 |? |? |? |? |? &#8224;|
+
+## Dv3-series
+
+ACU: ?-?
+
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_D2_v3 |2 |8 |? |? |? |? |? |
+| Standard_D4_v3 |4 |16 |? |? |? |? |? |
+| Standard_D8_v3 |8 |32 |? |? |? |? |? |
+| Standard_D16_v3 |16 |64 |? |? |? |? |? |
+| Standard_D32_v3 |32 |128 |? |? |? |? |? |
+| Standard_D64_v3 |64 |256 |? |? |? |? |? &#8224;|
 
 ## DSv2-series
 
