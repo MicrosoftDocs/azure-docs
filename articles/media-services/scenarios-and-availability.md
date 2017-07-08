@@ -34,7 +34,7 @@ To start using Azure Media Services, you should have the following:
 * An Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).
 * The streaming endpoint from which you want to stream content has to be in the **Running** state.
 
-    When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint has to be in the **Running** state.
+    When your AMS account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint has to be in the **Running** state.
 
 ### Commonly used objects when developing against the AMS OData model
 
@@ -62,7 +62,7 @@ You can view the whole model [here](https://media.windows.net/API/$metadata?api-
 4. Publish the asset by creating an OnDemand locator.
 5. Stream published content.
 
-For information about availability in datacenters, see the [Avaiability](#availability) section.
+For information about availability in datacenters, see the [Availability](#availability) section.
 
 ## Protect content in storage, deliver dynamically encrypted streaming media
 
@@ -76,7 +76,7 @@ For information about availability in datacenters, see the [Avaiability](#availa
 6. Publish the asset by creating an OnDemand locator.
 7. Stream published content.
 
-For information about availability in datacenters, see the [Avaiability](#availability) section.
+For information about availability in datacenters, see the [Availability](#availability) section.
 
 ## Use Media Analytics to derive actionable insights from your videos
 
@@ -86,7 +86,7 @@ Media Analytics is a collection of speech and vision components that make it eas
 2. Process your videos with one of the Media Analytics services described in the [Media Analytics overview](media-services-analytics-overview.md) section.
 3. Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage.
 
-For information about availability in datacenters, see the [Avaiability](#availability) section.
+For information about availability in datacenters, see the [Availability](#availability) section.
 
 ## Deliver progressive download
 
@@ -108,7 +108,7 @@ For information about availability in datacenters, see the [Avaiability](#availa
 
     Record and store the ingested content in order to be streamed later (Video-on-Demand).
 
-When doing live streaming you can choose one of the following routes:
+When doing live streaming, you can choose one of the following routes:
 
 ### Working with channels that receive multi-bitrate live stream from on-premises encoders (pass-through)
 
@@ -126,7 +126,7 @@ The following diagram shows the major parts of the AMS platform that are involve
 
 For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-For information about availability in datacenters, see the [Avaiability](#availability) section.
+For information about availability in datacenters, see the [Availability](#availability) section.
 
 ## Consuming content
 
@@ -212,7 +212,7 @@ Media Analytics is a collection of speech and vision components that makes it ea
 
 ### Protection
 
-Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. For more inormation, see [Protecting AMS content](media-services-content-protection-overview.md).
+Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. For more information, see [Protecting AMS content](media-services-content-protection-overview.md).
 
 #### Availability
 
