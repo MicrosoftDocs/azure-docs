@@ -23,6 +23,8 @@ This document lists the source IPs for management traffic to the ASE. There are 
 
 If you want to restrict access to ports 454 and 455 with a Network Security Group then you need to use the IPs that are in the All regions section as well as the IPs matching the region your ASE is deployed in.  
 
+| Region | Addresses |
+|--------|-----------|
 | All regions | 70.37.57.58, 157.55.208.185, 52.174.22.21,13.94.149.179,13.94.143.126,13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141 |
 | South Central US & North Central US | 23.102.188.65, 191.236.154.88 |
 | Australia Southeast & Australia East | 23.101.234.41, 104.210.90.65 |
