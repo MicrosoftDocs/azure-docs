@@ -152,7 +152,7 @@ Here `<features>` refers to the basic feature specification defined previously. 
 
 #### Feature Set API 
 
-Feature Set API returns a list of features in the JSON format described previously. Several Feature Set API enpoints can be used. Each endpoint is identified by endpoint id. The mapping between endpoint ids and the corresponding URLs is set on the Portal.
+Feature Set API returns a list of features in the JSON format described previously. Several Feature Set API endpoints can be used. Each endpoint is identified by endpoint id. The mapping between endpoint ids and the corresponding URLs is set on the Portal.
 
 Specify a call to Feature Set API by inserting its endpoint id in the appropriate place in JSON. The call is automatically parameterized by the action id.
 
