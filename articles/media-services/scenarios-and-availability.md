@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/03/2017
+ms.date: 07/07/2017
 ms.author: juliako;anilmur
 
 ---
@@ -158,6 +158,12 @@ AMS customers can scale streaming endpoints, media processing, and storage in th
 
 This section provides details about availability of Media Services features across datacenters.
 
+### AMS accounts
+
+#### Availability
+
+You can create Media Services accounts in the following regions: North Europe, West Europe, West US, East US, Southeast Asia, East Asia, Japan West, Japan East, Brazil South, India West, India South, and India Central. 
+
 ### Streaming endpoints 
 
 Media Services customers can choose either a **Standard** streaming endpoint or a **Premium** streaming endpoint. For more information, see the [scaling](#scaling) section.
@@ -168,6 +174,12 @@ Media Services customers can choose either a **Standard** streaming endpoint or 
 |---|---|---|
 |Standard|GA|All|
 |Premium|GA|All|
+
+### Live encoding
+
+#### Availability
+
+Available in all datacenters except: Brazil South, India West, India South, and India Central. 
 
 ### Encoding media processors
 
@@ -220,9 +232,7 @@ For more information, see the [scaling](#scaling) section.
 
 #### Availability
 
-|Name|Status|Datacenters
-|---|---|---|
-|Reserved units|GA|All|
+Available in all datacenters.
 
 ### Reserved unit (RU) type
 
