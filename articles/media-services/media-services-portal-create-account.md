@@ -1,5 +1,5 @@
 ---
-title: " Create an Azure Media Services account with the Azure portal | Microsoft Docs"
+title: Create an Azure Media Services account with the Azure portal | Microsoft Docs
 description: This tutorial walks you through the steps of creating an Azure Media Services account with the Azure portal.
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 07/07/2017
 ms.author: juliako
 
 ---
@@ -75,18 +75,9 @@ The steps in this section show how to create an AMS account.
    
     To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
 
-## Manage Keys
-You need the account name and the primary key information to programmatically access the Media Services account.
+## Connect to the AMS API programmatically
 
-1. In the Azure portal, select your account. 
-   
-    The **Settings** window appears on the right. 
-2. In the **Settings** window, select **Keys**. 
-   
-    The **Manage keys** windows shows the account name and the primary and secondary keys is displayed. 
-3. Press the copy button to copy the values.
-   
-    ![Media Services Keys](./media/media-services-create-account/media-services-keys.png)
+For more information, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api).
 
 ## Next steps
 You can now upload files into your AMS account. For more information, see [Upload files](media-services-portal-upload-files.md).
