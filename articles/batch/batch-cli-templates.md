@@ -135,7 +135,7 @@ the following main concepts:
     -   At some point, where applicable, these constructs may be added to the
         Batch service and available in the Batch APIs, UIs, etc.
 
-## Pool Templates
+### Pool Templates
 
 In addition to the standard template capabilities of parameters and variables,
 the following higher-level constructs are supported by the pool template:
@@ -183,7 +183,7 @@ supplied to use:
                 "nodeAgentSKUId": "batch.node.ubuntu 16.04"
             },
             "vmSize": "STANDARD_D3_V2",
-            "targetDedicated": "[parameters('nodeCount')]",
+            "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
             "maxTasksPerNode": 1,
             "packageReferences": [
@@ -204,7 +204,7 @@ invoked as follows:
 az batch pool create --template pool-ffmpeg.json
 ```
 
-## Job Templates
+### Job Templates
 
 In addition to the standard template capabilities of parameters and variables,
 the following higher-level constructs are supported by the job template:
@@ -280,8 +280,8 @@ per source video file:
                                     "fileGroup": "ffmpeg-output"
                                 }
                             },
-                            "uploadDetails": {
-                                "taskStatus": "TaskSuccess"
+                            "uploadOptions": {
+                                "uploadCondition": "TaskSuccess"
                             }
                         }
                     ]
@@ -336,7 +336,7 @@ where the transcoded output files are copied to from the node running each task.
 
 ## Future Direction
 
-Templates and file transfer support have currently been added to only the Azure
+Template and file transfer support have currently only been added to the Azure
 CLI. The goal is to expand the audience that can use Batch end-to-end to users
 who do not need to develop code using the Batch APIs, such as researchers, IT
 users, and so on.
@@ -356,11 +356,11 @@ portal UI, etc. For example:
 -   Templates could be assigned an id, persisted by the Batch service, and
     associated with the Batch account. UI, CLI, and API support would allow
     templates to be created, updated, and deleted. Templates and parameters
-    values could be specified when creating pools or jobs, instead of specifying
-    all property values required for creation; pool and job creation UI would
+    values could be specified when creating pools or jobs, as an alternative to specifying
+    all property values required for creation. Pool and job creation UI would
     dynamically generate UI to prompt for parameter values.
 
-Please try out the Azure CLI and let us know your feedback and feature
+Try out the Azure CLI and let us know your feedback and feature
 suggestions, either by using the comments for this article or the [Azure Batch
 MSDN
 forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
