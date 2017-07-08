@@ -35,7 +35,7 @@ You have two options:
 When creating a new VM using [az vm create](/cli/azure/vm#create) from a customized or specialized disk you **attach** a the disk (--attach-os-disk) instead of specifying a custom or marketplace image (--image). The following example creates a VM named *myVM* using the managed disk named *myManagedDisk* created from your customized VHD:
 
 ```azurecli
-az vm create --resource-group myResourceGroup --location westus --name myVM \
+az vm create --resource-group myResourceGroup --location eastus --name myVM \
    --os-type linux --attach-os-disk myManagedDisk
 ```
 
@@ -86,10 +86,12 @@ You can upload a customized VHD that you have running on a local machine or that
 
 Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](/cli/azure/group#create).
 
-The following example creates a resource group named *myResourceGroup* in the *westus* location:
+The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md)
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create \
+    --name myResourceGroup \
+	--location eastus
 ```
 
 ### Create a storage account
@@ -99,8 +101,12 @@ Create a storage account for your custom disk and VMs with [az storage account c
 The following example creates a storage account named *mystorageaccount* in the resource group previously created:
 
 ```azurecli
-az storage account create --resource-group myResourceGroup --location westus \
-  --name mystorageaccount --kind Storage --sku Standard_LRS
+az storage account create \
+    --resource-group myResourceGroup \
+	--location eastus \
+	--name mystorageaccount \
+	--kind Storage \
+	--sku Standard_LRS
 ```
 
 ### List storage account keys
@@ -109,7 +115,9 @@ Azure generates two 512-bit access keys for each storage account. These access k
 View the access keys for the storage account you created:
 
 ```azurecli
-az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
+az storage account keys list \
+    --resource-group myResourceGroup \
+	--account-name mystorageaccount
 ```
 
 The output is similar to:
@@ -143,8 +151,11 @@ Specify your access key, the container you created in the previous step, and the
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
-    --account-key key1 --container-name mydisks --type page \
-    --file /path/to/disk/mydisk.vhd --name myDisk.vhd
+    --account-key key1 \
+	--container-name mydisks \
+	--type page \
+    --file /path/to/disk/mydisk.vhd \
+	--name myDisk.vhd
 ```
 Uploading the VHD may take a while.
 
@@ -154,7 +165,9 @@ Uploading the VHD may take a while.
 Create a managed disk from the VHD using [az disk create](/cli/azure/disk/create). The following example creates a managed disk named *myManagedDisk* from the VHD you uploaded to your named storage account and container:
 
 ```azurecli
-az disk create --resource-group myResourceGroup --name myManagedDisk \
+az disk create \
+    --resource-group myResourceGroup \
+	--name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 ## Option 2: Copy an existing VM
@@ -167,7 +180,10 @@ This example creates a snapshot of a VM named *myVM* in resource group *myResour
 
 ```azure-cli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
-az snapshot create -g myResourceGroup --source "$osDiskId" --name osDiskSnapshot
+az snapshot create \
+    -g myResourceGroup \
+	--source "$osDiskId" \
+	--name osDiskSnapshot
 ```
 ###  Create the managed disk
 
@@ -182,7 +198,12 @@ snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceG
 Create the managed disk. In this example, we will create a managed disk named *myManagedDisk* from our snapshot, that is 128GB in size in standard storage.
 
 ```azure-cli
-az disk create --resource-group myResourceGroup --name myManagedDisk --sku Standard_LRS --size-gb 128 --source $snapshotId
+az disk create \
+    --resource-group myResourceGroup \
+	--name myManagedDisk \
+	--sku Standard_LRS \
+	--size-gb 128 \
+	--source $snapshotId
 ```
 
 ## Create the VM
@@ -192,7 +213,7 @@ Now, create your VM with [az vm create](/cli/azure/vm#create) and attach (--atta
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
-    --location westus \
+    --location eastus \
     --name myNewVM \
 	--os-type linux \
     --attach-os-disk myManagedDisk
