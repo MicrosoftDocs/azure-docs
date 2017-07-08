@@ -13,16 +13,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 07/10/2017
 ms.author: sngun
 
 ---
 
 # Get up and running with PowerShell in Azure Stack
 
-This article is a quick start to install and configure PowerShell for Azure Stack. This script provided in this article is scoped to use with **Azure Active Directory(AAD)** based deployments and within the **administrative** environment only. You can also use this script for user environments, but make sure to replace the Azure Resource Manager endpoint value in the `Add-AzureStackAzureRmEnvironment` cmdlet. 
+This article is a quick start to install and configure PowerShell for Azure Stack. This script provided in this article is scoped to use with **Azure Active Directory(AAD)** based deployments and within the **cloud administrative** environment only. You can also use this script for user environments, but make sure to replace the Azure Resource Manager endpoint value in the `Add-AzureStackAzureRmEnvironment` cmdlet. 
 
-This article is a condensed version of the steps described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. To install and configure PowerShell, sign in to your Azure Stack POC computer, or a Windows-based external client if you are connected through VPN. Next, open an elevated PowerShell ISE session and run the following script:
+This article is a condensed version of the steps described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. To install and configure PowerShell, sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Next, open an elevated PowerShell ISE session and run the following script:
 
 ```powershell
 
@@ -50,13 +50,8 @@ Use-AzureRmProfile `
 
 Install-Module `
   -Name AzureStack `
-  -RequiredVersion 1.2.9 `
+  -RequiredVersion 1.2.10 `
   -Force 
-
-Import-Module `
-  -Name AzureStack `
-  -RequiredVersion 1.2.9 `
-  -Force
 
 # Download Azure Stack tools from GitHub and import the connect module
 cd \
@@ -74,28 +69,27 @@ cd AzureStack-Tools-master
 Import-Module `
   .\Connect\AzureStack.Connect.psm1
 
-# Configure the administrator’s PowerShell environment.
+# Configure the cloud administrator’s PowerShell environment.
 Add-AzureStackAzureRmEnvironment `
   -Name "AzureStackAdmin" `
   -ArmEndpoint https://adminmanagement.local.azurestack.external
 
-$Credential= Get-Credential `
-  -Message "Enter your Azure Active Directory service administrator's credentials. The username is in the format: user1@contoso.onmicrosoft.com"
- 
-$TenantName = ($Credential.UserName.split("@"))[1]
-
 $TenantID = Get-DirectoryTenantID `
-  -AADTenantName $TenantName `
+  -AADTenantName <mydirectorytenant>.onmicrosoft.com `
   -EnvironmentName AzureStackAdmin
 
 # Sign-in to the administrative portal.
 Login-AzureRmAccount `
   -EnvironmentName "AzureStackAdmin" `
-  -TenantId $TenantID `
-  -Credential $Credential
-    
-# Register resource providers on all subscriptions
-Register-AllAzureRmProvidersOnAllSubscriptions
+  -TenantId $TenantID 
+
+# Register all resource providers
+foreach($s in (Get-AzureRmSubscription)) {
+        Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
+        Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
+Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -Force
+    } 
+
  
 ```
 

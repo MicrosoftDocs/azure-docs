@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 07/06/2017
 ms.author: ancav
 
 ---
 # Create Activity Log Alerts
 
 ## Overview
-Activity Log Alerts are Azure resources so they can be managed using the Azure portal or the Azure Resource Manager (ARM). This article shows you how to use the Azure portal to set up alerts on activity log events.
+Activity Log Alerts are alerts that activate when a new Activity Log event matches the conditions specified in the alert. They are Azure resources so they can be managed using the Azure portal or the Azure Resource Manager (ARM). This article shows you how to use the Azure portal to set up alerts on activity log events.
 
 You can receive alerts about operations that were performed on resources in your subscription or about service health events that may impact the health of your resources. An Activity Log Alert monitors the activity log events for the specific subscription the alert is deployed to.
 
@@ -122,8 +122,10 @@ Once you have created an alert, it will be visible in the Alerts section of the 
 * **Delete** it.
 * **Disable** or **Enable** it if you want to temporarily stop of resume receiving notifications for the alert.
 
-## Next Steps:
-Get an [overview of alerts](monitoring-overview-alerts.md)  
-Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
-Learn more about [action groups](monitoring-action-groups.md)  
-Learn about [Service Health Notifications](monitoring-service-notifications.md)
+## Next Steps
+- Get an [overview of alerts](monitoring-overview-alerts.md)  
+- Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
+- Learn more about [action groups](monitoring-action-groups.md)  
+- Learn about [Service Health Notifications](monitoring-service-notifications.md)
+- [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
