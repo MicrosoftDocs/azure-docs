@@ -79,7 +79,7 @@ The steps in this section show how to create an AMS account.
 
 ## Connect to the AMS API programmatically
 
-If you plan to access AMS API programmatically, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api).
+If you plan to access AMS API programmatically, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
 ## Next steps
 You can now upload files into your AMS account. For more information, see [Upload files](media-services-portal-upload-files.md).
