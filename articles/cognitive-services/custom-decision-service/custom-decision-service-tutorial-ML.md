@@ -13,7 +13,7 @@ ms.author: slivkins;marcozo;alekh
 
 # Machine learning in Custom Decision Service (tutorial)
 
-This tutorial addresses the advanced machine learning functionality in Custom Decision Service. For now, this functionality is only available in private preview. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification). Featurization refers to representing your data as "features" for machine learning. Feature specification covers the JSON format and the ancillary APIs for specifying features.
+This tutorial addresses the advanced machine learning functionality in Custom Decision Service. For now, this functionality is only available in private preview. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification-format-and-apis). Featurization refers to representing your data as "features" for machine learning. Feature specification covers the JSON format and the ancillary APIs for specifying features.
 
 By default, machine learning in Custom Decision Service is transparent to the customer. Features are automatically extracted from your content, and a standard reinforcement learning algorithm is used. Feature extraction leverages several other Microsoft Cognitive Services: 
 [Entity Linking](../entitylinking/home.md),
@@ -117,9 +117,11 @@ Any string-valued feature is 1-hot encoded by default: a distinct internal featu
 
 [!TIP] Our machine learning algorithms treat all possible values of a given internal feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows a separate coefficient for each range of values. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
 
-## Feature specification
+## Feature specification: format and APIs
 
-You can specify features using a simple JSON format and several ancillary APIs. The basic JSON template is as follows:
+You can specify features via several ancillary APIs. All APIs use a common JSON format. Below we explain the APIs and the format on a conceptual level. Full specification is provided via Swagger schema.
+
+The basic JSON template for feature specification is as follows:
 
 ```
 {
@@ -150,14 +152,14 @@ Here `<features>` refers to the basic feature specification defined previously. 
 
 #### Feature Set API 
 
-Feature Set API returns a list of features in the JSON format described previously. Several Feature Set APIs can be used, identified by feature set ids. The mapping between feature set ids and the corresponding URLs is set on the Portal. 
+Feature Set API returns a list of features in the JSON format described previously. Several Feature Set API enpoints can be used. Each endpoint is identified by endpoint id. The mapping between endpoint ids and the corresponding URLs is set on the Portal.
 
-Specify a call to Feature Set API by inserting its feature set id in the appropriate place in JSON. The call is automatically parameterized by the action id. 
+Specify a call to Feature Set API by inserting its endpoint id in the appropriate place in JSON. The call is automatically parameterized by the action id.
 
 
 #### Action Set API (JSON version)
 
-Action Set API has a version in which actions and features are specified in JSON. Features can be specified explicitly and/or via feature set ids. When a feature set id is encountered, a call to the corresponding Feature Set API is executed.
+Action Set API has a version in which actions and features are specified in JSON. Features can be specified explicitly and/or via Feature Set APIs.
 	
 #### Ranking API (HTTP POST call)
 
@@ -165,8 +167,8 @@ Ranking API has a version that uses HTTP POST call. The body of this call specif
 
 The details are as follows:
 
-- Actions can be specified explicitly and/or via action set ids. Whenever an action set id is encountered, a call to the corresponding Action Set API is executed. 
-- Likewise, features can be specified explicitly and/or via feature set ids. When a feature set id is encountered, a call to the corresponding Feature Set API is executed.
+- Actions can be specified explicitly and/or via action set ids. Whenever an action set id is encountered, a call to the corresponding Action Set API is executed.
+- Likewise, features can be specified explicitly and/or via Feature Set API endpoint ids.
 - Shared features can be specified once for all actions.
 
 
