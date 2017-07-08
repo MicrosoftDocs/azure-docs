@@ -151,20 +151,18 @@ Here `<features>` refers to the basic feature specification defined previously. 
 
 #### Feature Set API
 
-Feature Set API returns a list of features in the JSON format described previously. Several Feature Set API endpoints can be used. Each endpoint is identified by endpoint id. The mapping between endpoint ids and the corresponding URLs is set on the Portal.
+Feature Set API returns a list of features in the JSON format described previously. You can use several Feature Set API endpoints. Each endpoint is identified by feature set id and a URL. The mapping between feature set ids and URLs is set on the Portal.
 
-Specify a call to Feature Set API by inserting its endpoint id in the appropriate place in JSON. The call is automatically parameterized by the action id.
+Call Feature Set API by inserting the corresponding feature set id in the appropriate place in JSON. For action-dependent features, the call is automatically parameterized by the action id. You can specify several feature set ids for the same action.
 
 #### Action Set API (JSON version)
 
-Action Set API has a version in which actions and features are specified in JSON. Features can be specified explicitly and/or via Feature Set APIs.
+Action Set API has a version in which actions and features are specified in JSON. Features can be specified explicitly and/or via Feature Set APIs. Shared features can be specified once for all actions.
 
 #### Ranking API (HTTP POST call)
 
 Ranking API has a version that uses HTTP POST call. The body of this call specifies actions and features via a flexible JSON syntax.
 
-The details are as follows:
+Actions can be specified explicitly and/or via action set ids. Whenever an action set id is encountered, a call to the corresponding Action Set API endpoint is executed.
 
-- Actions can be specified explicitly and/or via action set ids. Whenever an action set id is encountered, a call to the corresponding Action Set API is executed.
-- Likewise, features can be specified explicitly and/or via Feature Set API endpoint ids.
-- Shared features can be specified once for all actions.
+As for Action Set API, features can be specified explicitly and/or via Feature Set APIs. Shared features can be specified once for all actions.
