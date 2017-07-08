@@ -235,4 +235,4 @@ conn.close()
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)
+> [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
