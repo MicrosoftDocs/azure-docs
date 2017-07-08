@@ -26,18 +26,26 @@ This topic provides you with information about things you should know and what i
 
 ### What’s required to make a policy work?
 
-When configuring a conditional access policy, you must configure the following:
+When you create a new policy, there are no users, groups, apps or access controls selected.
 
 ![Cloud apps](./media/active-directory-conditional-access-best-practices/02.png)
 
 
-- **Users and groups** - You need assign to assign at least one group to your policy. A conditional access policy that has no users and groups assigned, is never triggered.
+To make your policy work, you must configure the following:
 
-- **Cloud apps** - You need to either assign all cloud apps or specific apps to your policy. This is because the goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.
+- **Cloud apps** - You need to select one or more apps. This is because the goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.
 
-    ![Cloud apps](./media/active-directory-conditional-access-best-practices/01.png)
+- **Users and groups** - You need assign to assign at least one user or group to your policy. A conditional access policy that has no users and groups assigned, is never triggered. The users or groups must be authorized to access the cloud apps you have selected. 
 
 - **Access Controls** - You need to either configure the desired access or sessions. This is because the policy processor needs to know what to do if your conditions are satisfied.
+
+
+
+|What           | How                                  | Why|
+|:--            | :--                                  | :-- |
+|**Cloud Apps** |You need to select one or more apps.  | This is because the goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.|
+| **Users and groups** | You need assign to assign at least one user or group that are authorized to access the cloud apps you have selected. | A conditional access policy that has no users and groups assigned, is never triggered. |
+| **Access Controls** | You need to either select the desired access or sessions | This is because the policy processor needs to know what to do if your conditions are satisfied.|
 
 
 In addition to these basic requirements, in many cases, you should also configure a condition. While a policy would also work without a configured condition, conditions are the driving factor for fine-tuning access to your apps.
