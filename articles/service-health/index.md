@@ -46,7 +46,25 @@ Service Health helps you diagnose and get support when an Azure issue impacts yo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about resource types and health checks in resource health</h3>
+                        <h3>Learn about resource types and health checks in Resource Health</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/resources/videos/announcing-azure-service-health/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>View an video introduction on Service Health</h3>
                     </div>
                 </div>
             </div>
@@ -71,6 +89,7 @@ Service Health helps you diagnose and get support when an Azure issue impacts yo
         </div>
         </a>
     </li>
+
 </ul>
 
 ---
