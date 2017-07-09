@@ -154,8 +154,6 @@ If the data is in the document then you have successfully created an Azure funct
 
 ## Next steps
 
-For more information about Azure Functions, see the following topics:
-
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
 For more information about binding to a Cosmos DB database, see [Azure Functions Cosmos DB bindings](functions-bindings-documentdb.md).
