@@ -140,12 +140,12 @@ Following are the Linux Distributions that we validated with Premium Storage.
 | Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
 | RHEL |6.8+, 7.2+ | |
 
-## File storage
+## Azure File storage
 Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.  Because file shares are SMB shares, you can access them via standard file system APIs.
 
 File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see Azure Storage Scalability and Performance Targets.
 
-* [How to use Azure File Storage with Linux](../../storage/storage-how-to-use-files-linux.md)
+* [How to use Azure File storage with Linux](../../storage/storage-how-to-use-files-linux.md)
 
 ## Hot Storage
 The Azure hot storage tier is optimized for storing data that is accessed frequently.  Hot storage is the default storage type for blob stores.
