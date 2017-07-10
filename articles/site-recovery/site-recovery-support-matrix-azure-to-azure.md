@@ -65,7 +65,7 @@ The below support is applicable for any workload running on the mentioned OS.
 
 >[!NOTE]
 >
-> \* Windows Server 2016 Nano Server is not support.
+> \* Windows Server 2016 Nano Server is not supported.
 
 #### Linux
 
