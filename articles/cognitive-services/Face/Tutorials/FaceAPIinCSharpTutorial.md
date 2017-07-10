@@ -46,16 +46,26 @@ In this step you will create a Windows application project to implement the basi
 
 7. Open MainWindow.xaml, and replace the existing code with the following code to create the window UI: 
 
-        <Window x:Class="MyFirstApp.MainWindow"
-                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
-                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
-                Title="MainWindow" Height="350" Width="450">        
-            <Grid x:Name="BackPanel">    
-                <Image x:Name="FacePhoto" Stretch="Uniform" Margin="0,0,0,30"/>        
-                <Button x:Name="BrowseButton" Margin="20,5" Height="20"         
-                        VerticalAlignment="Bottom" Content="Browse..."                
-                        Click="BrowseButton_Click"/>                
-            </Grid>    
+        <Window
+            x:Class="MyFirstApp.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            Title="MainWindow"
+            Height="350"
+            Width="450">
+            <Grid x:Name="BackPanel">
+                <Image
+                    x:Name="FacePhoto"
+                    Stretch="Uniform"
+                    Margin="0,0,0,30"/>
+                <Button
+                    x:Name="BrowseButton"
+                    Margin="20,5"
+                    Height="20"
+                    VerticalAlignment="Bottom"
+                    Content="Browse..."
+                    Click="BrowseButton_Click"/>
+            </Grid>
         </Window>
 
 8. Open MainWindow.xaml.cs, and insert the following code inside the MainWindow class for the 'Browse' button: 
