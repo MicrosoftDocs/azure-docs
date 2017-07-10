@@ -1,5 +1,5 @@
 ---
-title: Deploy an ARM template in an Azure Automation runbook | Microsoft Docs
+title: Deploy an Azure Resource Manager template in an Azure Automation runbook | Microsoft Docs
 description: How to deploy an ARM template stored in Azure Storage from a runbook
 services: automation
 documentationcenter: dev-center-name
