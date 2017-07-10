@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2016
+ms.date: 07/10/2017
 ms.author: sngun
 
 ---
@@ -52,7 +52,7 @@ Use the following steps to connect to Azure Stack:
 
 2. Get your Azure Stack environment’s active directory endpoint and active directory resource Id endpoint. You can get these values by navigating to one of the following links in a browser: 
 
-   a. For the **administrative** environment, use:    `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
+   a. For the **cloud administrative** environment, use:    `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
    b. For the **user** environment, use:    
    `https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
@@ -61,7 +61,7 @@ Use the following steps to connect to Azure Stack:
 
 3. Register your Azure Stack environment by running the following command:
 
-   a. To register the **administrative** environment, use:
+   a. To register the **cloud administrative** environment, use:
 
    ```azurecli
    az cloud register \
