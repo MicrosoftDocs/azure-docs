@@ -19,8 +19,10 @@
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-    - name: .NET
-      href: sql-database-connect-query-dotnet.md
+    - name: .NET with Visual Studio
+      href: sql-database-connect-query-dotnet-visual-studio.md
+    - name: .NET core
+      href: sql-database-connect-query-dotnet-core.md
     - name: PHP
       href: sql-database-connect-query-php.md
     - name: Node.js
