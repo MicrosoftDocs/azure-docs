@@ -107,7 +107,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `App.config`. 
 
-    `<add key="Endpoint" value="FILLME.documents.azure.com:443" />`
+    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
 
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in `App.config`. 
 

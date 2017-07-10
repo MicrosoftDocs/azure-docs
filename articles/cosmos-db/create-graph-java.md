@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/27/2017
+ms.date: 07/10/2017
 ms.author: arramac
 
 ---
@@ -90,12 +90,12 @@ Now go back to the Azure portal to get your connection string information and co
 
     Setting|Suggested value|Description
     ---|---|---
-    Hosts|***.graphs.azure.com|Your graph service URI, which you can retrieve from the Azure portal
+    Hosts|[***.graphs.azure.com]|The host portion of your URI, in square brackets, which you can retrieve from the Keys page of the Azure portal, in the URI box. Use the copy button on the left side of the box to copy the value. Be sure to remove `https://` the trailing `:443/` when pasting in the value. 
     Port|443|Set to 443
-    Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>`.
-    Password|*Your primary master key*|Your primary master key for the Azure Cosmos DB
-    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL
-    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value
+    Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
+    Password|*Your primary master key*|Your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
+    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL.
+    Serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
 
 ## Run the console app
 
