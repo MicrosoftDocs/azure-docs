@@ -20,24 +20,38 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-You also need:
-- Install [python](https://www.python.org/downloads/)
-   - In Linux (Ubuntu) and Mac OS, Python is typically installed as part of the default installation.
-   - In Windows, Python is typically separate download.
-- Install [pip](https://pip.pypa.io/en/stable/installing/) package. Pip is likely already installed if you've installed Python 2, version 2.7.9 or higher, and Python 3, version 3.4 or higher.
-   - Check your installed version of pip, by running the `pip show pip -v` command.
-   - Update pip to the latest version, by running the `pip install -U pip` command if you already have it installed.
-   - In Ubuntu, install pip by running command `sudo apt-get install python-pip` if needed.
-   - In Windows, install pip by downloading binaries from [python.org](https://python.org). 
+## Install Python and the MySQL connector
+Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. 
 
-## Install the Python connection libraries for MySQL
-Install the [mysql-connector](https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html) package, which enabled you to connect and query the database. The mysql-connector is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows), so you may use `pip install` command to get the binary version of the module including all the dependencies:
-- On Windows, use an elevated command prompt (run as administrator) when you run the pip install command to avoid access denied errors.
+### MacOS
+- In Mac OS, Python is typically installed as part of the default OS installation.
+- Check the Python installation by running the command `python -V` to see the version number.
+- Check the PIP installation by running the `pip show pip -v` command to see the version number.
+- PIP is included if the Python 2 is version 2.7.9 or higher, and Python 3 is version 3.4 or higher. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package.
+- Update PIP to the latest version, by running the `pip install -U pip` command.
+- Install the MySQL connector for Python, and its dependencies by using the PIP command:
 
-```cmd
+```bash
 pip install mysql-connector-python-rf
 ```
- 
+
+### Linux (Ubuntu)
+- In Linux (Ubuntu), Python is typically installed as part of the default installation.
+- Check the Python installation by running the command `python -V` to see the version number.
+- Check the PIP installation by running the `pip show pip -v` command to see the version number. 
+- PIP is included if the Python 2 is version 2.7.9 or higher, and Python 3 is version 3.4 or higher. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package, by running command `sudo apt-get install python-pip`.
+- Update PIP to the latest version, by running the `pip install -U pip` command.
+- Install the MySQL connector for Python, and its dependencies by using the PIP command:
+
+```bash
+pip install mysql-connector-python-rf
+```
+
+### Windows
+- Download and Install Python 3.4 from [python.org](https://www.python.org/downloads/). 
+- Check the installation by running the command `python -V` to see the version number.
+- Install the Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/) corresponding to your version of Python.
+
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
