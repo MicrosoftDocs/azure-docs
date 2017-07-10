@@ -41,7 +41,7 @@ To learn more about how people in an organization can consume Service Catalog Ma
 
 Marketplace applications are available through the marketplace in the Azure portal. Once published by the vendor, these applications are available for everyone inside or outside of your organization to consume. This approach enables MSPs, ISVs, and System Integrators (SIs) to offer their solutions to all Azure customers. The customers get the benefit of leveraging such complex solutions without having to invest in understanding and maintaining the solutions. Currently, the publisher can make their offer available as a managed application or as a solution template that is unmanaged. The main components of publishing a managed application include the template files, which describe the resources that are provisioned, and the UI definition file, which describes how the required inputs for provisioning these resources are displayed in the portal. The required files are packaged in a .zip file and uploaded through the publishing portal.
  
-To learn more about marketplace-managed applications, see <hyperlink to the new article>
+To learn more about marketplace-managed applications, see [Azure Managed Applications in Marketplace](managed-application-author-marketplace.md).
 
 ## Key concepts
 
