@@ -194,7 +194,6 @@ Request body:
             "managementEndpoints": [ "<cluster HTTP management endpoint>" ],
             "clientCertificateThumbprint": "<client cert thumbprint>",
             "serverCertificateThumbprints": [ "<cluster cert thumbprint>" ],
-            "partitionResolutionRequestTimeout" : "00:02:00",
             "maxPartitionResolutionRetries" : 5
         }
     }
@@ -222,7 +221,6 @@ Content-Type: application/json
             "managementEndpoints": ["https://your-cluster.westus.cloudapp.azure.com:19080"],
             "clientCertificateThumbprint": "57bc463aba3aea3a12a18f36f44154f819f0fe32",
             "serverCertificateThumbprints": ["57bc463aba3aea3a12a18f36f44154f819f0fe32"],
-            "partitionResolutionRequestTimeout" : "00:02:00",
             "maxPartitionResolutionRetries" : 5
         }
     }
