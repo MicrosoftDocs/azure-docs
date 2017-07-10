@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/21/2017
+ms.date: 07/09/2017
 ms.author: magoedte
 
 ---
@@ -21,7 +21,7 @@ ms.author: magoedte
 
 ![Update Management symbol](./media/oms-solution-update-management/update-management-symbol.png)
 
-The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers.
+The Update Management solution in OMS allows you to manage operating system security updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers.  You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 
 ## Solution overview
@@ -32,7 +32,7 @@ Computers managed by OMS use the following for performing assessment and update 
 * Automation Hybrid Runbook Worker
 * Microsoft Update or Windows Server Update Services for Windows computers
 
-The following diagrams shows a conceptual view of the behavior and data flow with how the solution assesses and applies updates to all connected Windows Server and Linux computers in a workspace.    
+The following diagrams shows a conceptual view of the behavior and data flow with how the solution assesses and applies security updates to all connected Windows Server and Linux computers in a workspace.    
 
 #### Windows Server
 ![Windows Server update management process flow](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
