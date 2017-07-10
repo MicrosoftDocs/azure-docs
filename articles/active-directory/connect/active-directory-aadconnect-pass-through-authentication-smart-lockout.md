@@ -55,7 +55,7 @@ Use the following instructions to verify your AD Account Lockout policies:
 >[!IMPORTANT]
 >Modifying Azure AD’s Lockout Threshold and Lockout Duration values using Graph API is an Azure AD Premium P2 feature. It also needs you to be a Global Administrator on your tenant.
 
-You can use (Graph Explorer)[https://developer.microsoft.com/en-us/graph/graph-explorer] to read, set, and update Azure AD’s Smart Lockout values. But you can also do these operations programmatically.
+You can use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to read, set, and update Azure AD’s Smart Lockout values. But you can also do these operations programmatically.
 
 ### Read Smart Lockout values
 
