@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017 
-ms.date: 06/23/2017
+ms.date: 07/14/2017
 ms.author: LADocs; padmavc
 ---
 
-# Monitor and set up diagnostics logging for B2B messages in your integration account
+# Monitor and set up diagnostics logging for B2B communcation in your integration account
 
 After you set up B2B communication between two running business processes or applications 
 through your integration account, those entities can exchange messages with each other. 
-To confirm this communication works as expected, you can set up message monitoring. 
+To confirm this communication works as expected, you can set up message monitoring.
 For richer details and debugging, you can also set up logging for your integration account.
 
 You can monitor and track messages that use these B2B protocols: AS2, X12, and EDIFACT. 

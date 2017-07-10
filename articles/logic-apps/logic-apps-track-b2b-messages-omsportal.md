@@ -13,17 +13,18 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 07/14/2017
 ms.author: LADocs; padmavc
 ---
 
-# Track B2B messages in the Operations Management Suite (OMS)
+# Track B2B communcation in Microsoft Operations Management Suite (OMS)
 
 After you set up B2B communication between two running business processes 
 or applications through your integration account, 
 those entities can exchange messages with each other. 
 To check whether these messages are processed correctly, 
-you can track your messages with [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
+you can track AS2, X12, and EDIFACT messages with 
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
 in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
 For example, you can use these web-based tracking capabilities 
 for tracking messages:
@@ -33,8 +34,6 @@ for tracking messages:
 * Correlate messages with acknowledgments
 * Detailed error descriptions for failures
 * Search capabilities
-
-You can track messages that use these B2B protocols: AS2, X12, and EDIFACT. 
 
 ## Requirements
 

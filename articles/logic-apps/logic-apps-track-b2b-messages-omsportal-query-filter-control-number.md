@@ -13,13 +13,13 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 07/14/2017
 ms.author: LADocs; padmavc
 ---
 
 # Query for AS2, X12, and EDIFACT messages in the Operations Management Suite (OMS)
 
-To find the B2B messages that you're tracking with 
+To find the AS2, X12, or EDIFACT messages that you're tracking with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
 in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), 
 you can create queries that filter actions based on specific criteria. 
