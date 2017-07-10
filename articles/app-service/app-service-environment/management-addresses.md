@@ -17,11 +17,11 @@ ms.author: ccompy
 ---
 # App Service Environment management addresses
 
-The App Service Environment(ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE management traffic traverses the user owned network.  For details on the ASE networking dependencies read [Networking considerations and the App Service Environment][http://docs.microsoft.com/azure/app-service/app-service-environment/network-info]  
+The App Service Environment(ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE management traffic traverses the user owned network.  For details on the ASE networking dependencies read [Networking considerations and the App Service Environment][networking].  For general information on the ASE you can start with [Introduction to the App Service Environment][intro].
 
 This document lists the source IPs for management traffic to the ASE. There are a set of IP addresses that are used across all ASE instances and then there are additional IPs that break down to a regional level.  The incoming management traffic comes in from these IP addresses to ports 454 and 455.
 
-If you want to restrict access to ports 454 and 455 with a Network Security Group then you need to use the IPs that are in the All regions section as well as the IPs matching the region your ASE is deployed in.  
+If you want to restrict access to ports 454 and 455 with a Network Security Group then you need to use the IP addresses that are in the All regions section AND as the addresses matching the region your ASE is deployed in.  
 
 | Region | Addresses |
 |--------|-----------|
@@ -40,3 +40,8 @@ If you want to restrict access to ports 454 and 455 with a Network Security Grou
 | Brazil South & South Central US| 104.41.46.178, 23.102.188.65 |
 | Central India & South India | 104.211.98.24, 104.211.225.66 |
 | West India & South India | 104.211.160.229, 104.211.225.66 |
+
+
+<!-- LINKS -->
+[networking]: ./network-info.md
+[intro]: ./intro.md
