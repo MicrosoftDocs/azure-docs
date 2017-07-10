@@ -29,10 +29,11 @@ To delete the object, please follow these steps:
 
     ![message when deleting the storage account](media/storage-use-storage-explorer-to-delete-object/delete-storage-error.png) 
 
-2. Copy the disk name from the disk url. For following example, the disk name is "Coslab-SCCM2012-2015-08-28.vhd".
+2. Check the Disk URL to identify the storage account that contains the VHD. In the following example, the string before “.blob.core.windows.net “ is the storage account name, and "Coslab-SCCM2012-2015-08-28.vhd" is the disk name.  
 
         https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/Coslab-SCCM2012-2015-08-28.vhd
 
+3. Copy the disk name from the disk URL. 
 
 ## Step 2 Delete the VDH by using Azure Storage Explorer
 
@@ -43,5 +44,14 @@ To delete the object, please follow these steps:
 
     ![add subscription](media/storage-use-storage-explorer-to-delete-object/addsub.png)
 
-4. Go to the storage account, select the Blob Containers > vhds and search for the VHD that prevents you delete the storage account.
-5. If the VHD is found, right-click the VHD, select **Break Lease** and then select Delete.
+4. Go to the storage account that we obtained from the disk URL earlier, select the Blob Containers > vhds and search for the VHD that prevents you delete the storage account.
+5. If the VHD is found,  check the **VM Name** column to find the VM that is using this VHD.
+
+  ![Check vm](media/storage-use-storage-explorer-to-delete-object/check-vm.jpg)
+
+6. Detach the VDH from Azure portal. For more information, see [How to detach a disk from a Windows virtual machine](../virtual-machines/windows/classic/detach-disk.md). If the VHD is OS disk, you must delete the VM. Then you can delete the VHD.
+
+    > [!Note]
+    > If you delete the attached disks with the VM, then you can proceed with deleting Storage account after the VM deletion are finished. If you delete the VHD separately, wait for > a few minutes to delete the VHD. Disks are detached from a deleted VM asynchronously. It might take a few minutes after the VM is deleted for this field to clear up.
+
+7. Go to the Azure Storage Explorer, right-click the VHD and then select delete. 
