@@ -50,7 +50,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
     d. **Admin user**: If you want, enable an admin user to access the registry. You can change this setting after creating the registry.
 
-    e. **Use managed registry**: Select yes to have ACR automatically manage the registry storage and use webhooks.
+    e. **Use managed registry**: Select yes to have ACR automatically manage the registry storage, use webhooks, and use AAD authentication.
 
     d. **Pricing Tier**: Select a pricing tier, see here ACR pricing for more information.
 
