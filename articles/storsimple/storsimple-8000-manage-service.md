@@ -56,9 +56,9 @@ For each StorSimple Device Manager service, the following attributes exists:
 * **Subscription** – The billing subscription that is associated with your service.
 
 ## Move a service to Azure portal
-StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal.
+StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not available after September 30, 2017.
 
-The Azure classic portal for the StorSimple Manager service is not available after September 30, 2017.
+The option to migrate to the Azure portal is available in phases. If you do not see an option to migrate to Azure portal but you want to move and have reviewed the impact of migration as documented in the [Consiserations for transition](#considerations-for-transition), you can [submit a request](https://aka.ms/ss8000-cx-signup).
 
 ### Considerations for transition
 
@@ -104,6 +104,8 @@ Perform the following steps to transition your service to the Azure portal.
 3. Click **Migrate**. The transition begins and takes a few minutes to complete.
 
 Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal.
+
+If you 
 
 ## Delete a service
 
