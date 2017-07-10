@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/10/2017
 ms.author: jeedes
 
 ---
@@ -42,7 +42,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 *  When assigning a user to Google Apps, you must select a valid user role. The "Default Access" role does not work for provisioning..
 
-## Enable Automated User Provisioning
+## Enable Automated user provisioning
 
 This section guides you through connecting your Azure AD to Google Apps's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Google Apps based on user and group assignment in Azure AD.
 
@@ -75,17 +75,17 @@ This section guides you through connecting your Azure AD to Google Apps's user a
 
     b. Click **Domains name** on the left navigation pane, and then click **Add**.
      
-     ![domain](./media/active-directory-saas-googleapps-provisioning-tutorial/domain_1.png)
+     ![domain](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
 
-     ![domain add](./media/active-directory-saas-googleapps-provisioning-tutorial/domain_2.png)
+     ![domain add](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
     c. Type your domain name into the **Domain name** field. This domain name should be the same domain name that you intend to use for Google Apps. When ready, click the **Add Domain** button.
      
-     ![domain name](./media/active-directory-saas-googleapps-provisioning-tutorial/domain_3.png)
+     ![domain name](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_3.png)
 
     d. Click **Next** to go to the verification page. To verify that you own this domain, you must edit the domain's DNS records according to the values provided on this page. You may choose to verify using either **MX records** or **TXT records**, depending on what you select for the **Record Type** option. For more comprehensive instructions on how to verify domain name with Azure AD, see. [Add your own domain name to Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
-     ![domain](./media/active-directory-saas-googleapps-provisioning-tutorial/domain_4.png)
+     ![domain](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Repeat the preceding steps for all the domains that you intend to add to your directory.
 
@@ -129,7 +129,7 @@ This section guides you through connecting your Azure AD to Google Apps's user a
 
 11. Set the **Provisioning Mode** to **Automatic**. 
 
-     ![provisioning](./media/active-directory-saas-googleapps-provisioning-tutorial/provisioning.png)
+     ![provisioning](./media/active-directory-saas-google-apps-provisioning-tutorial/provisioning.png)
 
 12. Under the **Admin Credentials** section, click **Authorize**. It opens a Google Apps authorization dialog in a new browser window.
 
@@ -157,49 +157,49 @@ It starts the initial synchronization of any users and/or groups assigned to Goo
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configure Single Sign-on](active-directory-saas-googleapps-tutorial.md)
+* [Configure Single Sign-on](active-directory-saas-google-apps-tutorial.md)
 
 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-googleapps-provisioning-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_203.png
 
-[0]: ./media/active-directory-saas-googleapps-provisioning-tutorial/azure-active-directory.png
+[0]: ./media/active-directory-saas-google-apps-provisioning-tutorial/azure-active-directory.png
 
-[5]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-added.png
-[6]: ./media/active-directory-saas-googleapps-provisioning-tutorial/config-sso.png
-[7]: ./media/active-directory-saas-googleapps-provisioning-tutorial/sso-gapps.png
-[8]: ./media/active-directory-saas-googleapps-provisioning-tutorial/sso-url.png
-[9]: ./media/active-directory-saas-googleapps-provisioning-tutorial/download-cert.png
-[10]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-security.png
-[11]: ./media/active-directory-saas-googleapps-provisioning-tutorial/security-gapps.png
-[12]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-sso-config.png
-[13]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-sso-confirm.png
-[14]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-sso-email.png
-[15]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-api.png
-[16]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-api-enabled.png
-[17]: ./media/active-directory-saas-googleapps-provisioning-tutorial/add-custom-domain.png
-[18]: ./media/active-directory-saas-googleapps-provisioning-tutorial/specify-domain.png
-[19]: ./media/active-directory-saas-googleapps-provisioning-tutorial/verify-domain.png
-[20]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-domains.png
-[21]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-add-domain.png
-[22]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-add-another.png
-[23]: ./media/active-directory-saas-googleapps-provisioning-tutorial/apps-gapps.png
-[24]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-provisioning.png
-[25]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-provisioning-auth.png
-[26]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-admin.png
-[27]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-admin-privileges.png
-[28]: ./media/active-directory-saas-googleapps-provisioning-tutorial/gapps-auth.png
-[29]: ./media/active-directory-saas-googleapps-provisioning-tutorial/assign-users.png
-[30]: ./media/active-directory-saas-googleapps-provisioning-tutorial/assign-confirm.png
+[5]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-added.png
+[6]: ./media/active-directory-saas-google-apps-provisioning-tutorial/config-sso.png
+[7]: ./media/active-directory-saas-google-apps-provisioning-tutorial/sso-gapps.png
+[8]: ./media/active-directory-saas-google-apps-provisioning-tutorial/sso-url.png
+[9]: ./media/active-directory-saas-google-apps-provisioning-tutorial/download-cert.png
+[10]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-security.png
+[11]: ./media/active-directory-saas-google-apps-provisioning-tutorial/security-gapps.png
+[12]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-sso-config.png
+[13]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-sso-confirm.png
+[14]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-sso-email.png
+[15]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-api.png
+[16]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-api-enabled.png
+[17]: ./media/active-directory-saas-google-apps-provisioning-tutorial/add-custom-domain.png
+[18]: ./media/active-directory-saas-google-apps-provisioning-tutorial/specify-domain.png
+[19]: ./media/active-directory-saas-google-apps-provisioning-tutorial/verify-domain.png
+[20]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-domains.png
+[21]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-add-domain.png
+[22]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-add-another.png
+[23]: ./media/active-directory-saas-google-apps-provisioning-tutorial/apps-gapps.png
+[24]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-provisioning.png
+[25]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-provisioning-auth.png
+[26]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin.png
+[27]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin-privileges.png
+[28]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-auth.png
+[29]: ./media/active-directory-saas-google-apps-provisioning-tutorial/assign-users.png
+[30]: ./media/active-directory-saas-google-apps-provisioning-tutorial/assign-confirm.png
