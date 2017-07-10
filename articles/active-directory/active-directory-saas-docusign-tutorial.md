@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Docusign | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Docusign.
+title: 'Tutorial: Azure Active Directory integration with DocuSign | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 07/10/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Docusign
+# Tutorial: Azure Active Directory integration with DocuSign
 
-In this tutorial, you learn how to integrate Docusign with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate DocuSign with Azure Active Directory (Azure AD).
 
-Integrating Docusign with Azure AD provides you with the following benefits:
+Integrating DocuSign with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Docusign
-- You can enable your users to automatically get signed-on to Docusign (Single Sign-On) with their Azure AD accounts
+- You can control in Azure AD who has access to DocuSign
+- You can enable your users to automatically get signed-on to DocuSign (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Docusign, you need the following items:
+To configure Azure AD integration with DocuSign, you need the following items:
 
 - An Azure AD subscription
-- A Docusign single sign-on enabled subscription
+- A DocuSign single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -47,13 +47,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Docusign from the gallery
+1. Adding DocuSign from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Docusign from the gallery
-To configure the integration of Docusign into Azure AD, you need to add Docusign from the gallery to your list of managed SaaS apps.
+## Adding DocuSign from the gallery
+To configure the integration of DocuSign into Azure AD, you need to add DocuSign from the gallery to your list of managed SaaS apps.
 
-**To add Docusign from the gallery, perform the following steps:**
+**To add DocuSign from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -67,36 +67,36 @@ To configure the integration of Docusign into Azure AD, you need to add Docusign
 
 	![Applications][3]
 
-4. In the search box, type **Docusign**.
+4. In the search box, type **DocuSign**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_search.png)
 
-5. In the results panel, select **Docusign**, and then click **Add** button to add the application.
+5. In the results panel, select **DocuSign**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Docusign based on a test user called "Britta Simon."
+In this section, you configure and test Azure AD single sign-on with DocuSign based on a test user called "Britta Simon."
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Docusign is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Docusign needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in DocuSign is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in DocuSign needs to be established.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Docusign.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in DocuSign.
 
-To configure and test Azure AD single sign-on with Docusign, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with DocuSign, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Docusign test user](#creating-a-docusign-test-user)** - to have a counterpart of Britta Simon in Docusign that is linked to the Azure AD representation of user.
+3. **[Creating a DocuSign test user](#creating-a-docusign-test-user)** - to have a counterpart of Britta Simon in DocuSign that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Docusign application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your DocuSign application.
 
-**To configure Azure AD single sign-on with Docusign, perform the following steps:**
+**To configure Azure AD single sign-on with DocuSign, perform the following steps:**
 
-1. In the Azure portal, on the **Docusign** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **DocuSign** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_certificate.png) 
 
-4. On the **Docusign Configuration** section of Azure portal, Click **Configure Docusign** to open Configure sign-on window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+4. On the **DocuSign Configuration** section of Azure portal, Click **Configure DocuSign** to open Configure sign-on window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
     
     ![Configure Single Sign-On](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_configure.png)
 
@@ -117,12 +117,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. In the navigation menu on the left, click **Domains**.
    
     ![Configuring single sign-on][51]
+
 7. On the right pane, click **Claim Domain**.
    
     ![Configuring single sign-on][52]
+
 8. On the **Claim a domain** dialog, in the **Domain Name** textbox, type your company domain, and then click **Claim**. Make sure that you verify the domain and the status is active.
    
     ![Configuring single sign-on][53]
+
 9. In menu on the left side, click **Identity Providers**  
    
     ![Configuring single sign-on][54]
@@ -151,14 +154,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 12. In the **Custom Attribute Mapping** section, choose the field you want to map with Azure AD Claim. In this example, the **emailaddress** claim is mapped with the value of **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. It is the default claim name from Azure AD for email claim. 
    
 	> [!NOTE]
-	> Use the appropriate **User identifier** to map the user from Azure AD to Docusign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
-	> 
-	  
+	> Use the appropriate **User identifier** to map the user from Azure AD to DocuSign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
+		  
 	![Configuring single sign-on][57]
+
 13. In the **Identity Provider Certificate** section, click **Add Certificate**, and then upload the certificate you have downloaded from Azure AD portal.   
    
 	![Configuring single sign-on][58]
+
 14. Click **Save**.
+
 15. In the **Identity Providers** section, click **Actions**, and then click **Endpoints**.   
    
 	![Configuring single sign-on][59]
@@ -167,9 +172,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
 	![Configuring single sign-on][60]
    
-	a. Copy the **Service Provider Issuer URL**, and then paste into the **Identifier** textbox on **Docusign Domain and URLs** section of the Azure portal following the pattern: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`.
+	a. Copy the **Service Provider Issuer URL**, and then paste into the **Identifier** textbox on **DocuSign Domain and URLs** section of the Azure portal following the pattern: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`.
    
-	b. Copy the **Service Provider Login URL**, and then paste into the **Sign On URL** textbox on **Docusign Domain and URLs** section of the Azure portal following the pattern: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/`.
+	b. Copy the **Service Provider Login URL**, and then paste into the **Sign On URL** textbox on **DocuSign Domain and URLs** section of the Azure portal following the pattern: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/`.
 
 	![Configure Single Sign-On](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_url.png)
 	  
@@ -181,7 +186,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -214,23 +218,23 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a Docusign test user
+### Creating a DocuSign test user
 
 Application supports **Just in time user provisioning** and after authentication users are created in the application automatically.
 
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Docusign.
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to DocuSign.
 
 ![Assign User][200] 
 
-**To assign Britta Simon to Docusign, perform the following steps:**
+**To assign Britta Simon to DocuSign, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **Docusign**.
+2. In the applications list, select **DocuSign**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_app.png) 
 
@@ -252,7 +256,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Docusign tile in the Access Panel, you should get automatically signed-on to your Docusign application.
+When you click the DocuSign tile in the Access Panel, you should get automatically signed-on to your DocuSign application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
