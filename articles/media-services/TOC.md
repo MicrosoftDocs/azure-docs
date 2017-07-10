@@ -1,5 +1,6 @@
 # [Overview](media-services-overview.md)
-## [Concepts ](media-services-concepts.md)
+## [Scenarios and availability](scenarios-and-availability.md)
+## [Concepts](media-services-concepts.md)
 
 # Get started
 ## [Create and manage account](media-services-portal-create-account.md)
