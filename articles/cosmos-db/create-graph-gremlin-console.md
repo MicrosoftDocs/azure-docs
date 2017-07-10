@@ -43,7 +43,7 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
 ## Retrieve your connection information
 
-1. In the Azure portal, in the navigation menu, click **Keys**, and then click **Read-write Keys**. Leave this page open as you'll copy the URI and Primary Key into the `remote-secure.yaml` file in the next step.
+In the Azure portal, in the navigation menu, click **Keys**, and then click **Read-write Keys**. Leave this page open as you'll copy the URI and Primary Key into the `remote-secure.yaml` file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-gremlin-console/keys.png)
 
