@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 07/10/2017
 ms.author: dkshir
 
 ---
@@ -63,7 +63,7 @@ In this section, you create a .NET console app that connects to your hub as **my
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
-        static Twin twin = null;
+        static TwinCollection reportedProperties = new TwinCollection();
 
 1. Add the following method to the **Program** class:
  
@@ -73,10 +73,6 @@ In this section, you create a .NET console app that connects to your hub as **my
             {
                 Console.WriteLine("Connecting to hub");
                 Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
-                Console.WriteLine("Retrieving twin");
-                var twinTask = Client.GetTwinAsync();
-                twinTask.Wait();
-                twin = twinTask.Result;
             }
             catch (Exception ex)
             {
@@ -94,13 +90,13 @@ In this section, you create a .NET console app that connects to your hub as **my
             {
                 Console.WriteLine("Report initial telemetry config:");
                 TwinCollection telemetryConfig = new TwinCollection();
+                
                 telemetryConfig["configId"] = "0";
                 telemetryConfig["sendFrequency"] = "24h";
-                twin.Properties.Reported["telemetryConfig"] = telemetryConfig;
-                Console.WriteLine(JsonConvert.SerializeObject(twin.Properties.Reported));
+                reportedProperties["telemetryConfig"] = telemetryConfig;
+                Console.WriteLine(JsonConvert.SerializeObject(reportedProperties));
 
-                twin.Properties.Reported.ClearMetadata();
-                await Client.UpdateReportedPropertiesAsync(twin.Properties.Reported);
+                await Client.UpdateReportedPropertiesAsync(reportedProperties);
             }
             catch (AggregateException ex)
             {
@@ -126,7 +122,7 @@ In this section, you create a .NET console app that connects to your hub as **my
                 Console.WriteLine("Desired property change:");
                 Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-                var currentTelemetryConfig = twin.Properties.Reported["telemetryConfig"];
+                var currentTelemetryConfig = reportedProperties["telemetryConfig"];
                 var desiredTelemetryConfig = desiredProperties["telemetryConfig"];
 
                 if ((desiredTelemetryConfig != null) && (desiredTelemetryConfig["configId"] != currentTelemetryConfig["configId"]))
@@ -135,8 +131,7 @@ In this section, you create a .NET console app that connects to your hub as **my
                     currentTelemetryConfig["status"] = "Pending";
                     currentTelemetryConfig["pendingConfig"] = desiredTelemetryConfig;
 
-                    twin.Properties.Reported.ClearMetadata();
-                    await Client.UpdateReportedPropertiesAsync(twin.Properties.Reported);
+                    await Client.UpdateReportedPropertiesAsync(reportedProperties);
 
                     CompleteConfigChange();
                 }
@@ -164,7 +159,7 @@ In this section, you create a .NET console app that connects to your hub as **my
         {
             try
             {
-                var currentTelemetryConfig = twin.Properties.Reported["telemetryConfig"];
+                var currentTelemetryConfig = reportedProperties["telemetryConfig"];
 
                 Console.WriteLine("\nSimulating device reset");
                 await Task.Delay(30000); 
@@ -175,8 +170,7 @@ In this section, you create a .NET console app that connects to your hub as **my
                 currentTelemetryConfig["status"] = "Success";
                 currentTelemetryConfig["pendingConfig"] = null;
 
-                twin.Properties.Reported.ClearMetadata();
-                await Client.UpdateReportedPropertiesAsync(twin.Properties.Reported);
+                await Client.UpdateReportedPropertiesAsync(reportedProperties);
                 Console.WriteLine("Config change complete \nPress any key to exit.");
             }
             catch (AggregateException ex)
