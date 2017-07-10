@@ -35,7 +35,7 @@ You may experience the following problems when running Linux VMs in Microsoft Az
 
 ## Cause
 
-The problem occurs because the device scanning in Linux is scheduled by the SCSI subsystem in Linux. Hnce it can happen asynchronously.  The final device path naming is essentially arbitrary.
+The problem occurs because the device scanning in Linux is scheduled by the SCSI subsystem in Linux. Hence it can happen asynchronously. The final device path naming is arbitrary.
 
 ## Solution
 
