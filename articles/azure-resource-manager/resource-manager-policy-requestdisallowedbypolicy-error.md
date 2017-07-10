@@ -18,12 +18,17 @@ ms.author: genli
 ---
 # RequestDisallowedByPolicy error with the resource policy
 
-## Symptoms
+## Symptom
 
 When you try to perform an action during deployment, you might receive a **RequestDisallowedByPolicy** error that prevents the action be performed. The following is a sample of the error:
 
 ```
-Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+{
+  "statusCode": "Forbidden",
+  "serviceRequestId": null,
+  "statusMessage": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"The resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'.\"}}",
+  "responseBody": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"The resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'.\"}}"
+}
 ```
 
 ## Troubleshooting
@@ -48,7 +53,9 @@ az policy definition show --name regionPolicyAssignment
 
 ## Solution
 
-For security reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User-Defined Routes, or route tables if your subscription has an ExpressRoute circuit. In the sample of the error that is described in "Symptoms", the policy is named **regionPolicyDefinition**.
+For security or compliance reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User-Defined Routes, or route tables. In the sample of the error that is described in "Symptoms", the policy is named **regionPolicyDefinition**, but it could be different. 
+
+To resolve the problem, work with the IT Department to review the resource policies, and check how to perform the requested action in compliance. 
 
 For more information, see the following articles:
 
