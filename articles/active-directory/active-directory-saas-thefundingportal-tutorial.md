@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/11/2017
 ms.author: jeedes
 
 ---
@@ -110,12 +110,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.regenteducation.net/`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.regenteducation.net/`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.regenteducation.net`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [The Funding Portal Client support team](mailto:info@regenteducation.com) to get these values. 
 
-4. The Funding Portal application expects the SAML assertions to contain an attribute named "externalId1". The value of "externalId1" should be a recognized studentID. Configure the "externalId1" claim for this application. You can manage the values of these attributes from the **User Attributes** tab of the application. The following screenshot shows an example for this.
+4. The Funding Portal application expects the SAML assertions to contain an attribute named "externalId1". The value of "externalId1" should be a recognized studentID. Configure the "externalId1" claim for this application. You can manage the values of these attributes from the **User Attributes** of the application. The following screenshot shows an example for this.
 
 	![Configure Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_attribute.png)
 
@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
+	c. From the **Attribute Value** list, select the attribute you want to use for your implementation. For example, if you have stored the StudentID value in the ExtensionAttribute1, then select user.extensionattribute1.
 	
 	d. Click **Ok**.
  
