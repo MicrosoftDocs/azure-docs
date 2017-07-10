@@ -45,6 +45,10 @@ This view provides you with all the details that Azure Active Directory tracks a
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins-errors/05.png "Sign-in activity")
 
+
+As an alternative to using the Azure portal to access the sign-ins data, you can also use the [reporting API](active-directory-reporting-api-getting-started-azure-portal.md).
+
+
 The following section provides you with a complete overview of all possible errors and the related descriptions. 
 
 ## Error codes
