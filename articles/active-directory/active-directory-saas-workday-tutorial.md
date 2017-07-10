@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -311,7 +311,7 @@ If you want to test your single sign-on settings, open the Access Panel. For mor
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configure User Provisioning](active-directory-saas-workday-inbound-provisioning-tutorial.md)
+* [Configure User Provisioning](active-directory-saas-workday-inbound-tutorial.md)
 
 
 
