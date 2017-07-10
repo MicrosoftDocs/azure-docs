@@ -32,7 +32,7 @@ The global reliable service configuration is specified in the cluster manifest f
 | SharedLogPath |Fully qualified path name |"" |Specifies the fully qualified path where the shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogPath in their service specific configuration. However, if SharedLogPath is specified, then SharedLogId must also be specified. |
 | SharedLogSizeInMB |Megabytes |8192 |Specifies the number of MB of disk space to statically allocate for the shared log. The value must be 2048 or larger. |
 
-In Azure ARM or on premise JSON template, the example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
+In Azure ARM or on-premises JSON template, the example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
 
     "fabricSettings": [{
         "name": "KtlLogger",
