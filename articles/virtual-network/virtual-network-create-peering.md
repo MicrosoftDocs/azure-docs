@@ -253,7 +253,7 @@ The steps in the previous sections explained how to create a virtual network pee
 13. In the **myVnet1 - Peerings** blade that appeared, click **+ Add**
 14. In the **Add peering** blade that appears, enter, or select the following options, then click **OK**:
      - **Name**: *myVnet1ToMyVnet2*
-     - **Virtual network deployment model**:  Select **Classic**. 
+     - **Virtual network deployment model**:  Select **Resource Manager**. 
      - **I know my resource ID**: Check this box.
      - **Resource ID**: Enter the resource Id for myVnet2. This box only appears when the **I know my resource ID** checkbox is checked.
      - **Allow virtual network access:** Ensure that **Enabled** is selected.
