@@ -19,7 +19,7 @@ ms.author: anhoh
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](http://tinkerpop.apache.org) to work with Graph API (preview) data. In this tutorial, you'll create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
+This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](http://tinkerpop.apache.org) to work with Graph API (preview) data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
 ![Azure Cosmos DB from the Apache Gremlin console](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -65,18 +65,18 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
 Great! Now that we finished the setup, let's start running some console commands.
 
-Let's try a simple count() command. Type the following in to the console at the prompt:
+Let's try a simple count() command. Type the following into the console at the prompt:
 ```
 :> g.V().count()
 ```
 
 > [!TIP]
-> Notice the ***:>*** that precedes the g.V().count() text? 
+> Notice the `:>` that precedes the `g.V().count()` text? 
 >
 > This is part of the command you need to type. It is important when using the Gremlin console, with Azure Cosmos DB.  
 >
-> Omitting this :> prefix instructs the console to execute the command locally, often against an in-memory graph.
-> Using this ***:>*** tells the console to execute a remote command, in this case against Cosmos DB (either the localhost emulator, or an > Azure instance).
+> Omitting this `:>` prefix instructs the console to execute the command locally, often against an in-memory graph.
+> Using this `:>` tells the console to execute a remote command, in this case against Cosmos DB (either the localhost emulator, or an > Azure instance).
 
 
 ## Create vertices and edges
