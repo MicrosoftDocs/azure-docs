@@ -18,14 +18,12 @@ ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Monitor and set up diagnostics logging for AS2, X12, and EDIFACT messages in your integration account
+# Monitor and set up diagnostics logging for B2B messages in your integration account
 
-When you set up B2B communication in your integration account for your logic app 
-between two running business processes or applications, 
-those entities can exchange messages with each other. 
-To confirm that communication works as you expected, 
-you can set up message monitoring. For richer details and debugging, 
-you can also set up logging for your integration account.
+After you set up B2B communication between two running business processes or applications 
+through your integration account, those entities can exchange messages with each other. 
+To confirm this communication works as expected, you can set up message monitoring. 
+For richer details and debugging, you can also set up logging for your integration account.
 
 You can monitor and track messages that use these B2B protocols: AS2, X12, and EDIFACT. 
 
@@ -53,8 +51,8 @@ that monitors your cloud and on-premises environments
 to help you maintain their availability and performance. 
 
 You can turn on logging either directly from your integration account 
-or [through the Azure Monitor service](#azure-monitor-service), 
-which provides [basic monitoring with infrastructure-level data](../monitoring-and-diagnostics/monitoring-overview.md). 
+or [through the Azure Monitor service](#azure-monitor-service). 
+Azure Monitor provides basic monitoring with infrastructure-level data. 
 Learn more about [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
 
 ### Turn on logging directly from your integration account
@@ -99,7 +97,7 @@ Otherwise, select the values that you want:
 
 <a name="azure-monitor-service"></a>
 
-### Turn on logging through the Azure Monitor service
+### Turn on logging through Azure Monitor
 
 1. In the [Azure portal](https://portal.azure.com), 
 on the main Azure menu, choose **Monitor**, **Diagnostics logs**. 

@@ -19,8 +19,8 @@ ms.author: LADocs; padmavc
 
 # Track B2B messages in the Operations Management Suite (OMS)
 
-When you set up B2B communication in your integration account 
-between two running business processes or applications, 
+After you set up B2B communication between two running business processes 
+or applications through your integration account, 
 those entities can exchange messages with each other. 
 To check whether these messages are processed correctly, 
 you can track your messages with [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
