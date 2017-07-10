@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub device twins (.NET/Node) | Microsoft Docs
+title: Get started with Azure IoT Hub device twins (Java) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for Java to implement the device app and the Azure IoT service SDK for Java to implement a service app that adds the tags and runs the IoT Hub query.
 services: iot-hub
 documentationcenter: java
@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.service: iot-hub
-ms.devlang: javana
+ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
