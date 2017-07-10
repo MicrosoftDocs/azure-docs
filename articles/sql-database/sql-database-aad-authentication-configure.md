@@ -149,6 +149,17 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 
 You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Databases Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx)
 
+### CLI  
+You can also provision an Azure AD admin by calling the following CLI commands:
+| Command | Description |
+| --- | --- |
+|az sql server ad-admin create |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |
+|az sql server ad-admin delete |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
+|az sql server ad-admin list |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
+
+For more information about CLI commands, see [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
+
+
 ## Configure your client computers
 On all client machines, from which your applications or users connect to Azure SQL Database or Azure SQL Data Warehouse using Azure AD identities, you must install the following software:
 
