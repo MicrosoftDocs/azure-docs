@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/28/2017
+ms.date: 05/31/2017
 ms.author: dkshir
 
 ---
 # Use direct methods (.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-In this tutorial, we are going to develop a .NET and a Node.js console app:
+In this tutorial, we are going to develop two .NET console apps:
 
-* **CallMethodOnDevice.sln**, a .NET back-end app, which calls a method in the simulated device app and displays the response.
-* **SimulatedDevice.js**, a Node.js app, which simulates a device connecting to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
+* **CallMethodOnDevice**, a back-end app, which calls a method in the simulated device app and displays the response.
+* **SimulatedDevice**, a console app which simulates a device connecting to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
@@ -33,7 +33,6 @@ In this tutorial, we are going to develop a .NET and a Node.js console app:
 To complete this tutorial, you need:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* Node.js version 0.10.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -41,7 +40,7 @@ To complete this tutorial, you need:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a method called by the solution back end.
+In this section, you create a .NET console app that responds to a method called by the solution back end.
 
 1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
