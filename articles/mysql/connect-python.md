@@ -21,7 +21,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install Python and the MySQL connector
-Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. 
+Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. Depending on your platform, follow the steps:
 
 ### Windows
 - Download and Install Python 3.4 from [python.org](https://www.python.org/downloads/). 
@@ -32,19 +32,19 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
 - In Linux (Ubuntu), Python is typically installed as part of the default installation.
 - Check the Python installation by running the command `python -V` to see the version number.
 - Check the PIP installation by running the `pip show pip -v` command to see the version number. 
-- PIP is included if the Python 2 is version 2.7.9 or higher, and Python 3 is version 3.4 or higher. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package, by running command `sudo apt-get install python-pip`.
+- PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP] (https://pip.pypa.io/en/stable/installing/) package, by running command `sudo apt-get install python-pip`.
 - Update PIP to the latest version, by running the `pip install -U pip` command.
 - Install the MySQL connector for Python, and its dependencies by using the PIP command:
 
    ```bash
-   pip install mysql-connector-python-rf
+   sudo pip install mysql-connector-python-rf
    ```
  
 ### MacOS
 - In Mac OS, Python is typically installed as part of the default OS installation.
 - Check the Python installation by running the command `python -V` to see the version number.
 - Check the PIP installation by running the `pip show pip -v` command to see the version number.
-- PIP is included if the Python 2 is version 2.7.9 or higher, and Python 3 is version 3.4 or higher. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package.
+- PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package.
 - Update PIP to the latest version, by running the `pip install -U pip` command.
 - Install the MySQL connector for Python, and its dependencies by using the PIP command:
 
@@ -64,8 +64,8 @@ Get the connection information needed to connect to the Azure Database for MySQL
    
 
 ## Run Python Code
-- Save the code into a text file, and save the file into a project folder with file extension .py, such as C:\pythonmysql\createtable.py or /home/username/pythonmysql/createtable.py
-- To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd pythonmysql`, then type the command `python createtable.py` to run the application.
+- Paste the code into a text file, and save the file into a project folder with file extension .py, such as C:\pythonmysql\createtable.py or /home/username/pythonmysql/createtable.py
+- To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd pythonmysql`. Then type the python command followed by the file name `python createtable.py` to run the application.
 
 ## Connect, create table, and insert data
 Use the following code to connect to the server, create a table, and load the data using an **INSERT** SQL statement. 
