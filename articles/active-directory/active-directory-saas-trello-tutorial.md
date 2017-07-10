@@ -118,8 +118,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://trello.com/auth/saml/consume/<enterprise>`
 
-	> [!NOTE] 
-	> These are not real values. Update these values with the Reply URL, and actual Sign On URL. Contact [Trello support team](mailto:support@trello.com) to get these values.
+	>[!NOTE]
+    >You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, contact [Trello support team](mailto:support@trello.com) to get the slug for you enterprise.
+    > 
 
 5. Trello application expects the SAML assertions to contain specific attributes. Configure the following attributes  for this application. You can manage the values of these attributes from the **"User Attributes"** of the application. The following screenshot shows an example for this.
 
@@ -153,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_general_400.png)
 
-9. To configure single sign-on on **Trello** side, you need to send the downloaded **Certificate (Base64)** to [Trello support team](mailto:support@trello.com). They set this setting to have the SAML SSO connection set properly on both sides.
+9. To get SSO configured for your application, go to [Trello enterprise SSO configuration](https://trello.com/sso-configuration) page to send [Trello support team](mailto:support@trello.com) the Sign On URL and attach the **Certificate (Base64)**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
