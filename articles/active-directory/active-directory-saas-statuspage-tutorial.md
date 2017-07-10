@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/11/2017
 ms.author: jeedes
 
 ---
@@ -120,9 +120,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
 	| `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [StatusPage support team](mailto:SupportTeam@statuspage.io) to get these values.
- 
+	> [!NOTE]
+    > Contact the StatusPage support team at [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)to request metadata necessary to configure single sign-on. 
+    >
+    >a. From the metadata, copy the Issuer value, and then paste it into the **Identifier** textbox.
+	>
+    >b. From the metadata, copy the Reply URL, and then paste it into the **Reply URL** textbox.
+
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_certificate.png) 
@@ -155,7 +159,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Certificate** textbox. 
 
-    c. Click **Save**.
+    c. Click **SAVE CONFIGURATION**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -206,11 +210,11 @@ StatusPage supports just-in-time provisioning. You have already enabled it in [C
 
 	![Configure Single Sign-On](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_06.png)
 
-3. Click the Team Members tab. 
+3. Click the **Team Members** tab. 
    
     ![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_10.png) 
 
-4. Click **Add Team Member**. 
+4. Click **ADD TEAM MEMBER**. 
    
     ![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_11.png) 
 
@@ -220,7 +224,7 @@ StatusPage supports just-in-time provisioning. You have already enabled it in [C
 
 6. As **Role**, choose **Client Administrator**.
 
-7. Click **Create Account**.
+7. Click **CREATE ACCOUNT**.
 
 ### Assigning the Azure AD test user
 
