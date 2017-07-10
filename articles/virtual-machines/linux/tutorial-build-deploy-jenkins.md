@@ -180,12 +180,12 @@ To create the release definition in Team Services:
 
 1. In the Task catalog, open the **Utility** section and add an instance of the **Shell Script** task.
 
-1. The parameters template used in the Azure Resource Group Deployment task requires the administrator password of your virtal machines.
-   It includes a variable **$(adminpassword)**. To provide this value:
+1. The parameters template used in the Azure Resource Group Deployment task sets the admin password used to connect to the VMs.
+   You provide this password with the variable **$(adminpassword)**:
    
    - Open the **Variables** tab and, in the **Variables** section, enter the name `adminpassword`.
 
-   - Enter your administrator password.
+   - Enter the administrator password.
 
    - Choose the "padlock" icon next to the value textbox to protect the password. 
 
