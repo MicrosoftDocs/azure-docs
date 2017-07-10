@@ -53,7 +53,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 ```
 
 ## Configurable DNS Settings
-By default, scale sets take on the specific DNS settings of the VNET and subnet they were created in. You can however, configure the DNS settings for a scale set directly. The DNS settings will then apply to all virtual machines in the scale set.
+By default, scale sets take on the specific DNS settings of the VNET and subnet they were created in. You can however, configure the DNS settings for a scale set directly.
 
 ### Creating a scale set with configurable DNS servers
 To create a scale set with a custom DNS configuration using CLI 2.0, add the --dns-servers argument to the _vmss create_ command, followed by space separated server ip addresses. For example:
@@ -102,7 +102,7 @@ To set the domain name in an Azure template, add a dnsSettings property to the s
 }
 ```
 
-The output, for an individual virtual machine dns name would look like this: 
+The output, for an individual virtual machine dns name would be in the following form: 
 ```
 <vmname><vmindex>.<specifiedVmssDomainNameLabel>
 ```
@@ -185,17 +185,17 @@ Lastly, reference the IPv6 pool in the IPConfigurations section of the scale set
 ```
 
 ## Public IPv4 per virtual machine
-In general, Azure scale set virtual machines do not require their own public IP addresses. It is usually more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (aka a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
+In general, Azure scale set virtual machines do not require their own public IP addresses. For most scenarios, it is more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (aka a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
 
 However, some scenarios do require scale set virtual machines to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine, which is doing game physics processing. Another example is where virtual machines need to make external connections to one another across regions in a distributed database.
 
 ### Creating a scale set with public IP per virtual machine
 To create a scale set that assigns a public IP address to each virtual machine with CLI 2.0, add the _--public-ip-per-vm_ parameter to the _vmss create_ command. 
 
-To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least 2017-03-30, and add a _publicipaddressconfiguration_ JSON property to the scale set ipConfigurations section. For example:
+To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least 2017-03-30, and add a _publicIpAddressConfiguration_ JSON property to the scale set ipConfigurations section. For example:
 
 ```json
-"publicipaddressconfiguration": {
+"publicIpAddressConfiguration": {
     "name": "pub1",
     "properties": {
       "idleTimeoutInMinutes": 15
@@ -255,10 +255,10 @@ Example output:
 ```
 
 ## Multiple IP addresses per NIC
-Every NIC attached to a VM in a scaleset can have one or more IP configurations associated to it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated to it .There is a limit to how many IP addresses can be assigned to a NIC. There is also a limit to how many public IP addresses that can be used in an Azure subscription. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.
+Every NIC attached to a VM in a scale set can have one or more IP configurations associated with it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated with it. To understand how many IP addresses can be assigned to a NIC, and how many public IP addresses you can use in an Azure subscription, refer to [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Multiple NICs per virtual machine
-You can have up to 8 NICs per virtual machine, depending on machine size. The [VM size article](../virtual-machines/windows/sizes.md) has this information.  The following example is a scale set networkProfile showing multiple NIC entries (also showing multiple public IPs per virtual machine):
+You can have up to 8 NICs per virtual machine, depending on machine size. The maximum number of NICs per machine is available in the [VM size article](../virtual-machines/windows/sizes.md). The following example is a scale set network profile showing multiple NIC entries, and multiple public IPs per virtual machine:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -371,4 +371,4 @@ For example:
 ```
 
 ## Next steps
-For more information about Azure virtual networks refer to [this documentation](../virtual-network/virtual-networks-overview.md).
+For more information about Azure virtual networks, refer to [this documentation](../virtual-network/virtual-networks-overview.md).
