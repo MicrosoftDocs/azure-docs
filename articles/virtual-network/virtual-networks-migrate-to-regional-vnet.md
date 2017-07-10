@@ -57,4 +57,4 @@ We recommend that you don't use affinity groups in general. Aside from the virtu
 > 
 
 ## What to do if you have a VM (classic) in an affinity group
-VMs (classic) that are currently in an affinity group do not need to be removed from the affinity group. Once a VM is deployed, it is deployed to a single scale unit. Affinity groups can restrict the set of available VM sizes for a new VM deployment, but any existing VM that is deployed is already restricted to the set of VM sizes available in the scale unit in which the VM is deployed. Because of this, removing a VM from the affinity group will have no effect.
+VMs (classic) that are currently in an affinity group do not need to be removed from the affinity group. Once a VM is deployed, it is deployed to a single scale unit. Affinity groups can restrict the set of available VM sizes for a new VM deployment, but any existing VM that is deployed is already restricted to the set of VM sizes available in the scale unit in which the VM is deployed. Because the VM is already deployed to a scale unit, removing a VM from an affinity group has no effect on the VM.
