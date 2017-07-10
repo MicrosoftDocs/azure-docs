@@ -27,11 +27,8 @@ For more background and concepts, see the [overview](./container-registry-intro.
 
 ## Prerequisites 
 
-- Azure container registry - Create a container registry in your Azure subscription. For example, use the Azure portal or the Azure CLI 2.0. 
+- Azure container managed registry - Create a managed container registry in your Azure subscription. For example, use the Azure portal or the Azure CLI 2.0. 
 - Docker CLI - To set up your local computer as a Docker host and access the Docker CLI commands, install Docker Engine. 
- 
-> [!NOTE] 
-> Webhooks are not available for the Basic tier of Container Registries. 
 
 ## Create webhook Azure portal
 
