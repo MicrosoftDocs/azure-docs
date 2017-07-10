@@ -65,7 +65,7 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
    - In the left pane, select **HDInsight**.
    - In the right pane, select **Spark on HDInsight (Scala)**.
-   - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according need.
+   - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according to need.
 2. The Scala project creation wizard auto detects whether you installed Scala plugin or not. Click the **Install** to continue.
 
     ![scala check](./media/hdinsight-apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
@@ -131,6 +131,9 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
        ![Spark Submission window](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       In the "Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ" section later in this article, you'll learn how to access the job output.
+
+## Run as or Debug as a Spark Scala application on an HDInsight Spark cluster
+We also recommend another way of submitting Spark applicaltion to the cluster. They are by setting the parameters in **Run/Debug configrurations** IDE. For more information, see [Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)
 
 ## Choose Azure Data Lake Store as Spark Scala application storage
 If you want to submit an application to Azure Data Lake Store, you must choose **Interactive** mode during the Azure sign-in process. 

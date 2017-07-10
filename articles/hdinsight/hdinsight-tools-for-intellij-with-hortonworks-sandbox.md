@@ -50,15 +50,15 @@ In this section, you create a sample scala project using IntelliJ IDEA. In the n
 3. Click **HDInsight** from the left pane, click **Spark on HDInsight(Scala)** from the right pane, and then click **Next**.
 
     ![Create IntelliJ Scala project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+    - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according to need.
 4. Enter the following information:
 
     ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
     - **Project name**: Provide a project name.
     - **Project location**: Provide a project location.
-    - **Project SDK**: Click **New**, click **JDK**, and then specify the folder of Java JDK version 7 or later.  The default location is C:\Program Files\Java\jdk1.8.x_xxx.
-    - **Scala SDK**: Click **Select**, select version **2.10.6**, and then click **OK**. If the version is not listed, click **Download**, select **Scala version**, and then click **OK**. Make sure not to use version 2.11.x. This article uses version 2.10.6.
-    - **Spark SDK**: Download the [SDK](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). You can also ignore this and use the Spark Maven repository instead, however please make sure you have the right maven repository installed to develop your Spark applications. (For example, you need to make sure you have the Spark Streaming part installed if you are using Spark Streaming; Also please make sure you are using the repository marked as Scala 2.10 - do not use the repository marked as Scala 2.11.)
+    - **Project SDK**: Click **New**, click **JDK**, and then specify the folder of Java JDK version 7 or later. Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster. The default location is C:\Program Files\Java\jdk1.8.x_xxx.
+    - **Spark Version**: Scala project creation wizard integrates proper version for Spark SDK and Scala SDK. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark1.6.2(Scala 2.10.5). Also please make sure you are using the repository marked as Scala 2.10.x - do not use the repository marked as Scala 2.11.x)
 5. Click **Finish**.
 6. Press **[ALT]+1** to open the Project view if it is not opened.
 7. From **Project Explorer**, expand the project, and then click **src**.
