@@ -141,7 +141,7 @@ If there are additional partitions from the blkid list, they reside on a data di
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
     
-## Get the latest Azure storage rules
+### Get the latest Azure storage rules
 
 To the latest Azure storage rules, run th following commands:
 
