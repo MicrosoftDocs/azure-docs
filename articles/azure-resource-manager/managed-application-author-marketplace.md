@@ -66,11 +66,11 @@ A SKU shows up under the parent offer in Azure Marketplace while it shows up as 
 1.  Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2.  From the left navigation bar, click on **+ New offer** and select **Azure Applications**.
 
-	![Alt text](./media/cloud-partner-portal-publish-managed-app/newOffer.png)
+	![Alt text](./media/managed-application-author-marketplace/newOffer.png)
 
 3.  A new offer "Editor" view is now opened for you, and we are ready to start authoring.
 
-	![Alt text](./media/cloud-partner-portal-publish-managed-app/newOffer_OfferSettings.png)
+	![Alt text](./media/managed-application-author-marketplace/newOffer_OfferSettings.png)
 
 4.  The "forms" that need to be filled out are visible on the left within the "Editor" view. Each "form" consists of a set of fields that are to be filled out. Required fields are marked with a red asterisk (*).
 
@@ -106,7 +106,7 @@ Click on "Save" to save your progress. Next step would be to add SKUs for your o
 
 Select the **SKUs** form. Here you can see an option to **Add a SKU**. Selecting this option allows you to enter a **SKU ID**.
 
-![Alt text](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
+![Alt text](./media/managed-application-author-marketplace/newOffer_skus.png)
 
 "SKU ID" is a unique identifier for the SKU within an offer. This ID is visible in product URLs, Resource Manager templates, and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID cannot end in a dash and can have a maximum of 50 characters. This field is locked once an offer goes live. You can have multiple SKUs within an offer. You need a SKU for each image you are planning to publish.
 
@@ -114,7 +114,7 @@ Once a SKU has been added, it appears in the list of SKUs within the "SKUs" form
 
 After clicking "New SKU", you will need to fill the following form
 
-![Alt text](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku.png)
+![Alt text](./media/managed-application-author-marketplace/newOffer_newsku.png)
 
 ### How to fill Sku Details section
 
@@ -130,7 +130,7 @@ After clicking "New SKU", you will need to fill the following form
 
 The package section has the following fields that need to be filled out
 
-![Alt text](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_package.png)
+![Alt text](./media/managed-application-author-marketplace/newOffer_newsku_package.png)
 
 **Current version** - Provide a version for the package you upload. It should be in the format - `{number}.{number}.{number}{number}`
 
@@ -148,23 +148,23 @@ The package section has the following fields that need to be filled out
 		
 		The publisherId and OfferId could be obtained from the publishing portal.
 
-		![Alt text](./media/cloud-partner-portal-publish-managed-app/UniqueString_pubid_offerid.png)
+		![Alt text](./media/managed-application-author-marketplace/UniqueString_pubid_offerid.png)
 		
 		The SKU ID can be obtained as shown in the following image:
 
-		![Alt text](./media/cloud-partner-portal-publish-managed-app/UniqueString_skuid.png)
+		![Alt text](./media/managed-application-author-marketplace/UniqueString_skuid.png)
 		
 		The package version can be obtained as shown in the following image:
 
-		![Alt text](./media/cloud-partner-portal-publish-managed-app/UniqueString_packageversion.png)
+		![Alt text](./media/managed-application-author-marketplace/UniqueString_packageversion.png)
 	
 
-	So using the preceding examples, the value of **PublisherPackageId** is `azureappliance-test.ravmanagedapptest.ravpreviewmanagedsku.1.0.0`
+  So using the preceding examples, the value of **PublisherPackageId** is `azureappliance-test.ravmanagedapptest.ravpreviewmanagedsku.1.0.0`
 
-	Sample mainTemplate.json:
+  Sample mainTemplate.json:
 
-    ```json
-	{
+  ```json
+  {
   		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   		"contentVersion": "1.0.0.0",
   		"parameters": {
@@ -203,8 +203,8 @@ The package section has the following fields that need to be filled out
   		"outputs": {
 
   		}
-	}
-	```
+  }
+  ```
 
 *   **appliancecreateUIDefinition.json** - This file is used by the Azure portal to generate the user interface for provisioning this solution/application. You can find more details on how to create this file here - [https://docs.microsoft.com/en-us/azure/azure-resource-managermanaged-application-createuidefinition-overview](managed-application-createuidefinition-overview.md)
 
@@ -239,17 +239,17 @@ Here are some of the places that the data you provide on this form shows up in.
 
 ##### Azure Marketplace
 
-![publishvm10](./media/cloud-partner-portal-publish-managed-app/publishvm10.png)
+![publishvm10](./media/managed-application-author-marketplace/publishvm10.png)
 
-![publishvm11](./media/cloud-partner-portal-publish-managed-app/publishvm11.png)
+![publishvm11](./media/managed-application-author-marketplace/publishvm11.png)
 
-![publishvm15](./media/cloud-partner-portal-publish-managed-app/publishvm15.png)
+![publishvm15](./media/managed-application-author-marketplace/publishvm15.png)
 
 ##### Azure portal
 
-![publishvm12](./media/cloud-partner-portal-publish-managed-app/publishvm12.png)
+![publishvm12](./media/managed-application-author-marketplace/publishvm12.png)
 
-![publishvm13](./media/cloud-partner-portal-publish-managed-app/publishvm13.png)
+![publishvm13](./media/managed-application-author-marketplace/publishvm13.png)
 
 ##### Logo Guidelines
 
@@ -271,7 +271,7 @@ The Hero logo is optional. The publisher can choose not to upload a Hero logo. H
 
 *   The publisher display name, plan title, the offer long summary and the create button are embedded programmatically inside the Hero logo once the offer goes listed. So you should not enter any text while you are designing the Hero logo. Just leave empty space on the right because the text (that is, publisher display name, plan title, the offer long summary) is included programmatically by us over there. The empty space for the text should be 415x100 on the right (and it is offset by 370 px from the left).
 
-![publishvm14](./media/cloud-partner-portal-publish-managed-app/publishvm14.png)
+![publishvm14](./media/managed-application-author-marketplace/publishvm14.png)
 
 ## Support Form
 
