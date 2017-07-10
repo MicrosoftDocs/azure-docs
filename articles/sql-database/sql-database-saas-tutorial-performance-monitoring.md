@@ -1,5 +1,5 @@
 ---
-title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS app  | Microsoft Docs 
+title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS app  | Microsoft Docs
 description: "Monitor and manage performance of databases and pools in the Azure SQL Database Wingtip SaaS app"
 keywords: sql database tutorial
 services: sql-database
@@ -8,9 +8,9 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -61,7 +61,7 @@ For high-volume scenarios where you're working with many reources, [Log Analytic
 
 ## Get the Wingtip application source code and scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Provision additional tenants
 
@@ -127,7 +127,7 @@ Set an alert on the pool that triggers on \>75% utilization as follows:
 
    ![add alert](media/sql-database-saas-tutorial-performance-monitoring/add-alert.png)
 
-1. Provide a name, such as **High DTU**, 
+1. Provide a name, such as **High DTU**,
 1. Set the following values:
    * **Metric = eDTU percentage**
    * **Condition = greater than**.

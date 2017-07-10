@@ -29,3 +29,7 @@
     href: HTTPEndPoint.md
   - name: FAQ
     href: FAQs.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

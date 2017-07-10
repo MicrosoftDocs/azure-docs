@@ -8,7 +8,7 @@ manager: rossort
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
+ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -34,7 +34,7 @@ The following diagrams highlight the two models:
 ### Policy-based VPN example
 ![policybased](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
 
-### Roite-based VPN example
+### Route-based VPN example
 ![routebased](./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png)
 
 ### Azure support for policy-based VPN
@@ -43,7 +43,7 @@ Currently, Azure supports both modes of VPN gateways: route-based VPN gateways a
 |                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**               |
 | ---                      | ---                         | ---                                      |
 | **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance         |
-| **IKE vserion**          | IKEv1                       | IKEv2                                    |
+| **IKE version**          | IKEv1                       | IKEv2                                    |
 | **Max. S2S connections** | **1**                       | Basic/Standard:10<br> HighPerformance:30 |
 |                          |                             |                                          |
 

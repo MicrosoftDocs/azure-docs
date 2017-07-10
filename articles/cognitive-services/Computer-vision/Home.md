@@ -7,7 +7,7 @@ manager: ytkuo
  
 ms.service: cognitive-services 
 ms.technology: computer-vision 
-ms.topic: article 
+ms.topic: article
 ms.date: 02/06/2017 
 ms.author: juliakuz 
 --- 

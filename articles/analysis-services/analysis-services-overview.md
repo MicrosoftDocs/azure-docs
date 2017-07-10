@@ -26,7 +26,6 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
 Check out this video to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities, and how you can benefit from getting your data models into the cloud.
 
 
->
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
@@ -38,7 +37,7 @@ Azure Analysis Services is compatible with the same SQL Server Analysis Services
 ## Use the tools you already know
 ![BI developer tools](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-When creating data models for Azure Analysis Services, you use the same tools as for SQL Server Analysis Services. Author and deploy models by using [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) or by using [Azure Powershell](/powershell/azureps-cmdlets-docs) and [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+When creating data models for Azure Analysis Services, you use the same tools as for SQL Server Analysis Services. Author and deploy models by using [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx). Manage your servers and model databases by using [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). And, automate tasks with [Powershell](analysis-services-powershell.md) and [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates 
 
 ## Supports the latest features
 Azure Analysis Services supports tabular models at the 1200 and 1400 Preview compatibility levels.
@@ -50,9 +49,7 @@ Azure Analysis Services supports tabular models at the 1200 and 1400 Preview com
 ## Data sources
 Data models deployed to servers in Azure support connecting to data sources on-premises in your organization or in the cloud. Combine data from both on-premises and cloud data sources for a hybrid BI solution.
 
-Because your server is in the cloud, connecting to cloud data sources is seamless. When connecting to on-premises data sources, the [On-premises data gateway](analysis-services-gateway.md) ensures fast, secure connections with your server in the cloud.
-
-To learn more about which on-premises data sources are supported, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
+Because your server is in the cloud, connecting to cloud data sources is seamless. When connecting to on-premises data sources, the [On-premises data gateway](analysis-services-gateway.md) ensures fast, secure connections with your server in the cloud. To learn more about which on-premises data sources are supported, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
 
 
 ## Explore your data from anywhere
@@ -79,13 +76,17 @@ Azure Analysis Services is governed by the [Microsoft Online Services Terms](htt
 To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
 ## Get help
+
+### Documentation
 Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage a server here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
-We also have a number of helpful videos at [Azure Analysis Services on Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
+### Videos
+Checkout helpful videos at [Azure Analysis Services on Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
 
-Things are changing rapidly. You can always get the latest information on the [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920).
+### Blogs
+Things are changing rapidly. You can always get the latest information on the [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/) and [Azure blog](https://azure.microsoft.com/blog/).
 
-## Community
+### Community
 Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://aka.ms/azureanalysisservicesforum).
 
 ## Feedback
@@ -95,4 +96,3 @@ Have suggestions about the documentation? You can add comments using Livefyre at
 
 ## Next steps
 Now that you know more about Azure Analysis Services, it's time to get started. Learn how to [create a server](analysis-services-create-server.md) in Azure and [deploy a tabular model](analysis-services-deploy.md) to it.
-

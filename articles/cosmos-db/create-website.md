@@ -18,7 +18,7 @@ ms.author: mimig
 
 ---
 # Deploy Azure Cosmos DB and Azure App Service Web Apps using an Azure Resource Manager Template
-This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app, and a sample web application.
+This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app, and a sample web application.
 
 Using Azure Resource Manager templates, you can easily automate the deployment and configuration of your Azure resources.  This tutorial shows how to deploy a web application and automatically configure Azure Cosmos DB account connection information.
 
@@ -80,7 +80,7 @@ Now let's deploy our first template.
    
    ![Sample Todo application](./media/create-website/image2.png)
 9. Go ahead and create a couple of tasks in the web app and then return to the Resource group blade in the Azure portal. Click the Azure Cosmos DB account resource in the Resources list and then click **Query Explorer**.
-    ![Screenshot of the Summary lens with the myotherdocumentdbwebapp web app highlighted](./media/create-website/TemplateDeployment8.png)  
+    ![Screenshot of the Summary lens with the web app highlighted](./media/create-website/TemplateDeployment8.png)  
 10. Run the default query, "SELECT * FROM c" and inspect the results.  Notice that the query has retrieved the JSON representation of the todo items you created in step 7 above.  Feel free to experiment with queries; for example, try running SELECT * FROM c WHERE c.isComplete = true to return all todo items which have been marked as complete.
     
     ![Screenshot of the Query Explorer and Results blades showing the query results](./media/create-website/image5.png)

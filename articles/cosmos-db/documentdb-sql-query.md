@@ -1,5 +1,5 @@
 ---
-title: SQL syntax and SQL query for Azure Cosmos DB | Microsoft Docs
+title: SQL queries for Azure Cosmos DB DocumentDB API | Microsoft Docs
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
 services: cosmos-db
@@ -18,7 +18,7 @@ ms.date: 04/08/2017
 ms.author: arramac
 
 ---
-# SQL query and SQL syntax in Azure Cosmos DB
+# SQL queries for Azure Cosmos DB DocumentDB API
 Microsoft Azure Cosmos DB supports querying documents using SQL (Structured Query Language) as a JSON query language. Cosmos DB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
 
 While designing the query language for Cosmos DB we had two goals in mind:
@@ -2029,7 +2029,7 @@ Cosmos DB offers an open RESTful programming model over HTTP. Database accounts 
 
 The basic interaction model with these resources is through the HTTP verbs GET, PUT, POST and DELETE with their standard interpretation. The POST verb is used for creation of a new resource, for executing a stored procedure or for issuing a Cosmos DB query. Queries are always read only operations with no side-effects.
 
-The following examples show a POST for a DocumentDB API API query made against a collection containing the two sample documents we've reviewed so far. The query has a simple filter on the JSON name property. Note the use of the `x-ms-documentdb-isquery` and Content-Type: `application/query+json` headers to denote that the operation is a query.
+The following examples show a POST for a DocumentDB API query made against a collection containing the two sample documents we've reviewed so far. The query has a simple filter on the JSON name property. Note the use of the `x-ms-documentdb-isquery` and Content-Type: `application/query+json` headers to denote that the operation is a query.
 
 **Request**
 

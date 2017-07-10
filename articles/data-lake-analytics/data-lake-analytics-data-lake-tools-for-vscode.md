@@ -80,10 +80,12 @@ After you have installed the prerequisites, you can install the Data Lake Tools 
 
     ![Data Lake Tools for Visual Studio Code install](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extensions.png)
 
+## Activate Azure Data Lake Tools
+Please create a new .USQL file or open an existing .USQL file to activate the extension. 
 
 ## Connect to Azure
 
-Before you can compile and run U-SQL scripts, you must connect to your Azure account.
+Before you can compile and run U-SQL scripts in Azure Data Lake Analytics, you must connect to your Azure account.
 
 **To connect to Azure**
 
@@ -107,6 +109,10 @@ To test the connection, you can list your Data Lake Analytics accounts:
 
 1. Open the command palette by pressing **CTRL+SHIFT+P**.
 2. Type **ADL:List Accounts**.  The accounts appear in the **Output** pane.
+
+## Open sample script
+
+Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: Open Sample Script**. Then it will open another instance for this sample. You also edit, configure, submit script on this instance.
 
 ## Work with U-SQL
 
@@ -211,31 +217,167 @@ Using the Data Lake Tools, you can register custom code assemblies to the Data L
 
 The following U-SQL code demonstrates how to call an assembly. In the sample, the assemly name is *test*.
 
-    REFERENCE ASSEMBLY [test];
-    @a=EXTRACT Iid int,Starts DateTime,Region string,Query string,DwellTime int,Results string,ClickedUrls string 
-    FROM @"ruoxin/SearchLog.txt" USING Extractors.Tsv();
-    
-    @d=SELECT DISTINCT Region FROM @a;
-    
-    @d1=PROCESS @d
-        PRODUCE Region string,
-                Mkt string
-                USING new USQLApplication_codebehind.MyProcessor();
-    
-    OUTPUT @d1 TO @"ruoxin/SearchLogtest.txt" USING Outputters.Tsv();
+```
+REFERENCE ASSEMBLY [test];
 
+@a = 
+    EXTRACT 
+        Iid int,
+	Starts DateTime,
+	Region string,
+	Query string,
+	DwellTime int,
+	Results string,
+	ClickedUrls string 
+    FROM @"Sample/SearchLog.txt" 
+    USING Extractors.Tsv();
+
+@d =
+    SELECT DISTINCT Region 
+    FROM @a;
+
+@d1 = 
+    PROCESS @d
+    PRODUCE 
+        Region string,
+	Mkt string
+    USING new USQLApplication_codebehind.MyProcessor();
+
+OUTPUT @d1 
+    TO @"Sample/SearchLogtest.txt" 
+    USING Outputters.Tsv();
+```
 
 
 ## Access Data Lake Analytics catalog
 
 After you have connected to Azure, you can use the following steps to access the U-SQL catalog:
 
-**To access U-SQL metadata**
+**To access Azure Data Lake Analytics metadata**
 
 1.	Press **CTRL+SHIFT+P**, and then type **ADL:List Tables**.
 2.	Click one of the Data Lake Analytics accounts.
 3.	Click one of the Data Lake Analytics databases.
 4.	Click one of the schemas. You can see the tables.
+
+## Show Data Lake Analytics Jobs
+
+Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: Show Job**. 
+
+1.	Select an ADLA or Local account 
+2.  Wait for the jobs list for the account to be shown
+3.	Select a job from job list, ADL Tools open the job details in the portal and display the JobInfo file in VSCode.
+
+    ![Data Lake Tools for Visual Studio Code IntelliSense object types](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
+
+## Azure Data Lake Storage (ADLS) Integration
+
+You can use ADLS related commands to navigate ADLS resources, preview ADLS file and upload file into ADLS directly in VSCode.  You can also open **Web Azure Storage Explorer** through command: **ADL: Open Web Azure Storage Explorer** or from the right click context menu.
+
+### List Storage Path
+
+Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: List Storage Path**.
+1.  Open Command Palette and input the command.
+
+    ![Data Lake Tools for Visual Studio Code List Storage Path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-storage.png)
+
+2.  Select an account from local or ADLA.
+
+    ![Data Lake Tools for Visual Studio Code List Storage Path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
+
+3.  Click more to list more ADLA accounts and select an ADLA account.
+
+    ![Data Lake Tools for Visual Studio Code List Storage Path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
+
+4.  Input an azure storage path. E.g.: /output/
+
+       ![Data Lake Tools for Visual Studio Code List Storage Path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-path.png)
+
+5.  Results: Command Palette lists the path information based on your inputs.
+
+    ![Data Lake Tools for Visual Studio Code List Storage Path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-path.png)
+
+Another more convenient way to list relative path is through the right click context menu.
+
+1.  Right click on path string to select List Storage Path.
+
+       ![Data Lake Tools for Visual Studio Code Right Click Conext Menu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
+
+2.  Select an account from local or ADLA account.
+
+       ![Data Lake Tools for Visual Studio Code Right Click Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
+
+3.  Results: Command Palette lists folders and files for the current path.
+
+       ![Data Lake Tools for Visual Studio Code List Current Path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-current.png)
+
+### Preview Storage File
+
+Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: : Preview Storage File**.
+1.  Open Command Palette and input the command.
+
+       ![Data Lake Tools for Visual Studio Code List Preview](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-preview.png)
+
+2.  Select an account from local or ADLA.
+
+       ![Data Lake Tools for Visual Studio Code List Account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
+
+3.  Click more to list more ADLA accounts and select an ADLA account.
+
+       ![Data Lake Tools for Visual Studio Code Select an Account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
+
+4.  Input an azure storage path. E.g.: /output/
+
+       ![Data Lake Tools for Visual Studio Code Input File](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-file.png)
+
+5.  Results: Command Palette lists the path information based on your inputs.
+
+       ![Data Lake Tools for Visual Studio Code Preview File](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
+
+Another more convenient way to preview a file is through the right click context menu.
+
+1.  Right click on a file path to preview a file.
+
+       ![Data Lake Tools for Visual Studio Code Right Click Conext Menu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-preview.png)
+
+2.  Select an account from local or ADLA account.
+
+       ![Data Lake Tools for Visual Studio Code Select an Account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
+
+3.  Results: VSCode displays the preview results of the file.
+
+       ![Data Lake Tools for Visual Studio Code List Current Path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
+
+### Upload to Storage Path
+
+Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: : Upload to Storage Path**.
+1.  Open Command Palette and input the command.
+
+       ![Data Lake Tools for Visual Studio Code List Preview](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-storage.png)
+
+2.  Select an account from local or ADLA.
+
+       ![Data Lake Tools for Visual Studio Code List Account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
+
+3.  Click more to list more ADLA accounts and select an ADLA account.
+
+       ![Data Lake Tools for Visual Studio Code Select an Account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
+
+4.  Input an azure storage path. E.g.: /output/
+
+       ![Data Lake Tools for Visual Studio Code Input File](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-file.png)
+
+5.  Input a local path to source file.
+
+       ![Data Lake Tools for Visual Studio Code Input File](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-file.png)
+
+6.  VSCode displays a json configurations file, you can make any further updates if needed. Save (CTRL+S) file to proceed the file upload.
+
+       ![Data Lake Tools for Visual Studio Code Input File](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
+
+7.  Results: The output window displays the file upload status.
+
+       ![Data Lake Tools for Visual Studio Code Upload Status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)    
 
 ## Additional features
 
@@ -263,7 +405,7 @@ The Data Lake Tools for VSCode supports the following features:
 
     ![Data Lake Tools for Visual Studio Code syntax highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
-##Next steps:
+## Next steps:
 
 - For the getting started information on Data Lake Analytics, see [Tutorial: get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 - For information on using Data Lake Tools for Visual Studio, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).

@@ -1,6 +1,6 @@
 ---
-title: Use Modern Backup Storage with Azure Backup Server v.2 | Microsoft Docs
-description: Learn about the new features when you upgrade to Azure Backup Server v.2. This article provides instruction on upgrading your Azure Backup Server installation.
+title: Use Modern Backup Storage with Azure Backup Server v2 | Microsoft Docs
+description: Learn about the new features in Azure Backup Server v2. This article describes how to upgrade your Backup Server installation.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -17,79 +17,87 @@ ms.date: 05/15/2017
 ms.author: masaran;markgal
 ---
 
-# Add Storage to Azure Backup Server v.2
+# Add storage to Azure Backup Server v2
 
-Azure Backup Server v.2 comes with Modern Backup Storage which delivers 50% storage savings, 3x faster backups, and more efficient storage with Workload-Aware storage. To use Modern Backup Storage, set up Azure Backup Server v.2 on Windows Server 2016.
+Azure Backup Server v2 comes with System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage offers storage savings of 50 percent, backups that are three times faster, and more efficient storage. It also offers workload-aware storage. 
 
-If you run Azure Backup Server v.2 on an older version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage and protects workloads as it did in v.1. More information on preparing storage to back up the legacy way can be found here.
+> [!NOTE]
+> To use Modern Backup Storage, you must run Backup Server v2 on Windows Server 2016. 
+> If you run Backup Server v2 on an earlier version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage. Instead, it protects workloads as it does with Backup Server v1. For more information, see the Backup Server version [protection matrix](backup-mabs-protection-matrix.md).
 
-Azure Backup Server v.2 accepts storage volumes. When you add a volume, Azure Backup Server formats the volume to ReFS, which Modern Backup Storage requires. To add a volume, and to expand it later if needed, here is the suggested workflow:
+## Volumes in Backup Server v2
 
-1.	Set up Azure Backup Server v.2 on a VM.
+Backup Server v2 accepts storage volumes. When you add a volume, Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires. To add a volume, and to expand it later if you need to, we suggest that you use this workflow:
+
+1.	Set up Backup Server v2 on a VM.
 2.	Create a volume on a virtual disk in a storage pool:
+    1.  Add a disk to a storage pool and create a virtual disk with simple layout.
+    2.  Add any additional disks, and extend the virtual disk.
+    3.  Create volumes on the virtual disk.
+3.	Add the volumes to Backup Server.
+4.	Configure workload-aware storage.
 
-    a.	Add a disk to a storage pool and create a virtual disk with Simple Layout.
+## Create a volume for Modern Backup Storage
 
-    b.	Add any additional disks, and extend the virtual disk.
+Using Backup Server v2 with volumes as disk storage can help you maintain control over storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This can help if you want to expand the volume for backup storage. This section offers best practices for creating a volume with this setup.
 
-    c.	Create Volumes on the virtual disk.
+1. In Server Manager, select **File and Storage Services** > **Volumes** > **Storage Pools**. Under **PHYSICAL DISKS**, select **New Storage Pool**. 
 
-3.	Add the volumes to Azure Backup Server.
-4.	Configure Workload-Aware Storage.
+    ![Create a new storage pool](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
-## Create a volume for Azure Backup Server v.2 Modern Backup Storage
+2. In the **TASKS** drop-down box, select **New Virtual Disk**.
 
-Using Azure Backup Server v.2 with volumes as disk storage, helps maintain control over the storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created using storage spaces. This helps if you want to expand the volume for backup storage. This section provides best practice for creating a volume with this configuration.
+    ![Add a virtual disk](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
-First step is o create a Virtual Disk.  Through the File and Storage Services section of the Server Manager, create a Storage Pool, and add the available disks to it. Create a Virtual Disk from that Storage Pool with Simple Layout.
+3. Select the storage pool, and then select **Add Physical Disk**.
 
-Step 1: Add the disks to a Storage Pool and create a virtual disk with Simple Layout
+    ![Add a physical disk](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
+4. Select the physical disk, and then select **Extend Virtual Disk**.
 
-Create a virtual disk out of this Storage Pool and select the layout to be Simple
+    ![Extend the virtual disk](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
 
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
+5. Select the virtual disk, and then select **New Volume**.
 
-Step 2: Now add as many disks as needed and extend the virtual disk, with Simple layout.
+    ![Create a new volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
+6. In the **Select the server and disk** dialog, select the server and the new disk. Then, select **Next**.
 
-Extend the Virtual Disk to reflect the added disks.
+    ![Select the server and disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
+## Add volumes to Backup Server disk storage
 
-Step 3: Create Volumes on the Storage Pool
+To add a volume to Backup Server, in the **Management** pane, rescan the storage, and then select **Add**. A list of all the volumes available to be added for Backup Server Storage appears. After available volumes are added to the list of selected volumes, you can give them a friendly name to help you manage them. To format these volumes to ReFS so Backup Server can use the benefits of Modern Backup Storage, select **OK**.
 
-After creating the Virtual Disk with sufficient storage, create volumes on the Virtual Disk.
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
+![Add Available Volumes](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
+## Set up workload-aware storage
 
-## Adding volumes to Azure Backup Server Disk Storage
+With workload-aware storage, you can select the volumes that preferentially store certain kinds of workloads. For example, you can set expensive volumes that support a high number of input/output operations per second (IOPS) to store only the workloads that require frequent, high-volume backups. An example is SQL Server with transaction logs. Other workloads that are backed up less frequently, like VMs, can be backed up to low-cost volumes.
 
-To add a volume to Azure Backup Server, in the Management pane, Rescan the Storage and Click on Add. This will give a list of all the volumes available to be added for Azure Backup Server Storage. After they are added to the list of selected volumes, they can also be given a Friendly name for easy recall. Clicking on OK will format these volumes to ReFS to enable Azure Backup Server to use the benefits of Modern Backup Storage.
+### Update-DPMDiskStorage
 
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
+You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on a Data Protection Manager server.
 
-## Configure Workload-Aware Storage
-
-With Workload Aware Storage, the volumes can be selected to preferentially store certain kinds of workloads. For example, expensive volumes that support high IOPS can be configured to store only the workloads that require frequent, high-volume backups like SQL with Transaction Logs. Other workloads that are backed up less frequently, say VMs, can be backed up to other low-cost volumes.
-
-This can be done through PowerShell commandlet, Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on a DPM server.
-
-**Update-DPMDiskStorage**
-
-**Syntax**
+Syntax:
 
 `Parameter Set: Volume`
 
 ```
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
+The following screenshot shows the Update-DPMDiskStorage cmdlet in the PowerShell window.
 
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
+![The Update-DPMDiskStorage command in the PowerShell window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
-The changes made through PowerShell are reflected in the UI.
+The changes you make by using PowerShell are reflected in the Backup Server Administrator Console.
 
-![Review Disk Storage Allocation](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
+![Disks and volumes in the Administrator Console](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
+
+## Next steps
+After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
+
+- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
+- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
+- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
+

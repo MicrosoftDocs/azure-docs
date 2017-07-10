@@ -18,7 +18,7 @@ ms.date: 05/24/2017
 ms.author: kyliel
 
 ---
-# Create and upload a OpenBSD disk image to Azure
+# Create and Upload an OpenBSD disk image to Azure
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the OpenBSD operating system. After you upload it, you can use it as your own image to create a virtual machine (VM) in Azure through Azure CLI.
 
 
@@ -67,9 +67,8 @@ On the VM where you installed the OpenBSD operating system 6.1, which added Hype
 6. The latest release of the Azure agent can always be found on [Github](https://github.com/Azure/WALinuxAgent/releases). Install the agent as follows:
 
     ```sh
-    git clone https://github.com/reyk/WALinuxAgent
+    git clone https://github.com/Azure/WALinuxAgent 
     cd WALinuxAgent
-    git checkout waagent-openbsd
     python setup.py install
     waagent -register-service
     ```
@@ -93,11 +92,10 @@ Now you can shut down your VM.
 
 
 ## Prepare the VHD
-The VHDX format is not supported in Azure, only **fixed VHD**. You can convert the disk to fixed VHD format using Hyper-V Manager or the Powershell [convert-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet and [resize-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/resize-vhd). Examples are as followings.
+The VHDX format is not supported in Azure, only **fixed VHD**. You can convert the disk to fixed VHD format using Hyper-V Manager or the Powershell [convert-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet. An example is as following.
 
 ```powershell
-Resize-VHD -Path OpenBSD61.vhdx -SizeBytes 20GB
-Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd
+Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## Create storage resources and upload
@@ -119,9 +117,9 @@ az storage account create --resource-group myResourceGroup \
 To control access to the storage account, obtain the storage key with [az storage account key list](/cli/azure/storage/account/key#list) as follows:
 
 ```azurecli
-$STORAGE_KEY=$(az storage account keys list \
-    ---resource-group myResourceGroup \
-    --name mystorageaccount \
+STORAGE_KEY=$(az storage account keys list \
+    --resource-group myResourceGroup \
+    --account-name mystorageaccount \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
@@ -174,3 +172,5 @@ ssh azureuser@<ip address>
 
 ## Next steps
 If you want to know more about Hyper-V support on OpenBSD6.1, read [OpenBSD 6.1](https://www.openbsd.org/61.html) and [hyperv.4](http://man.openbsd.org/hyperv.4).
+
+If you want to create a VM from managed disk, read [az disk](/cli/azure/disk). 

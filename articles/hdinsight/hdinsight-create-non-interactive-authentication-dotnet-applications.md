@@ -1,5 +1,5 @@
 ---
-title: Create non-interactive authentication .NET HDInsight applciations | Microsoft Docs
+title: Create non-interactive authentication .NET HDInsight applciations - Azure | Microsoft Docs
 description: Learn how to create non-interactive authentication .NET HDInsight applications.
 editor: cgronlun
 manager: jhubbard

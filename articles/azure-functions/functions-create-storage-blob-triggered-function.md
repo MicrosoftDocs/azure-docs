@@ -16,7 +16,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
-
+ms.custom: mvc
 ---
 # Create a function triggered by Azure Blob storage
 
@@ -55,7 +55,7 @@ Next, you create a function in the new function app.
     |---|---|---|
     | **Path**   | mycontainer/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
     | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
-    | **Name your function** | Unique in your function app | Name of this queue triggered function. |
+    | **Name your function** | Unique in your function app | Name of this blob triggered function. |
 
 3. Click **Create** to create your function.
 

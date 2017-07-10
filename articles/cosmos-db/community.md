@@ -52,7 +52,7 @@ Check it out on [GitHub](https://github.com/jcormont/documentdb-typescript) and 
 ### Swagger REST API for DocumentDB
 *by Howard Edidin*
 
-An Azure Cosmos DB DocumentDB REST API Swagger file that can be easily deployed as an API App.
+An Azure Cosmos DB REST API Swagger file for the DocumentDB API that can be easily deployed as an API App.
 
 Check it out on [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 

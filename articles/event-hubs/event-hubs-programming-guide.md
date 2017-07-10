@@ -54,7 +54,7 @@ All Event Hubs creation operations, including [CreateEventHubIfNotExists][], req
 The [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) class contains details about an event hub, including the authorization rules, the message retention interval, partition IDs, status, and path. You can use this class to update the metadata on an event hub.
 
 ## Create an Event Hubs client
-The primary class for interacting with Event Hubs is [Microsoft.ServiceBus.Messaging.EventHubClient][]. This class provides both sender and receiver capabilities. You can instantiate this class using the [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) method, as shown in the following example.
+The primary class for interacting with Event Hubs is [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. This class provides both sender and receiver capabilities. You can instantiate this class using the [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) method, as shown in the following example.
 
 ```csharp
 var client = EventHubClient.Create(description.Path);

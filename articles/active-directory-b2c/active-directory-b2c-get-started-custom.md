@@ -87,7 +87,7 @@ Azure AD B2C requires you to register two extra applications that are used by th
 1. Select **New application registration**.
    * For **Name**, use `ProxyIdentityExperienceFramework`.
    * For **Application type**, use **Native**.
-   * For **Sign-on URL**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, where `yourtenant` is your Azure AD B2C tenant.
+   * For **Redirect URI**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, where `yourtenant` is your Azure AD B2C tenant.
 1. Select **Create**.
 1. Once it has been created, select the application **ProxyIdentityExperienceFramework**.<br>
    a. Select **Properties**. <br>

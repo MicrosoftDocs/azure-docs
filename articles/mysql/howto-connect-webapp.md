@@ -6,10 +6,7 @@ author: v-chenyh
 ms.author: v-chenyh
 editor: jasonwhowell
 manager: jhubbard
-ms.assetid: 
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ---

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
-
+ms.custom: mvc
 ---
 # Create a function triggered by a GitHub webhook
 
@@ -99,6 +99,8 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 ## Next steps
 
-You have created a function that runs when a request is received from a GitHub webhook. 
+You have created a function that runs when a request is received from a GitHub webhook.
+
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
 For more information about webhook triggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md).

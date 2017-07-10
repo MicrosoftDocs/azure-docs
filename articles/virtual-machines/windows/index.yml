@@ -6,7 +6,7 @@ metadata:
   title: Azure Windows Virtual Machines Documentation - Tutorials, API Reference
   meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
-  author: apexprodleads
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines-windows
   ms.tgt_pltfrm: na
@@ -63,6 +63,7 @@ sections:
     - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Backup VMs</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Manage security on VMs</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Create a continuous integration pipeline with Visual Studio</a>
 - title: Free PluralSight Video Training
   items:
   - type: list

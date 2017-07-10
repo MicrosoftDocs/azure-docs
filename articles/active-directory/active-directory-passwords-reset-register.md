@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -16,7 +17,6 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: joflore
 ms.custom: end-user
-ms.editor: gahug
 
 ---
 # Register for self-service password reset

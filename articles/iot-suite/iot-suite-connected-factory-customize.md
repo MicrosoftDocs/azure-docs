@@ -169,7 +169,7 @@ The **azure-iot-connected-factory** repository includes a **build.ps1** PowerShe
 Learn more about the connected factory preconfigured solution by reading the following articles:
 
 * [Connected factory preconfigured solution walkthrough][lnk-rm-walkthrough]
-* [Connect your device to the Connected factory preconfigured solution][lnk-connect-cf]
+* [Deploy a gateway for connected factory][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 * [FAQ][lnk-faq]
 
@@ -183,7 +183,7 @@ Learn more about the connected factory preconfigured solution by reading the fol
 [img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
 [lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
 
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

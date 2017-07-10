@@ -12,16 +12,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload:
+ms.workload: storage-backup-recovery
 ms.date: 05/13/2017
 ms.author: ruturajd
 
 ---
 # Reprotect from failed over Azure region back to primary region
 
-> [!div class="op_single_selector"]
-> * [Azure to Azure](site-recovery-how-to-reprotect-azure-to-azure.md)
-> * [On-premises to Azure](site-recovery-how-to-reprotect.md)
+
 
 >[!NOTE]
 >

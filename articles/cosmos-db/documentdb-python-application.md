@@ -13,7 +13,7 @@ ms.service: cosmos-db
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017

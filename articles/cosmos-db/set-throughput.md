@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/12/2017
 ms.author: mimig
 
 ---
@@ -55,7 +55,7 @@ The following table lists the throughput available for containers:
 
 <a id="set-throughput-sdk"></a>
 
-## To set the throughput by using the .NET SDK
+## To set the throughput by using the DocumentDB API for .NET
 
 ```C#
 //Fetch the resource to be updated
@@ -76,6 +76,10 @@ await client.ReplaceOfferAsync(offer);
 **Can I set my throughput to less than 400 RU/s?**
 
 400 RU/s is the minimum throughput available on Cosmos DB single partition collections (2500 RU/s is the minimum for partitioned collections). Request units are set in 100 RU/s intervals, but throughput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test Cosmos DB, you can use the free [Azure Cosmos DB Emulator](local-emulator.md), which you can deploy locally at no cost. 
+
+**How do I set througput using the MongoDB API?**
+
+There's no MongoDB API extension to set throughput. The recommendation is to use the DocumentDB API, as shown in [To set the throughput by using the DocumentDB API for .NET](#set-throughput-sdk).
 
 ## Next steps
 
