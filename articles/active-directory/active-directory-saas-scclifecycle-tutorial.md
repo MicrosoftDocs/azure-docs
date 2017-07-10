@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -109,9 +109,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<sub-domain>.scc.com/<instance-name>/welcome/customer/PICTtest.aspx`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://bs1.scc.com/<identifier>/welcome/customer/PICTtest.aspx`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://bs1.scc.com/<instance-name>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://bs1.scc.com/<identifier>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [SCC LifeCycle Client support team](mailto:lifecycle.support@scc.com) to get these values. 
