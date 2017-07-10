@@ -45,13 +45,15 @@ Click on the Search Explorer tile to slide open the search bar and results pane.
 
 ## Start searching
 
-1. To search your Azure Search index, start typing into the **Query string** field and then press **Search**.
+When using the Search Explorer, you can specify [query parameters](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) to formulate the query.
+
+1. In **Query string**, type a query and then press **Search**. 
+
+   The query string is automatically parsed into the proper request URL to submit a HTTP request against the Azure Search REST API.   
    
-   When using the Search Explorer, you can specify any of the [query parameters](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+   You can use any valid simple or full Lucene query syntax to create the request. The `*` character is equivalent to an empty or unspecified search that returns all documents in no particular order.
 
-   The query string is automatically parsed into the proper request URL to submit a HTTP request against the Azure Search REST API.
-
-2. In the **Results** section, query results are presented in raw JSON, identical to the payload returned in an HTTP Response Body when issuing requests programmatically.
+2. In  **Results**, query results are presented in raw JSON, identical to the payload returned in an HTTP Response Body when issuing requests programmatically.
 
    ![](./media/search-explorer/search-bar.png)
 
