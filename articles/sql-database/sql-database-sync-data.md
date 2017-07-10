@@ -122,7 +122,7 @@ The minimum frequency is every five minutes.
 ### I got an error message that said "cannot insert the value NULL into the column \<column\>. Column does not allow nulls." What does this mean, and how can I fix the error? 
 This error message indicates one of the two following issues:
 1.  There may be a table without a primary key. To fix this issue, add a primary key to all the tables you're syncing.
-2.  There may be a WHERE clause in your CREATE INDEX statement. Sync does not handle this. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
+2.  There may be a WHERE clause in your CREATE INDEX statement. Sync does not handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
  
 ### How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
 Data Sync doesn’t handle circular references. Be sure to avoid them. 
