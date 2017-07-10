@@ -19,23 +19,33 @@ ms.author: markvi
 ---
 # Sign-in activity report error codes in the Azure Active Directory portal
 
-With the information provided by the user sign-in report, you find answers to questions such as:
+With the information provided by the user sign-ins report, you find answers to questions such as:
 
-* What is the sign-in pattern of a user?
-* How many users have users signed in over a week?
-* What’s the status of these sign-ins?
+- Who has signed-in using Azure Active Directory?
+- Which apps were signed into?
+- Which sign-ins were failures and if so why?
 
 This topic lists the error codes and the related descriptions. 
 
+## How can I display failed sign-ins? 
 
-## Sign-in activity report 
-
-
-[Screenshot of a sign-in activity error]
-
-![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/43.png "Sign-in activity")
+Your first entry point to all sign-in activities data is **[Sign-ins](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)** in the **Activity** section of **Azure Active**.
 
 
+![Sign-in activity](./media/active-directory-reporting-activity-sign-ins-errors/61.png "Sign-in activity")
+
+
+In your sign-ins report, you can display all failed sign-ins by selecting **Failure** as **Sign-in status**.
+
+
+![Sign-in activity](./media/active-directory-reporting-activity-sign-ins-errors/06.png "Sign-in activity")
+
+Clicking an item in the displayed list, opens the **Activity Details: Sign-ins** blade. 
+This view provides you with all the details that Azure Active Directory tracks about sign-ins, including the **sign-in error code** and a **failure reason**.
+
+![Sign-in activity](./media/active-directory-reporting-activity-sign-ins-errors/05.png "Sign-in activity")
+
+The following section provides you with a complete overview of all possible errors and the related descriptions. 
 
 ## Error codes
 
@@ -49,6 +59,7 @@ This topic lists the error codes and the related descriptions.
 | 50055| Invalid password, entered expired password.|
 | 50057| User account is disabled.|
 | 50058| No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
+| 50074| Strong Authentication (second factor) is required|
 | 50079| User needs to enroll for second factor authentication|
 | 50126| Invalid username or password or Invalid on-premise username or password.|
 | 50131| Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
@@ -76,6 +87,7 @@ This topic lists the error codes and the related descriptions.
 | 81013| Unable to find user object based on information in the user's Kerberos ticket.|
 | 90014| Used in various cases when an expected field is not present in the credential.|
 | 90093| Graph returned with forbidden error code for the request.|
+
 
 
 ## Next steps
