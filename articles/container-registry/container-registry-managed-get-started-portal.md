@@ -3,9 +3,9 @@ title: Create private Docker registry - Azure portal | Microsoft Docs
 description: Get started creating and managing private Docker container registries with the Azure portal
 services: container-registry
 documentationcenter: ''
-author: stevelas
-manager: balans
-editor: dlepow
+author: nepeters
+manager: timlt
+editor: na
 tags: ''
 keywords: ''
 
@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
-ms.author: stevelas
+ms.date: 07/10/2017
+ms.author: neilpeterson
 ms.custom: H1Hack27Feb2017
 ---
 
-# Create a private Docker container registry using the Azure portal
+# Create a managed container registry using the Azure portal
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure portal.
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating a managed Azure Container Registry instance using the Azure portal.
+
+Managed Azure container registries are in preview and not available in all regions.
 
 ## Log in to Azure
 
@@ -48,7 +50,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
     d. **Admin user**: If you want, enable an admin user to access the registry. You can change this setting after creating the registry.
 
-    e. **Use managed registry**: Select yes to have ACR automatically manage the registry storage, use webhooks, and geo-replication.
+    e. **Use managed registry**: Select yes to have ACR automatically manage the registry storage and use webhooks.
 
     d. **Pricing Tier**: Select a pricing tier, see here ACR pricing for more information.
 

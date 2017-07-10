@@ -3,9 +3,9 @@ title: Create private Docker container registry - Azure CLI | Microsoft Docs
 description: Get started creating and managing private Docker container registries with the Azure CLI 2.0
 services: container-registry
 documentationcenter: ''
-author: stevelas
-manager: balans
-editor: cristyg
+author: nepeters
+manager: timlt
+editor: na
 tags: ''
 keywords: ''
 
@@ -15,14 +15,16 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 07/10/2017
+ms.author: neilpeterson
 ms.custom: H1Hack27Feb2017
 ---
 
-# Create a private Docker container registry using the Azure CLI 2.0
+# Create a managed container registry using the Azure CLI
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating a managed Azure Container Registry instance usingthe Azure CLI.
+
+Managed Azure container registries are in preview and not available in all regions.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
