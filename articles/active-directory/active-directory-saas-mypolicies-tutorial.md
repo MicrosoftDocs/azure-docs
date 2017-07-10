@@ -104,9 +104,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_samlbase.png)
 
-3. On the **myPolicies Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+3. On the **myPolicies Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_url.png)
+
+	a. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantname>.mypolicies.com/`
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
+
+	> [!NOTE] 
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [myPolicies support team](mailto:support@mypolicies.com) to get these values.
 
 4. The myPolicies application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this. 
 
