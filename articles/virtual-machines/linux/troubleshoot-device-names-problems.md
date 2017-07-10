@@ -14,7 +14,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 07/05/2017
+ms.date: 07/10/2017
 ms.author: genli
 
 ---
@@ -45,48 +45,9 @@ When the Azure Linux agent is installed on a VM, it uses Udev rules to construct
 
 ## More information
 
-### Discover filesystem UUIDs by using blkid
+### Identify disk LUNs
 
-A script or application can read the output of blkid, or similar sources of information, and construct symbolic links under **/dev** for use. The output will show the UUIDs of all disks attached to the VM and the device file to which they are associated:
-
-    $ sudo blkid -s UUID
-
-    /dev/sr0: UUID="120B021372645f72"
-    /dev/sda1: UUID="52c6959b-79b0-4bdd-8ed6-71e0ba782fb4"
-    /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
-    /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
-
-The waagent udev rules construct a set of symbolic links under **/dev/disk/azure**:
-
-
-    $ ls -l /dev/disk/azure
-
-    total 0
-    lrwxrwxrwx 1 root root  9 Jun  2 23:17 resource -> ../../sdb
-    lrwxrwxrwx 1 root root 10 Jun  2 23:17 resource-part1 -> ../../sdb1
-    lrwxrwxrwx 1 root root  9 Jun  2 23:17 root -> ../../sda
-    lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
-
-
-The application can use this information identify the boot disk device and the resource (ephemeral) disk. In Azure, applications should refer to **/dev/disk/azure/root-part1** or **/dev/disk/azure-resource-part1** to discover these partitions.
-
-If there are additional partitions from the blkid list, they reside on a data disk. Applications can persist the UUID for these partitions and use a path like the below to discover the device name at runtime:
-
-    $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
-
-    lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
-
-    
-## Get the latest Azure storage rules
-
-To the latest Azure storage rules, run th following commands:
-
-    # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
-    # sudo udevadm trigger --subsystem-match=block
-
-
-### identify disk LUNs
-Alternatively, an application could use LUNs for the purpose of finding all the attached disks and constructing symbolic links. The Azure Linux agent now comes with udev rules that set up symbolic links from LUN to the devices:
+An application could use LUNs for the purpose of finding all the attached disks and constructing symbolic links. The Azure Linux agent now comes with udev rules that set up symbolic links from LUN to the devices:
 
     $ tree /dev/disk/azure
 
@@ -147,6 +108,45 @@ This guest LUN information can be used with Azure subscription metadata to ident
       }                                                                                                                                                             
       }                                                                                                                                                             
     ]
+
+### Discover filesystem UUIDs by using blkid
+
+A script or application can read the output of blkid, or similar sources of information, and construct symbolic links under **/dev** for use. The output will show the UUIDs of all disks attached to the VM and the device file to which they are associated:
+
+    $ sudo blkid -s UUID
+
+    /dev/sr0: UUID="120B021372645f72"
+    /dev/sda1: UUID="52c6959b-79b0-4bdd-8ed6-71e0ba782fb4"
+    /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
+    /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
+
+The waagent udev rules construct a set of symbolic links under **/dev/disk/azure**:
+
+
+    $ ls -l /dev/disk/azure
+
+    total 0
+    lrwxrwxrwx 1 root root  9 Jun  2 23:17 resource -> ../../sdb
+    lrwxrwxrwx 1 root root 10 Jun  2 23:17 resource-part1 -> ../../sdb1
+    lrwxrwxrwx 1 root root  9 Jun  2 23:17 root -> ../../sda
+    lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
+
+
+The application can use this information identify the boot disk device and the resource (ephemeral) disk. In Azure, applications should refer to **/dev/disk/azure/root-part1** or **/dev/disk/azure-resource-part1** to discover these partitions.
+
+If there are additional partitions from the blkid list, they reside on a data disk. Applications can persist the UUID for these partitions and use a path like the below to discover the device name at runtime:
+
+    $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
+
+    lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
+
+    
+## Get the latest Azure storage rules
+
+To the latest Azure storage rules, run th following commands:
+
+    # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
+    # sudo udevadm trigger --subsystem-match=block
 
 
 For more information, see the following articles:
