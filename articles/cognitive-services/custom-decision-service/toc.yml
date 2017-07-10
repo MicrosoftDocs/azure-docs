@@ -12,7 +12,7 @@
     href: custom-decision-service-get-started-app.md
 - name: Tutorials
   items:
-  - name: Typical scenario: personalized articles
+  - name: Typical scenario (personalized articles)
     href: custom-decision-service-tutorial-news.md
   - name: Machine learning in Custom Decision Service
     href: custom-decision-service-tutorial-ML.md
