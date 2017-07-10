@@ -1,6 +1,6 @@
 ---
 title: Check status, set up logging, and get alerts - Azure Logic Apps | Microsoft Docs
-description: Check your logic app runs, log diagnostic data, and set up alerts
+description: Monitor status for your logic app runs, log diagnostic data, and set up alerts
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -14,25 +14,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 07/7/2017
+ms.date: 07/14/2017
 ms.author: LADocs; jehollan
 ---
 
 # Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps
 
-After you [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md), 
+After you [create and run a logic app](../logic-apps/logic-apps-create-a-logic-app.md), 
 you can check its status, performance, and run history in the Azure portal. 
 For monitoring real-time events and richer debugging, 
 set up diagnostics [logging](#azure-diagnostics). 
 To get notifications about failures or other possible problems, 
-set up [alerts](#add-azure-alerts). 
-
-For example, you can create an alert for 
-"when more than five runs fail within an hour." 
+set up [alerts](#add-azure-alerts). For example, 
+you can create an alert that detects 
+"when more than five runs fail in an hour." 
 After your logic app runs, you can [view the events](#find-events) 
 that happened during your logic app run.
 
-## View runs and triggers history for your logic app
+## View runs and trigger history for your logic app
 
 1. To find your logic app in the [Azure portal](https://portal.azure.com), 
 on the main Azure menu, choose **More services**. In the search box, 
@@ -42,60 +41,57 @@ find "logic apps", and choose **Logic apps**.
 
    The Azure portal shows all the logic apps that are associated with your Azure subscription. 
 
-2. Select the logic app that you want to monitor.
+2. Select your logic app, then choose **Overview**.
 
-3. To view all the actions and triggers that fired for the selected logic app, 
-choose **Overview**.
-
-   * **Runs history** shows all the runs for the logic app. 
-   * **Trigger History** shows all the trigger activity for the logic app.
-
+   The Azure portal shows the runs and trigger history for your logic app. 
    For example:
 
    ![Logic app runs history and trigger history](media/logic-apps-monitor-your-logic-apps/overview.png)
 
-   For status descriptions, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
+   * **Runs history** shows all the runs for your logic app. 
+   * **Trigger History** shows all the trigger activity for your logic app.
+
+   For status descriptions, see 
+   [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
    > [!TIP]
    > If you don't find the data that you expect, 
    > on the toolbar, choose **Refresh**.
 
-4. You can view the steps for a specific run. 
-Under **Runs history**, select that run. 
-The monitor view shows each step in that run.
+3. To view the steps from a specific run, 
+under **Runs history**, select that run. 
+
+   The monitor view shows each step in that run. For example:
 
    ![Actions for a specific run](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
-   For more details about the run, choose **Run Details**. 
-   This information summarizes the steps, status, inputs, and outputs for the run.
+4. To get more details about the run, choose **Run Details**. 
+This information summarizes the steps, status, inputs, and outputs for the run. 
 
    ![Choose "Run Details"](media/logic-apps-monitor-your-logic-apps/run-details.png)
 
    For example, you can get the run's **Correlation ID**, 
    which you might need when you use the 
-   [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic),
+   [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
-5. To get details about a specific step, 
-choose that step. For example:
+5. To get details about a specific step, choose that step. 
+You can now review details like inputs, outputs, 
+and any errors that happened for that step. For example:
 
    ![Step details](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
-
-   You can now review details like inputs, outputs, 
-   and any errors that happened for that step.
    
    > [!NOTE]
-   > All runtime details and events are encrypted within the Logic App service. 
+   > All runtime details and events are encrypted within the Logic Apps service. 
    > They are decrypted only when a user requests to view that data. 
    > You can also control access to these events with 
    > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
 
 6. To get details about a specific trigger event, 
 go back to the **Overview** pane. Under **Trigger history**, 
-select the trigger event.
+select the trigger event. You can now review details like inputs and outputs, 
+for example:
 
-   You can now review details like inputs and outputs.
-
-   ![Trigger event details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
+   ![Trigger event output details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
 <a name="azure-diagnostics"></a>
 
@@ -139,7 +135,7 @@ After your logic app runs, you can find events and other data for those runs.
 ## Find events and data from your logic app runs
 
 1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
-Search for "log analytics", and then choose **Log Analytics** as shown here:
+Search for "log analytics", then choose **Log Analytics** as shown here:
 
    ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
@@ -147,7 +143,7 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Select your OMS workspace](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. Choose **OMS Portal**.
+3. Under **Management**, choose **OMS Portal**.
 
    ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
@@ -159,14 +155,15 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![On the OMS menu, choose "Log Search"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. In the search box, enter a field that you want to find, and press **Enter**. 
+5. In the search box, specify a field that you want to find, and press **Enter**. 
 When you start typing, OMS shows you possible matches and operations that you can use. 
-Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
    For example, to find the top 10 events that happened, 
    enter and select this search query: **Category=WorkflowRuntime |top 10**
 
    ![Enter search string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
+
+   Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
 6. On the results page, in the left bar, choose the timeframe that you want to view.
 To refine your query by adding a filter, choose **+Add**.
@@ -271,8 +268,8 @@ that you can use for tracking and monitoring:
 ``` json
 {
     "time": "2016-07-09T17:09:54.4773148Z",
-    "workflowId": "/SUBSCRIPTIONS/80D4FE69-ABCD-EFGH-A938-9250F1C8AB03/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP",
-    "resourceId": "/SUBSCRIPTIONS/80D4FE69-ABCD-EFGH-A938-9250F1C8AB03/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP/RUNS/08587361146922712057/ACTIONS/HTTP",
+    "workflowId": "/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP",
+    "resourceId": "/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP/RUNS/08587361146922712057/ACTIONS/HTTP",
     "category": "WorkflowRuntime",
     "level": "Information",
     "operationName": "Microsoft.Logic/workflows/workflowActionCompleted",
@@ -283,7 +280,7 @@ that you can use for tracking and monitoring:
         "status": "Succeeded",
         "code": "OK",
         "resource": {
-            "subscriptionId": "80d4fe69-ABCD-EFGH-a938-9250f1c8ab03",
+            "subscriptionId": "<subscription-ID>",
             "resourceGroupName": "MyResourceGroup",
             "workflowId": "cff00d5458f944d5a766f2f9ad142553",
             "workflowName": "MyLogicApp",
@@ -293,7 +290,7 @@ that you can use for tracking and monitoring:
         },
         "correlation": {
             "actionTrackingId": "e1931543-906d-4d1d-baed-dee72ddf1047",
-            "clientTrackingId": "<my-custom-tracking-id>"
+            "clientTrackingId": "<my-custom-tracking-ID>"
         },
         "trackedProperties": {
             "myTrackedProperty": "<value>"
