@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 06/01/2016
+ms.date: 07/05/2017
 ms.author: BernardoAMunoz
 
 ---
@@ -49,15 +49,15 @@ Once an issue with a resource has been detected, Resource Health can help you di
 
 ## What health checks are performed by Resource Health?
 Resource health performs various checks based on the [resource type](resource-health-checks-resource-types.md). These checks are designed to implement three types of issues: 
-1. Unplanned events, for example an unexpected host reboot
-2. Planned events, like scheduled host OS updates
-3. Events triggered by user actions, for example a user rebooting a virtual machine
+- Unplanned events, for example an unexpected host reboot
+- Planned events, like scheduled host OS updates
+- Events triggered by user actions, for example a user rebooting a virtual machine
 
 ## What does each of the health status mean?
 There are three different health statuses:
-1. Available: There aren't any known problems in the Azure platform that could be impacting this resource
-2. Unavailable: Resource health has detected issues that are impacting the resource
-3. Unknown: Resource health can not determine the health of a resource because it has stopped receiving information about it. 
+- Available: There aren't any known problems in the Azure platform that could be impacting this resource
+- Unavailable: Resource health has detected issues that are impacting the resource
+- Unknown: Resource health can not determine the health of a resource because it has stopped receiving information about it. 
 
 ## What does the unknown status mean? Is something wrong with my resource?
 The health status is set to unknown when Resource Health stops receiving information about a specific resource. While this status is not a definitive indication of the state of the resource, in cases where you are experiencing problems, it may indicate there is an Azure problem.
@@ -67,9 +67,9 @@ You can submit a support request from the Resource Health blade. You do not need
 
 ## Does Resource Health differentiate between unavailability cased by platform problems versus something I did?
 Yes, when a resource is unavailable, Resource Health identifies the root cause within one of these categories: 
-1.	User initiated action
-2.	Planned event 
-3.	Unplanned event
+-	User initiated action
+-	Planned event 
+-	Unplanned event
 
 In the portal, user initiated actions are shown using a blue notification icon, while planned and unplanned events are shown using a red warning icon. More details are provided in the [Resource Health overview](Resource-health-overview.md).  
 
@@ -78,28 +78,28 @@ Resource health is a service designed to help you diagnose and mitigate Azure se
 
 ## Where do I find Resource Health?
 After you log in to the Azure portal, there are multiple ways you can access Resource Health:
-1. Navigate to your resource. In the left-hand navigation, click **Resource health**.
-2. Go to the Azure Monitor blade.  In the left-hand navigation, click **Resource health**.
-3. Open the **Help + Support** blade by clicking the question mark in the upper right corner of the portal and then selecting **Help + Support**. Once the blade opens, click **Resource health**
+- Navigate to your resource. In the left-hand navigation, select **Resource health**
+- Go to the Azure Monitor blade.  In the left-hand navigation, select **Resource health**.
+- Open the **Help + Support** blade by selecting the question mark in the upper right corner of the portal and then selecting **Help + Support**. Once the blade opens, select **Resource health**
 
 You can also use the Resource Health API to obtain information about the health of your resources.
 
 ## Is Resource Health available for all resource types?
-The list of health checks and resource types supported through Resource Health can be found [here](resource-health-checks-resource-types.md)
+The list of health checks and resource types supported through Resource Health can be found [here](resource-health-checks-resource-types.md).
 
 ## What should I do if my resource is showing available but I believe it is not?”
 When checking the health of a resource, right under the health status you can click **Report incorrect health status**. Before submitting the report, you have the option of providing additional details on why you believe the current health status is incorrect.
 
 ## Is Resource Health available for all Azure regions? 
 Resource health is available in across all Azure geos except the following regions:
-* US Gov Virginia
-* US Gov Iowa
-* US DoD East
-* US DoD Central
-* Germany Central
-* Germany Northeast
-* China East
-* China North
+- US Gov Virginia
+- US Gov Iowa
+- US DoD East
+- US DoD Central
+- Germany Central
+- Germany Northeast
+- China East
+- China North
 
 ## How is Resource Health different from the Service Health Dashboard or the Azure portal service notifications?
 The information provided by Resource Health is more specific than what is provided by the Azure Service Health Dashboard.
@@ -122,6 +122,6 @@ Based on the health status, Resource Health provides you with recommendations wi
 
 ## Next steps
 
-Check out these resources to learn more about Resource Health:
+Learn more about Resource Health:
 -  [Azure Resource Health overview](Resource-health-overview.md)
 -  [Resource types and health checks available through Azure Resource Health](resource-health-checks-resource-types.md)

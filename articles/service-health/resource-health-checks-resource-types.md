@@ -1,5 +1,5 @@
 ---
-title: Supported Resource Types through Azure Resource health|Microsoft Docs
+title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 services: Resource health
 documentationcenter: ''
@@ -106,7 +106,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the host server up and running?</li><li>Is Internet Information server running?</li><li>Is the Load balancer running?</li><li>Can the Web App be reached from within the datacenter?</li><li>Is the storage account hosting the site content available?</li></ul>|
 
-See these resources to learn more about resource health:
--  [Introduction to Azure resource health](Resource-health-overview.md)
--  [Frequently asked questions about Azure resource health](Resource-health-faq.md)
-
+# Next Steps
+-  See [Introduction to Azure Service Health](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
