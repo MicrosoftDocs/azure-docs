@@ -95,26 +95,27 @@ except mysql.connector.Error as err:
 else:
   cursor = conn.cursor()
 
-# Drop previous table of same name if one exists
-cursor.execute("DROP TABLE IF EXISTS inventory;")
-print("Finished dropping table (if existed)")
+  # Drop previous table of same name if one exists
+  cursor.execute("DROP TABLE IF EXISTS inventory;")
+  print("Finished dropping table (if existed).")
 
-# Create table
-cursor.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
-print("Finished creating table")
+  # Create table
+  cursor.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
+  print("Finished creating table.")
 
-# Insert some data into table
-cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("banana", 150))
-print("Inserted",cursor.rowcount,"row(s) of data.")
-cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("orange", 154))
-print("Inserted",cursor.rowcount,"row(s) of data.")
-cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
-print("Inserted",cursor.rowcount,"row(s) of data.")
+  # Insert some data into table
+  cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("banana", 150))
+  print("Inserted",cursor.rowcount,"row(s) of data.")
+  cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("orange", 154))
+  print("Inserted",cursor.rowcount,"row(s) of data.")
+  cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
+  print("Inserted",cursor.rowcount,"row(s) of data.")
 
-# Cleanup
-conn.commit()
-cursor.close()
-conn.close()
+  # Cleanup
+  conn.commit()
+  cursor.close()
+  conn.close()
+  print("Done.")
 ```
 
 ## Read data
@@ -150,19 +151,20 @@ except mysql.connector.Error as err:
 else:
   cursor = conn.cursor()
 
-# Read data
-cursor.execute("SELECT * FROM inventory;")
-rows = cursor.fetchall()
-print("Read",cursor.rowcount,"row(s) of data.")
+  # Read data
+  cursor.execute("SELECT * FROM inventory;")
+  rows = cursor.fetchall()
+  print("Read",cursor.rowcount,"row(s) of data.")
 
-# Print all rows
-for row in rows:
-	print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
+  # Print all rows
+  for row in rows:
+  	print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
 
-# Cleanup
-conn.commit()
-cursor.close()
-conn.close()
+  # Cleanup
+  conn.commit()
+  cursor.close()
+  conn.close()
+  print("Done.")
 ```
 
 ## Update data
@@ -198,14 +200,15 @@ except mysql.connector.Error as err:
 else:
   cursor = conn.cursor()
 
-# Update a data row in the table
-cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
-print("Updated",cursor.rowcount,"row(s) of data.")
+  # Update a data row in the table
+  cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
+  print("Updated",cursor.rowcount,"row(s) of data.")
 
-# Cleanup
-conn.commit()
-cursor.close()
-conn.close()
+  # Cleanup
+  conn.commit()
+  cursor.close()
+  conn.close()
+  print("Done.")
 ```
 
 ## Delete data
@@ -241,14 +244,15 @@ except mysql.connector.Error as err:
 else:
   cursor = conn.cursor()
 
-# Delete a data row in the table
-cursor.execute("DELETE FROM inventory WHERE name=%(param1)s;", {'param1':"orange"})
-print("Deleted",cursor.rowcount,"row(s) of data.")
+  # Delete a data row in the table
+  cursor.execute("DELETE FROM inventory WHERE name=%(param1)s;", {'param1':"orange"})
+  print("Deleted",cursor.rowcount,"row(s) of data.")
 
-# Cleanup
-conn.commit()
-cursor.close()
-conn.close()
+  # Cleanup
+  conn.commit()
+  cursor.close()
+  conn.close()
+  print("Done.")
 ```
 
 ## Next steps
