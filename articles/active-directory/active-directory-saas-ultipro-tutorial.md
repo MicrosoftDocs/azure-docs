@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/11/2017
 ms.author: jeedes
 
 ---
@@ -108,12 +108,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_url.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.ultipro.com/`
-
-    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.ultiproworkplace.com/adfs/services/trust`
-
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.ultiproworkplace.com/<instancename>`
-
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `https://<companyname>.ultipro.com/`|
+	| `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
+	| ` https://<companyname>.ultipro.ca`|
+	
+    b. In the **Identifier** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `https://<companyname>.ultipro.com/adfs/services/trust`|
+	| `https://<companyname>.ultiproworkplace.com/adfs/services/trust`|
+	| `https://<companyname>.ultipro.ca/adfs/services/trust`|
+	
+	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `https://<companyname>.ultipro.com/<instancename>`|
+	| `https://<companyname>.ultiproworkplace.com/<instancename>`|
+	| `https://<companyname>.ultipro.ca/<instancename>`|
+	
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [UltiPro Client support team](https://www.ultimatesoftware.com/ContactUs) to get these values. 
 
