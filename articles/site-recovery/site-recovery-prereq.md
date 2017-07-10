@@ -64,7 +64,6 @@ Set up an on-premises machine as the configuration server to orchestrate communi
 
 * **Replicated machine prerequisites**
 
-
     | **Component** | **Requirements** |
     | --- | --- |
     | **On-premises machines** (VMware VMs) | Replicated VMs must have VMware tools installed and running.<br/><br/> VMs must meet [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) for creating an Azure VM.<br/><br/>Disk capacity on each protected machine can't be more than 1,023 GB. <br/><br/>A minimum 2 GB of available space on the installation drive is required for component installation.<br/><br/>If you want to enable multi-VM consistency, port 20004 must be opened on the VM local firewall.<br/><br/>Machine names must be between 1 and 63 characters long (you can use letters, numbers, and hyphens). The name must start with a letter or number, and end with a letter or number. <br/><br/>After you've enabled replication for a machine, you can modify the Azure name.<br/><br/> |
