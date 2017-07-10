@@ -1,6 +1,6 @@
 ---
-title: How to Configure an App Service Environment | Microsoft Docs
-description: Configuration, management, and monitoring of App Service Environments
+title: How to Configure an App Service Environment v1
+description: Configuration, management, and monitoring of the App Service Environment v1
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -13,11 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 07/11/2017
 ms.author: ccompy
 
 ---
-# Configuring an App Service Environment
+# Configuring an App Service Environment v1
+
+> [!NOTE]
+> This article is about the App Service Environment v1.  There is a newer version of the App Service Environment that is easier  to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
 ## Overview
 At a high level, an Azure App Service Environment consists of several major components:
 
