@@ -79,67 +79,69 @@ In this section, you configure and test Azure AD SSO with IBM Kenexa Survey Ente
 
 For SSO to work, Azure AD needs to identify the IBM Kenexa Survey Enterprise user counterpart in Azure AD. In other words, Azure AD must establish a link relationship between an Azure AD user and a related user in IBM Kenexa Survey Enterprise.
 
-To establish the link relationship, in IBM Kenexa Survey Enterprise, assign the value of the **user name** as the value of the **Username** in Azure AD.
+To establish the link relationship, assign the value of the **user name** in IBM Kenexa Survey Enterprise as the value of the **Username** in Azure AD.
 
-To configure and test Azure AD SSO with IBM Kenexa Survey Enterprise, complete the building blocks in the following sections:
+To configure and test Azure AD SSO with IBM Kenexa Survey Enterprise, complete the building blocks in the next two sections:
 
 ### Configure Azure AD SSO
 
-In this section, you enable Azure AD SSO in the Azure portal and configure SSO in your IBM Kenexa Survey Enterprise application.
-
-**To configure Azure AD SSO with IBM Kenexa Survey Enterprise, perform the following steps:**
+In this section, you enable Azure AD SSO in the Azure portal and configure SSO in your IBM Kenexa Survey Enterprise application by doing the following:
 
 1. In the Azure portal, on the **IBM Kenexa Survey Enterprise** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on][4]
+	![IBM Kenexa Survey Enterprise Configure single sign-on link][4]
 
-2. In the **Single sign-on** dialog box, select **Mode** as	**SAML-based Sign-on** to enable SSO.
+2. In the **Single sign-on** dialog box, in the **Mode** box, select **SAML-based Sign-on** to enable SSO.
  
-	![Configure single sign-on](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
+	![Single sign-on dialog box](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
 
-3. On the **IBM Kenexa Survey Enterprise Domain and URLs** section, perform the following steps:
+3. In the **IBM Kenexa Survey Enterprise Domain and URLs** section, perform the following steps:
 
-	![Configure single sign-on](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
+	![IBM Kenexa Survey Enterprise Domain and URLs single sign-on information](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://surveys.kenexa.com/<companycode>`
+    a. In the **Identifier** textbox, type a URL with the following pattern: `https://surveys.kenexa.com/<companycode>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+	b. In the **Reply URL** textbox, type a URL with the following pattern: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw) to get these values.
+	> The preceding values are not real. Update them with the actual identifier and reply URL. To obtain the actual values, contact the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw).
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+4. Under **SAML Signing Certificate**, click **Certificate Base64)**, and then save the certificate file to your computer.
 
-	![Configure single sign-on](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
+	![The Certificate (Base64) download link](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
 
-5. The IBM Kenexa Survey Enterprise application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. **User Identifier** claim value in the Response has to match with SSO ID configured in Kenexa system. So please work with [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw) to map the appropriate user identifier in your organization as SSO ID. By default Azure AD will set the **User Identifier** as UPN value. You can change this from Attribute tab as shown in the screenshot below. The integration will only work after completing the correct mapping.
+The IBM Kenexa Survey Enterprise application expects to receive the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The user identifier claim value in the response has to match the SSO ID that's configured in the Kenexa system. To map the appropriate user identifier in your organization as SSO IDP, work with [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). 
+
+By default, Azure AD sets the user identifier as the UPN value. You can change this value on the **Attribute** tab, as shown in the following screenshot. The integration works only after you've completed the mapping correctly.
 	
-	![Configure single sign-on](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)	
+![The User Attributes dialog box](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)	
 
-6. Click **Save** button.
+5. Click **Save**.
 
-	![Configure single sign-on](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
+	![The configure single sign-on Save button](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
 
-7. On the **IBM Kenexa Survey Enterprise Configuration** section, click **Configure IBM Kenexa Survey Enterprise** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML single sign-on Service URL** from the **Quick Reference section.**
+6. Under **IBM Kenexa Survey Enterprise Configuration**, click **Configure IBM Kenexa Survey Enterprise** to open the **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML single sign-on Service URL** from the **Quick Reference section.**
 
-	![Configure single sign-on](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png) 
+	![Configure single sign-on](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
 
-8. To configure SSO on the **IBM Kenexa Survey Enterprise** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID, and SAML single sign-on Service URL** to [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw).
+7. In the **Configure sign-on** window, under **Quick Reference**, copy the **Sign-Out URL**, **SAML Entity ID**, and **SAML single sign-on Service URL**.
+
+8. To configure SSO on the **IBM Kenexa Survey Enterprise** side, send the downloaded **Certificate (Base64)**, **Sign-Out URL**, **SAML Entity ID**, and **SAML single sign-on Service URL** to the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw).
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **single sign-on** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can refer to a concise version of these instructions in the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add the app from the **Active Directory** > **Enterprise Applications** section, simply click the **single sign-on** tab, and then access the embedded documentation through the **Configuration** section at the end To learn more about the embedded documentation feature, see [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+![Create an Azure AD test user][100]
 
-**To create a test user in Azure AD, perform the following steps:**
+To create a test user in Azure AD, perform the following steps:
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+1. In the **Azure portal**, in the left pane, click the **Azure Active Directory** button.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
+	![The Azure Active Directory button](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
 	
