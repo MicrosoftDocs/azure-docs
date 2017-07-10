@@ -194,7 +194,6 @@
 #### Create 
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-##### [Visual Studio and Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### Scale 
 ##### [Manually](service-fabric-cluster-scale-up-down.md)
 ##### [Programmatically](service-fabric-cluster-programmatic-scaling.md)
@@ -208,7 +207,6 @@
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Create
 ##### [Create on-premises](service-fabric-cluster-creation-for-windows-server.md)
-##### [Create on Azure virtual machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Secure using certs](service-fabric-windows-cluster-x509-security.md)  
 ##### [Secure using Windows security](service-fabric-windows-cluster-windows-security.md)
 ##### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)

@@ -65,7 +65,8 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
    - In the left pane, select **HDInsight**.
    - In the right pane, select **Spark on HDInsight (Scala)**.
-2. The Scala project creation wizard auto detects whether you installed Scala plugin or not. Click the **CLICK** link to install Scala plugin.
+   - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according need.
+2. The Scala project creation wizard auto detects whether you installed Scala plugin or not. Click the **Install** to continue.
 
     ![scala check](./media/hdinsight-apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
 3. Click **OK** to download the Scala plugin. Follow the instructions to restart IntelliJ. 
@@ -144,13 +145,16 @@ If you select **Automated** mode, you get the following error:
 You can perform various operations by using Azure Toolkit for IntelliJ.
 
 ### Access the job view
-1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then click **Jobs**.
+1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then click **Jobs**.  
+       ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Click the name of the application for which you want to see more details.
        ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
+3. Hover on job graph, it displays basic running job info. Click on job graph, you can see the stages graph and info which every job generate.
+       ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
-The boxes for **Error**, **Driver Log**, **OutPut**, **Livy Log** are populated based on the application that you select.
-
-You can also open the Spark history UI and the YARN UI (at the application level) by clicking the respective buttons at the top of the window.
+4. Frequently-used log including Driver Stderr, Driver Stdout, Directory Info are listed in **Log** tab.
+       ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
+5. You can also open the Spark history UI and the YARN UI (at the application level) by clicking the respective hyplink at the top of the window.
 
 ### Access the Spark history server
 1. In Azure Explorer, expand **HDInsight**, right-click your Spark cluster name, and then select **Open Spark History UI**. When you're prompted, enter the admin credentials for the cluster. You must have specified these while provisioning the cluster.
@@ -179,6 +183,7 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
    
     - In the left pane, select **HDInsight**.
     - In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
+    - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according need.
     ![Selections in New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
 2. In the next window, provide the following project details, and then click **Finish**.
    

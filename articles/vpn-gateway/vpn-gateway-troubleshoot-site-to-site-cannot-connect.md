@@ -3,8 +3,8 @@ title: Troubleshoot Azure Site-to-Site VPN connection cannot connect problem| Mi
 description: Learn how to troubleshoot the problem in which the Site-to-Site VPN connection suddenly stopped working and cannot be reonnected anymore. 
 services: vpn-gateway
 documentationcenter: na
-author: genlin
-manager: willchen
+author: chadmath
+manager: cshepard
 editor: ''
 tags: ''
 
