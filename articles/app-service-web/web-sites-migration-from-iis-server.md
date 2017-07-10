@@ -51,7 +51,7 @@ The Migration Assistant creates a readiness report to identify any potential cau
 * Other components like SharePoint, front page server extensions (FPSE), FTP, SSL certificates will not be migrated.
 
 ## How to use the Web Apps Migration Assistant
-This section steps through an example to to migrate a few websites that use a SQL Server database and running on an on-premise Windows Server 2003 R2 (IIS 6.0) machine:
+This section steps through an example to to migrate a few websites that use a SQL Server database and running on an on-premises Windows Server 2003 R2 (IIS 6.0) machine:
 
 1. On the IIS server or your client machine navigate to [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
    
@@ -103,7 +103,7 @@ This section steps through an example to to migrate a few websites that use a SQ
     ![](./media/web-sites-migration-from-iis-server/migration-settings.png)
     
     > [!NOTE]
-    > the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure web app with [Azure Active Directory](../active-directory/active-directory-whatis.md) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
+    > the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure web app with [Azure Active Directory](../active-directory/active-directory-whatis.md) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premises Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
     > 
     > 
 11. Once you make all the desired changes, click **Create** to start the migration process. The migration tool will create the Azure SQL Database and Azure web app, and then publish the website content and databases. The migration progress is clearly shown in the migration tool, and you will see a summary screen at the end, which details the sites migrated, whether they were successful, links to the newly-created Azure web apps. 
