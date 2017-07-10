@@ -21,26 +21,6 @@ ms.author: BernardoAMunoz
 # Azure Resource Health FAQ
 Learn the answers to common questions about Azure Resource Health.
 
-## Frequently asked questions
-* [What is Azure Resource Health?](#what-is-azure-resource-health)
-* [What is the Resource Health intended for?](#what-is-the-resource-health-intended-for)
-* [What health checks are performed by Resource Health?](#what-health-checks-are-performed-by-resource-health)
-* [What does each of the health status mean?](#what-does-each-of-the-health-status-mean)
-* [What does the unknown status mean? Is something wrong with my resource?](#what-does-the-unknown-status-mean-is-something-wrong-with-my-resource)
-* [How can I get help for a resource that is unavailable?](#how-can-i-get-help-for-a-resource-that-is-unavailable)
-* [Does Resource Health differentiate between unavailability cased by platform problems versus something I did?](#does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did)
-* [Can I integrate Resource Health with my monitoring tools?](#can-i-integrate-resource-health-with-my-monitoring-tools)
-* [Where do I find Resource Health?](#where-do-i-find-resource-health)
-* [Is Resource Health available for all resource types?](#is-resource-health-available-for-all-resource-types)
-* [What should I do if my resource is showing available but I believe it is not?](#what-should-i-do-if-my-resource-is-showing-available-but-i-believe-it-is-not)
-* [Is Resource Health available for all Azure regions?](#is-resource-health-available-for-all-azure-regions)
-* [How is Resource Health different from the Service Health Dashboard or the Azure portal service notifications?](#how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications)
-* [Do I need to activate Resource Health for each resource?](#do-i-need-to-activate-resource-health-for-each-resource)
-* [Do we need to enable Resource Health for my organization?](#do-we-need-to-enable-resource-health-for-my-organization)
-* [Is Resource Health available free of charge?](#is-resource-health-available-free-of-charge)
-* [What are the recommendations that Resource Health provides?](#what-are-the-recommendations-that-resource-health-provides)
-
-
 ## What is Azure Resource Health?
 Resource health helps you diagnose and get support when an Azure issue impacts your resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.  
 
