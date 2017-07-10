@@ -32,6 +32,10 @@ To create a StorSimple Device Manager service, you need to have:
 * An active Microsoft Azure storage account
 * The billing information that is used for access management
 
+Only the subscriptions with an Enterprise Agreement are allowed. Microsoft Sponsorship subscriptions that were allowed in the Azure classic portal are not supported in the Azure portal. You will see the following message when using an unsupported subscription:
+
+![Subscription not valid](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
+
 You can also choose to generate a default storage account when you create the service.
 
 A single service can manage multiple devices. However, a device cannot span multiple services. A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations. 
