@@ -410,7 +410,7 @@ Here are the Fabric settings that you can customize:
 | DeleteName |string, default is "Admin" |Security configuration for Naming URI deletion. |
 | PropertyWriteBatch |string, default is "Admin" |Security configuration for Naming property write operations. |
 | CreateService |string, default is "Admin" | Security configuration for service creation. |
-| CreateServiceFromTemplate |string, default is "Admin" |Security configuration for service creatin from template. |
+| CreateServiceFromTemplate |string, default is "Admin" |Security configuration for service creation from template. |
 | UpdateService |string, default is "Admin" |Security configuration for service updates. |
 | DeleteService  |string, default is "Admin" |Security configuration for service deletion. |
 | ProvisionApplicationType |string, default is "Admin" | Security configuration for application type provisioning. |
