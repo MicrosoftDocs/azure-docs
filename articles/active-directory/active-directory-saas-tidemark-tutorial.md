@@ -109,12 +109,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following patterns: 
-	
 	| |
 	|--|
 	| `https://<subdomain>.tidemark.com/login` |
 	| `https://<subdomain>.tidemark.net/login` |
-
 
 	b. In the **Identifier** textbox, type a URL using the following patterns: 
 	| |
@@ -125,8 +123,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Tidemark Client support team](http://www.tidemark.com/contact-us) to get these values. 
  
-
-
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_certificate.png) 
