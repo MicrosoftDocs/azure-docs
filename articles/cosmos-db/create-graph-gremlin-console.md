@@ -53,7 +53,7 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
     Setting|Suggested value|Description
     ---|---|---
-    hosts|[***.graphs.azure.com]|The host portion of your URI, in square brackets, which you can retrieve from the Keys page of the Azure portal, in the URI box. Use the copy button on the left side of the box to copy the value. Be sure to remove `https://` the trailing `:443/` when pasting in the value.
+    hosts|[***.graphs.azure.com]|The host portion of your URI, in square brackets, which you can retrieve from the Keys page of the Azure portal, in the URI box. Use the copy button on the left side of the box to copy the value. Be sure to remove https:// the trailing :443/ when pasting in the value.
     port|443|Set to 443.
     username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
     password|*Your primary key*|Your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
