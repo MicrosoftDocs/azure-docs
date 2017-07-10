@@ -96,9 +96,6 @@
       href: sizes-gpu.md
     - name: High performance compute
       href: sizes-hpc.md
-      items:
-      - name: Compute-intensive sizes
-        href: a8-a9-a10-a11-specs.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Compute benchmark scores
