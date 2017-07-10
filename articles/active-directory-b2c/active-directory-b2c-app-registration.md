@@ -129,5 +129,7 @@ To delete the app, go to the [Application Registration Portal](https://apps.dev.
 
 ## Next steps
 
+Now that you have an application registered with Azure AD B2C, you can complete one of [our quick-start tutorials](active-directory-b2c-overview.md#get-started) to get up and running.
+
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
