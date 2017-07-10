@@ -18,7 +18,7 @@ ms.author: scottnap
 
 ---
 # View public IP address consumption in Azure Stack TP2
-As a service administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
+As a cloud administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
 
 The **Public IP Address Usage** tile shows the total number of public IP
 addresses that have been consumed across all public IP address pools on the fabric, whether
