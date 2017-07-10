@@ -50,7 +50,7 @@ Use the following instructions to verify your AD Account Lockout policies:
 
 ![AD Account Lockout policies](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## Using Graph API to manage Azure AD’s Smart Lockout values
+## Use the Graph API to manage your tenant’s Smart Lockout values
 
 >[!IMPORTANT]
 >Modifying Azure AD’s Lockout Threshold and Lockout Duration values using Graph API is an Azure AD Premium P2 feature. It also needs you to be a Global Administrator on your tenant.
