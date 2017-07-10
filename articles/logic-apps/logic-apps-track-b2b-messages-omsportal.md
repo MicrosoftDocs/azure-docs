@@ -17,7 +17,7 @@ ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Track AS2, X12, and EDIFACT messages in the Operations Management Suite (OMS)
+# Track B2B messages in the Operations Management Suite (OMS)
 
 When you set up B2B communication in your integration account 
 between two running business processes or applications, 
@@ -33,6 +33,8 @@ for tracking messages:
 * Correlate messages with acknowledgments
 * Detailed error descriptions for failures
 * Search capabilities
+
+You can track messages that use these B2B protocols: AS2, X12, and EDIFACT. 
 
 ## Requirements
 
@@ -107,10 +109,10 @@ Choose the tile for **AS2**, **X12**, or **EDIFACT**.
 
    ![View messages](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
-   For more details about the properties for each message type, 
+   To learn more about the properties for each message type, 
    see [Property descriptions for messages](#message-list-property-descriptions).
 
-3. To view and export the input and output details for specific messages, 
+3. To view or export the inputs and outputs for specific messages, 
 select those messages, and choose **Download**. When you're prompted, 
 save the .zip file to your local computer, and then extract that file. 
 For example:
@@ -162,14 +164,14 @@ Here are the property descriptions for each AS2 message.
 
 | Property | Description |
 | --- | --- |
-| Sender | The guest partner that is set up in the **Receive Settings**, or the host partner that is set up in the **Send Settings** for an AS2 agreement |
-| Receiver | The host partner that is set up in the **Receive Settings**, or the guest partner that is set up in the **Send Settings** for an AS2 agreement |
+| Sender | The guest partner specified in **Receive Settings**, or the host partner specified in **Send Settings** for an AS2 agreement |
+| Receiver | The host partner specified in **Receive Settings**, or the guest partner specified in **Send Settings** for an AS2 agreement |
 | Logic App | The logic app where the AS2 actions are set up |
-| Status | AS2 message status <br>Success = Received or sent a valid AS2 message, no MDN is set up <br>Success = Received or sent a valid AS2 message, MDN is set up and received, or MDN is sent <br>Failed = Received an invalid AS2 message, no MDN is set up <br>Pending = Received or sent a valid AS2 message, MDN is set up, and MDN is expected |
-| Ack | MDN message status <br>Accepted = Received or sent a positive MDN <br>Pending = Waiting to receive or send an MDN <br>Rejected = Received or sent a negative MDN <br>Not Required = MDN is not set up in the agreement |
+| Status | The AS2 message status <br>Success = Received or sent a valid AS2 message. No MDN is set up. <br>Success = Received or sent a valid AS2 message. MDN is set up and received, or MDN is sent. <br>Failed = Received an invalid AS2 message. No MDN is set up. <br>Pending = Received or sent a valid AS2 message. MDN is set up, and MDN is expected. |
+| Ack | The MDN message status <br>Accepted = Received or sent a positive MDN. <br>Pending = Waiting to receive or send an MDN. <br>Rejected = Received or sent a negative MDN. <br>Not Required = MDN is not set up in the agreement. |
 | Direction | The AS2 message direction |
 | Correlation ID | The ID that correlates all the triggers and actions in a logic app |
-| Message ID |  The AS2 message ID from the AS2 message headers |
+| Message ID | The AS2 message ID from the AS2 message headers |
 | Timestamp | The time when the AS2 action processed the message |
 |          |             |
 
@@ -193,11 +195,11 @@ Here are the property descriptions for each X12 message.
 
 | Property | Description |
 | --- | --- |
-| Sender | The guest partner that is set up in the **Receive Settings**, or the host partner that is set up in the **Send Settings** for an X12 agreement |
-| Receiver | The host partner that is set up in the **Receive Settings**, or the guest partner that is set up in the **Send Settings** for an X12 agreement |
+| Sender | The guest partner specified in **Receive Settings**, or the host partner specified in **Send Settings** for an X12 agreement |
+| Receiver | The host partner specified in **Receive Settings**, or the guest partner specified in **Send Settings** for an X12 agreement |
 | Logic App | The logic app where the X12 actions are set up |
-| Status | The X12 message status <br>Success = Received or sent a valid X12 message, no functional ack is set up <br>Success = Received or sent a valid X12 message, functional ack is set up and received, or a functional ack is sent <br>Failed = Received or sent an invalid X12 message <br>Pending = Received or sent a valid X12 message, functional ack is set up, and a functional ack is expected |
-| Ack | Functional Ack (997) status <br>Accepted = Received or sent a positive functional ack <br>Rejected = Received or sent a negative functional ack <br>Pending = Expecting a functional ack but not received <br>Pending = Generated a functional ack but can't send to partner <br>Not Required = Functional ack is not set up |
+| Status | The X12 message status <br>Success = Received or sent a valid X12 message. No functional ack is set up. <br>Success = Received or sent a valid X12 message. Functional ack is set up and received, or a functional ack is sent. <br>Failed = Received or sent an invalid X12 message. <br>Pending = Received or sent a valid X12 message. Functional ack is set up, and a functional ack is expected. |
+| Ack | Functional Ack (997) status <br>Accepted = Received or sent a positive functional ack. <br>Rejected = Received or sent a negative functional ack. <br>Pending = Expecting a functional ack but not received. <br>Pending = Generated a functional ack but can't send to partner. <br>Not Required = Functional ack is not set up. |
 | Direction | The X12 message direction |
 | Correlation ID | The ID that correlates all the triggers and actions in a logic app |
 | Msg type | The EDI X12 message type |
@@ -226,11 +228,11 @@ Here are the property descriptions for each EDIFACT message.
 
 | Property | Description |
 | --- | --- |
-| Sender | The guest partner that is set up in the **Receive Settings**, or the host partner that is set up in the **Send Settings** for an EDIFACT agreement |
-| Receiver | The host partner that is set up in the **Receive Settings**, or the guest partner that is set up in the **Send Settings** for an EDIFACT agreement |
+| Sender | The guest partner specified in **Receive Settings**, or the host partner specified in **Send Settings** for an EDIFACT agreement |
+| Receiver | The host partner specified in **Receive Settings**, or the guest partner specified in **Send Settings** for an EDIFACT agreement |
 | Logic App | The logic app where the EDIFACT actions are set up |
-| Status | The EDIFACT message status <br>Success = Received or sent a valid EDIFACT message, no functional ack is set up <br>Success = Received or sent a valid EDIFACT message, functional ack is set up and received, or a functional ack is sent <br>Failed = Received or sent an invalid EDIFACT message <br>Pending = Received or sent a valid EDIFACT message, functional ack is set up, and a functional ack is expected |
-| Ack | Functional Ack (997) status <br>Accepted = Received or sent a positive functional ack <br>Rejected = Received or sent a negative functional ack <br>Pending = Expecting a functional ack but not received <br>Pending = Generated a functional ack but can't send to partner <br>Not Required = Functional Ack is not set up |
+| Status | The EDIFACT message status <br>Success = Received or sent a valid EDIFACT message. No functional ack is set up. <br>Success = Received or sent a valid EDIFACT message. Functional ack is set up and received, or a functional ack is sent. <br>Failed = Received or sent an invalid EDIFACT message <br>Pending = Received or sent a valid EDIFACT message. Functional ack is set up, and a functional ack is expected. |
+| Ack | Functional Ack (997) status <br>Accepted = Received or sent a positive functional ack. <br>Rejected = Received or sent a negative functional ack. <br>Pending = Expecting a functional ack but not received. <br>Pending = Generated a functional ack but can't send to partner. <br>Not Required = Functional Ack is not set up. |
 | Direction | The EDIFACT message direction |
 | Correlation ID | The ID that correlates all the triggers and actions in a logic app |
 | Msg type | The EDIFACT message type |
