@@ -37,19 +37,19 @@ This release no longer creates a MySQL instance. You will need to create them an
 
 ## Deploy the resource provider
 
-1. If you have not already done so, register your POC and download the Windows Server 2016 Datacenter - Eval image downloadable through Marketplace Management. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image).
+1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter - Eval image downloadable through Marketplace Management. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image).
 
-2. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it on the Console VM in your Azure Stack.
+2. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it on the dvelopment kit host in your Azure Stack.
 
-3. Sign in to the POC host, and extract the MySQL RP installer file to a temporary directory.
+3. Sign in to the development kit host, and extract the MySQL RP installer file to a temporary directory.
 
 4. The Azure Stack root certificate will be retrieved and a self-signed certificate will be created as part of this process. 
 
-__Optional:__ If you need to provide your own, prepare the certificates and copy to a local directory if you wish to customize the certificates (passed to the installation script). You will need the following:
+    __Optional:__ If you need to provide your own, prepare the certificates and copy to a local directory if you wish to customize the certificates (passed to the installation script). You will need the following:
 
-a. A wildcard certificate for *.dbadapter.\<region\>.\<external fqdn\>. This must be a trusted certificate, such as would be issued by a certificate authority (i.e., the chain of trust must exist without requiring intermediate certificates.) (A single site certificate can be used with the explicit VM name you provide during install.)
+    a. A wildcard certificate for *.dbadapter.\<region\>.\<external fqdn\>. This must be a trusted certificate, such as would be issued by a certificate authority (i.e., the chain of trust must exist without requiring intermediate certificates.) (A single site certificate can be used with the explicit VM name you provide during install.)
 
-b. The root certificate used by the Azure Resource Manager for your instance of Azure Stack. If it is not found, the root certificate will be retrieved.
+    b. The root certificate used by the Azure Resource Manager for your instance of Azure Stack. If it is not found, the root certificate will be retrieved.
 
 5. Open a **new** elevated PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
 
@@ -139,7 +139,7 @@ Depending on the system performance and download speeds, installation may take a
 
 ## Provide capacity by connecting to a MySQL hosting server
 
-1. Sign in to the Azure Stack POC portal as a service admin
+1. Sign in to the Azure Stack portal as a service admin.
 
 2. Click **Resource Providers** &gt; **MySQLAdapter** &gt; **Hosting Servers** &gt; **+Add**.
 
@@ -164,7 +164,7 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 ## Create your first MySQL database to test your deployment
 
 
-1. Sign in to the Azure Stack POC portal as service admin.
+1. Sign in to the Azure Stack portal as service admin.
 
 2. Click the **+ New** button &gt; **Data + Storage** &gt; **MySQL Database (preview)**.
 
