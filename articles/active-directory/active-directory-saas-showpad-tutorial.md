@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -190,7 +190,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Showpad. 
 
-Showpad supports just-in-time provisioning. You have enabled provisioning in **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)**. 
+Showpad supports just-in-time provisioning. You have enabled provisioning in **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**. 
 
 There is no action item for you in this section. 
 
