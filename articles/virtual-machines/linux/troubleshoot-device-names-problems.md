@@ -19,9 +19,9 @@ ms.author: genli
 
 ---
 
-# Troubleshooting: Linux VM Device Names are changed
+# Troubleshooting: Linux VM device names are changed
 
-The article explains why Device Names are changed after you restart a Linux virtual machine (VM), or reattach the disks. It also provides the solution for this problem.
+The article explains why device names are changed after you restart a Linux virtual machine (VM), or reattach the disks. It also provides the solution for this problem.
 
 ## Symptom
 
@@ -35,25 +35,22 @@ You may experience the following problems when running Linux VMs in Microsoft Az
 
 ## Cause
 
-Device Names in Linux are not guaranteed to be consistent across restarts. Device Names are made up of major (letter) and minor numbers. When the Linux storage device driver detects a new device, it assigns major and minor device numbers to it from the available range. When a device is removed, the device numbers are freed for reuse.
-
-Azure does not guarantee that disks will be presented to the operating system in the same order after every restart. Additionally, detaching and reattaching disk in a different order while a Linux VM is running may cause the device name to change when the numbers are reused.
+The problem occurs because the device scanning in Linux is scheduled by the SCSI subsystem in Linux. Hnce it can happen asynchronously.  The final device path naming is essentially arbitrary.
 
 ## Solution
 
-To address this issue, use persistent naming. For example, device and partition UUIDs are considered stable, and are used as a best practice in fstab and to discover Device Names. For more information about how to configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
-
-The use of the [mount option *nofail*](http://www.man7.org/linux/man-pages/man5/fstab.5.html) for partitions on data disks in fstab is also recommended to prevent boot failures in Azure.
+To address this issue, use persistent naming. There are four mechanisms to persistent naming - by filesystem label, by uuid, by id and by path. The filesystem label and UUID mechanisms are recommended for Azure Linux VM. For more information about how to configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 When the Azure Linux agent is installed on a VM, it uses Udev rules to construct a set of symbolic links under **/dev/disk/azure**. These Udev rules can be used by applications and scripts to identify disks are attached to the VM, their type, and the LUN.
 
-## More Information
+## More information
+
+### Discover filesystem UUIDs by using blkid
 
 A script or application can read the output of blkid, or similar sources of information, and construct symbolic links under **/dev** for use. The output will show the UUIDs of all disks attached to the VM and the device file to which they are associated:
 
-    **$ sudo blkid -s UUID**
+    $ sudo blkid -s UUID
 
-    -------------an example of the output from this command ------------------
     /dev/sr0: UUID="120B021372645f72"
     /dev/sda1: UUID="52c6959b-79b0-4bdd-8ed6-71e0ba782fb4"
     /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
@@ -62,9 +59,8 @@ A script or application can read the output of blkid, or similar sources of info
 The waagent udev rules construct a set of symbolic links under **/dev/disk/azure**:
 
 
-    $ ls -l /dev/disk/azure**
+    $ ls -l /dev/disk/azure
 
-    -------------an example of the output from this command ------------------
     total 0
     lrwxrwxrwx 1 root root  9 Jun  2 23:17 resource -> ../../sdb
     lrwxrwxrwx 1 root root 10 Jun  2 23:17 resource-part1 -> ../../sdb1
@@ -78,14 +74,22 @@ If there are additional partitions from the blkid list, they reside on a data di
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
-    ----------------an example of the output from this command ------------------
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
+    
+## Get the latest Azure storage rules
+
+To the latest Azure storage rules, run th following commands:
+
+    # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
+    # sudo udevadm trigger --subsystem-match=block
+
+
+### identify disk LUNs
 Alternatively, an application could use LUNs for the purpose of finding all the attached disks and constructing symbolic links. The Azure Linux agent now comes with udev rules that set up symbolic links from LUN to the devices:
 
     $ tree /dev/disk/azure
 
-    ----------------an example of the output from this command ------------------
     /dev/disk/azure
     ├── resource -> ../../sdb
     ├── resource-part1 -> ../../sdb1
@@ -103,7 +107,7 @@ Alternatively, an application could use LUNs for the purpose of finding all the 
 LUN information can also be retrieved from the Linux guest using lsscsi or similar tooling.
 
        sudo lsscsi
-    ----------------an example of the output from this command ------------------
+
       \[1:0:0:0\] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
 
       \[2:0:0:0\] disk Msft Virtual Disk 1.0 /dev/sda
@@ -144,7 +148,8 @@ This guest LUN information can be used with Azure subscription metadata to ident
       }                                                                                                                                                             
     ]
 
-## Next steps
+
+For more information, see the following articles:
 
 - [Ubuntu: Using UUID](https://help.ubuntu.com/community/UsingUUID)
 
