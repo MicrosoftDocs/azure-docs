@@ -39,7 +39,7 @@ This release no longer creates a MySQL instance. You will need to create them an
 
 1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter - Eval image downloadable through Marketplace Management. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image).
 
-2. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it on the dvelopment kit host in your Azure Stack.
+2. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it on the dvelopment kit host.
 
 3. Sign in to the development kit host, and extract the MySQL RP installer file to a temporary directory.
 
