@@ -34,7 +34,7 @@ We recommend that you don't use affinity groups in general. Aside from the virtu
 > 
 > 
 
-### Edit the network configuration file
+## Edit the network configuration file
 
 1. Export the network configuration file. To learn how to export a network configuration file using PowerShell or the Azure command-line interface (CLI) 1.0, see [Configure a virtual network using a network configuration file](virtual-networks-using-network-configuration-file.md#export).
 2. Edit the network configuration file, replacing **AffinityGroup** with **Location**. You specify an Azure [region](https://azure.microsoft.com/regions) for **Location**.
