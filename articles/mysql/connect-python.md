@@ -31,9 +31,9 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
 - Update PIP to the latest version, by running the `pip install -U pip` command.
 - Install the MySQL connector for Python, and its dependencies by using the PIP command:
 
-```bash
-pip install mysql-connector-python-rf
-```
+   ```bash
+   pip install mysql-connector-python-rf
+   ```
 
 ### Linux (Ubuntu)
 - In Linux (Ubuntu), Python is typically installed as part of the default installation.
@@ -43,9 +43,9 @@ pip install mysql-connector-python-rf
 - Update PIP to the latest version, by running the `pip install -U pip` command.
 - Install the MySQL connector for Python, and its dependencies by using the PIP command:
 
-```bash
-pip install mysql-connector-python-rf
-```
+   ```bash
+   pip install mysql-connector-python-rf
+   ```
 
 ### Windows
 - Download and Install Python 3.4 from [python.org](https://www.python.org/downloads/). 
