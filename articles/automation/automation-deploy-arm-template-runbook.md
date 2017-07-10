@@ -25,7 +25,7 @@ that deploys an Azure resource by using an
 By doing this, you can automate deployment of Azure resources. You can maintain your ARM templates in a central,
 secure location such as Azure Storage.
 
-In this topic, we'll create a PowerShell runbook that uses an ARM template stored in
+In this topic, we create a PowerShell runbook that uses an ARM template stored in
 [Azure Storage](../storage/storage-introduction.md) to deploy a new Azure Storage account.
 
 ## Prerequisites
@@ -39,7 +39,7 @@ To complete this tutorial, you need the following:
 
 ## Create the ARM template
 
-For this example, we will use a simple ARM template that deploys a new Azure Storage account.
+For this example, we use an ARM template that deploys a new Azure Storage account.
 
 In a text editor, copy the following text:
 
@@ -92,7 +92,7 @@ Save the file locally as `ARMTest.json`.
 
 ## Save the ARM template in Azure Storage
 
-We'll use PowerShell to create an Azure Storage file share and upload the `ARMTest.json` file.
+Now we use PowerShell to create an Azure Storage file share and upload the `ARMTest.json` file.
 For instructions on how to create a file share and upload a file in the Azure portal, see
 [Get started with Azure File storage on Windows](../storage/storage-dotnet-how-to-use-files.md).
 
@@ -120,7 +120,7 @@ Set-AzureStorageFileContent -ShareName $fileShare.Name -Context $context -Source
 
 ## Create the PowerShell runbook script
 
-Now we'll create a PowerShell script that gets the `ARMTemplate.json` file from Azure Storage
+Now we create a PowerShell script that gets the `ARMTemplate.json` file from Azure Storage
 and deploys the ARM template to create a new Azure Storage account.
 
 In a text editor, paste the following text:
@@ -174,12 +174,13 @@ Save the file locally as `DeployArmTemplate.ps1`.
 
 ## Import and publish the runbook into your Azure Automation account
 
-Now we'll use PowerShell to import the runbook into your Azure Automation account,
+Now we use PowerShell to import the runbook into your Azure Automation account,
 and then publish the runbook.
 For information about how to import and publish a runbook in the Azure portal, see 
 [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md).
 
-Run the following PowerShell commands to import `DeployArmTemplate.ps1` into your Automation account as a PowerShell runbook:
+To import `DeployArmTemplate.ps1` into your Automation account as a PowerShell runbook,
+run the following PowerShell commands:
 
 ```powershell
 # MyPath is the path where you saved DeployArmTemplate.ps1
@@ -236,7 +237,7 @@ $job = Start-AzureRmAutomationRunbook @startParams
 
 The runbook runs, and you can check its status by running `$job.Status`.
 
-The runbook gets the the ARM template and uses it to deploy a new Azure Storage account.
+The runbook gets the ARM template and uses it to deploy a new Azure Storage account.
 You can see that the new storage account was created by running the following command:
 ```powershell
 Get-AzureRmStorageAccount
