@@ -18,6 +18,9 @@ ms.author: LADocs; padmavc
 
 ---
 # Track B2B messages in the Operations Management Suite portal
+
+![Log Apps B2B symbol](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
+
 B2B communication involves the exchange of messages between two running business processes or applications. Use the following web-based tracking features in the Operations Management Suite portal to confirm whether messages are processed correctly:
 
 * Message count and status

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 06/01/2017
 ms.author: tomfitz
 
 ---
@@ -25,6 +25,17 @@ The format of the child resource type is: `{resource-provider-namespace}/{parent
 The format of the child resource name is: `{parent-resource-name}/{child-resource-name}`
 
 However, you specify the type and name in a template differently based on whether it is nested within the parent resource, or on its own at the top level. This topic shows how to handle both approaches.
+
+When constructing a fully qualified reference to a resource, the order to combine segments from the type and name  is not simply a concatenation of the two.  Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+For example:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` is correct
+`Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is not correct
 
 ## Nested child resource
 The easiest way to define a child resource is to nest it within the parent resource. The following example shows a SQL database nested within in a SQL Server.

@@ -1,14 +1,14 @@
 ---
 title: Azure DocumentDB Node.js API, SDK & Resources | Microsoft Docs
 description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
@@ -47,7 +47,12 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using DocumentDB](documentdb-nodejs-application.md)</td></tr>
 
-<tr><td>**Current supported platform**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+<tr><td>**Current supported platform**</td><td> 
+[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
+[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
+[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
+[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
+</td></tr>
 </table></br>
 
 ## Release notes

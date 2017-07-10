@@ -3,7 +3,7 @@ title:  VM preserving maintenance for Windows VMs in Azure | Microsoft Docs
 description: In-place VM migration for memory preserving updates.
 services: virtual-machines-windows
 documentationcenter: ''
-author: 
+author: zivr
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: 
+ms.author: zivr
 
 ---
 

@@ -75,6 +75,8 @@ The table below lists the supported cryptographic algorithms and key strengths c
 >   * 10.2.0.0/16 <====> 192.168.0.0/16
 >   * 10.2.0.0/16 <====> 172.16.0.0/16
 
+See [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details regarding policy-based traffic selectors.
+
 ## <a name ="crossprem"></a>Part 3 - Create a new S2S VPN connection with IPsec/IKE policy
 
 This section walks you through the steps of creating a S2S VPN connection with an IPsec/IKE policy. The steps below will create the connection as shown in the diagram:
@@ -153,10 +155,10 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 #### 1. Create an IPsec/IKE policy
 The sample script below creates an IPsec/IKE policy with the following algorithms and parameters:
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS24, SA Lifetime 3600 seconds & 2048KB
+* IPsec: AES256, SHA256, PFS24, SA Lifetime 7200 seconds & 2048KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
 #### 2. Create the S2S VPN connection with the IPsec/IKE policy
@@ -352,4 +354,6 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 Again, you can use the same script above to check if the policy has been removed from the connection.
 
 ## Next steps
+See [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details regarding policy-based traffic selectors.
+
 Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.

@@ -114,7 +114,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
    
-   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Weekdone application using the following pattern: **“https://weekdone.com/a/azure”**.
+   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Weekdone application using the following pattern: **"https://weekdone.com/a/azure"**.
    2. In the **Identifier** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure/metadata"**.
    3. Click **Next**.
 2. On the **Configure single sign-on at Weekdone** page, perform the following steps and click **Next**:

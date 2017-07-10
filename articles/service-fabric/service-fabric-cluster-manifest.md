@@ -1,6 +1,6 @@
 ---
-title: Configure your standalone cluster | Microsoft Docs
-description: This article describes how to configure your standalone or private Service Fabric cluster.
+title: Configure your Azure Service Fabric standalone cluster | Microsoft Docs
+description: Learn how to configure your standalone or private Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
 
 ---
@@ -33,7 +33,7 @@ This covers the broad cluster specific configurations, as shown in the JSON snip
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "01-2017",
 
 You can give any friendly name to your Service Fabric cluster by assigning it to the **name** variable. The **clusterConfigurationVersion** is the version number of your cluster; you should increase it every time you upgrade your Service Fabric cluster. You should however leave the **apiVersion** to the default value.
 
@@ -83,6 +83,10 @@ The **reliabilityLevel** section defines the number of copies of the system serv
     "reliabilityLevel": "Bronze",
 
 Note that since a primary node runs a single copy of the system services, you would need a minimum of 3 primary nodes for *Bronze*, 5 for *Silver*, 7 for *Gold* and 9 for *Platinum* reliability levels.
+
+If you don't specify the reliabilityLevel property in your clusterConfig.json, our system will calculate the most optimized reliabilityLevel for you based on the number of "Primary NodeType" nodes that you have. For example, if you have 4 primary nodes, the reliabilityLevel will be set to Bronze, if you have 5 such nodes, the reliabilityLevel will be set to Silver. In the near future, we will be removing the option to configure your reliability level, since the cluster will automatically detect and use the optimal reliability level.
+
+ReliabilityLevel is upgradable. You can create a clusterConfig.json v2 and scale up and down by a [Standalone Cluster Configuration Upgrade](service-fabric-cluster-upgrade-windows-server.md). Your can also upgrade to a clusterConfig.json v2 in which it doesn't specify reliabilityLevel so that the reliabilityLevel will be automatically calculated. 
 
 ### Diagnostics
 The **diagnosticsStore** section allows you to configure parameters to enable diagnostics and troubleshooting node or cluster failures, as shown in the following snippet. 
@@ -179,6 +183,21 @@ The example below shows how to change the the shared transaction log that gets c
             "value": "4096"
         }]
     }]
+
+### Add-on features
+To configure add-on features, the apiVersion should be configured as '04-2017' or higher, and addonFeatures needs to be configured:
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### Container support
+To enable container support for both windows server container and hyper-v container for standalone clusters, the 'DnsService' add-on feature needs to be enabled.
+
 
 ## Next steps
 Once you have a complete ClusterConfig.JSON file configured as per your standalone cluster setup, you can deploy your cluster by following the article [Create a standalone Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and then proceed to [visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).

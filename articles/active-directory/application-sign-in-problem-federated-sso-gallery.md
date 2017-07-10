@@ -224,5 +224,9 @@ To delete and create a new certificate, follow the steps below:
 
 11. Under the **SAML Signing Certificate** section, click **remove** to remove the **Unused** certificate.
 
+## Problem when customizing the SAML claims sent to an application
+
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
+
 ## Next steps
 [How to debug SAML-based single sign-on to applications in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)

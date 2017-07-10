@@ -1,21 +1,21 @@
 ---
 title: Introduction to Azure Cosmos DB | Microsoft Docs
 description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, and high availability.
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2017
 ms.author: mimig
-
+ms.custom: mvc
 ---
 
 # Welcome to Azure Cosmos DB
@@ -111,7 +111,7 @@ All the data within a Cosmos DB container (for example, a document collection, t
 
 You can elastically scale throughput of an Azure Cosmos DB container by programmatically provisioning throughput using [request units per second (RU/s)](request-units.md). Internally, the service transparently manages resource partitions to deliver the throughput on a given container. Cosmos DB ensures that the throughput is available for use across all the regions associated with the container. The new throughput is effective within five seconds of the change in the configured throughput value. 
 
-You can provision throughput on a Cosmos DB container at both, per-second and at [per-minute (RU/m)](request-units-per-minute.md) granularities. The provisioned throughput at per-minute granularity is used to manage unexpected spikes in the workload occurring at a per-second granularity. 
+You can provision throughput on a Cosmos DB container at both per-second and [per-minute (RU/m)](request-units-per-minute.md) granularities. The provisioned throughput at per-minute granularity is used to manage unexpected spikes in the workload occurring at a per-second granularity. 
 
 <a id="low-latency"></a>
 ## Low latency guarantees at the 99th percentile

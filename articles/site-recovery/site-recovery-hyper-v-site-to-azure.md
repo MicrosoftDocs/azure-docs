@@ -15,7 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: hyper-v-site-walkthrough-overview
 ---
+
 
 # Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal
 

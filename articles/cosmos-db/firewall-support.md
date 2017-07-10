@@ -2,7 +2,7 @@
 title: Azure Cosmos DB firewall support & IP access control | Microsoft Docs
 description: Learn how to use IP access control policies for firewall support on Azure Cosmos DB database accounts.
 keywords: IP access control, firewall support
-services: cosmosdb
+services: cosmos-db
 author: shahankur11
 manager: jhubbard
 editor: ''
@@ -10,7 +10,7 @@ tags: azure-resource-manager
 documentationcenter: ''
 
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -45,7 +45,7 @@ When you add additional virtual machine instances to the group, they are automat
 When you access an Azure Cosmos DB database account from a computer on the internet, the client IP address or IP address range of the machine must be added to the allowed list of IP address for the Azure Cosmos DB database account. 
 
 ## <a id="configure-ip-policy"></a> Configuring the IP access control policy
-The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) by updating the `ipRangeFilter` property. IP addresses/ranges must be comma separated and must not contain any spaces. Example: "13.91.6.132,13.91.6.1/24". When updating your database account through these methods, be sure to populate all of the properties to prevent resetting to default settings.
+The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](/rest/api/documentdb/) by updating the `ipRangeFilter` property. IP addresses/ranges must be comma separated and must not contain any spaces. Example: "13.91.6.132,13.91.6.1/24". When updating your database account through these methods, be sure to populate all of the properties to prevent resetting to default settings.
 
 > [!NOTE]
 > By enabling an IP access control policy for your Azure Cosmos DB database account, all access to your Azure Cosmos DB database account from machines outside the configured allowed list of IP address ranges are blocked. By virtue of this model, browsing the data plane operation from the portal will also be blocked to ensure the integrity of access control.

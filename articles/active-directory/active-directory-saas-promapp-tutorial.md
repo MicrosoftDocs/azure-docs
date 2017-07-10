@@ -105,8 +105,9 @@ The objective of this section is to enable Azure AD SSO in the Azure AD classic 
    
     ![Azure AD Single Sign-On][8] 
    
-   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Promapp site (e.g.: *https://companyname.promapp.com/instancename*).
-   2. Click **Next**.
+   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Promapp site (e.g.: *https://DOMAIN.promapp.com/INSTANCENAME/saml/authenticate*).
+   2. In the **Identifier** textbox, type the URL used by your users to sign-on to your Promapp site (e.g.: *https://DOMAIN.promapp.com/INSTANCENAME*).
+   3. Click **Next**.
 
 1. On the **Configure single sign-on at Promapp** page, perform the following steps:
    
@@ -226,7 +227,7 @@ When you click the Promapp tile in the Access Panel, you should get automaticall
 
 [6]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_02.png
-[8]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_03.png
+[8]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_11.png
 [9]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_04.png
 [10]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_06.png
 [11]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_07.png

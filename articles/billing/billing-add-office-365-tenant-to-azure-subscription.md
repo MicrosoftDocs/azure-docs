@@ -4,7 +4,7 @@ description: Learn how to add an Office 365 directory (tenant) to an Azure subsc
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: vikdesai
+manager: jlian
 editor: ''
 tags: billing,top-support-issue
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 06/13/2017
 ms.author: cjiang
 
 ---

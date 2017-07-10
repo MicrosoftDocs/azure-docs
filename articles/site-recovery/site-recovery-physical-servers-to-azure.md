@@ -9,13 +9,15 @@ editor: ''
 
 ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raynew
-
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: physical-walkthrough-overview
+---
 ---
 # Replicate physical machines to Azure by using Site Recovery
 

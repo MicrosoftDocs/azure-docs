@@ -1,1 +1,1 @@
-A [resource group](../articles/azure-resource-manager/resource-group-overview#terminology) is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
+A [resource group](../articles/azure-resource-manager/resource-group-overview.md#terminology) is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.

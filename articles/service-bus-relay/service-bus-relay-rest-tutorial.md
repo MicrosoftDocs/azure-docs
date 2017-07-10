@@ -13,25 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2017
+ms.date: 06/17/2017
 ms.author: sethm
 
 ---
 # Azure WCF Relay REST tutorial
+
 This tutorial describes how to build a simple Azure Relay host application that exposes a REST-based interface. REST enables a web client, such as a web browser, to access the Service Bus APIs through HTTP requests.
 
-The tutorial uses the Windows Communication Foundation (WCF) REST programming model to construct a REST service on Service Bus. For more information, see [WCF REST Programming Model](https://msdn.microsoft.com/library/bb412169.aspx) and [Designing and Implementing Services](https://msdn.microsoft.com/library/ms729746.aspx) in the WCF documentation.
+The tutorial uses the Windows Communication Foundation (WCF) REST programming model to construct a REST service on Service Bus. For more information, see [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) and [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services) in the WCF documentation.
 
-## Step 1: Create a service namespace
+## Step 1: Create a namespace
 
 To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application. Follow the [instructions here](relay-create-namespace-portal.md) to create a Relay namespace.
 
 ## Step 2: Define a REST-based WCF service contract to use with Azure Relay
+
 When you create a WCF REST-style service, you must define the contract. The contract specifies what operations the host supports. A service operation can be thought of as a web service method. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. The [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) attribute must be applied to each interface, and the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) attribute must be applied to each operation. If a method in an interface that has the [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) does not have the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), that method is not exposed. The code used for these tasks is shown in the example following the procedure.
 
 The primary difference between a WCF contract and a REST-style contract is the addition of a property to the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). This property enables you to map a method in your interface to a method on the other side of the interface. In this case, we will use [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) to link a method to HTTP GET. This allows Service Bus to accurately retrieve and interpret commands sent to the interface.
 
 ### To create a contract with an interface
+
 1. Open Visual Studio as an administrator: right-click the program in the **Start** menu, and then click **Run as administrator**.
 2. Create a new console application project. Click the **File** menu and select **New**, then select **Project**. In the **New Project** dialog box, click **Visual C#**, select the **Console Application** template, and name it **ImageListener**. Use the default **Location**. Click **OK** to create the project.
 3. For a C# project, Visual Studio creates a `Program.cs` file. This class contains an empty `Main()` method, required for a console application project to build correctly.
@@ -554,8 +557,8 @@ After building the solution, do the following to run the application:
 ## Next steps
 Now that you've built an application that uses the Service Bus relay service, see the following articles to learn more about Azure Relay:
 
-* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Azure Relay overview](relay-what-is-it.md)
-* [How to use the WCF relay service with .NET](service-bus-dotnet-how-to-use-relay.md)
+* [How to use the WCF relay service with .NET](relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.com

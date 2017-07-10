@@ -4,6 +4,8 @@
   href: custom-decision-service-overview.md
 - name: Get started
   items:
+  - name: Register your application
+    href: custom-decision-service-get-started-register.md
   - name: Call API from a browser
     href: custom-decision-service-get-started-browser.md
   - name: Call API from an app
@@ -12,3 +14,7 @@
   href: custom-decision-service-tutorial.md
 - name: API reference
   href: custom-decision-service-api-reference.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

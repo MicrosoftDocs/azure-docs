@@ -1,14 +1,14 @@
 ---
 title: Working with geospatial data in Azure Cosmos DB | Microsoft Docs
 description: Understand how to create, index and query spatial objects with Azure Cosmos DB and the DocumentDB API.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
 
 ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Working with geospatial and GeoJSON location data in Azure Cosmos DB
-This article is an introduction to the geospatial functionality in [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
+This article is an introduction to the geospatial functionality in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). After reading this, you will be able to answer the following questions:
 
 * How do I store spatial data in Azure Cosmos DB?
 * How can I query geospatial data in Azure Cosmos DB in SQL and LINQ?

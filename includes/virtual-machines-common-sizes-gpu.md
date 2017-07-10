@@ -9,9 +9,9 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 64 |
-| Standard_NV12 |12 |112 |680 | 2 | 64 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 |
 
 1 GPU = one-half M60 card.
 
@@ -19,10 +19,10 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 | 12 |
-| Standard_NC12 |12 |112 | 680 | 2 | 24 |
-| Standard_NC24 |24 |224 | 1440 | 4 | 48 |
-| Standard_NC24r* |24 |224 | 1440 | 4 | 48 |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 32 |
 
 1 GPU = one-half K80 card.
 

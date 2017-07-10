@@ -16,6 +16,7 @@ ms.devlang:
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Windows

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 
 ---
@@ -28,11 +28,6 @@ Security Center is offered in two tiers:
 
 For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-> [!NOTE]
-> Security Center uses Azure storage to save security data generated from your protected nodes. Costs associated with this storage are not included in the price of the service and are charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/blobs/). Storage charges apply even during the 60 day free trial.
->
->
-
 ## Try Standard free for 60 days
 The Standard tier is offered free for the first 60 days. At the end of 60 days, should you choose to continue using the service, we will automatically start charging for usage.
 
@@ -44,7 +39,6 @@ To get the Standard tier:
 4. On the **Choose your pricing tier** blade, select **Standard**.
 5. Click **Select**.
 
-![Standard tier][1]
 
 ## Why upgrade to Standard?
 The Standard tier of Security Center provides all features of the Free tier plus advanced threat detection. Advanced threat detection helps identify active threats targeting your Azure resources and provides you with the insights needed to respond quickly.
@@ -74,11 +68,17 @@ To validate that data collection is enabled:
 2. Select a subscription.
 3. If **Data collection** is off, change it to on and save the change.
 
+> [!NOTE]
+> If you are using Azure Security Center Free, you can disable data collection from virtual machines in the Security Policy. Data Collection is required for subscriptions on the Standard tier.
+>
+>
+
 See [Enable data collection in Azure Security Center](security-center-enable-data-collection.md) for more information.
 
 ## Next steps
 * In this document, you were introduced to pricing for Security Center. For additional pricing information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 * To learn more about Security Center’s advanced detection capabilities, see [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
+* To learn more about how data is managed and safeguarded in Security Center, see [Azure Security Center data security](security-center-data-security.md).
 * If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
 * If you still have questions about using Security Center, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 

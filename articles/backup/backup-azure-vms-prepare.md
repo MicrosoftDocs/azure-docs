@@ -89,7 +89,7 @@ To whitelist the Azure datacenter IP ranges, please see the [Azure website](http
 When backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage using an HTTPS API. Route the backup extension traffic through the HTTP proxy since it is the only component configured for access to the public Internet.
 
 > [!NOTE]
-> There is no recommendation for the proxy software that should be used. Ensure that you pick a proxy that is compatible with the configuration steps below.
+> There is no recommendation for the proxy software that should be used. Ensure that you pick a proxy that has outbound stickiness and which is compatible with the configuration steps below. Make sure third party softwares do not modify the proxy settings
 >
 >
 

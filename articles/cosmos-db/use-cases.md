@@ -1,14 +1,14 @@
 ---
 title: Common use cases and scenarios for Azure Cosmos DB | Microsoft Docs
 description: 'Learn about the top five use cases for Azure Cosmos DB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).' 
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: ''
 documentationcenter: ''
 
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -39,7 +39,7 @@ The following are some attributes of Cosmos DB that make it well-suited for high
 
 * Cosmos DB natively partitions your data for high availability and scalability. Cosmos DB offers 99.99% guarantees for availability, throughput, low latency, and consistency.
 * Cosmos DB has SSD backed storage with low-latency order-of-millisecond response times.
-* Cosmos DB's support for consistency levels like eventual, consistent prefix, session, and bounded-staleness allows for full flexibility and low cost-to performance-ratio. No database service offers as much flexibility as Cosmos DB in levels consistency. 
+* Cosmos DB's support for consistency levels like eventual, consistent prefix, session, and bounded-staleness allows for full flexibility and low cost-to-performance ratio. No database service offers as much flexibility as Cosmos DB in levels consistency. 
 * Cosmos DB has a flexible data-friendly pricing model that meters storage and throughput independently.
 * Cosmos DB's reserved throughput model allows you to think in terms of number of reads/writes instead of CPU/memory/IOPs of the underlying hardware.
 * Cosmos DB's design lets you scale to massive request volumes in the order of trillions of requests per day.

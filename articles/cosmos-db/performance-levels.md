@@ -1,14 +1,14 @@
 ---
 title: DocumentDB API performance levels | Microsoft Docs
 description: Learn about how DocumentDB API performance levels enable you to reserve throughput on a per container basis.
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -138,7 +138,7 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
 
 **To migrate to single partition collections using the .NET SDK**
 
-Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). If you are new to our .NET SDK, visit our [getting started tutorial](documentdb-get-started.md).
+Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [DocumentDB .NET API](documentdb-sdk-dotnet.md), but the process is similar for our other SDKs.
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
     

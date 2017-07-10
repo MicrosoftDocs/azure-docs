@@ -5,13 +5,11 @@ services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
-ms.topic:  article
-ms.custom: sample
+ms.devlang: azure-cli
+ms.topic: article
+ms.custom: sample, mvc
 ms.date: 05/25/2017
 ---
 # Azure CLI samples for Azure Database for PostgreSQL 
