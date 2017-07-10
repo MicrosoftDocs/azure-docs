@@ -58,7 +58,8 @@ Use the following steps to connect to Azure Stack:
    b. For the **user** environment, use:    
    `https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
-   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the following values:
+   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the following values:  
+
    | **JSON object** | **Value** | **Mapping parameter** |
    | --- | --- | --- |
    | loginEndpoint | **AAD** - https://login.windows.net/ <br> **AD FS**- https://adfs.local.azurestack.external/adfs | endpoint-active-directory |
