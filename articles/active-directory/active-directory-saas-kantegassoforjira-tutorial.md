@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -129,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_400.png)
 	
-7. In a different web browser window, log in to your Kantega SSO for JIRA admin portal as an administrator.
+7. In a different web browser window, log in to your JIRA admin portal as an administrator.
 
 8. Hover on cog and click the **Add-ons**.
 
@@ -250,11 +250,11 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Kantega SSO for JIRA test user
 
-To enable Azure AD users to log in to Kantega SSO for JIRA, they must be provisioned into Kantega SSO for JIRA. In Kantega SSO for JIRA, provisioning is a manual task.
+To enable Azure AD users to log in to JIRA, they must be provisioned into JIRA. In Kantega SSO for JIRA, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Kantega SSO for JIRA company site as an administrator.
+1. Log in to your JIRA company site as an administrator.
 
 2. Hover on cog and click the **User management**.
 
