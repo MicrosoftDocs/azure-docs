@@ -1,10 +1,12 @@
 - name: Overview
   items:
-  - name: About C-Series containers
-    href: cseries-overview.md
+  - name: About Azure Container Instances
+    href: container-instances-overview.md
 - name: Quickstarts
   expanded: true
   items:
+  - name: Create container instance
+    href: container-instances-quickstart.md
 - name: Tutorials
   items:
 - name: How-to guides
