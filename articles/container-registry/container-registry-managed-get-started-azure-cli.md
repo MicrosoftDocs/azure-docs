@@ -3,7 +3,7 @@ title: Create private Docker container registry - Azure CLI | Microsoft Docs
 description: Get started creating and managing private Docker container registries with the Azure CLI 2.0
 services: container-registry
 documentationcenter: ''
-author: nepeters
+author: neilpeterson
 manager: timlt
 editor: na
 tags: ''
@@ -16,13 +16,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
-ms.author: neilpeterson
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
 
 # Create a managed container registry using the Azure CLI
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating a managed Azure Container Registry instance usingthe Azure CLI.
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating a managed Azure Container Registry instance using the Azure CLI.
 
 Managed Azure container registries are in preview and not available in all regions.
 
@@ -42,12 +42,12 @@ az group create --name myResourceGroup --location westcentralus
 
 ## Create a container registry
 
-Create an ACR instacne using the [az acr create]() command.
+Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 
 > [!NOTE]
 > When you create a registry, specify a globally unique top-level domain name, containing only letters and numbers.
 
- The registry name in the examples is *myContainerRegistry1*, substitute a unique name of your own.
+ The registry name in the example is *myContainerRegistry1*, substitute a unique name of your own.
 
 ```azurecli
 az acr create --name myContainerRegistry1 --resource-group myResourceGroup --sku Managed_Standard
@@ -77,13 +77,13 @@ When the registry is created, the output is similar to the following:
 
 ## Log in to ACR instance
 
-Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login]() command.
+Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
 
 ```azurecli-interactive
 az acr login --name myAzureContainerRegistry1
 ```
 
-The command returns a 'Login Succeeded’ message once completed.
+The command returns a 'Login Succeeded' message once completed.
 
 ## Use Azure Container Registry
 
@@ -112,7 +112,7 @@ az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -
 
 ## Next steps
 
-In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server.
+In this quick start, you've created a managed Azure Container Registry instance using the Azure CLI.
 
 > [!div class="nextstepaction"]
 > [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
