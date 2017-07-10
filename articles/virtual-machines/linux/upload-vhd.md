@@ -24,7 +24,7 @@ ms.author: cynthn
 
 This article shows you how to upload a customized virtual hard disk (VHD) or copy a an existing VHD in Azure and create new Linux virtual machines (VMs) from the custom disk. You can install and configure a Linux distro to your requirements and then use that VHD to quickly create a new Azure virtual machine.
 
-If you want to create multiple VMs from your customized disk, you should create an image from your VM or VHD. For more information, see [xxxxxx].
+If you want to create multiple VMs from your customized disk, you should create an image from your VM or VHD. For more information, see [Create a custom image of an Azure VM using the CLI](tutorial-custom-images.md).
 
 You have two options:
 * [Upload a VHD](#option-1-upload-a-specialized-vhd)
@@ -32,7 +32,7 @@ You have two options:
 
 ## Quick commands
 
-When creating a new VM using [az vm create](/cli/azure/vm#create) from a customized or specialized disk you **attach** a the disk (--attach-os-disk) instead of specifying a custom or marketplace image (--image). The following example creates a VM named *myVM* using the managed disk named *myManagedDisk* created from your customized VHD:
+When creating a new VM using [az vm create](/cli/azure/vm#create) from a customized or specialized disk you **attach** the disk (--attach-os-disk) instead of specifying a custom or marketplace image (--image). The following example creates a VM named *myVM* using the managed disk named *myManagedDisk* created from your customized VHD:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -136,7 +136,7 @@ Make a note of **key1** as you will use it to interact with your storage account
 ### Create a storage container
 In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](/cli/azure/storage/container#create).
 
-The following example creates a container named *mydisks*, specifying the access key obtained in the previous step (key1):
+The following example creates a container named *mydisks*:
 
 ```azurecli
 az storage container create \

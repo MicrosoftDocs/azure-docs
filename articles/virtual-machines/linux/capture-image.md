@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/10/2017
 ms.author: cynthn
 
 ---
@@ -22,7 +22,7 @@ ms.author: cynthn
 
 <!-- generalize, image - extended version of the tutorial-->
 
-To create multiple copies of a virtual machine (VM) to use in Azure, you capture an image of the VM or the OS VHD. The process also involves generalizing the VM to remove personal account information which makes it safer to deploy multiple times. In the following steps you deprovision an existing VM, deallocate and generalize the VM resource, then create an image. You can use this image to create VMs across any resource group within your subscription.
+To create multiple copies of a virtual machine (VM) to use in Azure, capture an image of the VM or the OS VHD. To create an image, you need remove personal account information which makes it safer to deploy multiple times. In the following steps you deprovision an existing VM, deallocate and create an image. You can use this image to create VMs across any resource group within your subscription.
 
 If you want to create a copy of your existing Linux VM for backup or debugging, or upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
 
@@ -32,9 +32,9 @@ You can also use **Packer** to create your custom configuration. For more inform
 ## Before you begin
 Ensure that you meet the following prerequisites:
 
-* Azure VM created in the Resource Manager deployment model - If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](cli-deploy-templates.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
+* You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](cli-deploy-templates.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
-You also need to have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/#login).
+* You also need to have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/#login).
 
 ## Quick commands
 
@@ -58,7 +58,7 @@ You deprovision the VM, using the Azure VM agent, to delete machine specific fil
 4. After the command completes, type **exit**. This step closes the SSH client.
 
 ## Step 2: Create VM image
-Use the Azure CLI 2.0 to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
+Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
 1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli//azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
    
@@ -68,7 +68,7 @@ Use the Azure CLI 2.0 to generalize and capture the VM. In the following example
 	  --name myVM
     ```
 
-2. Generalize the VM with [az vm generalize](/cli//azure/vm#generalize). If you have used a tool such as [Packer](http://www.packer.io) to build your source VM, skip this step as your image has already been generalized. The following example generalizes the VM named *myVM* in the resource group named *myResourceGroup*:
+2. Mark the VM as generalized with [az vm generalize](/cli//azure/vm#generalize). The following example marks the the VM named *myVM* in the resource group named *myResourceGroup* as generalized:
    
     ```azurecli
     az vm generalize \
