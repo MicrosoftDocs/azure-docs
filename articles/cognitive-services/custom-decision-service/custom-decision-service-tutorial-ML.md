@@ -91,7 +91,7 @@ You can choose to include this "estimated average reward" as a feature for a giv
 To add marginal features, write `--marginal <namespace>` in the VW command line. Define `<namespace>` in JSON as follows:
 
 ```json
-{<namespace>: "mf_name":1 "action_id":1}
+{<namespace>: {"mf_name":1 "action_id":1}
 ```
 
 Insert this namespace along with other action-dependent features of a given action. Provide this definition for each decision, using the same `mf_name` and `action_id` for all decisions.
@@ -103,7 +103,7 @@ The default usage is that `mf_name` is the same for all actions. Then one weight
 You can also specify multiple marginal features for the same action, with same values but different feature names.
 
 ```json
-{<namespace>: "mf_name1":1 "action_id":1 "mf_name2":1 "action_id":1}
+{<namespace>: {"mf_name1":1 "action_id":1 "mf_name2":1 "action_id":1}}
 ```
 
 ### 1-hot encoding
