@@ -96,9 +96,9 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 
 -   Each table must have a primary key.
 
--   A table cannot have identity columns that are not the primary key.
+-   A table cannot have an identity column that is not the primary key.
 
--   A database name cannot contain special characters.
+-   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
 ### Limitations on service and database dimensions
 

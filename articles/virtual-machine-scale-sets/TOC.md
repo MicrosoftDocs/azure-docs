@@ -32,10 +32,11 @@
 ## Manage
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
+### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
+### [Networking for scale sets](virtual-machine-scale-sets-networking.md)
 ### [Convert a template to managed disks](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Troubleshoot

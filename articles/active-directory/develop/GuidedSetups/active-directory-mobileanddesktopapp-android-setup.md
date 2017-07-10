@@ -21,7 +21,7 @@ ms.custom: aaddev
 
 ## Set up your project
 
-> Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express "Configuration Step") step to configure the code sample before executing    .
+> Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing    .
 
 
 ### Create a new project 
