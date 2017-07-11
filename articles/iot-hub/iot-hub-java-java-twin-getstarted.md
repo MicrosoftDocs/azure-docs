@@ -91,7 +91,7 @@ In this section, you create a Java app that adds location metadata as a tag to t
 1. Add the following **import** statements to the file:
 
     ```java
-    import import com.microsoft.azure.sdk.iot.service.devicetwin.*;
+    import com.microsoft.azure.sdk.iot.service.devicetwin.*;
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
 
     import java.io.IOException;
