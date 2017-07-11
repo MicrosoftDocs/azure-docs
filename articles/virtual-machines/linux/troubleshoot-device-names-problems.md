@@ -35,11 +35,13 @@ You may experience the following problems when running Linux VMs in Microsoft Az
 
 ## Cause
 
-The problem occurs because the device scanning in Linux is scheduled by the SCSI subsystem in Linux. Hence it can happen asynchronously. The final device path naming is arbitrary.
+Device paths in Linux are not guaranteed to be consistent across restarts. Device names are made up of major (letter) and minor numbers.  When the Linux storage device driver detects a new device, it assigns major and minor device numbers to it from the available range. When a device is removed, the device numbers are freed to be reused later.
+
+The problem occurs because the device scanning in Linux scheduled by the SCSI subsystem happens asynchronously. The final device path naming may vary across boots. 
 
 ## Solution
 
-To address this issue, use persistent naming. There are four mechanisms to persistent naming - by filesystem label, by uuid, by id and by path. The filesystem label and UUID mechanisms are recommended for Azure Linux VM. For more information about how to configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+To address this issue, use persistent naming. There are four mechanisms to persistent naming - by filesystem label, by uuid, by id and by path. The filesystem label and UUID mechanisms are recommended for Azure Linux VMs. For more information about how to configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). As described in that document, most distributions also provide either the **nofail** and/or **nobootwait** fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Check the distribution's documentation for more information on these parameters.
 
 When the Azure Linux agent is installed on a VM, it uses Udev rules to construct a set of symbolic links under **/dev/disk/azure**. These Udev rules can be used by applications and scripts to identify disks are attached to the VM, their type, and the LUN.
 
@@ -67,17 +69,17 @@ An application could use LUNs for the purpose of finding all the attached disks 
 
 LUN information can also be retrieved from the Linux guest using lsscsi or similar tooling.
 
-       sudo lsscsi
+       $ sudo lsscsi
 
-      \[1:0:0:0\] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
+      [1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
 
-      \[2:0:0:0\] disk Msft Virtual Disk 1.0 /dev/sda
+      [2:0:0:0] disk Msft Virtual Disk 1.0 /dev/sda
 
-      \[3:0:1:0\] disk Msft Virtual Disk 1.0 /dev/sdb
+      [3:0:1:0] disk Msft Virtual Disk 1.0 /dev/sdb
 
-      \[5:0:0:0\] disk Msft Virtual Disk 1.0 /dev/sdc
+      [5:0:0:0] disk Msft Virtual Disk 1.0 /dev/sdc
 
-      \[5:0:0:1\] disk Msft Virtual Disk 1.0 /dev/sdd
+      [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
 This guest LUN information can be used with Azure subscription metadata to identify the location in Azure storage of the VHD which stores the partition data. For example, using the az cli:
 
