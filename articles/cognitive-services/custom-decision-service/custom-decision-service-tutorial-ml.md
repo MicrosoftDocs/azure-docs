@@ -7,7 +7,7 @@ manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: slivkins;marcozo;alekh
 ---
 
@@ -56,7 +56,7 @@ To account for interaction between features X and Y, create a *quadratic* featur
 > [!TIP]
 > A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization.
 
-In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way. However, such feature may reduce the variance of reward estimates.
+In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way. However, such features may reduce the variance of reward estimates.
 
 ### Implementation via namespaces
 
@@ -66,10 +66,10 @@ Central to the implementation is the concept of *namespace*: a named subset of f
 
 A namespace is either "shared" or "action-dependent": either it consists only of shared features, or it consists only of action-dependent features of the same action.
 
-> [!TIP] 
+> [!TIP]
 > It is a good practice to wrap features in explicitly specified namespaces. Group related features in the same namespace.
 
-If the namespace is not provided, the feature is automatically assigned to the default namespace. However, you cannot refer to this feature from the VW command line.
+If the namespace is not provided, the feature is automatically assigned to the default namespace.
 
 > [!IMPORTANT]
 > Features and namespaces do not need to be consistent across actions. In particular, a namespace can have different features for different actions. Moreover, a given namespace can be defined for some actions and not for some others.
