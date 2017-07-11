@@ -21,7 +21,7 @@ ms.author: hermannd
 ---
 # Quickstart: Manual installation of single-instance SAP HANA on Azure VMs
 ## Introduction
-This guide helps you set up a single-instance SAP HANA prototype or demo system on Azure virtual machines (VMs) when you install SAP NetWeaver 7.5 and SAP HANA 1.0 SP12 manually. The focus of this guide is on deploying SAP HANA on Azure. It does not replace SAP documentation. 
+This guide helps you set up a single-instance SAP HANA on Azure virtual machines (VMs) when you install SAP NetWeaver 7.5 and SAP HANA 1.0 SP12 manually. The focus of this guide is on deploying SAP HANA on Azure. It does not replace SAP documentation. 
 
 >[!Note]
 >This guide describes deployments of SAP HANA into Azure VMs. For information on deploying SAP HANA into HANA large instances, see [Using SAP on Azure virtual machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
@@ -42,6 +42,8 @@ This guide also assumes that you are familiar with:
    * Principles of running SAP NetWeaver based on Linux-driven VMs in Azure. See [Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). This guide provides specific settings for Linux in Azure VMs and details on how to properly attach Azure storage disks to Linux VMs.
 
 At this time, Azure VMs are certified by SAP for SAP HANA scale-up configurations only. Scale-out configurations with SAP HANA workloads are not yet supported. For SAP HANA high availability in cases of scale-up configurations, see [High availability of SAP HANA on Azure virtual machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+If you are seeking to get an SAP HANA instance or S/4HANA, or BW/4HANA system deployed in very fast time, you should consider the usage of [SAP Cloud Appliance Library](http://cal.sap.com). You can find documentation about deploying, for example, an S/4HANA system through SAP CAL on Azure in [this guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). All you need to have is an Azure subscription and an SAP user that can be registered with SAP Cloud Appliance Library.
 
 ## Additional resources
 ### SAP HANA backup
@@ -117,7 +119,7 @@ This section lists the key steps for a manual, single-instance SAP HANA installa
 18. Start SAP Management Console (SAP MC). Connect with SAP GUI or HANA Studio, for example.
 
 ## Key steps for SAP HANA installation when you use HDBLCM
-This section lists the key steps for a manual, single-instance SAP HANA installation for a demo or prototype when you use SAP HDBLCM to perform a distributed SAP NetWeaver 7.5 installation. The individual steps are explained in more detail in screenshots throughout this guide.
+This section lists the key steps for a manual, single-instance SAP HANA installation when you use SAP HDBLCM to perform a distributed SAP NetWeaver 7.5 installation. The individual steps are explained in more detail in screenshots throughout this guide.
 
 1. Create an Azure virtual network that includes two test VMs.
 2. Deploy two Azure VMs with operating systems (in our example, SLES and SLES for SAP Applications 12 SP1) according to the Azure Resource Manager model.
@@ -174,7 +176,7 @@ You can add the parameter `--dry-run` to test the update without actually updati
 
 
 ### Disk setup
-The root file system in a Linux VM on Azure has a size limitation. Therefore, it's necessary to attach additional disk space to an Azure VM for running SAP. For SAP application server Azure VMs, the use of Azure standard storage disks might be sufficient. However, for SAP HANA DBMS Azure VMs, the use of Azure premium storage disks for production and nonproduction implementations is mandatory.
+The root file system in a Linux VM on Azure has a size limitation. Therefore, it's necessary to attach additional disk space to an Azure VM for running SAP. For SAP application server Azure VMs, the use of Azure standard storage disks might be sufficient. However, for SAP HANA DBMS Azure VMs, the use of Azure Premium Storage disks for production and non-production implementations is mandatory.
 
 Based on the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), the following Azure Premium Storage configuration is suggested: 
 
@@ -272,7 +274,7 @@ This section covers the following topics:
 You can also use alternatives such as Xterminal or VNC (not described in this guide).
 
 ### Installing the GNOME desktop and xrdp on SLES 12/SLES for SAP Applications 12
-If you have a Windows background, you can easily use a graphical desktop directly within the SAP Linux VMs to run Firefox, SAPinst, SAP GUI, SAP MC, or HANA Studio, and connect to the VM through the Remote Desktop Protocol (RDP) from a Windows computer. Although the procedure might not be appropriate for a production database server, it is appropriate for a pure prototype/demo environment. To install the GNOME desktop on an Azure SLES 12/SLES for SAP Applications 12 VM:
+If you have a Windows background, you can easily use a graphical desktop directly within the SAP Linux VMs to run Firefox, SAPinst, SAP GUI, SAP MC, or HANA Studio, and connect to the VM through the Remote Desktop Protocol (RDP) from a Windows computer. Dependent on your company policies about adding graphical user interfaces to production and non-production Linux based systems, you might want to install GNOME on your server. To install the GNOME desktop on an Azure SLES 12/SLES for SAP Applications 12 VM:
 
 1. Install the GNOME desktop by entering the following command (for example, in a PuTTY window):
 

@@ -3,7 +3,7 @@ title: Copy an Azure SQL database | Microsoft Docs
 description: Create a copy of an Azure SQL database
 services: sql-database
 documentationcenter: ''
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -11,8 +11,8 @@ ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/05/2017
-ms.author: sashan;carlrab
+ms.date: 06/15/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -44,7 +44,7 @@ To copy a database by using the Azure portal, open the page for your database, a
 
 ## Copy a database by using PowerShell
 
-To copy a database by using PowerShell, use the [New-AzureRmSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+To copy a database by using PowerShell, use the [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
 
 ```PowerShell
 New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `

@@ -173,7 +173,7 @@ When the **Publishing** link appears, select it to browse to the web app and see
 
 ## Manage the web app
 
-Go to the [Azure portal](https://portal.azure.com) to see the web app that you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to see the web app that you created.
 
 From the left menu, select **Resource Groups**.
 

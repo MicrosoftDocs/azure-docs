@@ -3,7 +3,7 @@ title: Azure Active Directory Code Samples | Microsoft Docs
 description: An index of Azure Active Directory code samples, organized by scenario.
 services: active-directory
 documentationcenter: dev-center-name
-author: priyamohanram
+author: msmbaldwin
 manager: mbaldwin
 editor: ''
 

@@ -1,4 +1,4 @@
-﻿# Get started with Azure
+# Get started with Azure
 ## [Cloud computing overview](azure-operations-guide.md#cloud-computing-overview)
 ### [Azure regions](https://azure.microsoft.com/regions/)
 ## [Services](azure-operations-guide.md#azure-services)
@@ -99,3 +99,5 @@
 #### [Connect a computer to a virtual network](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Next steps](azure-operations-guide.md#next-steps)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -81,7 +81,7 @@ When you set a region, remember that Azure Cosmos DB respects sovereign and gove
 ### How do I start developing against the DocumentDB API?
 Microsoft DocumentDB API is available in the [Azure portal][azure-portal]. First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add DocumentDB API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](create-documentdb-dotnet.md#create-account). If you had a DocumentDB account in the past, you now have an Azure Cosmos DB account. 
 
-[SDKs](documentdb-sdk-dotnet.md) are available for .NET, Python, Node.js, JavaScript, and Java. Developers can also use the [RESTful HTTP APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with Azure Cosmos DB resources from various platforms and languages.
+[SDKs](documentdb-sdk-dotnet.md) are available for .NET, Python, Node.js, JavaScript, and Java. Developers can also use the [RESTful HTTP APIs](/rest/api/documentdb/) to interact with Azure Cosmos DB resources from various platforms and languages.
 
 ### Can I access some ready-made samples to get a head start?
 Samples for the DocumentDB API [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), and [Python](documentdb-python-samples.md) SDKs are available on GitHub.
@@ -99,10 +99,10 @@ A collection is a group of documents and their associated JavaScript application
 Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly, based on the provisioned throughput and used storage space. For more information, see [DocumentDB API pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### How do I create a database?
-You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-documentdb-dotnet.md#create-collection), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
+You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-documentdb-dotnet.md#create-collection), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or the [REST APIs](/rest/api/documentdb/). 
 
 ### How do I set up users and permissions?
-You can create users and permissions by using one of the [DocumentDB API SDKs](documentdb-sdk-dotnet.md) or the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
+You can create users and permissions by using one of the [DocumentDB API SDKs](documentdb-sdk-dotnet.md) or the [REST APIs](/rest/api/documentdb/).  
 
 ### Does the DocumentDB API support SQL?
 The SQL query language is an enhanced subset of the query functionality that's supported by SQL. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see the [QueryDocumentDB][query] article.

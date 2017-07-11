@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
@@ -70,7 +70,9 @@
 ### [Use portal to assign policy](resource-manager-policy-portal.md)
 ### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
 ### Examples
-#### [Resource tags](resource-manager-policy-tags.md)
+#### [Tags](resource-manager-policy-tags.md)
+#### [Naming conventions](resource-manager-policy-naming-convention.md)
+#### [Network](resource-manager-policy-network.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -119,8 +121,9 @@
 ## [REST](/rest/api/resources/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)

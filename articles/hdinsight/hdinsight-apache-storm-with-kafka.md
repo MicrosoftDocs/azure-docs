@@ -57,6 +57,9 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json**.
 
+    > [!WARNING]
+    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+
 2. Use the following guidance to populate the entries on the **Custom deployment** blade:
    
     ![HDInsight custom deployment](./media/hdinsight-apache-storm-with-kafka/parameters.png)
