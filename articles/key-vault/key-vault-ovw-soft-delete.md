@@ -9,14 +9,14 @@ ms.date: 05/10/2017
 ---
 # Azure Key Vault soft-delete feature overview
 
-Key Vault's soft delte feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we addresses the following scenarios:
+Key Vault's soft delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
 
-- Support for recoverable deletion of a key vaults
+- Support for recoverable deletion of a key vault
 - Support for recoverable deletion of key vault objects (ex. keys, secrets, certificates)
 
 ## Supporting interfaces
 
-The soft-delete feature is initially available through the REST, .NET/C# and PowerShell interfaces. Refere to the references for these for more details, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+The soft-delete feature is initially available through the REST, .NET/C# and PowerShell interfaces. Refer to the references for these for more details, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
 ## Scenarios
 
@@ -24,7 +24,7 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 1. In the typical scenario, a user may have inadvertently deleted a key vault or a key vault object; if that key vault or key vault object were to be recoverable for a predetermined period, the user may undo the deletion and recover their data.
 
-2. In a different scenario, a rogue user may attempt to delete a key vault or a key vault object, such as a key inside a vault, to cause a business disruption. Separating the deletion of the key vault or key vault object from the actual deletion of the underlying data can be used as a safety measure by, for instance, restricting permissions on data deletion to a different, trusted role. This effectively requires quorum for an operation which might otherwise result in an immediate data loss.
+2. In a different scenario, a rogue user may attempt to delete a key vault or a key vault object, such as a key inside a vault, to cause a business disruption. Separating the deletion of the key vault or key vault object from the actual deletion of the underlying data can be used as a safety measure by, for instance, restricting permissions on data deletion to a different, trusted role. This approach effectively requires quorum for an operation which might otherwise result in an immediate data loss.
 
 ### Soft-delete behavior
 
@@ -34,11 +34,11 @@ Soft-delete is an optional Key Vault behavior and is **not enabled by default** 
 
 ### Key vault recovery
 
-Upon deleting a key vault, the service will create a proxy resource under the subscription, adding sufficient metadata for recovery. The proxy resource is a stored object, available in the same location as the deleted key vault. 
+Upon deleting a key vault, the service creates a proxy resource under the subscription, adding sufficient metadata for recovery. The proxy resource is a stored object, available in the same location as the deleted key vault. 
 
 ### Key vault object recovery
 
-Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, thus making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered or forcefully/permanently deleted. 
+Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, thus making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered, or forcefully/permanently deleted. 
 
 At the same time, Key Vault will schedule the deletion of the underlying data corresponding to the deleted key vault or key vault object for execution after a predetermined retention interval. The DNS record corresponding to the vault is also retained for the duration of the retention interval.
 
@@ -53,13 +53,13 @@ Soft deleted resources are retained for a set period of time, 90 days. During th
     - The user, member of the custom role, who has the privilege to create a key vault under the resource group can restore the vault.
 - Only a specifically privileged user may forcibly delete a key vault or key vault object by issuing a delete command on the corresponding proxy resource.
 
-Unless a key vault or key vault object is recovered, at the end of the retention interval the service will perform a purge of the soft-deleted key vault or key vault object and its content. Resource deletion may not be rescheduled.
+Unless a key vault or key vault object is recovered, at the end of the retention interval the service performs a purge of the soft-deleted key vault or key vault object and its content. Resource deletion may not be rescheduled.
 
-### Permissioned purge
+### Permitted purge
 
-Permanently deleting, purging, a key vault is possible via a POST operation on the proxy resource and requires special privileges. Generally, only the subscription owner will be able to purge a key vault. The POST operation will trigger the immediate and irrecoverable deletion of that vault. 
+Permanently deleting, purging, a key vault is possible via a POST operation on the proxy resource and requires special privileges. Generally, only the subscription owner will be able to purge a key vault. The POST operation triggers the immediate and irrecoverable deletion of that vault. 
 
-An exception to this is the case when the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and will do so as a scheduled process. 
+An exception to this is the case when the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
 
 
 
