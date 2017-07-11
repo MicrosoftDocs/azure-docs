@@ -19,9 +19,9 @@ ms.author: genli
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
-Before you upload a Windows  virtual machines (VM) from on-premises to Microsoft Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports only generation 1 VMs that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 VM from the VHDX file system to VHD and from a dynamically expanding disk to fixed-sized. But you can't change a VM's generation. For more information, see [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Before you upload a Windows  virtual machines (VM) from on-premises to Microsoft Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports only generation 1 VMs that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 VM from the VHDX file system to VHD and from a dynamically expanding disk to fixed-sized. But you can't change a VM's generation. For more information, see [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
-For more information about the support policy for Azure VM, see [Microsoft server software support for Microsoft Azure VMs](https://support.microsoft.com/en-us/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+For more information about the support policy for Azure VM, see [Microsoft server software support for Microsoft Azure VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 > [!Note]
 > The instructions in this article apply to the 64-bit version of Windows Server 2008 R2 and later Windows server operating system. For information about running 32-bit version of operating system in Azure, see [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
@@ -201,7 +201,7 @@ Make sure that the following settings are configured correctly for remote deskto
         
         **Automatic reconnection**
 
-    - •	Limit the number of connections settings:
+    - Limit the number of connections settings:
 
         Computer Configuration\Policies\Windows Settings\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections: 
         
@@ -293,7 +293,7 @@ Make sure that the following settings are configured correctly for remote deskto
 
     A. Follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
 
-    B. Make sure that you know the DSRM password in case you have to start the VM in DSRM at some point. You may want to refer to this link to set the [DSRM password](https://technet.microsoft.com/en-us/library/cc754363(v=ws.11).aspx).
+    B. Make sure that you know the DSRM password in case you have to start the VM in DSRM at some point. You may want to refer to this link to set the [DSRM password](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 
 6. Make sure that the Built-in Administrator account and password are known to you. You may want to reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection. This access permission is controlled by the "Allow log on through Remote Desktop Services" Group Policy object. You can view this object in the Local Group Policy Editor under:
 
@@ -352,7 +352,7 @@ If, instead, you want only to create one VM from one disk, you don’t have to u
 For more information about how to create a VM from a specialized disk, see:
 
 - [Create a VM from a specialized disk](create-vm-specialized.md)
-- [Create a VM from a specialized VHD disk](https://azure.microsoft.com/en-us/resources/templates/201-vm-specialized-vhd/)
+- [Create a VM from a specialized VHD disk](https://azure.microsoft.com/resources/templates/201-vm-specialized-vhd/)
 
 If you want to create a generalized image, you need to run sysprep. For more information about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx). 
 
@@ -380,8 +380,8 @@ The following settings do not affect VHD uploading. However, we strongly recomme
 
 * Install the [Azure VMs Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs such as resetting passwords, configuring RDP, and so on. For more information, see:
 
-    - [VM Agent and Extensions – Part 1](https://azure.microsoft.com/en-us/blog/vm-agent-and-extensions-part-1/)
-    - [VM Agent and Extensions – Part 2](https://azure.microsoft.com/en-us/blog/vm-agent-and-extensions-part-2/)
+    - [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
+    - [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
 * The Dump log can be helpful in troubleshooting Windows crash issues. Enable the Dump log collection:
   
     ```PowerShell
