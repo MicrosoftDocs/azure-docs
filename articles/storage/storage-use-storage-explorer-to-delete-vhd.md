@@ -47,7 +47,7 @@ To delete the VHD, follow these steps:
 4. Go to the storage account that we obtained from the disk URL earlier, select the **Blob Containers** > **vhds** and search for the VHD that prevents you delete the storage account.
 5. If the VHD is found,  check the **VM Name** column to find the VM that is using this VHD.
 
-    ![Check vm](media/storage-use-storage-explorer-to-delete-vhd/check-vm.jpg)
+    ![Check vm](media/storage-use-storage-explorer-to-delete-vhd/check-vm.png)
 
 6. Detach the VHD from Azure portal. For more information, see [How to detach a disk from a Windows virtual machine](../virtual-machines/windows/classic/detach-disk.md). If the VHD is OS disk, you must delete the VM. Then you can delete the VHD.
 
