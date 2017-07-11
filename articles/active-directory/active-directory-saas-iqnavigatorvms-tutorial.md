@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with IQNavigator VMS, you need the following i
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-7. In the User attribute section of **IQNavigator VMS** application, change the mapping in the **User Identifier** dropdown to **user.extensionattribute2**. Edit the **name** attribute value with **user.extensionattribute2**  as shown in the screenshot below.   
+7. IQNavigator application expect the unique user identifier value in the Name Identifier claim. Customer can map the correct value for the Name Identifier claim. In this case we have mapped the user.UserPrincipalName for the demo purpose. But according to your organization settings you should map the correct value for it.   
 
 	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
@@ -153,7 +153,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute1.png)
 
-    a.In **Value** textbox, select **user.extensionattribute2**.
+    a. In **Value** textbox, select **user.userprincipalname**.
 
     b. Click **Ok**.
 
