@@ -81,18 +81,19 @@ The lock compatibility matrix can be found in the following table:
 
 Time-out argument in the Reliable Collections APIs is used for deadlock detection.
 
-### Common update lock usage scenario
+### Using the Update lock
+In the following example, the same code is written without and then with use of the Update lock. This demonstrates how its use avoids a common form of deadlock.
 
 **Reading and then writing without using an update lock:**
 ```csharp
  using (ITransaction tx = this.stateManager.CreateTransaction())
  {
-  ConditionalValue<int> counter_option = await dict.TryGetValueAsync(tx, counter_id);
-  if (counter_option.HasValue)
-  {
-    await dict.SetAsync(tx, counter_id, counter_option.Value + 1);
-  }
-  await tx.CommitAsync();
+    ConditionalValue<int> counter_option = await dict.TryGetValueAsync(tx, counter_id);
+    if (counter_option.HasValue)
+    {
+       await dict.SetAsync(tx, counter_id, counter_option.Value + 1);
+    }
+    await tx.CommitAsync();
  }
 ```
 With the above code, this is a possible event sequence:
@@ -101,20 +102,21 @@ With the above code, this is a possible event sequence:
 | ----------- | -------------- |:------ 
 | 1           | tx<sub>1</sub> | Takes read lock on counter_id 
 | 2           | tx<sub>2</sub> | Takes shared read lock on counter_id 
-| 3           | tx<sub>1</sub> | Tries to upgrade read lock to write lock, but has to wait for tx<sub>2</sub> to release lock 
-| 4           | tx<sub>2</sub> | Tries to upgrade read lock to write lock, but has to wait for tx<sub>1</sub> to release lock 
-|             |                | Deadlock 
+| 3           | tx<sub>1</sub> | Tries to upgrade read lock to write lock 
+| 4           | tx<sub>2</sub> | Tries to upgrade read lock to write lock 
 
-**[Correct Usage] Reading and then writing by using an update lock:**
+In events *3* and *4*, both transactions tried to upgrade their read lock to a write lock on `counter_id`, but could not do so because the other had not yet released its read lock. This is a form of deadlock and would eventually lead to a timeout.
+
+**Reading and then writing while using an update lock:**
 ```csharp
  using (ITransaction tx = this.stateManager.CreateTransaction())
  {
-  ConditionalValue<int> counter_option = await dict.TryGetValueAsync(tx, counter_id, LockMode.Update);
-  if (counter_option.HasValue)
-  {
-    await dict.SetAsync(tx, counter_id, counter_option.Value + 1);
-  }
-  await tx.CommitAsync();
+    ConditionalValue<int> counter_option = await dict.TryGetValueAsync(tx, counter_id, LockMode.Update);
+    if (counter_option.HasValue)
+    {
+       await dict.SetAsync(tx, counter_id, counter_option.Value + 1);
+    }
+    await tx.CommitAsync();
  }
 ```
 
@@ -124,7 +126,8 @@ With the above code, this is a possible event sequence:
 | 2           | tx<sub>2</sub> | Tries to take upgrade lock, but has to wait for tx<sub>1</sub> to release lock
 | 3           | tx<sub>1</sub> | Upgrades lock to write lock, writes, and releases lock
 | 4           | tx<sub>2</sub> | Successfully takes upgrade lock, reads, upgrades lock to write lock, writes, releases lock
-|             |                | No deadlock 
+
+In event *2*, because tx<sub>1</sub> had taken an update lock instead of a read lock, tx<sub>2</sub> cannot take a read lock. So when tx<sub>1</sub> tries to upgrade its lock, it does not have to wait for any other lock to be released. This avoids the above form of deadlock.
 
 
 ## Next steps
