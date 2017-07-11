@@ -15,35 +15,38 @@ ms.date: 06/31/2017
 ms.author: sergkanz
 
 ---
+
 # Tracking custom operations with Application Insights .NET SDK
 
-ApplicationInsights SDKs automatically track 'requests' (incoming HTTP requests) and 'dependencies' (outgoing HTTP requests, and in some cases SQL queries). We are going to gradually expand the list and give an automatic collection of other well-known operations: for example, request collection in Owin self-hosted apps.
+Application Insights SDKs automatically track incoming HTTP requests and calls to dependant services - HTTP requests, SQL queries, etc. Take application that is combined of multiple micro-services. Tracking and correlation of requests and dependencies gives you visibility into the whole application responsiveness and reliability across all micro-services. We are going to gradually expand the list and give an automatic collection of other well-known platforms and frameworks. 
 
-Typical operations that we do not support yet include processing a work item from a queue or running background long-running task.
+There is a class of application patterns that cannot be supported generically. Proper monitoring of such patterns requires manual code instrumentation. This article covers a few patterns that may require manual instrumentation. Including a custom queue processing or running background long-running task.
 
 This document provides guidance on how to track custom operations with ApplicationInsights SDK.
 
 It document is relevant for:
-- ApplicationInsights for .NET (aka Base SDK) version 2.4
-- ApplicationInsights for Web Applications (running ASP.NET) version 2.4
-- ApplicationInsights for AspNetCore version 2.1
+- Application Insights for .NET (aka Base SDK) version `2.4+`
+- Application Insights for Web Applications (running ASP.NET) version `2.4+`
+- Application Insights for AspNetCore version `2.1+`
 
 More improvements and features are coming in the future versions!
 
 ## Overview
-By the operation, we understand some logical piece of work that has duration, some context, result (in most of the cases), and may have nested operations. It's described by abstract class [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) and it's descendants [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
+By the operation, we understand some logical piece of work run by application. It has name, start time and duration, context of execution like user name, properties, and result. If operation `A` was initiated by operation `B` - operation `B` is set as a parent for `A`.  Operation can only have one parent and many children operations. You can read more about operations and telemetry correlation [here](application-insights-correlation.md).
+
+In Application Insights .NET SDK operation is described by abstract class [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) and its descendants [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
 
 ## Incoming operations tracking 
 ApplicationInsights automatically collects HTTP requests for ASP.NET applications that run in IIS pipeline and all ASP.NET Core applications. Applications that do not use ASP.NET or does not run in IIS pipeline require should be instrumented manually at this point.
 
-Another example that requires custom tracking is a worker that receives items from the queue. While the request to the queue itself might be done over HTTP and tracked as a dependency, it does not allow you to have a high-level operation that describes message processing.
+Another example that requires custom tracking is worker that receives items from the queue. For some queues, the call to add a message to this queue tracked as a dependency. However high-level operation that describes message processing is not automatically collected.
 
 Let's see how we can track such operations.
 
-On the high level, the task is to create `RequestTelemetry`. Fill it's with important details at the beginning of the operation and once the operation is completed, track the telemetry. The following example demonstrates it.
+On the high level, the task is to create `RequestTelemetry` and set known properties; once the operation is completed, track the telemetry. The following example demonstrates it.
 
 ### HTTP request in Owin self-hosted app
-We follow the [Http Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) so you should expect to receive headers described in the protocol with incoming HTTP requests from other instrumented services.
+We follow the [Http Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) and you should expect to receive headers that described there.
 
 ``` C#
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -119,14 +122,15 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 HTTP Correlation protocol also declares `Correlation-Context` header, however it's omitted for simplicity.
 
 ## Queue instrumentation
-For the HTTP communication, we have created a protocol to pass correlation details. However there are many queue protocols and APIs, some queues allow you to pass additional metadata, properties, or headers along with the message and others do not.
+For the HTTP communication, we have created a protocol to pass correlation details. Some queues protocols allow you to pass additional metadata along with the message and others do not.
 
 ### Service Bus Queue
-[ServiceBus Queue](https://docs.microsoft.com/en-us/azure/service-bus-messaging/) allows you to pass property bag along with the message and we use it to pass correlation id.
+[ServiceBus Queue](https://docs.microsoft.com/azure/service-bus-messaging/) allows you to pass property bag along with the message and we use it to pass correlation id.
 
-ServiceBus Queue use TCP-based protocols and therefore ApplicationInsights does not automatically track the enqueue operations. Dequeue is push based API, so we are not able to track it.
+ServiceBus Queue uses TCP-based protocols. Application Insights does not automatically track queue operations, so we track them manually. Dequeue operation is a push-style API and we are not able to track it at all.
 
 #### Enqueue
+
 ```C#
 public async Task Enqueue(string payload)
 {
@@ -195,10 +199,10 @@ public async Task Process(BrokeredMessage message)
 ```
 
 ### Azure Storage Queue
-The following example shows how to track [Azure Storage Queue](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-queues) operations, message processing and correlate telemetry between producer and consumer and Azure Storage logs. 
+The following example shows how to track [Azure Storage Queue](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-queues) operations and correlate telemetry between producer, consumer and Azure Storage. 
 
-Azure Storage Queue has HTTP API and all calls to the queue itself are tracked by ApplicationInsights DependencyCollector for HTTP requests.
-Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in the `applicationInsights.config` or add it programmatically as described [here](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-filtering-sampling).
+Azure Storage Queue has HTTP API and all calls to the queue are tracked by ApplicationInsights DependencyCollector for HTTP requests.
+Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in the `applicationInsights.config` or add it programmatically as described [here](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling).
 
 If you configure ApplicationInsights manually, make sure you create and initialize `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` similarly to:
  
@@ -213,17 +217,17 @@ module.Initialize(TelemetryConfiguration.Active);
 // do not forget to dispose module during application shutdown
 ```
 
-You may also want to correlate ApplicationInsights operation Id with Azure Storage RequestId. Check [this article](https://docs.microsoft.com/en-us/azure/storage/storage-monitoring-diagnosing-troubleshooting#end-to-end-tracing) on how to set and get storage request client and server request Id.
+You may also want to correlate ApplicationInsights operation Id with Azure Storage RequestId. Check [this article](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting#end-to-end-tracing) on how to set and get storage request client and server request Id.
 
 #### Enqueue
 Since Azure Storage Queues support HTTP API, all operations with the queue are automatically tracked by ApplicationInsights. In many cases, this instrumentation should be enough.
-However, to correlate logs on the consumer and producer sides, you need to pass some correlation context similarly to how we do it in 'Http Protocol for Correlation'. 
+However, to correlate traces on the consumer side with producer traces, you need to pass some correlation context similarly to how we do it in 'Http Protocol for Correlation'. 
 
-In the example below, we will track optional `Enqueue` operation. It allows to
- - Correlate retries (if any) to one common parent `Enqueue` operation
- - Correlate Log Azure Storage logs (if and when) needed with ApplicationInsights telemetry)
+In the example below, we track optional `Enqueue` operation. It allows to
+ - Correlate retries (if any): all of them have one common parent that is `Enqueue` operation. Otherwise, they are tracked as children of the incoming request; so if there are multiple logical requests to the queue, it could be difficult to find which call resulted in retries.
+ - Correlate Log Azure Storage logs (if and when needed) with ApplicationInsights telemetry.
 
-Note that `Enqueue` operation is the child of a 'parent' operation (for example, incoming HTTP request), and 'Http' dependency call is the child of `Enqueue` operation and grandchild of the incoming request.
+`Enqueue` operation is the child of a 'parent' operation (for example, incoming HTTP request), and 'Http' dependency call is the child of `Enqueue` operation and grandchild of the incoming request.
 
 ```C#
 public async Task Enqueue(CloudQueue queue, string message)
@@ -273,12 +277,10 @@ If you want to reduce an amount of telemetry your application reports or do not 
 
 
 #### Dequeue
-Similarly to `Enqueue`, actual HTTP request to Azure Storage Queue will be automatically tracked by ApplicationInsights. However `Enqueue` operation presumably happens in the parent context such as 'incoming' request context, in this case, this operation (and it's HTTP part) is automatically correlated to this request and other telemetry reported in the same scope.  
-`Dequeue` operation is tricky: ApplicationInsights tracks HTTP request to the storage, however probably it does not happen in the 'parent' context and we will know the correlation context only after we will get the message from the queue and parse it.
-After that, we'll be able to correlated message processing traces with the producer (frontend) traces.
+Similarly to `Enqueue`, actual HTTP request to Azure Storage Queue is automatically tracked by ApplicationInsights. However `Enqueue` operation presumably happens in the parent context such as 'incoming' request context. Application Insights SDKs automatically correlate such operation (and its HTTP part) with the parent request and other telemetry reported in the same scope.  
+`Dequeue` operation is tricky: Application Insights SDK automatically tracks HTTP requests, however it does not know correlation context until message is parsed. It is not possible to correlate HTTP request to get the message with the rest of telemetry.
 
-In many cases, it could be useful to correlate the request to the queue with other traces as well and below (advanced) example demonstrates how to achieve it.
-Note that we will not be able to correlate HTTP `DependencyTelemetry` with the rest of telemetry, however, we can correlate custom `Dequeue` telemetry.
+In many cases, it could be useful to correlate the HTTP request to the queue with other traces as well. The next example demonstrates how to achieve it.
 
 ``` C#
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
@@ -359,23 +361,24 @@ public async Task Process(MessagePayload message)
 }
 ```
 
-Similarly, other queue operations may be instrumented. Peek operation should be instrumented in a similar way as dequeue. Instrumenting queue creation and deletion may not be necessary as they are tracked by HTTP and in most of the cases it is enough.
+Similarly, other queue operations may be instrumented. Peek operation should be instrumented in a similar way as dequeue. Instrumenting queue management operations is not necessary. Application Insights track such operations as HTTP and in most of the cases it is enough.
 
-When instrumenting delete message operation, make sure you set the operation (correlation) identifiers. Alternatively, you may use `Activity` API - then you don't need to set operations identifiers on the telemetry items, ApplicationInsights will do it for you:
-- create a new `Activity` once you've got an item from the queue
-- use `Activity.SetParentId(message.ParentId)` to correlate consumer and producer logs
-- start the `Activity`
-- track Dequeue, Process and Delete operations (preferably with `Start/StopOperation` helpers) from the same asynchronous control flow (execution context) and then stop the `Activity`
-- use Start/StopOperation or call Track telemetry manually 
+When instrumenting message deletion, make sure you set the operation (correlation) identifiers. Alternatively, you may use `Activity` API (then you don't need to set operations identifiers on the telemetry items, ApplicationInsights does it for you):
+
+* create a new `Activity` once you've got an item from the queue
+* use `Activity.SetParentId(message.ParentId)` to correlate consumer and producer logs
+* start the `Activity`
+* track Dequeue, Process, and Delete operations (preferably with `Start/StopOperation` helpers) from the same asynchronous control flow (execution context) and then stop the `Activity`
+* use Start/StopOperation or call Track telemetry manually 
 
 ### Batch Processing
 Some queues allow dequeuing multiple messages with one request, but processing such messages is presumably independent and belongs to the different logical operations.
 In this case, it's not possible to correlate `Dequeue` operation to particular message processing.
 
-Each message processing should happen in its own asychronous control flow. You may find more details on it in the [Outgoing Dependencies Tracking](#outgoing-dependencies-tracking) section.
+Each message processing should happen in its own asynchronous control flow. You may find more details on it in the [Outgoing Dependencies Tracking](#outgoing-dependencies-tracking) section.
 
 ## Long-running background tasks
-Sometimes an application needs to start some long-running operation that may or may not be caused by user requests. From the tracing/instrumentation perspective, it's not different from the request or dependency instrumentation. 
+Some applications start long-running operation that may be caused by user requests. From the tracing/instrumentation perspective, it's not different from request or dependency instrumentation. 
 
 ``` C#
 async Task BackgroundTask()
@@ -404,7 +407,7 @@ async Task BackgroundTask()
 }
 ```
 
-In this example, we use `telemetryClient.StartOperation` to create `RequestTelemetry` and fill the correlation context. Let's say you have a parent operation, e.g. it was created by incoming requests that scheduled the operation. As long as `BackgroundTask` starts in the same asynchronous control flow as an incoming request, it is correlated with that parent operation. `BackgroundTask` and all nested telemetry items will automatically be correlated with the request that caused it even after request ends.
+In this example, we use `telemetryClient.StartOperation` to create `RequestTelemetry` and fill the correlation context. Let's say you have a parent operation, for example it was created by incoming requests that scheduled the operation. As long as `BackgroundTask` starts in the same asynchronous control flow as an incoming request, it is correlated with that parent operation. `BackgroundTask` and all nested telemetry items will automatically be correlated with the request that caused it even after request ends.
 
 When the task is started from the background thread that does not have any operation (Activity) associated with it, `BackgroundTask` does not have any parent. However, it can have nested operations and all telemetry items reported from the task are correlated to the `RequestTelemetry` created in the `BackgroundTask`.
 
@@ -412,17 +415,18 @@ When the task is started from the background thread that does not have any opera
 You may want to track your own 'dependency' kind or some operation that is not supported by ApplicationInsights.
 `Enqueue` method in the ServiceBus Queue or Azure Storage Queue can serve as examples for such custom tracking.
 
-It boils down to
-- calling `TelemetryClient.StartOperation` (extension) method that fills `DependencyTelemetry` properties needed for correlation and some other properties (start timestamp, duration).
-- setting other custom properties on the `DependencyTelemetry`: name and any other context you need
-- processing dependency call
-- stopping the operation with `StopOperation` when done
-- handling exceptions
+General approach for custom dependency tracking is:
+- call `TelemetryClient.StartOperation` (extension) method that fills `DependencyTelemetry` properties needed for correlation and some other properties (start timestamp, duration).
+- set other custom properties on the `DependencyTelemetry`: name and any other context you need
+- make dependency call and await it
+- stop the operation with `StopOperation` when done
+- handle exceptions
 
-Note that `StopOperation` only stops the operation that was started, but if current running operation does not match the one you want to stop, StopOperation does nothing.
+`StopOperation` only stops the operation that was started: if current running operation does not match the one you want to stop, StopOperation does nothing.
 It could happen if you start multiple operations in parallel in the same execution context:
 
 ```C#
+    var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
     var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
     var firstTask = RunMyTaskAsync();
     
