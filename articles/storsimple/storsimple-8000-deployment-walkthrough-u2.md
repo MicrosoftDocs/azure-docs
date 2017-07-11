@@ -22,7 +22,7 @@ ms.author: alkohli
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Update 3 or later. This series of tutorials includes a configuration checklist, configuration prerequisites, and detailed configuration steps for your StorSimple device.
 
-The information in these tutorials assumes that you have reviewed the safety precautions, and unpacked, racked, and cabled your StorSimple device. If you still need to perform those tasks, start with reviewing the [safety precautions](storsimple-safety.md). Follow the device-specific instructions to unpack, rack mount, and cable your device.
+The information in these tutorials assumes that you have reviewed the safety precautions, and unpacked, racked, and cabled your StorSimple device. If you still need to perform those tasks, start with reviewing the [safety precautions](storsimple-8000-safety.md). Follow the device-specific instructions to unpack, rack mount, and cable your device.
 
 * [Unpack, rack mount, and cable your 8100](storsimple-8100-hardware-installation.md)
 * [Unpack, rack mount, and cable your 8600](storsimple-8600-hardware-installation.md)
@@ -192,6 +192,6 @@ Perform the following steps in the Azure portal to create an on-demand manual ba
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
 
 ## Next steps
-* Configure a [cloud appliance](storsimple-8000-cloud-appliance-u2.md).
-* Use the [StorSimple Device Manager service](storsimple-8000-manager-service-administration.md) to manage your StorSimple device.
+* [Configure a StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
+* [Use the StorSimple Device Manager service to manage your StorSimple device](storsimple-8000-manager-service-administration.md).
 
