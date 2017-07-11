@@ -62,10 +62,21 @@ This article lists the Log Analytics queries that you can use to monitor Azure H
 
         (Type=metrics_resourcemanager_queue_root_CL) |measure max(AppsKilled_d) as AppsKilled by ClusterName_s interval 1HOUR 
 
-## Queries for cluster logs
+## Queries related to Spark clusters
 
-        
+* Query the overall memory usage.
 
+        (TimeGenerated>NOW-12hour) Type = log_sparkappsdriver_metrics_CL jvm "total.used" | measure avg(Value_d) by ClusterName_s interval 1minute
+
+* Query the number of tasks running in Executors.
+
+        (TimeGenerated>NOW-12hour) Type = log_sparkappsdriver_metrics_CL "threadpool.activeTasks" |measure sum(Value_d) by ClusterName_s interval 1minute
+
+* Query the processing latency of Spark streaming jobs. Replace <application name> with the name of your Spark streaming application.
+
+        Type=log_sparkappsdriver_metrics_CL Source_s="<application_name>.StreamingMetrics" "streaming.lastCompletedBatch_processingDelay" | measure avg(Value_d) by Source_s interval 1minute
+
+    `streaming.lastReceivedBatch_records` and `streaming.waitingBatches` are the other two important parameters that you can use to get more data on Spark streaming applications.
 ## See also
 
 * [Working with OMS Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
