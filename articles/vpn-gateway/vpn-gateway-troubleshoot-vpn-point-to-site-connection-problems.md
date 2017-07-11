@@ -122,7 +122,6 @@ An additional certificate is required to trust the VPN gateway for your virtual 
 Extract the VPN client configuration package, and find the .cer file. To install the certificate, follow these steps:
 
 1. Open mmc.exe.
-
 2. Add the **Certificates** snap-in.
 3. Select the **Computer** account for the local computer.
 4. Right-click the **Trusted Root Certification Authorities** node. Click **All-Task** > **Import**, and browse to the .cer file you extracted from the VPN client configuration package.
