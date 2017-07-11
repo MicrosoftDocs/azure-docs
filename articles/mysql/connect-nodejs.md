@@ -305,7 +305,6 @@ function deleteData(){
 				else  console.log('Done.') 
 		});
 };
-
 ```
 
 ## Next steps
