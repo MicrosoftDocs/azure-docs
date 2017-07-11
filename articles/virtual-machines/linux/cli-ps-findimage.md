@@ -32,7 +32,7 @@ Run the [az vm image list](/cli/azure/vm/image#list) command, without the `--all
 az vm image list -o table
 ```
 
-The output includes the URN (and URN alias, in the case of popular images). You can use this value to specify an image when creating a VM.
+The output includes the URN, which is of the form *Publisher*:*Offer*:*Sku*:*Version*. You can use this value to specify an image when creating a VM with `az vm create`. For popular VM images, you can also specify the URN alias, such as *UbuntuServer*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -53,13 +53,12 @@ WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServe
 
 ## List all current images
 
-To obtain the current list of all VM images, use the `az vm image list` command with the `--all` option. This version of the command takes some time to complete:
+To obtain the current list of all VM images in Marketplace, use the `az vm image list` command with the `--all` option. This version of the command takes some time to complete:
 
 
 ```azurecli
 az vm image list --all
 ```
-
 
 If you don't specify a particular location with the `--location` option, the values for `westus` are returned by default. (Set a different default location by running `az configure --defaults location=<location>`)
 
@@ -75,10 +74,10 @@ az vm image list --all > allImages.json
 
 ## Find specific images
 
-Use `az vm image list` with additional options to restrict your search to a specific location, offer, publisher, or sku. For example, the following command displays all Debian offers in the default loation (remember that without the `--all` switch, it only searches the local cache of common images):
+Use `az vm image list` with additional options to restrict your search to a specific location, offer, publisher, or sku. For example, the following command displays all Debian offers (remember that without the `--all` switch, it only searches the local cache of common images):
 
 ```azurecli
-az vm image list --offer Debian -o table --all
+az vm image list --offer Debian  --all -o table 
 ```
 
 The output is similar to: 
@@ -91,28 +90,65 @@ Debian  credativ    8     credativ:Debian:8:8.0.201706210  8.0.201706210
 [list shortened for the example]
 ```
 
-Apply similar filters with the `--publisher` and `--sku` options. You can even perform partial matches on a filter, such as searching for `--offer Deb` to find all Debian images.
 
-If you know the location where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if you know that the publisher `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in `westeurope`:
+Apply similar filters with the `--location`, `--publisher`, and `--sku` options. You can even perform partial matches on a filter, such as searching for `--offer Deb` to find all Debian images.
 
-```azurecli 
-az vm image show -l westeurope -f debian -p credativ --sku 8 --version 8.0.201706210
+For example, the following command lists all Debian 8 SKUs in `westeurope`:
+
+```azurecli
+az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all -o table
+```
+
+
+
+## Navigate the images 
+If you want to know the images that are available in a location, you can run the `az vm image list-publishers`, `az vm image list-offers`, and  `az vm image list-skus` commands. For example, the following lists all image publishers in the West US location:
+
+```azurecli
+az vm image list-publishers --location westus -o table
 ```
 
 Output:
 
-```json
-{
-  "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westeurope/Publishers/credativ/ArtifactTypes/VMImage/Offers/debian/Skus/8/Versions/8.0.201706210",
-  "location": "westeurope",
-  "name": "8.0.201706210",
-  "osDiskImage": {
-    "operatingSystem": "Linux"
-  },
-  "plan": null,
-  "tags": null
-}
+```
+Location    Name
+----------  ----------------------------------------------------
+westus      4psa
+westus      7isolutions
+westus      a10networks
+westus      abiquo
+westus      accellion
+westus      Acronis
+westus      Acronis.Backup
+westus      actian_matrix
+westus      actifio
+westus      activeeon
+westus      adatao
+....
+```
+These lists can be quite long, so the example output preceding is just a snippet. If you notice that that Canonical is, indeed, an image publisher in the West US location, now find their offers by running `azure vm image list-offers`. Pass the location and the publisher as in the following example:
+
+```azurecli
+az vm image list-offers --location westus --publisher Canonical -o table
+```
+
+Output:
+
+```
+Location    Name
+----------  -------------------------
+westus      Ubuntu15.04Snappy
+westus      Ubuntu15.04SnappyDocker
+westus      UbunturollingSnappy
+westus      UbuntuServer
+westus      Ubuntu_Core
+westus      Ubuntu_Snappy_Core
+westus      Ubuntu_Snappy_Core_Docker
+```
+You see that in the West US region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those values, run `azure vm image list-skus` and set the location, publisher, and offer that you have discovered:
+
+```azurecli
+az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer -o table
 ```
 
 
