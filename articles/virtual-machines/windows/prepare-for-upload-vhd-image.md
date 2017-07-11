@@ -370,7 +370,7 @@ Not every role or application installed on a Windows machine supports this gener
     ![System Preparation Tool](media/prepare-for-upload-vhd-image/syspre.png)
 4. In **Shutdown Options**, select **Shutdown**.
 5. Click **OK**.
-6. When Sysprep completes, shut down the VM. Note that do not use **Restart** to shut down the VM.
+6. When Sysprep completes, shut down the VM. Do not use **Restart** to shut down the VM.
 7. Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md).
 
 
