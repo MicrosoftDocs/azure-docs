@@ -58,7 +58,7 @@ After the download completes, the image is added to the **Marketplace Management
 7. Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
 
    ```powershell
-   Add-AzureStackAzureRmEnvironment `
+   Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
    ```
