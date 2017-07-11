@@ -110,6 +110,10 @@ Follow these instructions to configure the client library:
     {
         public partial class MainWindow : Window
         {
+            Face[] faces;                   // The list of detected faces.
+            String[] faceDescriptions;      // The list of descriptions for the detected faces.
+            double resizeFactor;            // The resize factor for the displayed image.
+            
             // Replace the first parameter with your valid subscription key.
             //
             // Replace or verify the region in the second parameter.
@@ -122,10 +126,6 @@ Follow these instructions to configure the client library:
             // a free trial subscription key, you should not need to change this region.
             private readonly IFaceServiceClient faceServiceClient =
                 new FaceServiceClient("_key_", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
-
-            Face[] faces;                   // The list of detected faces.
-            String[] faceDescriptions;      // The list of descriptions for the detected faces.
-            double resizeFactor;            // The resize factor for the displayed image.
 
 
             public MainWindow()
