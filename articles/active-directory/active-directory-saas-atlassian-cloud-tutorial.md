@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 07/11/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Atlassian Cloud, you need the following items:
 
 - An Azure AD subscription
-- An Atlassian Cloud single-sign on enabled subscription
+- An Atlassian Cloud single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,10 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
 
-	In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.atlassian.net/admin/saml/edit`
+	a. In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.atlassian.net/admin/saml/edit`
+
+	b. In the **Reply URL** textbox, type a URL as: `https://id.atlassian.com/login/saml/acs`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Identifier. You get this value from Atlassian portal when you configure the SSO.
+	> You can get the exact value of the Identifier from the Atlassian Cloud SAML Configuration screen.
  
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -167,7 +169,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
      ![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 	
-11. In the Azure Portal, Click **Save** button.
+11. In the Azure portal, Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
 
@@ -261,9 +263,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD SSO configuration using the Access Panel.
 
-When you click the Atlassian Cloud tile in the Access Panel, you should get login page of Atlassian Cloud application.
+When you click the Atlassian Cloud tile in the Access Panel, you should get automatically signed-on to your Atlassian Cloud application. 
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
