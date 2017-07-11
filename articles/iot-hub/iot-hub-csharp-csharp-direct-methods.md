@@ -170,7 +170,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 
 <!-- Images. -->
 [img-createdeviceapp]: ./media/iot-hub-csharp-csharp-direct-methods/create-device-app.png
-[img-clientnuget]: ./media/iot-hub-csharp-csharp-direct-methods/client-app-nuget.png
+[img-clientnuget]: ./media/iot-hub-csharp-csharp-direct-methods/device-app-nuget.png
 [img-createserviceapp]: ./media/iot-hub-csharp-csharp-direct-methods/create-service-app.png
 [img-servicenuget]: ./media/iot-hub-csharp-csharp-direct-methods/service-app-nuget.png
 [img-deviceapprun]: ./media/iot-hub-csharp-csharp-direct-methods/run-device-app.png
