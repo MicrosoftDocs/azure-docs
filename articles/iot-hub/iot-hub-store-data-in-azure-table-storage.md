@@ -38,7 +38,7 @@ You learn how to create an Azure storage account and an Azure function app to st
 
 - [Set up your device](iot-hub-raspberry-pi-kit-node-get-started.md) to cover the following requirements:
   - An active Azure subscription
-  - An Iot hub under your subscription 
+  - An IoT hub under your subscription 
   - A running application that sends messages to your IoT hub
 
 ## Create an Azure storage account
@@ -47,7 +47,7 @@ You learn how to create an Azure storage account and an Azure function app to st
 
 2. Enter the necessary information for the storage account:
 
-   ![Create a storage account in the Azure Portal](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
+   ![Create a storage account in the Azure portal](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
 
    * **Name**: The name of the storage account. The name must be globally unique.
 
@@ -153,7 +153,7 @@ IoT hub exposes a built-in event hub-compatible endpoint to enable applications 
 
    b. Enter the necessary information.
 
-      * **Table parameter name**: Use `outputTable`, which will be used in the Azure Function code.
+      * **Table parameter name**: Use `outputTable`, which will be used in the Azure function's code.
       
       * **Table name**: Use `deviceData`.
 
