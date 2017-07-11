@@ -126,6 +126,7 @@ Follow these instructions to configure the client library:
             Face[] faces;                   // The list of detected faces.
             String[] faceDescriptions;      // The list of descriptions for the detected faces.
             double resizeFactor;            // The resize factor for the displayed image.
+            
             public MainWindow()
             {
                 InitializeComponent();
@@ -159,7 +160,7 @@ Follow these instructions to configure the client library:
 
                 FacePhoto.Source = bitmapSource;
             }
-            
+
             // Displays the face description when the mouse is over a face rectangle.
 
             private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
