@@ -258,7 +258,7 @@ Now that your code is synchronized with a VSTS source repository, you can config
    Once the configuration is completed, your container is deployed to Service Fabric. Whenever you push updates to the repository a new build and release is executed.
    
    >[!NOTE]
-   >Building the container images take approx. 15 minutes.
+   >Building the container images take approximately 15 minutes.
    >The first deployment to the Service Fabric cluster causes the base Windows Server Core container images to be downloaded. The download takes additional 5-10 minutes to complete.
 
 7. Browse to the Fabrikam Call Center application using the url of your cluster: for example, *http://mycluster.westeurope.cloudapp.azure.com*
