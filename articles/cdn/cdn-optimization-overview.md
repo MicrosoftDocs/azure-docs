@@ -30,11 +30,15 @@ This article provides an overview of various optimization features and when you 
 ## Provider options
 
 The Azure Content Delivery Network from Akamai supports:
+
 * General web delivery 
 
-* General media streaming 
-* Video-on-demand media streaming 
-* Large file download 
+* General media streaming
+
+* Video-on-demand media streaming
+
+* Large file download
+
 * Dynamic site acceleration 
 
 The Azure Content Delivery Network from Verizon supports general web delivery only. It can be used for video on demand and large file download. You don't have to select an optimization type.
@@ -69,18 +73,18 @@ You can optimize the content delivery network endpoint for one of the following 
 
 These five scenarios are explained in the following sections. 
 
-### General web delivery optimization
+### General web delivery
 
-General web delivery is the most common option. It's designed for general web content optimization, such as web pages and web applications. This optimization also can be used for file and video downloads.
+General web delivery is the most common optimization option. It's designed for general web content optimization, such as web pages and web applications. This optimization also can be used for file and video downloads.
 
 A typical website contains static and dynamic content. Static content includes images, JavaScript libraries, and style sheets that can be cached and delivered to different users. Dynamic content is personalized for an individual user, such as news items that are tailored to a user profile. Dynamic content isn't cached because it's unique to each user, such as shopping cart contents. General web delivery can optimize your entire website. 
 
 > [!NOTE]
 > If you use the Azure Content Delivery Network from Akamai, you might want to use this optimization if your average file size is smaller than 10 MB. If your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list box.
 
-### General media streaming optimization
+### General media streaming
 
-If you need to use the endpoint for live streaming and video-on-demand streaming, we recommend general media streaming.
+If you need to use the endpoint for live streaming and video-on-demand streaming, we recommend general media streaming optimization.
 
 Media streaming is time sensitive, because packets that arrive late on the client can cause a degraded viewing experience, such as frequent buffering of video content. Media streaming optimization reduces the latency of media content delivery and provides a smooth streaming experience for users. 
 
@@ -90,7 +94,7 @@ The Azure Content Delivery Network from Verizon uses the general web delivery op
 
 To learn more about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
-### Video-on-demand media streaming optimization
+### Video-on-demand media streaming
 
 Video-on-demand media streaming optimization improves video-on-demand streaming content. If you use an endpoint for video-on-demand streaming, you might want to use this option.
 
@@ -99,9 +103,9 @@ The Azure Content Delivery Network from Verizon uses the general web delivery op
 To learn more about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
-> Use this optimization type if the endpoint primarily serves video-on-demand content. The major difference between this optimization and the general media streaming optimization is the connection retry time-out. The time-out is much shorter to work with live streaming scenarios.
+> If the endpoint primarily serves video-on-demand content, use this optimization type. The major difference between this optimization and the general media streaming optimization is the connection retry time-out. The time-out is much shorter to work with live streaming scenarios.
 
-### Large file download optimization
+### Large file download
 
 If you use the Azure Content Delivery Network from Akamai, you must use this optimization to deliver files larger than 1.8 GB. The Azure Content Delivery Network from Verizon doesn't have a limitation on file download size in its general web delivery optimization.
 

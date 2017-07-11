@@ -24,7 +24,7 @@ Delivery of large files has several challenges. First, the average time to downl
 
 Second, the latency between a user's machine and the file determines the speed at which they can view content. In addition, network congestion and capacity problems also affect throughput. Greater distances between servers and users create additional opportunities for packet loss to occur, which reduces quality. The reduction in quality caused by limited throughput and increased packet loss might increase the wait time for a file download to complete. 
 
-Third, many large files are not delivered in their entirety. Users might cancel a download halfway through or watch only the first few minutes of a long MP4 video. Therefore, software and media delivery companies want to deliver only the portion of a file that's requested. Because the requested portions are efficiently distributed to the farthest reaches of the Internet, the egress traffic is reduced from the origin server. Efficient distribution reduces the memory and I/O pressure on the origin server. 
+Third, many large files are not delivered in their entirety. Users might cancel a download halfway through or watch only the first few minutes of a long MP4 video. Therefore, software and media delivery companies want to deliver only the portion of a file that's requested. Efficient distribution of the requested portions reduces the egress traffic from the origin server. Efficient distribution also reduces the memory and I/O pressure on the origin server. 
 
 The Azure Content Delivery Network from Akamai now offers a feature that delivers large files efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the Standard Akamai pricing tier.
 
@@ -51,7 +51,7 @@ Large file optimization is effective when certain conditions are satisfied. Cond
 
 ### Object chunking 
 
-The Azure Content Delivery Network from Akamai uses a technique called object chunking. When a large file is requested, the content delivery network retrieves smaller pieces of the file from the origin. After the content delivery network edge/POP server receives a full or byte-range file request, it checks whether the file type is supported for this optimization. It also checks whether the file type meets the file size requirements. If the file size is greater than 10 MB, the content delivery network edge server requests the file from the origin server in chunks of 2 MB. 
+The Azure Content Delivery Network from Akamai uses a technique called object chunking. When a large file is requested, the content delivery network retrieves smaller pieces of the file from the origin. After the content delivery network edge/POP server receives a full or byte-range file request, it checks whether the file type is supported for this optimization. It also checks whether the file type meets the file size requirements. If the file size is greater than 10 MB, the content delivery network edge server requests the file from the origin in chunks of 2 MB. 
 
 After the chunk arrives at the content delivery network edge, it's cached and immediately served to the user. The content delivery network then prefetches the next chunk in parallel. This prefetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file is downloaded (if requested), all byte ranges are available (if requested), or the client terminates the connection. 
 

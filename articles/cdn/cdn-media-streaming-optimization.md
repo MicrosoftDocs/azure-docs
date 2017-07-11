@@ -28,7 +28,7 @@ The Azure Content Delivery Network from Akamai now offers a feature that deliver
 
 The Azure Content Delivery Network from Verizon delivers streaming media directly in the general web delivery optimization type.
  
-## Configure a content delivery network endpoint to optimize delivery of media streaming in the Azure Content Delivery Network from Akamai
+## Configure an endpoint to optimize media streaming in the Azure Content Delivery Network from Akamai
  
 You can configure your content delivery network endpoint to optimize delivery for large files via the Azure portal. You can also use our REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal.
 
@@ -44,7 +44,7 @@ After you create the endpoint, it applies the optimization for all files that ma
  
 ## Media streaming optimizations for the Azure Content Delivery Network from Akamai
  
-Media streaming optimization from Akamai is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This delivery process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [Large file optimization](cdn-large-file-optimization.md).
+Media streaming optimization from Akamai is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [Large file optimization](cdn-large-file-optimization.md).
 
 
 The general media delivery or video-on-demand media delivery optimization types use a content delivery network with back-end optimizations to deliver media assets faster. They also use configurations for media assets based on best practices learned over time.
@@ -92,5 +92,5 @@ This feature allows the content delivery network to serve partially cached conte
 
 ### Cache fill wait time
 
- This feature forces the edge server to hold any subsequent requests for the same resource until HTTP response headers arrive from the origin server. If HTTP response headers from the origin server arrive before the timer expires, all requests that were put on hold are served out of the growing cache. At the same time, the cache is filled by data from the origin. By default, the cache fill wait time is set to 3,000 milliseconds. 
+ This feature forces the edge server to hold any subsequent requests for the same resource until HTTP response headers arrive from the origin server. If HTTP response headers from the origin  arrive before the timer expires, all requests that were put on hold are served out of the growing cache. At the same time, the cache is filled by data from the origin. By default, the cache fill wait time is set to 3,000 milliseconds. 
 
