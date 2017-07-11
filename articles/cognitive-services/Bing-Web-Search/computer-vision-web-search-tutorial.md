@@ -103,7 +103,7 @@ Now that the sample is up and running, let's jump in and explore exactly how it 
 
 ### Add Keys Page
 The Add Keys Page is where the user inputs their Azure API keys so that the Cognitive Services endpoints can be accessed later. The UI for this page is defined in *AddKeysPage.xaml*, and its primary logic is defined in *AddKeysPage.xaml.cs*.  While the specific parameters of our test requests are discussed later, this is a great place to establish the basic structure for how the Azure endpoints can be reached from a C# codebase.  Throughout this sample, the basic structure of this interaction is as follows: 
-1) Establish the URI for each endpoint in a reusable location, and attach to it the specific parameters you want to send
+1) Establish the URI for each endpoint in a reusable location, and attach the specific parameters you want to send
 2) Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
 3) Attach any desired headers (defined in each endpoint's API reference) to your HttpClient object
 5) Send a POST or GET request with your data
