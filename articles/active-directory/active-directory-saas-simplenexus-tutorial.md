@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/tutorial_simplenexus_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://simplenexus.com/<companyname>/login`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://simplenexus.com/<companyname>_login`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://simplenexus.com/<companyname>`
 
