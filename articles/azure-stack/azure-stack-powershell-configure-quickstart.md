@@ -70,12 +70,12 @@ Import-Module `
   .\Connect\AzureStack.Connect.psm1
 
 # Configure the cloud administrator’s PowerShell environment.
-Add-AzureStackAzureRmEnvironment `
+Add-AzureRMEnvironment `
   -Name "AzureStackAdmin" `
   -ArmEndpoint https://adminmanagement.local.azurestack.external
 
-$TenantID = Get-DirectoryTenantID `
-  -AADTenantName <mydirectorytenant>.onmicrosoft.com `
+$TenantID = Get-AzsDirectoryTenantId `
+  -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
   -EnvironmentName AzureStackAdmin
 
 # Sign-in to the administrative portal.

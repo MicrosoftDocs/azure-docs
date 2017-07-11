@@ -3,8 +3,8 @@ title: Troubleshoot Azure Point-to-Site connection problems| Microsoft Docs
 description: Learn how to troubleshoot Point-to-Site connection problems.
 services: vpn-gateway
 documentationcenter: na
-author: genlin
-manager: willchen
+author: chadmath
+manager: cshepard
 editor: ''
 tags: ''
 
