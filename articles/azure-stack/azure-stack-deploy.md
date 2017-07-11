@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: erikje
 
 ---
@@ -117,6 +117,19 @@ Azure Stack requires access to the Internet, either directly or through a transp
 
 ### Telemetry
 To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
+
+If you don’t to want provide telemetry for Azure Stack, you can turn it off on the development kit host. 
+
+>[!NOTE]
+If you want to turn off telemetry for Azure Stack, you must do so before you run the deployment script.
+
+To turn off telemetry for Azure Stack, follow these steps:
+
+1. Before running the deployment script, open Registry Editor on the development kit host and navigate to the following key:
+    Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection
+2. Double-click the **AllowTelemetry** key > change the **Value data** to 0 > click **OK**. This setting turns off telemetry for both Windows and Azure Stack deployment. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur. Only critical security events from the operating system are sent.
+
+For more information, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
 
 ## Next steps
 [Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
