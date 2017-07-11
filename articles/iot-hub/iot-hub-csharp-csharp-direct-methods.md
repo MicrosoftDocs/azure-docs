@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 07/10/2017
 ms.author: dkshir
 
 ---
@@ -23,7 +23,7 @@ ms.author: dkshir
 In this tutorial, we are going to develop two .NET console apps:
 
 * **CallMethodOnDevice**, a back-end app, which calls a method in the simulated device app and displays the response.
-* **SimulatedDevice**, a console app which simulates a device connecting to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
+* **SimulateDeviceMethods**, a console app which simulates a device connecting to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
@@ -42,59 +42,61 @@ To complete this tutorial, you need:
 ## Create a simulated device app
 In this section, you create a .NET console app that responds to a method called by the solution back end.
 
-1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateDeviceMethods**.
    
-    ```
-    npm init
-    ```
-2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
+    ![New Visual C# Windows Classic device app][img-createdeviceapp]
+    
+1. In Solution Explorer, right-click the **SimulateDeviceMethods** project, and then click **Manage NuGet Packages...**.
+1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
    
-    ```
-        npm install azure-iot-device azure-iot-device-mqtt --save
-    ```
-3. Using a text editor, create a file in the **simulateddevice** folder and name it **SimulatedDevice.js**.
-4. Add the following `require` statements at the start of the **SimulatedDevice.js** file:
+    ![NuGet Package Manager window Client app][img-clientnuget]
+1. Add the following `using` statements at the top of the **Program.cs** file:
    
-    ```
-    'use strict';
+        using Microsoft.Azure.Devices.Client;
+        using Microsoft.Azure.Devices.Shared;
+
+1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
    
-    var Mqtt = require('azure-iot-device-mqtt').Mqtt;
-    var DeviceClient = require('azure-iot-device').Client;
-    ```
-5. Add a **connectionString** variable and use it to create a **DeviceClient** instance. Replace **{device connection string}** with the device connection string you generated in the *Create a device identity* section:
-   
-    ```
-    var connectionString = '{device connection string}';
-    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
-    ```
-6. Add the following function to implement the direct method on the device:
-   
-    ```
-    function onWriteLine(request, response) {
-        console.log(request.payload);
-   
-        response.send(200, 'Input was written to log.', function(err) {
-            if(err) {
-                console.error('An error occurred when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
-            }
-        });
-    }
-    ```
-7. Open the connection to your IoT hub and initialize the method listener:
-   
-    ```
-    client.open(function(err) {
-        if (err) {
-            console.error('could not open IotHub client');
-        }  else {
-            console.log('client opened');
-            client.onDeviceMethod('writeLine', onWriteLine);
+        static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+        static DeviceClient Client = null;
+
+1. Add the following to implement the direct method on the device:
+
+        static Task<MethodResponse> WriteLineToConsole(MethodRequest methodRequest, object userContext)
+        {
+            Console.WriteLine();
+            Console.WriteLine("\t{0}", methodRequest.DataAsJson);
+            Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
+
+            string result = "'Input was written to log.'";
+            return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
         }
-    });
-    ```
-8. Save and close the **SimulatedDevice.js** file.
+
+1. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
+   
+        try
+        {
+            Console.WriteLine("Connecting to hub");
+            Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
+
+            // setup callback for "writeLine" method
+            Client.SetMethodHandlerAsync("writeLine", WriteLineToConsole, null).Wait();
+            Console.WriteLine("Waiting for direct method call\n Press enter to exit.");
+            Console.ReadLine();
+
+            Console.WriteLine("Exiting...");
+
+            // as a good practice, remove the "writeLine" handler
+            Client.SetMethodHandlerAsync("writeLine", null, null).Wait();
+            Client.CloseAsync().Wait();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Error in sample: {0}", ex.Message);
+        }
+        
+1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **SimulateDeviceMethods** project in the dropdown menu.        
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
@@ -106,11 +108,11 @@ In this section, you create a .NET console app that calls a method in the simula
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CallMethodOnDevice**.
    
-    ![New Visual C# Windows Classic Desktop project][10]
+    ![New Visual C# Windows Classic Desktop project][img-createserviceapp]
 2. In Solution Explorer, right-click the **CallMethodOnDevice** project, and then click **Manage NuGet Packages...**.
 3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
    
-    ![NuGet Package Manager window][11]
+    ![NuGet Package Manager window][img-servicenuget]
 
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
@@ -141,24 +143,20 @@ In this section, you create a .NET console app that calls a method in the simula
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
 
+1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **CallMethodOnDevice** project in the dropdown menu.
+
 ## Run the applications
 You are now ready to run the applications.
 
-1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **CallMethodOnDevice** project in the dropdown menu.
+1. Run the .NET device app **SimulateDeviceMethods**. It should start listening for method calls from your IoT Hub: 
 
-2. At a command prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
+    ![Device app run][img-deviceapprun]
+1. Now that the device is connected and waiting for method invocations, run the .NET **CallMethodOnDevice** app to invoke the method in the simulated device app. You should see the device response written in the console.
    
-    ```
-    node SimulatedDevice.js
-    ```
-   Wait for the simulated device to open:
-    ![][7]
-3. Now that the device is connected and waiting for method invocations, run the .NET **CallMethodOnDevice** app to invoke the method in the simulated device app. You should see the device response written in the console.
+    ![Service app run][img-serviceapprun]
+1. The device then reacts to the method by printing this message:
    
-    ![][8]
-4. The device then reacts to the method by printing this message:
-   
-    ![][9]
+    ![Direct method invoked on the device][img-directmethodinvoked]
 
 ## Next steps
 In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to react to methods invoked by the cloud. You also created an app that invokes methods on the device and displays the response from the device. 
@@ -171,28 +169,23 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
 <!-- Images. -->
-[7]: ./media/iot-hub-csharp-node-direct-methods/run-simulated-device.png
-[8]: ./media/iot-hub-csharp-node-direct-methods/netserviceapp.png
-[9]: ./media/iot-hub-csharp-node-direct-methods/methods-output.png
-
-[10]: ./media/iot-hub-csharp-node-direct-methods/direct-methods-csharp1.png
-[11]: ./media/iot-hub-csharp-node-direct-methods/direct-methods-csharp2.png
+[img-createdeviceapp]: ./media/iot-hub-csharp-csharp-direct-methods/create-device-app.png
+[img-clientnuget]: ./media/iot-hub-csharp-csharp-direct-methods/client-app-nuget.png
+[img-createserviceapp]: ./media/iot-hub-csharp-csharp-direct-methods/create-service-app.png
+[img-servicenuget]: ./media/iot-hub-csharp-csharp-direct-methods/service-app-nuget.png
+[img-deviceapprun]: ./media/iot-hub-csharp-csharp-direct-methods/run-device-app.png
+[img-serviceapprun]: ./media/iot-hub-csharp-csharp-direct-methods/run-service-app.png
+[img-directmethodinvoked]: ./media/iot-hub-csharp-csharp-direct-methods/direct-method-invoked.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
+[lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-devguide-methods]: iot-hub-devguide-direct-methods.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Get started with IoT Hub]: iot-hub-node-node-getstarted.md
