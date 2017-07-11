@@ -52,7 +52,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
     e. **Use managed registry**: Select yes to have ACR automatically manage the registry storage, use webhooks, and use AAD authentication.
 
-    d. **Pricing Tier**: Select a pricing tier, see here ACR pricing for more information.
+    f. **Pricing Tier**: Select a pricing tier, see here ACR pricing for more information.
 
 
 ## Log in to ACR instance

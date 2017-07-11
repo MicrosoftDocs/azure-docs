@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: nepeters
 ms.custom: na
 ---
@@ -34,7 +34,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *westcentralus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westcentralus
