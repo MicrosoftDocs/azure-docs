@@ -18,7 +18,7 @@ ms.author: v-semcev
 ---
 # Media streaming optimization via the Azure Content Delivery Network 
  
-Use of high-definition video is increasing on the Internet, which creates difficulties for efficient delivery of very large files. Customers expect smooth playback of video on demand or live video assets on a variety of networks and clients all over the world. A fast and efficient delivery mechanism for media streaming files is critical to ensure a smooth and enjoyable consumer experience.  
+Use of high-definition video is increasing on the Internet, which creates difficulties for efficient delivery of large files. Customers expect smooth playback of video on demand or live video assets on a variety of networks and clients all over the world. A fast and efficient delivery mechanism for media streaming files is critical to ensure a smooth and enjoyable consumer experience.  
 
 Live streaming media is especially difficult to deliver because of the large sizes and number of concurrent viewers. Long delays cause users to leave. Because live streams can't be cached ahead of time and large latencies aren't acceptable to viewers, video fragments must be delivered in a timely manner. 
 
@@ -26,13 +26,13 @@ The request patterns of streaming also provide some new challenges. When a popul
  
 The Azure Content Delivery Network from Akamai now offers a feature that delivers streaming media assets efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the Standard Akamai pricing tier. 
 
-The Azure Content Delivery Network from Verizon can deliver streaming media directly in the general web delivery optimization type.
+The Azure Content Delivery Network from Verizon delivers streaming media directly in the general web delivery optimization type.
  
 ## Configure a content delivery network endpoint to optimize delivery of media streaming in the Azure Content Delivery Network from Akamai
  
 You can configure your content delivery network endpoint to optimize delivery for large files via the Azure portal. You can also use our REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal.
 
-1. To add a new endpoint, on the **CDN profile** page, select **+Endpoint**.
+1. To add a new endpoint, on the **CDN profile** page, select **Endpoint**.
   
     ![New endpoint](./media/cdn-media-streaming-optimization/01_Adding.png)
 
@@ -63,7 +63,7 @@ Caching: Negative <br> HTTP 204, 305, 404, <br> and 405 | None | 1 second | 1 se
  
 ### Deal with origin failure  
 
-General media delivery and video-on-demand media delivery also have origin timeout and a retry log based on best practices for typical request patterns. For example, because general media delivery is for live and video-on-demand media delivery, it uses a shorter connection timeout due to the time-sensitive nature of live streaming.
+General media delivery and video-on-demand media delivery also have origin time-out and a retry log based on best practices for typical request patterns. For example, because general media delivery is for live and video-on-demand media delivery, it uses a shorter connection time-out due to the time-sensitive nature of live streaming.
 
 When a connection times out, the content delivery network retries a number of times before it sends a "504 - Gateway Timeout" error to the client. 
 
