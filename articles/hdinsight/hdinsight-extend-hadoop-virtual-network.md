@@ -218,7 +218,7 @@ If you plan on using **network security groups** or **user-defined routes** to c
 
 For more information on network security groups or user-defined routes, see the following documentation:
 
-* [Network security group](../virtual-network/virtual-networks-nsg.md) documentation.
+* [Network security group](../virtual-network/virtual-networks-nsg.md)
 
 * [User-defined routes](../virtual-network/virtual-networks-udr-overview.md)
 
