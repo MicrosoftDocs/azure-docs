@@ -16,7 +16,7 @@ ms.workload: NA
 ms.date: 07/06/2017
 ms.author: subramar
 ---
-# Compose application support in Azure Service Fabric (Preview)
+# Docker Compose application support in Azure Service Fabric (Preview)
 
 Docker uses the [docker-compose.yml](https://docs.docker.com/compose) file for defining multi-container applications. To make it easy for customers familiar with Docker to orchestrate existing container applications on Azure Service Fabric, we have included preview support for Docker Compose natively in the platform. Service Fabric can accept version 3 and later of `docker-compose.yml` files. 
 
@@ -25,7 +25,7 @@ Because this support is in preview, only a subset of Compose directives is suppo
 To use this preview, create your cluster with the preview SDK (version 255.255.x.x) through the Azure portal. 
 
 > [!NOTE]
-> This feature is in preview and not supported.
+> This feature is in preview and is not supported.
 
 ## Deploy a Docker Compose file on Service Fabric
 
