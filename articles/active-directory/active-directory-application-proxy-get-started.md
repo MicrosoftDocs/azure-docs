@@ -82,7 +82,7 @@ Setting up Application Proxy is accomplished in two steps:
 There's a lot more you can do with Application Proxy:
 
 * [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-* [Working with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md) 
+* [Working with existing on-premises Proxy servers](application-proxy-working-with-proxy-servers.md) 
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 * [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
 * [Enable conditional access](active-directory-application-proxy-conditional-access.md)

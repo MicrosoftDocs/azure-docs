@@ -202,7 +202,7 @@ To create a scale set using an Azure template, make sure the API version of the 
     }
 }
 ```
-Example template: [azuredeploypip.json](https://github.com/gbowerman/azure-myriad/blob/master/preview/network/azuredeploypip.json)
+Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using CLI 2.0, use the _az vmss list-instance-public-ips_ command.
