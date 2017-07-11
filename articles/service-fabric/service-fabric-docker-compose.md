@@ -78,14 +78,14 @@ This preview supports a subset of the configuration options from the Compose ver
 * Services > Deploy > replicas
 * Services > Deploy > Placement > Constraints
 * Services > Deploy > Resources > Limits
-*         -cpu-shares
-*         -memory
-*         -memory-swap
+    * -cpu-shares
+    * -memory
+    * -memory-swap
 * Services > Commands
 * Services > Environment
 * Services > Ports
 * Services > image
-* Services > Isolation (only for windows)
+* Services > Isolation (only for Windows)
 * Services > logging > driver
 * Services > logging > driver > options
 * Volume & Deploy > Volume
