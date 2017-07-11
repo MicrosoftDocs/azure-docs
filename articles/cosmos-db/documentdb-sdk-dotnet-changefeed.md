@@ -3,7 +3,7 @@ title: Azure DocumentDB .NET Change Feed Processor SDK & Resources | Microsoft D
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET Change Feed Processor SDK.
 services: cosmosdb
 documentationcenter: .net
-author: ealsur
+author: maquaran
 manager: kirillg
 editor: mimig1
 
