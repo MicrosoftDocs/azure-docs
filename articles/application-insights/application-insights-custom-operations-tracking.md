@@ -127,7 +127,7 @@ HTTP Correlation protocol also declares `Correlation-Context` header, however it
 For the HTTP communication, we have created a protocol to pass correlation details. Some queues protocols allow you to pass additional metadata along with the message and others do not.
 
 ### Service Bus Queue
-[ServiceBus Queue](../azure/service-bus-messaging/) allows you to pass property bag along with the message and we use it to pass correlation id.
+[ServiceBus Queue](../service-bus-messaging/index.md) allows you to pass property bag along with the message and we use it to pass correlation id.
 
 ServiceBus Queue uses TCP-based protocols. Application Insights does not automatically track queue operations, so we track them manually. Dequeue operation is a push-style API and we are not able to track it at all.
 
@@ -204,10 +204,10 @@ public async Task Process(BrokeredMessage message)
 ```
 
 ### Azure Storage Queue
-The following example shows how to track [Azure Storage Queue](../storage/storage-dotnet-how-to-use-queues) operations and correlate telemetry between producer, consumer, and Azure Storage. 
+The following example shows how to track [Azure Storage Queue](../storage/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between producer, consumer, and Azure Storage. 
 
 Azure Storage Queue has HTTP API and all calls to the queue are tracked by ApplicationInsights DependencyCollector for HTTP requests.
-Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in the `applicationInsights.config` or add it programmatically as described [here](../application-insights/app-insights-api-filtering-sampling).
+Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in the `applicationInsights.config` or add it programmatically as described [here](app-insights-api-filtering-sampling.md).
 
 If you configure ApplicationInsights manually, make sure you create and initialize `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` similarly to:
  
@@ -222,7 +222,7 @@ module.Initialize(TelemetryConfiguration.Active);
 // do not forget to dispose module during application shutdown
 ```
 
-You may also want to correlate ApplicationInsights operation Id with Azure Storage RequestId. Check [this article](../storage/storage-monitoring-diagnosing-troubleshooting#end-to-end-tracing) on how to set and get storage request client and server request Id.
+You may also want to correlate ApplicationInsights operation Id with Azure Storage RequestId. Check [this article](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing) on how to set and get storage request client and server request Id.
 
 #### Enqueue
 Since Azure Storage Queues support HTTP API, all operations with the queue are automatically tracked by ApplicationInsights. In many cases, this instrumentation should be enough.
