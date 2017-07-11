@@ -433,9 +433,9 @@ Please go through the FAQ section below as it covers the most common questions c
 
 ## Frequently asked questions
 
-**Can I copy Azure Files using the Azure Import/Export service?**
+**Can I copy Azure File Storage using the Azure Import/Export service?**
 
-No, the Azure Import/Export service only supports Block Blobs and Page Blobs. All other storage types including Azure Files, Tables, and Queues are not supported.
+No, the Azure Import/Export service only supports Block Blobs and Page Blobs. All other storage types including Azure File Storage, Table Storage, and Queue Storage are not supported.
 
 **Is the Azure Import/Export service available for CSP subscriptions?**
 

@@ -1,6 +1,6 @@
 ---
 title: Create a line-of-business Azure app with AD FS authentication | Microsoft Docs
-description: Learn how to create a line-of-business app in Azure App Service that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS.
+description: Learn how to create a line-of-business app in Azure App Service that authenticates with on-premises STS. This tutorial targets AD FS as the on-premises STS.
 services: app-service\web
 documentationcenter: .net
 author: cephalin
@@ -130,7 +130,7 @@ Here, you publish the application to a web app in App Service Web Apps while pre
 2. Select **Microsoft Azure App Service**.
 3. If you haven't signed in to Azure, click **Sign In** and use the Microsoft account for your Azure subscription to sign in.
 4. Once signed in, click **New** to create a web app.
-5. Fill in all required fields. You are going to connect to on-premise data later, so don't create a database for this web app.
+5. Fill in all required fields. You are going to connect to on-premises data later, so don't create a database for this web app.
    
     ![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
 6. Click **Create**. Once the web app is created, the Publish Web dialog is opened.
@@ -349,9 +349,9 @@ Since you have included group memberships as role claims in your RP trust config
 <a name="bkmk_data"></a>
 
 ## Connect to on-premises data
-A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your web app in Azure must access on-premise databases, since you are not allowed to use [SQL Database](/services/sql-database/) as the data tier for your web apps.
+A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your web app in Azure must access on-premises databases, since you are not allowed to use [SQL Database](/services/sql-database/) as the data tier for your web apps.
 
-Azure App Service Web Apps supports accessing on-premise databases with two approaches: [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Virtual Networks](web-sites-integrate-with-vnet.md). For more information, see [Using VNET integration and Hybrid connections with Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Azure App Service Web Apps supports accessing on-premises databases with two approaches: [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Virtual Networks](web-sites-integrate-with-vnet.md). For more information, see [Using VNET integration and Hybrid connections with Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 
