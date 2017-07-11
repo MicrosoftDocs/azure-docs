@@ -36,11 +36,13 @@ To complete this tutorial:
 
 ## Create a local .NET Core application ##
 
-Start a new terminal session. Create a directory named `hellodotnetcore`, and change the current directory to it. Then type `dotnew new web`. The following example creates a project named `hellodotnetcore`.
+Start a new terminal session. Create a directory named `hellodotnetcore`, and change the current directory to it. Then type the following: 
 
-  ![Creating a .NET Core app][3]
+```
+dotnew new web
+``` 
 
-  The previous command creates three files (*hellodotnetcore.csproj*, *Program.cs*, and *Startup.cs*) and one empty folder (*wwwroot/*) under the current directory. The content of `.csproj` file is something like the following: 
+  The previous command creates three files (*hellodotnetcore.csproj*, *Program.cs*, and *Startup.cs*) and one empty folder (*wwwroot/*) under the current directory. The content of `.csproj` file should look like the following: 
 
   >[!NOTE]
   >Empty lines are omitted.
@@ -58,7 +60,7 @@ Start a new terminal session. Create a directory named `hellodotnetcore`, and ch
         </ItemGroup>
   </Project>
   ```
-To find out which operating systems and versions are supported by .NET Core, visit the [.NET Core Roadmap] (https://github.com/dotnet/core/blob/master/roadmap.md).
+To find out which operating systems and versions are supported by .NET Core, visit the [.NET Core Roadmap](https://github.com/dotnet/core/blob/master/roadmap.md).
 
 Since this app is a web application, a reference to an ASP.NET Core package was automatically added to the *hellodotnetcore.csproj* file. The version number of the package is set according to the chosen framework. This example is referencing ASP.NET Core version 1.1.2 because .NET Core 1.1 is used.
 
@@ -66,9 +68,11 @@ Since this app is a web application, a reference to an ASP.NET Core package was 
 
 Test your application locally before deploying it to cloud. So, let's build it on your local machine.
 
-First, build your .NET Core app by resolving depending on packages followed by building it. Type `dotnet restore`, then type `dotnet build`. The following screenshot shows a command line doing the two commands together:
+Build your .NET Core app by resolving depending on packages followed by building it, as shown here: 
 
-![Building your .NET Core application][4]
+```
+dotnet restore && dotnet build
+``` 
 
 Once built, run it on your local machine to confirm it works. In the previous case, you can do it by typing `dotnet bin/Debug/netcoreapp1.1/hellodotnetcore.dll` because the DLL was built under *bin/Debug/netcoreapp1.1/*. This directory structure is consistent across operating systems.
 
@@ -80,9 +84,9 @@ When the application starts, you see a message indicating the app is listening t
 
 ![Testing .NET Core application locally][5]
 
-Test it by executing cURL in another terminal session. If everything works fine, you see "Hello World!" as the result text.
+Test it by browsing to `http://localhost:5000/` with your browser. If everything works fine, you see "Hello World!" as the result text.
 
-![Executing CURL to test your application][6]
+![Test with browser][7]
 
 ## Create a .NET Core app in the Azure Portal ##
 
@@ -90,7 +94,7 @@ First you need to create an empty web app. Log in to the Azure portal at [https:
 
 ![Creating a web app][1]
 
-When the Create page opens, fill in the fields according to the following:
+When the Create page opens, you must provide details about your web app to create it:
 
 ![Choosing a .NET Core runtime stack][2]
 
@@ -149,6 +153,7 @@ Once the deployment has completed, restart your web app for the deployment to ta
 [4]: ./media/app-service-linux-using-dotnetcore/dotnet-restore-and-build.png
 [5]: ./media/app-service-linux-using-dotnetcore/dotnet-run-local.png
 [6]: ./media/app-service-linux-using-dotnetcore/dotnet-local-http.png
+[7]: ./media/app-service-linux-using-dotnetcore/dotnet-browse-local.png
 [8]: ./media/app-service-linux-using-dotnetcore/dotnet-git-push.png
 [9]: ./media/app-service-linux-using-dotnetcore/dotnet-update-startup-file.png
 [10]: ./media/app-service-linux-using-dotnetcore/dotnet-browse-azure.png
