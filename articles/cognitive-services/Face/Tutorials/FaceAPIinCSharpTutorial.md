@@ -16,7 +16,7 @@ ms.author: anroth
 
 In this tutorial, you will create a WPF Windows application that uses the Face API. The application detects faces in an image, draws a frame around each face, and displays a description of the face on the status bar.
 
-![GettingStartCSharpScreenshot](../Images/GetStartedCSharp-Detected.PNG)
+![GettingStartCSharpScreenshot](../Images/getting-started-cs-detected.png)
 
 ## <a name="Preparation"></a>Preparation
 
@@ -30,16 +30,16 @@ Before using the Face API, you must sign up to subscribe to Face API in the Micr
 
 ## <a name="step2"></a>Step 2: Create the Visual Studio Solution
 
-In this step, you create a Windows WPF application project to create a basic application to select and display an image. Follow these instructions: 
+In this step, you create a Windows WPF application project to create a basic application to select and display an image. Follow these instructions:
 
 1. Open Visual Studio.
 1. From the **File** menu, click **New**, then **Project**.
 1. Select WPF for the application in the **New Project** dialog box.
 
-   In Visual Studio 2015, expand **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows** &gt; **Classic Desktop** &gt; and select **WPF Application**. 
+   In Visual Studio 2015, expand **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows** &gt; **Classic Desktop** &gt; and select **WPF Application**.
 
    In Visual Studio 2017, expand **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows Classic Desktop** &gt; and select **WPF App (.NET Framework)**.
-1. Name the application **FaceTutorial**, then click **OK**. 
+1. Name the application **FaceTutorial**, then click **OK**.
 
    ![The New Project dialog box, with WPF Application selected](../Images/vs2017-new-project.png)
 
@@ -53,13 +53,13 @@ In this step, you create a Windows WPF application project to create a basic app
 
 Face API is a cloud API that you can invoke through HTTPS REST requests. For ease-of-use in .NET applications, a .NET client library encapsulates the Face API REST requests. In this example, we use the client library to simplify our work.
 
-Follow these instructions to configure the client library: 
+Follow these instructions to configure the client library:
 
 1. In the **Solution Explorer**, right-click your project (**FaceTutorial** in this case) and then click **Manage NuGet Packages**.
 1. In the **NuGet Package Manager** window, select **nuget.org** as your Package source.
 1. Search for **Microsoft.ProjectOxford.Face**, then **Install**. (In Visual Studio 2017, first click the **Browse** tab, then **Search**).
 
-   ![GettingStartCSharpPackageManagerSDK](../Images/install-project-oxford-face.png)  
+   ![GettingStartCSharpPackageManagerSDK](../Images/install-project-oxford-face.png)
 
 1. In **Solution Explorer**, check your project references. The references **Microsoft.ProjectOxford.Common**, **Microsoft.ProjectOxford.Face**, and **Newtonsoft.Json** are automatically added when the installation succeeds.
 
@@ -67,7 +67,7 @@ Follow these instructions to configure the client library:
 
 ## <a name="step3"></a>Step 4: Copy and paste the initial code
 
-1. Open MainWindow.xaml, and replace the existing code with the following code to create the window UI: 
+1. Open MainWindow.xaml, and replace the existing code with the following code to create the window UI:
 
     ```xml
     <Window x:Class="FaceTutorial.MainWindow"
@@ -90,7 +90,7 @@ Follow these instructions to configure the client library:
     </Window>
     ```
 
-1. Open MainWindow.xaml.cs, and replace the existing code with the following code: 
+1. Open MainWindow.xaml.cs, and replace the existing code with the following code:
 
     ```csharp
     using System;
@@ -120,7 +120,7 @@ Follow these instructions to configure the client library:
             //
             // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
             // a free trial subscription key, you should not need to change this region.
-            private readonly IFaceServiceClient faceServiceClient = 
+            private readonly IFaceServiceClient faceServiceClient =
                 new FaceServiceClient("_key_", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
 
             Face[] faces;                   // The list of detected faces.
@@ -132,6 +132,7 @@ Follow these instructions to configure the client library:
             {
                 InitializeComponent();
             }
+
 
             // Displays the image and calls Detect Faces.
 
@@ -178,17 +179,17 @@ Follow these instructions to configure the client library:
     Find this line in the MainWindow.xaml.cs file (lines 28 and 29):
 
     ```csharp
-    private readonly IFaceServiceClient faceServiceClient = 
+    private readonly IFaceServiceClient faceServiceClient =
             new FaceServiceClient("_key_", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
     ```
 
     Replace `_key_` in the first parameter with your Face API subscription key from step 1.
 
-    Also, check the second parameter to be sure you use the location where you obtained your subscription keys. If you obtained your subscription keys from the westus region, for example, replace "**westcentralus**" in the URI with "**westus**". 
+    Also, check the second parameter to be sure you use the location where you obtained your subscription keys. If you obtained your subscription keys from the westus region, for example, replace "**westcentralus**" in the URI with "**westus**".
 
     If you received your subscription keys by using the free trial, the region for your keys is **westcentralus**, so no change is required.
 
-Now your app can browse for a photo and display it in the window. 
+Now your app can browse for a photo and display it in the window.
 
 ![GettingStartCSharpUI](../Images/getting-started-cs-ui.png)
 
@@ -206,7 +207,7 @@ Insert the following code in the **MainWindow** class:
 private async Task<Face[]> UploadAndDetectFaces(string imageFilePath)
 {
     // The list of Face attributes to return.
-    IEnumerable<FaceAttributeType> faceAttributes = 
+    IEnumerable<FaceAttributeType> faceAttributes =
         new FaceAttributeType[] { FaceAttributeType.Gender, FaceAttributeType.Age, FaceAttributeType.Smile, FaceAttributeType.Emotion, FaceAttributeType.Glasses, FaceAttributeType.Hair };
 
     // Call the Face API.
@@ -237,13 +238,13 @@ private async Task<Face[]> UploadAndDetectFaces(string imageFilePath)
 
 In this step, we combine all the previous steps and mark the detected faces in the image.
 
-In **MainWindow.xaml.cs**, add the 'async' modifier to the **BrowseButton_Click** method: 
+In **MainWindow.xaml.cs**, add the 'async' modifier to the **BrowseButton_Click** method:
 
 ```csharp
 private async void BrowseButton_Click(object sender, RoutedEventArgs e)
 ```
 
-Insert the following code at the end of the **BrowseButton_Click** event handler: 
+Insert the following code at the end of the **BrowseButton_Click** event handler:
 
 ```csharp
 // Detect any faces in the image.
@@ -407,13 +408,13 @@ private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
 }
 ```
 
-Run this application and browse for an image containing a face. Wait for a few seconds to allow the cloud API to respond. After that, you will see a red rectangle on the faces in the image. By moving the mouse over the face rectangle, the description of the face appears on the status bar: 
+Run this application and browse for an image containing a face. Wait for a few seconds to allow the cloud API to respond. After that, you will see a red rectangle on the faces in the image. By moving the mouse over the face rectangle, the description of the face appears on the status bar:
 
 ![GettingStartCSharpScreenshot](../Images/getting-started-cs-detected.png)
 
 ## <a name="summary"></a> Summary
 
-In this tutorial, you have learned the basic process for using the Face API and created an application to display face marks in images. For more information about Face API details, see the How-To and [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+In this tutorial, you have learned the basic process for using the Face API and created an application to display face marks in images. For more information about Face API details, see the How-To and [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="fullsource"></a> Full source
 
@@ -423,14 +424,14 @@ MainWindow.xaml:
 
 ```xml
 <Window x:Class="FaceTutorial.MainWindow"
-         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
-         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          Title="MainWindow" Height="700" Width="960">
     <Grid x:Name="BackPanel">
         <Image x:Name="FacePhoto" Stretch="Uniform" Margin="0,0,0,50" MouseMove="FacePhoto_MouseMove" />
         <DockPanel DockPanel.Dock="Bottom">
-            <Button x:Name="BrowseButton" Width="72" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left"       
-                     Content="Browse..."                
+            <Button x:Name="BrowseButton" Width="72" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                     Content="Browse..."
                      Click="BrowseButton_Click" />
             <StatusBar VerticalAlignment="Bottom">
                 <StatusBarItem>
