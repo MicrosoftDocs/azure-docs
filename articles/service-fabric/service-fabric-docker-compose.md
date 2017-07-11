@@ -75,7 +75,7 @@ az sf compose remove  --application-id TestContainerApp [ --timeout ]
 
 This preview supports a subset of the configuration options from the Compose version 3 format, including the following primitives:
 
-* Services > Deploy > replicas
+* Services > Deploy > Replicas
 * Services > Deploy > Placement > Constraints
 * Services > Deploy > Resources > Limits
     * -cpu-shares
@@ -84,10 +84,10 @@ This preview supports a subset of the configuration options from the Compose ver
 * Services > Commands
 * Services > Environment
 * Services > Ports
-* Services > image
+* Services > Image
 * Services > Isolation (only for Windows)
-* Services > logging > driver
-* Services > logging > driver > options
+* Services > Logging > Driver
+* Services > Logging > Driver > Options
 * Volume & Deploy > Volume
 
 Set up the cluster for enforcing resource limits, as described in [Service Fabric resource governance](service-fabric-resource-governance.md). All other Docker Compose directives are unsupported for this preview.
