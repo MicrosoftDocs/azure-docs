@@ -27,26 +27,26 @@ For more information about the support policy for Azure VM, see [Microsoft serve
 > The instructions in this article apply to the 64-bit version of Windows Server 2008 R2 and later Windows server operating system. For information about running 32-bit version of operating system in Azure, see [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 
 ## Convert the virtual disk to VHD and fixed size disk 
-If you have to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you run the virtual disk conversion process and make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
+If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you run the virtual disk conversion process and make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
 
 After you convert the disk, create a VM that uses the converted disk. Start and sign in to the VM to finish preparing the VM for upload.
 
 ### Convert disk using Hyper-V Manager
 1. Open Hyper-V Manager and select your local computer on the left. In the menu above the computer list, click **Action** > **Edit Disk**.
 2. On the **Locate Virtual Hard Disk** screen, locate and select your virtual disk.
-3. On the **Choose Action** screen, select **Convert** and **Next**.
-4. If you need to convert from VHDX, select **VHD** and click **Next**
-5. If you need to convert from dynamically expanding disk, select **Fixed size** and click **Next**
+3. On the **Choose Action** screen, and then select **Convert** and **Next**.
+4. If you need to convert from VHDX, select **VHD** and then click **Next**
+5. If you need to convert from a dynamically expanding disk, select **Fixed size** and then click **Next**
 6. Locate and select a path to save the new VHD file to.
 7. Click **Finish**.
 
 >[!NOTE]
 >The commands in this article must be run on an elevated PowerShell session.
 
-### Convert disk using PowerShell
+### Convert disk by using PowerShell
 You can convert a virtual disk by using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) command in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
 
-The following example command converts from VHDX to VHD, and from a dynamically expanding disk to fixed size:
+The following example command converts from VHDX to VHD, and from a dynamically expanding disk to fixed-size:
 
 ```Powershell
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
@@ -54,7 +54,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 In this command, replace the value for "-Path" with the path to the virtual hard disk that you want to convert and the value for "-DestinationPath" with the new path and name of the converted disk.
 
 ### Convert from VMware VMDK disk format
-If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). For more information, see the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
+If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). For more information, see the blog article [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## Set Windows configurations for Azure
 
@@ -62,7 +62,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
 
 1. Remove any static persistent route on the routing table:
    
-   * To view the route table, run `route print` at the command prompt window.
+   * To view the route table, run `route print` at the command prompt.
    * Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
 2. Remove the WinHTTP proxy:
    
@@ -233,7 +233,7 @@ Make sure that the following settings are configured correctly for remote deskto
    ```PowerShell
     netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
    ``` 
-5. If the VM  will be part of a Domain, all these settings should be checked and make sure that the former settings are not reverted. The AD policies that must be checked are the following:
+5. If the VM  will be part of a Domain, check the following settings to make sure that the former settings are not reverted. The AD policies that must be checked are the following:
 
     - Enable the Windows Firewall profiles
 
@@ -260,6 +260,7 @@ Make sure that the following settings are configured correctly for remote deskto
     Chkdsk /f
     ```
     Make sure that the report shows a clean and healthy disk.
+
 2. Set the Boot Configuration Data (BCD) settings:
    
    ```PowerShell
@@ -282,7 +283,7 @@ Make sure that the following settings are configured correctly for remote deskto
     ```
     If the repository is corrupted, see [WMI: Repository Corruption, or Not](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
-4. Make sure that any other application is not using the port 3389. This port is used for the RDP service in Azure. You can run netstat -anob to see which ports are in used on the VM:
+4. Make sure that any other application is not using the port 3389. This port is used for the RDP service in Azure. You can run **netstat -anob** to see which ports are in used on the VM:
 
     ```PowerShell
     netstat -anob
@@ -300,9 +301,9 @@ Make sure that the following settings are configured correctly for remote deskto
 
 7. Restart the VM to make sure that Windows is still healthy can be reached by using the RDP connection. At this point, you may want to create a VM in your local Hyper-V to make sure the VM is starting completely and then test whether it is RDP reachable.
 
-8. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets or extra firewalls. Notice that in a later stage after you deploy the VM in Azure and you are able to reach the VM. You may want to review this item if needed.
+8. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets or extra firewalls. You can also review this on a later stage after the VM is deployed in Azure if needed.
 
-9. Uninstall any other third-party software and driver related to physical components or any other virtualization technology.
+9. Uninstall any other third-party software and driver that is related to physical components or any other virtualization technology.
 
 ### Install Windows Updates
 The ideal Windows Update configuration is to have all system update levels be current. If this is not possible, make sure that the following updates are installed:
@@ -344,9 +345,9 @@ The ideal Windows Update configuration is to have all system update levels be cu
        
 ### Run Sysprep  <a id="step23"></a>    
 
-Sysprep is a process that you could run into a windows installation that will reset the installation of the system and will provide an “Out of the box experience” by removing all personal data and resetting several components. You usually do this if you want to create a template from which you want to deploy several other machines with a specific configuration, this is called a **generalized image**.
+Sysprep is a process that you could run into a windows installation that will reset the installation of the system and will provide an “out of the box experience” by removing all personal data and resetting several components. You typically do this if you want to create a template from which you can deploy several other VMs that have a specific configuration. This is called a **generalized image**.
 
-If this is not what you want, and you just want to create one VM from one disk, you don’t need sysprep and what you need is just creating the VM from what is called a **specialized image**.
+If, instead, you want only to create one VM from one disk, you don’t have to use sysprep. In this situation, you can just create the VM from what is known as a **specialized image**.
 
 For more information about how to create a VM from a specialized disk, see:
 
@@ -355,12 +356,12 @@ For more information about how to create a VM from a specialized disk, see:
 
 If you want to create a generalized image, you need to run sysprep. For more information about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx). 
 
-Not every role or application installed on a Windows machine supports this generalization, so before proceeding with this,  refer to the following article to ensure the role that machine has is supported by sysprep, [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+Not every role or application that’s installed on a Windows-based computer supports this generalization. So before you run this procedure, refer to the following article to make sure that the role of that computer is supported by sysprep. For more information, [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
-### Steps to generalized a VHD
+### Steps to generalize a VHD
 
 >[!NOTE]
-> Once you run the **sysprep** as specify below, just shut down the VM and do not turn the VM on until you create an image from it in Azure.
+> After you run sysprep.exe as specified  in the following steps, turn off the VM, and do not turn it back on until you create an image from it in Azure.
 
 1. Sign in to the Windows VM.
 2. Run **Command Prompt** as an administrator. 
@@ -375,9 +376,9 @@ Not every role or application installed on a Windows machine supports this gener
 
 
 ## Complete recommended configurations
-The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
+The following settings do not affect VHD uploading. However, we strongly recommend that you configured them.
 
-* Install the [Azure VMs Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the agent, you can enable VM extensions. The VM extensions implement most of the critical functionality that you want to use with your VMs like resetting passwords, configuring RDP, and many others. For more information about Azure VM agent, see:
+* Install the [Azure VMs Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs such as resetting passwords, configuring RDP, and so on. For more information, see:
 
     - [VM Agent and Extensions – Part 1](https://azure.microsoft.com/en-us/blog/vm-agent-and-extensions-part-1/)
     - [VM Agent and Extensions – Part 2](https://azure.microsoft.com/en-us/blog/vm-agent-and-extensions-part-2/)
@@ -392,20 +393,19 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     New-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpType" -Value 2
     Set-Service -Name WerSvc -StartupType Manual
     ```
-    If on the former steps you got errors, it means the registry keys already existed so then proceed with the following commands instead:
+    If you receive any errors during any of the procedural steps in this article, this means that the registry keys already exists. In this situation, use the following commands instead:
 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpFolder" -Value "c:\CrashDumps"
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpCount" -Value 10
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpType" -Value 2
     ```
-* After the VM is created in Azure, to improve the performance is recommended to place the pagefile on the temporal drive. You can set up this as following:
+*  After the VM is created in Azure, we recommend that you put the pagefile on the ”Temporal drive” volume to improve performance. You can set up this as follows:
 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile"
     ```
-Note that the pagefile should be placed on the volume that is labeled as "Temporal drive". If there’s any data disk attached on the VM, the Temporal drive volume's drive letter would be "D". However, depending on the number of drives and setting that you could make, this drive letter could be different.
-
+If there’s any data disk that is attached to the VM, the Temporal drive volume's drive letter is typically "D." This designation could be different, depending on the number of available drives and the settings that you  make.
 
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
