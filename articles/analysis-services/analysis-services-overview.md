@@ -21,26 +21,37 @@ ms.author: owend
 # What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services provides enterprise-grade data modeling in the cloud. With its highly optimized data analytics engine, Analysis Services provides a semantic model layer between large, complex, and often disparate data sources. By pulling data together, you can define the relationships, the measures, and the security, creating highly customized and highly performant analytics. Clients can connect to in-memory data or near real-time operational data by using DirectQuery. With a trusted semantic model that’s easy to understand and use, and with Azure's legendary reliability, you too can enable self-service data discovery for your organization.
+Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), tightly integrated with Azure data platform services. With its highly optimized OLAP data analytics engine, Analysis Services provides a rich semantic model layer between large, complex, and often disparate data sources. By pulling data together, BI developers can define the semantic data model, creating highly customized and highly performant analytics that power rich, interactive analytics experiences in modern client tools. 
 
 ![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
 
 
-Check out this video to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities, and how you can benefit from getting your data models into the cloud.
+Check out [this video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities, and how you can benefit from getting your data models into the cloud.
 
+<!--
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
+-->
 
 ## Built on SQL Server Analysis Services
 Azure Analysis Services is compatible with the same SQL Server Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 or higher compatibility levels. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported. 
 
-Tabular models offer rapid development, highly customizable, and lightning fast queries over massive and complex datasets. Tabular includes the Tabular Object Model (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) namespace. 
+Tabular models offer rapid development, highly customizable, and lightning fast queries over massive and complex datasets. For developers, tabular models  include the Tabular Object Model (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) namespace.
 
-New features in tabular models support Detail Rows, Object-level security, ragged hierarchies, a modern Get Data experience for data connectivity, and many other enhancements. And because the underlying model metadata is the same, existing on-premises tabular model solutions can be easily migrated to the cloud.
+New features in tabular 1400 models support Detail Rows, Object-level security, ragged hierarchies, a modern Get Data experience in SSDT for data connectivity, and many other enhancements. And because the underlying model metadata is the same, existing on-premises tabular model solutions can be easily migrated to the cloud.
 
 We know how important your existing **multidimensional** model investments are. While not yet supported in Azure Analysis Services, we're working hard to bring multidimensional to the cloud. Stay tuned!
- 
+
+## Better with Azure
+Azure Analysis Services integrates with many Azure data services enabling you to build sophisticated analytics solutions.
+
+Azure Analysis Services can consume data from Azure SQL Database, Azure SQL Data Warehouse, and Azure Blob storage. You can build enterprise data warehouse solutions in Azure using a hub-and-spoke model, with the SQL data warehouse at the center and multiple BI models around it targeting different business groups or subject areas.
+
+With Azure Data Factory you can orchestrate the movement and transformation of data, a core capability in any enterprise BI/analytics solution. Azure Analysis Services can be integrated into any Azure Data Factory pipeline by including an activity that loads data into the model. Azure Automation and Azure Functions can also be used for doing lightweight orchestration of models using custom code.
+
+Azure Analysis Services is also tightly integrated with Azure Active Directory, providing secure, role based access to your critical data.
+
 ## Pricing
 Azure Analysis Services is available in Developer, Basic, and Standard tiers. Within each tier, plan costs vary according to processing power, QPUs, and memory size. When you create a server, you select a plan within a tier. You can change plans up or down within the same tier, or upgrade to a higher tier, but you cannot downgrade from a higher tier to a lower tier.
 
@@ -68,29 +79,28 @@ New regions are being added all the time, so this list might be incomplete. You 
 With Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And, with Azure Resource Manager templates and PowerShell, you can provision servers using a declarative template. With a single template, you can deploy multiple services along with other Azure components such as storage accounts.  To learn more, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md). 
 
 ## Migrate existing tabular models
-If you already have existing on-premises SQL Server Analysis Services model solutions, you can migrate to Azure Analysis Services without signficant changes. Use SSDT to deploy your model to your server
-In SSMS, you can use backup and restore or use TMSL. 
-If you have on-premises data sources, you will need to install an configure an [On-premises data gateway](analysis-services-gateway.md).
+If you already have existing on-premises SQL Server Analysis Services model solutions, you can migrate to Azure Analysis Services without signficant changes. To migrate, you can use SSDT to deploy your model to your server. Or, in SSMS, you can use backup and restore or TMSL.
+
+If you have on-premises data sources, you  need to install an configure an [On-premises data gateway](analysis-services-gateway.md). If you have roles and role members already configured, your roles will migrate, but you have to re-add role members by using SSMS or PowerShell.
 
 
 ## Data sources
-Azure Analysis Services support connecting to data sources on-premises in your organization and in the cloud. Combine data from both on-premises and cloud data sources for a hybrid solution. New tabular 1400 models use the modern Get Data feature in SSDT based on the M formula query language. With Get Data, you have more data transformation and mashup features, and the ability to create and edit your own advanced M formula language queries. For example, with tabular 1400 models, you can model on data files in Azure Blob Storage. 
+Azure Analysis Services support connecting to data sources on-premises in your organization and in the cloud. Combine data from both on-premises and cloud data sources for a hybrid solution. 
 
-When connecting to on-premises data sources, the [On-premises data gateway](analysis-services-gateway.md) ensures fast, secure connections with your server in the cloud.
+New tabular 1400 models use the modern Get Data feature in SSDT, based on the M formula query language. With Get Data, you have more data transformation and mashup features, and the ability to create and edit your own advanced M formula language queries. For example, with tabular 1400 models, you can model on data files in Azure Blob Storage.
 
-## Better with Power BI
-![Power BI](./media/analysis-services-overview/aas-overview-pbi-icon.png)
+Azure Analysis Services supports using [DirectQuery](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular) for connecting directly to Azure SQL Database, Azure SQL Data Warehouse, SQL Server, SQL Server Data Warehouse, Oracle, and Teradata relational databases.
 
-[Power BI](https://powerbi.microsoft.com) provides best-in-class data reporting and visualizations. Use Power BI to connect to Azure Analysis Services data models for ad-hoc data analysis and stunning data visualization and dashboards.
-
-Coming soon, you can leverage your Power BI Desktop data models by importing them right into Azure Analysis Services.
+To learn more, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
 
 ## Use the tools you already know
 
 ![BI developer tools](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
 #### SQL Server Data Tools (SSDT) for Visual Studio
-Develop and deploy models with the free [SQL Server Data Tools (SSDT) for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT includes Analysis Services project templates that get you up and going quickly. There's no longer any need to install a local instance of Analysis Services to host a workspace database. SSDT now includes its own integrated Analysis Services engine and database. When you're ready, deploy to your servers in Azure right from SSDT. And, SSDT is updated monthly, so you can  get started using the latest features quickly.
+Develop and deploy models with the free [SQL Server Data Tools (SSDT) for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT includes Analysis Services project templates that get you up and going quickly. SSDT now includes the modern Get Data datasource query and mashup functionality for tabular 1400 models. If you're familiar with Get Data in Power BI Desktop and Excel 2016, you already know how easy it is to create highly customized data source queries.
+
+With the new SSDT and tabular 1400 models, there's no longer any need to install a local instance of Analysis Services to host a workspace database. SSDT now includes its own integrated Analysis Services engine and database. When you're ready, deploy to your servers in Azure right from SSDT. And, SSDT is updated monthly, so you can  get started using the latest features quickly.
 
 #### Sql Server Management Studio
 Manage your servers and model databases by using [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Connect to your servers in the cloud. Run TMSL scripts right from the XMLA query window, and automate tasks by using TMSL scripts. New features and functionality happen fast - SSMS is updated monthly.
@@ -109,10 +119,18 @@ User authentication for Azure Analysis services is handled by [Azure Active Dire
 Azure Analysis Services utilizes Azure Blob storage to persist storage and metadata for Analysis Services databases. Data files within Blob are encrypted using Azure Blob Server Side Encryption (SSE). When using Direct Query mode, only metadata is stored. The actual data is accessed from the data source at query time.
 
 #### On-premises data sources
-Secure access to data residing on-premises in your organization can be achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and in-memory modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
+Secure access to data residing on-premises in your organization is achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and in-memory modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
 
 Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+
+## Client connections
+![Data visualizations](./media/analysis-services-overview/aas-overview-clients.png)
+
+Modern data exploration and visualization tools like Power BI, Excel, and other third-party tools provide end-users with highly interactive and visually rich insights into your model data.
+
+Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-providers.md) to connect to Analysis Servies servers. Microsoft client applications like Power BI Desktop and Excel install all three client libraries. But keep in-mind, depending on the version or frequency of updates, client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications typically require manually installing the libraries as part of a package.
+
 
 ## Get help
 
