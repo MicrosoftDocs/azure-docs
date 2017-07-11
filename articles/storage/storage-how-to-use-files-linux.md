@@ -31,8 +31,7 @@ ms.author: renash
     * CentOS 7+
     * Debian 8
     * openSUSE 13.2+
-    * SUSE Linux Enterprise Server 12
-    
+    * SUSE Linux Enterprise Server 12   
 
     > [!Note]  
     > Any Linux distribution that download and install or compile recent versions of the cifs-utils package can be used with Azure File storage.
