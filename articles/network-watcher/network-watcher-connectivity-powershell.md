@@ -1,5 +1,5 @@
 ---
-title: Test connectivity with Azure Network Watcher - PowerShell | Microsoft Docs
+title: Check connectivity with Azure Network Watcher - PowerShell | Microsoft Docs
 description: This page explains how to test connectivity with Network Watcher using PowerShell
 services: network-watcher
 documentationcenter: na
@@ -12,27 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 06/02/2017
+ms.date: 07/11/2017
 ms.author: gwallace
 ---
 
-# Test connectivity with Azure Network Watcher using PowerShell
+# Check connectivity with Azure Network Watcher using PowerShell
 
 > [!div class="op_single_selector"]
-> - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
 
+This article takes you through some connectivity check scenarios.
 
-This article takes you through the different types of tests that can be ran with connectivity.
-
-* [**Test virtual machine connectivity**](#test-virtual-machine-connectivity)
-* [**Test routing issues**](#test-routing-issues)
-* [**Test website latency**](#test-website-latency)
-* [**Test storage connectivity**](#test-storage-connectivity)
+* [Check connectivity to a virtual machine](#check-connectivity-to-a-virtual-machine)
+* [Validate routing issues](#validate-routing-issues)
+* [Check website latency](#check-website-latency)
+* [Check connectivity to a storage endpoint](#check-connectivity-to-a-storage-endpoint)
 
 ## Before you begin
 
@@ -43,6 +41,9 @@ This article assumes you have the following resources:
 * Virtual machines to test connectivity with.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
+> [!IMPORTANT]
+> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## Register the preview capability
 
@@ -67,9 +68,9 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
 ```
 
-## Test virtual machine connectivity
+## Check connectivity to a virtual machine
 
-This example tests connecting to a database server over port 80. Connectivity to a database server should be locked down to only ports that are required for SQL connectivity.
+This example checks connectivity to a destination virtual machine over port 80.
 
 ### Example
 
@@ -91,7 +92,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### Response
 
-The following response is from the previous example.  In this response, the `ConnectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
+The following response is from the previous example.  In this response, the `ConnectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a user-configured `NetworkSecurityRule` named **UserRule_Port80**, configured to block incoming traffic on port 80. This information can be used to research connection issues.
 
 ```
 ConnectionStatus : Unreachable
@@ -162,9 +163,9 @@ Hops             : [
                    ]
 ```
 
-## Test routing issues
+## Validate routing issues
 
-The example tests connectivity between a virtual machine and a remote endpoint.
+The example checks connectivity between a virtual machine and a remote endpoint.
 
 ### Example
 
@@ -227,7 +228,7 @@ Hops             : [
                    ]
 ```
 
-## Test website latency
+## Check website latency
 
 The following example tests the connectivity to a website.
 
@@ -280,7 +281,7 @@ Hops             : [
                    ]
 ```
 
-## Test storage connectivity
+## Check connectivity to a storage endpoint
 
 The following example tests the connectivity from a virtual machine to a blog storage account.
 
@@ -302,7 +303,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### Response
 
-The following json is the example response from running the previous cmdlet. As the test was successful, the `ConnectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
+The following json is the example response from running the previous cmdlet. As the destination is reachable, the `ConnectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```
 ConnectionStatus : Reachable

@@ -1,6 +1,6 @@
 ---
-title: Test connectivity with Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs
-description: This page explains how to test connectivity with Network Watcher using Azure CLI 2.0
+title: Check connectivity with Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs
+description: This page explains how to test connectivity check with Network Watcher using Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -12,26 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 06/02/2017
+ms.date: 07/11/2017
 ms.author: gwallace
 ---
 
-# Test connectivity with Azure Network Watcher using Azure CLI 2.0
+# Check connectivity with Azure Network Watcher using Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
 
-This article takes you through the different types of tests that can be ran with connectivity.
+This article takes you through some connectivity check scenarios.
 
-* [**Test virtual machine connectivity**](#test-virtual-machine-connectivity)
-* [**Test routing issues**](#test-routing-issues)
-* [**Test website latency**](#test-website-latency)
-* [**Test storage connectivity**](#test-storage-connectivity)
+* [Check connectivity to a virtual machine](#check-connectivity-to-a-virtual-machine)
+* [Validate routing issues](#validate-routing-issues)
+* [Check website latency](#check-website-latency)
+* [Check connectivity to a storage endpoint](#check-connectivity-to-a-storage-endpoint)
 
 ## Before you begin
 
@@ -43,9 +42,12 @@ This article assumes you have the following resources:
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
+> [!IMPORTANT]
+> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+
 ## Register the preview capability 
 
-Connectivity is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
+Connectivity check is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
 
 ```azurecli 
 az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
@@ -72,9 +74,9 @@ If the feature was properly registered, the output should match the following:
 }
 ``` 
 
-## Test virtual machine connectivity
+## Check connectivity to a virtual machine
 
-This example tests connecting to a database server over port 80. Connectivity to a database server should be locked down to only ports that are required for SQL connectivity.
+This example checks connectivity to a destination virtual machine over port 80.
 
 ### Example
 
@@ -84,7 +86,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### Response
 
-The following response is from the previous example.  In this response, the `connectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
+The following response is from the previous example.  In this response, the `ConnectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a user-configured `NetworkSecurityRule` named **UserRule_Port80**, configured to block incoming traffic on port 80. This information can be used to research connection issues.
 
 ```json
 {
@@ -153,9 +155,9 @@ Nic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## Test routing issues
+## Validate routing issues
 
-The example tests connectivity between a virtual machine and a remote endpoint.
+The example checks connectivity between a virtual machine and a remote endpoint.
 
 ### Example
 
@@ -211,7 +213,7 @@ pNic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## Test website latency
+## Check website latency
 
 The following example tests the connectivity to a website.
 
@@ -257,7 +259,7 @@ pNic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## Test storage connectivity
+## Check connectivity to a storage endpoint
 
 The following example tests the connectivity from a virtual machine to a blog storage account.
 
@@ -307,19 +309,3 @@ The following json is the example response from running the previous cmdlet. As 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
 Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
