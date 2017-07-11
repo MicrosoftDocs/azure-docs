@@ -44,7 +44,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * Tenants are able to browse the full marketplace without a subscription, and will see administrative items like plans and offers.  These items are non-functional to tenants.
 * When selecting an infrastructure role instance,  you see an error showing a reference error. Use the browser’s refresh functionality to refresh the Admin Portal.
 * The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
-* You will receive repeat notifications for syndicated marketplace items that have completed downloading
+* You will receive repeated notifications for syndicated marketplace items that have completed downloading
 
 #### Services
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
