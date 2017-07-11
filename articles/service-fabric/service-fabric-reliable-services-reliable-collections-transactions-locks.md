@@ -84,7 +84,7 @@ Time-out argument in the Reliable Collections APIs is used for deadlock detectio
 ### Using the Update lock
 In the following example, the same code is written without and then with use of the Update lock. This demonstrates how its use avoids a common form of deadlock.
 
-**Reading and then writing without using an update lock:**
+**Reading and then writing without using an Update lock:**
 ```csharp
  using (ITransaction tx = this.stateManager.CreateTransaction())
  {
@@ -105,9 +105,9 @@ With the above code, this is a possible event sequence:
 | 3           | tx<sub>1</sub> | Tries to upgrade read lock to write lock 
 | 4           | tx<sub>2</sub> | Tries to upgrade read lock to write lock 
 
-In events *3* and *4*, both transactions tried to upgrade their read lock to a write lock on `counter_id`, but could not do so because the other had not yet released its read lock. This is a form of deadlock and would eventually lead to a timeout.
+In events *3* and *4*, both transactions tried to upgrade their read lock to a write lock on `counter_id`, but could not do so because the other had not yet released its read lock. This is a form of deadlock that would eventually lead to a timeout.
 
-**Reading and then writing while using an update lock:**
+**Reading and then writing while using an Update lock:**
 ```csharp
  using (ITransaction tx = this.stateManager.CreateTransaction())
  {
