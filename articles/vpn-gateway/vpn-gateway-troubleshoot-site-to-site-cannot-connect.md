@@ -47,7 +47,7 @@ Check the type of the Azure VPN gateway.
 
 Compare the shared key for the on-premises VPN device to the Azure Virtual Network VPN to make sure that the keys match. 
 
-To view the shared key for the Azure VPN connection, use one of the following methods：
+To view the shared key for the Azure VPN connection, use one of the following methods:
 
 **Azure portal**
 
