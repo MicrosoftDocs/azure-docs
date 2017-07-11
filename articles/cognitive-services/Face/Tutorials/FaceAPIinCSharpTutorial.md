@@ -126,14 +126,10 @@ Follow these instructions to configure the client library:
             Face[] faces;                   // The list of detected faces.
             String[] faceDescriptions;      // The list of descriptions for the detected faces.
             double resizeFactor;            // The resize factor for the displayed image.
-
-
             public MainWindow()
             {
                 InitializeComponent();
             }
-
-
             // Displays the image and calls Detect Faces.
 
             private void BrowseButton_Click(object sender, RoutedEventArgs e)
