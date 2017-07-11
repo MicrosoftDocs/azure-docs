@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Google Apps | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Google Apps.
+title: 'Tutorial: Configuring Google Apps for Automatic User Provisioning | Microsoft Docs'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to Google Apps.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -33,23 +33,20 @@ The scenario outlined in this tutorial assumes that you already have the followi
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD is synchronized.
 
 Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your Google Apps app. Once decided, you can assign these users to your Google Apps app by following the instructions here:
-
 [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### Important tips for assigning users to Google Apps
+> [!IMPORTANT]
+>*   It is recommended that a single Azure AD user be assigned to Google Apps to test the provisioning configuration. Additional users and/or groups may be assigned later.
+>*   When assigning a user to Google Apps, you must select the User or "Group" role in the assignment dialog. The "Default Access" role does not work for provisioning.
 
-*   It is recommended that a single Azure AD user be assigned to Google Apps to test the provisioning configuration. Additional users and/or groups may be assigned later.
-
-*  When assigning a user to Google Apps, you must select a valid user role. The "Default Access" role does not work for provisioning..
-
-## Enable Automated user provisioning
+## Enable automated user provisioning
 
 This section guides you through connecting your Azure AD to Google Apps's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Google Apps based on user and group assignment in Azure AD.
 
 >[!Tip]
 >You may also choose to enabled SAML-based Single Sign-On for Google Apps, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
-### To configure automatic user account provisioning:
+### Configure automatic user account provisioning
 
 > [!NOTE]
 > Another viable option for automating user provisioning to Google Apps is to use [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en) which provisions your on-premises Active Directory identities to Google Apps. In contrast, the solution in this tutorial provisions your Azure Active Directory (cloud) users and mail-enabled groups to Google Apps. 
@@ -83,7 +80,7 @@ This section guides you through connecting your Azure AD to Google Apps's user a
      
      ![domain name](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_3.png)
 
-    d. Click **Next** to go to the verification page. To verify that you own this domain, you must edit the domain's DNS records according to the values provided on this page. You may choose to verify using either **MX records** or **TXT records**, depending on what you select for the **Record Type** option. For more comprehensive instructions on how to verify domain name with Azure AD, see. [Add your own domain name to Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
+    d. Click **Next** to go to the verification page. To verify that you own this domain, you must edit the domain's DNS records according to the values provided on this page. You may choose to verify using either **MX records** or **TXT records**, depending on what you select for the **Record Type** option. For more comprehensive instructions on how to verify domain name with Azure AD, refer [Add your own domain name to Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
      ![domain](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
@@ -163,43 +160,14 @@ It starts the initial synchronization of any users and/or groups assigned to Goo
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_04.png
-
-[100]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_100.png
-
-[200]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-google-apps-provisioning-tutorial/tutorial_general_203.png
-
-[0]: ./media/active-directory-saas-google-apps-provisioning-tutorial/azure-active-directory.png
-
-[5]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-added.png
-[6]: ./media/active-directory-saas-google-apps-provisioning-tutorial/config-sso.png
-[7]: ./media/active-directory-saas-google-apps-provisioning-tutorial/sso-gapps.png
-[8]: ./media/active-directory-saas-google-apps-provisioning-tutorial/sso-url.png
-[9]: ./media/active-directory-saas-google-apps-provisioning-tutorial/download-cert.png
 [10]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-security.png
-[11]: ./media/active-directory-saas-google-apps-provisioning-tutorial/security-gapps.png
-[12]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-sso-config.png
-[13]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-sso-confirm.png
-[14]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-sso-email.png
 [15]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-api.png
 [16]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-api-enabled.png
-[17]: ./media/active-directory-saas-google-apps-provisioning-tutorial/add-custom-domain.png
-[18]: ./media/active-directory-saas-google-apps-provisioning-tutorial/specify-domain.png
-[19]: ./media/active-directory-saas-google-apps-provisioning-tutorial/verify-domain.png
 [20]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-domains.png
 [21]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-add-domain.png
 [22]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-add-another.png
-[23]: ./media/active-directory-saas-google-apps-provisioning-tutorial/apps-gapps.png
 [24]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-provisioning.png
 [25]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-provisioning-auth.png
 [26]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin.png
 [27]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin-privileges.png
 [28]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-auth.png
-[29]: ./media/active-directory-saas-google-apps-provisioning-tutorial/assign-users.png
-[30]: ./media/active-directory-saas-google-apps-provisioning-tutorial/assign-confirm.png

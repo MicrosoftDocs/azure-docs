@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with Google Apps, you need the following items
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Video tutorial
 How to Enable Single Sign-On to Google Apps in 2 Minutes:
@@ -53,7 +53,7 @@ How to Enable Single Sign-On to Google Apps in 2 Minutes:
    
     A: Yes, users are able to sign into their Chromebook devices using their Azure AD credentials. See this [Google Apps support article](https://support.google.com/chrome/a/answer/6060880) for information on why users may get prompted for credentials twice.
 
-2. **Q: If I enable single sign-on, are users be able to use their Azure AD credentials to sign into any Google product, such as Google Classroom, GMail, Google Drive, YouTube, etch?**
+2. **Q: If I enable single sign-on, will users be able to use their Azure AD credentials to sign into any Google product, such as Google Classroom, GMail, Google Drive, YouTube, and so on?**
    
     A: Yes, depending on [which Google apps](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) you choose to enable or disable for your organization.
 
@@ -63,7 +63,7 @@ How to Enable Single Sign-On to Google Apps in 2 Minutes:
 
 4. **Q: If a user is signed in through Windows, are they automatically authenticate to Google Apps without getting prompted for a password?**
    
-    A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](active-directory-azureadjoin-overview.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](active-directory-aadconnect-user-signin.md) deployment. Both options require that you to follow the following tutorial to enable single sign-on between Azure AD and Google Apps.
+    A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](active-directory-azureadjoin-overview.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](active-directory-aadconnect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and Google Apps.
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     > [!NOTE] 
 	> This value is not real. Update the value with the actual Sign-on URL. contact the [Google support team](https://www.google.com/contact/).
  
-4. On the **SAML Signing Certificate** section, click **Certificate** and then save the Certificate on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_certificate.png) 
 
@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-google-apps-tutorial/tutorial_general_400.png)
 
-6. On the **Google Apps Configuration** section, click **Configure Google Apps** to open **Configure sign-on** window. Copy the **Single sign-out service URL and Change password URL** from the **Quick Reference section.**
+6. On the **Google Apps Configuration** section, click **Configure Google Apps** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Single Sign-On Service URL and Change password URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_configure.png) 
 
@@ -163,13 +163,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     a. Select **Setup SSO with third-party identity provider**.
 
-    b. In Azure AD, copy the **Single sign-on service URL**, and paste it into the **Sign-in page URL** field in Google Apps.
+    b. In the **Sign-in page URL** field in Google Apps, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
 
-    c. In Azure AD, copy the **Single sign-out service URL**, and paste it into the **Sign-out page URL** field in Google Apps.
+    c. In the **Sign-out page URL** field in Google Apps, paste the value of **Sign-Out URL**, which you have copied from Azure portal. 
 
-    d. In Azure AD, copy the **Change password URL**, and paste it into the **Change password URL** field in Google Apps.
+    d. In the **Change password URL** field in Google Apps, paste the value of **Change password URL**, which you have copied from Azure portal. 
 
-    e. In Google Apps, for the **Verification certificate**, upload the certificate that you downloaded in step #4.
+    e. In Google Apps, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.
 
     f. Click **Save Changes**.
 
@@ -209,7 +209,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Google Apps test user
 
-The objective of this section is to create a user called Britta Simon in Google Apps Software. Google Apps supports auto provisioning, which is by default enabled. There is no action to do here for you in this section. If a user doesn't already exist in Google Apps Software, a new one is created when you attempt to access Google Apps Software.
+The objective of this section is to create a user called Britta Simon in Google Apps Software. Google Apps supports auto provisioning, which is by default enabled. There is no action for you in this section. If a user doesn't already exist in Google Apps Software, a new one is created when you attempt to access Google Apps Software.
 
 >[!NOTE] 
 >If you need to create a user manually, contact the [Google support team](https://www.google.com/contact/).
@@ -246,7 +246,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-In this section, To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](active-directory-saas-access-panel-introduction.md), then sign into the test account, and click **Google Apps** tile in the Access Panel.
+In this section, to test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](active-directory-saas-access-panel-introduction.md), then sign into the test account, and click **Google Apps** tile in the Access Panel.
 
 ## Additional resources
 
