@@ -144,8 +144,10 @@ diagnostic data with other Azure services, for example:
 * [Archive Azure Diagnostics Logs in Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-You can then get real-time monitoring for your workflows by using the telemetry 
-in these services and other Azure services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+You can then get real-time monitoring by using this telemetry 
+and analytics from other services, 
+like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
+and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
