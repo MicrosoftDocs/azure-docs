@@ -127,7 +127,6 @@ Follow these instructions to configure the client library:
             String[] faceDescriptions;      // The list of descriptions for the detected faces.
             double resizeFactor;            // The resize factor for the displayed image.
             
-            
             public MainWindow()
             {
                 InitializeComponent();
