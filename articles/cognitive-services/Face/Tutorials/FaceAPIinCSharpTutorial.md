@@ -24,7 +24,7 @@ To use the tutorial, you need the following prerequisites:
 
 - Make sure Visual Studio 2015 or higher is installed.
 
-## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
+## <a name="step1"></a>Step 1: Subscribe to Face API and get your subscription key
 
 Before using the Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Either the primary or secondary subscription key can be used in this tutorial.
 
@@ -133,7 +133,6 @@ Follow these instructions to configure the client library:
                 InitializeComponent();
             }
 
-
             // Displays the image and calls Detect Faces.
 
             private void BrowseButton_Click(object sender, RoutedEventArgs e)
@@ -234,7 +233,7 @@ private async Task<Face[]> UploadAndDetectFaces(string imageFilePath)
 }
 ```
 
-## <a name="step5"></a>Step 5: Mark faces in the image
+## <a name="step5"></a>Step 6: Mark faces in the image
 
 In this step, we combine all the previous steps and mark the detected faces in the image.
 
@@ -301,7 +300,7 @@ if (faces.Length > 0)
 }
 ```
 
-## <a name="step6"></a>Step 6: Describe faces in the image
+## <a name="step6"></a>Step 7: Describe faces in the image
 
 In this step, we examine the Face properties and generate a string to describe the face. This string displays when the mouse pointer hovers over the face rectangle.
 
@@ -362,7 +361,7 @@ private string FaceDescription(Face face)
 }
 ```
 
-## <a name="step6"></a>Step 7: Display the face description
+## <a name="step6"></a>Step 8: Display the face description
 
 Replace the **FacePhoto_MouseMove** method with the following code:
 
@@ -702,7 +701,7 @@ namespace FaceTutorial
 }
 ```
 
-## <a name="related"></a> Related Topics
+## <a name="related"></a> Next steps
 
 - [Getting Started with Face API in Java for Android](FaceAPIinJavaForAndroidTutorial.md)
 - [Getting Started with Face API in Python](FaceAPIinPythonTutorial.md)
