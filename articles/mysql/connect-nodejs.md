@@ -36,7 +36,7 @@ Depending on your platform, follow the appropriate instructions to install Node.
    ```cmd
    cd c:\nodejsmysql\
    "C:\Program Files\nodejs\npm" install mysql2
-   "C:\Program Files\nodejs\npm"  list
+   "C:\Program Files\nodejs\npm" list
    ```
 
 - Verify the installation by checking npm list output text for `mysql2@1.3.5`.
