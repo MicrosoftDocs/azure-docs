@@ -41,7 +41,7 @@ To configure Azure AD integration with SkyDesk Email, you need the following ite
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -166,7 +166,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     c. **Change Password URL** is optional so leave it blank.
 
-    d. Click on **Get Key From File** to select your downloaded SkyDesk Email certificate, and then click **Open** to upload the certificate.
+    d. Click on **Get Key From File** to select your downloaded certificate from Azure portal, and then click **Open** to upload the certificate.
 
     e. As **Algorithm**, select **RSA**.
 
