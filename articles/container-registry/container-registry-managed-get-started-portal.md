@@ -36,11 +36,11 @@ Log in to the Azure portal at http://portal.azure.com.
 
 2. Search the marketplace for **Azure container registry** and select it.
 
-4. Click **Create** which will open the ACR creation blade.
+3. Click **Create** which will open the ACR creation blade.
 
     ![Container registry settings](./media/container-registry-get-started-portal/managed-container-registry-settings.png)
 
-5. In the **Azure Container Registry** blade, enter the following information. Click **Create** when you are done.
+4. In the **Azure Container Registry** blade, enter the following information. Click **Create** when you are done.
 
     a. **Registry name**: A globally unique top-level domain name for your specific registry. In this example, the registry name is *myAzureContainerRegistry1*, but substitute a unique name of your own. The name can contain only letters and numbers.
 
@@ -52,14 +52,14 @@ Log in to the Azure portal at http://portal.azure.com.
 
     e. **Use managed registry**: Select yes to have ACR automatically manage the registry storage, use webhooks, and use AAD authentication.
 
-    d. **Pricing Tier**: Select a pricing tier, see here ACR pricing for more information.
+    d. **Pricing Tier**: Select a pricing tier, see [ACR pricing](https://azure.microsoft.com/pricing/details/container-registry/) for more information.
 
 
 ## Log in to ACR instance
 
 Before pushing and pulling container images, you must log in to the ACR instance. 
 
-To do so, use the Azure CLI 2.0. First, if needed, log into azure using the [az login] command. 
+To do so, use the Azure CLI 2.0. First, if needed, log into Azure using the [az login](/cli/azure/#login) command. 
 
 ```azurecli
 az login
@@ -98,7 +98,7 @@ az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -
 
 ## Next steps
 
-In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server.
+In this quick start, you've created a managed Azure Container Registry instance using the Azure portal.
 
 > [!div class="nextstepaction"]
 > [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
