@@ -144,7 +144,7 @@ def webAppName = '<app_name>'
 * Change line 23 to update credential ID in your Jenkins instance
 
 ```java
-withCredentials([azureServicePrincipal('<azsrvprincipal>')]) {
+withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 
 ```
 
@@ -186,12 +186,12 @@ Now that you know how to use Azure CLI in your Jenkins pipeline, you can modify 
         ```
         def webAppResourceGroup = '<myResourceGroup>'
         def webAppName = '<app_name>'
-        def acrName = '<myregistry>'
+        def acrName = '<myRegistry>'
         ```
 
     * Line 24, update \<azsrvprincipal\> to your credential ID
         ```
-        withCredentials([azureServicePrincipal('<mysp>')]) {
+        withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
         ```
 
 * Create a new Jenkins pipeline as you did when deploying to Azure web app in Windows, only this time, use **Jenkinsfile2** instead.
@@ -199,7 +199,7 @@ Now that you know how to use Azure CLI in your Jenkins pipeline, you can modify 
 * To verify, in Azure CLI, run:
 
     ```
-    az acr repository list -n pcRegistry1 -o json
+    az acr repository list -n <myRegistry> -o json
     ```
 
     You get the following result:
@@ -208,12 +208,6 @@ Now that you know how to use Azure CLI in your Jenkins pipeline, you can modify 
     [
     "calculator"
     ]
-    ```
-    
-    To check container settings of web app, you can run 
-    
-    ```
-    az webapp config container show -n <webapplinux> -g <webapplinux> 
     ```
     
     Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping. You see the message: 
