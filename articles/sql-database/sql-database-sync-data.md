@@ -119,6 +119,15 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 ### How frequently can Data Sync synchronize my data? 
 The minimum frequency is every five minutes.
 
+### Can I use Data Sync to sync between SQL Server on-premises databases only? 
+Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
+   
+### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
+Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
+
+### Why do I see tables that I did not create?  
+Data Sync creates side tables in your database for change tracking. Don't delete them or Data Sync stops working.
+   
 ### I got an error message that said "cannot insert the value NULL into the column \<column\>. Column does not allow nulls." What does this mean, and how can I fix the error? 
 This error message indicates one of the two following issues:
 1.  There may be a table without a primary key. To fix this issue, add a primary key to all the tables you're syncing.
@@ -127,15 +136,6 @@ This error message indicates one of the two following issues:
 ### How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
 Data Sync doesn’t handle circular references. Be sure to avoid them. 
 
-### Can I use Data Sync to sync between SQL Server on-premises databases only? 
-Not directly. You can sync between SQL Server on-premises databases indirectly by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
-   
-### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
-Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
-
-### Why do I see tables that I did not create?  
-Data Sync creates side tables in your database for change tracking. Don't delete them or Data Sync stops working.
-   
 ## Next steps
 
 For more info about SQL Database and SQL Data Sync, see:
