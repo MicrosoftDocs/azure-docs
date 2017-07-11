@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: na
 ---
 
 # Create a managed container registry using the Azure CLI
