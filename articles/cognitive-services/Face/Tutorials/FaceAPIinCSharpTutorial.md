@@ -131,8 +131,7 @@ Follow these instructions to configure the client library:
             {
                 InitializeComponent();
             }
-
-
+            
             // Displays the image and calls Detect Faces.
 
             private void BrowseButton_Click(object sender, RoutedEventArgs e)
