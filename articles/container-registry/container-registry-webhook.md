@@ -23,7 +23,7 @@ ms.author: nepeters
 
 An Azure container registry stores and manages private Docker container images, similar to the way Docker Hub stores public Docker images. You use webhooks to trigger events when certain actions take place in one of your registry repositories. Webhooks can respond to events at the registry level or they can be scoped down to a specific repository tag. 
 
-For more background and concepts, see the [overview](./container-registry-intro.md)
+For more background and concepts, see the [overview](./container-registry-intro.md).
 
 ## Prerequisites 
 
@@ -36,7 +36,7 @@ For more background and concepts, see the [overview](./container-registry-intro.
 
 2. In the container blade, select the "Webhooks" tab. 
 
-3. Select "add" from the webhook blade toolbar. 
+3. Select "Add" from the webhook blade toolbar. 
 
 4. Complete the *Create Webhook* form with the following information:
 
@@ -44,7 +44,7 @@ For more background and concepts, see the [overview](./container-registry-intro.
 |---|---|
 | Name | The name you want to give to the webhook. It can only contain lowercase letters and numbers and between 5-50 characters. |
 | Service URI | The URI where the webhook should send POST notifications. |
-| Custom headers | Headers you want to pass along with the POST request. They should value a "key: value" format. |
+| Custom headers | Headers you want to pass along with the POST request. They should be in "key: value" format. |
 | Trigger actions | Actions that trigger the webhook. Currently webhooks can be triggered by push and/or delete actions to an image. |
 | Status | The status for the webhook after it's created. It's enabled by default. |
 | Scope | The scope at which the webhook works. By default the scope is for all events in the registry. It can be specified for a repository or a tag by using the format "repository: tag". |
@@ -94,5 +94,5 @@ Each webhook can be deleted by selecting the webhook and then the delete button 
 ### Azure CLI
 
 ```azurecli-interactive
-az acr webhook de.ete --registry mycontainerregistry --name myacrwebhook01
+az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
