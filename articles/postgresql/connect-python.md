@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ---
 # Azure Database for PostgreSQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
@@ -83,7 +83,10 @@ cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("oran
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
 print "Inserted 3 rows of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## Read data
@@ -114,7 +117,10 @@ rows = cursor.fetchall()
 for row in rows:
 	print "Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2]))
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## Update data
@@ -141,7 +147,10 @@ cursor = conn.cursor()
 cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
 print "Updated 1 row of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## Delete data
@@ -168,7 +177,10 @@ cursor = conn.cursor()
 cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
 print "Deleted 1 row of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## Next steps

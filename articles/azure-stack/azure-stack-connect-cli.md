@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2016
+ms.date: 07/10/2017
 ms.author: sngun
 
 ---
@@ -52,16 +52,22 @@ Use the following steps to connect to Azure Stack:
 
 2. Get your Azure Stack environment’s active directory endpoint and active directory resource Id endpoint. You can get these values by navigating to one of the following links in a browser: 
 
-   a. For the **administrative** environment, use:    `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
+   a. For the **cloud administrative** environment, use:    
+   `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
    b. For the **user** environment, use:    
    `https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
-   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the values assigned to the **loginEndpoint** and **audiences** parameters, you will use these values in the next step. The *loginEndpoint* value is set to - `https://login.windows.net/` for AAD-based deployments and `https://adfs.local.azurestack.external/adfs` for AD FS-based deployments. And the *audiences* parameter has the format- `https://management.<aadtenant>.onmicrosoft.com/<active-directory-resource-id>`.
+   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the following values:  
+
+   | **JSON object** | **Value** | **Mapping parameter** |
+   | --- | --- | --- |
+   | loginEndpoint | **AAD** - https://login.windows.net/ <br> **AD FS**- https://adfs.local.azurestack.external/adfs | endpoint-active-directory |
+   | audiences | `https://management.<your aadtenant>.onmicrosoft.com/<your active-directory-resource-id>` | endpoint-active-directory-resource-id |
 
 3. Register your Azure Stack environment by running the following command:
 
-   a. To register the **administrative** environment, use:
+   a. To register the **cloud administrative** environment, use:
 
    ```azurecli
    az cloud register \
