@@ -5,9 +5,9 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 05/10/2017
+ms.date: 07/10/2017
 ---
-# Azure Key Vault soft-delete feature overview
+# Azure Key Vault soft-delete overview
 
 Key Vault's soft delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
 
