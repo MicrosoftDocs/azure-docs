@@ -124,7 +124,11 @@ Micro service architecture is supported. You would need multiple http settings c
 
 **Q. Do custom probes support wildcards/regex on response data?**
 
-Custom probes do not support wildcard or regex on response data.
+Custom probes do not support wildcard or regex on response data. 
+
+**Q. How are rules processed?**
+
+Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
 
 **Q. What does the Host field for custom probes signify?**
 
