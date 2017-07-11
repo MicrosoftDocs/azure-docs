@@ -613,6 +613,6 @@ After completing these steps, you can connect to resources in the virtual networ
 
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-* For more information on network security groups, see [Network security groups](../virtual-network/virtual-network-nsg.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/virtual-networks-nsg.md).
 
 * For more information on user-defined routes, see [USer-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
