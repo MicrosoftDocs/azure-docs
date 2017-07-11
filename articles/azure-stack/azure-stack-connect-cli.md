@@ -63,7 +63,7 @@ Use the following steps to connect to Azure Stack:
    | **JSON object** | **Value** | **Mapping parameter** |
    | --- | --- | --- |
    | loginEndpoint | **AAD** - https://login.windows.net/ <br> **AD FS**- https://adfs.local.azurestack.external/adfs | endpoint-active-directory |
-   | audiences | https://management.<your-aadtenant>.onmicrosoft.com/<your-active-directory-resource-id> | endpoint-active-directory-resource-id |
+   | audiences | `https://management.<your aadtenant>.onmicrosoft.com/<your active-directory-resource-id>` | endpoint-active-directory-resource-id |
 
 3. Register your Azure Stack environment by running the following command:
 
