@@ -208,7 +208,7 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Azure Media Redactor|Preview|All|
 |Azure Media Stabilizer|Preview|All|
 |Azure Media Video Thumbnails|Preview|All|
-|Media Indexer v2|Preview|All except China and Federal Government region|
+|Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
 ### Protection
 
