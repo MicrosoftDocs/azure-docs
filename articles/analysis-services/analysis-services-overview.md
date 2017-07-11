@@ -21,7 +21,7 @@ ms.author: owend
 # What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), tightly integrated with Azure data platform services. With its highly optimized OLAP data analytics engine, Analysis Services provides a rich semantic model layer between large, complex, and often disparate data sources. By pulling data together, BI developers can define the semantic data model, creating highly customized and highly performant analytics that power rich, interactive analytics experiences in modern client tools. 
+Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), tightly integrated with Azure data platform services. With its highly optimized OLAP data analytics engine, Analysis Services provides a rich semantic model layer between large, complex, and often disparate data sources. By pulling data together, you can define the semantic data model, creating highly customized, and highly performant analytics that power rich, interactive analytics experiences in modern client tools.
 
 ![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -50,7 +50,7 @@ Azure Analysis Services can consume data from Azure SQL Database, Azure SQL Data
 
 With Azure Data Factory you can orchestrate the movement and transformation of data, a core capability in any enterprise BI/analytics solution. Azure Analysis Services can be integrated into any Azure Data Factory pipeline by including an activity that loads data into the model. Azure Automation and Azure Functions can also be used for doing lightweight orchestration of models using custom code.
 
-Azure Analysis Services is also tightly integrated with Azure Active Directory, providing secure, role based access to your critical data.
+Azure Analysis Services is also tightly integrated with Azure Active Directory, providing secure, role-based access to your critical data.
 
 ## Pricing
 Azure Analysis Services is available in Developer, Basic, and Standard tiers. Within each tier, plan costs vary according to processing power, QPUs, and memory size. When you create a server, you select a plan within a tier. You can change plans up or down within the same tier, or upgrade to a higher tier, but you cannot downgrade from a higher tier to a lower tier.
@@ -79,9 +79,9 @@ New regions are being added all the time, so this list might be incomplete. You 
 With Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And, with Azure Resource Manager templates and PowerShell, you can provision servers using a declarative template. With a single template, you can deploy multiple services along with other Azure components such as storage accounts.  To learn more, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md). 
 
 ## Migrate existing tabular models
-If you already have existing on-premises SQL Server Analysis Services model solutions, you can migrate to Azure Analysis Services without signficant changes. To migrate, you can use SSDT to deploy your model to your server. Or, in SSMS, you can use backup and restore or TMSL.
+If you already have existing on-premises SQL Server Analysis Services model solutions, you can migrate to Azure Analysis Services without significant changes. To migrate, you can use SSDT to deploy your model to your server. Or, in SSMS, you can use backup and restore or TMSL.
 
-If you have on-premises data sources, you  need to install an configure an [On-premises data gateway](analysis-services-gateway.md). If you have roles and role members already configured, your roles will migrate, but you have to re-add role members by using SSMS or PowerShell.
+If you have on-premises data sources, you  need to install and configure an [On-premises data gateway](analysis-services-gateway.md). If you have roles and role members already configured, your roles migrate, but you have to re-add role members by using SSMS or PowerShell.
 
 
 ## Data sources
@@ -129,7 +129,7 @@ To learn more about Azure Security, see the [Microsoft Trust Center](https://www
 
 Modern data exploration and visualization tools like Power BI, Excel, and other third-party tools provide end-users with highly interactive and visually rich insights into your model data.
 
-Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-providers.md) to connect to Analysis Servies servers. Microsoft client applications like Power BI Desktop and Excel install all three client libraries. But keep in-mind, depending on the version or frequency of updates, client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications typically require manually installing the libraries as part of a package.
+Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-providers.md) to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop and Excel install all three client libraries. But keep in-mind, depending on the version or frequency of updates, client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications typically require manually installing the libraries as part of a package.
 
 
 ## Get help
