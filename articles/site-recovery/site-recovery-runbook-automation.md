@@ -59,6 +59,7 @@ In this article, we describe how you can integrate Azure Automation runbooks int
 
 	The following example shows a context variable:
 
+	```
 			{"RecoveryPlanName":"hrweb-recovery",
 
 			"FailoverType":"Test",
@@ -82,7 +83,7 @@ In this article, we describe how you can integrate Azure Automation runbooks int
 					}
 
 			}
-
+	```
 
 	The following table lists the name and description of each variable in the context:
 
@@ -160,19 +161,19 @@ To apply an existing NSG, you must know the NSG name and the NSG resource group 
 	![Create an NSG resource group name](media/site-recovery-runbook-automation-new/var2.png)
 
 
-In the script, use the following reference code to get the variable values:
+3.	In the script, use the following reference code to get the variable values:
 
-```
-$NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
-$NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
+	```
+	$NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
+	$NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
-$NSGnameVar = Get-AutomationVariable -Name $NSGValue
-$RGnameVar = Get-AutomationVariable -Name $NSGRGValue
-```
+	$NSGnameVar = Get-AutomationVariable -Name $NSGValue
+	$RGnameVar = Get-AutomationVariable -Name $NSGRGValue
+	```
 
-3.	Use the variables in the runbook to apply the NSG to the network interface of the failed-over VM:
+4.	Use the variables in the runbook to apply the NSG to the network interface of the failed-over VM:
 
-```
+	```
  InlineScript {
  	if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
 			$NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
@@ -183,7 +184,7 @@ $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 			#  -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $NSG
 		}
 	}
-```
+	```
 
 For each recovery plan, create independent variables so that you can reuse the script. Add a prefix by using the recovery plan name. For a complete, end-to-end script for this scenario, see [Add public IP and NSG to VMs during test failover of a Site Recovery recovery plan](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
 
@@ -194,20 +195,20 @@ Consider a scenario in which you want only one script to turn on a public IP on 
 
 1. In PowerShell, sign in to your Azure subscription:
 
-```
-login-azurermaccount
-$sub = Get-AzureRmSubscription -Name <SubscriptionName>
-$sub | Select-AzureRmSubscription
-```
+	```
+	login-azurermaccount
+	$sub = Get-AzureRmSubscription -Name <SubscriptionName>
+	$sub | Select-AzureRmSubscription
+	```
 
 2. To store the parameters, create the complex variable by using the name of the recovery plan:
 
-```
-$VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
-    New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
-```
+	```
+	$VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
+		New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
+	```
 
-In this complex variable, **VMDetails** is the VM ID for the protected VM. To get the VM ID, in the Azure portal, view the VM properties. The following screenshot shows a variable that stores the details of two VMs:
+	In this complex variable, **VMDetails** is the VM ID for the protected VM. To get the VM ID, in the Azure portal, view the VM properties. The following screenshot shows a variable that stores the details of two VMs:
 
 	![Use the VM ID as the GUID](media/site-recovery-runbook-automation-new/vmguid.png)
 
