@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with Small Improvements, you need the followin
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -188,9 +188,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Small Improvements test user
 
-The objective of this section is to create a user called Britta Simon in Small Improvements.
-
-You have already enabled it in [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
+ In this section, you create a user called Britta Simon in Small Improvements. work with [Small Improvements Client support team](mailto:support@small-improvements.com) to add the users in the Small Improvements platform. Users must be created and activated before you use single sign-on.
 
 **To create a user called Britta Simon in Small Improvements, perform the following steps:**
 
@@ -203,15 +201,22 @@ You have already enabled it in [Configuring Azure AD Single Sign-On](#configurin
     ![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
 4. Click **Add users**.
+
     ![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
-5. Type the **First Name**, **Last Name, and **Email Address** of a valid user you want to provision into the related textboxes. 
+5. On the **Add Users** dialog, perform the following steps: 
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_12.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+	
+	a. Enter the **first name** of user like **Britta**.
 
-6. You can also choose to enter the personal message in the **Send notification email** box. If you do not wish to send the notification, then uncheck this checkbox.
+    b. Enter the **Last name** of user like **Simon**.
 
-7. Click **Create Users**.
+    c. Enter the **Email** of user like **brittasimon@contoso.com**. 
+
+    d. You can also choose to enter the personal message in the **Send notification email** box. If you do not wish to send the notification, then uncheck this checkbox.
+
+    e. Click **Create Users**.
 
 ### Assigning the Azure AD test user
 
