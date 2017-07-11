@@ -3,7 +3,7 @@ title: Create private Docker registry - Azure portal | Microsoft Docs
 description: Get started creating and managing private Docker container registries with the Azure portal
 services: container-registry
 documentationcenter: ''
-author: nepeters
+author: neilpeterson
 manager: timlt
 editor: na
 tags: ''
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
-ms.author: neilpeterson
-ms.custom: H1Hack27Feb2017
+ms.author: nepeters
+ms.custom: na
 ---
 
 # Create a managed container registry using the Azure portal
