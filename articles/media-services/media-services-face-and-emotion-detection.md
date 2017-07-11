@@ -517,5 +517,5 @@ The following program shows how to:
 ## Related links
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)
 

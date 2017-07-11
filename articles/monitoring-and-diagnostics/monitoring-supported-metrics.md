@@ -511,32 +511,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BillableTriggerExecutions|Billable Trigger Executions|Count|Total|Number of workflow trigger executions getting billed.|
 |TotalBillableExecutions|Total Billable Executions|Count|Total|Number of workflow executions getting billed.|
 
-## Microsoft.Network/publicIPAddresses
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|PacketsInDDoS|Inbound packets DDoS|CountPerSecond|Total||
-|PacketsDroppedDDoS|Inbound packets dropped DDoS|CountPerSecond|Total||
-|PacketsForwardedDDoS|Inbound packets forwarded DDoS|CountPerSecond|Total||
-|TCPPacketsInDDoS|Inbound TCP packets DDoS|CountPerSecond|Total||
-|TCPPacketsDroppedDDoS|Inbound TCP packets dropped DDoS|CountPerSecond|Total||
-|TCPPacketsForwardedDDoS|Inbound TCP packets forwarded DDoS|CountPerSecond|Total||
-|UDPPacketsInDDoS|Inbound UDP packets DDoS|CountPerSecond|Total||
-|UDPPacketsDroppedDDoS|Inbound UDP packets dropped DDoS|CountPerSecond|Total||
-|UDPPacketsForwardedDDoS|Inbound UDP packets forwarded DDoS|CountPerSecond|Total||
-|BytesInDDoS|Inbound bytes DDoS|BytesPerSecond|Total||
-|BytesDroppedDDoS|Inbound bytes dropped DDoS|BytesPerSecond|Total||
-|BytesForwardedDDoS|Inbound TCP bytes forwarded DDoS|BytesPerSecond|Total||
-|TCPBytesInDDoS|Inbound TCP bytes DDoS|BytesPerSecond|Total||
-|TCPBytesDroppedDDoS|Inbound TCP bytes dropped DDoS|BytesPerSecond|Total||
-|TCPBytesForwardedDDoS|Inbound TCP bytes forwarded DDoS|BytesPerSecond|Total||
-|UDPBytesInDDoS|Inbound UDP bytes DDoS|BytesPerSecond|Total||
-|UDPBytesDroppedDDoS|Inbound UDP bytes dropped DDoS|BytesPerSecond|Total||
-|UDPBytesForwardedDDoS|Inbound UDP bytes forwarded DDoS|BytesPerSecond|Total||
-|IfUnderDDoSAttack|Under DDoS attack or not|Count|Total||
-|DDoSTriggerTCPPackets|Inbount TCP packets to trigger DDoS mitigation|CountPerSecond|Total||
-|DDoSTriggerUDPPackets|Inbount UDP packets to trigger DDoS mitigation|CountPerSecond|Total||
-
 ## Microsoft.Network/applicationGateways
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
