@@ -20,9 +20,9 @@ ms.author: cgronlun;tedway;olgali
 ---
 # Introduction to Azure Machine Learning in the cloud
 ## What is machine learning?
-Machine learning is a technique of data science that helps computers learn from existing data in order to forecast future behaviors, outcomes, and trends.  
+Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends.  This process gives computers the ability to learn without being explicitly programmed.
 
-These forecasts or predictions from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. When your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
+We can use forecasts or predictions from machine learning to make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. When your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
 For a brief overview, try the video series [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Without using jargon or math, Data Science for Beginners introduces machine learning and steps you through a simple predictive model.
 
