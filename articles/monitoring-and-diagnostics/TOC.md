@@ -74,3 +74,4 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [PowerShell samples](insights-powershell-samples.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [QuickStart Samples](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
