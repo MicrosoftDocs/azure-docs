@@ -29,8 +29,8 @@ ms.author: aelnably;wesmc;mikono;rachelap
 
 To complete this tutorial: 
 
-* Install the [**.NET Core SDK**](https://www.microsoft.com/net/download/core) on your local machine.
-* Install [Git](https://git-scm.com/downloads) locally.
+* Install the [*.NET Core SDK*](https://www.microsoft.com/net/download/core) on your local machine.
+* Install [*Git*](https://git-scm.com/downloads) locally.
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,8 +42,8 @@ Start a new terminal session. Create a directory named `hellodotnetcore`, and ch
 
   The previous command creates three files (*hellodotnetcore.csproj*, *Program.cs*, and *Startup.cs*) and one empty folder (*wwwroot/*) under the current directory. The content of `.csproj` file is something like the following: 
 
-    >[!NOTE]
-    >Empty lines are omitted.
+  >[!NOTE]
+  >Empty lines are omitted.
 
   ```xml
   <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -58,31 +58,9 @@ Start a new terminal session. Create a directory named `hellodotnetcore`, and ch
         </ItemGroup>
   </Project>
   ```
-To find out which operating systems and versions are supported by .NET Core, visit [.NET Core Roadmap] (https://github.com/dotnet/core/blob/master/roadmap.md).
+To find out which operating systems and versions are supported by .NET Core, visit the [.NET Core Roadmap] (https://github.com/dotnet/core/blob/master/roadmap.md).
 
 Since this app is a web application, a reference to an ASP.NET Core package was automatically added to the *hellodotnetcore.csproj* file. The version number of the package is set according to the chosen framework. This example is referencing ASP.NET Core version 1.1.2 because .NET Core 1.1 is used.
-
-## Create a .NET Core app in the Azure Portal ##
-
-First you need to create an empty web app. Log in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) and navigate to create a new [Web App on Linux](https://portal.azure.com/#create/Microsoft.AppSvcLinux).
-
-![Creating a web app][1]
-
-When the Create page opens, fill in the fields according to the following:
-
-![Choosing a .NET Core runtime stack][2]
-
-Use the following table as a guide to fill out the Create page, then select **OK** and **Create** to create the app.
-
-| Setting      | Suggested value  | Description                                        |
-| ------------ | ---------------- | -------------------------------------------------- |
-| App name | hellodotnetcore  | The name of your app. This name must be unique. |
-| Subscription | Choose an existing subscription | The Azure subscription. |
-| Resource Group | myResourceGroup |  The Azure resource group to contain the function. |
-| App Service Plan | Existing App Service Plan name |  The function's App Service plan.  |
-| Configure Container | Choose a Container | The type of container for this web app: Built-in, Docker, or Private registry. |
-| Image source  | Choose Built-in  |  The source of the image. |
-| Runtime Stack  | Choose .NET Core 1.1  | The runtime stack and version.  |
 
 ## Build and test the application locally ##
 
@@ -106,9 +84,31 @@ Test it by executing cURL in another terminal session. If everything works fine,
 
 ![Executing CURL to test your application][6]
 
+## Create a .NET Core app in the Azure Portal ##
+
+First you need to create an empty web app. Log in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) and navigate to create a new [Web App on Linux](https://portal.azure.com/#create/Microsoft.AppSvcLinux).
+
+![Creating a web app][1]
+
+When the Create page opens, fill in the fields according to the following:
+
+![Choosing a .NET Core runtime stack][2]
+
+Use the following table as a guide to fill out the Create page, then select **OK** and **Create** to create the app.
+
+| Setting      | Suggested value  | Description                                        |
+| ------------ | ---------------- | -------------------------------------------------- |
+| App name | hellodotnetcore  | The name of your app. This name must be unique. |
+| Subscription | Choose an existing subscription | The Azure subscription. |
+| Resource Group | myResourceGroup |  The Azure resource group to contain the function. |
+| App Service Plan | Existing App Service Plan name |  The function's App Service plan.  |
+| Configure Container | Choose a Container | The type of container for this web app: Built-in, Docker, or Private registry. |
+| Image source  | Choose Built-in  |  The source of the image. |
+| Runtime Stack  | Choose .NET Core 1.1  | The runtime stack and version.  |
+
 ## Deploy your application via Git ##
 
-Use **Git** to deploy the .NET Core application to Azure App Service Web App on Linux.
+Use Git to deploy the .NET Core application to Azure App Service Web App on Linux.
 
 The new Azure website already has a Git deployment configured. You will find the Git deployment URL by navigating to the following URL after inserting your web app name:
 
