@@ -1,6 +1,6 @@
 ---
-title: Get started - Apache Spark & interactive Spark SQL queries - Azure HDInsight | Microsoft Docs
-description: HDInsight Spark quickstart on how to create an Apache Spark cluster in HDInsight and run interactive query using Jupyter notebooks.
+title: Create an Apache Spark cluster in Azure HDInsight | Microsoft Docs
+description: HDInsight Spark quickstart on how to create an Apache Spark cluster in HDInsight.
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
 services: hdinsight
 documentationcenter: ''
@@ -20,9 +20,9 @@ ms.date: 05/25/2017
 ms.author: nitinme
 
 ---
-# Get started: Create an Apache Spark cluster in HDInsight and run interactive Spark SQL queries
+# Create an Apache Spark cluster in Azure HDInsight
 
-Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluster in HDInsight and run interactive Spark SQL queries using [Jupyter](https://jupyter.org) notebook.
+In this article, you learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluster in Azure HDInsight.
 
    ![Quickstart diagram describing steps to create an Apache Spark cluster on Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark quickstart using Apache Spark in HDInsight. Steps illustrated: create a cluster; run Spark interactive query")
 
@@ -58,6 +58,10 @@ In this section, you create an HDInsight Spark cluster using an [Azure Resource 
 > This article creates a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as additional storage, in addition to Azure Storage Blobs as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 >
 >
+
+## Run a Hive query using Spark SQL
+
+
 
 ## Run an interactive Spark SQL query
 
