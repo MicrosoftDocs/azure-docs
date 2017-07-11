@@ -15,6 +15,6 @@
   - name: Typical scenario (personalized articles)
     href: custom-decision-service-tutorial-news.md
   - name: Machine learning in Custom Decision Service
-    href: custom-decision-service-tutorial-ML.md
+    href: custom-decision-service-tutorial-ml.md
 - name: API reference
   href: custom-decision-service-api-reference.md
