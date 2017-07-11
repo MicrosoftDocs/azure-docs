@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with Jobscience, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`http://<company name>.my.salesforce.com`
 	
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Jobscience Client support team](https://www.jobscience.com/support) to get this value. 
+	> This value is not real. Update this value with the actual Sign-On URL. Get this value by [Jobscience Client support team](https://www.jobscience.com/support) or from the SSO profile you will create which is explained later in the tutorial. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -126,22 +126,35 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_configure.png) 
 
+7. Log in to your Jobscience company site as an administrator.
 
-7. On the Jobscience company site, click **Security Controls**, and then click **Single Sign-On Settings**.
-    
-    ![Security Controls](./media/active-directory-saas-jobscience-tutorial/IC784364.png "Security Controls")
+8. Go to **Setup**.
+   
+   ![Setup](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Setup")
 
-8. In the **Single Sign-On Settings** section, perform the following steps:
+9. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
+   
+   ![My Domain](./media/active-directory-saas-jobscience-tutorial/ic767825.png "My Domain")
+
+10. To verify that your domain has been set up correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
+
+    ![Domain Deployed to User](./media/active-directory-saas-jobscience-tutorial/ic784377.png "Domain Deployed to User")
+
+11. On the Jobscience company site, click **Security Controls**, and then click **Single Sign-On Settings**.
     
-    ![Single Sign-On Settings](./media/active-directory-saas-jobscience-tutorial/IC781026.png "Single Sign-On Settings")
+    ![Security Controls](./media/active-directory-saas-jobscience-tutorial/ic784364.png "Security Controls")
+
+12. In the **Single Sign-On Settings** section, perform the following steps:
+    
+    ![Single Sign-On Settings](./media/active-directory-saas-jobscience-tutorial/ic781026.png "Single Sign-On Settings")
     
     a. Select **SAML Enabled**.
 
     b. Click **New**.
 
-9. On the **SAML Single Sign-On Setting Edit** dialog, perform the following steps:
+13. On the **SAML Single Sign-On Setting Edit** dialog, perform the following steps:
     
-    ![SAML Single Sign-On Setting](./media/active-directory-saas-jobscience-tutorial/IC784365.png "SAML Single Sign-On Setting")
+    ![SAML Single Sign-On Setting](./media/active-directory-saas-jobscience-tutorial/ic784365.png "SAML Single Sign-On Setting")
     
     a. In the **Name** textbox, type a name for your configuration.
 
@@ -161,17 +174,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     i. Click **Save**.
 
-10. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
+14. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
     
     ![My Domain](./media/active-directory-saas-jobscience-tutorial/ic767825.png "My Domain")
 
-11. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
+15. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
     
     ![Login Page Branding](./media/active-directory-saas-jobscience-tutorial/ic767826.png "Login Page Branding")
 
-12. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
+16. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
     
     ![Login Page Branding](./media/active-directory-saas-jobscience-tutorial/ic784366.png "Login Page Branding")
+
+17. To get the SP initiated Single Sign on Login URL click on the **Single Sign On settings** in the **Security Controls** menu section.
+
+    ![Security Controls](./media/active-directory-saas-jobscience-tutorial/ic784368.png "Security Controls")
+    
+    Click the SSO profile you have created in the step above. This page shows the Single Sign on URL for your company (for example, [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid).    
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -210,9 +229,12 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Jobscience test user
 
-In order to enable Azure AD users to log in to Jobscience, they must be provisioned into Jobscience.  
-In the case of Jobscience, provisioning is a manual task.
+In order to enable Azure AD users to log in to Jobscience, they must be provisioned into Jobscience. In the case of Jobscience, provisioning is a manual task.
 
+>[!NOTE]
+>You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision Azure Active Directory user accounts.
+>  
+		
 **To configure user provisioning, perform the following steps:**
 
 1. Log in to your **Jobscience** company site as administrator.
@@ -230,24 +252,21 @@ In the case of Jobscience, provisioning is a manual task.
    
    ![User Edit](./media/active-directory-saas-jobscience-tutorial/ic784371.png "User Edit")
    
-   a. In the **First Name** textbox, type a first name of the Azure AD user.
+   a. In the **First Name** textbox, type a first name of the user like Britta.
    
-   b. In the **Last Name** textbox, type a last name of the Azure AD user.
+   b. In the **Last Name** textbox, type a last name of the user like Simon.
    
-   c. In the **Alias** textbox, type an alias name of the Azure AD user.
+   c. In the **Alias** textbox, type an alias name of the user like brittas.
 
-   d. In the **Email** textbox, type an email id of the Azure AD user.
+   d. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
 
-   e. In the **User Name** textbox, type a user name of the Azure AD user.
+   e. In the **User Name** textbox, type a user name of user like Brittasimon@contoso.com.
 
-   f. In the **Nick Name** textbox, type a nick name of the Azure AD user.
+   f. In the **Nick Name** textbox, type a nick name of user like Simon.
 
    g. Click **Save**.
 
->[!NOTE]
->You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision Azure Active Directory user accounts.
->  
-		
+    
 > [!NOTE]
 > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
@@ -285,7 +304,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Jobscience tile in the Access Panel, you should get automatically login page of Jobscience application.
+When you click the Jobscience tile in the Access Panel, you should get automatically signed-on to your Jobscience application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
