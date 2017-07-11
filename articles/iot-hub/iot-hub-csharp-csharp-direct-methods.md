@@ -188,6 +188,8 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
+[lnk-device-identity-csharp]: iot-hub-csharp-csharp-getstarted.md#DeviceIdentity_csharp
+
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
