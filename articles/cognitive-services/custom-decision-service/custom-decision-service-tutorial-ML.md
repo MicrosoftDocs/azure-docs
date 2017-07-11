@@ -37,7 +37,7 @@ The translation into internal features is as follows:
 
 - numeric features stay the same.
 - a numeric array translates to several numeric features, one for each element of the array.
-- a string-valued feature `"Name":"Value"` is by default translated  into a feature with name `"NameValue"` and value 1.
+- a string-valued feature `"Name":"Value"` is by default translated into a feature with name `"NameValue"` and value 1.
 - Optionally, a string can be represented as [bag-of-words](https://en.wikipedia.org/wiki/Bag-of-words_model). Then an internal feature is created for each word in the string, whose value is the number of occurrences of this word.
 - Zero-valued internal features are omitted.
 
@@ -53,7 +53,8 @@ Features often "interact": the effect of one depends on others. For example, fea
 
 To account for interaction between features X and Y, create a *quadratic* feature whose value is X\*Y. (We also say, "cross" X and Y.) You can choose which pairs of features are crossed.
 
-[!TIP] A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization.
+> [!TIP] 
+> A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization.
 
 In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way.
 
@@ -61,18 +62,20 @@ In other words, a shared feature not crossed with any ADFs influences each actio
 
 You can implement crossed features (as well as other featurization concepts) via the "VW command line" on the Portal. The syntax is based on the [Vowpal Wabbit](http://hunch.net/~vw/) command line.
 
-Central to the implementation is the concept of  *namespace*: a named subset of features. Each feature belongs to exactly one namespace. The namespace can be specified explicitly when the feature value is provided to Custom Decision Service. It is the only way to refer to a feature in the VW command line.
+Central to the implementation is the concept of *namespace*: a named subset of features. Each feature belongs to exactly one namespace. The namespace can be specified explicitly when the feature value is provided to Custom Decision Service. It is the only way to refer to a feature in the VW command line.
 
 A namespace is either "shared" or "action-dependent": either it consists only of shared features, or it consists only of action-dependent features of the same action.
 
-[!TIP] It is a good practice to wrap each feature in an explicitly specified namespace. If the namespace is not provided, the feature is automatically assigned to the default namespace. However, you cannot refer to it from the VW command line.
+> [!TIP] 
+> It is a good practice to wrap each feature in an explicitly specified namespace. If the namespace is not provided, the feature is automatically assigned to the default namespace. However, you cannot refer to it from the VW command line.
 
-[!IMPORTANT] Features and namespaces do not need to be consistent across actions. In particular, a namespace can have different features for different actions. Moreover, a given namespace can be defined for some actions and not for some others.
+> [!IMPORTANT]
+> Features and namespaces do not need to be consistent across actions. In particular, a namespace can have different features for different actions. Moreover, a given namespace can be defined for some actions and not for some others.
 
 Multiple internal features that came from the same string-valued native feature are grouped into the same namespace. Any two native features that lie in different namespaces are treated as distinct, even if they have the same feature name.
 
-[!IMPORTANT]
-While long, descriptive namespace ids are common, the VW command line does not distinguish between namespaces whose id starts with the same letter.  In what follows, namespace ids are single letters, such as `x` and `y`.
+> [!IMPORTANT]
+> While long, descriptive namespace ids are common, the VW command line does not distinguish between namespaces whose id starts with the same letter. In what follows, namespace ids are single letters, such as `x` and `y`.
 
 The implementation details are as follows:
 
@@ -114,7 +117,8 @@ The 1-hot encoding is typical for categorical features such as "geographical reg
 
 Any string-valued feature is 1-hot encoded by default: a distinct internal feature is created for every possible value. We do not currently provide automatic 1-hot encoding for numerical features and/or with customized ranges.
 
-[!TIP] Our machine learning algorithms treat all possible values of a given internal feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows a separate coefficient for each range of values. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
+> [!TIP] 
+> Our machine learning algorithms treat all possible values of a given internal feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows a separate coefficient for each range of values. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
 
 ## Feature specification: format and APIs
 
@@ -125,27 +129,28 @@ The basic JSON template for feature specification is as follows:
 ```json
 {
 "<name>":<value>, "<name>":<value>, ... ,
-"namespace1": {"<name>":<value>,  ... },
-"namespace2": {"<name>":<value>,  ... },
+"namespace1": {"<name>":<value>, ... },
+"namespace2": {"<name>":<value>, ... },
 ...
 }
 ```
 
-Here `<name>` and `<value>` stand for feature name and feature value, respectively. `<value>` can be a string, an integer, a float, a boolean, or an  array. A feature not wrapped into a namespace is automatically assigned into the default namespace.
+Here `<name>` and `<value>` stand for feature name and feature value, respectively. `<value>` can be a string, an integer, a float, a boolean, or an array. A feature not wrapped into a namespace is automatically assigned into the default namespace.
 
 To represent a string as a bag-of-words, use a special syntax `"_text":"string"` instead of `"<name>":<value>`. Effectively, a separate internal feature is created for each word in the string. Its value is the number of occurrences of this word.
 
 If `<name>` starts with "_" (and is not `"_text"`), then the feature is ignored.
 
-[!TIP] Sometimes you merge features from multiple JSON sources. For convenience, you can represent them as follows:
-
-```json
-{
-"source1":<features>,
-"source2":<features>,
-...
-}
-```
+> [!TIP]
+> Sometimes you merge features from multiple JSON sources. For convenience, you can represent them as follows:
+>
+> ```json
+> {
+> "source1":<features>,
+> "source2":<features>,
+> ...
+> }
+> ```
 
 Here `<features>` refers to the basic feature specification defined previously. Deeper levels of "nesting" are allowed, too. Custom Decision Service automatically finds the "deepest" JSON objects that can be interpreted as `<features>`.
 
