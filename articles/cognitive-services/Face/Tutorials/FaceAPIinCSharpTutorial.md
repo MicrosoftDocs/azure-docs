@@ -159,8 +159,6 @@ Follow these instructions to configure the client library:
 
                 FacePhoto.Source = bitmapSource;
             }
-
-
             // Displays the face description when the mouse is over a face rectangle.
 
             private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
