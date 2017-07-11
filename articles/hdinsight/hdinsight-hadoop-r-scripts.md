@@ -1,5 +1,5 @@
 ---
-title: Use R in HDInsight to customize clusters | Microsoft Docs
+title: Use R in HDInsight to customize clusters - Azure | Microsoft Docs
 description: Learn how to install R using Script Action, and use R on HDInsight clusters.
 services: hdinsight
 documentationcenter: ''

@@ -1,14 +1,14 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 # How to partition and scale in Azure Cosmos DB
 
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
 
 Partitioning and partition keys are also covered in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Shireesh Thota.
 
@@ -61,7 +61,7 @@ Cosmos DB uses hash-based partitioning. When you write an item, Cosmos DB hashes
 Azure Cosmos DB containers can be created as "fixed" or "unlimited." Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. Some APIs allow the partition key to be omitted for fixed-size containers. To create a container as unlimited, you must specify a minimum throughput of 2500 RU/s.
 
 ## Partitioning and provisioned throughput
-Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of **[request units](../documentdb/documentdb-request-units.md) (RU) per second with a potential add-on for RU per minute**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU, Memory, and IO consumed by the operation. A read of a 1-KB document with Session consistency consumes one request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of **[request units](request-units.md) (RU) per second with a potential add-on for RU per minute**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU, Memory, and IO consumed by the operation. A read of a 1-KB document with Session consistency consumes one request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
 > [!NOTE]
 > To achieve the full throughput of the container, you must choose a partition key that allows you to evenly distribute requests among some distinct partition key values.
@@ -73,7 +73,7 @@ Cosmos DB is designed for predictable performance. When you create a container, 
 You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
 
 ### DocumentDB API
-The following sample shows how to create a container (collection) using the DocumentDB API. You can find more details in [Partitioning with DocumentDB API](../documentdb/documentdb-partition-data.md).
+The following sample shows how to create a container (collection) using the DocumentDB API. You can find more details in [Partitioning with DocumentDB API](partition-data.md).
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -99,7 +99,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
 ```
 
 ### MongoDB API
-With the MongoDB API, you can create a sharded collection is through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
+With the MongoDB API, you can create a sharded collection through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
 
 In the Mongo Shell:
 
@@ -202,8 +202,8 @@ You can also use a combination/tiered approach that collocates small tenants and
 ## Next steps
 In this article, we provided an overview for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
-* Learn about [provisioned throughput in Azure Cosmos DB](../documentdb/documentdb-request-units.md)
-* Learn about [global distribution in Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md)
+* Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
+* Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md)
 
 
 

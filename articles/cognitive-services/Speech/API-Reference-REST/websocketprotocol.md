@@ -32,6 +32,7 @@ service and includes standard web socket upgrade headers along with other header
 GET /speech/recognize/interactive/cognitiveservices/v1 HTTP/1.1
 Host: speech.platform.bing.com
 Upgrade: websocket
+Connection: Upgrade
 ProtoSec-WebSocket-Key: wPEE5FzwR6mxpsslyRRpgP==
 Sec-WebSocket-Version: 13
 Authorization: t=EwCIAgALBAAUWkziSCJKS1VkhugDegv7L0eAAJqBYKKTzpPZOeGk7RfZmdBhYY28jl&p=
@@ -63,6 +64,27 @@ include a valid [universally unique identifier](https://en.wikipedia.org/wiki/Un
 
 In addition to the standard web socket handshake headers, speech requests require an *Authorization* header. Connection requests without this header are rejected 
 by the service with a 403 Forbidden HTTP response.
+
+The *Authorization* header must contain a JSON Web Token (JWT) access token.
+
+For information about subscribing and obtaining API keys that are used to retrieve valid JWT access tokens, see [Get Started for Free](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions?productId=%2fproducts%2fBing.Speech.Preview).
+
+The API key is passed to the token service. For example:
+
+```
+POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
+Content-Length: 0
+```
+
+The required header information for token access is as follows.
+
+Name	| Format	| Description
+---------|---------|--------
+Ocp-Apim-Subscription-Key |	ASCII	| Your subscription key
+
+The token service returns the JWT access token as `text/plain`. Then the JWT is passed as a `Base64 access_token` to the handshake as an authorization header prefixed with the string `Bearer`. For example:
+
+`Authorization: Bearer [Base64 access_token]`
 
 ## Cookies
 

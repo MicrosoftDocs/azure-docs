@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/25/2017
+ms.date: 07/05/2017
 ms.author: sdanie
 
 ---
@@ -47,6 +47,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Redis cluster size](#cluster-size)
 	* [Redis data persistence](#redis-data-persistence)
 	* [Schedule updates](#schedule-updates)
+	* [Geo-replication](#geo-replication)
 	* [Virtual Network](#virtual-network)
 	* [Firewall](#firewall)
 	* [Properties](#properties)
@@ -141,7 +142,7 @@ The **Maxmemory policy** and **maxmemory-reserved** settings on the **Advanced s
 
 For more information about `maxmemory` policies, see [Eviction policies](http://redis.io/topics/lru-cache#eviction-policies).
 
-The **maxmemory-reserved** setting configures the amount of memory in MB that is reserved for non-cache operations such as replication during failover. It can also be used when you have a high fragmentation ratio. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that are write heavy. When memory is reserved for such operations, it is unavailable for storage of cached data.
+The **maxmemory-reserved** setting configures the amount of memory in MB that is reserved for non-cache operations such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that are write heavy. When memory is reserved for such operations, it is unavailable for storage of cached data.
 
 > [!IMPORTANT]
 > The **maxmemory-reserved** setting is only available for Standard and Premium caches.
@@ -258,7 +259,14 @@ To specify a maintenance window, check the desired days and specify the maintena
 > 
 > 
 
+### Geo-replication
 
+The **Geo-replication** blade provides a mechanism for linking two Premium tier Azure Redis Cache instances. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions.
+
+> [!IMPORTANT]
+> **Geo-replication** is only available for Premium tier caches. For more information and instructions, see [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md).
+> 
+> 
 
 ### Virtual Network
 The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
@@ -296,7 +304,7 @@ The **Locks** section allows you to lock a subscription, resource group, or reso
 Click **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Administration settings
-The settings in the **Administration** section allow you to perform the following administrative tasks for your premium cache. 
+The settings in the **Administration** section allow you to perform the following administrative tasks for your cache. 
 
 ![Administration](./media/cache-configure/redis-cache-administration.png)
 
@@ -304,11 +312,6 @@ The settings in the **Administration** section allow you to perform the followin
 * [Export data](#importexport)
 * [Reboot](#reboot)
 
-
-> [!IMPORTANT]
-> The settings in this section are only available for Premium tier caches.
-> 
-> 
 
 ### Import/Export
 Import/Export is an Azure Redis Cache data management operation, which allows you to import and export data in the cache by importing and exporting a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. Import/Export enables you to migrate between different Azure Redis Cache instances or populate the cache with data before use.
@@ -334,7 +337,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 To reboot one or more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 > [!IMPORTANT]
-> Reboot is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Reboot](cache-administration.md#reboot).
+> Reboot is now available for all pricing tiers. For more information and instructions, see [Azure Redis Cache administration - Reboot](cache-administration.md#reboot).
 > 
 > 
 
@@ -427,7 +430,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
   * P2 (13 GB - 130 GB) - up to 32 databases
   * P3 (26 GB - 260 GB) - up to 48 databases
   * P4 (53 GB - 530 GB) - up to 64 databases
-  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 
@@ -479,10 +482,11 @@ For more information about databases, see [What are Redis databases?](cache-faq.
 For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 
 ## Redis console
-You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available for Standard and Premium caches.
+You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available in the Azure portal for all cache tiers.
 
 > [!IMPORTANT]
-> The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
+> - The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
+> - Not all Redis commands are supported in Azure Redis Cache. For a list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 > 
 > 
 
@@ -490,11 +494,26 @@ To access the Redis Console, click **Console** from the **Redis Cache** blade.
 
 ![Redis console](./media/cache-configure/redis-console-menu.png)
 
-To issue commands against your cache instance, simply type in the desired command into the console.
+To issue commands against your cache instance, simply type the desired command into the console.
 
 ![Redis console](./media/cache-configure/redis-console.png)
 
-For list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands). 
+
+### Using the Redis Console with a premium clustered cache
+
+When using the Redis Console with a premium clustered cache, you can issue commands to a single shard of the cache. To issue a command to a specific shard, first connect to the desired shard by clicking it on the shard picker.
+
+![Redis console](./media/cache-configure/redis-console-premium-cluster.png)
+
+If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message.
+
+```
+shard1>get myKey
+(error) MOVED 866 13.90.202.154:13000 (shard 0)
+```
+
+In the previous example, shard 1 is the selected shard, but `myKey` is located in shard 0, as indicated by the `(shard 0)` portion of the error message. In this example, to access `myKey`, select shard 0 using the shard picker, and then issue the desired command.
+
 
 ## Move your cache to a new subscription
 You can move your cache to a new subscription by clicking **Move**.

@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
-ms.custom: troubleshoot
+ms.custom: develop apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 06/13/2017
 ms.author: daleche
 
 ---
@@ -36,7 +36,7 @@ If your client program is using ADO.NET, your program is told about the transien
 You'll retry the SQL connection or establish it again, depending on the following:
 
 * **A transient error occurs during a connection try**: The connection should be retried after delaying for several seconds.
-* **A transient error occurs during an SQL query command**: The command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
+* **A transient error occurs during a SQL query command**: The command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
@@ -49,10 +49,10 @@ When your program communicates with Azure SQL Database through a 3rd party middl
 
 #### Principles for retry
 * An attempt to open a connection should be retried if the error is transient.
-* An SQL SELECT statement that fails with a transient error should not be retried directly.
+* A SQL SELECT statement that fails with a transient error should not be retried directly.
   
   * Instead, establish a fresh connection, and then retry the SELECT.
-* When an SQL UPDATE statement fails with a transient error, a fresh connection should be established before the UPDATE is retried.
+* When a SQL UPDATE statement fails with a transient error, a fresh connection should be established before the UPDATE is retried.
   
   * The retry logic must ensure that either the entire database transaction completed, or that the entire transaction is rolled back.
 
@@ -153,14 +153,14 @@ Suppose your application has robust custom retry logic. It might retry the conne
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### Connection: Connection string
-The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure Portal](https://portal.azure.com/).
+The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure portal](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
 ### Connection: IP address
-You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure Portal](https://portal.azure.com/).
+You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure portal](https://portal.azure.com/).
 
 If you forget to configure the IP address, your program will fail with a handy error message that states the necessary IP address.
 

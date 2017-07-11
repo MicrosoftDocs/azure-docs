@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create an Operations Management Suite monitored VM with PowerShell

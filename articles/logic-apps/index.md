@@ -38,7 +38,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -48,7 +48,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>Logic Apps Video Library</h3>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
+ms.custom: pim
 
 ---
 # Using the audit log in PIM

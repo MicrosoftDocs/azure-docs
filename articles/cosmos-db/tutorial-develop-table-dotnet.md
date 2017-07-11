@@ -1,21 +1,21 @@
 ---
 title: 'Azure Cosmos DB: Develop with the Table API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's Table API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
-
+ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Table API in .NET
 
@@ -43,12 +43,12 @@ You can continue to use Azure Table storage for tables with high storage and low
 
 If you currently use Azure Table storage, you gain the following benefits with the "premium table" preview:
 
-- Turn-key [global distribution](../documentdb/documentdb-distribute-data-globally.md) with multi-homing and [automatic and manual failovers](../documentdb/documentdb-regional-failovers.md)
+- Turn-key [global distribution](distribute-data-globally.md) with multi-homing and [automatic and manual failovers](regional-failover.md)
 - Support for automatic schema-agnostic indexing against all properties ("secondary indexes"), and fast queries 
 - Support for [independent scaling of storage and throughput](partition-data.md), across any number of regions
-- Support for [dedicated throughput per table](../documentdb/documentdb-request-units.md) that can be scaled from hundreds to millions of requests per second
-- Support for [five tunable consistency levels](../documentdb/documentdb-consistency-levels.md) to trade off availability, latency, and consistency based on your application needs
-- 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) on general availability
+- Support for [dedicated throughput per table](request-units.md) that can be scaled from hundreds to millions of requests per second
+- Support for [five tunable consistency levels](consistency-levels.md) to trade off availability, latency, and consistency based on your application needs
+- 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
 During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) from NuGet, that has the same classes and method signatures as the [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also can connect to Azure Cosmos DB accounts using the Table API.
@@ -72,11 +72,11 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 > [!TIP]
 > * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS).
 > * Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).  
-> * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
+> * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
 >
 >
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmosdb-create-dbaccount-table.md)] 
+[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
 ## Clone the sample application
 
@@ -138,9 +138,9 @@ Azure Cosmos DB supports a number of capabilities that are not available in the 
 | TableConnectionMode  | Azure Cosmos DB supports two connectivity modes. In `Gateway` mode, requests are always made to the Azure Cosmos DB gateway, which forwards it to the corresponding data partitions. In `Direct` connectivity mode, the client fetches the mapping of tables to partitions, and requests are made directly against data partitions. We recommend `Direct`, the default.  |
 | TableConnectionProtocol | Azure Cosmos DB supports two connection protocols - `Https` and `Tcp`. `Tcp` is the default, and recommended because it is more lightweight. |
 | TablePreferredLocations | Comma-separated list of preferred (multi-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `West US`. Also see [Multi-homing APIs](tutorial-global-distribution-table.md).
-| TableConsistencyLevel | You can trade off between latency, consistency, and availability by choosing between five well-defined consistency levels: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, and `Eventual`. Default is `Session`. The choice of consistency level makes a significant performance difference in multi-region setups. See [Consistency levels](../documentdb/documentdb-consistency-levels.md) for details. |
-| TableThroughput | Reserved throughput for the table expressed in request units (RU) per second. Single tables can support 100s-millions of RU/s. See [Request units](../documentdb/documentdb-request-units.md). Default is `400` |
-| TableIndexingPolicy | Consistent and automatic secondary indexing of all columns within tables | JSON string conforming to the indexing policy specification. See [Indexing Policy](../documentdb/documentdb-indexing-policies.md) to see how you can change indexing policy to include/exclude specific columns. | Automatic indexing of all properties (hash for strings, and range for numbers) |
+| TableConsistencyLevel | You can trade off between latency, consistency, and availability by choosing between five well-defined consistency levels: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, and `Eventual`. Default is `Session`. The choice of consistency level makes a significant performance difference in multi-region setups. See [Consistency levels](consistency-levels.md) for details. |
+| TableThroughput | Reserved throughput for the table expressed in request units (RU) per second. Single tables can support 100s-millions of RU/s. See [Request units](request-units.md). Default is `400` |
+| TableIndexingPolicy | Consistent and automatic secondary indexing of all columns within tables | JSON string conforming to the indexing policy specification. See [Indexing Policy](indexing-policies.md) to see how you can change indexing policy to include/exclude specific columns. | Automatic indexing of all properties (hash for strings, and range for numbers) |
 | TableQueryMaxItemCount | Configure the maximum number of items returned per table query in a single round trip. Default is `-1`, which lets Azure Cosmos DB dynamically determine the value at runtime. |
 | TableQueryEnableScan | If the query cannot use the index for any filter, then run it anyway via a scan. Default is `false`.|
 | TableQueryMaxDegreeOfParallelism | The degree of parallelism for execution of a cross-partition query. `0` is serial with no pre-fetching, `1` is serial with pre-fetching, and higher values increase the rate of parallelism. Default is `-1`, which lets Azure Cosmos DB dynamically determine the value at runtime. |
@@ -162,7 +162,7 @@ To change the default value, open the `app.config` file from Solution Explorer i
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}">
+      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -196,11 +196,11 @@ table.CreateIfNotExists();
 There is an important difference in how tables are created. Azure Cosmos DB reserves throughput, unlike Azure storage's consumption-based model for transactions. The reservation model has two key benefits:
 
 * Your throughput is dedicated/reserved, so you never get throttled if your request rate is at or below your provisioned throughput
-* The reservation model is more [cost effective for throughput-heavy workloads](../documentdb/documentdb-key-value-store-cost.md)
+* The reservation model is more [cost effective for throughput-heavy workloads](key-value-store-cost.md)
 
 You can configure the default throughput by configuring the setting for `TableThroughput` in terms of RU (request units) per second. 
 
-A read of a 1-KB entity is normalized as 1 RU, and other operations are normalized to a fixed RU value based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB(../documentdb/documentdb-request-units.md).
+A read of a 1-KB entity is normalized as 1 RU, and other operations are normalized to a fixed RU value based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB](request-units.md).
 
 > [!NOTE]
 > While Table storage SDK does not currently support modifying throughput, you can change the throughput instantaneously at any time using the Azure portal or Azure CLI.
@@ -303,7 +303,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-In preview, Azure Cosmos DB supports the same query functionality as Azure Table storage for the Table API. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. The additional functionality will be provided in the Table API in a future service update. See [Azure Cosmos DB query](../documentdb/documentdb-sql-query.md) for an overview of these capabilities. 
+In preview, Azure Cosmos DB supports the same query functionality as Azure Table storage for the Table API. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. The additional functionality will be provided in the Table API in a future service update. See [Azure Cosmos DB query](documentdb-sql-query.md) for an overview of these capabilities. 
 
 ## Replace an entity
 To update an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number. 

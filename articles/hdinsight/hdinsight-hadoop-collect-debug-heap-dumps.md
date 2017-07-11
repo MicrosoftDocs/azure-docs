@@ -1,5 +1,5 @@
 ---
-title: Debug and analyze Hadoop services with heap dumps | Microsoft Docs
+title: Debug and analyze Hadoop services with heap dumps - Azure | Microsoft Docs
 description: Automatically collect heap dumps for Hadoop services and place inside the Azure Blob storage account for debugging and analysis.
 services: hdinsight
 documentationcenter: ''
@@ -33,7 +33,7 @@ large, so it is advisable to monitor the Blob storage account where they are bei
 once the collection has been enabled.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). The information in this article only applies to Windows-based HDInsight. 
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). The information in this article only applies to Windows-based HDInsight. 
 > For information on Linux-based HDInsight, see [Enable heap dumps for Hadoop services on
 > Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 

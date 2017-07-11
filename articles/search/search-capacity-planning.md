@@ -71,7 +71,7 @@ General recommendations for high availability are:
 
 Service level agreements (SLA) for Azure Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
 
-### Index availability during a rebuild###
+### Index availability during a rebuild
 
 High availability for Azure Search pertains to queries and index updates that don't involve rebuilding an index. If you delete a field, change a data type, or rename a field, you will need to rebuild the index. To rebuild the index, you must delete the index, re-create the index, and reload the data.
 

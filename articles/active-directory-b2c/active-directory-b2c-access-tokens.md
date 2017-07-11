@@ -17,14 +17,18 @@ ms.date: 03/16/2017
 ms.author: parakhj
 
 ---
-
-
 # Azure AD B2C: Requesting Access Tokens
-
 
 An access token (denoted as **access\_token**) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
 This article discusses how to configure a client application and have it make a request to acquire an **access\_token** from the `authorize` and `token` endpoints.
+
+> [!NOTE]
+> **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C.**
+>
+> Many architectures include a Web API that needs to call another downstream Web API, both secured by Azure AD B2C. This scenario is common in native clients that have a Web API back end, which in turn calls a Microsoft online service such as the Azure AD Graph API.
+>
+> This chained Web API scenario can be supported by using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in the Azure AD B2C.
 
 ## Prerequisite
 
@@ -49,7 +53,7 @@ In order for a client application to get specific permissions to an API, the cli
 To get an access token for a resource application, the client application needs to specify the permissions wanted in the **scope** parameter of the request. For example, to acquire the “read” permission for the resource application that has the App ID URI of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the `authorize` endpoint.
 
 > [!NOTE]
-> At this point, custom domains are not supported along with access tokens. You must use your yourtenantId.onmicrosoft.com domain in the request URL and the scopes.
+> At this point, custom domains are not supported along with access tokens. You must use your yourtenantId.onmicrosoft.com domain in the request URL.
 
 ```
 https://login.microsoftonline.com/<yourTenantId>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 

@@ -12,12 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 06/07/2017
 ms.author: banders
 
 ---
 
 # Gather insights about your DNS infrastructure with the DNS Analytics Preview solution
+
+![DNS Analytics symbol](./media/log-analytics-dns/dns-analytics-symbol.png)
 
 This article describes how to set up and use the Azure DNS Analytics solution in Azure Log Analytics to gather insights into DNS infrastructure on security, performance, and operations.
 
@@ -149,7 +151,7 @@ You can use these queries as a starting point for creating your own queries for 
 - **Unused Resource Records**. Shows a list of all the unused/stale resource records. This list contains the resource record name, resource record type, the associated DNS server, record generation time, and zone name. You can use this list to identify the DNS resource records that are no longer in use. Based on this information, you can then remove those entries from the DNS servers.
 - **DNS Servers Query Load**. Shows information so that you can get a perspective of the DNS load on your DNS servers. This information can help you plan the capacity for the servers. You can go to the **Metrics** tab to change the view to a graphical visualization. This view helps you understand how the DNS load is distributed across your DNS servers. It shows DNS query rate trends for each server.
 
-    ![DNS servers query log search results](./media/log-analytics-dns/dns-servers-query-load.png) 
+    ![DNS servers query log search results](./media/log-analytics-dns/dns-servers-query-load.png)
 
 - **DNS Zones Query Load**. Shows the DNS zone-query-per-second statistics of all the zones on the DNS servers being managed by the solution. Click the **Metrics** tab to change the view from detailed records to a graphical visualization of the results.
 - **Configuration Events**. Shows all the DNS configuration change events and associated messages. You can then filter these events based on time of the event, event ID, DNS server, or task category. The data can help you audit changes made to specific DNS servers at specific times.

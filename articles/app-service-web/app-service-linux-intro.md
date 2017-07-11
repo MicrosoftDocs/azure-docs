@@ -34,6 +34,7 @@ Web App on Linux currently supports the following application stacks:
 	* 6.2
 	* 6.6
 	* 6.9
+	* 6.10
 * PHP
 	* 5.6
 	* 7.0

@@ -3,7 +3,7 @@ title: Build integrated solutions with SQL Data Warehouse | Microsoft Docs
 description: 'Tools and partners with solutions that integrate with SQL Data Warehouse. '
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: ''
 
