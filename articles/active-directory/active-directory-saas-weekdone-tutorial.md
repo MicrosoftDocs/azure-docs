@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with Weekdone, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -108,15 +108,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://weekdone.com/a/azure/metadata`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://weekdone.com/a/<tenantname>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://weekdone.com/a/azure`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://weekdone.com/a/<tenantname>`
 
 4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://weekdone.com/a/azure`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://weekdone.com/a/<tenantname>`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Weekdone Client support team](mailto:hello@weekdone.com) to get these values. 
