@@ -1,6 +1,6 @@
 ---
 title: Create an Azure IoT Edge Module with C# | Microsoft Docs
-description: Tutorial on how to build a BLE converter module for Azure IoT Edge with C# and NuGet packages using Visual Studio Code.
+description: This tutorial showcases how to write a BLE data converter module using the latest Azure IoT Edge NuGet packages, Visual Studio Code and C#.
 services: iot-hub
 author: jeffreyCline
 manager: sushi
@@ -29,12 +29,11 @@ In this section, we set-up your environment for `Azure IoT Edge` module developm
 
 The following software is required:
 
-- [Git Client](https://https://git-scm.com/downloads)
+- [Git Client](https://git-scm.com/downloads)
 - [.NET Core SDK](https://www.microsoft.com/net/core#windowscmd)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
->[!NOTE]
-You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the `Azure-Samples` following repository.
+You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the following repository:
 
 - `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
 - `cd iot-edge-samples/dotnetcore/simulated_ble`
@@ -59,7 +58,7 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 
 	![Visual Studio Code edit window](media/iot-hub-iot-edge-create-module/vscode-edit-csproj.png)
 
-5. Insert the `XML` blob shown in the following code snippet between the closing `PropertyGroup` tag and the closing `Project` tag; line six in the preceding image and save the file (`Ctrl + S`).
+5. Insert the `XML` blob shown in the following code snippet between the closing `PropertyGroup` tag and the closing `Project` tag; line six in the preceding image and save the file by pressing `Ctrl` + `S`.
 
    ```xml
      <ItemGroup>
@@ -75,7 +74,7 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 
 	a) Click `Restore` to restore all of the references in the projects `.csproj` file including the `PackageReferences` we have added. 
 
-	b) You see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
+	b) `Visual Studio Code` automatically creates the `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
  
     >[!NOTE]
 	`.NET Core Tools` are now MSBuild-based. Which means a `.csproj` project file is created instead of a `project.json`.
