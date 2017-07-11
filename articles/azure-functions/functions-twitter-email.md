@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: glenga, riande
+ms.custom: mvc
 ---
 
 # Create a function that integrates with Azure Logic Apps

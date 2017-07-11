@@ -70,7 +70,7 @@ Before you deploy a virtual array, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual array:
   
   * A minimum of 4 cores.
-  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports 2 million files. You need 16 GB RAM to support 2 - 4 million plan files.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports 2 million files. You need 16 GB RAM to support 2 - 4 million files.
   * One network interface.
   * A 500 GB virtual disk for system data.
 

@@ -216,3 +216,5 @@ And the sidebar would display the following search results:
 For information about promoting unranked results, see [Promoting answers that are not ranked](./filter-answers.md#promoting-answers-that-are-not-ranked).
 
 For information about limiting the number of ranked answers in the response, see [Limiting the number of answers in the response](./filter-answers.md#limiting-the-number-of-answers-in-the-response).
+
+For a C# example that uses ranking to display results, see [C# ranking tutorial](./csharp-ranking-tutorial.md).

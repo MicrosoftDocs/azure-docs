@@ -31,6 +31,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | --- | --- | --- | --- |
 | Telemetry |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| Internal Telemetry |breeze.aimon.applicationinsights.io |52.161.11.71 |443 |
 
 ## Status Monitor
 Status Monitor Configuration - needed only when making changes.
@@ -199,6 +200,7 @@ US : VA-Ashburn
 | --- | --- | --- | --- |
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
 | API docs |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
+| Internal API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dynamic|443 |
 
 ## Application Insights Analytics
 
@@ -210,11 +212,25 @@ US : VA-Ashburn
 
 Note: *.applicationinsights.io domain is owned by Application Insights team.
 
+## Application Insights Azure Portal Extension
+
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| Application Insights Extension | stamp2.app.insightsportal.visualstudio.com | dynamic | 80,443 |
+| Application Insights Extension CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamic | 80,443 |
+
+## Application Insights SDKs
+
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| Application Insights JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
+| Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
+
 ## Profiler
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | agent.azureserviceprofiler.net | dynamic | 443
+| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | dynamic | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443
 
@@ -222,6 +238,6 @@ Note: *.applicationinsights.io domain is owned by Application Insights team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.net | dynamic | 443
+| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | dynamic | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
-| Storage | *.core.windows.net | dyanmic | 443
+| Storage | *.core.windows.net | dynamic | 443

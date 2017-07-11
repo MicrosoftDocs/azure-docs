@@ -3,7 +3,7 @@ title: Azure SQL Data Warehouse backups - snapshots, geo-redundant | Microsoft D
 description: Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region.
 services: sql-data-warehouse
 documentationcenter: ''
-author: lakshmi1812
+author: Lakshmi1812
 manager: jhubbard
 editor: ''
 
@@ -49,6 +49,11 @@ This feature is on by default. If you don't want to use geo-redundant backups, y
 > [!NOTE]
 > In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 > 
+> 
+
+> [!NOTE]
+> You cannot opt out of geo-redundant backups with DWU 9000 and DWU 18000. 
+>
 > 
 
 To learn more about:

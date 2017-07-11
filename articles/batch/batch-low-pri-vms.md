@@ -34,6 +34,8 @@ the work is distributed across many VMs.
 Low-priority VMs are significantly less expensive than dedicated VMs. For pricing
 details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
+For an additional discussion of low-priority VMs, see the blog post announcement: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/preview/).
+
 > [!IMPORTANT]
 > Low-priority VMs are currently in preview, and are available only for workloads running in Batch. 
 >

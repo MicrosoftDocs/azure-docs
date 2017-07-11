@@ -67,6 +67,6 @@ Delete your resource group and any resources within it: <br>
 Run `az group delete -n MyRG`
 
 ## Next Steps
-[Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) 
-[Learn about Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/) 
-[Learn about Azure File Storage] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
+[Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) <br>
+[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure File Storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>

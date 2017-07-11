@@ -3,7 +3,7 @@ title: Connect to Azure SQL Data Warehouse | Microsoft Docs
 description: How to find the server name and connection string for your to Azure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: anvang;barbkess
 
 ---
 # Connect to Azure SQL Data Warehouse

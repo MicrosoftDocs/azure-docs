@@ -1,5 +1,5 @@
 ---
-title: Manage Hadoop clusters using Azure CLI | Microsoft Docs
+title: Manage Hadoop clusters using Azure CLI - Azure HDInsight| Microsoft Docs
 description: Learn how to use the Azure Command-line Interface to manage Hadoop clusters in Azure HDInsight. The Azure CLI works on Windows, Mac, and Linux.
 services: hdinsight
 editor: cgronlun
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---

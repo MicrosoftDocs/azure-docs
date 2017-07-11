@@ -61,9 +61,9 @@ Now that the trigger has been added, follow these steps to add an SMTP action th
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 6. Save your work in order to activate your workflow.  
 
-## View the swagger
+## Connector-specific details
 
-View any triggers, actions, and limits in the [swagger details](/connectors/smtpconnector/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/smtpconnector/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

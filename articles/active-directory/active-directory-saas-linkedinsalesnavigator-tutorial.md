@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 
 ---
@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-6. On Azure Portal, under **LinkedIn Sales Navigator Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode.
+6. On Azure portal, under **LinkedIn Sales Navigator Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
@@ -132,17 +132,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
 	
-9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add another claim named **department** and the value is to be mapped to **user.department**.
+9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add four claims named **email**, **department**, **firstname**, and **lastname** and the value is to be mapped with **user.mail**, **user.department**, **user.givenname**, and **user.surname** respectively
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
+	| email| user.mail |
 	| department| user.department |
-
-   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
-
-	a. Click on **Add Attribute** to open the attribute dialog
-
-   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+	| firstname| user.givenname |
+	| lastname| user.surname |
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+	
+	a. Click on **Add Attribute** to open the attribute dialog.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
 	b. In the **Name** textbox, type the attribute name shown for that row.
 	
@@ -150,19 +155,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**
 
-10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+10. Perform the following steps on the **name** attribute-
+
+	a. Click on the attribute to open the **Edit Attribute** window.
+
+	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/url_update.png)
+
+	b. Delete the URL value from the **namespace**.
+	
+	c. Click **Ok** to save the setting.
+
+11. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-11. Click **Save** button.
+12. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-12. Go to **LinkedIn Admin Settings** section. Click **Upload XML file** to upload the Metadata XML file that you have downloaded from the Azure portal.
+13. Go to **LinkedIn Admin Settings** section. Click **Upload XML file** to upload the Metadata XML file that you have downloaded from the Azure portal.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
+14. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 

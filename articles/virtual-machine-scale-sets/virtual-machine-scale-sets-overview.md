@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 07/03/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
 
@@ -36,7 +36,7 @@ You can define and deploy scale sets by using JSON templates and [REST APIs](htt
 
 You can find a set of example templates for virtual machine scale sets in the [Azure Quickstart templates GitHub repository](https://github.com/Azure/azure-quickstart-templates). (Look for templates with **vmss** in the title.)
 
-A button links to the portal deployment feature in the detail pages for these templates. To deploy the scale set, click the button and then fill in any parameters that are required in the portal. If you are not sure whether a resource supports uppercase or mixed case, it's safer to use lowercase letters and numbers in parameter values. [VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player) is a handy video dissection of a scale set template.
+For the Quickstart template examples, a "Deploy to Azure" button in the readme for each template links to the portal deployment feature. To deploy the scale set, click the button and then fill in any parameters that are required in the portal. 
 
 ## Scaling a scale set out and in
 You can change the capacity of a scale set in the Azure portal by clicking the **Scaling** section under **Settings**. 
@@ -78,7 +78,7 @@ $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -
 Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
 ```
 
- You can find a list of valid metrics to scale on in [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) under the heading "Microsoft.Compute/virtualMachineScaleSets." More advanced autoscale options are also available, including schedule-based autoscale and using webhooks to integrate with alert systems.
+You can find a list of valid metrics to scale on in [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) under the heading "Microsoft.Compute/virtualMachineScaleSets." More advanced autoscale options are also available, including schedule-based autoscale and using webhooks to integrate with alert systems.
 
 ## Monitoring your scale set
 The [Azure portal](https://portal.azure.com) lists scale sets and shows their properties. The portal also supports management operations. You can perform management operations on both scale sets and individual VMs within a scale set. The portal also provides a customizable resource usage graph. 
@@ -90,7 +90,7 @@ If you need to see or edit the underlying JSON definition of an Azure resource, 
 ## Scale set scenarios
 This section lists some typical scale set scenarios. Some higher-level Azure services (like Batch, Service Fabric, and Container Service) use these scenarios.
 
-* **Use RDP or SSH to connect to scale set instances**: A scale set is created inside a virtual network, and individual VMs in the scale set are not allocated public IP addresses. This policy avoids the expense and management overhead of allocating separate public IP addresses to all the nodes in your compute grid. You can connect to these VMs from other resources in your virtual network--for example, load balancers and standalone virtual machines--that can be allocated public IP addresses.
+* **Use RDP or SSH to connect to scale set instances**: A scale set is created inside a virtual network, and individual VMs in the scale set are not allocated public IP addresses by default. This policy avoids the expense and management overhead of allocating separate public IP addresses to all the nodes in your compute grid. If you do need direct external connections to scale set VMs, you can configure a scale set to automatically assign public IP addresses to new VMs. Alternatively you can connect to VMs from other resources in your virtual network that can be allocated public IP addresses, for example, load balancers and standalone virtual machines. 
 * **Connect to VMs by using NAT rules**: You can create a public IP address, assign it to a load balancer, and define an inbound NAT pool. These actions map ports on the IP address to a port on a VM in the scale set. For example:
   
   | Source | Source port | Destination | Destination port |
@@ -156,7 +156,7 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 **Q.** When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
 
-**A.** Not directly, but for the customScript extension, your script can wait for another extension to finish (for example, by [monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). You can get additional guidance on extension sequencing in the blog post [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**A.** Not directly, but for the customScript extension, your script can wait for another extension to finish. You can get additional guidance on extension sequencing in the blog post [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **Q.** Do scale sets work with Azure availability sets?
 
