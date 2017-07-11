@@ -138,7 +138,6 @@ Open the [Simple Java Web App for Azure](https://github.com/azure-devops/javaweb
 
 ```java
 def resourceGroup = '<myResourceGroup>'
-
 def webAppName = '<app_name>'
 
 ```
@@ -167,14 +166,63 @@ Open Jenkins in a web browser, click **New Item**.
 To verify the WAR file is deployed successfully to your web app. Open a web browser:
 
 * Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
-You see “**pong!**” as a response.
+You see:
 
-![Ping pong](./media/execute-cli-jenkins-pipeline/pingpong.png)
+        Welcome to Java Web App!!! This is updated!
+        Sun Jun 17 16:39:10 UTC 2017
 
 * Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y
 
 ![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
+## Deploy to Azure Web App on Linux
+Now that you know how to use Azure CLI in your Jenkins pipeline, you can modify the script to deploy to an Azure Web App on Linux.
+
+* Follow the steps [here](../app-service-web/app-service-linux-how-to-create-web-app) to create an Azure Web App running on Linux.
+* Install docker on your Jenkins instance by following the instructions in this [article](https://docs.docker.com/engine/installation/linux/ubuntu/).
+* Create a Container Registry in the Azure portal by using the steps [here](../container-registry/container-registry-get-started-azure-cli).
+* In the same [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) repo you forked, edit the **Jenkinsfile2** file:
+    * Line 18-21, update to the names of your resource group, web app, and ACR respectively. 
+        ```
+        def webAppResourceGroup = '<myResourceGroup>'
+        def webAppName = '<app_name>'
+        def acrName = '<myregistry>'
+        ```
+
+    * Line 24, update \<azsrvprincipal\> to your credential ID
+        ```
+        withCredentials([azureServicePrincipal('<mysp>')]) {
+        ```
+
+* Create a new Jenkins pipeline as you did when deploying to Azure web app in Windows, only this time, use **Jenkinsfile2** instead.
+* Run your new job.
+* To verify, in Azure CLI, run:
+
+    ```
+    az acr repository list -n pcRegistry1 -o json
+    ```
+
+    You get the following result:
+    
+    ```
+    [
+    "calculator"
+    ]
+    ```
+    
+    To check container settings of web app, you can run 
+    
+    ```
+    az webapp config container show -n <webapplinux> -g <webapplinux> 
+    ```
+    
+    Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping. You see the message: 
+    
+        Welcome to Java Web App!!! This is updated!
+        Sun Jul 09 16:39:10 UTC 2017
+
+    Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y
+    
 ## Next steps
 In this tutorial, you configured a Jenkins pipeline that checks out the source code in GitHub repo. Runs Maven to build a war file and then uses Azure CLI to deploy to Azure App Service. You learned how to:
 
