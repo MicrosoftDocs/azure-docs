@@ -17,7 +17,7 @@ ms.topic: hero-article
 ms.date: 07/11/2017
 ms.author: carlrab
 ---
-# Azure SQL Database: Use Python to connect and query data
+# Use Python to query an Azure SQL database
 
  This quick start demonstrates how to use [Python](https://python.org) to connect to an Azure SQL database and use Transact-SQL statements to query data.
 
