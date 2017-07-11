@@ -36,7 +36,7 @@ You can configure your content delivery network endpoint to optimize delivery fo
   
     ![New endpoint](./media/cdn-media-streaming-optimization/01_Adding.png)
 
-2. In the **Optimized for** list box, select **Video on demand media streaming** for video-on-demand assets. If you do a combination of live and video-on-demand streaming, select **General media streaming**.
+2. In the **Optimized for** drop-down list box, select **Video on demand media streaming** for video-on-demand assets. If you do a combination of live and video-on-demand streaming, select **General media streaming**.
 
     ![Streaming selected](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
@@ -47,7 +47,7 @@ After you create the endpoint, it applies the optimization for all files that ma
 Media streaming optimization from Akamai is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This delivery process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [large file optimization](cdn-large-file-optimization.md).
 
 
-The general media delivery or video-on-demand media delivery optimization types use a content delivery network with back-end optimizations to deliver media assets faster. They also use  configurations for media assets based on best practices learned over time.
+The general media delivery or video-on-demand media delivery optimization types use a content delivery network with back-end optimizations to deliver media assets faster. They also use configurations for media assets based on best practices learned over time.
 
 ### Caching
 

@@ -36,7 +36,7 @@ You can configure your content delivery network endpoint to optimize delivery fo
 
     ![New endpoint](./media/cdn-large-file-optimization/01_Adding.png)	
  
-2. In the **Optimized for** list box, select **Large file download**. Click **Add**.
+2. In the **Optimized for** drop-down list box, select **Large file download**. Click **Add**.
 
     ![Large file optimization selected](./media/cdn-large-file-optimization/02_Creating.png)
 
@@ -97,7 +97,7 @@ This feature is most useful for large assets. Typically, users don't download th
 
 The default behavior can be disabled through the Rules Engine in the Verizon Premium tier.
 
-### Peer cache fill hotfiling
+### Peer cache fill hot-filing
 
 This default feature uses a sophisticated proprietary algorithm. It uses additional edge caching servers based on bandwidth and aggregate requests metrics to fulfill client requests for large, highly popular objects. This feature prevents a situation in which large numbers of extra requests are sent to a user's origin server. 
 
