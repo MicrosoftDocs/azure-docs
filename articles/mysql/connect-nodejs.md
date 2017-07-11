@@ -59,7 +59,7 @@ Depending on your platform, follow the appropriate instructions to install Node.
 - Verify the installation by checking npm list output text for `mysql2@1.3.5`.
 
 ### **Mac OS**
-Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
+- Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
