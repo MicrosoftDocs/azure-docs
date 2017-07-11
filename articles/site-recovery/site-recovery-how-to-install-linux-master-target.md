@@ -39,7 +39,7 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 * The version of the master target must be equal to or earlier than the versions of the process server and the configuration server. For example, if the version of the configuration server is 9.4, the version of the master target can be 9.4 or 9.3 but not 9.5.
 * The master target can only be a VMware virtual machine and not a physical server.
 
-## Creat the master target according to the sizing guidelines
+## Create the master target according to the sizing guidelines
 
 Create the master target in accordance with the following sizing guidelines:
 - **RAM**: 6 GB or more
@@ -90,11 +90,11 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 ![Select US English as the keyboard layout](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png)
 
-**Step 9:** Enter the hostname for your server in **Hostname** text box, and then select **Continue**.
+**Step 9:** Enter the hostname for your server in the **Hostname** box, and then select **Continue**.
 
 ![Enter the hostname for your server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png)
 
-**Step 10:** Enter the user name to create a user account in the user name box, and then select **Continue**.
+**Step 10:** To create a user account, enter the user name, and then select **Continue**.
 
 ![Create a user account](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
 
@@ -116,7 +116,7 @@ To reconfigure your time zone, select **No** .
 
 ![Configure the clock](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png)
 
-**Step 15:** Select **Guided -** **Use entire disk** from the partitioning method options, and then select **Enter.**
+**Step 15:** From the partitioning method options, select **Guided -** **Use entire disk** , and then select **Enter.**
 
 ![Select the partitioning method option](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
 
@@ -138,7 +138,7 @@ To reconfigure your time zone, select **No** .
 ![Select how to manage upgrades](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
 
 > [!WARNING]
-> Because the Azure site recovery master target server requires a very specific version of the Ubuntu, you need to ensure that the kernel upgrades are disabled for the virtual machine. If they are enabled, then any regular upgrades will cause the master target server to malfunction. Make sure you select the **No automatic updates** option.
+> Because the Azure site recovery master target server requires a very specific version of the Ubuntu, you need to ensure that the kernel upgrades are disabled for the virtual machine. If they are enabled, then any regular upgrades cause the master target server to malfunction. Make sure you select the **No automatic updates** option.
 
 
 **Step 20:** Select default options. If you want openSSH for SSH connect, select the **OpenSSH server** option, and then select **Continue.**
@@ -159,7 +159,7 @@ To reconfigure your time zone, select **No** .
 
 After the installation has finished, sign in to the VM with the new user credentials. (Refer to **Step 10** for more information.)
 
-Take the steps that are described in the following screenshot to set the ROOT user password. Then sign in as ROOT user for further operations.
+Take the steps that are described in the following screenshot to set the ROOT user password. Then sign in as ROOT user.
 
 ![Set the ROOT user password](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
 
@@ -178,7 +178,7 @@ To enable this parameter, take the following steps:
 
 3. Select the **Options** tab.
 
-4. In the left pane, select **Advanced > General**, and then select the **Configuration Parameters** button on the right.
+4. In the left pane, select **Advanced > General**, and then select the **Configuration Parameters** button on the lower-right part of the screen.
 
 	![Options tab](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
 
