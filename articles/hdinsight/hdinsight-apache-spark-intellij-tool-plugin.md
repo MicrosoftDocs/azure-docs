@@ -77,7 +77,7 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-new-project.png)
    - Provide a project name and project location.
    - For **Project SDK**, Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster.
-   - For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
+   - For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala SDK. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
 
 5. The Spark project automatically creates an artifact for you. To see the artifact, follow these steps:
 

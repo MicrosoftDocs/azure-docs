@@ -90,7 +90,7 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
 2. In the next window, provide the following project details, and then click **Finish**.  
    - Provide a project name and project location.
    - For **Project SDK**, Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster.
-   - For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
+   - For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala SDK. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
        ![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/hdi-scala-project-details.png)
   
 3. The Spark project will automatically create an artifact for you. To see the artifact, follow these steps.
