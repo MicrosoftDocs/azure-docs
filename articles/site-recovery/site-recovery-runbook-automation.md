@@ -208,18 +208,18 @@ Consider a scenario in which you want only one script to turn on a public IP on 
 		New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
 	```
 
-	In this complex variable, **VMDetails** is the VM ID for the protected VM. To get the VM ID, in the Azure portal, view the VM properties. The following screenshot shows a variable that stores the details of two VMs:
+3. In this complex variable, **VMDetails** is the VM ID for the protected VM. To get the VM ID, in the Azure portal, view the VM properties. The following screenshot shows a variable that stores the details of two VMs:
 
 	![Use the VM ID as the GUID](media/site-recovery-runbook-automation-new/vmguid.png)
 
-3. Use this variable in your runbook. If the indicated VM GUID is found in the recovery plan context, apply the NSG on the VM:
+4. Use this variable in your runbook. If the indicated VM GUID is found in the recovery plan context, apply the NSG on the VM:
 
-```
-$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
-```
+	```
+	$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+	```
 
 4. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:
-```
+	```
 		$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 		$vmMap = $RecoveryPlanContext.VmMap
 
@@ -235,7 +235,7 @@ $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanNa
 				# Add code to apply the NSG properties to the VM
 			}
 		}
-```
+	```
 
 You can use the same script for different recovery plans. Enter different parameters by storing the value that corresponds to a recovery plan in different variables.
 
@@ -245,7 +245,7 @@ To deploy sample scripts to your Automation account, click the **Deploy to Azure
 
 ![Deploy to Azure button](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)
 
-For another example, see this video about recovering a two-tier WordPress application to Azure:
+For another example, see the following video. It demonstrates how to recover a two-tier WordPress application to Azure:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
