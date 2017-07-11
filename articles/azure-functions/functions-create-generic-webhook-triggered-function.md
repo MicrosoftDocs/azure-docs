@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 07/11/2017
 ms.author: glenga
 
 ---
@@ -58,12 +58,12 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
 
 1. In the Azure portal, navigate to the **Monitor** service, select **Alerts**, and click **Add activity log alert**.   
 
-    ![Monitor](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png
-    )
+    ![Monitor](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png)
 
 2. use the settings as specified in the table, and click **OK**:
 
     ![Add-Alert-New-Action-Group](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
+
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -78,9 +78,6 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
 
 3. 
 
-7.	Choose the this alert will be associated with in the **Subscription**.
-
-8.	Provide the , **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to identify which events this alert should monitor.
 
 9.	Create a **New** Action Group by giving it **Name** and **Short Name**; the Short Name will be referenced in the notifications sent when this alert is activated.
 
@@ -93,29 +90,7 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
     c. **Details:** Based on the action type chosen, provide a phone number, email address or webhook URI.
 
 11.	Select **OK** when done to create the alert.
-2. 
-3. 
-4. 
-5. 
-6. navigate to a repository that you own. You can also use any repository that you have forked. If you need to fork a repository, use <https://github.com/Azure-Samples/functions-quickstart>. 
- 
-2. Click **Settings**, then click **Webhooks**, and  **Add webhook**.
-   
-    ![Add a GitHub webhook](./media/functions-create-generic-webhook-triggered-function/functions-create-new-generic-webhook-2.png)
 
-3. Use settings as specified in the table, then click **Add webhook**.
- 
-    ![Set the webhook URL and secret](./media/functions-create-generic-webhook-triggered-function/functions-create-new-generic-webhook-3.png)
-
-    | Setting      |  Suggested value   | Description                              |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Payload URL** | Copied value | Use the value returned by  **</> Get function URL**. |
-    | **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
-    | **Content type** | application/json | The function expects a JSON payload. |
-    | Event triggers | Let me select individual events | We only want to trigger on issue comment events.  |
-    |                | Issue comment                    |  |
-
-Now, the webhook is configured to trigger your function when a new issue comment is added. 
 
 ## Test the function
 
