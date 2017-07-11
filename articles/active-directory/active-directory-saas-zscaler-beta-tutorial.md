@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with Zscaler Beta, you need the following item
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -232,8 +232,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Zscaler Beta test user
 
-To enable Azure AD users to log in to Zscaler Beta, they must be provisioned to Zscaler Beta.  
-In the case of Zscaler Beta, provisioning is a manual task.
+To enable Azure AD users to log in to Zscaler Beta, they must be provisioned to Zscaler Beta. In the case of Zscaler Beta, provisioning is a manual task.
 
 ### To configure user provisioning, perform the following steps:
 
@@ -255,12 +254,12 @@ In the case of Zscaler Beta, provisioning is a manual task.
    	   	
 	![Add User](./media/active-directory-saas-zscaler-beta-tutorial/ic781038.png "Add User")
    
-    a. Type the **UserID**, **User Display Name**, **Password**, **Confirm Password**, and then select **Groups** and the **Department** of a valid AAD account you want to provision.
+    a. Type the **UserID**, **User Display Name**, **Password**, **Confirm Password**, and then select **Groups** and the **Department** of a valid Azure AD account you want to provision.
 
     b. Click **Save**.
 
 > [!NOTE]
-> You can use any other Zscaler Beta user account creation tools or APIs provided by Zscaler Beta to provision AAD user accounts.
+> You can use any other Zscaler Beta user account creation tools or APIs provided by Zscaler Beta to provision Azure AD user accounts.
 
 ### Assigning the Azure AD test user
 
