@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/tutorial_policystat_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.policystat.com/<companyname>`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.policystat.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.policystat.com/saml2/metadata/`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.policystat.com/saml2/metadata/`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [PolicyStat Client support team](http://www.policystat.com/support/) to get these values. 
