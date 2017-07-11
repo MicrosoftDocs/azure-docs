@@ -13,11 +13,11 @@ ms.date: 07/11/2017
 ms.author: gauravbh; tomfitz
 ---
 
-# Consume Azure managed applications in Marketplace
+# Consume Azure managed applications in the Marketplace
 
-As discussed in the [Managed Application overview](managed-application-overview.md) article, there are two scenarios in the end to end experience. One is the publisher or vendor who wants to create a managed application for use by customers. The second is the end customer or the consumer of the managed application. This article covers the second scenario. It describes how you can deploy a managed application from the Marketplace.
+As discussed in the [Managed Application overview](managed-application-overview.md) article, there are two scenarios in the end to end experience. One is the publisher or vendor who wants to create a managed application for use by customers. The second is the end customer or the consumer of the managed application. This article covers the second scenario. It describes how you can deploy a managed application from the Microsoft Azure Marketplace.
 
-## Create from Marketplace
+## Create from the Marketplace
 
 Deploying a managed application from the Marketplace is similar to deploying any type of resources from the Marketplace. 
 
