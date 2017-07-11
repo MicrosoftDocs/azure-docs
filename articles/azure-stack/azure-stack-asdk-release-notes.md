@@ -52,7 +52,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * A tenant must have an existing storage account before creating a new Azure function.
-* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null".  Redeployment of the virtual machine succeeds.  
+* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null."  Redeployment of the virtual machine succeeds.  
 * Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources or entire resource group, and then delete tenant subscriptions.  
 * You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
 * Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
