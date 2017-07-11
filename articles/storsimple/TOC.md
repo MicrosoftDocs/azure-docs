@@ -50,7 +50,7 @@
 #### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 #### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
 
-# StorSimple 8000 Series
+# StorSimple 8000 Series (Azure portal)
 
 ## Overview
 ### [What is the solution?](storsimple-overview.md)
@@ -111,7 +111,7 @@
 ##### [Configure CHAP](storsimple-8000-configure-chap.md)
 
 
-#### [Using Window PowerShell for StorSimple (Azure portal)](storsimple-8000-windows-powershell-administration.md)
+#### [Using Window PowerShell for StorSimple](storsimple-8000-windows-powershell-administration.md)
 ##### [Manage device controller](storsimple-8000-manage-device-controller.md)
 ##### [Configure web proxy](storsimple-8000-configure-web-proxy.md)
 ##### [Modify DATA 0 settings](storsimple-8000-modify-data-0.md)
