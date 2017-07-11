@@ -54,9 +54,9 @@ CLUSTER_NAME=any-acs-cluster-name
 
 az acs create \
 --orchestrator-type=kubernetes \
---resource-group $RESOURCE_GROUP \ 
+--resource-group $RESOURCE_GROUP \
 --name=$CLUSTER_NAME \
---dns-prefix=$DNS_PREFIX \ 
+--dns-prefix=$DNS_PREFIX \
 --ssh-key-value ~/.ssh/id_rsa.pub \
 --admin-username=azureuser \
 --master-count=1 \
@@ -67,18 +67,17 @@ az acs create \
 ## Set up Jenkins and configure access to Container Service
 
 ### Step 1: Install Jenkins
-1. Create an Azure VM with Ubuntu 16.04 LTS. 
-2. Install Jenkins via these [instructions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu).
-3. A more detailed tutorial is at [howtoforge.com](https://www.howtoforge.com/tutorial/how-to-install-jenkins-with-apache-on-ubuntu-16-04).
-4. Update the Azure network security group to allow port 8080 and then browse the public IP at port 8080 to manage Jenkins in your browser.
-5. Initial Jenkins admin password is stored at /var/lib/jenkins/secrets/initialAdminPassword.
-6. Install Docker on the Jenkins machine via these [instructions](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts). This allows for Docker commands to be run in Jenkins jobs.
-7. Configure Docker permissions to allow Jenkins to access endpoint.
+1. Create an Azure VM with Ubuntu 16.04 LTS.  Since later in the steps you will need to connect to this VM using bash on your local machine, set the 'Authentication type' to 'SSH public key' and paste the SSH public key that is stored locally in your ~/.ssh folder.  Also, take note of the 'User name' that you specify since this user name will be needed to view the Jenkins dashboard and for connecting to the Jenkins VM in later steps.
+2. Install Jenkins via these [instructions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu). A more detailed tutorial is at [howtoforge.com](https://www.howtoforge.com/tutorial/how-to-install-jenkins-with-apache-on-ubuntu-16-04).
+3. To view the Jenkins dashboard on your local machine, update the Azure network security group to allow port 8080 by adding an inbound rule that allows access to port 8080.  Alternatively, you may setup port forwarding by running this command: `ssh -i ~/.ssh/id_rsa -L 8080:localhost:8080 <your_jenkins_user>@<your_jenkins_public_ip`
+4. Connect to your Jenkins server using the browser by navigating to the public IP (http://<your_jenkins_public_ip>:8080) and unlock the Jenkins dashboard for the first time with the initial admin password.  The admin password is stored at /var/lib/jenkins/secrets/initialAdminPassword on the Jenkins VM.  An easy way to get this password is to SSH into the Jenkins VM: `ssh <your_jenkins_user>@<your_jenkins_public_ip>`.  Next, run: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
+5. Install Docker on the Jenkins machine via these [instructions](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts). This allows for Docker commands to be run in Jenkins jobs.
+6. Configure Docker permissions to allow Jenkins to access the Docker endpoint.
 
     ```bash
     sudo chmod 777 /run/docker.sock
     ```
-8. Install `kubectl` CLI on Jenkins. More details are at [Installing and Setting up kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).
+8. Install `kubectl` CLI on Jenkins. More details are at [Installing and Setting up kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).  Jenkins jobs will use 'kubectl' to manage and deploy to the Kubernetes cluster.
 
     ```bash
     curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
@@ -94,21 +93,19 @@ az acs create \
 > There are multiple approaches to accomplishing the following steps. Use the approach that is easiest for you.
 >
 
-1. Copy the `kubectl` config file to the Jenkins machine.
+1. Copy the `kubectl` config file to the Jenkins machine so that Jenkins jobs have access to the Kubernetes cluster. These instructions assume that you are using bash from a different machine than the Jenkins VM and that a local SSH public key is stored in the machine's ~/.ssh folder.
 
-    ```bash
-    export KUBE_MASTER=<your_cluster_master_fqdn>
+```bash
+export KUBE_MASTER=<your_cluster_master_fqdn>
+export JENKINS_USER=<your_jenkins_user>
+export JENKINS_SERVER=<your_jenkins_public_ip>
+sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.kube/ \
+&& sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir /var/lib/jenkins/.kube/ \
+&& sudo scp -3 -i ~/.ssh/id_rsa azureuser@$KUBE_MASTER:.kube/config $JENKINS_USER@$JENKINS_SERVER:~/.kube/config \
+&& sudo ssh -i ~/.ssh/id_rsa $JENKINS_USER@$JENKINS_SERVER sudo cp /home/$JENKINS_USER/.kube/config /var/lib/jenkins/.kube/config \
+```
         
-    sudo scp -3 -i ~/.ssh/id_rsa azureuser@$KUBE_MASTER:.kube/config user@<your_jenkins_server>:~/.kube/config
-        
-    sudo ssh user@<your_jenkins_server> sudo chmod 777 /home/user/.kube/config
-
-    sudo ssh -i ~/.ssh/id_rsa user@<your_jenkins_server> sudo chmod 777 /home/user/.kube/config
-        
-    sudo ssh -i ~/.ssh/id_rsa user@<your_jenkins_server> sudo cp /home/user/.kube/config /var/lib/jenkins/config
-    ```
-        
-2. Validate from Jenkins that the Kubernetes cluster is accessible.
+2. Validate from Jenkins that the Kubernetes cluster is accessible.  To do this, SSH into the Jenkins VM: `ssh <your_jenkins_user>@<your_jenkins_public_ip>`.  Next, verify Jenkins can successfully connect to your cluster: `kubectl cluster-info`.
     
 
 ## Create a Jenkins workflow
