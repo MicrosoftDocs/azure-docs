@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -122,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://webmail-us.mimecast.com/sso/<companyname>`|
 	| `https://webmail-uk.mimecast.com/sso/<companyname>`|    
 	| `https://webmail-za.mimecast.com/sso/<companyname>`|
-	| `https://webmail-us.mimecast.com/sso/<companyname>`|
+	| `https://webmail.mimecast-offshore.com/sso/<companyname>`|
     ||                                                 
     
 	> [!NOTE] 
@@ -144,7 +144,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In a different web browser window, log into your Mimecast Personal Portal as an administrator.
 
-8. Go to **Services \> Application**.
+8. Go to **Services \> Applications**.
    
     ![Applications](./media/active-directory-saas-mimecast-personal-portal-tutorial/ic794998.png "Applications")
 
@@ -281,11 +281,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 7. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
-
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Mimecast Personal Portal tile in the Access Panel, you should get login page of Mimecast Personal Portal application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the Mimecast Personal Portal tile in the Access Panel, you should get automatically signed-on to your Mimecast Personal Portal application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
