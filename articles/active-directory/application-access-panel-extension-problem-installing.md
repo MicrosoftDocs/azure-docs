@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/06/17
 ms.author: asteen
-
+ms.reviewer: japere
 ---
 
 # Problem installing the application access panel browser extension
@@ -31,11 +31,11 @@ For password-based SSO, the end user’s browsers can be:
 
 -   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
 
+-   Edge on Windows 10 Anniversary Edition or later 
+
 -   Chrome -- on Windows 7 or later, and on MacOS X or later
 
 -   Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
-
-**Note**: The password-based SSO extension become available for Edge in Windows 10 when browser extensions become supported for Edge.
 
 ## How to install the Access Panel Browser extension
 
@@ -43,7 +43,7 @@ To install the Access Panel Browser extension, follow the steps below:
 
 1.  Open the [Access Panel](https://myapps.microsoft.com) in one of the supported browsers and sign in as a **user** in your Azure AD.
 
-2.  click a **password-SSO application** in the Access Panel.
+2.  Click a **password-SSO application** in the Access Panel.
 
 3.  In the prompt asking to install the software, select **Install Now**.
 
@@ -55,11 +55,11 @@ To install the Access Panel Browser extension, follow the steps below:
 
 7.  Sign in into the Access Panel and see if you can **launch** your password-SSO applications
 
-You may also download the extension for Chrome and Firefox from the direct links below:
+You may also download the extension for Chrome and Edge from the direct links below:
 
 -   [Chrome Access Panel Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Firefox Access Panel Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Edge Access Panel Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## Setting up a group policy for Internet Explorer
 
