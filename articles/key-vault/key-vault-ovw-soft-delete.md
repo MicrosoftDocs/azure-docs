@@ -9,10 +9,7 @@ ms.date: 05/10/2017
 ---
 # Azure Key Vault soft-delete feature overview
 
->[!NOTE]
->For this preview version of Azure Key Vault only the **soft-delete** feature is in preview. Azure Key Vault, as a whole, is a full production service.
-
-For this preview version of Azure Key Vault we describe recoverable deletion of Key Vaults and Key Vault objects, known as soft-delete. Specifically, we addresses the following scenarios:
+Key Vault's soft delte feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we addresses the following scenarios:
 
 - Support for recoverable deletion of a key vaults
 - Support for recoverable deletion of key vault objects (ex. keys, secrets, certificates)
@@ -31,7 +28,7 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 ### Soft-delete behavior
 
-With this preview, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period, while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
+With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period, while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
 Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. For details on enabling soft-delete for your key vault, see the specific guidance in the reference for the interface of your choice, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
@@ -47,12 +44,7 @@ At the same time, Key Vault will schedule the deletion of the underlying data co
 
 ### Soft-delete retention period
 
-Soft deleted resources are retained for a set period of time, 90 days. 
-
->[!NOTE]
-> This the soft-delete retention period is not configurable for our May 10, 2017 preview release. 
-
-During the soft-delete retention interval, the following apply:
+Soft deleted resources are retained for a set period of time, 90 days. During the soft-delete retention interval, the following apply:
 
 - You may list all of the key vaults and key vault objects in the soft-delete state for your subscription as well as access deletion and recovery information about them.
     - Only users with special permissions can list deleted vaults. We recommend that our users create a custom role with these special permissions for handling deleted vaults.
