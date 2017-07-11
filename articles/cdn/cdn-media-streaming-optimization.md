@@ -44,7 +44,7 @@ After you create the endpoint, it applies the optimization for all files that ma
  
 ## Media streaming optimizations for the Azure Content Delivery Network from Akamai
  
-Media streaming optimization from Akamai is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This delivery process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [large file optimization](cdn-large-file-optimization.md).
+Media streaming optimization from Akamai is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This delivery process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [Large file optimization](cdn-large-file-optimization.md).
 
 
 The general media delivery or video-on-demand media delivery optimization types use a content delivery network with back-end optimizations to deliver media assets faster. They also use configurations for media assets based on best practices learned over time.

@@ -36,7 +36,7 @@ You can configure your content delivery network endpoint to optimize delivery fo
 
     ![New endpoint](./media/cdn-large-file-optimization/01_Adding.png)	
  
-2. In the **Optimized for** drop-down list box, select **Large file download**. Click **Add**.
+2. In the **Optimized for** drop-down list box, select **Large file download**.
 
     ![Large file optimization selected](./media/cdn-large-file-optimization/02_Creating.png)
 
@@ -57,7 +57,7 @@ After the chunk arrives at the content delivery network edge, it's cached and im
 
 For more information on the byte-range request, see [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-The content delivery network caches any chunks as they're received and doesn’t require the entire file to be cached on the content delivery network cache. Subsequent requests for the file or byte ranges are served from the content delivery network cache. If not all the chunks are cached on the content delivery network, prefetch is used to request chunks from the origin. This optimization relies on the ability of the origin server to support byte-range requests. _If the origin server doesn't support byte-range requests, this optimization will not be effective._ 
+The content delivery network caches any chunks as they're received and doesn’t require the entire file to be cached on the content delivery network cache. Subsequent requests for the file or byte ranges are served from the content delivery network cache. If not all the chunks are cached on the content delivery network, prefetch is used to request chunks from the origin. This optimization relies on the ability of the origin server to support byte-range requests. _If the origin server doesn't support byte-range requests, this optimization isn't effective._ 
 
 ### Caching
 Large file optimization uses different default caching-expiration times from general web delivery. It differentiates between positive caching and negative caching based on HTTP response codes. If the origin server specifies an expiration time via a cache-control or expires header in the response, the content delivery network honors that value. When the origin doesn’t specify and the file matches the type and size conditions for this optimization type, the content delivery network uses the default values for large file optimization. Otherwise, the content delivery network uses defaults for general web delivery.
@@ -112,6 +112,7 @@ Some additional aspects should be considered for this optimization type.
 ### Azure Content Delivery Network from Akamai
 
 - The chunking process generates additional requests to the origin server. However, the overall volume of data delivered from the origin is much smaller. Chunking results in better caching characteristics at the content delivery network.
+
 - Memory and I/O pressure are reduced at the origin because smaller pieces of the file are delivered. 
 - For chunks that are cached at the content delivery network, there are no additional requests to the origin until the content expires or it's evicted from the cache. 
 - Users can make range requests to the content delivery network, and they're treated like any normal file. Optimization applies only if it's a valid file type and the byte range is between 10 MB and 150 GB. If the average file size requested is smaller than 10 MB, you might want to use general web delivery instead.
