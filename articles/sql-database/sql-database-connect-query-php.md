@@ -20,7 +20,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database: Use PHP to connect and query data
 
-This quick start tutorial demonstrates how to use [PHP](http://php.net/manual/en/intro-whatis.php) to create a program to connect to an Azure SQL database and query data use Transact-SQL statements to query data.
+This quick start tutorial demonstrates how to use [PHP](http://php.net/manual/en/intro-whatis.php) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
 
 ## Prerequisites
 
