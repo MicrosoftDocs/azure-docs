@@ -53,10 +53,10 @@ Features often "interact": the effect of one depends on others. For example, fea
 
 To account for interaction between features X and Y, create a *quadratic* feature whose value is X\*Y. (We also say, "cross" X and Y.) You can choose which pairs of features are crossed.
 
-> [!TIP] 
+> [!TIP]
 > A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization.
 
-In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way.
+In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way. However, such feature may reduce the variance of reward estimates.
 
 ### Implementation via namespaces
 
@@ -67,7 +67,9 @@ Central to the implementation is the concept of *namespace*: a named subset of f
 A namespace is either "shared" or "action-dependent": either it consists only of shared features, or it consists only of action-dependent features of the same action.
 
 > [!TIP] 
-> It is a good practice to wrap each feature in an explicitly specified namespace. If the namespace is not provided, the feature is automatically assigned to the default namespace. However, you cannot refer to it from the VW command line.
+> It is a good practice to wrap features in explicitly specified namespaces. Group related features in the same namespace.
+
+If the namespace is not provided, the feature is automatically assigned to the default namespace. However, you cannot refer to this feature from the VW command line.
 
 > [!IMPORTANT]
 > Features and namespaces do not need to be consistent across actions. In particular, a namespace can have different features for different actions. Moreover, a given namespace can be defined for some actions and not for some others.
@@ -99,7 +101,7 @@ To add marginal features, write `--marginal <namespace>` in the VW command line.
 
 Insert this namespace along with other action-dependent features of a given action. Provide this definition for each decision, using the same `mf_name` and `action_id` for all decisions.
 
-The marginal feature is added for each action with `<namespace>`. The feature name is set to `mf_name`. In particular, marginal features with different `mf_name` are treated as different features. In other words, a different weight is learned for each `mf_name`.
+The marginal feature is added for each action with `<namespace>`. The `action_id` can be any feature name that uniquely identifies the action. The feature name is set to `mf_name`. In particular, marginal features with different `mf_name` are treated as different features. In other words, a different weight is learned for each `mf_name`.
 
 The default usage is that `mf_name` is the same for all actions. Then one weight is learned for all marginal features.
 
@@ -117,12 +119,12 @@ The 1-hot encoding is typical for categorical features such as "geographical reg
 
 Any string-valued feature is 1-hot encoded by default: a distinct internal feature is created for every possible value. We do not currently provide automatic 1-hot encoding for numerical features and/or with customized ranges.
 
-> [!TIP] 
-> Our machine learning algorithms treat all possible values of a given internal feature in a uniform way: via a common multiplicative coefficient. The 1-hot encoding allows a separate coefficient for each range of values. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
+> [!TIP]
+> Our machine learning algorithms treat all possible values of a given internal feature in a uniform way: via a common "weight." The 1-hot encoding allows a separate "weight" for each range of values. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
 
 ## Feature specification: format and APIs
 
-You can specify features via several ancillary APIs. All APIs use a common JSON format. Below we explain the APIs and the format on a conceptual level. Full specification is provided via Swagger schema.
+You can specify features via several ancillary APIs. All APIs use a common JSON format. Below we explain the APIs and the format on a conceptual level. The specification is complemented by a Swagger schema.
 
 The basic JSON template for feature specification is as follows:
 
