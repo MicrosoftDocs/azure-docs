@@ -25,6 +25,8 @@
       href: connect-php.md
     - name: .NET
       href: connect-csharp.md
+    - name: Go
+      href: connect-go.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database

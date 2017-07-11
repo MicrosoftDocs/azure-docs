@@ -72,13 +72,15 @@
 ### Examples
 #### [Tags](resource-manager-policy-tags.md)
 #### [Naming conventions](resource-manager-policy-naming-convention.md)
+#### [Network](resource-manager-policy-network.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Use managed applications
-### [Publish managed application](managed-application-publishing.md)
-### [Consume managed application](managed-application-consumption.md)
+### [Publish service catalog application](managed-application-publishing.md)
+### [Consume service catalog application](managed-application-consumption.md)
+### [Publish marketplace application](managed-application-author-marketplace.md)
 ### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Audit

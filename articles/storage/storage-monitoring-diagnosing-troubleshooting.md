@@ -26,7 +26,7 @@ Diagnosing and troubleshooting issues in a distributed application hosted in a c
 To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
 
 > [!NOTE]
-> The Azure Files service does not support logging at this time.
+> The Azure File Storage does not support logging at this time.
 > 
 
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md).
@@ -67,7 +67,7 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
   * [Your issue arises from using the storage emulator for development or test]
   * [You are encountering problems installing the Azure SDK for .NET]
   * [You have a different issue with a storage service]
-  * [Troubleshooting Azure Files issues with Windows and Linux](storage-troubleshoot-file-connection-problems.md)
+  * [Troubleshooting Azure File Storage issues with Windows and Linux](storage-troubleshoot-file-connection-problems.md)
 * [Appendices]
   * [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
   * [Appendix 2: Using Wireshark to capture network traffic]
