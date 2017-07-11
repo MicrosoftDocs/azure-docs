@@ -43,7 +43,7 @@ find "logic apps", and choose **Logic apps**.
 
 2. Select your logic app, then choose **Overview**.
 
-   The Azure portal shows the runs and trigger history for your logic app. 
+   The Azure portal shows the runs and triggers history for your logic app. 
    For example:
 
    ![Logic app runs history and trigger history](media/logic-apps-monitor-your-logic-apps/overview.png)
