@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/11/2017
 ms.author: jeedes
 
 ---
@@ -86,7 +86,7 @@ To configure and test Azure AD single sign-on with SECURE DELIVER, you need to c
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a SECURE DELIVER test user](#creating-a-securedeliver-test-user)** - to have a counterpart of Britta Simon in SECURE DELIVER that is linked to the Azure AD representation of user.
+3. **[Creating a SECURE DELIVER test user](#creating-a-secure-deliver-test-user)** - to have a counterpart of Britta Simon in SECURE DELIVER that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://i-securedeliver.jp/sd/<companyname>/jsf/login/sso`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/jsf/login/sso`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://i-securedeliver.jp/sd/<companyname>/postResponse`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/postResponse`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [SECURE DELIVER Client support team](mailto:iw-sd-support@fujifilm.com) to get these values. 
@@ -167,10 +167,6 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating a SECURE DELIVER test user
 
 The objective of this section is to create a user called Britta Simon in SECURE DELIVER. Work with [SECURE DELIVER support team](mailto:iw-sd-support@fujifilm.com) to add the users in the SECURE DELIVER account.
-
->[!NOTE]
->If you need to create an user manually, you need to contact the [SECURE DELIVER support team](mailto:iw-sd-support@fujifilm.com).
-> 
 
 ### Assigning the Azure AD test user
 
