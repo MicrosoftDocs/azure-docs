@@ -76,7 +76,7 @@ dotnet restore && dotnet build
 
 Once built, run it on your local machine to confirm it works. In the previous case, you can do it by typing `dotnet bin/Debug/netcoreapp1.1/hellodotnetcore.dll` because the DLL was built under *bin/Debug/netcoreapp1.1/*. This directory structure is consistent across operating systems.
 
-```bash
+```
 dotnet bin/Debug/netcoreapp1.1/hellodotnetcore.dll
 ```
 
@@ -155,5 +155,5 @@ Once the deployment has completed, restart your web app for the deployment to ta
 [6]: ./media/app-service-linux-using-dotnetcore/dotnet-local-http.png
 [7]: ./media/app-service-linux-using-dotnetcore/dotnet-browse-local.png
 [8]: ./media/app-service-linux-using-dotnetcore/dotnet-git-push.png
-[9]: ./media/app-service-linux-using-dotnetcore/dotnet-update-startup-file.png
+
 [10]: ./media/app-service-linux-using-dotnetcore/dotnet-browse-azure.png
