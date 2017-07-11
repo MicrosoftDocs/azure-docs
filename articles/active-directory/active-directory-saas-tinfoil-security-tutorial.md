@@ -116,23 +116,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 5. To add the required attribute mappings, perform the following steps:
     
     ![Attributes](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_attribute1.png "Attributes")
-     
 	
-	| Attribute Name    |   Attribute Value |  
-    | ------------------- | -------------------- |    
+	| Attribute Name    |   Attribute Value |
+	| ------------------- | -------------------- |
 	| accountid | UXXXXXXXXXXXXX |
-    
-    a. Click **add user attribute**.
-
+	
+	a. Click **add user attribute**.
+	
 	![Attributes](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_attribute.png "Attributes")
-
+	
 	![Attributes](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addatt.png "Attributes")
-
-    b. In the **Attribute Name** textbox, type **accountid**.
-
-    c. In the **Attribute Value** textbox, paste the account ID value which you will get later on the tutorial.
-
-    d. Click **Ok**.	
+	
+	b. In the **Attribute Name** textbox, type **accountid**.
+	
+	c. In the **Attribute Value** textbox, paste the account ID value which you will get later on the tutorial.
+	
+	d. Click **Ok**.	
 
 6. Click **Save** button.
 
