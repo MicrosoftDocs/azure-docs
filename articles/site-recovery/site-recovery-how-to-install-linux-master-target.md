@@ -32,7 +32,7 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 
 ## Prerequisites
 
-* To correctly choose the host on which to deploy the master target, determine whether the failback is going to be to an existing on-premises virtual machine or to a new virtual machine. 
+* To choose the host on which to deploy the master target, determine if the failback is going to be to an existing on-premises virtual machine or to a new virtual machine. 
 	* For an existing virtual machine, the host of the master target should have access to the data stores of the virtual machine.
 	* If the on-premises virtual machine does not exist, the failback virtual machine is created on the same host as the master target. You can choose any ESXi host to install the master target.
 * The master target should be on a network that can communicate with the process server and the configuration server.
@@ -45,7 +45,7 @@ Create the master target in accordance with the following sizing guidelines:
 - **RAM**: 6 GB or more
 -  **OS disk size**: 100 GB or more (to install CentOS6.6)
 - **Additional disk size for retention drive**: 1 TB
-- **CPU cores**: Four cores or more
+- **CPU cores**: 4 cores or more
 
 
 ## Deploy the master target server
