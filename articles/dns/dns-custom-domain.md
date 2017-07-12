@@ -96,4 +96,4 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 
 ## Next steps
 
-Learn how to [configure reverse DNS for services hosted in Azure](../dns-reverse-dns-for-azure-services.md).
+Learn how to [configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).
