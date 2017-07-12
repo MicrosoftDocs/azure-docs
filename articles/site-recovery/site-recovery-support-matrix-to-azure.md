@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 07/04/2017
 ms.author: rajanaki
 
 ---
@@ -38,7 +38,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **Support**
 --- | ---
-**VMware VM/physical server** | vSphere 6.0, 5.5, or 5.1 with latest update
+**VMware VM/physical server** | vCenter 6.5, 6.0 or 5.5
 **Hyper-V (with Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 and System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
@@ -48,7 +48,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **Support**
 --- | ---
-**VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
+**VMware VM/physical server** | vSphere 6.5, 6.0, 5.5
 **Hyper-V (with/without Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br></br>If SCVMM is used, Windows Server 2016 hosts should be managed by SCVMM 2016.
 
 
@@ -62,7 +62,7 @@ The following table summarizes replicated operating system support in various de
 
  **VMware/physical server** | **Hyper-V (with/without VMM)** |
 --- | --- |
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/>CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/>*Windows Server 2016* - not supported currently on VMware virtual machines and Physical servers. <br/><br/> Red Hat Enterprise Linux : 5.2 to 5.11, 6.1 to 6.8, 7.0 to 7.3 <br/><br/>Cent OS : 5.2 to 5.11, 6.1 to 6.8, 7.0 to 7.3 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 >[!IMPORTANT]
@@ -77,19 +77,24 @@ The following table summarizes replicated operating system support in various de
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic to 3.13.0-121-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-81-generic |
+16.04 LTS | 9.10 | 4.4.0-21-generic to 4.4.0-81-generic,<br/>4.8.0-34-generic to 4.8.0-56-generic,<br/>4.10.0-14-generic to 4.10.0-24-generic |
+
 
 ## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
 
 The following file systems and storage configuration software is supported on Linux servers running on VMware or Physical servers:
-* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS (upto v4 only)
+* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
 * Volume manager : LVM2
 * Multipath software : Device Mapper
 
-Physical servers with the HP CCISS storage controller aren't supported.
+Paravirtualized storage devices (devices exported by paravirtualized drivers) are not supported.<br/>
+Multi-queue block IO devices are not supported.<br/>
+Physical servers with the HP CCISS storage controller aren't supported.<br/>
 
 >[!Note]
 > On Linux servers the following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc<br/><br/>
-> XFS v5 features such as metadata checksum are currently not supported by ASR on XFS filesystems. Ensure that your XFS filesystems aren't using any v5 features. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used.
+> XFSv5 features on XFS filesystems such as metadata checksum are supported starting from version 9.10 of the Mobility service. If you are using XFSv5 features, ensure you are running Mobility Service version 9.10 or later. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used.
 >
 
 
@@ -100,7 +105,7 @@ The following tables summarize network configuration support in various deployme
 
 **Configuration** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
 --- | --- | ---
-NIC teaming | Yes<br/><br/>Not supported in physical machines| Yes
+NIC teaming | Yes<br/><br/>Not supported when physical machines are replicated| Yes
 VLAN | Yes | Yes
 IPv4 | Yes | Yes
 IPv6 | No | No
@@ -113,7 +118,7 @@ NIC teaming | No | No
 IPv4 | Yes | Yes
 IPv6 | No | No
 Static IP (Windows) | Yes | Yes
-Static IP (Linux) | No | No
+Static IP (Linux) | Yes <br/><br/>Virtual machines is configured to use DHCP on failback  | No
 Multi-NIC | Yes | Yes
 
 ### Failed-over Azure VM network configuration
@@ -150,12 +155,13 @@ VMDK | Yes | N/A
 VHD/VHDX | N/A | Yes
 Gen 2 VM | N/A | Yes
 EFI/UEFI| No | Yes
-Shared cluster disk | Yes for VMware<br/><br/> N/A for physical servers | No
+Shared cluster disk | No | No
 Encrypted disk | No | No
 NFS | No | N/A
 SMB 3.0 | No | No
 RDM | Yes<br/><br/> N/A for physical servers | N/A
 Disk > 1 TB | No | No
+Disk with 4K sector size | No | No
 Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes
 Storage Spaces | No | Yes
 Hot add/remove disk | No | No

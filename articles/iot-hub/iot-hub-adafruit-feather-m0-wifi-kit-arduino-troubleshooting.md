@@ -4,7 +4,7 @@ description: Troubleshooting page for Adafruit Feather M0 WiFi Arduino experienc
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'arduino troubleshooting'
 

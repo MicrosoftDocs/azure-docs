@@ -4,7 +4,7 @@ description: Install tools on your Mac computer, create an IoT hub and register 
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot development, iot software, iot cloud service, internet of things software, azure cli, install python mac, install git on mac, gulp run, install node js mac'
 

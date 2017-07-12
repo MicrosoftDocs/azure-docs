@@ -126,15 +126,15 @@ To verify the NFS use case, an NFS share from another Azure VM was mounted to th
 
 The NFS share was a fast stripe set, like the one on the SAP HANA server. Nevertheless, it took 1 hour and 46 minutes to do the backup directly on the NFS share instead of 10 minutes, when writing to a local stripe set.
 
-![The alternative wasn&#39;t much quicker at 1 hour and 43 minutes](media/sap-hana-backup-file-level/image037.png)
+![The alternative wasn't much quicker at 1 hour and 43 minutes](media/sap-hana-backup-file-level/image037.png)
 
-The alternative of doing a backup to a local stripe set and copying to the NFS share on OS level (a simple **cp -avr** command) wasn&#39;t much quicker. It took 1 hour and 43 minutes.
+The alternative of doing a backup to a local stripe set and copying to the NFS share on OS level (a simple **cp -avr** command) wasn't much quicker. It took 1 hour and 43 minutes.
 
-So it works, but performance wasn&#39;t good for the 230-GB backup test. It would look even worse for multi terabytes.
+So it works, but performance wasn't good for the 230-GB backup test. It would look even worse for multi terabytes.
 
 ## Copy SAP HANA backup files to Azure file service
 
-It is possible to mount an Azure file share inside an Azure Linux VM. The article [How to use Azure File Storage with Linux](../../../storage/storage-how-to-use-files-linux.md) provides details on how to do it. Keep in mind that there is currently a 5-TB quota limit of one Azure file share, and a file size limit of 1 TB per file. See [Azure Storage Scalability and Performance Targets](../../../storage/storage-scalability-targets.md) for information on storage limits.
+It is possible to mount an Azure file share inside an Azure Linux VM. The article [How to use Azure File storage with Linux](../../../storage/storage-how-to-use-files-linux.md) provides details on how to do it. Keep in mind that there is currently a 5-TB quota limit of one Azure file share, and a file size limit of 1 TB per file. See [Azure Storage Scalability and Performance Targets](../../../storage/storage-scalability-targets.md) for information on storage limits.
 
 Tests have shown, however, that SAP HANA backup doesn&#39;t currently work directly with this kind of CIFS mount. It is also stated in [SAP Note 1820529](https://launchpad.support.sap.com/#/notes/1820529) that CIFS is not recommended.
 

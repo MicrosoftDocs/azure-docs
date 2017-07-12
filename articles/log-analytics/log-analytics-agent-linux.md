@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 07/06/2017
 ms.author: magoedte
 ---
 
@@ -50,8 +50,8 @@ The information below list the proxy and firewall configuration information requ
 |------|---------|  
 |*.ods.opinsights.azure.com | Port 443|   
 |*.oms.opinsights.azure.com | Port 443|   
-|ods.systemcenteradvisor.com | Port 443|   
 |*.blob.core.windows.net/ | Port 443|   
+|*.azure-automation.net | Port 443|  
 
 ### Package requirements
 
@@ -61,7 +61,7 @@ Glibc |	GNU C Library	| 2.5-12
 Openssl	| OpenSSL Libraries | 0.9.8e or 1.0
 Curl | cURL web client | 7.15.5
 Python-ctypes | | 
-PAM | Pluggable authentication Modules	 | 
+PAM | Pluggable authentication Modules | 
 
 > [!NOTE]
 >  Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog, 
@@ -70,7 +70,7 @@ The agent is comprised of multiple packages. The release file contains the follo
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.3.4 | The Operations Management Suite Agent for Linux
+omsagent | 1.4.0 | The Operations Management Suite Agent for Linux
 omsconfig | 1.1.1 | Configuration agent for the OMS Agent
 omi | 1.2.0 | Open Management Infrastructure (OMI) - a lightweight CIM Server
 scx | 1.6.3 | OMI CIM Providers for operating system performance metrics
@@ -137,22 +137,22 @@ Options:
 
 #### To install and onboard directly
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
 ```
 
 #### To install and onboard to a workspace in US Government Cloud
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
 #### To install the agent packages and onboard at a later time
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 ```
 
 #### To extract the agent packages from the bundle without installing
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --extract
+sudo sh ./omsagent-<version>.universal.x64.sh --extract
 ```
 
 ## Configuring the agent for use with an HTTP proxy server or OMS Gateway
@@ -180,7 +180,7 @@ The proxy server can be specified during installation or by modifying the proxy.
 The `-p` or `--proxy` argument for the omsagent installation bundle specifies the proxy configuration to use. 
 
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### Define the proxy configuration in a file
@@ -215,9 +215,8 @@ If a workspace ID and key were not provided during the bundle installation, the 
 Run the omsadmin.sh command supplying the workspace id and key for your workspace. This command must be run as root (with sudo elevation):
 ```
 cd /opt/microsoft/omsagent/bin
-sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key> [-p <proxy>] [-v]
+sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ```
-The optional -v switch will enable verbose logging during the onboarding process. All the information will be showed on the screen where shell script is executed.
 
 ### Onboarding using a file
 1.	Create the file `/etc/omsagent-onboard.conf`. The file must be readable and writable for root.
