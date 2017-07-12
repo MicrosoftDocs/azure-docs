@@ -1,4 +1,30 @@
+---
+title: Configure redirection for Azure Application Gateway - PowerShell | Microsoft Docs
+description: This page provides scenarios to configure redirection for Application Gateway utilizing PowerShell
+documentationcenter: na
+services: application-gateway
+author: georgewallace
+manager: timlt
+editor: 
 
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/12/2017
+ms.author: gwallace
+
+---
+
+# Configure redirection on Application Gateway with PowerShell
+
+Application gateway supports the ability to redirect traffic based on a defined configuration. To learn more about redirection in general visit, [Application Gateway redirect overview](../application-gateway-redirect-overview.md). This article provides examples of multiple scenarios that use redirection in different ways.
+
+* [HTTP to HTTPS redirect on an existing application gateway](#http-to-https-redirect-on-an-existing-application-gateway)
+* [Path based redirect](#path-based-redirect)
+* [Multi-site redirect](#multisite-redirect)
+* [Redirect to an external site](#redirect-to-an-external-site)
 
 ## HTTP to HTTPS redirect on an existing application gateway
 
@@ -57,7 +83,7 @@ Content-Length: 145
 
 ## Path based redirect
 
-The following example creates a new listener and a path based rule that redirects only traffic meeting the specific url path.
+The following example creates a new listener and a path based rule on an existing application gateway that redirects only traffic meeting the specific url path.
 
 ```powershell
 # Get the application gateway
@@ -106,14 +132,71 @@ Add-AzureRmApplicationGatewayRequestRoutingRule -Name "rule6" -RuleType PathBase
 Set-AzureRmApplicationGateway -ApplicationGateway $gw 
 ```
 
-# Redirect to an external site
+## Multi-site redirect
 
-cannot use includepath or includequery string
-### Configure virtual network
-
-Application Gateway requires a subnet of its own. In this step you create a virtual network with an address space of 10.0.0.0/16 and two subnets, one for the application gateway and one for backend pool members.
+The following example creates a new application gateway with 2 multi-site listeners on port 80. The listeners are for adatum.com and adatum.org. A redirect rule is created to redirect traffic from adatum.org to adatum.com. Additional configuration is required for configuring CNAME aliases to the application gateway public IP address, for more information on delegating your domain to Azure DNS and creating CNAME records for your domain visit, [Delegate a domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
 
 ```powershell
+# Create a new resource group for the application gateway
+New-AzureRmResourceGroup -Name appgw-rg -Location "East US"
+
+# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
+$gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
+
+# Create a subnet configuration object for the backend pool members subnet
+$nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
+
+# Create the virtual network with the previous created subnets
+$vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
+
+# Create a public IP address for use with the application gateway. Defining the domainnamelabel during creation is not supported for use with application gateway
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "East US" -AllocationMethod Dynamic
+
+# Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $vnet.Subnets[0]
+
+# Create a backend pool to hold the addresses or NICs for the application that application gateway is protecting.
+$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
+
+# Conifugre the backend HTTP settings to be used to define how traffic is routed to the backend pool. The authenication certificate used in the previous step is added to the backend http settings.
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled
+
+# Create a frontend port to be used by the listener.
+$fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 80
+
+# Create a frontend IP configuration to associate the public IP address with the application gateway
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
+
+# Create the HTTP listener for the application gateway for adatum.com. Assign the front-end ip configuration, and port.
+$listener1 = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -HostName adatum.com
+
+# Create the HTTP listener for the application gateway for adatum.org this listener will redirect to the abc.com listener. Assign the front-end ip configuration, and port.
+$listener2 = New-AzureRmApplicationGatewayHttpListener -Name listener02 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -HostName adatum.org
+
+# Create the redirect configuration that will point traffic to the 
+$redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name redirectOrgtoCom -RedirectType Found -TargetListener $listener1 -IncludePath $true -IncludeQueryString $true
+
+#Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
+$rule1 = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -HttpListener $listener1 -BackendHttpSettings $poolSetting -BackendAddressPool $pool
+
+#Create a load balancer routing rule that redirects traffic to the adatum.com listener
+$rule2 = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule02 -RuleType Basic -HttpListener $listener2 -RedirectConfiguration $redirectconfig
+
+# Configure the SKU of the application gateway
+$sku = New-AzureRmApplicationGatewaySku -Name Standard_Medium -Tier Standard -Capacity 2
+
+# Create the application gateway utilizing all the previously created configuration objects
+$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener,$listener2 -RequestRoutingRules $rule1,$rule2 -RedirectConfigurations $redirectconfig -Sku $sku
+```
+
+## Redirect to an external site
+
+The following example redirects traffic coming into the application gateway to an external website (bing.com). When using the `TargetUrl` switch the `IncludePath` and `IncludeQuery` switches are not allowed.
+
+```powershell
+# Create a new resource group for the application gateway
+New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
+
 # Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
 $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 
@@ -122,20 +205,10 @@ $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPr
 
 # Create the virtual network with the previous created subnets
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
-```
 
-### Configure public IP address
-
-In order to handle external requests, application gateway requires a public IP address. This public IP address must not have a `DomainNameLabel` defined to be used by the application gateway.
-
-```powershell
 # Create a public IP address for use with the application gateway. Defining the domainnamelabel during creation is not supported for use with application gateway
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
-```
 
-### Create the application gateway
-
-```powershell
 # Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $vnet.Subnets[0]
 
@@ -152,7 +225,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 80
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
 
 # Create the HTTP listener for the application gateway. Assign the front-end ip configuration, and port.
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp 
+$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp 
 
 # Create the redirect configuration that will point traffic to the 
 $redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name myredirect -RedirectType Temporary -TargetUrl "http://bing.com" -IncludePath $true -IncludeQueryString $true
@@ -166,3 +239,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 # Create the application gateway utilizing all the previously created configuration objects
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -RedirectConfigurations $redirectconfig -Sku $sku
 ```
+
+## Next steps
+
+Visit [configure end to end SSL with application gateway using PowerShell](../application-gateway-end-to-end-ssl-powershell.md)
