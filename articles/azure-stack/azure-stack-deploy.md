@@ -125,7 +125,7 @@ If you want to turn off telemetry for Azure Stack, you must do so before you run
 
 To turn off telemetry for Azure Stack, follow these steps:
 
-1. Before running the deployment script, open Registry Editor on the development kit host and navigate to the following key:
+1. Before running the deployment script, open Registry Editor on the development kit host and navigate to the following path:
     Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection
 2. Double-click the **AllowTelemetry** key > change the **Value data** to 0 > click **OK**.
 
