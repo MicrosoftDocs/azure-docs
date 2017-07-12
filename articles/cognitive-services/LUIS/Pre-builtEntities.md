@@ -55,7 +55,7 @@ Pre-built entity   |   Example utterance   |   JSON
  builtin.age   |   19 years old   |```{ "type": "builtin.age", "entity": "19 years old" }```|
  builtin.percentage   |   The stock price increase by 7 $ this year   |```{ "type": "builtin.percentage", "entity": "7 %" }```|
  builtin.datetimeV2 | See [builtin.datetimeV2](#builtindatetimev2) | See [builtin.datetimeV2](#builtindatetimev2) |
- builtin.datetime | See [builtin.datetime](#builtindatetime) | See sSee [builtin.datetime](#builtindatetime) |
+ builtin.datetime | See [builtin.datetime](#builtindatetime) | See [builtin.datetime](#builtindatetime) |
  builtin.geography | See separate table | See separate table below |
  builtin.encyclopedia | See separate table | See separate table below |
  
