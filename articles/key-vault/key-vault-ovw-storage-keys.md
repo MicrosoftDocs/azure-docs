@@ -5,15 +5,13 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 06/8/2017
+ms.date: 07/10/2017
 ---
 # Azure Key Vault Storage Account Keys
 
 Before Azure Key Vault Storage Account Keys, developers had to manage their own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Azure Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure storage account. 
 
 The Key Vault ASA key feature adds value through managing secret rotation for you. It also removes the need for your direct contact with an Azure Storage Account key by offering shared access signatures (SAS) as a method. 
-
-Also, Key Vault ASA keys are useful beyond Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key such as list and regenerate keys.
 
 For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -57,11 +55,18 @@ var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSett
 ### After Azure Key Vault Storage Keys 
 
 ```
-//Get SAS token from Key Vault //.... 
- 
+//Use PowerShell command to get Secret URI 
+
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
+-AccountName msak01 -Name blobsas1 -Protocol HttpsOrHttp -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+
+//Get SAS token from Key Vault //....
+
+var secret = await kv.GetSecretAsync("SecretUri");
+
 // Create new storage credentials using the SAS token. 
 
-var accountSasCredential = new StorageCredentials(sasToken); 
+var accountSasCredential = new StorageCredentials(secret.Value); 
 
 // Use credentials and the Blob storage endpoint to create a new Blob service client. 
 
@@ -106,12 +111,6 @@ Key Vault must verify that the identity has *regenerate* permissions before it c
 
 - Key Vault lists RBAC permissions on the storage account resource.
 - Key Vault validates the response via regular expression matching of actions and non-actions. 
-
-Some supporting examples: 
-
-- Example 
-[VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
-- Example [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
 
 If the identity, via OBO token, does not have *regenerate* permission or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
 

@@ -67,7 +67,7 @@ Read the [Partition Service Fabric reliable services](service-fabric-concepts-pa
 ## System services
 There are system services that are created in every cluster that provide the platform capabilities of Service Fabric.
 
-**Naming Service**: Each Service Fabric cluster has a Naming service, which resolves service names to a location in the cluster. You manage the service names and properties, similar to an internet Domain Name Service (DNS) for the cluster. Clients securely communicate with any node in the cluster using the Naming Service to resolve a service name and its location.  Applications mov within the cluster for example due to failures, resource balancing, or the resizing of the cluster. You can develop services and clients which resolve the current network location. Clients obtain the actual machine IP address and port where it is currently running.
+**Naming Service**: Each Service Fabric cluster has a Naming service, which resolves service names to a location in the cluster. You manage the service names and properties, similar to an internet Domain Name Service (DNS) for the cluster. Clients securely communicate with any node in the cluster using the Naming Service to resolve a service name and its location.  Applications move within the cluster for example due to failures, resource balancing, or the resizing of the cluster. You can develop services and clients which resolve the current network location. Clients obtain the actual machine IP address and port where it is currently running.
 
 Read [Communicate with services](service-fabric-connect-and-communicate-with-services.md) for more information on the client and service communication APIs that work with the Naming service.
 

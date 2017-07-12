@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 06/28/2017
 ms.author: tomfitz
 
 ---
@@ -110,7 +110,8 @@ For now, the services that enable moving to both a new resource group and subscr
 * Stream Analytics
 * SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved.
 * Traffic Manager
-* Virtual Machines - Does not support move to a new subscription when its certificates are stored in a Key Vault
+* Virtual Machines
+* Virtual Machines with certificate stored in Key Vault - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machine Scale Sets
 * Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled. In addition,
@@ -137,7 +138,6 @@ The services that currently do not enable moving a resource are:
 * Security
 * Snapshots created from Managed Disks
 * StorSimple Device Manager
-* Virtual Machines with certificate stored in Key Vault
 * Virtual Machines with Managed Disks
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
@@ -148,7 +148,7 @@ When working with App Service apps, you cannot move only an App Service plan. To
 * Move the App Service plan and all other App Service resources in that resource group to a new resource group that does not already have App Service resources. This requirement means you must move even the App Service resources that are not associated with the App Service plan.
 * Move the apps to a different resource group, but keep all App Service plans in the original resource group.
 
-App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
+The App Service plan does not need to reside in the same resource group as the app for the app to function correctly.
 
 For example, if your resource group contains:
 
