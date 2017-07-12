@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 07/17/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with SAP HANA, you need the following items:
 
 - An Azure AD subscription
-- An SAP HANA single-sign on enabled subscription
+- An SAP HANA single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -41,7 +41,7 @@ To configure Azure AD integration with SAP HANA, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -117,11 +117,41 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_certificate.png) 
 
+	>[!Note]
+	>If certificate is not active then make it active by clicking the “Make new certificate active” checkbox in the Azure AD. 
+
 5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/tutorial_general_400.png)
 	
-6. To configure single sign-on on **SAP HANA** side, you need to follow the steps provided here- [Configure SSO with SAML Authentication for SAP HANA XS Applications](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/58/30507afc1a401fb0aef9f6179a4422/content.htm) and [Add an SAML Identity Provider](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/fb/c7c94aef314fd5847d921b8e040ed7/content.htm).
+6. To configure single sign-on on **SAP HANA** side, login to your **HANA XSA Web Console**  by browsing to the respective HTTPS-endpoint.
+
+	> [!Note]
+	> In the default configuration, the URL redirects the request to a logon screen, which requires the credentials of an authenticated SAP HANA database user to complete the logon process. The user who logs on must have the privileges required to perform SAML administration tasks.
+
+	> [!TIP]
+	> Take note of the Forms-Authentication URL. If you break something in your SAML-P configuration later down the road, you can always use it to sign back in via Forms Authentication to fix the configuration! 
+
+7. In the XSA Web Interface, navigate to **SAML Identity Provider** and from there, click the **“+”** -button on the bottom of the screen to display the Add Identity Provider Info pane and perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap1.png)
+
+	a. In the **Add Identity Provider Info** pane, paste the contents of the Metadata XML, which you have downloaded from Azure portal into the **Metadata** textbox.
+
+	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap2.png)
+
+	b. If the contents of the XML document are valid, the parsing process extracts the information required to insert into the **Subject, Entity ID, and Issuer** fields in the General Data screen area, and the URL fields in the Destination screen area, for example, **Base URL and SingleSignOn URL (*)**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap3.png)
+
+	c. In the Name box of the General Data screen area, enter a name for the new SAML SSO identity provider.
+
+	> [!Note]
+	> The name of the SAML IDP is mandatory and must be unique; it appears in the list of available SAML IDPs that is displayed, if you select SAML as the authentication method for SAP HANA XS applications to use, for example, in the Authentication screen area of the XS Artifact Administration tool.
+
+8. Save the details of the new SAML identity provider. Choose **Save** to save the details of the SAML identity provider and add the new SAML IDP to the list of known SAML IDPs.
+
+	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap4.png)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -162,6 +192,31 @@ The objective of this section is to create a test user in the Azure portal calle
 
 To enable Azure AD users to log in to SAP HANA, they must be provisioned into SAP HANA.  
 SAP HANA supports just-in-time provisioning, which is by default enabled.
+
+If you need to create a user manually, perform the following steps:
+
+1. Open the [SAP HANA Studio](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-us) as an administrator and enable the DB-User for SAML SSO.
+
+	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap5.png)
+
+2. Tick the invisible (?) checkbox in front of **SAML** and follow the Configuration link.
+
+3. Click **Add** to add the SAML IDP and click **OK** selecting the appropriate SAML IDP.
+
+4. Add the **External Identity** (ex. globaladmin here) or choose **"Any"** and click **OK**.
+
+	>[!Note]
+	>You can change the external authentication used by the user.
+External users are authenticated using an external system, for example a Kerberos system. For detailed information about external identities, contact your [domain administrator](https://cloudplatform.sap.com/contact.html).
+
+5. For testing purposes, assign all **"XS"** roles to the user. 
+
+	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap6.png)
+
+ 	> [!TIP]
+  	> You should give those permissions appropriate for your use cases, only.
+
+6. Save the user.
 
 ### Assigning the Azure AD test user
 
