@@ -47,8 +47,8 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |Name     | mywebserver        | This along with the domain name label is the FQDN for the custom domain name.        |
 |Type     | A        | Use an A record as the resource is an IP address.        |
 |TTL     | 1        | 1 is used for 1 hour        |
-|TTL unit     | Hours        | Hours is used as the time measurement         |
-|IP Address     | <your ip address>       | The public IP address .|
+|TTL unit     | Hours        | Hours are used as the time measurement         |
+|IP Address     | <your ip address>       | The public IP address.|
 
 ![create an a record](./media/dns-custom-domain/arecord.png)
 
@@ -57,13 +57,13 @@ Once the A record is created, run `nslookup` to validate the record resolves.
 ![public ip dns lookup](./media/dns-custom-domain/publicipnslookup.png)
 ## Custom domains
 
-For the other resources a CNAME record is created to alias the DNS name.  The follow steps take you through configuring a custom domain for an Azure resource.
+For the other resources, a CNAME record is created to alias the DNS name.  The follow steps take you through configuring a custom domain for an Azure resource.
 
 ## Retrieve the DNS name to alias
 
 Navigate to the resource you are configuring a custom domain name for and click **Custom domains**.
 
-Note the current url on the **Custom domains** blade, this address will be used as the alias for the DNS record created.
+Note the current url on the **Custom domains** blade, this address is used as the alias for the DNS record created.
 
 ![custom domains blade](./media/dns-custom-domain/url.png)
 
@@ -77,8 +77,8 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |Name     | mywebserver        | This along with the domain name label is the FQDN for the custom domain name.        |
 |Type     | CNAME        | Use a CNAME record is using an alias. An A record would be used if the resource used an IP address.        |
 |TTL     | 1        | 1 is used for 1 hour        |
-|TTL unit     | Hours        | Hours is used as the time measurement         |
-|Alias     | webserver.azurewebsites.net        | The DNS name you are creating the alias for, in this example its the webserver.azurewebsites.net DNS name provided by default to the web app.        |
+|TTL unit     | Hours        | Hours are used as the time measurement         |
+|Alias     | webserver.azurewebsites.net        | The DNS name you are creating the alias for, in this example it is the webserver.azurewebsites.net DNS name provided by default to the web app.        |
 
 Choose a type of **CNAME** and put the address you found in the previous step on your resource and put it in the **Alias** text box.
 
@@ -86,7 +86,7 @@ Choose a type of **CNAME** and put the address you found in the previous step on
 
 ### Configure and validate the CNAME record
 
-Navigate back to your resource that will be configured for the custom domain name and click **Custom domains**, then click **Hostnames**. To add the CNAME record you just created click **+ Add hostname**.
+Navigate back to your resource that is configured for the custom domain name and click **Custom domains**, then click **Hostnames**. To add the CNAME record you just created, click **+ Add hostname**.
 
 ![figure 1](./media/dns-custom-domain/figure1.png)
 
