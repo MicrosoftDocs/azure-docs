@@ -82,9 +82,9 @@ accountSasCredential.UpdateSASToken(sasToken);
  
  ### Developer best practices 
 
-- Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself. Your attempts to manually manage will interferes with Key Vault's processes. 
-- Do not allow ASA keys to be managed by more than one key vault object. 
-- If you need to manually regenerate ASA keys, we recommend that you regenerate them via Key Vault. 
+- Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself, you will interferes with Key Vault's processes. 
+- Do not allow ASA keys to be managed by more than one Key Vault object. 
+- If you need to manually regenerate your ASA keys, we recommend that you regenerate them via Key Vault. 
 
 ## Getting started
 
@@ -93,10 +93,16 @@ accountSasCredential.UpdateSASToken(sasToken);
 Key Vault needs permissions to list and regenerate keys for a storage account. Set up these permissions using the following steps:
 
 1. Get ObjectId of Key Vault: 
-`Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`  
+```
+Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"
+
+```  
  
 2. Assign “Storage Key Operator” role to Azure Key Vault Identity: 
-`New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'` 
+```
+New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'
+
+``` 
 
 >[!NOTE]
 > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
