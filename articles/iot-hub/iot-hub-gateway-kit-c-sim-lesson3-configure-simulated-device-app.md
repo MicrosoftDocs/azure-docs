@@ -4,7 +4,7 @@ description: 'Run a simulated device sample app to send temperature data to your
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'data to cloud'
 

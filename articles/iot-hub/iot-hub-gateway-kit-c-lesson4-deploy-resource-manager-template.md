@@ -4,7 +4,7 @@ description: Save messages from Intel NUC to your IoT hub, write them to Azure T
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
 
@@ -27,7 +27,7 @@ Azure Functions is a solution for easily running _functions_ (small pieces of co
 
 ## What you will do
 
-- Use an Azure Resource Manager template to create an Azure function app and an Azure storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
+- Use an Azure Resource Manager template to create an Azure function app and an Azure storage account. The Azure function app listens to Azure IoT Hub events, processes incoming messages, and writes them to Azure Table storage.
 
 If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).
 

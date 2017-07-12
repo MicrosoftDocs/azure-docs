@@ -78,7 +78,7 @@ var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 //.... 
  
 // and update the accountSasCredential.UpdateSASToken(sasToken); 
- ```
+  ```
  
  ### Developer best practices 
 
@@ -111,6 +111,11 @@ Key Vault must verify that the identity has *regenerate* permissions before it c
 
 - Key Vault lists RBAC permissions on the storage account resource.
 - Key Vault validates the response via regular expression matching of actions and non-actions. 
+
+Some supporting examples: 
+
+- Example 
+[Github Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) 
 
 If the identity, via OBO token, does not have *regenerate* permission or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
 
