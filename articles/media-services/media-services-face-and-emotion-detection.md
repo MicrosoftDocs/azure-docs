@@ -45,7 +45,7 @@ The face detection and tracking API provides high precision face location detect
 
 The detected and tracked faces are returned with coordinates (left, top, width, and height) indicating the location of faces in the image in pixels, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
 
-### <a id="output_elements"></a>Elements of the output JSON file
+## <a id="output_elements"></a>Elements of the output JSON file
 
 [!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
