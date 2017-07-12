@@ -1,4 +1,4 @@
-For more information about the Azure Toolkits for Java integrated development environments (IDEs), see the following links:
+For more information about the Azure toolkits for Java IDEs, see the following links:
 
 * [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse)
   * [What's new in the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-whats-new)
@@ -11,4 +11,4 @@ For more information about the Azure Toolkits for Java integrated development en
   * [Create a Hello World web app for Azure in IntelliJ](/azure/app-service-web/app-service-web-intellij-create-hello-world-web-app)
   * [Sign-in instructions for the Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-sign-in-instructions)
 
-For additional details about using Java with Azure, see the [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) and the [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).
+For more information about using Java with Azure, see the [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) and the [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).

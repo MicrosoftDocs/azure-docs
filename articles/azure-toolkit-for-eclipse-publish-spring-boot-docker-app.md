@@ -20,9 +20,9 @@ ms.author: robmcm
 
 # Publish a Spring Boot app as a Docker container by using the Azure Toolkit for Eclipse
 
-The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot]. It provides a simplified approach for creating standalone Java applications.
+The [Spring Framework] is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot]. It provides a simplified approach for creating standalone Java applications.
 
-**[Docker]** is an open-source solution that helps developers automate the deployment, scaling, and management of their applications that are running in containers.
+[Docker] is an open-source solution that helps developers automate the deployment, scaling, and management of their applications that are running in containers.
 
 This tutorial walks you through the steps to deploy a Spring Boot application as a Docker container to Microsoft Azure by using the Azure Toolkit for Eclipse.
 
@@ -134,7 +134,7 @@ The Spring Boot Docker repository contains a completed Maven project that you wi
 
    ![Local Maven project][MV03]
 
-## Build your Spring Boot App by using Maven
+## Build your Spring Boot app by using Maven
 
 1. In the Eclipse Project Explorer, select the Maven project.
 
