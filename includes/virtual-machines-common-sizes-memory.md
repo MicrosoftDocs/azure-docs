@@ -105,7 +105,7 @@ ACU: 210 - 250
 
 *The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
-**Instance is isolated to hardware dedicated to a single customer.
+**Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
 
 ***25000 Mbps with Accelerated Networking.
 
@@ -123,7 +123,7 @@ ACU: 210 - 250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / 6000 - 12000 &#8224;          |
 | Standard_D15_v2* | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 40 / 40x500                       | 8 / 20000** |
 
-*Instance is isolated to hardware dedicated to a single customer.
+*Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
 
 **25000 Mbps with Accelerated Networking.
 
