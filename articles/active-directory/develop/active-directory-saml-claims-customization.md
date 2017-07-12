@@ -129,10 +129,10 @@ There are some restricted claims in SAML. If you add these claims, then Azure AD
 * [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
 
 <!--Image references-->
-[1]: ../media/active-directory-saml-claims-customization/user_attribute_section.png
-[2]: ../media/active-directory-saml-claims-customization/edit_claim_name_value.png
-[3]: ../media/active-directory-saml-claims-customization/delete_claim.png
-[4]: ../media/active-directory-saml-claims-customization/user_identifier.png
-[5]: ../media/active-directory-saml-claims-customization/extractemailprefix_function.png
-[6]: ../media/active-directory-saml-claims-customization/join_function.png
-[7]: ../media/active-directory-saml-claims-customization/add_attribute.png
+[1]: ./media/active-directory-saml-claims-customization/user_attribute_section.png
+[2]: ./media/active-directory-saml-claims-customization/edit_claim_name_value.png
+[3]: ./media/active-directory-saml-claims-customization/delete_claim.png
+[4]: ./media/active-directory-saml-claims-customization/user_identifier.png
+[5]: ./media/active-directory-saml-claims-customization/extractemailprefix_function.png
+[6]: ./media/active-directory-saml-claims-customization/join_function.png
+[7]: ./media/active-directory-saml-claims-customization/add_attribute.png
