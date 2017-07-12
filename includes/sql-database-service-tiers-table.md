@@ -53,4 +53,6 @@ sql-database-service-tiers.md
 | Max concurrent sessions | 30000| 30000| 30000| 30000|
 |||||||
 
-\* Storage limits only refer to the data in the database. Storage max sizes greater than the storage included per database are in preview. 
+> [!IMPORTANT]
+> \* Storage limits only refer to the data in the database. Storage max sizes greater than the storage included per database are in preview. 
+>
