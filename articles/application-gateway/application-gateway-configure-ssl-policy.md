@@ -17,9 +17,13 @@ ms.author: gwallace
 
 ---
 
-# Configure SSL policy on Application Gateway
+# Configure SSL policy versions and cipher suites on Application Gateway
 
-Learn how to configure SSL policy on Application Gateway. You can select from a list of ex
+Learn how to configure SSL policy versions and cipher suites on Application Gateway. You can select from a list of predefined policies that contain different configurations of SSL policy versions and enabled cipher suites. You also have the ability to define a custom SSL policy based on your requirements.
+
+* [Get available SSL options](#get-available-ssl-options)
+* [List pre-defined SSL Policies](#predefined-ssl-policies)
+* [Configure a custom SSL policy](#configure-a-custom-ssl-policy)
 
 ## Get available SSL options
 
@@ -69,9 +73,9 @@ AvailableProtocols:
     TLSv1_2
 ```
 
-## Pre-defined SSL Policies
+## List pre-defined SSL Policies
 
-Application gateway comes with 3 pre-defined policies that can be used. Each policy has different protocol versions and cipher suites enabled. These pre-defined policies can be used to quickly configure an SSL policy on your application gateway. By default **AppGwSslPolicy20170401** is selected if no specific SSL policy is defined.
+Application gateway comes with 3 pre-defined policies that can be used. The `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These pre-defined policies can be used to quickly configure an SSL policy on your application gateway. By default **AppGwSslPolicy20170401** is selected if no specific SSL policy is defined.
 
 * [AppGwSslPolicy20150501](#appgwsslpolicy20150501)
 * [AppGwSslPolicy20170401](#appgwsslpolicy20170401)
