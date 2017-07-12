@@ -28,25 +28,23 @@ The Azure Toolkit for IntelliJ provides templates and functionality that you can
 ## Get started with the Azure Toolkit for IntelliJ
 The following articles will help you start using the Azure Toolkit for IntelliJ:
 
-* [What's New in the Azure Toolkit for IntelliJ](azure-toolkit-for-intellij-whats-new.md)
+* [What's new in the Azure Toolkit for IntelliJ](azure-toolkit-for-intellij-whats-new.md)
 * [Installing the Azure Toolkit for IntelliJ](azure-toolkit-for-intellij-installation.md)
-* [Sign In Instructions for the Azure Toolkit for IntelliJ](azure-toolkit-for-intellij-sign-in-instructions.md)
-* [Create a Hello World Web App for Azure in IntelliJ](app-service-web/app-service-web-intellij-create-hello-world-web-app.md)
+* [Sign-in instructions for the Azure Toolkit for IntelliJ](azure-toolkit-for-intellij-sign-in-instructions.md)
+* [Create a Hello World web app for Azure in IntelliJ](app-service-web/app-service-web-intellij-create-hello-world-web-app.md)
 
 ## Use the Azure Toolkit for IntelliJ
 The following articles demonstrate using the Azure Toolkit for IntelliJ to add Azure functionality to your Java projects:
 
 * [Manage virtual machines by using the Azure Explorer for IntelliJ](azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md)
 * [Manage storage accounts by using the Azure Explorer for IntelliJ](azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md)
-* [Publish a Spring Boot app as a Docker container using the Azure Toolkit for IntelliJ](azure-toolkit-for-intellij-publish-spring-boot-docker-app.md)
+* [Publish a Spring Boot app as a Docker container by using the Azure Toolkit for IntelliJ](azure-toolkit-for-intellij-publish-spring-boot-docker-app.md)
 * [Publish a web app as a Docker container by using the Azure Toolkit for IntelliJ](azure-toolkit-for-intellij-publish-as-docker-container.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for HDInsight Spark Linux cluster](hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md)
 
 ## Next steps
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
-
-For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
 <!-- URL List -->
 

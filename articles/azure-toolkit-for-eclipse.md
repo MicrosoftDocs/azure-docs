@@ -29,38 +29,36 @@ The Azure Toolkit for Eclipse provides templates and functionality that you can 
 ## Get started with the Azure Toolkit for Eclipse
 The following articles will help you start using the Azure Toolkit for Eclipse:
 
-* [What's New in the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-whats-new.md)
+* [What's new in the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-whats-new.md)
 * [Installing the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-installation.md)
-* [Sign In Instructions for the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-sign-in-instructions.md)
-* [Create a Hello World Cloud Service for Azure in Eclipse](azure-toolkit-for-eclipse-creating-a-hello-world-application.md)
-* [Create a Hello World Web App for Azure in Eclipse](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
+* [Sign-in instructions for the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-sign-in-instructions.md)
+* [Create a Hello World cloud service for Azure in Eclipse](azure-toolkit-for-eclipse-creating-a-hello-world-application.md)
+* [Create a Hello World web app for Azure in Eclipse](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
 
 ## Configure Azure project settings
 The following articles show you how to use the Azure Toolkit for Eclipse to configure settings for your Azure projects:
 
-* [Azure Project Properties](azure-toolkit-for-eclipse-azure-project-properties.md)
-* [Azure Role Properties](azure-toolkit-for-eclipse-azure-role-properties.md)
-* [Azure Service Endpoints](azure-toolkit-for-eclipse-azure-service-endpoints.md)
-* [Azure Storage Account List](azure-toolkit-for-eclipse-azure-storage-account-list.md)
-* [Enable Session Affinity](azure-toolkit-for-eclipse-enable-session-affinity.md)
-* [Enabling Remote Access for Azure Deployments in Eclipse](azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md)
+* [Azure project properties](azure-toolkit-for-eclipse-azure-project-properties.md)
+* [Azure role properties](azure-toolkit-for-eclipse-azure-role-properties.md)
+* [Azure service endpoints](azure-toolkit-for-eclipse-azure-service-endpoints.md)
+* [Azure storage account list](azure-toolkit-for-eclipse-azure-storage-account-list.md)
+* [Enable session affinity](azure-toolkit-for-eclipse-enable-session-affinity.md)
+* [Enabling remote access for Azure deployments in Eclipse](azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md)
 
 ## Use the Azure Toolkit for Eclipse
 The following articles demonstrate using the Azure Toolkit for Eclipse to add Azure functionality to your Java projects:
 
-* [Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java](azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md)
-* [Deploying Large Deployments](azure-toolkit-for-eclipse-deploying-large-deployments.md)
+* [Displaying Javadoc content in Eclipse for the Package for Azure Libraries for Java](azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md)
+* [Deploying large deployments](azure-toolkit-for-eclipse-deploying-large-deployments.md)
 * [Manage storage accounts by using the Azure Explorer for Eclipse](azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md)
 * [Manage virtual machines by using the Azure Explorer for Eclipse](azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md)
-* [Publish a Spring Boot app as a Docker container using the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md)
+* [Publish a Spring Boot app as a Docker container by using the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md)
 * [Publish a web app as a Docker container by using the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-publish-as-docker-container.md)
-* [Use HDInsight Tools Plugin for Eclipse to create Spark applications for HDInsight Spark Linux cluster](hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Use HDInsight Tools Plugin for Eclipse to create Spark applications for an HDInsight Spark Linux cluster](hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 ## Next steps
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
-
-For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
 <!-- URL List -->
 
