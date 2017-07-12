@@ -1,4 +1,4 @@
----
+﻿---
 title: Listing your application in the Azure Active Directory application gallery
 description: How to list an application that supports single sign-on in the Azure Active Directory gallery | Microsoft Azure
 services: active-directory
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=Applications
 
+ms.reviewer: asteen
 ---
 # Listing your application in the Azure Active Directory application gallery
 To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](https://azure.microsoft.com/marketplace/active-directory/all/), the application first needs to implement one of the following integration modes:

@@ -1,4 +1,4 @@
----
+﻿---
 title: Finding unmanaged cloud applications with Cloud App Discovery | Microsoft Docs
 description: Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 
+ms.reviewer: harshja
+ms.custom: iamfeature=CloudAppDiscovery
 ---
 # Finding unmanaged cloud applications with Cloud App Discovery
 ## Overview

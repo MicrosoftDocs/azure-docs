@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Custom installation | Microsoft Docs'
 description: This document details the custom installation options for Azure AD Connect. Use these instructions to install Active Directory through Azure AD Connect.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Custom installation of Azure AD Connect
 Azure AD Connect **Custom settings** is used when you want more options for the installation. It is used if you have multiple forests or if you want to configure optional features not covered in the express installation. It is used in all cases where the [**express installation**](active-directory-aadconnect-get-started-express.md) option does not satisfy your deployment or topology.

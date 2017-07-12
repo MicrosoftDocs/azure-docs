@@ -1,4 +1,4 @@
----
+﻿---
 title: Add new users to Azure Active Directory | Microsoft Docs
 description: Explains how to add new users or change user information in Azure Active Directory.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: curtand;jeffsta
 
+ms.reviewer: jeffsta
+ms.custom: iamfeature=Users
 ---
 # Add new users  or users with Microsoft accounts to Azure Active Directory
 Add users to populate your directory. This article explains how to add new users in your organization, and how to add users who have Microsoft accounts. For more information about adding users from other directories in Azure Active Directory or adding users from partner companies, see [Add users from other directories or partner companies in Azure Active Directory](active-directory-create-users-external.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.

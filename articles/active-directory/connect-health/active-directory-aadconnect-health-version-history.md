@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect Health Version History
 description: This document describes the releases for Azure AD Connect Health and what has been included in those releases.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect Health: Version Release History
 The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.

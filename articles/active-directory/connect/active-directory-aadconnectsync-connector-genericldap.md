@@ -1,4 +1,4 @@
----
+﻿---
 title: Generic LDAP Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic LDAP Connector.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Generic LDAP Connector technical reference
 This article describes the Generic LDAP Connector. The article applies to the following products:

@@ -1,4 +1,4 @@
----
+﻿---
 title: Add users from other directories or partner companies in Azure Active Directory | Microsoft Docs
 description: Explains how to add users or change user information in Azure Active Directory, including external and guest users.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/14/2017
 ms.author: curtand
 
+ms.reviewer: jeffsta
+ms.custom: iamfeature=Users
 ---
 # Add users from other directories or partner companies in Azure Active Directory
 > [!div class="op_single_selector"]

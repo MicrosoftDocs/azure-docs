@@ -1,4 +1,4 @@
----
+﻿---
 title: How to configure a new multi-tenant application | Microsoft Docs
 description: Learn how to configure an application as multi-tenant, and how multi-tenant applications work
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to configure a new multi-tenant application

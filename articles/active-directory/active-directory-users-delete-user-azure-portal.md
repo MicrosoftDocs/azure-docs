@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Delete a user from a directory in Azure Active Directory | Microsoft Docs
 description: Explains how to delete a user and all of its information from Azure Active Directory
@@ -17,7 +17,8 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
-
+; jeffsta
+ms.custom: iamfeature=Users
 ---
 
 # Delete a user from a directory in Azure Active Directory

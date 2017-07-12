@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory Application and Service Principal Objects | Microsoft Docs
 description: A discussion of the relationship between application and service principal objects in Azure Active Directory
 documentationcenter: dev-center-name
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2016
 ms.author: dastrock
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=Applications
 
+ms.reviewer: asteen
 ---
 # Application and service principal objects in Azure Active Directory (Azure AD)
 Sometimes the meaning of the term "application" can be misunderstood when used in the context of Azure AD. The goal of this article is to make it clearer, by clarifying conceptual and concrete aspects of Azure AD application integration, with an illustration of registration and consent for a [multi-tenant application](active-directory-dev-glossary.md#multi-tenant-application).

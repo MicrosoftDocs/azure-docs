@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect and federation | Microsoft Docs
 description: This page is the central location for all documentation regarding AD FS operations that use Azure AD Connect.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 4/9/2016
 ms.author: anandy
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect and federation
 Azure Active Directory (Azure AD) Connect lets you configure federation with on-premises Active Directory Federation Services (AD FS) and Azure AD. With federation sign-in, you can enable users to sign in to Azure AD-based services with their on-premises passwords--and, while on the corporate network, without having to enter their passwords again. By using the federation option with AD FS, you can deploy a new installation of AD FS, or you can specify an existing installation in a Windows Server 2012 R2 farm.

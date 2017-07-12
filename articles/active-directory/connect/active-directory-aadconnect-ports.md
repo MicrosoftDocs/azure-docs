@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Hybrid Identity required ports and protocols - Azure | Microsoft Docs'
 description: This page is a technical reference page for ports that are required to be open for Azure AD Connect
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Hybrid Identity Required Ports and Protocols
 The following document is a technical reference on the required ports and protocols for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.

@@ -1,4 +1,4 @@
----
+﻿---
 title: Assigning administrator roles in Azure Active Directory | Microsoft Docs
 description: Explains what administrator roles are available with Azure Active Directory and how to assign them.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 05/14/2017
 ms.author: curtand
 
+ms.reviewer: jeffsta
+ms.custom: iamfeature=Roles
 ---
 # Assigning administrator roles in Azure Active Directory
 > [!div class="op_single_selector"]

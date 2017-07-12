@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations - determine identity requirements | Microsoft Docs
 description: Identify the company’s business needs that will lead you to define the requirements for the hybrid identity design.
 documentationcenter: ''
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 03/21/2017
 ms.author: billmath
 
+ms.reviewer: sakula
+ms.custom: iamfeature=HybridIdentity
 ---
 # Determine identity requirements for your hybrid identity solution
 The first step in designing a hybrid identity solution is to determine the requirements for the business organization that will be leveraging this solution.  Hybrid identity starts as a supporting role (it supports all other cloud solutions by providing authentication) and goes on to provide new and interesting capabilities that unlock new workloads for users.  These workloads or services that you wish to adopt for your users will dictate the requirements for the hybrid identity design.  These services and workloads need to leverage hybrid identity both on-premises and in the cloud.  

@@ -1,4 +1,4 @@
----
+﻿---
 title: Getting started with Azure Active Directory Premium
 description: A topic that explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/08/2017
 ms.author: curtand
 
+ms.reviewer: kbrint
+ms.custom: iamfeature=AzureADGeneral
 ---
 # Getting started with Azure Active Directory Premium
 To sign up for Active Directory Premium, you have several options: 

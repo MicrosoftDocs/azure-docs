@@ -1,4 +1,4 @@
----
+﻿---
 title: Enable Azure AD Application Proxy in the classic portal | Microsoft Docs
 description:  Turn on Application Proxy in the Azure classic portal, and install the Connectors for the reverse proxy.
 services: active-directory
@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: kgremban
-ms.custom: it-pro
+ms.custom: it-pro; iamfeature=AppProxy
+ms.reviewer: harshja
 ---
 
 # Enable Application Proxy in the classic portal and download connectors

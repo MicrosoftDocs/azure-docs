@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Configuring Slack for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Slack.
 services: active-directory
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: asmalser-msft
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Tutorial: Configuring Slack for Automatic User Provisioning

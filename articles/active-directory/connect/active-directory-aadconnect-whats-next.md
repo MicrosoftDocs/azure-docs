@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Next steps and how to manage Azure AD Connect | Microsoft Docs'
 description: Learn how to extend the default configuration and operational tasks for Azure AD Connect.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Next steps and how to manage Azure AD Connect
 Use the operational procedures in this article to customize Azure Active Directory (Azure AD) Connect to meet your organization's needs and requirements.  

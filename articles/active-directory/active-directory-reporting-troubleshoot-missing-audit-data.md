@@ -1,4 +1,4 @@
----
+﻿---
 
 title: 'Troubleshooting: Missing data in the Azure Active Directory activity log  | Microsoft Docs'
 description: Lists the various available reports for Azure Active Directory
@@ -17,6 +17,8 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 
 # I can’t find some actions that I performed in the Azure Active Directory activity log

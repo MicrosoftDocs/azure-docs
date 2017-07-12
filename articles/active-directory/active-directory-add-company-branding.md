@@ -1,4 +1,4 @@
----
+﻿---
 title: Add company branding to your sign-in and Access Panel pages
 description: Learn how to add a company branding to the Azure sign-in page and the access panel page
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/23/2017
 ms.author: curtand
 
+ms.reviewer: jeffsta
+ms.custom: iamfeature=Branding
 ---
 # Add company branding to your sign-in and Access Panel pages
 To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the following web pages with your company logo and custom color schemes:

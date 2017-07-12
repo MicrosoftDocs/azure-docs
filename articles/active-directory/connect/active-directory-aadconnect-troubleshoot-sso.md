@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Troubleshoot Seamless Single Sign-On | Microsoft Docs'
 description: This topic describes how to troubleshoot Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO).
 services: active-directory
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: billmath
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 
 # Troubleshoot Azure Active Directory Seamless Single Sign-On

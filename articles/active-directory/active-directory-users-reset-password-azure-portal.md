@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Password reset in Azure Active Directory | Microsoft Docs
 description: Explains how to reset the password for a user in Azure Active Directory
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-
-ms.custom: H1Hack27Feb2017
+; jeffsta
+ms.custom: H1Hack27Feb2017; iamfeature=Users
 
 ---
 # Reset the password for a user in Azure Active Directory

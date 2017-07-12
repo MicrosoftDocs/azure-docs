@@ -1,4 +1,4 @@
----
+﻿---
 title: How Azure subscriptions are associated with Azure Active Directory | Microsoft Docs
 description: Signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/08/2017
 ms.author: curtand
 
+ms.reviewer: jeffsta
+ms.custom: iamfeature=Subscriptions
 ---
 # How Azure subscriptions are associated with Azure Active Directory
 This article covers information about signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory (Azure AD).

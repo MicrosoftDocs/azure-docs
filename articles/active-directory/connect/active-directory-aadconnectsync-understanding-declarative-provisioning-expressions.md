@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Declarative Provisioning Expressions | Microsoft Docs'
 description: Explains the declarative provisioning expressions.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: Understanding Declarative Provisioning Expressions
 Azure AD Connect sync builds on declarative provisioning first introduced in Forefront Identity Manager 2010. It allows you to implement your complete identity integration business logic without the need to write compiled code.

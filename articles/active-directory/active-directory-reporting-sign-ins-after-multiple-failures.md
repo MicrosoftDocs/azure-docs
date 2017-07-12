@@ -1,4 +1,4 @@
----
+﻿---
 title: Sign ins after multiple failures
 description: A report that indicates users who have successfully signed in after multiple consecutive failed sign in attempts.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Sign-ins after multiple failures
 This report indicates users who have successfully signed in after multiple consecutive failed sign in attempts. Possible causes include:

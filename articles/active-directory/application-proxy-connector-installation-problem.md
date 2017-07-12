@@ -1,4 +1,4 @@
----
+﻿---
 title: Problem installing the Application Proxy Agent Connector | Microsoft Docs
 description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector 
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 
 # Problem installing the Application Proxy Agent Connector

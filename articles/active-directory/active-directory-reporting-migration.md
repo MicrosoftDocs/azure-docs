@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Find activity reports in the Azure portal | Microsoft Docs
 description: Learn how to find Azure Active Directory activity reports in the Azure portal.
@@ -17,6 +17,8 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Find activity reports in the Azure portal
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Upgrade from a previous version | Microsoft Docs'
 description: Explains the different methods to upgrade to the latest release of Azure Active Directory Connect, including an in-place upgrade and a swing migration.
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: Identity
 ms.date: 02/08/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect: Upgrade from a previous version to the latest
 This topic describes the different methods that you can use to upgrade your Azure Active Directory (Azure AD) Connect installation to the latest release. We recommend that you keep yourself current with the releases of Azure AD Connect. You also use the steps in the [Swing migration](#swing-migration) section when you make a substantial configuration change.

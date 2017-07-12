@@ -1,4 +1,4 @@
----
+﻿---
 title: Sign ins from possibly infected devices
 description: A report that includes sign in attempts that have been executed from devices on which some malware (malicious software) may be running.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Sign ins from possibly infected devices
 This report attempts to identify your users' devices that that have become infected and are now part of a botnet. We correlate IP addresses of users' sign-ins against IP addresses that we know to be in contact with botnet servers.

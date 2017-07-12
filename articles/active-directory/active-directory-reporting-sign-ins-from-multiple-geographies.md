@@ -1,4 +1,4 @@
----
+﻿---
 title: Sign ins from multiple geographies
 description: A report that indicates users where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Sign-ins from multiple geographies
 This report includes successful sign-ins from a user where two sign-ins appeared to originate from different regions and the time between the sign-ins makes it impossible for the user to have traveled between those regions. Possible causes include:

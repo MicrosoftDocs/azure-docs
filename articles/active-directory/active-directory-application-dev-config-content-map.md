@@ -1,4 +1,4 @@
----
+﻿---
 title: Problems configuring or registering my application"
 description: Problems configuring or registering my application"
 services: active-directory
@@ -14,6 +14,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problems configuring or registering my application

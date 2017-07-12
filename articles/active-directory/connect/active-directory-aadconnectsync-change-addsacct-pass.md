@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync:  Changing the AD DS account password | Microsoft Docs'
 description: This topic document describes how to update Azure AD Connect after the password of the AD DS account is changed.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Changing the AD DS account password
 The AD DS account refers to the user account used by Azure AD Connect to communicate with on-premises Active Directory. If you change the password of the AD DS account, you must update Azure AD Connect Synchronization Service with the new password. Otherwise, the Synchronization can no longer synchronize correctly with the on-premises Active Directory and you will encounter the following errors:

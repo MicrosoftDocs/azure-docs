@@ -1,4 +1,4 @@
----
+﻿---
 title: Named locations in Azure Active Directory | Microsoft Docs
 description: By configuring named locations, you can avoid having IP addresses that are owned by your organization generate false positives for the Impossible travel to atypical locations risk event type.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: markvi
 
+ms.reviewer: kbrint
+ms.custom: iamfeature=AzureADGeneral
 ---
 # Named locations in Azure Active Directory
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to Integrate with Azure Active Directory | Microsoft Docs
 description: A guide to benefits of and resources for integration with Azure Active Directory.
 services: active-directory
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=AzureADGeneral
 
+ms.reviewer: kbrint
 ---
 # Integrating with Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

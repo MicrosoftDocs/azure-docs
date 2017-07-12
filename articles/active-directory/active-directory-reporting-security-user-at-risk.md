@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Users at risk security report in the Azure Active Directory portal | Microsoft Docs
 description: Learn about the users at risk security report in the Azure Active Directory portal
@@ -15,6 +15,8 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Users at risk security report in the Azure Active Directory portal
 

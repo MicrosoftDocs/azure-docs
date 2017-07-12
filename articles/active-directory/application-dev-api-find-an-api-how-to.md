@@ -1,4 +1,4 @@
----
+﻿---
 title: How to find a specific API needed for a custom-developed application | Microsoft Docs
 description: How to configure the permissions you need to access a particular API in your custom developed Azure AD application
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to find a specific API needed for a custom-developed application

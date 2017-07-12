@@ -1,4 +1,4 @@
----
+﻿---
 title: An Application Proxy application takes too long to load | Microsoft Docs
 description: Troubleshoot page load performance issues with the Azure AD Application Proxy
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 
 # An Application Proxy application takes too long to load

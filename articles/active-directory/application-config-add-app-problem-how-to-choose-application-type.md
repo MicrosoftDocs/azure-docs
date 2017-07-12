@@ -1,4 +1,4 @@
----
+﻿---
 title: How to choose which application type to use when adding an application | Microsoft Docs
 description: Understand the supported types of applications you can integrate with Azure AD and their related configuration options
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to choose which application type to use when adding an application

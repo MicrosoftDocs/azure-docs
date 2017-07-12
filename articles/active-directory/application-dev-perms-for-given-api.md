@@ -1,4 +1,4 @@
----
+﻿---
 title: How to select permissions for a given API | Microsoft Docs
 description: Learn about how permissions requests work for client and resource applications for applications you are developing
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to select permissions for a given API 

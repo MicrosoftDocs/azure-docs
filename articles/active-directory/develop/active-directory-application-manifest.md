@@ -1,4 +1,4 @@
----
+﻿---
 title: Understanding the Azure Active Directory Application Manifest | Microsoft Docs
 description: Detailed coverage of the Azure Active Directory application manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more.
 services: active-directory
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 ms.author: sureshja
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=Applications
 
+ms.reviewer: asteen
 ---
 # Understanding the Azure Active Directory application manifest
 Applications that integrate with Azure Active Directory (AD) must be registered with an Azure AD tenant, providing a persistent identity configuration for the application. This configuration is consulted at runtime, enabling scenarios that allow an application to outsource and broker authentication/authorization through Azure AD. For more information about the Azure AD application model, see the [Adding, Updating, and Removing an Application][ADD-UPD-RMV-APP] article.

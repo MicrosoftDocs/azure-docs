@@ -1,4 +1,4 @@
----
+﻿---
 
 title: 'Troubleshooting: Missing data in the downloaded Azure Active Directory activity logs | Microsoft Docs'
 description: Provides you with a resolution to missing data in downloaded Azure Active Directory activity logs.
@@ -17,6 +17,8 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 
 # I can’t find any data in the Azure Active Directory activity logs I have downloaded

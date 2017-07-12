@@ -1,4 +1,4 @@
----
+﻿---
 title: Sign-in activity reports in the Azure Active Directory portal | Microsoft Docs
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 

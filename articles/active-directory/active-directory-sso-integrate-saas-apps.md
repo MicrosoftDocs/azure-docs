@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Integrate Azure Active Directory single sign-on with SaaS apps | Microsoft Docs
 description: Enable single sign-on authentication and user provisioning centralized access management of SaaS apps in Azure Active Directory. An overview of how to integrate Azure Active Directory to SaaS apps.
@@ -18,6 +18,8 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Integrate Azure Active Directory single sign-on with SaaS apps
 > [!div class="op_single_selector"]

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to grant permissions to a custom-developed application | Microsoft Docs
 description: How to grant permissions to your custom-developed application using the Azure AD portal or a URL parameter
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to grant permissions to a custom-developed application

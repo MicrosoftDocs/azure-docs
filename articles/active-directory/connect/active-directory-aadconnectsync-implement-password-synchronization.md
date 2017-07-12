@@ -1,4 +1,4 @@
----
+﻿---
 title: Implement password synchronization with Azure AD Connect sync | Microsoft Docs
 description: Provides information about how password synchronization works and how to set up.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: markvi
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Implement password synchronization with Azure AD Connect sync
 This article provides information that you need to synchronize your user passwords from an on-premises Active Directory instance to a cloud-based Azure Active Directory (Azure AD) instance.

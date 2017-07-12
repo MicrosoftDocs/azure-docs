@@ -1,4 +1,4 @@
----
+﻿---
 title: An assigned application is not appearing on the access panel | Microsoft Docs
 description: Troubleshoot why an application is not appearing in the Access Panel 
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
+ms.reviewer: japere
+ms.custom: iamfeature=AccessPanel
 ---
 
 # An assigned application is not appearing on the access panel

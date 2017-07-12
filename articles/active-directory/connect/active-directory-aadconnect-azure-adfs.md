@@ -1,4 +1,4 @@
----
+﻿---
 title: Active Directory Federation Services in Azure | Microsoft Docs
 description: In this document you will learn how to deploy AD FS in Azure for high availablity.
 keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
@@ -16,7 +16,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: anandy; billmath
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017; iamfeature=AADConnect
+ms.reviewer: cychua
 ---
 # Deploying Active Directory Federation Services in Azure
 AD FS provides simplified, secured identity federation and Web single sign-on (SSO) capabilities. Federation with Azure AD or O365 enables users to authenticate using on-premises credentials and access all resources in cloud. As a result, it becomes important to have a highly available AD FS infrastructure to ensure access to resources both on-premises and in the cloud. Deploying AD FS in Azure can help achieve the high availability required with minimal efforts.

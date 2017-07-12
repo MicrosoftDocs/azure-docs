@@ -1,4 +1,4 @@
----
+﻿---
 title: Publish native client apps - Azure AD | Microsoft Docs
 description: Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 04/23/2017
 ms.author: kgremban
 
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 # How to enable native client apps to interact with proxy Applications
 Azure Active Directory Application Proxy is widely used to publish browser applications such as SharePoint, Outlook Web Access, and custom line-of-business applications. It can also be used to publish native client apps, which differ from web apps because they get installed on a device. This is done by supporting Azure AD issued tokens that are sent in standard Authorize HTTP headers.
