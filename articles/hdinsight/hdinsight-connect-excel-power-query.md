@@ -47,7 +47,7 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
 
         - Click the **Data** menu, click **Get Data** from the **Get & Transform Data** ribbon, click **From Azure**, and then click **From Azure HDInsight(HDFS)**.
 
-        ![HDI.PowerQuery.SelectHdiSource][./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.SelectHdiSource.Excel2016.png]
+        ![HDI.PowerQuery.SelectHdiSource](./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
     - Excel 2013/2010
 
@@ -78,8 +78,8 @@ In this article, you learned how to use Power Query to retrieve data from HDInsi
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.SelectHdiSource.png
-[image-hdi-powerquery-importdata]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportData.png
-[image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG
+[image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.png
+[image-hdi-powerquery-importdata]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.importdata.png
+[image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.importedtable.PNG
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
