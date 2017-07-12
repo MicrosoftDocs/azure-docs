@@ -4,7 +4,7 @@ description: Deploy and run a sample application to Adafruit Feather M0 WiFi tha
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot cloud service, arduino send data to cloud'
 

@@ -5,7 +5,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 06/8/2017
+ms.date: 07/10/2017
 ---
 # Azure Key Vault Storage Account Keys
 
@@ -78,7 +78,7 @@ var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 //.... 
  
 // and update the accountSasCredential.UpdateSASToken(sasToken); 
- ```
+  ```
  
  ### Developer best practices 
 
@@ -115,8 +115,7 @@ Key Vault must verify that the identity has *regenerate* permissions before it c
 Some supporting examples: 
 
 - Example 
-[VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
-- Example [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
+[Github Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) 
 
 If the identity, via OBO token, does not have *regenerate* permission or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
 

@@ -3,7 +3,7 @@ title: Navigate and select Windows VM images | Microsoft Docs
 description: Learn how to determine the publisher, offer, and SKU for images when creating a Windows virtual machine with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: squillace
+author: dlepow
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
-ms.author: rasquill
+ms.author: danlep
 
 ---
 # Navigate and select Windows virtual machine images in Azure with PowerShell

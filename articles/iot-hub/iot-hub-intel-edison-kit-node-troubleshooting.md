@@ -4,7 +4,7 @@ description: Troubleshooting page for Intel Edison Node.js experience
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'arduino troubleshooting'
 

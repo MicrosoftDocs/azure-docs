@@ -66,7 +66,7 @@ The MQ connector includes the following actions. There are no triggers.
 
 3. If there isn't an existing MQ connection, then create the connection:  
 
-    1. Select **Connect via on-premise data gateway**, and enter the properties of your MQ server.  
+    1. Select **Connect via on-premises data gateway**, and enter the properties of your MQ server.  
     For **Server**, you can enter the MQ server name, or enter the IP address followed by a colon and the port number. 
     2. The **gateway** dropdown lists any existing gateway connections that have been configured. Select your gateway.
     3. Select **Create** when finished. Your connection looks similar to the following:   

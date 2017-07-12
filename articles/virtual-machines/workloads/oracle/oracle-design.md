@@ -1,4 +1,4 @@
----
+﻿---
 title: Design and implement of Oracle database on Azure | Microsoft Docs
 description: Design and implement Oracle database in your Azure environment.
 services: virtual-machines-linux
@@ -229,7 +229,7 @@ It is recommended to have the application service and database on separated subn
 ## Additional readings:
 
 - [Configure Oracle ASM](configure-oracle-asm.md)
-- [Configure Oracle Data Guard](configuring-oracle-dataguard.md)
+- [Configure Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configure Oracle Golden Gate](configure-oracle-golden-gate.md)
 - [Oracle Backup and Recovery](oracle-backup-recovery.md)
 

@@ -4,7 +4,7 @@ description: Run a BLE sample application to receive data from BLE SensorTag and
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'ble app, sensor monitor app, sensor data collection, data from sensors, sensor data to cloud'
 
