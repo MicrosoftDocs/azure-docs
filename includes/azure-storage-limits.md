@@ -1,9 +1,9 @@
 | Resource | Default Limit |
 | --- | --- |
 | Number of storage accounts per subscription |200<sup>1</sup> |
-| TB per storage account |500 TB<sup>4</sup> |
-| Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account |Only limit is the storage account capacity |
-| Max size of a single blob container, table, or queue |500 TB<sup>4</sup> |
+| Max storage account capacity |500 TB<sup>4</sup> |
+| Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account |No limit |
+| Max size of a single blob container, table, or queue |Same as max storage account capacity |
 | Max number of blocks in a block blob or append blob |50,000 |
 | Max size of a block in a block blob |100 MB |
 | Max size of a block blob |50,000 X 100 MB (approx. 4.75 TB) |
@@ -18,7 +18,6 @@
 | Max number of files in a file share |Only limit is the 5 TB total capacity of the file share |
 | Max IOPS per share |1000 |
 | Max number of files in a file share |Only limit is the 5 TB total capacity of the file share |
-| Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account |Only limit is the storage account capacity |
 | Max number of stored access policies per container, file share, table, or queue |5 |
 | Maximum Request Rate per storage account |Blobs: 20,000 requests per second<sup>4</sup> for blobs of any valid size (capped only by the account's ingress/egress limits) <br />Files: 1000 IOPS (8 KB in size) per file share <br />Queues: 20,000 messages per second (assuming 1 KB message size)<br />Tables: 20,000 transactions per second (assuming 1 KB entity size) |
 | Target throughput for single blob |Up to 60 MB per second, or up to 500 requests per second |
@@ -40,5 +39,5 @@
 * **ZRS**: Zone-redundant storage. Available only for block blobs. 
 * **LRS**: Locally redundant storage. 
 
-<sup>4</sup> To get your standard storage accounts to grow past the advertised limits in capacity, ingress/egress and request rate, please make a request through Azure Support. This is for Standard storage accounts only. Request rate increase will be restricted to blob storage accounts only. The Azure Storage team will review the request and may approve higher limits on a case by case basis.
+<sup>4</sup> To get your standard storage accounts to grow past the advertised limits in capacity, ingress/egress and request rate, please make a request through Azure Support. The Azure Storage team will review the request and may approve higher limits on a case by case basis.
 
