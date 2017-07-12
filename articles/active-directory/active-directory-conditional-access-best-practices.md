@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/12/2017
 ms.author: markvi
 
 ---
@@ -33,19 +33,12 @@ When you create a new policy, there are no users, groups, apps or access control
 
 To make your policy work, you must configure the following:
 
-- **Cloud apps** - You need to select one or more apps. This is because the goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.
-
-- **Users and groups** - You need to select at least one user or group that is authorized to access the cloud apps you have selected. A conditional access policy that has no users and groups assigned, is never triggered.
-
-- **Access Controls** - You need to select at least one access control. This is because the policy processor needs to know what to do if your conditions are satisfied.
-
-
 
 |What           | How                                  | Why|
 |:--            | :--                                  | :-- |
-|**Cloud Apps** |You need to select one or more apps.  | The goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.|
+|**Cloud apps** |You need to select one or more apps.  | The goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.|
 | **Users and groups** | You need to select at least one user or group that is authorized to access the cloud apps you have selected. | A conditional access policy that has no users and groups assigned, is never triggered. |
-| **Access Controls** | You need to select at least one access control. | Your policy processor needs to know what to do if your conditions are satisfied.|
+| **Access controls** | You need to select at least one access control. | Your policy processor needs to know what to do if your conditions are satisfied.|
 
 
 In addition to these basic requirements, in many cases, you should also configure a condition. While a policy would also work without a configured condition, conditions are the driving factor for fine-tuning access to your apps.
