@@ -4,7 +4,7 @@ description: Download and install the necessary tools and software for the first
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'arduino development tools, iot development, iot software, internet of things software, install git on windows, install node js windows'
 

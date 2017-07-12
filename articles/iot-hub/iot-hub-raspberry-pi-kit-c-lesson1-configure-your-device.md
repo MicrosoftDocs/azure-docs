@@ -4,7 +4,7 @@ description: Configure Raspberry Pi 3 for first-time use and install the Raspbia
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'install raspbian, raspbian download, how to install raspbian, raspbian setup, raspberry pi install raspbian, raspberry pi install os, raspberry pi sd card install, raspberry pi connect, connect to raspberry pi, raspberry pi connectivity'
 
