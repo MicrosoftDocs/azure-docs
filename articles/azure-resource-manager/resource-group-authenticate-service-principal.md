@@ -35,6 +35,7 @@ Now, proceed to a section for authenticating with:
 
 * [password](#create-service-principal-with-password)
 * [self-signed certificate](#create-service-principal-with-self-signed-certificate)
+* [certificate from Certificate Authority](#create-service-principal-with-certificate-from-certificate-authority)
 
 ## PowerShell commands
 
