@@ -1,9 +1,9 @@
 # Webhooks for Azure Activity Log alerts
-As part of the definition of an Action Group you are able to configure Webhook endpoints to receive Activity Log Alerts notifications. Webhooks allow you to route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
+As part of the definition of an Action Group you are able to configure Webhook endpoints to receive Activity Log Alert notifications. Webhooks allow you to route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 
-For information on the setup and schema for Azure Activity Log alerts, [see this page instead](monitoring-activity-log-alerts.md).
+For information on creating Azure Activity Log alerts, [see this page instead](monitoring-activity-log-alerts.md).
 
-For information on the setup and schema for Action Groups, [see this page instead](monitoring-action-groups.md)
+For information on creating Action Groups, [see this page instead](monitoring-action-groups.md)
 
 ## Authenticating the webhook
 The webhook can authenticate using token-based authorization - The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
