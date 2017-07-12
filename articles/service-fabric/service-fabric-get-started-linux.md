@@ -76,7 +76,7 @@ To install the SDK and the associated runtime package via the apt-get command-li
 
 ## Install and set up the SDK for containers and guest executables
 
-After you've updated your sources, you can install the SDK.
+After you have updated your sources, you can install the SDK.
 
 1. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
 
@@ -97,7 +97,7 @@ After you've updated your sources, you can install the SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-After you've installed the common SDK package, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`. You might need to set your $NODE_PATH environment variable to the location of the node modules. 
+After you have installed the common SDK package, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`. You might need to set your $NODE_PATH environment variable to the location of the node modules. 
 
 
 ```bash
