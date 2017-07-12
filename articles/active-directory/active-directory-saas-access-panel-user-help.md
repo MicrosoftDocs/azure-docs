@@ -1,5 +1,5 @@
 ---
-title: Do you need help with the MyApps portal in Azure Active Directory | Microsoft Docs
+title: Do you need help with the My Apps portal in Azure Active Directory | Microsoft Docs
 description: Get instructions to perform common tasks when working with the access panel.
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 07/06/17
 ms.author: markvi
+ms.reviewer: japere
 
 ---
-# Do you need help with the MyApps portal?
+# Do you need help with the My Apps portal?
 
 You have probably reached this page because you were unfortunately running into an issue when using the My Apps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, here are some troubleshooting topics that might be able to help, first.
 
-## I cannot sign in to myapps.microsoft.com
+## I am having trouble signing into the My Apps portal
 
 General issues to check:
 
@@ -42,7 +43,7 @@ If you are still encountering issues while trying to sign in, please contact you
 
 If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md) for more details.
 
-##How do I register for password reset?
+## How do I register for password reset?
 
 As an end user, you can reset your password or unlock your account without having to speak to a person using self-service password reset (SSPR). Before you can use this functionality, you have to register authentication methods or confirm the predefined authentication methods your administrator has populated. For more details, see [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
@@ -59,21 +60,19 @@ Check to see if you are meeting browser requirements:
     - Chrome on Windows 7 or later, and on MacOS X or later
     - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
-You can also download the extension for Chrome, Edge, and Firefox from the direct links below:
+You can also download the extension for Chrome and Edge from the direct links below:
 
 - [Chrome Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 - [Edge Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-- [Firefox Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
-
 After installation try the following steps if you are encountering issues:
 
-- Check to see in your browser extension settings that the extension is enabled.
+- Check to in your browser extension settings that the extension is enabled.
 
-- Try to restart your browser and sign in to the My Apps portal.
+- Restart your browser and sign in to the My Apps portal.
 
-- Try clearing your browser’s cookies and trying to sign in again.
+- Clear your browser’s cookies and sign in to the My Apps portal.
 
 ## How do I add a new app?
 
