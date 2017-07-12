@@ -109,7 +109,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 Upload the signing certificate to your Azure AD B2C tenant: 
 
 1. Go to your Azure AD B2C tenant. Click **Settings** > **Identity Experience Framework** > **Policy Keys**.
-2. Click **+Add**
+2. Click **+Add**, and then:
     1. Click **Options** > **Upload**.
     2. Enter a **Name** (for example, SAMLSigningCert). The prefix *B2C_1A_* is automatically added to the name of your key.
     3. To select your certificate, select **upload file control**. 
@@ -172,7 +172,7 @@ Under the `<ClaimsProvider>` node:
 
 ### Update the technical profile
 
-To get a SAML token from Salesforce, define the protocols that Azure AD B2C will use to communicate with Azure AD. Do this in the `<TechnicalProfile>` element of `<ClaimsProvider>`:
+To get a SAML token from Salesforce, define the protocols that Azure AD B2C will use to communicate with Azure Active Directory (Azure AD). Do this in the `<TechnicalProfile>` element of `<ClaimsProvider>`:
 
 1. Update the ID of the `<TechnicalProfile>` node. This ID is used to refer to this technical profile from other parts of the policy.
 2. Update the value for `<DisplayName>`. This value is displayed on the sign-in button on your sign-in page.
