@@ -73,45 +73,57 @@ Avoid using a replicated table when:
 - The data warehouse is scaled frequently. Scaling a data warehouse changes the number of Compute nodes, which incurs a cache rebuild.
 - The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to hash distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Data Warehouse will only need to move data in the requested columns. 
 
-## Convert existing round-robin tables to replicated tables.
+## Convert existing round-robin tables to replicated tables
 If you already have round-robin tables, we recommend converting them to replicated tables. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins. 
- 
-If the dimension tables are round-robin distributed, the query requires that each dimension table is copied in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system catalog view. 
+
+This example uses [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
+
+```
+-- Change DimSalesTerritory to a replicated table
+CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
+WITH   
+  (   
+    CLUSTERED COLUMNSTORE INDEX,  
+    DISTRIBUTION = REPLICATE  
+  )  
+AS SELECT * FROM [dbo].[DimSalesTerritory]
+OPTION  (LABEL  = 'CTAS : DimSalesTerritory_REPLICATE') 
+
+--Create statistics on new table
+CREATE STATISTICS [SalesTerritoryKey] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryKey]);
+CREATE STATISTICS [SalesTerritoryAlternateKey] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryAlternateKey]);
+CREATE STATISTICS [SalesTerritoryRegion] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryRegion]);
+CREATE STATISTICS [SalesTerritoryCountry] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryCountry]);
+CREATE STATISTICS [SalesTerritoryGroup] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryGroup]);
+
+-- Switch table names
+
+RENAME OBJECT [dbo].[DimSalesTerritory] to [DimSalesTerritory_old];
+RENAME OBJECT [dbo].[DimSalesTerritory_REPLICATE] TO [DimSalesTerritory];
+
+DROP TABLE [dbo].[DimSalesTerritory_old];
+
+```  
+
+### Why round-robin tables require data movement and replicated tables do not
+
+A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system catalog view. 
 
 For example, in following query against the TPC-H schema, the `lineitem` fact table has 60 billion rows and is hash-distributed. The supplier, nation, and region tables are smaller dimension tables. 
  
 ```sql
-  SELECT COUNT_BIG(*)  
-  FROM lineitem l 
-  INNER JOIN supplier s  
-    ON s.s_suppkey = l.l_suppkey 
-  INNER JOIN nation n 
-    ON n.n_nationkey = s.s_nationkey 
-  INNER JOIN region r 
-    ON r.r_regionkey = n.n_regionkey 
-  WHERE r.r_name = 'America' 
+SELECT COUNT_BIG(*)  
+FROM lineitem l 
+INNER JOIN supplier s  
+  ON s.s_suppkey = l.l_suppkey 
+INNER JOIN nation n 
+  ON n.n_nationkey = s.s_nationkey 
+INNER JOIN region r 
+  ON r.r_regionkey = n.n_regionkey 
+WHERE r.r_name = 'America' 
 ```
+You can see that the query plan for the round-robin table has broadcast moves. The query plan for the replicated table is much shorter and does not have any broadcast moves.
 
-The following table shows the difference in the query steps when the dimension tables in the preceding query use round-robin versus replicated. 
-   
-|Step index | Round-Robin operations     | Replicated operations  |
-|:----------|:---------------------------|:-----------------------|
-| 0         | RandomIDOperation          | RandomIDOperation      |
-| 1         | OnOperation                | OnOperation            |
-| 2         | BroadcastMoveOperation     | BroadcastMoveOperation |
-| 3         | RandomIDOperation          | RandomIDOperation      |
-| 4         | OnOperation                |                        |
-| 5         | BroadcastMoveOperation     |                        |
-| 6         | OnOperation                |                        |
-| 7         | RandomIDOperation          |                        |
-| 8         | OnOperation                |                        |
-| 9         | BroadcastMoveOperation     |                        |
-| 10        | OnOperation                |                        |
-| 11        | OnOperation                |                        |
-| 12        | PartitionMoveOperation     |                        |
-| 13        | OnOperation                |                        |
-| 14        | ReturnOperation            |                        |
-| 15        | OnOperation                |                        |
 
 ## Use replicated tables with simple query predicates
 Before you choose to distribute or replicate a table, think about the types of queries you plan to run against the table. Whenever possible,
@@ -165,7 +177,7 @@ Use this query to get a list of replicated tables that need a cache rebuild.
 
 ```sql 
 SELECT t.name 
-  FROM sys.tables t  
+FROM sys.tables t  
   JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id 
   JOIN sys.pdw_table_distribution_properties p 
