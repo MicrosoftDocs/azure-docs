@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 07/11/2017
 ms.author: juliako;
 
 ---
@@ -116,12 +116,11 @@ Example foo_IDList.txt
      2
      3
  
-## Attribute descriptions
+## Elements of the output JSON file
+
 The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.
 
-The detected and tracked faces are returned with coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
-
-For detailed explanations for the attributes, see [Detect Face and Emotion with Azure Media Analytics](media-services-face-and-emotion-detection.md) topic.
+[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
 ## Sample code
 The following program shows how to:
