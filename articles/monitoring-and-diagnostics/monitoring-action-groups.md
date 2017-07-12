@@ -29,7 +29,7 @@ An action group can have up to 10 of each action type. An action is defined by t
 **Action Type:** This defines the action that will be performed. Options are send SMS, send Email, or call a Webhook.  
 **Details:** Based on the action type, the corresponding phone number, email address or webhook URI needs to be provided.
 
-For information on using ARM templates to configure action groups: [Action Group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)
+For information on using Azure Resource Manager templates to configure action groups: [Action Group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)
 
 ## Creating an action group using the Azure portal ##
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
