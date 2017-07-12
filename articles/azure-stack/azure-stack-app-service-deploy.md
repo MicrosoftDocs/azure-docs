@@ -162,7 +162,7 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 18. Return to **CN0-VM** and open the **Web Cloud Management Console** once more.
 19. Select the **Settings** node on the left-hand pane and look for the **ApplicationClientSecret** Setting.
 20. **Right click and select Edit**.  **Paste the key** generated in step 15 and click **OK**.
-![App Service on Azure Stack Application Keys][12]
+![App Service on Azure Stack Application Keys][14]
 21. Open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to in step 7.
 22. Now run the script file.  This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all Front-End and Management roles.
 
@@ -252,6 +252,7 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 [11]: ./media/azure-stack-app-service-deploy/managed-servers.png
 [12]: ./media/azure-stack-app-service-deploy/app-service-sso-keys.png
 [13]: ./media/azure-stack-app-service-deploy/app-service-sso-grant.png
+[14]: ./media/azure-stack-app-service-deploy/app-service-application-secret.png
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
