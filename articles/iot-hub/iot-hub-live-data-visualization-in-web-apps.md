@@ -4,7 +4,7 @@ description: Use the Web Apps feature of Microsoft Azure App Service to visualiz
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'real time data visualization, live data visualization, sensor data visualization'
 

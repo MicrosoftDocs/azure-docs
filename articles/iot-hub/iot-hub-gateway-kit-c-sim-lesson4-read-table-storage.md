@@ -4,7 +4,7 @@ description: Save messages from Intel NUC to your IoT hub, write them to Azure T
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'retrieve data from cloud, iot cloud service'
 

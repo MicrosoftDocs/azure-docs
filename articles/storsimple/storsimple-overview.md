@@ -4,7 +4,7 @@ description: Describes StorSimple tiering, the device, virtual device, services,
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 
 ---
@@ -42,7 +42,7 @@ The following table describes some of the key benefits that Microsoft Azure Stor
 | Business continuity |Allows StorSimple 5000-7000 series users to migrate their data to a StorSimple 8000 series device. |
 | Availability in the Azure Government Portal |StorSimple is available in the Azure Government Portal. For more information, see [Deploy your on-premises StorSimple device in the Government Portal](storsimple-8000-deployment-walkthrough-gov-u2.md). |
 | Data protection and availability |The StorSimple 8000 series supports Zone Redundant Storage (ZRS), in addition to Locally Redundant Storage (LRS) and Geo-redundant storage (GRS). Refer to [this article on Azure Storage redundancy options](https://azure.microsoft.com/documentation/articles/storage-redundancy/) for ZRS details. |
-| Support for critical applications |StorSimple lets you identify appropriate volumes as locally pinned which in turn ensures that data required by critical applications is not tiered to the cloud. Locally pinned volumes are not subject to cloud latencies or connectivity issues. For more information about locally pinned volumes, see [Use the StorSimple Device Manager service to manage volumes](storsimple-manage-volumes-u2.md). |
+| Support for critical applications |StorSimple lets you identify appropriate volumes as locally pinned which in turn ensures that data required by critical applications is not tiered to the cloud. Locally pinned volumes are not subject to cloud latencies or connectivity issues. For more information about locally pinned volumes, see [Use the StorSimple Device Manager service to manage volumes](storsimple-8000-manage-volumes-u2.md). |
 | Low latency and high performance |You can create cloud appliances that take advantage of the high performance, low latency features of Azure premium storage. For more information about StorSimple premium cloud appliances, see [Deploy and manage a StorSimple Cloud Appliance in Azure](storsimple-8000-cloud-appliance-u2.md). |
 
 
@@ -307,5 +307,5 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 | Windows PowerShell for StorSimple |A Windows PowerShell–based command-line interface used to operate and manage your StorSimple device. While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing a StorSimple device. |
 
 ## Next steps
-Learn about [StorSimple security](storsimple-security.md).
+Learn about [StorSimple security](storsimple-8000-security.md).
 
