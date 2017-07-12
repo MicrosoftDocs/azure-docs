@@ -77,7 +77,7 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 ![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
 
-8) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox following.
+8) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the following checkbox.
 
 9) Click **Save**. 
 
