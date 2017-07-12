@@ -17,9 +17,9 @@ The Azure command-line tool (Azure CLI) version 2.0 includes commands to help yo
 
 ## Install Azure CLI 2.0
 
-Azure CLI 2.0 includes commands that you can use to interact with and manage Service Fabric clusters. To get the latest version of Azure CLI, follow the [Azure CLI 2.0 standard installation process](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+You can use Azure CLI 2.0 commands to interact with and manage Service Fabric clusters. To get the latest version of Azure CLI, follow the [Azure CLI 2.0 standard installation process](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-For more information, see the [Azure CLI 2.0 documentation](https://docs.microsoft.com/en-us/cli/azure/overview).
+For more information, see the [Azure CLI 2.0 overview](https://docs.microsoft.com/en-us/cli/azure/overview).
 
 ## Azure CLI syntax
 
@@ -35,7 +35,7 @@ az sf <object> <action>
 
 ## Select a cluster
 
-Before you perform any operations, you must select a cluster to connect to. For example, see the following code. The code connects to an unsecured cluster.
+Before you perform any operations, you must select a cluster to connect to. For an example, see the following code. The code connects to an unsecured cluster.
 
 > [!WARNING]
 > Do not use unsecured Service Fabric clusters in a production environment.
@@ -46,7 +46,7 @@ az sf cluster select --endpoint http://testcluster.com:19080
 
 The cluster endpoint must be prefixed by `http` or `https`. It must include the port for the HTTP gateway. The port and address are the same as the Service Fabric Explorer URL.
 
-For clusters that are secured with a certificate, you can use either unencrypted `pem`, or `crt` and `key` files:
+For clusters that are secured with a certificate, you can use either unencrypted `pem`, or `crt` and `key` files. For example:
 
 ```azurecli
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -56,7 +56,7 @@ For more information, see
 [Connect to a secure Azure Service Fabric cluster](service-fabric-connect-to-secure-cluster.md).
 
 > [!NOTE]
-> The `select` command doesn't act on any requests before returning. To verify that you've specified a cluster correctly, run a command like `az sf cluster health`. Verify that the command doesn't return any errors.
+> The `select` command doesn't act on any requests before it returns. To verify that you've specified a cluster correctly, run a command like `az sf cluster health`. Verify that the command doesn't return any errors.
 
 ## Basic operations
 
@@ -117,7 +117,7 @@ Verify that the specified cluster endpoint is available and listening. Also, ver
 
 ### Detailed logs
 
-When you debug or report an issue, often, it is useful to include detailed logs. Azure CLI offers a global `--debug` flag that increases the verbosity of log files.
+When you debug or report an issue, often, it's useful to include detailed logs. Azure CLI offers a global `--debug` flag that increases the verbosity of log files.
 
 ### Command help and syntax
 

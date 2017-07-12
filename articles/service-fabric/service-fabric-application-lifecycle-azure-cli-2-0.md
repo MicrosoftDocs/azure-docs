@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Service Fabric applications using Azure CLI 2.0
-description: Learn about the process of deploying and removing applications from an Azure Service Fabric cluster by using Azure CLI 2.0.
+description: Learn how to deploy and remove applications from an Azure Service Fabric cluster by using Azure CLI 2.0.
 services: service-fabric
 author: samedder
 manager: timlt
@@ -12,7 +12,7 @@ ms.author: edwardsa
 ---
 # Manage an Azure Service Fabric application by using Azure CLI 2.0
 
-Learn how to create and delete applications running in an Azure Service Fabric cluster.
+Learn how to create and delete applications that are running in an Azure Service Fabric cluster.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Learn how to create and delete applications running in an Azure Service Fabric c
 
 ## Overview
 
-To deploy a new application, complete the following steps:
+To deploy a new application, complete these steps:
 
 1. Upload an application package to the Service Fabric image store.
 2. Provision an application type.
@@ -54,13 +54,13 @@ For large application packages, you can specify the `--show-progress` option to 
 
 ### Provision the application type
 
-When the upload is finished, the application needs to be provisioned. To provision the application, use the following command:
+When the upload is finished, provision the application. To provision the application, use the following command:
 
 ```azurecli
 az sf application provision --application-type-build-path app_package_dir
 ```
 
-The value for `application-type-build-path` is the same as the name of the directory where you uploaded your application package.
+The value for `application-type-build-path` is the name of the directory where you uploaded your application package.
 
 ### Create an application from an application type
 
@@ -70,22 +70,22 @@ After you provision the application, name and create your application by using t
 az sf application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name` is the name you want to use for the application instance. You can get additional parameters from the previously provisioned application manifest.
+`app-name` is the name that you want to use for the application instance. You can get additional parameters from the previously provisioned application manifest.
 
 The application name must start with the prefix `fabric:/`.
 
 ### Create services for the new application
 
-After you've created an application, create services from the application. In the following example, we create a new stateless service from our application. The services that you can create from an application are defined in a service manifest inside the previously provisioned application package.
+After you've created an application, create services from the application. In the following example, we create a new stateless service from our application. The services that you can create from an application are defined in a service manifest in the previously provisioned application package.
 
 ```azurecli
 az sf service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
 
-## Verify application creation and health
+## Verify application deployment and health
 
-To verify that an application and service were successfully deployed, use the following commands to check that the application and service are listed:
+To verify that an application and service were successfully deployed, check that the application and service are listed:
 
 ```azurecli
 az sf application list
@@ -115,7 +115,7 @@ az sf application delete --application-id TestEdApp
 
 ### Unprovision the application type
 
-After you delete the application, you can unprovision the application type if it's no longer needed. To unprovision the application type, use the following command:
+After you delete the application, you can unprovision the application type if you no longer need it. To unprovision the application type, use the following command:
 
 ```azurecli
 az sf application unprovision --application-type-name TestAppTye --application-type-version 1.0
@@ -125,7 +125,7 @@ The type name and type version must match the name and version in the previously
 
 ### Delete the application package
 
-After you've unprovisioned the application type, you can delete the application package from the image store if it's no longer needed. Deleting application packages helps reclaim disk space. 
+After you've unprovisioned the application type, you can delete the application package from the image store if you no longer need it. Deleting application packages helps reclaim disk space. 
 
 To delete the application package from the image store, use the following command:
 
@@ -133,7 +133,7 @@ To delete the application package from the image store, use the following comman
 az sf application package-delete --content-path app_package_dir
 ```
 
-`content-path` should be the same name as the directory that you initially uploaded when you created the application.
+`content-path` must be the name of the directory that you uploaded when you created the application.
 
 ## Related articles
 
