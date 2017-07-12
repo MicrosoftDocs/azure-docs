@@ -61,7 +61,6 @@ For more information about each workflow, click the appropriate procedure in the
 | About access control records</br>Create an access control record</br>Edit an access control record</br>Delete an access control record |[Manage access control records](storsimple-8000-manage-acrs.md) |
 | View job details</br>Cancel a job |[Manage jobs](storsimple-8000-manage-jobs-u2.md) |
 | Receive alert notifications</br>Manage alerts</br>Review alerts |[View and manage StorSimple alerts](storsimple-8000-manage-alerts.md) |
-| View connected initiators</br>Find the device serial number</br>Find the target IQN |[Use the StorSimple device dashboard](storsimple-8000-device-dashboard.md) |
 | Create monitoring charts |[Monitor your StorSimple device](storsimple-monitor-device.md) |
 | Add a volume container</br>Modify a volume container</br>Delete a volume container |[Manage volume containers](storsimple-8000-manage-volume-containers.md) |
 | Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume |[Manage volumes](storsimple-8000-manage-volumes-u2.md) |
