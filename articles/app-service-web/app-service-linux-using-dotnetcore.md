@@ -23,7 +23,11 @@ ms.author: aelnably;wesmc;mikono;rachelap
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-[Web App](https://docs.microsoft.com/azure/app-service-web/app-service-linux-intro) on Linux provides highly scalable, self-patching web hosting service using the linux operating system. This tutorial contains step-by-step instructions showing how to create a .NET Core app on Azure Web App on Linux. You can follow the steps below using a Mac, Windows, or Linux machine.
+[Web App](https://docs.microsoft.com/azure/app-service-web/app-service-linux-intro) on Linux provides highly scalable, self-patching web hosting service using the linux operating system. This tutorial contains step-by-step instructions showing how to create a .NET Core app on Azure Web App on Linux. 
+
+![Web App on Linux][10]
+
+You can follow the steps below using a Mac, Windows, or Linux machine.
 
 ## Prerequisites ##
 
