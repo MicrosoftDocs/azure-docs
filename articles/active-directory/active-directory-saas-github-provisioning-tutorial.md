@@ -54,7 +54,7 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 **Tip:** You may also choose to enabled SAML-based Single Sign-On for GitHub, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 
-### To configure automatic user account provisioning to GitHub in Azure AD
+### Configure automatic user account provisioning to GitHub in Azure AD
 
 
 1)	In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
@@ -77,7 +77,7 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 ![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
 
-8) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the following checkbox.
+8) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs".
 
 9) Click **Save**. 
 
