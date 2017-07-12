@@ -43,7 +43,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
 ## How to run Python code
-- Using your favorite text editor, create a new file called postgres.py into a project folder. Copy and paste a code sample shown below into the text file. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
+- Using your favorite text editor, create a new file called postgres.py, and save it into a project folder. Copy and paste a code sample shown below into the text file and save it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
 - To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then, type the python command followed by the file name, such as `python postgresql.py`.
 
 > [!NOTE]
