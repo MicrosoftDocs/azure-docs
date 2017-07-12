@@ -28,10 +28,10 @@ You also need to:
 Depending on your platform, follow the appropriate instructions to install Node.js. Use npm to install the mysql2 package and its dependencies into your project folder.
 
 ### **Windows**
-- Visit the [Node.js downloads page](https://nodejs.org/en/download/) and select your desired Windows installer option.
-- Make a local project folder such as `nodejsmysql`. 
-- Launch the command prompt and cd into the project folder, such as `cd c:\nodejsmysql\`
-- Run the NPM tool to install the mysql2 library into the project folder.
+1. Visit the [Node.js downloads page](https://nodejs.org/en/download/) and select your desired Windows installer option.
+2. Make a local project folder such as `nodejsmysql`. 
+3. Launch the command prompt and cd into the project folder, such as `cd c:\nodejsmysql\`
+4. Run the NPM tool to install the mysql2 library into the project folder.
 
    ```cmd
    cd c:\nodejsmysql\
@@ -39,16 +39,16 @@ Depending on your platform, follow the appropriate instructions to install Node.
    "C:\Program Files\nodejs\npm" list
    ```
 
-- Verify the installation by checking npm list output text for `mysql2@1.3.5`.
+5. Verify the installation by checking the `npm list` output text for `mysql2@1.3.5`.
 
 ### **Linux (Ubuntu)**
-- Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
    ```bash
    sudo apt-get install -y nodejs npm
    ```
 
-- Run the following commands to make a project folder `mysqlnodejs` and install the mysql2 package into that folder.
+2. Run the following commands to make a project folder `mysqlnodejs` and install the mysql2 package into that folder.
 
    ```bash
    mkdir mysqlnodejs
@@ -56,16 +56,16 @@ Depending on your platform, follow the appropriate instructions to install Node.
    npm install --save mysql2
    npm list
    ```
-- Verify the installation by checking npm list output text for `mysql2@1.3.5`.
+3. Verify the installation by checking npm list output text for `mysql2@1.3.5`.
 
 ### **Mac OS**
-- Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
+1. Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-- Run the following commands to make a project folder `mysqlnodejs` and install the mysql2 package into that folder.
+2. Run the following commands to make a project folder `mysqlnodejs` and install the mysql2 package into that folder.
 
    ```bash
    mkdir mysqlnodejs
@@ -74,7 +74,7 @@ Depending on your platform, follow the appropriate instructions to install Node.
    npm list
    ```
 
-- Verify the installation by checking npm list output text for `mysql2@1.3.5`.
+3. Verify the installation by checking the `npm list` output text for `mysql2@1.3.5`.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
