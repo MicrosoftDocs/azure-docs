@@ -142,7 +142,7 @@ Service Fabric provides three broad areas to help you build applications that us
 ***Service Fabric is agnostic on how you build your service, and you can use any technology. However, it does provide built-in programming APIs that make it easier to build microservices.***
 
 ### Migrating existing applications to Service Fabric
-A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application monderization, and you can start and stop at any of the stages. These are;
+A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application modernization, and you can start and stop at any of the stages. These are;
 
 1) Take a traditional monolithic application
 2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.
@@ -152,7 +152,7 @@ A key approach to Service Fabric is to reuse existing code, which can then be mo
 
 ![Migration to Microservices][Image3]
 
-It is important to emphasis again, that you can **start and stop and any of these stages**, you are not compelled to moved to the next stage. Let's now look at examples for each of these stages.
+It is important to emphasis again, that you can **start and stop at any of these stages**, you are not compelled to moved to the next stage. Let's now look at examples for each of these stages.
 
 **Lift and Shift** - large numbers of companies are lifting and shifting existing monolithic applications into containers to for two reasons;
 
