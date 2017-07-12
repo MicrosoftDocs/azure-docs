@@ -1,20 +1,19 @@
 ---
-title: Linux VM Device Names are changed in Azure| Microsoft Docs
-description: Explains the why Device names are changed, and provide solution for this problem.
+title: Linux VM device names are changed in Azure| Microsoft Docs
+description: Explains the why device names are changed, and provide solution for this problem.
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: ''
-tags: azure-resource-manager
+tags: ''
 
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 07/10/2017
+ms.date: 07/12/2017
 ms.author: genli
 
 ---
