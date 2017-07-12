@@ -137,7 +137,7 @@ The waagent udev rules construct a set of symbolic links under **/dev/disk/azure
 
 The application can use this information identify the boot disk device and the resource (ephemeral) disk. In Azure, applications should refer to **/dev/disk/azure/root-part1** or **/dev/disk/azure-resource-part1** to discover these partitions.
 
-If there are additional partitions from the blkid list, they reside on a data disk. Applications can maintains the UUID for these partitions and use a path like the below to discover the device name at runtime:
+If there are additional partitions from the blkid list, they reside on a data disk. Applications can maintain the UUID for these partitions and use a path like the below to discover the device name at runtime:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
