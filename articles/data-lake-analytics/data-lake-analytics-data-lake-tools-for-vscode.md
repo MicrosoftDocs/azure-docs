@@ -300,11 +300,12 @@ Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: List Storage Path**.
 2.  Select your preferred way for listing storage path. This passage uses **Enter a path** as an example.
 
     ![Data Lake Tools for Visual Studio Code List Storage Path for selecting one way](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
-    >Note
+
+    > [!NOTE]
     >- Vscode keeps the path you have visited the last every ADLA account. Example：/tt/ss.
     >- Browser from root path: list root path from you select ADLA account or local.
     >- Enter a path: listing specified path from you select ADLA account or local.
-
+    
 3. Select an account from local or ADLA account.
 
     ![Data Lake Tools for Visual Studio Code select more](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
@@ -388,10 +389,10 @@ Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: : Upload to Storage Pat
 3. Select one way for listing storage path. This passage uses **Enter a path** as an example.
 
     ![Data Lake Tools for Visual Studio Code List Storage Path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
-    >Note
+    >[!NOTE]
     >- Vscode keeps the path you have visited the last every ADLA account. Example：/tt/ss.
-    >- Browser from root path: list root path from you select ADLA account or local.
-    >- Enter a path: listing specified path from you select ADLA account or local.
+    >- Browser from root path: List root path from you selected ADLA account or local.
+    >- Enter a path: List specified path from you selected ADLA account or local.
 
 4. Select an account from local or ADLA account.
 
@@ -435,9 +436,10 @@ U-SQL local run for windows has been implemented to allow you to perform local r
 3. Press CTRL+SHIFT+P to open Command Palette and enter **Submit Job**.
 4. Select **Local** to submit.
   ![Data Lake Tools for Visual Studio Code select local](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-local.png)
-5. After submitting a U-SQL job to local, submission information is shown in output window in VSCode. You can view the submission details by clicking jobUrl. The job submission status can also be viewed in the CMD console.
+5. After submitting a U-SQL job to local, submission information is shown in output window in VSCode. You can view the submission details by clicking jobUrl. The job submission status can be viewed in the CMD console. And enter 7 can also be got running status in CMD console.
 
    ![Data Lake Tools for Visual Studio Code local run output](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-local-run-result.png)
+   ![Data Lake Tools for Visual Studio Code local run cmd status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-localrun-cmd-status.png)
 
 ### Local Debug
 
