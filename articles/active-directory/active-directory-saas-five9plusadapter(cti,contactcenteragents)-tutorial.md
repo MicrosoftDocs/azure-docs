@@ -113,8 +113,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| | |
 	| -- | -- |
 	| For “Five9 Plus Adapter for Microsoft Dynamics CRM” | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
-	| For “Five9 Plus Adapter for Zendesk” | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
-	| For “Five9 Plus Adapter for Agent Desktop Toolkit” | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
+	| For “Five9 Plus Adapter for Zendesk” | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
+	| For “Five9 Plus Adapter for Agent Desktop Toolkit” | `https://app.five9.com/appsvcs/saml/metadata/alias/agent` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
 
