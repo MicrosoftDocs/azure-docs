@@ -90,6 +90,7 @@
 
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
+### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
 
 # Reference
 ## [Template format](/azure/templates/)
