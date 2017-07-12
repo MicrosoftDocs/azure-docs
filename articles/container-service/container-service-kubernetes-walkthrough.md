@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Log in to Azure 
 
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+If you are using the Cloud Shell, you will be automatically logged in.  To log in to your Azure subscription on the terminal with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli-interactive
 az login
