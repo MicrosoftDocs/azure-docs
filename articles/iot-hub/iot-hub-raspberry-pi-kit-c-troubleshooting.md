@@ -4,7 +4,7 @@ description: Troubleshooting page for Raspberry Pi Node.js experience
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot issues, internet of things problems'
 

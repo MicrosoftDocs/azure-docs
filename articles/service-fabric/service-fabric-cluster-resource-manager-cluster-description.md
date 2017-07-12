@@ -49,7 +49,7 @@ If the “tree” of Fault Domains is unbalanced in your cluster, it makes it ha
 ![Two different cluster layouts][Image2]
 </center>
 
-In the diagram above, we show two different example cluster layouts. In the first example the nodes are distributed evenly across the Fault Domains. In the other one Fault Domain ends up with many more nodes. If you ever stand up your own cluster on-premise or in another environment, it’s something you have to think about.
+In the diagram above, we show two different example cluster layouts. In the first example the nodes are distributed evenly across the Fault Domains. In the other one Fault Domain ends up with many more nodes. If you ever stand up your own cluster on-premises or in another environment, it’s something you have to think about.
 
 In Azure the choice of which Fault Domain contains a node is managed for you. However, depending on the number of nodes that you provision you can still end up with Fault Domains with more nodes in them than others. For example, say you have five Fault Domains but provision seven nodes for a given NodeType. In this case the first two Fault Domains end up with more nodes. If you continue to deploy more NodeTypes with only a couple instances, the problem gets worse.
 

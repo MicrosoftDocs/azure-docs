@@ -3,7 +3,7 @@ title: Select Linux VM images with the Azure  CLI | Microsoft Docs
 description: Learn how to determine the publisher, offer, and SKU for images when creating a Linux virtual machine with the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: squillace
+author: dlepow
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
-ms.author: rasquill
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
