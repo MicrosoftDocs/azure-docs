@@ -1,6 +1,6 @@
 ---
-title: Tracking custom operations with Application Insights .NET SDK | Microsoft Docs
-description: Tracking custom operations with Application Insights .NET SDK
+title: Tracking custom operations with Azure Application Insights .NET SDK | Microsoft Docs
+description: Tracking custom operations with Azure Application Insights .NET SDK
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -29,9 +29,7 @@ It document is relevant for:
 - Application Insights for Web Applications (running ASP.NET) version `2.4+`
 - Application Insights for AspNetCore version `2.1+`
 
->
-> More improvements and features are coming in the future versions!
->
+More improvements and features are coming in the future versions!
 
 ## Overview
 By the operation, we understand some logical piece of work run by application. It has name, start time and duration, context of execution like user name, properties, and result. If operation `A` was initiated by operation `B` - operation `B` is set as a parent for `A`.  Operation can only have one parent and many children operations. You can read more about operations and telemetry correlation [here](application-insights-correlation.md).
@@ -39,7 +37,7 @@ By the operation, we understand some logical piece of work run by application. I
 In Application Insights .NET SDK operation is described by abstract class [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) and its descendants [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
 
 ## Incoming operations tracking 
-Application Insights web SDK automatically collects HTTP requests for ASP.NET applications that run in IIS pipeline and all ASP.NET Core applications. There are community-supported solutions for other platforms and frameworks. However, if application is not supported by any of standard or community supported solutions, you can instrumented it manually.
+Application Insights web SDK automatically collects HTTP requests for ASP.NET applications that run in IIS pipeline and all ASP.NET Core applications. There are community-supported solutions for other platforms and frameworks. However, if application is not supported by any of standard or community supported solutions, you can instrument it manually.
 
 Another example that requires custom tracking is worker that receives items from the queue. For some queues, the call to add a message to this queue tracked as a dependency. However high-level operation that describes message processing is not automatically collected.
 
@@ -229,7 +227,7 @@ Since Azure Storage Queues support HTTP API, all operations with the queue are a
 However, to correlate traces on the consumer side with producer traces, you need to pass some correlation context similarly to how we do it in 'Http Protocol for Correlation'. 
 
 In the example below, we track optional `Enqueue` operation. It allows to
- - Correlate retries (if any): all of them have one common parent that is `Enqueue` operation. Otherwise, they are tracked as children of the incoming request; so if there are multiple logical requests to the queue, it could be difficult to find which call resulted in retries.
+ - Correlate retries (if any): all of them have one common parent that is `Enqueue` operation. Otherwise, they are tracked as children of the incoming request. So if there are multiple logical requests to the queue, it could be difficult to find which call resulted in retries.
  - Correlate Log Azure Storage logs (if and when needed) with ApplicationInsights telemetry.
 
 `Enqueue` operation is the child of a 'parent' operation (for example, incoming HTTP request), and 'Http' dependency call is the child of `Enqueue` operation and grandchild of the incoming request.
@@ -277,8 +275,8 @@ public async Task Enqueue(CloudQueue queue, string message)
 
 If you want to reduce an amount of telemetry your application reports or do not want to track `enqueue` operation for other reasons, you can use `Activity` API directly:
 
-* create (and start) a new `Activity` instead of starting ApplicationInsights operation (you do NOT need to assign any properties on it except the operation name).
-* serialize `yourActivity.Id` into the message payload instead of `operation.Telemetry.Id`. You may also use `Activity.Current.Id`
+- Create (and start) a new `Activity` instead of starting ApplicationInsights operation (you do NOT need to assign any properties on it except the operation name).
+- Serialize `yourActivity.Id` into the message payload instead of `operation.Telemetry.Id`. You may also use `Activity.Current.Id`
 
 
 #### Dequeue
@@ -371,11 +369,12 @@ Similarly, other queue operations may be instrumented. Peek operation should be 
 
 When instrumenting message deletion, make sure you set the operation (correlation) identifiers. Alternatively, you may use `Activity` API (then you don't need to set operations identifiers on the telemetry items, ApplicationInsights does it for you):
 
-* create a new `Activity` once you've got an item from the queue
-* use `Activity.SetParentId(message.ParentId)` to correlate consumer and producer logs
-* start the `Activity`
-* track Dequeue, Process, and Delete operations (preferably with `Start/StopOperation` helpers) from the same asynchronous control flow (execution context) and then stop the `Activity`
-* use Start/StopOperation or call Track telemetry manually 
+- Create a new `Activity` once you've got an item from the queue
+- Use `Activity.SetParentId(message.ParentId)` to correlate consumer and producer logs
+- Start the `Activity`
+- Track Dequeue, Process, and Delete operations using `Start/StopOperation` helpers. Do it from the same asynchronous control flow (execution context). This way they are correlated properly.
+- Then stop the `Activity`
+- Use `Start/StopOperation` or call Track telemetry manually 
 
 ### Batch Processing
 Some queues allow dequeuing multiple messages with one request, but processing such messages is presumably independent and belongs to the different logical operations.
@@ -424,50 +423,50 @@ You may want to track your own 'dependency' kind or some operation that is not s
 `Enqueue` method in the ServiceBus Queue or Azure Storage Queue can serve as examples for such custom tracking.
 
 General approach for custom dependency tracking is:
-- call `TelemetryClient.StartOperation` (extension) method that fills `DependencyTelemetry` properties needed for correlation and some other properties (start timestamp, duration).
-- set other custom properties on the `DependencyTelemetry`: name and any other context you need
-- make dependency call and await it
-- stop the operation with `StopOperation` when done
-- handle exceptions
+- Call `TelemetryClient.StartOperation` (extension) method that fills `DependencyTelemetry` properties needed for correlation and some other properties (start timestamp, duration).
+- Set other custom properties on the `DependencyTelemetry`: name and any other context you need
+- Make dependency call and await it
+- Stop the operation with `StopOperation` when done
+- Handle exceptions
 
 `StopOperation` only stops the operation that was started: if current running operation does not match the one you want to stop, StopOperation does nothing. It could happen if you start multiple operations in parallel in the same execution context:
 
 ```C#
-    var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    var firstTask = RunMyTaskAsync();
-    
-    var secondOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 2");
-    var secondTask = RunMyTaskAsync();
-    
-    await firstTask;
-    
-    // this will do nothing and will not report telemetry for the first operation
-    // as currently secondOperation is active
-    telemetryClient.StopOperation(firstOperation); 
-    
-    await secondTask;
+var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
+var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
+var firstTask = RunMyTaskAsync();
+
+var secondOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 2");
+var secondTask = RunMyTaskAsync();
+
+await firstTask;
+
+// this will do nothing and will not report telemetry for the first operation
+// as currently secondOperation is active
+telemetryClient.StopOperation(firstOperation); 
+
+await secondTask;
 ```
 
 So you need to make sure you always call `StartOperation` and run your task in its own context:
 ```C#
-    public async Task RunMyTaskAsync()
+public async Task RunMyTaskAsync()
+{
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
+    try 
     {
-      var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-      try 
-      {
         var myTask = await StartMyTaskAsync();
         // update status code and success as appropriate
-      }
-      catch(...) 
-      {
-          // update status code and success as appropriate
-      }
-      finally 
-      {
+    }
+    catch(...) 
+    {
+        // update status code and success as appropriate
+    }
+    finally 
+    {
         telemetryClient.StopOperation(operation);
-      }
-
+    }
+}
 ```
 
 ## Next steps
