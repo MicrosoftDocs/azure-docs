@@ -18,8 +18,8 @@ ms.author: erikje
 
 ---
 # Azure Stack deployment prerequisites
-Before you deploy Azure Stack [Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements.
-You can use the same hardware that you used for the previous single-box preview.
+Before you deploy Azure Stack [Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+
 
 ## Hardware
 | Component | Minimum | Recommended |
@@ -118,7 +118,7 @@ Azure Stack requires access to the Internet, either directly or through a transp
 ### Telemetry
 To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
 
-If you don’t to want provide telemetry for Azure Stack, you can turn it off on the development kit host. 
+If you don’t want to provide telemetry for Azure Stack, you can turn it off on the development kit host. 
 
 >[!NOTE]
 If you want to turn off telemetry for Azure Stack, you must do so before you run the deployment script.
