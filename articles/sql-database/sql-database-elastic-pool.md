@@ -80,7 +80,6 @@ The price of a pool is a function of the pool eDTUs. While the eDTU unit price f
 
 The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
 
-
 ### Minimum number of databases
 
 If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
@@ -144,6 +143,10 @@ The following table describes the properties for pooled databases.
 | Max data storage per database |The maximum storage for a database in a pool. Pooled databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. Max storage per database refers to the maximum size of the data files and does not include the space used by log files. |
 |||
 
+## Latency of elastic pool operations
+* Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
+* Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
+
 ## Using other features with elastic pools
 
 ### Elastic jobs and elastic pools
@@ -163,27 +166,243 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 ## Manage SQL Database elastic pools using the Azure portal
 
+### Creating a new SQL Datbase elastic pool using the Azure portal
+
+There are two ways you can create an elastic pool in the Azure portal. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends an elastic pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases. 
+
+Creating an elastic pool from an existing **server** blade in the portal is the easiest way to move existing databases into an elastic pool. You can also create an elastic pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** in the **SQL elastic pools** browse blade. You are able to specify a new or existing server through this pool provisioning workflow.
+
+> [!NOTE]
+> You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
+>  
+
+The pool's pricing tier determines the features available to the elastics in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see [Service Tiers](#edtu-and-storage-limits-for-elastic-pools).
+
+To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier you want, and then click **Select**.
+
+> [!IMPORTANT]
+> After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool, create an elastic pool in the desired pricing tier and migrate the databases to this new pool.
+>
+
+If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool.
+
+The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
+
+![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+
+The pool recommendation comprises:
+
+- A pricing tier for the pool (Basic, Standard, Premium, or Premium RS)
+- Appropriate **POOL eDTUs** (also called Max eDTUs per pool)
+- The **eDTU MAX** and **eDTU Min** per database
+- The list of recommended databases for the pool
+
+> [!IMPORTANT]
+> The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic pool, it must exist for at least 7 days. Databases that are already in an elastic pool are not considered as candidates for elastic pool recommendations.
+>
+
+The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
+
+After adding databases to the pool, recommendations are dynamically generated based on the historical usage of the databases you have selected. These recommendations are shown in the eDTU and GB usage chart and in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating an elastic pool optimized for your specific databases.
+
+![dynamic recommendations](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
+
+## Manage and monitor an elastic pool
+
+You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. From the portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
+
+The following graphic shows an example elastic pool. The view includes:
+
+*  Charts for monitoring resource usage of both the elastic pool and the databases contained in the pool.
+*  The **Configure** pool button to make changes to the elastic pool.
+*  The **Create database** button that creates a database and adds it to the current elastic pool.
+*  Elastic jobs that help you manage large numbers of databases by running Transact SQL scripts against all databases in a list.
+
+![Pool view][2]
+
+You can go to a particular pool to see its resource utilization. By default, the pool is configured to show storage and eDTU usage for the last hour. The chart can be configured to show different metrics over various time windows.
+
+1. Select an elastic pool to work with.
+2. Under **Elastic Pool Monitoring** is a chart labeled **Resource utilization**. Click the chart.
+
+	![Elastic pool monitoring][3]
+
+	The **Metric** blade opens, showing a detailed view of the specified metrics over the specified time window.   
+
+	![Metric blade][9]
+
+### To customize the chart display
+
+You can edit the chart and the metric blade to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
+
+1. On the metric blade, click **Edit**.
+
+	![Click edit][6]
+
+2. In the **Edit Chart** blade, select a time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor.
+
+   > [!Note]
+   > Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you can only select other metrics with percentage as the unit of measure.
+   >
+
+	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+
+3. Then click **OK**.
+
+## Manage and monitor databases in an elastic pool
+
+Individual databases can also be monitored for potential trouble.
+
+1. Under **Elastic Database Monitoring**, there is a chart that displays metrics for five databases. By default, the chart displays the top 5 databases in the pool by average eDTU usage in the past hour. Click the chart.
+
+	![Elastic pool monitoring][4]
+
+2. The **Database Resource Utilization** blade appears. This provides a detailed view of the database usage in the pool. Using the grid in the lower part of the blade, you can select any databases in the pool to display its usage in the chart (up to 5 databases). You can also customize the metrics and time window displayed in the chart by clicking **Edit chart**.
+
+	![Database resource utilization blade][8]
+
+### To customize the view
+
+1. In the **Database resource utilization** blade, click **Edit chart**.
+
+	![Click Edit chart](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
+
+2. In the **Edit** chart blade, select a time range (past hour or past 24 hours), or click **custom** to select a different day in the past 2 weeks to display.
+
+	![Click Custom](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
+
+3. Click the **Compare databases by** dropdown to select a different metric to use when comparing databases.
+
+	![Edit the chart](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
+
+### To select databases to monitor
+
+In the database list in the **Database Resource Utilization** blade, you can find particular databases by looking through the pages in the list or by typing in the name of a database. Use the checkbox to select the database.
+
+![Search for databases to monitor][7]
+
+
+## Add an alert to an elastic pool resource
+
+You can add rules to an elastic pool that send email to people or alert strings to URL endpoints when the elastic pool hits a utilization threshold that you set up.
+
+**To add an alert to any resource:**
+
+1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade (**Resource** is automatically set up to be the pool you're working with).
+2. Type a **Name** and **Description** that identifies the alert to you and the recipients.
+3. Choose a **Metric** that you want to alert from the list.
+
+    The chart dynamically shows resource utilization for that metric to help you choose a threshold.
+
+4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
+5. Choose a **Period** of time that the metric rule must be satisfied before the alert triggers.
+6. Click **OK**.
+
+For more information, see [create SQL Database alerts in Azure portal](sql-database-insights-alerts-portal.md).
+
+## Move a database into an elastic pool
+
+You can add or remove databases from an existing pool. The databases can be in other pools. However, you can only add databases that are on the same logical server.
+
+1. In the blade for the pool, under **Elastic databases** click **Configure pool**.
+
+    ![Click Configure pool][1]
+
+2. In the **Configure pool** blade, click **Add to pool**.
+
+	![Click Add to pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+
+
+3. In the **Add databases** blade, select the database or databases to add to the pool. Then click **Select**.
+
+	![Select databases to add](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+
+    The **Configure pool** blade now lists the database you selected to be added, with its status set to **Pending**.
+
+    ![Pending pool additions](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
+
+3. In the **Configure pool blade**, click **Save**.
+
+    ![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
+
+## Move a database out of an elastic pool
+
+1. In the **Configure pool** blade, select the database or databases to remove.
+
+    ![databases listing](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
+
+2. Click **Remove from pool**.
+
+    ![databases listing](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
+
+    The **Configure pool** blade now lists the database you selected to be removed with its status set to **Pending**.
+
+    ![preview database addition and removal](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
+
+3. In the **Configure pool blade**, click **Save**.
+
+    ![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
+
+## Change performance settings of an elastic pool
+
+As you monitor the resource utilization of an elastic pool, you may discover that some adjustments are needed. Maybe the pool needs a change in the performance or storage limits. Possibly you want to change the database settings in the pool. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic pool be used?](sql-database-elastic-pool.md) for more information.
+
+To change the eDTUs or storage limits per pool, and eDTUs per database:
+
+1. Open the **Configure pool** blade.
+
+    Under **elastic pool settings**, use either slider to change the pool settings.
+
+    ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
+
+2. When the setting changes, the display shows the estimated monthly cost of the change.
+
+    ![Updating an elastic pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
+
 ## Manage SQL Database elastic pools using PowerShell
 
-To create and manage SQL Database elastic pools with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+To create and manage SQL Database elastic pools with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). To create and manage databases, servers, and firewall rules, see [Create and manage Azure SQL Database servers and databases using PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell). 
+
+> [!TIP]
+> For PowerShell example scripts, see [Create elastic pools and move databases between pools and out of a pool using PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) and [Use PowerShell to monitor and scale a SQL elastic pool in Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
+>
 
 | Cmdlet | Description |
 | --- | --- |
+|[New-​Azure​Rm​Sql​Elastic​Pool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Creates an elastic database pool on a logical SQL server.|
+|[Get-​Azure​Rm​Sql​Elastic​Pool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Gets elastic pools and their property values on a logical SQL server.|
+|[Set-​Azure​Rm​Sql​Elastic​Pool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifies properties of an elastic database pool on a logical SQL server.|
+|[Remove-​Azure​Rm​Sql​Elastic​Pool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Deletes an elastic database pool on a logical SQL server.|
+|[Get-​Azure​Rm​Sql​Elastic​Pool​Activity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Gets the status of operations on an elastic pool on a logical SQL server.|
+|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Creates a new database in an existing pool or as a single database. |
+|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Gets one or more databases.|
+|[Set-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into, out of, or between elastic pools.|
+|[Remove-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Removes a database.|
 
 > [!TIP]
-> For a PowerShell quick start tutorial, see [Create a single Azure SQL database using PowerShell](sql-database-get-started-portal.md).
+> Creation of many databases in an elastic pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into an elastic pool, see [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 >
 
 ## Manage SQL Database elastic pools using the Azure CLI
 
 To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure/overview), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. 
 
+> [!TIP]
+> For Azure CLI example scripts, see [Use CLI to move an Azure SQL database in a SQL elastic pool](scripts/sql-database-move-database-between-pools-cli.md) and [Use Azure CLI to scale a SQL elastic pool in Azure SQL Database](scripts/sql-database-scale-pool-cli.md).
+>
+
 | Cmdlet | Description |
 | --- | --- |
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#create)|Creates an elastic pool.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#list)|Returns a list of elastic pools in a server.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#list-dbs)|Returns a list of databases in an elastic pool.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#list-editions)|Also includes available pool DTU settings, storage limits, and per database settings. In order to reduce verbosity, additional storage limits and per database settings are hidden by default.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|Updates an elastic pool.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|Deletes the elastic pool.|
 
 ## Manage SQL Database elastic pools using Transact-SQL
 
-To return information about SQL Database elastic pools with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. To create, update, or delete a database within an elastic pool - or query for information about a database, see [Create and manage Azure SQL Database servers and databases](sql-database-servers-databases.md).
+To create and move databases within existing elastic pools or to return information about an SQL Database elastic pool with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. To create and manage databases, servers, and firewall rules, see [Create and manage Azure SQL Database servers and databases using Transact-SQL](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
 
 > [!IMPORTANT]
 > You cannot create, update, or delete an Azure SQL Database elastic pool using Transact-SQL. 
@@ -191,6 +410,9 @@ To return information about SQL Database elastic pools with Transact-SQL, use th
 
 | Command | Description |
 | --- | --- |
+|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Creates a new database in an existing pool or as a single database. You must be connected to the master database to create a new database.|
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Move a database into, out of, or between elastic pools.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returns resource usage statistics for all the elastic database pools in a logical server. For each elastic database pool, there is one row for each 15 second reporting window (four rows per minute). This includes CPU, IO, Log, storage consumption and concurrent request/session utilization by all databases in the pool.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or an Azure SQL Data Warehouse. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
 

@@ -122,6 +122,10 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 
 | Cmdlet | Description |
 | --- | --- |
+|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Creates a database |
+|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Gets one or more databases|
+|[Set-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into an elastic pool|
+|[Remove-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Removes a database|
 |[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Creates a resource group]
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Creates a  server|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Returns information about servers|
@@ -131,13 +135,9 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 |[Get-​Azure​Rm​Sql​Server​Firewall​Rule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Gets firewall rules for a server|
 |[Set-​Azure​Rm​Sql​Server​Firewall​Rule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|Modifies a firewall rule in a server|
 |[Remove-​Azure​Rm​Sql​Server​Firewall​Rule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Deletes a firewall rule from a server.|
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Creates a database |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Gets one or more databases|
-|[Set-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into an elastic pool|
-|[Remove-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Removes a database|
 
 > [!TIP]
-> For a PowerShell quick start tutorial, see [Create a single Azure SQL database using PowerShell](sql-database-get-started-portal.md).
+> For a PowerShell quick start tutorial, see [Create a single Azure SQL database using PowerShell](sql-database-get-started-portal.md). For PowerShell example scripts, see [Use PowerShell to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure CLI
@@ -146,6 +146,13 @@ To create and manage Azure SQL server, databases, and firewalls with the [Azure 
 
 | Cmdlet | Description |
 | --- | --- |
+|[az sql db create](/cli/azure/sql/db#create) |Creates a database|
+|[az sql db list](/cli/azure/sql/db#list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
+|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Lists available service objectives and storage limits|
+|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Returns database usages|
+|[az sql db show](/cli/azure/sql/db#show)|Gets a database or data warehouse|
+|[az sql db update](/cli/azure/sql/db#update)|Updates a database|
+|[az sql db delete](/cli/azure/sql/db#delete)|Removes a database|
 |[az group create](/cli/azure/group#create)|Creates a resource group|
 |[az sql server create](/cli/azure/sql/server#create)|Creates a server|
 |[az sql server list](/cli/azure/sql/server#list)|Lists servers|
@@ -158,16 +165,9 @@ To create and manage Azure SQL server, databases, and firewalls with the [Azure 
 |[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#show)|Shows the detail of a firewall rule|
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule#update)|Updates a firewall rule|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#delete)|Deletes a firewall rule|
-|[az sql db create](/cli/azure/sql/db#create) |Creates a database|
-|[az sql db list](/cli/azure/sql/db#list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Lists available service objectives and storage limits|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Returns database usages|
-|[az sql db show](/cli/azure/sql/db#show)|Gets a database or data warehouse|
-|[az sql db update](/cli/azure/sql/db#update)|Updates a database|
-|[az sql db delete](/cli/azure/sql/db#delete)|Removes a database|
 
 > [!TIP]
-> For an Azure CLI quick start tutorial, see [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md).
+> For an Azure CLI quick start tutorial, see [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## Manage Azure SQL servers, databases, and firewalls using Transact-SQL
@@ -183,7 +183,7 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Creates a new database. You must be connected to the master database to create a new database.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifies an Azure SQL database. |
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Modifies an Azure SQL Data Warehouse.|
-|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Removes a database.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or an Azure SQL Data Warehouse. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, I/O, and memory consumption for an Azure SQL Database database. One row exists for every 15 seconds, even if there is no activity in the database.|
 |[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returns CPU usage and storage data for an Azure SQL Database. The data is collected and aggregated within five-minute intervals.|
