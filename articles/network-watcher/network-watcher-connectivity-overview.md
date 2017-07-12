@@ -64,7 +64,7 @@ The following table shows the properties returned when a connectivity check has 
 |Hops[].Type     | Type of resource. Possible values are **Source**, **VirtualAppliance**, **VnetLocal**, and **Internet**.        |
 |Hops[].Id | Unique identifier of the hop.|
 |Hops[].Address | IP address of the hop.|
-|Hops[].ResourceId | ResourceID of the hop if the hop is an Azure resource. If it is an internet resource, ResourceID is **Internet** |
+|Hops[].ResourceId | ResourceID of the hop if the hop is an Azure resource. If it is an internet resource, ResourceID is **Internet**. |
 |Hops[].NextHopIds | The unique identifier of the next hop taken.|
 |Hops[].Issues | A collection of issues that were encountered during the check at that hop. If there were no issues, the value is blank.|
 |Hops[].Issues[].Origin | At the current hop, where issue occurred. Possible values are:<br/> **Inbound** - Issue is on the link from the previous hop to the current hop<br/>**Outbound** - Issue is on the link from the current hop to the next hop<br/>**Local** - Issue is on the current hop.|
