@@ -374,7 +374,8 @@ Use the following information to install and configure the solution.
 
 After you have agents installed and you install the solution, the Wire Data 2.0 tile appears in your workspace.
 
-**Note** : Currently, you must use the OMS portal to view wire data. You cannot use the Azure portal to view wire data.
+> [!NOTE]
+> Currently, you must use the OMS portal to view wire data. You cannot use the Azure portal to view wire data.
 
 ![Wire Data tile](./media/log-analytics-wire-data/wire-data-tile.png)
 
@@ -404,7 +405,7 @@ The **Application-level Protocols** blade is useful because it's helpful know wh
 
 ![log search example](./media/log-analytics-wire-data/log-search-example03.png)
 
-In this example, you could dill-into SSH details to see which computers are using SSH and many other communication details.
+In this example, you could drill-into SSH details to see which computers are using SSH and many other communication details.
 
 ![sh search results](./media/log-analytics-wire-data/ssh-details.png)
 
