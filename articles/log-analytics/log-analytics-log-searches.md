@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/07/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
@@ -129,6 +129,24 @@ Similarly, this the following query return **% CPU Time** for the selected two c
 
 ```
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
+```
+
+### Field types
+When creating filters, you should understand the differences in working with different types of fields returned by log searches.
+
+**Searchable fields** show in blue in search results.  You can use searchable fields in search conditions specific to the field such as the following:
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+**Free text searchable fields** are shown in grey in search results.  They cannot be used with search conditions specific to the field like searchable fields.  They are only searched when performing a query across all fields such as the following.
+
+```
+"Error"
+Type: Event "Exception"
 ```
 
 
