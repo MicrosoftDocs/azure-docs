@@ -81,6 +81,7 @@
 ### [Publish service catalog application](managed-application-publishing.md)
 ### [Consume service catalog application](managed-application-consumption.md)
 ### [Publish marketplace application](managed-application-author-marketplace.md)
+### [Consume marketplace application](managed-application-consume-marketplace.md)
 ### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Audit
