@@ -289,12 +289,12 @@ The ID element identifies which property on the source provides the value for th
 |User|onpremisessamaccountname|On Premises Sam Account Name|
 |User|netbiosname|NetBios Name|
 |User|dnsdomainname|Dns Domain Name|
-|User|onpremisesecurityidentifier|On Premise Security Identifier|
+|User|onpremisesecurityidentifier|on-premises Security Identifier|
 |User|companyname|Organization Name|
 |User|streetaddress|Street Address|
 |User|postalcode|Postal Code|
 |User|preferredlanguange|Preferred Language|
-|User|onpremisesuserprincipalname|On Premise UPN|
+|User|onpremisesuserprincipalname|on-premises UPN|
 |User|mailnickname|Mail Nickname|
 |User|extensionattribute1|Extension Attribute 1|
 |User|extensionattribute2|Extension Attribute 2|
