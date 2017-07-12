@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/12/2017
 ms.author: xshi
 
 ---
@@ -134,7 +134,7 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
       **Storage account connection**: Click **new** and select or input your storage account. If you cannot see the storage account, please refer to [Storage account requirements](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
       
    1. Click **Save**.
-1. Under **Triggers**, click **Azure Event Hub (myEventHubTrigger)**.
+1. Under **Triggers**, click **Azure Event Hub (eventHubMessages)**.
 1. Under **Event Hub consumer group**, enter the name of the consumer group that you created, and then click **Save**.
 1. Click **Develop**, and then click **View files**.
 1. Replace the code in `index.js` with the following, and then click **Save**.
