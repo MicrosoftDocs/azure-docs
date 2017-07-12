@@ -1,16 +1,18 @@
 ---
-title: Azure AD secure email EMS and Office 365 service descriptions | Microsoft Docs
-description: Describes EMS and Office 365 Microsoft recommendations about how to apply email policies and configurations.
+title: EMS and Office 365 services overview | Microsoft Docs
+description: This article provides an overview of the EMS and Office 365 services.
 author: jeffgilb
+manager: femila
 ms.service: guidance
 ms.topic: article
-ms.date: 05/24/2017
-ms.author: pnp
-
+ms.date: 07/12/2017
+ms.author: jeffgilb
+ms.reviewer: jsnow
+ms.custom: it-pro
 pnp.series.title: Best Practices
 ---
 
-# EMS and Office 365 service descriptions
+# EMS and Office 365 services overview
 
 This article provides an overview of the EMS and Office 365 services utilized in the stated recommendations, and discusses core concepts necessary to understand Azure email protection capabilities. These capabilities enable Microsoft cloud enterprise administrators to protect company employees’ identities and devices, and also control access to company data itself - both in transit and at rest.
 
