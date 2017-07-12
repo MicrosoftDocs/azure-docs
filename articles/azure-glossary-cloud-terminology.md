@@ -25,18 +25,15 @@ The Microsoft Azure glossary is a short dictionary of cloud terminology for the 
 * [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Definitions of Azure services and their AWS counterparts.<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
 * [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
 
-<!-- 
-Terms to add:
-App Service app
-web app
-mobile app
-api app
- -->
-
 ## account
 A work or school, or personal Microsoft account that is used to access and manage an Azure subscription.  
 See [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
-<!-- Our docs talk about needing "an Azure account" which this doesn't address, and it's not clear how the link helps explain "account" -->
+
+## API app
+Another name for [App Service App](#app-service-app).
+
+## App Service app
+[App Service](app-service/app-service-value-prop-what-is.md) is a [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure. In App Service, an app is the compute resources that Azure provides for hosting a website, web application, web API, or mobile app backend. App Service apps are also refered to as *App Services*, *web apps*, *API apps*, and *mobile apps*. These are all different names for the same thing. There used to be a difference in available features between [web apps](app-service-web/app-service-web-overview.md), [API apps](app-service-api/app-service-api-apps-why-best-platform.md), and [mobile apps](app-service-mobile/app-service-mobile-value-prop.md), but now all App Service apps offer the same features and the only difference is the app type name and icon shown in the Azure portal.  You can use the app type name and icon as an indicator of how you use an App Service app, but you're free to use API app features in a web app, mobile app features in an API app, and so forth.
 
 ## availability set
 A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an availability set ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.  
@@ -78,6 +75,9 @@ See [Azure subscription and service limits, quotas, and constraints](azure-subsc
 
 ## load balancer
 A resource that distributes incoming traffic among computers in a network. In Azure, a load balancer distributes traffic to virtual machines defined in a load-balancer set. A [load balancer](load-balancer/load-balancer-overview.md) can be internet-facing, or it can be internal.  
+
+## Mobile app
+Another name for [App Service App](#app-service-app).
 
 ## offer
 The pricing, credits, and related terms applicable to an Azure subscription.  
@@ -142,6 +142,9 @@ See [About virtual machine extensions and features (Windows)](virtual-machines/w
 ## <a name="vnet"></a>virtual network
 A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. An [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) lets you establish connections between virtual networks and [between a virtual network and an on-premises network](vpn-gateway/vpn-gateway-plan-design.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within a virtual network.  
 See [Virtual Network Overview](virtual-network/virtual-networks-overview.md)  
+
+## Web app
+Another name for [App Service App](#app-service-app).
 
 ## See also
 
