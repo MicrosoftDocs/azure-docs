@@ -119,7 +119,7 @@ You receive this error when the resource SKU you have selected (such as VM size)
   }    
   ```
 
-If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
+If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support]([https://aka.ms/skurestriction).
 
 ### DisallowedOperation
 
