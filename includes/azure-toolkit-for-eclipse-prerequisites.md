@@ -7,8 +7,8 @@ The Azure Toolkit for Eclipse requires the following software components:
 
 * An operating system. The Azure Toolkit for Eclipse has been tested on the following operating systems:
   
-  * Windows 10, Windows 8, Windows 8.1, and Windows 7
-  * Windows Server 2012, Windows Server 2012 R2, Windows Server 2008, and Windows Server 2008 R2
+  * Windows 10, Windows 8.1, Windows 8, and Windows 7
+  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2008
   * [Mac OS X](http://www.apple.com/osx) version "Yosemite" and later
   * [Ubuntu Linux](http://www.ubuntu.com) version 14, 15, and 16
 
