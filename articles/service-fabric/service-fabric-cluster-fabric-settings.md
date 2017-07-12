@@ -258,6 +258,7 @@ Here are the Fabric settings that you can customize:
 |IsEnabled|Bool, default is false | Enables/Disables the httpgateway. Httpgateway is disabled by default and this config needs to be set to enable it. |
 |ActiveListeners |Uint, default is 50 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
 |MaxEntityBodySize |Uint, default is 4194304 |  Gives the maximum size of the body that can be expected from a http request. Default value is 4MB. Httpgateway will fail a request if it has a body of size > this value. Minimum read chunk size is 4096 bytes. So this has to be >= 4096. |
+|HttpGatewayHealthReportSendInterval |Time in seconds, default is 30 | Specify timespan in seconds. The interval at which the Http Gateway sends accumulated health reports to Health Manager. |
 
 ### Section Name: KtlLogger
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
