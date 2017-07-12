@@ -42,7 +42,7 @@ First, we add parameters for `storageAccountName` and `storageAccountSasToken`. 
    },
 ```
 
-Next, we modify the scale set `extensionProfile` to include the diagnostics extension. In this configuration, we specify the resource ID of the scale set to collect metrics from, as well as the storage account and SAS token to use to store the metrics. We also specify how frequently the metrics are aggregated (in this case every minute) and which metrics to track (in this case percent processor time). For more detailed information on this configuration and metrics other than percent processor time, see [this documentation](../virtual-machines/linux/diagnostic-extension.md).
+Next, we modify the scale set `extensionProfile` to include the diagnostics extension. In this configuration, we specify the resource ID of the scale set to collect metrics from, as well as the storage account and SAS token to use to store the metrics. We also specify how frequently the metrics are aggregated (in this case every minute) and which metrics to track (in this case percent used memory). For more detailed information on this configuration and metrics other than percent used memory, see [this documentation](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }
@@ -65,12 +65,12 @@ Next, we modify the scale set `extensionProfile` to include the diagnostics exte
 +                          "sinks": "WADMetricJsonBlob",
 +                          "performanceCounterConfiguration": [
 +                            {
-+                              "unit": "Percent",
++                              "unit": "percent",
 +                              "type": "builtin",
-+                              "counter": "PercentProcessorTime",
-+                              "counterSpecifier": "/builtin/Processor/PercentProcessorTime",
-+                              "condition": "IsAggregate=TRUE",
-+                              "class": "Processor"
++                              "class": "memory",
++                              "counter": "percentUsedMemory",
++                              "counterSpecifier": "/builtin/memory/percentUsedMemory",
++                              "condition": "IsAggregate=TRUE"
 +                            }
 +                          ]
 +                        },
@@ -132,7 +132,7 @@ Finally, we add an `autoscaleSettings` resource to configure autoscale based on 
 +            "rules": [
 +              {
 +                "metricTrigger": {
-+                  "metricName": "/builtin/Processor/PercentProcessorTime",
++                  "metricName": "/builtin/memory/percentUsedMemory",
 +                  "metricNamespace": "",
 +                  "metricResourceUri": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', 'myScaleSet')]",
 +                  "timeGrain": "PT1M",
@@ -151,7 +151,7 @@ Finally, we add an `autoscaleSettings` resource to configure autoscale based on 
 +              },
 +              {
 +                "metricTrigger": {
-+                  "metricName": "/builtin/Processor/PercentProcessorTime",
++                  "metricName": "/builtin/memory/percentUsedMemory",
 +                  "metricNamespace": "",
 +                  "metricResourceUri": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', 'myScaleSet')]",
 +                  "timeGrain": "PT1M",
