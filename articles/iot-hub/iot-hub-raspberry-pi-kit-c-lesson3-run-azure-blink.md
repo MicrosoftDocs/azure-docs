@@ -4,7 +4,7 @@ description: Deploy and run a sample application to Raspberry Pi 3 that sends me
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'blink led cloud pi, led blink from cloud'
 

@@ -4,7 +4,7 @@ description: Use Azure Function App to save IoT Hub messages to Azure table stor
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot data storage, iot sensor data storage'
 
