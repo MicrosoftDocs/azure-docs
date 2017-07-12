@@ -60,11 +60,13 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 * Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in mismatched state.
 * PowerShell 1.2.10 requires extra configuration steps.  After running Add-AzureRMEnvironment, you must run the following:
-    * Run this after running add-environment for AAD deployments.  Provide the Name and GraphAudience values using the output of `Add-AzureRMEnvironment`.
+    * Run this after running add-environment for Azure AD deployments.  Provide the Name and GraphAudience values using the output of `Add-AzureRMEnvironment`.
+      
       ```PowerShell
       Set-AzureRmEnvironment -Name <name> -GraphAudience <grpahurl>
       ```
     * Run this after running add-environment for AD FS deployments.  Provide the Name and GraphAudience values using the output of `Add-AzureRMEnvironment`.
+      
       ```PowerShell
       Set-AzureRmEnvironment -Name <name> -GraphAudience <grpahurl> -EnableAdfsAuthentication:$true
       ```
