@@ -57,3 +57,18 @@ Microsoft Teams relies heavily on Exchange Online and SharePoint Online for core
 Microsoft Teams also is supported separately as a cloud app in Azure Active Directory conditional access policies. Certificate authority policies that are set for a cloud app apply to Microsoft Teams when a user signs in.
 
 Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms. 
+
+## How many IP ranges does Named locations support?
+
+Markus to add 😊
+
+## Can I still use MFA Trusted IPs?
+
+Yes, you can continue to use MFA Trusted IPs in Conditional Access policies. To use MFA Trusted IPs, you can select “Trusted IPs” under Locations condition.
+   
+## What kind of ranges should I define in named locations?
+
+Named locations are your organization’s IP ranges that you trust. If there are IP ranges that you do not trust, do not add them to named location. Named locations feed into the Azure AD security reports to strengthen the analysis.
+
+## When should I use MFA Trusted IPs vs Named locations?
+We recommend that you use named locations since it provides better manageability and scalability. 
