@@ -2,7 +2,7 @@
 title: Consume monitoring data from Azure | Microsoft Docs
 description: Learn about all the monitoring data sources available on Azure today.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

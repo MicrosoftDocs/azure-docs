@@ -2,7 +2,7 @@
 title: Overview of Alerts in Microsoft Azure and Azure Monitor | Microsoft Docs
 description: Alerts enable you to monitor Azure resource metrics, events, or logs and be notified when a condition you specify is met.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

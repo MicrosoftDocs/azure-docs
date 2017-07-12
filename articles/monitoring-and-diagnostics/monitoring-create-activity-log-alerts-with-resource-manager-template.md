@@ -2,7 +2,7 @@
 title: Create an activity log alert with a Resource Manager Template  | Microsoft Docs
 description: Get notified when your Azure resources are created.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

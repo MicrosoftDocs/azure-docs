@@ -2,7 +2,7 @@
 title: Rate Limiting for SMS, Emails and Webhooks | Microsoft Docs
 description: Be notified via SMS, webhook, and email when certain events occur in the Activity log.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

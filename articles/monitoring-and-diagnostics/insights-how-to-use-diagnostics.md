@@ -2,7 +2,7 @@
 title: Enable monitoring and diagnostics in Microsoft Azure | Microsoft Docs
 description: Learn how to set up diagnostics for your resources in Azure.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

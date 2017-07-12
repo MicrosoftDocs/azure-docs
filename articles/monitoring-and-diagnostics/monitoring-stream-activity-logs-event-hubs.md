@@ -2,7 +2,7 @@
 title: Stream the Azure Activity Log to Event Hubs | Microsoft Docs
 description: Learn how to stream the Azure Activity Log to Event Hubs.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

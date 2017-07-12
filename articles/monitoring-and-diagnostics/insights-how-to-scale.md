@@ -1,8 +1,8 @@
 ---
 title: Scale instance count manually or with autoscale with Azure Portal | Microsoft Docs
 description: Learn how to scale your services Azure.
-author: rboucher
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: robb
+ms.author: ancav
 
 ---
 # Scale instance count manually or automatically

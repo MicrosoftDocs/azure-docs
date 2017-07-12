@@ -2,7 +2,7 @@
 title: Overview of Metrics in Microsoft Azure | Microsoft Docs
 description: Learn how to customize monitoring charts in Azure.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

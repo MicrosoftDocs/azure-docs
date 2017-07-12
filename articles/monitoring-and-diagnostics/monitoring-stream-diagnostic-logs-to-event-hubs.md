@@ -2,7 +2,7 @@
 title: Stream Azure Diagnostic Logs to Event Hubs | Microsoft Docs
 description: Learn how to stream Azure Diagnostic Logs to Event Hubs.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
