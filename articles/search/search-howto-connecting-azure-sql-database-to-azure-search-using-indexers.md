@@ -30,7 +30,7 @@ You can set up and configure an Azure SQL indexer using:
 * Azure Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 * Azure Search [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
 
-In this article, we'll use the REST API to show you how to create and manage **indexers** and **data sources**.
+In this article, we'll use the REST API to demonstrate **indexers** and **data sources**.
 
 A **data source** specifies which data to index, credentials needed to access the data, and policies that efficiently identify changes in the data (new, modified, or deleted rows). It's defined as an independent resource so that it can be used by multiple indexers.
 
@@ -55,6 +55,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 
 1. Create the data source:
 
+   ```
     POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -65,14 +66,15 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
         "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
         "container" : { "name" : "name of the table or view that you want to index" }
     }
+   ```
 
-
-  You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
+   You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
 
 2. Create the target Azure Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure search data types](#TypeMapping).
 
 3. Create the indexer by giving it a name and referencing the data source and target index:
 
+    ```
     POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -82,11 +84,14 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
+    ```
 
 An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
 
+    ```
     POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
     api-key: admin-key
+    ```
 
 You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
@@ -176,15 +181,12 @@ If your SQL database supports [change tracking](https://docs.microsoft.com/sql/r
 
 #### Requirements 
 
-1. Database version requirements:
++ Database version requirements:
   * SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs.
   * Azure SQL Database V12, if you're using Azure SQL Database.
-
-2. Tables only. It cannot be used with views. 
-
-3. On the database, enable change tracking for the table. See [Enable and disable change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for instructions.
-
-4. Verify the table does not use a composite primary key (primary key containing more than one column).  
++ Tables only. It cannot be used with views. 
++ On the database, enable change tracking for the table. See [Enable and disable change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for instructions.
++ Verify the table does not use a composite primary key (primary key containing more than one column).  
 
 #### Usage
 
@@ -212,7 +214,7 @@ While the SQL Integrated Change Tracking policy is recommended, it can only be u
 * All inserts specify a value for the column.
 * All updates to an item also change the value of the column.
 * The value of this column increases with each insert or update.
-* Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
+* Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
 > We strongly recommend using a **rowversion** column for change tracking. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query. For highly available configurations, using a **rowversion** column adds a requirement for primary replicas. Only primary replicas have the MIN_ACTIVE_ROWVERSION function used for synchronizing data.
