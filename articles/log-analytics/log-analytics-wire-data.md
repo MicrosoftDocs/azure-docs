@@ -17,10 +17,7 @@ ms.author: banders
 
 ---
 
-
-
-
-**Wire Data 2.0 (Preview) solution in Log Analytics**
+# Wire Data 2.0 (Preview) solution in Log Analytics
 
 ![Wire Data symbol](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
