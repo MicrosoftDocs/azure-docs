@@ -102,6 +102,7 @@ Application gateway comes with 3 pre-defined policies that can be used. Each pol
 |MinProtocolVersion     | TLSv1_2        |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br> TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br> TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br> TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br> TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 <br> TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 <br> TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA <br> TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA <br> TLS_RSA_WITH_AES_256_GCM_SHA384 <br> TLS_RSA_WITH_AES_128_GCM_SHA256 <br> TLS_RSA_WITH_AES_256_CBC_SHA256 <br> TLS_RSA_WITH_AES_128_CBC_SHA256 <br> TLS_RSA_WITH_AES_256_CBC_SHA <br> TLS_RSA_WITH_AES_128_CBC_SHA |
 
+## Configure a custom SSL policy
 
 The following example sets a custom SSL policy on an application gateway. It sets the minimum protocol version to `TLSv1_1` and enables the following cipher suites:
 
