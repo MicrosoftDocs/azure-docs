@@ -87,10 +87,10 @@ Get the connection information needed to connect to the Azure Database for MySQL
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
 ## Running the JavaScript code in Node.js
-- Paste the JavaScript code into a text file, and save the file into a project folder with file extension .js, such as C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js
-- To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd nodejsmysql`.
-- Then type the node command followed by the file name, such as `node createtable.js` to run the application.
-- If the node application is not in your path, you may need to use the full path to launch the application, such as `"C:\Program Files\nodejs\node.exe" createtable.js`
+1. Paste the JavaScript code into a text file, and save the file into a project folder with file extension .js, such as C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js
+2. To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd nodejsmysql`.
+3. Then type the node command followed by the file name, such as `node createtable.js` to run the application.
+4. On Windows, if the node application is not in your environment variable path, you may need to use the full path to launch the node application, such as `"C:\Program Files\nodejs\node.exe" createtable.js`
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements.
