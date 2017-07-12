@@ -41,7 +41,7 @@ To configure Azure AD integration with Tidemark, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -174,9 +174,6 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating a Tidemark test user
 
 The objective of this section is to create a user called Britta Simon in Tidemark. Please work with [Tidemark support team](http://www.tidemark.com/contact-us) to add the users in the Tidemark account. 
-
->[!NOTE]
->If you need to create a user manually, you need to contact the Tidemark support team. 
 
 ### Assigning the Azure AD test user
 
