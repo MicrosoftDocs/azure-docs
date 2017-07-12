@@ -4,7 +4,7 @@ description: Compare SQL Database service tiers and performance levels for singl
 keywords: database options,database performance
 services: sql-database
 documentationcenter: ''
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
-ms.author: janeng
+ms.author: carlrab
 
 ---
 # What performance options are available for an Azure SQL Database
