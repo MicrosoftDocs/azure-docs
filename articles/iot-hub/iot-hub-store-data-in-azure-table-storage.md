@@ -4,7 +4,7 @@ description: Use an Azure function app to save your IoT hub messages to your Azu
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot data storage, iot sensor data storage'
 
