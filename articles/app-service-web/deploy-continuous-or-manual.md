@@ -20,6 +20,8 @@ To deploy using Cloud Sync...
 
 To deploy using Local Git...
 
+---
+
 ## Continuous Deployment to App Service
 
 adsflkjadsf
@@ -31,6 +33,8 @@ To Deploy using GitHub
 # [Visual Studio Team Services](#tab/deploy-with-visual-studio-team-services)
 
 To Deploy using Visual Studio Team Services
+
+---
 
 Hello World!
 
