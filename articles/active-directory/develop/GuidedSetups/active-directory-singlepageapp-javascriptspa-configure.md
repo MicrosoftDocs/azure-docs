@@ -17,14 +17,16 @@ Now you need to register your application in Microsoft Application Registration 
 6. Click *Save*
 
 > #### Visual Studio instructions for obtaining redirect URL
-**************************** I am HERE
-> If you are using Visual Studio,please follow the instructions below to obtain your Redirect URL:
-> 1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
-> 3.	Copy the value from `SSL URL` to the clipboard:<br/> ![Project properties](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 4.	Select the `Project` menu and then select `{Project} Properties...` (where {Project} is the name of your project)
-> 5.	Open the `Web` tab
-> 6.	Paste the value of `SSL URL` in the `Project Url` field
-> 7.	Switch back to the Application Registration Portal and paste the value in the `Redirect URL` as redirect URL, then click *Save*
+> Please follow the instructions below to obtain your redirect URL:
+> 1.	In *Solution Explorer*, select the project and look at the `Properties` window (if you don’t see a Properties window, press `F4`)
+> 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3.	Switch back to the *Application Registration Portal* and paste the value as a `Redirect URL` and click 'Save'
+
+<p/>
+
+> #### Python and Redirect URL
+> For Python, you can set the web server port via command line. This guided setup will use the port 8080 for reference but feel free to use any other port available. In any case, follow the instructions below to setup a redirect URL in the application registration information:<br/>
+> - Switch back to the *Application Registration Portal* and set `http://localhost:8080/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
 
 
 #### Configure your JavaScript SPA application

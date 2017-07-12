@@ -1,93 +1,91 @@
 
 ## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
-Add the following code to your `index.html` inside the `<body>` tag:
+1.	Create a file named `app.js`. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`:
+2.	Add the following code to your `app.js` file:
 
-```html
-<script type="text/javascript">
+```javascript
+var graphAPIMeEndpoint = "https://graph.microsoft.com/v1.0/me";
+var graphAPIScopes = ["https://graph.microsoft.com/user.read"];
 
-    var graphAPIMeEndpoint = "https://graph.microsoft.com/v1.0/me";
-    var graphAPIScopes = ["https://graph.microsoft.com/user.read"];
+// Initialize application
+var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID);
 
-    // Initialize application
-    var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID);
+// Set redirect URI
+userAgentApplication.redirectUri = msalconfig.redirectUri;
 
-    // Set redirect URI
-    userAgentApplication.redirectUri = msalconfig.redirectUri;
+displayUserInfo();
 
-    displayUserInfo();
+function displayUserInfo() {
+    var user = userAgentApplication.getUser();
+    if (user) {
+        // Display the user info
+        var userInfoElement = document.getElementById("userInfo");
+        userInfoElement.parentElement.classList.remove("hidden");
+        userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-    function displayUserInfo() {
-        var user = userAgentApplication.getUser();
-        if (user) {
-            // Display the user info
-            var userInfoElement = document.getElementById("userInfo");
-            userInfoElement.parentElement.classList.remove("hidden");
-            userInfoElement.innerHTML = JSON.stringify(user, null, 4);
-
-            // Show Sign-Out button
-            document.getElementById("signOutButton").classList.remove("hidden");
-        }
+        // Show Sign-Out button
+        document.getElementById("signOutButton").classList.remove("hidden");
     }
+}
 
-    function callGraphAPI() {
-        if (userAgentApplication.getAllUsers().length === 0) {
-            userAgentApplication.loginPopup()
-                .then(function (token) {
-                    console.log(token);
-                    displayUserInfo();
-                    callGraphAPI();
-                }, function (error) {
-                    showError("login", error, document.getElementById("errorMessage"));
-                });
-        } else {
-            var responseElement = document.getElementById("graphResponse");
-            responseElement.parentElement.classList.remove("hidden");
-            responseElement.innerText = "Calling Graph ...";
-            callWebApiWithScope(graphAPIMeEndpoint,
-                graphAPIScopes,
-                responseElement,
-                document.getElementById("errorMessage"),
-                document.getElementById("accessToken"));
-        }
-    }
-
-    function callWebApiWithScope(endpoint, scope, responseElement, errorElement, showTokenElement) {
-        userAgentApplication.acquireTokenSilent(scope)
+function callGraphAPI() {
+    if (userAgentApplication.getAllUsers().length === 0) {
+        userAgentApplication.loginPopup()
             .then(function (token) {
-                callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
+                console.log(token);
+                displayUserInfo();
+                callGraphAPI();
             }, function (error) {
-                if (error.indexOf("interaction_required" !== -1)) {
-                    userAgentApplication.acquireTokenPopup(scope).then(function(token) {
-                            callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
-                        },
-                        function(error) {
-                            showError(endpoint, error, errorElement);
-                        });
-                } else {
-                    showError(endpoint, error, errorElement);
-                }
+                showError("login", error, document.getElementById("errorMessage"));
             });
+    } else {
+        var responseElement = document.getElementById("graphResponse");
+        responseElement.parentElement.classList.remove("hidden");
+        responseElement.innerText = "Calling Graph ...";
+        callWebApiWithScope(graphAPIMeEndpoint,
+            graphAPIScopes,
+            responseElement,
+            document.getElementById("errorMessage"),
+            document.getElementById("accessToken"));
     }
+}
 
-    function showAPIResponse(data, token, responseElement, showTokenElement) {
-        console.log(data);
-        responseElement.innerHTML = JSON.stringify(data, null, 4);
-        if (showTokenElement) {
-            showTokenElement.parentElement.classList.remove("hidden");
-            showTokenElement.innerHTML = token;
-        }
-    }
+function callWebApiWithScope(endpoint, scope, responseElement, errorElement, showTokenElement) {
+    userAgentApplication.acquireTokenSilent(scope)
+        .then(function (token) {
+            callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
+        }, function (error) {
+            if (error.indexOf("interaction_required" !== -1)) {
+                userAgentApplication.acquireTokenPopup(scope).then(function(token) {
+                        callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
+                    },
+                    function(error) {
+                        showError(endpoint, error, errorElement);
+                    });
+            } else {
+                showError(endpoint, error, errorElement);
+            }
+        });
+}
 
-    function showError(endpoint, error, errorElement) {
-        console.error(error);
-        var formattedError = JSON.stringify(error, null, 4);
-        if (formattedError.length < 3) {
-            formattedError = error;
-        }
-        errorElement.innerHTML = "Error calling " + endpoint + ": " + formattedError;
+function showAPIResponse(data, token, responseElement, showTokenElement) {
+    console.log(data);
+    responseElement.innerHTML = JSON.stringify(data, null, 4);
+    if (showTokenElement) {
+        showTokenElement.parentElement.classList.remove("hidden");
+        showTokenElement.innerHTML = token;
     }
-</script>
+}
+
+function showError(endpoint, error, errorElement) {
+    console.error(error);
+    var formattedError = JSON.stringify(error, null, 4);
+    if (formattedError.length < 3) {
+        formattedError = error;
+    }
+    errorElement.innerHTML = "Error calling " + endpoint + ": " + formattedError;
+}
 ```
 
 <!--start-collapse-->
@@ -113,10 +111,9 @@ Another scenario where `acquireTokenSilent` will fail is when the user has not y
 
 ## Call the Microsoft Graph API using the token you just obtained
 
-Add the following code to your index.html inside the `<body>` tag:
+Add the following code to your `app.js` file:
 
-```html
- <script type="text/javascript">
+```javascript
 function callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement) {
     var headers = new Headers();
     var bearer = "Bearer " + token;
@@ -154,7 +151,6 @@ function callWebApiWithToken(endpoint, token, responseElement, errorElement, sho
             showError(endpoint, error, errorElement);
         });
 }
-</script>
 ```
 <!--start-collapse-->
 
@@ -166,12 +162,10 @@ In the sample application created by this guide, the `callWebApiWithToken()` met
 
 ## Add a method to sign out the user
 
-Add the following code to your index.html inside the `<body>` tag:
+Add the following code to your `app.js` file:
 
-```html
- <script type="text/javascript">
+```javascript
     function signOut() {
         userAgentApplication.logout();
     }
-</script>
 ```

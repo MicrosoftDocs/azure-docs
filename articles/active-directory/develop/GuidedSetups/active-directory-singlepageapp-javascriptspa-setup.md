@@ -57,7 +57,7 @@ Make sure you have installed Python, then follow the steps below:
         <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
 
-        <!-- Add your <script> blocks below this line -->
+        <script type="text/javascript" src="app.js"></script>
     </body>
 </html>
 ````
