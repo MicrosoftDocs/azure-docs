@@ -45,7 +45,7 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
 In the Azure portal, in the navigation menu, click **Keys**, and then click **Read-write Keys**. Leave this page open as you'll copy the URI and Primary Key into the `remote-secure.yaml` file in the next step.
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-gremlin-console/keys.png)
+![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-gremlin-console/keys.png)
 
 ## <a id="ConnectAppService"></a>Connect to your app service
 1. Before starting the Gremlin Console, create or modify the `remote-secure.yaml` configuration file in the `apache-tinkerpop-gremlin-console-3.2.4/conf` directory.
