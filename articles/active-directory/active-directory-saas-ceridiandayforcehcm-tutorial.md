@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Ceridian Dayforce HCM, you need the following items:
 
 - An Azure AD subscription
-- A Ceridian Dayforce HCM single-sign on enabled subscription
+- A Ceridian Dayforce HCM single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -41,7 +41,7 @@ To configure Azure AD integration with Ceridian Dayforce HCM, you need the follo
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -108,18 +108,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
 	
-	a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application. For production environments, use the following URL format: `https://sso.dayforcehcm.com/<DayforcehcmNamespace>`
-
-    For clarity, replace DayforcehcmNamespace with the namespace of your environment or your Company ID; for example: `https://sso.dayforcehcm.com/contoso`
-
-    For test environments, use the following URL format: `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>`
+	a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application.
 	
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.dayforcehcm.com/sp`
-    
-	c. In the **Reply URL** textbox, type the URL used by Azure AD to post the response.  
-    For production environments, use: `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2`  
-    For test environments, use: `https://fs-test.dayforcehcm.com/sp/ACS.saml2`
-		 
+	| Environment  | URL  |
+	| -- | -- |
+	| For production | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
+	| For test        | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>`|
+   	
+	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
+	| Environment  | URL  |
+	| -- | -- |
+	| For production | `https://ncpingfederate.dayforcehcm.com/sp` |
+	| For Non prod/Test | `https://fs-test.dayforcehcm.com/sp`|
+		
+	c. In the **Reply URL** textbox, type the URL used by Azure AD to post the response.
+
+	| Environment  | URL  |
+	| -- | -- |
+	| For production | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
+	| For test  | `https://fs-test.dayforcehcm.com/sp/ACS.saml2`|
+
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/contact-us/index.html) to get these values. 
 
@@ -197,9 +206,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Ceridian Dayforce HCM test user
 
-The objective of this section is to create a user called Britta Simon in Ceridian Dayforce HCM. 
-
-Work with the [Ceridian Dayforce HCM support team](https://www.ceridian.com/contact-us/index.html) to get users added in the Ceridian Dayforce HCM application. 
+The objective of this section is to create a user called Britta Simon in Ceridian Dayforce HCM. Work with the [Ceridian Dayforce HCM support team](https://www.ceridian.com/contact-us/index.html) to get users added in the Ceridian Dayforce HCM application. 
 
 ### Assigning the Azure AD test user
 
