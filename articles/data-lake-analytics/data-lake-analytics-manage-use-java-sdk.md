@@ -3,7 +3,7 @@ title: Manage Azure Data Lake Analytics using Azure Java SDK | Microsoft Docs
 description: Use Azure Data Lake Analytics Java SDK to develop applications
 services: data-lake-analytics
 documentationcenter: ''
-author: mahi1883
+author: matt1883
 manager: jhubbard
 editor: cgronlun
 
