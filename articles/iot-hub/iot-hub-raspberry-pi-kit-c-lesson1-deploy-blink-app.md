@@ -4,7 +4,7 @@ description: Clone the sample C application from GitHub, and gulp to deploy this
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'raspberry pi led blink, blink led with raspberry pi'
 
