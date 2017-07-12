@@ -19,7 +19,7 @@ ms.author: gwallace
 
 # Configure redirection on Application Gateway with PowerShell
 
-Application gateway supports the ability to redirect traffic based on a defined configuration. To learn more about redirection in general visit, [Application Gateway redirect overview](../application-gateway-redirect-overview.md). This article provides examples of multiple scenarios that use redirection in different ways.
+Application gateway supports the ability to redirect traffic based on a defined configuration. To learn more about redirection in general visit, [Application Gateway redirect overview](application-gateway-redirect-overview.md). This article provides examples of multiple scenarios that use redirection in different ways.
 
 * [HTTP to HTTPS redirect on an existing application gateway](#http-to-https-redirect-on-an-existing-application-gateway)
 * [Path based redirect](#path-based-redirect)
@@ -242,4 +242,4 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## Next steps
 
-Visit [configure end to end SSL with application gateway using PowerShell](../application-gateway-end-to-end-ssl-powershell.md)
+Visit [configure end to end SSL with application gateway using PowerShell](application-gateway-end-to-end-ssl-powershell.md)

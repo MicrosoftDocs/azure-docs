@@ -39,7 +39,7 @@
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configure redirection
-### [PowerShell](application-gateway-configure-redirect-powershell,md)
+### [PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Configure health probes
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
