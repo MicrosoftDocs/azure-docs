@@ -239,10 +239,9 @@ Next, let's examine the functions that call the API.
 *FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a `ByteArrayContent` object, and add a header to this `ByteArrayContent` object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
 
 [!TIP]
-> Note the use of the Json.NET [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are joined from a list of individually parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned.
+> Note the use of the Json.NET [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  SelectToken is used here because we are only looking for a specific feature of the JSON response which we can then pass on to the next function.  Elsewhere in the codebase, JSON responses are deserialized onto model objects defined in 
 
 ```csharp
-// Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
 async Task<ObservableCollection<string>> FetchPrintedWordList()
 {
     ObservableCollection<string> wordList = new ObservableCollection<string>();
@@ -256,10 +255,14 @@ async Task<ObservableCollection<string>> FetchPrintedWordList()
             response = await VisionApiClient.PostAsync(ocrUri, content);
         }
 
-        if ((response != null) && ((int)response.StatusCode == 200))
+        if ((int)response?.StatusCode == 200)
         {
             string ResponseString = await response.Content.ReadAsStringAsync();
             JObject json = JObject.Parse(ResponseString);
+            /*Here, we pull down each "line" of text and then join it to make a string representing the 
+            * entirety of each line.  In the Handwritten endpoint, you are able to extract the "line" 
+            * without any further processing.  If you would like to simply get a list of all extracted words,* you can do this with json.SelectTokens("$.regions[*].lines[*].words[*].text) 
+            */
             IEnumerable<JToken> lines = json.SelectTokens("$.regions[*].lines[*]");
             foreach (JToken line in lines)
             {
