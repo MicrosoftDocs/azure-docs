@@ -59,7 +59,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
    
 	Set the values that are needed to connect to the Media Services API. For more information, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-	If you are using [user authontication](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) your config file will probably have values for your Azure AD tenant domain and the AMS REST API endpoint:
+	If you are using [user authentication](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) your config file will probably have values for your Azure AD tenant domain and the AMS REST API endpoint:
 
         <configuration>
         ...
