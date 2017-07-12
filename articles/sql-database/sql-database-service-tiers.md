@@ -47,9 +47,9 @@ To decide on a service tier, start by determining the minimum database features 
 
 | **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Maximum single database size | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Maximum elastic pool size | 156 GB | 2.9 TB | 4 TB* | 750 GB |
-| Maximum database size in an elastic pool | 2 GB | 250 GB | 500 GB | 500 GB |
+| Maximum single database size | 2 GB | 1 TB | 4 TB  | 1 TB  |
+| Maximum elastic pool size | 156 GB | 4 TB | 4 TB* | 1 TB |
+| Maximum database size in an elastic pool | 2 GB | 4 TB | 4 TB | 1 TB |
 | Maximum number of databases per pool | 500  | 500 | 100 | 100 |
 | Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
 | Maximum DTUs per database in an elastic pool | 5 | 3000 | 4000 | 1000 |
@@ -57,7 +57,7 @@ To decide on a service tier, start by determining the minimum database features 
 ||||||
 
 > [!IMPORTANT]
-> Storage up to 4 TB is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [Current 4 TB limitations](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> More than 1 TB of storage per Premium pool is available in preview in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The max storage per Premium pool in other regions is limited to 1 TB. 
 >
 
 Once you have determined the appropriate service tier, you are ready to determine the performance level (the number of DTUs) and the storage amount for the database. 
