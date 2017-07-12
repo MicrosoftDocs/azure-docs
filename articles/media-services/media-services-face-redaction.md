@@ -56,37 +56,51 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 | Output asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |A cropped jpg of each detected face, where the number indicates the labelId of the face |
 
 #### Output Example:
-    {
-      "version": 1,
-      "timescale": 50,
-      "offset": 0,
-      "framerate": 25.0,
-      "width": 1280,
-      "height": 720,
-      "fragments": [
-        {
-          "start": 0,
-          "duration": 2,
-          "interval": 2,
-          "events": [
-            [  
-              {
-                "id": 1,
-                "x": 0.306415737,
-                "y": 0.03199235,
-                "width": 0.15357475,
-                "height": 0.322126418
-              },
-              {
-                "id": 2,
-                "x": 0.5625317,
-                "y": 0.0868245438,
-                "width": 0.149155334,
-                "height": 0.355517566
-              }
-            ]
-          ]
-        },
+
+	{
+	  "version": 1,
+	  "timescale": 24000,
+	  "offset": 0,
+	  "framerate": 23.976,
+	  "width": 1280,
+	  "height": 720,
+	  "fragments": [
+	    {
+	      "start": 0,
+	      "duration": 48048,
+	      "interval": 1001,
+	      "events": [
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [],
+	        [
+	          {
+	            "index": 13,
+	            "id": 1138,
+	            "x": 0.29537,
+	            "y": -0.18987,
+	            "width": 0.36239,
+	            "height": 0.80335
+	          },
+	          {
+	            "index": 13,
+	            "id": 2028,
+	            "x": 0.60427,
+	            "y": 0.16098,
+	            "width": 0.26958,
+	            "height": 0.57943
+	          }
+	        ],
 
     … truncated
 
