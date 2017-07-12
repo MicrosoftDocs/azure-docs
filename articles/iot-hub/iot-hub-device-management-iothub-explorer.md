@@ -4,7 +4,7 @@ description: Use the iothub-explorer CLI tool for Azure IoT Hub device managemen
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot device management, azure iot hub device management, device management iot, iot hub device management'
 
