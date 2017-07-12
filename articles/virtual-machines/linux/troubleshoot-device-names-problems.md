@@ -27,21 +27,23 @@ The article explains why device names are changed after you restart a Linux virt
 
 You may experience the following problems when running Linux VMs in Microsoft Azure.
 
-- Fail to boot after a restart.
+- The VM fails to boot after a restart.
 
 - If data disks are detached and reattached, the devices names for disks are changed.
 
-- An application or script referencing a disk by using device name fails. You find that the device name of disk is changed.
+- An application or script that references a disk by using device name fails. You find that the device name of the disk is changed.
 
 ## Cause
 
-Device paths in Linux are not guaranteed to be consistent across restarts. Device names are made up of major (letter) and minor numbers.  When the Linux storage device driver detects a new device, it assigns major and minor device numbers to it from the available range. When a device is removed, the device numbers are freed to be reused later.
+Device paths in Linux are not guaranteed to be consistent across restarts. Device names consist of major (letter) and minor numbers.  When the Linux storage device driver detects a new device, it assigns major and minor device numbers to it from the available range. When a device is removed, the device numbers are freed to be reused later.
 
-The problem occurs because the device scanning in Linux scheduled by the SCSI subsystem happens asynchronously. The final device path naming may vary across boots. 
+The problem occurs because the device scanning in Linux scheduled by the SCSI subsystem happens asynchronously. The final device path naming may vary across restarts. 
 
 ## Solution
 
-To address this issue, use persistent naming. There are four mechanisms to persistent naming - by filesystem label, by uuid, by id and by path. The filesystem label and UUID mechanisms are recommended for Azure Linux VMs. For more information about how to configure a Linux VM to use a UUID when adding a data disk, see [Connect to the Linux VM to mount the new disk](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). As described in that document, most distributions also provide either the **nofail** and/or **nobootwait** fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Check the distribution's documentation for more information on these parameters.
+To resolve this problem, use persistent naming. There are four methods to persistent naming - by filesystem label, by uuid, by id and by path. We recommend the filesystem label and UUID methods for Azure Linux VMs. 
+
+Most distributions also provide either the **nofail** or **nobootwait** fstab options. These options enable a system to boot even if the disk fails to mount at startup. Check the distribution's documentation for more information about these parameters. For more information about how to configure a Linux VM to use a UUID when you add a data disk, see [Connect to the Linux VM to mount the new disk](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
 
 When the Azure Linux agent is installed on a VM, it uses Udev rules to construct a set of symbolic links under **/dev/disk/azure**. These Udev rules can be used by applications and scripts to identify disks are attached to the VM, their type, and the LUN.
 
@@ -49,7 +51,7 @@ When the Azure Linux agent is installed on a VM, it uses Udev rules to construct
 
 ### Identify disk LUNs
 
-An application could use LUNs for the purpose of finding all the attached disks and constructing symbolic links. The Azure Linux agent now comes with udev rules that set up symbolic links from LUN to the devices:
+An application can use LUNs to find all the attached disks and constructing symbolic links. The Azure Linux agent now includes udev rules that set up symbolic links from a LUN to the devices, as follows:
 
     $ tree /dev/disk/azure
 
@@ -67,7 +69,7 @@ An application could use LUNs for the purpose of finding all the attached disks 
         └── lun1-part3 -> ../../../sdd3                                    
                                  
 
-LUN information can also be retrieved from the Linux guest using lsscsi or similar tooling.
+LUN information can also be retrieved from the Linux guest using lsscsi or similar tool as follows.
 
        $ sudo lsscsi
 
@@ -81,7 +83,7 @@ LUN information can also be retrieved from the Linux guest using lsscsi or simil
 
       [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
-This guest LUN information can be used with Azure subscription metadata to identify the location in Azure storage of the VHD which stores the partition data. For example, using the az cli:
+This guest LUN information can be used with Azure subscription metadata to identify the location in Azure storage of the VHD which stores the partition data. For example, use the az cli:
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks                                        
     [                                                                                                                                                                  
@@ -113,7 +115,7 @@ This guest LUN information can be used with Azure subscription metadata to ident
 
 ### Discover filesystem UUIDs by using blkid
 
-A script or application can read the output of blkid, or similar sources of information, and construct symbolic links under **/dev** for use. The output will show the UUIDs of all disks attached to the VM and the device file to which they are associated:
+A script or application can read the output of blkid, or similar sources of information, and construct symbolic links in **/dev** for use. The output will show the UUIDs of all disks attached to the VM and the device file to which they are associated:
 
     $ sudo blkid -s UUID
 
@@ -136,7 +138,7 @@ The waagent udev rules construct a set of symbolic links under **/dev/disk/azure
 
 The application can use this information identify the boot disk device and the resource (ephemeral) disk. In Azure, applications should refer to **/dev/disk/azure/root-part1** or **/dev/disk/azure-resource-part1** to discover these partitions.
 
-If there are additional partitions from the blkid list, they reside on a data disk. Applications can persist the UUID for these partitions and use a path like the below to discover the device name at runtime:
+If there are additional partitions from the blkid list, they reside on a data disk. Applications can maintains the UUID for these partitions and use a path like the below to discover the device name at runtime:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
@@ -155,7 +157,7 @@ For more information, see the following articles:
 
 - [Ubuntu: Using UUID](https://help.ubuntu.com/community/UsingUUID)
 
-- [Red Hat: Storage Administration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.htm)
+- [Red Hat: Persistent Naming](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
 
 - [Linux: What UUIDs can do for you](https://www.linux.com/news/what-uuids-can-do-you)
 
