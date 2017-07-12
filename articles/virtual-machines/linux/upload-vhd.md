@@ -217,8 +217,6 @@ az vm create \
     --name myNewVM \
 	--os-type linux \
     --attach-os-disk myManagedDisk
-	--admin-username azureuser 
-	--ssh-key-value ~/.ssh/id_rsa.pub \
 ```
 
 
