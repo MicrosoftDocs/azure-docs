@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/06/2017
+ms.date: 07/12/2017
 ms.author: guybo
 
 ---
@@ -105,83 +105,6 @@ To set the domain name in an Azure template, add a dnsSettings property to the s
 The output, for an individual virtual machine dns name would be in the following form: 
 ```
 <vmname><vmindex>.<specifiedVmssDomainNameLabel>
-```
-
-## IPv6 preview for public IPs and Load Balancer pools
-You can configure [IPv6 public IP](../load-balancer/load-balancer-ipv6-overview.md) addresses on an Azure Load Balancer, and route connections to virtual machine scale set backend pools. To use IPv6 create an IPv6 public address resource. For example:
-```json
-{
-    "apiVersion": "2016-09-01",
-    "type": "Microsoft.Network/publicIPAddresses",
-    "name": "[parameters('ipv6PublicIPAddressName')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "publicIPAddressVersion": "IPv6",
-        "publicIPAllocationMethod": "Dynamic",
-        "dnsSettings": {
-            "domainNameLabel": "[parameters('dnsNameforIPv6LbIP')]"
-        }
-    }
-}
-```
-Next, configure your load balancer front-end IP Configurations for IPv4 and IPv6 as needed:
-
-```json
-"frontendIPConfigurations": [
-    {
-        "name": "LoadBalancerFrontEndIPv6",
-        "properties": {
-            "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('ipv6PublicIPAddressName'))]"
-            }
-        }
-    }
-]
-```
-Define the required backend pools:
-```json
-"backendAddressPools": [
-    {
-        "name": "BackendPoolIPv4"
-    },
-    {
-        "name": "BackendPoolIPv6"
-    }
-]
-```
-Define any load balancer rules:
-```json
-{
-    "name": "LBRuleIPv6-46000",
-    "properties": {
-        "frontendIPConfiguration": {
-            "id": "[variables('ipv6FrontEndIPConfigID')]"
-        },
-        "backendAddressPool": {
-            "id": "[variables('ipv6LbBackendPoolID')]"
-        },
-        "protocol": "tcp",
-        "frontendPort": 46000,
-        "backendPort": 60001,
-        "probe": {
-            "id": "[variables('ipv4ipv6lbProbeID')]"
-        }
-    }
-}
-```
-Lastly, reference the IPv6 pool in the IPConfigurations section of the scale set network properties:
-```json
-{
-    "name": "ipv6IPConfig",
-    "properties": {
-        "privateIPAddressVersion": "IPv6",
-        "loadBalancerBackendAddressPools": [
-            {
-                "id": "[variables('ipv6LbBackendPoolID')]"
-            }
-        ]
-    }
-}
 ```
 
 ## Public IPv4 per virtual machine
