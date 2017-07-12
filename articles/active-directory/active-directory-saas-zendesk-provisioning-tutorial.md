@@ -74,7 +74,7 @@ This section guides you through connecting your Azure AD to ZenDesk's user accou
 
 6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your ZenDesk app. If the connection fails, ensure your ZenDesk account has Admin permissions and try step 5 again.
 
-7) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs".
+7) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
 
 8) Click **Save**. 
 
