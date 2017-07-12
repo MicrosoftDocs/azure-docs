@@ -254,9 +254,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
                 ClusterType = NewClusterType,
                 OSType = NewClusterOSType,
                 Version = NewClusterVersion,
-
                 DefaultStorageInfo = new AzureStorageInfo(ExistingStorageName, ExistingStorageKey, ExistingContainer),
-
                 UserName = NewClusterUsername,
                 Password = NewClusterPassword,
             };
