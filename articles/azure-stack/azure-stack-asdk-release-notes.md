@@ -71,7 +71,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
       Set-AzureRmEnvironment <Environment Name> -GraphAudience <Graph Endpoint URL> -EnableAdfsAuthentication:$true
       ```
     
-    As an example, you the following is used for an Azure AD environment:
+    As an example, the following is used for an Azure AD environment:
 
     ```PowerShell
       Set-AzureRmEnvironment AzureStack -GraphAudience https://graph.local.azurestack.external/
