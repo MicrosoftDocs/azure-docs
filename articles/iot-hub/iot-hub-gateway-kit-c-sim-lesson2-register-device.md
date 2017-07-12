@@ -4,7 +4,7 @@ description:
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot hub, internet of things cloud, azure iot hub create device, ti sensortag, ti ble'
 

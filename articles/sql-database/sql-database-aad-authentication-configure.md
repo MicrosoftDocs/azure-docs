@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/25/2017
+ms.date: 07/10/2017
 ms.author: rickbyh
 
 ---
@@ -78,7 +78,7 @@ The following two procedures show you how to provision an Azure Active Directory
 3. In the **Active Directory admin** blade, click **Set admin**.   
     ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.   
+4. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.   
     ![select admin](./media/sql-database-aad-authentication/select-admin.png)  
     
 5. At the top of the **Active Directory admin** blade, click **SAVE**.   
@@ -148,6 +148,17 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ```
 
 You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Databases Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+
+### CLI  
+You can also provision an Azure AD admin by calling the following CLI commands:
+| Command | Description |
+| --- | --- |
+|az sql server ad-admin create |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |
+|az sql server ad-admin delete |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
+|az sql server ad-admin list |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
+
+For more information about CLI commands, see [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
+
 
 ## Configure your client computers
 On all client machines, from which your applications or users connect to Azure SQL Database or Azure SQL Data Warehouse using Azure AD identities, you must install the following software:

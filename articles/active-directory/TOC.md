@@ -30,10 +30,9 @@
 ### [Recommended security policies and configurations](secure-email-introduction.md)
 #### [Secure email recommended policies](secure-email-recommended-policies.md)
 ##### [Deploy recommended secure email policies](secure-email-deploy-recommended-policies.md)
-#### [EMS and Office 365 service descriptions](secure-email-ems-office365-service-descriptions.md)
+#### [EMS and Office 365 services odescriptions](secure-email-ems-office365-service-descriptions.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
-
 #### Determine requirements
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
