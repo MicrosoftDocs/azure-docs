@@ -20,7 +20,7 @@ ms.author: danlep
 ---
 # How to find Windows VM images in the Azure Marketplace with Azure PowerShell
 
-This topic describes how to use Azure PowerShell to find Windows VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a Windows VM.
+This topic describes how to use Azure PowerShell to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a Windows VM.
 
 Make sure that you installed and configured the latest [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -88,6 +88,11 @@ The following shows a full example:
 $locName="West US"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
+```
+
+Output:
+
+```
 PublisherName
 -------------
 a10networks
@@ -108,7 +113,11 @@ For the "MicrosoftWindowsServer" publisher:
 ```powershell
 $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```
 
+Output:
+
+```
 Offer
 -----
 Windows-HUB
@@ -121,7 +130,11 @@ For the "WindowsServer" offer:
 ```powershell
 $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```
 
+Output:
+
+```
 Skus
 ----
 2008-R2-SP1
