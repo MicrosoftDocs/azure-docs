@@ -74,15 +74,11 @@ There are many ways in which numeric values are used to quantify, express, and d
 | one hundred fifty| "one hundred fifty" | "150" |
 | one hundred and fifty| "one hundred and fifty" | "150"|
 | one point five| "one point five" |  "1.5" |
-| two dozen | "two dozen" | "24" |
+| two dozen     | "two dozen" | "24" |
 
 
 LUIS includes the recognized value of a **builtin.number** entity in the `resolution` field of the JSON response it returns.
 
-<!-- 
-> [!NOTE]
-> **builtin.number** resolution is a new feature.
--->
 
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
@@ -269,7 +265,7 @@ The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times
 <table>
 <th> example </th><th>property descriptions</th>
 <tr><td>
-The following is an example of a JSON response containing a builtin.datetimeV2 entity.
+The following is an example of a JSON response containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href=#subtypes-of-datetimev2>Subtypes of datetimeV2</a>.
 <pre>
   "entities": [
     {
@@ -292,7 +288,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <td> 
    <table>
    <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance, that represents a date, time, date range or time range.</td></tr>
-   <tr><td>type</td><td><b>string</b>. One of the following types: 
+   <tr><td>type</td><td><b>string</b>. One of the following <a href=#subtypes-of-datetimev2>subtypes of datetimeV2</a>: 
    <ul><li>builtin.datetimeV2.datetime
    <li>builtin.datetimeV2.date
    <li>builtin.datetimeV2.time
@@ -308,7 +304,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. In the case of an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. In the case of an ambiguous time, `values` contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li>
    </ul>
    <br/>Each element of <code>values</code> may contain the following fields: <br/>
-   <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for annotation described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
+   <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
    <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code> or <code>datetimerange</code>.</td></tr></table>
    </td></tr>
    <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code> or <code>datetimerange</code>.</td></tr></table>
@@ -331,7 +327,7 @@ The **builtin.datetimeV2** entity's `resolution` field has a `values` array that
 
 ### Ambiguous dates
 
-If it's unclear from an utterance whether a date refers to that date in the past or the future, LUIS provides both the most immediate past and future instances of that date. This means that if today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
+If it's unclear from an utterance whether a date refers to that date in the past or the future, LUIS provides both the most immediate past and future instances of that date. One case of this is an utterance that includes the month and date, but not the year. If today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
 
 For example, given the utterance "May 2nd":
 * If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
@@ -457,7 +453,16 @@ builtin.datetimeV2.set    |   every week   |```{ "entity": "every week", "type":
 
 <!--The **builtin.datetime** prebuilt entity is aware of the current date and time. In the following examples, the current date is 2017-06-21. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. -->
 
-The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtindatetimev2). The following table provides a comparison of datetime and datetimeV2. In the examples, the current date is 2017-06-20.
+The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtindatetimev2). 
+
+To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, do the following:
+
+1. Open the **Entities** pane of the LUIS web interface. 
+2. Delete the **datetime** prebuilt entity.
+3. Click **Add prebuilt entity**
+4. Select **datetimeV2** and click **Save**.
+
+The following table provides a comparison of datetime and datetimeV2. In the examples, the current date is 2017-06-20.
 
 Pre-built entity   |   Example utterance   |   JSON
 ------|------|------|
