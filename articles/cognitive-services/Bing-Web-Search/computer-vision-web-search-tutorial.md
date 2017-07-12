@@ -13,8 +13,6 @@ ms.author: t-jolanz
 ---
 
 # Bing Web Search And Computer Vision API Tutorial
-## Table of Contents  
-
 
 ## Introduction  
 This tutorial explores the [Azure Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) and [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) endpoints and how they can be used to build a basic visual search application with Xamarin.Forms.  Overall, this tutorial covers the following topics: 
