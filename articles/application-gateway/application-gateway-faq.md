@@ -148,7 +148,7 @@ This can be done using NSGs on Application Gateway subnet. The following restric
 
 **Q. How does Application Gateway support high availability and scalability?**
 
-Application Gateway supports high availability scenarios if you have more than 2 instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
+Application Gateway supports high availability scenarios if you have 2 or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
 
 **Q. How do I achieve DR scenario across data centers with Application Gateway?**
 
