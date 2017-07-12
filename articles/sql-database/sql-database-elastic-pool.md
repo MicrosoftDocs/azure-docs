@@ -26,7 +26,7 @@ SQL Database elastic pools are a simple, cost-effective solution for managing an
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
 >
 
-## What are SQL Database elastic pools? 
+## What are SQL elastic pools? 
 
 SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. Traditionally, you had two options: 
 
@@ -102,14 +102,14 @@ A large difference between the peak and average utilization of a database indica
 ***Example***<br>
 An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in a pool. Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for a pool.
 
-## How do I sizing a SQL Database elastic pool?
+## How do I choose the correct pool size?
 
 The best size for a pool depends on the aggregate eDTUs and storage resources needed for all databases in the pool. This involves determining the larger of the following:
 
 * Maximum DTUs utilized by all databases in the pool.
 * Maximum storage bytes utilized by all databases in the pool.
 
-For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](#what-are-the-resource-limits-for-elastic-pools).
 
 SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom group of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
@@ -124,7 +124,14 @@ In cases where you can't use tooling, the following step-by-step can help you es
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
 5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
 
-## What are the eDTU and storage limits for elastic pools?
+### Changing elastic pool resources
+
+You can increase or decrease the resources available to an elastic pool based on resource needs.
+
+* Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
+* Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
+
+## What are the resource limits for elastic pools?
 
 The following tables describe the resource limits of elastic pools.  Note that the resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier.  For example, the max concurrent workers for an S2 database is 120 workers.  So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
@@ -142,10 +149,6 @@ The following table describes the properties for pooled databases.
 | Min eDTUs per database |The minimum number of eDTUs that any database in the pool is guaranteed.  This setting is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average eDTU utilization per database. The product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool.  For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
 | Max data storage per database |The maximum storage for a database in a pool. Pooled databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. Max storage per database refers to the maximum size of the data files and does not include the space used by log files. |
 |||
-
-## Latency of elastic pool operations
-* Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
-* Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 ## Using other features with elastic pools
 
@@ -207,7 +210,7 @@ After adding databases to the pool, recommendations are dynamically generated ba
 
 ![dynamic recommendations](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-## Manage and monitor an elastic pool
+### Manage and monitor an elastic pool
 
 You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. From the portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
@@ -249,7 +252,7 @@ You can edit the chart and the metric blade to display other metrics such as CPU
 
 3. Then click **OK**.
 
-## Manage and monitor databases in an elastic pool
+### Manage and monitor databases in an elastic pool
 
 Individual databases can also be monitored for potential trouble.
 
@@ -282,7 +285,7 @@ In the database list in the **Database Resource Utilization** blade, you can fin
 ![Search for databases to monitor][7]
 
 
-## Add an alert to an elastic pool resource
+### Add an alert to an elastic pool resource
 
 You can add rules to an elastic pool that send email to people or alert strings to URL endpoints when the elastic pool hits a utilization threshold that you set up.
 
@@ -300,7 +303,7 @@ You can add rules to an elastic pool that send email to people or alert strings 
 
 For more information, see [create SQL Database alerts in Azure portal](sql-database-insights-alerts-portal.md).
 
-## Move a database into an elastic pool
+### Move a database into an elastic pool
 
 You can add or remove databases from an existing pool. The databases can be in other pools. However, you can only add databases that are on the same logical server.
 
@@ -325,7 +328,7 @@ You can add or remove databases from an existing pool. The databases can be in o
 
     ![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
-## Move a database out of an elastic pool
+### Move a database out of an elastic pool
 
 1. In the **Configure pool** blade, select the database or databases to remove.
 
@@ -343,7 +346,7 @@ You can add or remove databases from an existing pool. The databases can be in o
 
     ![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
-## Change performance settings of an elastic pool
+### Change performance settings of an elastic pool
 
 As you monitor the resource utilization of an elastic pool, you may discover that some adjustments are needed. Maybe the pool needs a change in the performance or storage limits. Possibly you want to change the database settings in the pool. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic pool be used?](sql-database-elastic-pool.md) for more information.
 
