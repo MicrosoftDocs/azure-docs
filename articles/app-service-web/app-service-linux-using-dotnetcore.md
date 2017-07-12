@@ -23,7 +23,7 @@ ms.author: aelnably;wesmc;mikono;rachelap
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-[.NET Core](https://www.microsoft.com/net/core/platform) is a lightweight and modular platform for creating cross platform web applications and services. This tutorial contains step-by-step instructions showing how to create a .NET Core app on Azure Web App on Linux. You can follow the steps below using a Mac, Windows, or Linux machine.
+[Web App](https://docs.microsoft.com/azure/app-service-web/app-service-linux-intro) on Linux provides highly scalable, self-patching web hosting service using the linux operating system. This tutorial contains step-by-step instructions showing how to create a .NET Core app on Azure Web App on Linux. You can follow the steps below using a Mac, Windows, or Linux machine.
 
 ## Prerequisites ##
 
@@ -44,10 +44,9 @@ dotnew new web
 
   The previous command creates three files (*hellodotnetcore.csproj*, *Program.cs*, and *Startup.cs*) and one empty folder (*wwwroot/*) under the current directory. The content of `.csproj` file should look like the following: 
 
-  >[!NOTE]
-  >Empty lines are omitted.
-
-  ```xml
+```xml
+  <!-- Empty lines are omitted. -->
+  
   <Project Sdk="Microsoft.NET.Sdk.Web">
         <PropertyGroup>
         <TargetFramework>netcoreapp1.1</TargetFramework>
@@ -59,8 +58,9 @@ dotnew new web
         <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
         </ItemGroup>
   </Project>
-  ```
-To find out which operating systems and versions are supported by .NET Core, visit the [.NET Core Roadmap](https://github.com/dotnet/core/blob/master/roadmap.md).
+```
+
+To find out which operating systems and versions are supported by .NET Core, visit the [.NET Core road map](https://github.com/dotnet/core/blob/master/roadmap.md).
 
 Since this app is a web application, a reference to an ASP.NET Core package was automatically added to the *hellodotnetcore.csproj* file. The version number of the package is set according to the chosen framework. This example is referencing ASP.NET Core version 1.1.2 because .NET Core 1.1 is used.
 
@@ -76,13 +76,18 @@ dotnet restore && dotnet build
 
 Once built, run it on your local machine to confirm it works. In the previous case, you can do it by typing `dotnet bin/Debug/netcoreapp1.1/hellodotnetcore.dll` because the DLL was built under *bin/Debug/netcoreapp1.1/*. This directory structure is consistent across operating systems.
 
-```
+```bash
 dotnet bin/Debug/netcoreapp1.1/hellodotnetcore.dll
 ```
 
-When the application starts, you see a message indicating the app is listening to incoming requests at a port. 
+When the application starts, it displays a message indicating the app is listening to incoming requests at a port. 
 
-![Testing .NET Core application locally][5]
+```bash
+Hosting environment: Production
+Content root path: C:\hellodotnetcore
+Now listening on: http://localhost:5000
+Application started. Press Ctrl+C to shut down.
+```
 
 Test it by browsing to `http://localhost:5000/` with your browser. If everything works fine, you see "Hello World!" as the result text.
 
@@ -151,7 +156,7 @@ Once the deployment has completed, restart your web app for the deployment to ta
 [2]: ./media/app-service-linux-using-dotnetcore/dotnet-new-webapp.png
 [3]: ./media/app-service-linux-using-dotnetcore/dotnet-new.png
 [4]: ./media/app-service-linux-using-dotnetcore/dotnet-restore-and-build.png
-[5]: ./media/app-service-linux-using-dotnetcore/dotnet-run-local.png
+
 [6]: ./media/app-service-linux-using-dotnetcore/dotnet-local-http.png
 [7]: ./media/app-service-linux-using-dotnetcore/dotnet-browse-local.png
 [8]: ./media/app-service-linux-using-dotnetcore/dotnet-git-push.png
