@@ -35,7 +35,7 @@ You can also the configure who the alert should be sent to:
 
 You can learn more about Action Groups [here](monitoring-action-groups.md)
 
-For information on configuring service health notification alerts using ARM templates: [Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+For information on configuring service health notification alerts using Azure Resource Manager templates: [Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
 
 ## Create an alert on a service health notification for a new action group with the Azure Portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
