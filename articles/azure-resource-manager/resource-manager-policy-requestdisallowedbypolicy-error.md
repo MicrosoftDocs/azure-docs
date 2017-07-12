@@ -1,5 +1,5 @@
 ---
-title: RequestDisallowedByPolicy error with the resource policy | Microsoft Docs
+title: RequestDisallowedByPolicy error with Azure resource policy | Microsoft Docs
 description: Describes the cause of the RequestDisallowedByPolicy error.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
@@ -16,7 +16,9 @@ ms.date: 07/12/2017
 ms.author: genli
 
 ---
-# RequestDisallowedByPolicy error with the resource policy
+# RequestDisallowedByPolicy error with Azure resource policy
+
+This article describes the cause of the RequestDisallowedByPolicy error, it also provides solution for this error.
 
 ## Symptom
 
