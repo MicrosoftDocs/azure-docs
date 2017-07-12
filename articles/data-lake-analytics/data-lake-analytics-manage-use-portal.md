@@ -3,8 +3,8 @@ title: Manage Azure Data Lake Analytics by using the Azure portal | Microsoft Do
 description: Learn how to manage Data Lake Analytics acounts, data sources, users, and jobs.
 services: data-lake-analytics
 documentationcenter: ''
-author: saveenr
-manager: saveenr
+author: matt1883
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
