@@ -4,20 +4,18 @@ description: Manage and scale multiple SQL databases - hundreds and thousands - 
 keywords: multiple databases, database resources, database performance
 services: sql-database
 documentationcenter: ''
-author: ddove
+author: CarlRabeler
 manager: jhubbard
 editor: ''
-
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 06/27/2017
-ms.author: ddove
+ms.date: 07/12/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-
 ---
 
 # Elastic pools help you manage and scale multiple SQL databases
@@ -146,15 +144,15 @@ The following table describes the properties for pooled databases.
 | Max data storage per database |The maximum storage for a database in a pool. Pooled databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. Max storage per database refers to the maximum size of the data files and does not include the space used by log files. |
 |||
 
-## How do I work with databases in elastic pools
+## Using other features with elastic pools
 
+### Elastic jobs and elastic pools
 
-### Elastic jobs
 With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic jobs](sql-database-elastic-jobs-getting-started.md).
 
 For more information about other database tools for working with multiple databases, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
-### Business continuity features for databases in a pool
+### Business continuity options for databases in an elastic pool
 Pooled databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases.
 
 - **Point in time restore**: Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
@@ -162,6 +160,43 @@ Pooled databases generally support the same [business continuity features](sql-d
 - **Geo-restore**: Geo-restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
 
 - **Active geo-replication**: For applications that have more aggressive recovery requirements than geo-restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
+
+## Manage SQL Database elastic pools using the Azure portal
+
+## Manage SQL Database elastic pools using PowerShell
+
+To create and manage SQL Database elastic pools with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+
+| Cmdlet | Description |
+| --- | --- |
+
+> [!TIP]
+> For a PowerShell quick start tutorial, see [Create a single Azure SQL database using PowerShell](sql-database-get-started-portal.md).
+>
+
+## Manage SQL Database elastic pools using the Azure CLI
+
+To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure/overview), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. 
+
+| Cmdlet | Description |
+| --- | --- |
+
+## Manage SQL Database elastic pools using Transact-SQL
+
+To return information about SQL Database elastic pools with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. To create, update, or delete a database within an elastic pool - or query for information about a database, see [Create and manage Azure SQL Database servers and databases](sql-database-servers-databases.md).
+
+> [!IMPORTANT]
+> You cannot create, update, or delete an Azure SQL Database elastic pool using Transact-SQL. 
+>
+
+| Command | Description |
+| --- | --- |
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returns resource usage statistics for all the elastic database pools in a logical server. For each elastic database pool, there is one row for each 15 second reporting window (four rows per minute). This includes CPU, IO, Log, storage consumption and concurrent request/session utilization by all databases in the pool.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or an Azure SQL Data Warehouse. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
+
+## Manage SQL Database elastic pools using the REST API
+
+To create and manage SQL Database elastic pools using the REST API, see [Azure SQL Database REST API](/rest/api/sql/).
 
 ## Next steps
 
