@@ -36,10 +36,10 @@ The following commands create a Service Fabric application (named `fabric:/TestC
 Create a Service Fabric Compose application from a docker-compose.yml file by running the following command in PowerShell:
 
 ```powershell
-New-ServiceFabricComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RepositoryUserName <>] [-RepositoryPassword <>] [-PasswordEncrypted]
+New-ServiceFabricComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RepositoryUserName` and `RepositoryPassword` refer to the container registry username and password. After you've completed the application, you can check its status by using the following command:
+`RegistryUserName` and `RegistryPassword` refer to the container registry username and password. After you've completed the application, you can check its status by using the following command:
 
 ```powershell
 Get-ServiceFabricComposeApplicationStatus -ApplicationName fabric:/TestContainerApp -GetAllPages
