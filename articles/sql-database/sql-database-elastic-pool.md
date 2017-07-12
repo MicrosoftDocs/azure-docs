@@ -150,7 +150,7 @@ The following table describes the properties for pooled databases.
 | Max data storage per database |The maximum storage for a database in a pool. Pooled databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. Max storage per database refers to the maximum size of the data files and does not include the space used by log files. |
 |||
 
-## Using other features with elastic pools
+## Using other SQL Database features with elastic pools
 
 ### Elastic jobs and elastic pools
 
@@ -212,7 +212,7 @@ After adding databases to the pool, recommendations are dynamically generated ba
 
 ### Manage and monitor an elastic pool
 
-In the Azure portal to monitor and manage an elastic pool and the databases in the pool. You can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
+In the Azure portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
 The following graphic shows an example elastic pool. The view includes:
 
@@ -223,60 +223,47 @@ The following graphic shows an example elastic pool. The view includes:
 
 ![Pool view](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-You can go to a particular pool to see its resource utilization. By default, the pool is configured to show storage and eDTU usage for the last hour. The chart can be configured to show different metrics over various time windows.
+You can go to a particular pool to see its resource utilization. By default, the pool is configured to show storage and eDTU usage for the last hour. The chart can be configured to show different metrics over various time windows. Click the **Resource utilization** chart under **Elastic pool monitoring** to show a detailed view of the specified metrics over the specified time window.
 
-1. Select an elastic pool to work with.
-2. Under **Elastic Pool Monitoring** is a chart labeled **Resource utilization**. Click the chart.
+![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
-	![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
-
-	The **Metric** blade opens, showing a detailed view of the specified metrics over the specified time window.   
-
-	![Metric blade](./media/sql-database-elastic-pool-manage-portal/metric.png)
+![Metric blade](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
 ### To customize the chart display
 
 You can edit the chart and the metric blade to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
 
-1. On the metric blade, click **Edit**.
+![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
 
-	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
+On the **Edit Chart** form, you can select a time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. You can choose between a bar or a line chart, and then select the resources to monitor.
 
-2. In the **Edit Chart** blade, select a time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor.
+> [!Note]
+> Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you can only select other metrics with percentage as the unit of measure.
+>
 
-   > [!Note]
-   > Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you can only select other metrics with percentage as the unit of measure.
-   >
-
-	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
-
-3. Then click **OK**.
+[Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 ### Manage and monitor databases in an elastic pool
 
-Individual databases can also be monitored for potential trouble.
+Individual databases can also be monitored for potential trouble. Under **Elastic Database Monitoring**, there is a chart that displays metrics for five databases. By default, the chart displays the top 5 databases in the pool by average eDTU usage in the past hour. 
 
-1. Under **Elastic Database Monitoring**, there is a chart that displays metrics for five databases. By default, the chart displays the top 5 databases in the pool by average eDTU usage in the past hour. Click the chart.
+![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
-	![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
+Click the **eDTU usage for databases for the past hour** under **Elastic database monitoring**. This opens **Database Resource Utilization** and provides a detailed view of the database usage in the pool. Using the grid in the lower part of the blade, you can select any databases in the pool to display its usage in the chart (up to 5 databases). You can also customize the metrics and time window displayed in the chart by clicking **Edit chart**.
 
-2. The **Database Resource Utilization** blade appears. This provides a detailed view of the database usage in the pool. Using the grid in the lower part of the blade, you can select any databases in the pool to display its usage in the chart (up to 5 databases). You can also customize the metrics and time window displayed in the chart by clicking **Edit chart**.
-
-	![Database resource utilization blade](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![Database resource utilization blade](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### To customize the view
 
-1. In the **Database resource utilization** blade, click **Edit chart**.
+You can edit the chart to select a time range (past hour or past 24 hours), or click **custom** to select a different day in the past 2 weeks to display.
 
-	![Click Edit chart](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
+![Click Edit chart](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
 
-2. In the **Edit** chart blade, select a time range (past hour or past 24 hours), or click **custom** to select a different day in the past 2 weeks to display.
+![Click Custom](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
 
-	![Click Custom](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
+You can also click the **Compare databases by** dropdown to select a different metric to use when comparing databases.
 
-3. Click the **Compare databases by** dropdown to select a different metric to use when comparing databases.
-
-	![Edit the chart](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
+![Edit the chart](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
 
 ### To select databases to monitor
 
@@ -307,44 +294,25 @@ For more information, see [create SQL Database alerts in Azure portal](sql-datab
 
 You can add or remove databases from an existing pool. The databases can be in other pools. However, you can only add databases that are on the same logical server.
 
-1. In the blade for the pool, under **Elastic databases** click **Configure pool**.
+ ![Click Configure pool](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-    ![Click Configure pool](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
+![Click Add to pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-2. In the **Configure pool** blade, click **Add to pool**.
+![Select databases to add](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
-	![Click Add to pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+![Pending pool additions](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
-
-3. In the **Add databases** blade, select the database or databases to add to the pool. Then click **Select**.
-
-	![Select databases to add](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
-
-    The **Configure pool** blade now lists the database you selected to be added, with its status set to **Pending**.
-
-    ![Pending pool additions](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
-
-3. In the **Configure pool blade**, click **Save**.
-
-    ![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
+![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
 ### Move a database out of an elastic pool
 
-1. In the **Configure pool** blade, select the database or databases to remove.
+![databases listing](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
 
-    ![databases listing](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
+![databases listing](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
-2. Click **Remove from pool**.
+![preview database addition and removal](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
-    ![databases listing](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
-
-    The **Configure pool** blade now lists the database you selected to be removed with its status set to **Pending**.
-
-    ![preview database addition and removal](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
-
-3. In the **Configure pool blade**, click **Save**.
-
-    ![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
+![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
 ### Change performance settings of an elastic pool
 
@@ -352,15 +320,9 @@ As you monitor the resource utilization of an elastic pool, you may discover tha
 
 To change the eDTUs or storage limits per pool, and eDTUs per database:
 
-1. Open the **Configure pool** blade.
+![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-    Under **elastic pool settings**, use either slider to change the pool settings.
-
-    ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
-
-2. When the setting changes, the display shows the estimated monthly cost of the change.
-
-    ![Updating an elastic pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
+![Updating an elastic pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
 ## Manage SQL Database elastic pools using PowerShell
 
@@ -408,7 +370,7 @@ To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure/
 To create and move databases within existing elastic pools or to return information about an SQL Database elastic pool with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. To create and manage databases, servers, and firewall rules, see [Create and manage Azure SQL Database servers and databases using Transact-SQL](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
 
 > [!IMPORTANT]
-> You cannot create, update, or delete an Azure SQL Database elastic pool using Transact-SQL. 
+> You cannot create, update, or delete an Azure SQL Database elastic pool using Transact-SQL. You can add or remove databases from an elastic pool, and you can use DMVs to return information about existing elastic pools.
 >
 
 | Command | Description |
@@ -425,6 +387,6 @@ To create and manage SQL Database elastic pools using the REST API, see [Azure S
 
 ## Next steps
 
-* You can create and manage an elastic pool using the [Azure portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API.
 * For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* For a SaaS tutorial, see [Introduction to the Wingtip SaaS application](sql-database/sql-database-wtp-overview.md).
