@@ -188,9 +188,9 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Small Improvements test user
 
- In this section, you create a user called Britta Simon in Small Improvements. work with [Small Improvements Client support team](mailto:support@small-improvements.com) to add the users in the Small Improvements platform. Users must be created and activated before you use single sign-on.
+To enable Azure AD users to log in to Small Improvements, they must be provisioned into Small Improvements. In the case of Small Improvements, provisioning is a manual task.
 
-**To create a user called Britta Simon in Small Improvements, perform the following steps:**
+**To provision a user account, perform the following steps:**
 
 1. Sign-on to your Small Improvements company site as an administrator.
 
