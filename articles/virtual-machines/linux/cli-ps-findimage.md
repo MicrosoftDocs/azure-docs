@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # How to find Linux VM images in the Azure Marketplace with the Azure CLI
-This topic describes how to use the Azure CLI 2.0 to find Linux VM images in the Azure Marketplace. Use this information to specify an image when you create a Linux VM.
+This topic describes how to use the Azure CLI 2.0 to find Linux VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a Linux VM.
 
 Make sure that you installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and are logged in to an Azure account (`az login`).
 
@@ -80,7 +80,7 @@ Use `az vm image list` with additional options to restrict your search to a spec
 az vm image list --offer Debian --all --output table 
 ```
 
-The output can be a very long list, so it is truncated here: 
+The output can be a long list, so it is truncated here: 
 ```
 Offer    Publisher    Sku                Urn                                              Version
 -------  -----------  -----------------  -----------------------------------------------  --------------
@@ -126,7 +126,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 
 
 ## Navigate the images 
-Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image#list-publishers), [az vm image list-offers](cli/azure/vm/image#list-offers], and [az vm image list-skus](cli/azure/vm/image#list-skus) commands in sequence. With these commands, you determine these values:
+Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image#list-publishers), [az vm image list-offers](cli/azure/vm/image#list-offers), and [az vm image list-skus](/cli/azure/vm/image#list-skus) commands in sequence. With these commands, you determine these values:
 
 1. List the image publishers.
 2. For a given publisher, list their offers.
@@ -157,7 +157,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-These lists can be quite long, so the example output preceding is just a snippet. Use this information to find offers from a specific publisher. For example, if Canonical is an image publisher in the West US location,  find their offers by running `azure vm image list-offers`. Pass the location and the publisher as in the following example:
+These lists can be long, so this example output is just a snippet. Use this information to find offers from a specific publisher. For example, if Canonical is an image publisher in the West US location,  find their offers by running `azure vm image list-offers`. Pass the location and the publisher as in the following example:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -243,4 +243,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
 ```
 ## Next steps
-Now you can choose precisely the image you want to use by taking note of the URN value. When specifying the image, the image version number in the URN can also be replaced with “latest”, which selects the latest version of the distribution. To create a virtual machine quickly by using the URN information, which you just found, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Now you can choose precisely the image you want to use by taking note of the URN value. When specifying the image, you can optionally replace the version number in the URN can with “latest”. This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, which you just found, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

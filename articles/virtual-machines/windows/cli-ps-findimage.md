@@ -20,7 +20,7 @@ ms.author: danlep
 ---
 # How to find Windows VM images in the Azure Marketplace with Azure PowerShell
 
-This topic describes how to find VM image publishers, offers, skus, and versions for each location into which you might deploy. Use this information to specify an image when you create a Windows VM.
+This topic describes how to use Azure PowerShell to find Windows VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a Windows VM.
 
 Make sure that you installed and configured the latest [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -51,7 +51,7 @@ When creating a new virtual machine with Azure Resource Manager, in some cases y
 * Offer
 * SKU
 
-For example, these values are needed for the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.
+For example, use these values with the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet, or with a resource group template in which you must specify the type of VM to be created.
 
 If you need to determine these values, you can run the [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), and [Get-AzureRMVMImageSkus](/powershell/module/azurerm.compute/get-azurermvmimageskus) cmdlets to navigate the images. You determine these values:
 
