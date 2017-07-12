@@ -3,7 +3,7 @@ title: Reset access with the VMAccess Extension and Azure CLI 2.0 | Microsoft Do
 description: How to manage users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
+author: dlepow
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: v-livech
+ms.author: danlep
 
 ---
 # Manage users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0
