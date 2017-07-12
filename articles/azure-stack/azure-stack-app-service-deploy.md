@@ -142,11 +142,9 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example **myazurestack.onmicrosoft.com**.
 5. In the Credential window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Ok**.
 6. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
-7. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
-
+7. The script creates a new application in the Tenant Azure Active Directory and generates a new PowerShell Script, named **UpdateConfigOnController.ps1**.
 >[!NOTE]
 > Make note of the **ApplicationID** that is returned in the PowerShell output.  You will need this to search for it in step 12.
-
 8. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
 9. Open a new browser window and login to the **Azure portal (portal.azure.com)** as the **Azure Active Directory Service Admin**.
 10. Open the **Azure Active Directory resource provider**.
@@ -191,7 +189,7 @@ To configure service principal for virtual machine scale set integration on Work
 4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter '**ADFS**'
 5. In the Credential window provide your **ADFS Service Admin account** and **password**, and then Click **Ok**.
 6. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
-7. The script creates a new application in the Tenant Azure Active Directory and generates a new PowerShell Script.
+7. The script creates a new application in the Tenant Azure Active Directory and generates a new PowerShell Script named **UpdateConfigOnController.ps1**.
 8. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
 9. Return to **CN0-VM**
 10. Open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to in step 7.
