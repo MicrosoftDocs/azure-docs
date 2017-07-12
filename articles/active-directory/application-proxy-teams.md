@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/12/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -47,7 +47,7 @@ Once you publish the app through Application Proxy, let your users know that the
 
    ![Configure tab name and URL](./media/application-proxy-teams/tab-name-url.png)
 
-Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app gets single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app. 
+Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app will see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app. 
 
 ## Next steps
 
