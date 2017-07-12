@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [TalentLMS Client support team](https://www.talentlms.com/contact) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value from the certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_certificate.png) 
 
@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Identity provider (IDP)** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
  
-    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate fingerprint** textbox.    
+    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Certificate fingerprint** textbox.    
 
     d.  In the **Remote sign-in URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
  
@@ -151,15 +151,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     f. Fill in the following: 
 
-    * In the **TargetedID** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    * In the **TargetedID** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
      
-    * In the **First name** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    * In the **First name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
     
-    * In the **Last name** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    * In the **Last name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
     
-    * In the **Email** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    * In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
     
-    * Click **Save**.
+11. Click **Save**.
  
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
