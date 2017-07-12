@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/12/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with RunMyProcess, you need the following item
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here:[Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://live.runmyprocess.com/live/<instancename>`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://live.runmyprocess.com/live/<tenant id>`
 
 	> [!NOTE] 
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [RunMyProcess Client support team](mailto:support@runmyprocess.com) to get the value. 
@@ -130,17 +130,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 8. In left navigation panel, click **Account** and select **Configuration**.
    
     ![Configure Single Sign-On On App Side](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+
 9. Go to **Authentication method** section and perform below steps:
    
     ![Configure Single Sign-On On App Side](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
     a. As **Method**, select **SSO with Samlv2**. 
 
-    b. In the **SSO redirect** textbox paste the value of **SAML Single Sign-On Service URL** from Azure AD application configuration wizard.
+    b. In the **SSO redirect** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-    c. In the **Logout redirect** textbox paste the value of **Single Sign-Out Service URL** from Azure AD application configuration wizard.
+    c. In the **Logout redirect** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
 
-    d. In the **Name Id Format** textbox put the value of **Name Identifier Format** from Azure AD application configuration wizard.
+    d. In the **Name Id Format** textbox, type the value of **Name Identifier Format** as **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
     e. Copy the content of the downloaded certificate file and then paste it into the **Certificate** textbox. 
  
