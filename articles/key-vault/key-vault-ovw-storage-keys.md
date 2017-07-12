@@ -98,7 +98,7 @@ Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"
 
 ```  
  
-2. Assign “Storage Key Operator” role to Azure Key Vault Identity: 
+2. Assign Storage Key Operator role to Azure Key Vault Identity: 
 ```
 New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'
 
