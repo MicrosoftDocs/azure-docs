@@ -129,7 +129,7 @@ To turn off telemetry for Azure Stack, follow these steps:
     Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection
 2. Double-click the **AllowTelemetry** key > change the **Value data** to 0 > click **OK**.
 
-Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack deployment. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur. Only critical security events from the operating system are sent.
+Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur. Only critical security events from the operating system are sent.
 
 For more information, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
 
