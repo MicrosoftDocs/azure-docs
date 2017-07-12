@@ -38,15 +38,15 @@ Status: To be released
 
 #### Fixed issue
 
-* Fixed an issue that caused the out-of-box synchronization rule “Out to AD - User ImmutableId” to be removed when OU-based filtering configuration is updated. This synchronization rule is required for the [msDS-ConsistencyGuid as Source Anchor feature](active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor).
+* Fixed an issue that caused the out-of-box synchronization rule “Out to AD - User ImmutableId” to be removed when OU-based filtering configuration is updated. This synchronization rule is required for the [msDS-ConsistencyGuid as Source Anchor feature](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
 
-* Fixed an issue where the [Domain and OU Filtering screen](active-directory-aadconnect-get-started-custom#domain-and-ou-filtering) in the Azure AD Connect wizard is showing *Sync all domains and OUs* option as selected, even though OU-based filtering is enabled.
+* Fixed an issue where the [Domain and OU Filtering screen](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the Azure AD Connect wizard is showing *Sync all domains and OUs* option as selected, even though OU-based filtering is enabled.
 
-*	Fixed an issue that caused the [Configure Directory Partitions screen](active-directory-aadconnectsync-configure-filtering#organizational-unitbased-filtering) in the Synchronization Service Manager to return an error if the *Refresh* button is clicked. The error message is *“An error was encountered while refreshing domains: Unable to cast object of type ‘System.Collections.ArrayList’ to type ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject.”* The error occurs when new AD domain has been added to an existing AD forest and you are trying to update Azure AD Connect using the Refresh button.
+*	Fixed an issue that caused the [Configure Directory Partitions screen](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) in the Synchronization Service Manager to return an error if the *Refresh* button is clicked. The error message is *“An error was encountered while refreshing domains: Unable to cast object of type ‘System.Collections.ArrayList’ to type ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject.”* The error occurs when new AD domain has been added to an existing AD forest and you are trying to update Azure AD Connect using the Refresh button.
 
 #### New features and improvements
 
-* [Automatic Upgrade feature](active-directory-aadconnect-feature-automatic-upgrade) has been expanded to support customers with the following configurations:
+* [Automatic Upgrade feature](active-directory-aadconnect-feature-automatic-upgrade.md) has been expanded to support customers with the following configurations:
   * You have enabled the device writeback feature.
   * You have enabled the group writeback feature.
   * The installation is not an Express settings or a DirSync upgrade.
