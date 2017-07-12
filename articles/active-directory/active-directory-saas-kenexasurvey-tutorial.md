@@ -81,7 +81,7 @@ For SSO to work, Azure AD needs to identify the IBM Kenexa Survey Enterprise use
 
 To establish the link relationship, assign the value of the **user name** in IBM Kenexa Survey Enterprise as the value of the **Username** in Azure AD.
 
-To configure and test Azure AD SSO with IBM Kenexa Survey Enterprise, complete the building blocks in the next two sections:
+To configure and test Azure AD SSO with IBM Kenexa Survey Enterprise, complete the building blocks in the next two sections.
 
 ### Configure Azure AD SSO
 
@@ -167,7 +167,7 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
 In this section, you create a user called Britta Simon in IBM Kenexa Survey Enterprise. 
 
-To create users in the IBM Kenexa Survey Enterprise system and map the SSO ID for them, you can work with the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). This SSO ID value should also be mapped to the user identifier value from Azure AD. You can change this default setting in the **Attribute** tab.
+To create users in the IBM Kenexa Survey Enterprise system and map the SSO ID for them, you can work with the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). This SSO ID value should also be mapped to the user identifier value from Azure AD. You can change this default setting on the **Attribute** tab.
 
 ### Assign the Azure AD test user
 
