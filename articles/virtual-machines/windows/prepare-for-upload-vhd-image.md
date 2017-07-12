@@ -306,7 +306,7 @@ Make sure that the following settings are configured correctly for remote deskto
 9. Uninstall any other third-party software and driver that is related to physical components or any other virtualization technology.
 
 ### Install Windows Updates
-The ideal configuration is to **have Windows Update updated at the latest**. If this is not possible, make sure that the following updates are installed:
+The ideal configuration is to **have the patch level of the VM at the latest**. If this is not possible, make sure that the following updates are installed:
 
 | Component               | Binary            | Windows 7 & Windows Server 2008 R2 | Windows 8 & Windows Server 2012             | Windows 8.1 & Windows Server 2012 R2 | Windows 10 & Windows Server 2016 RTM | Windows 10 & Windows Server 2016 Build 10586 | Windows 10 & Windows Server 2016 Build 14393 |
 |-------------------------|-------------------|------------------------------------|---------------------------------------------|--------------------------------------|--------------------------------------|----------------------------------------------|----------------------------------------------|
