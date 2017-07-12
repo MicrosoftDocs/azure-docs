@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/08/2017
+ms.date: 07/10/2017
 ms.author: alkohli
 
 ---
@@ -169,7 +169,7 @@ In addition to the above networking requirements, for the optimal performance of
 
 The hardware platform that is included with the StorSimple solution has availability and reliability features that provide a foundation for a highly available, fault-tolerant storage infrastructure in your datacenter. However, there are requirements and best practices that you should comply with to help ensure the availability of your StorSimple solution. Before you deploy StorSimple, carefully review the following requirements and best practices for the StorSimple device and connected host computers.
 
-For more information about monitoring and maintaining the hardware components of your StorSimple device, go to [Use the StorSimple Device Manager service to monitor hardware components and status](storsimple-8000-monitor-hardware-status.md) and [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+For more information about monitoring and maintaining the hardware components of your StorSimple device, go to [Use the StorSimple Device Manager service to monitor hardware components and status](storsimple-8000-monitor-hardware-status.md) and [StorSimple hardware component replacement](storsimple-8000-hardware-component-replacement.md).
 
 ### High availability requirements and procedures for your StorSimple device
 
@@ -182,7 +182,7 @@ StorSimple devices include redundant, hot-swappable power and cooling modules (P
 * Connect your PCMs to different power sources to provide availability if a power source fails.
 * If a PCM fails, request a replacement immediately.
 * Remove a failed PCM only when you have the replacement and are ready to install it.
-* Do not remove both PCMs concurrently. The PCM module includes the backup battery module. Removing both of the PCMs will result in a shutdown without battery protection, and the device state will not be saved. For more information about the battery, go to [Maintain the backup battery module](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
+* Do not remove both PCMs concurrently. The PCM module includes the backup battery module. Removing both of the PCMs will result in a shutdown without battery protection, and the device state will not be saved. For more information about the battery, go to [Maintain the backup battery module](storsimple-8000-battery-replacement.md#maintain-the-backup-battery-module).
 
 #### Controller modules
 
@@ -192,7 +192,7 @@ StorSimple devices include redundant, hot-swappable controller modules. The cont
 * If a controller module fails, request a replacement immediately.
 * Remove a failed controller module only when you have the replacement and are ready to install it. Removing a module for extended periods will affect the airflow and hence the cooling of the system.
 * Make sure that the network connections to both controller modules are identical, and the connected network interfaces have an identical network configuration.
-* If a controller module fails or needs replacement, make sure that the other controller module is in an active state before replacing the failed controller module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+* If a controller module fails or needs replacement, make sure that the other controller module is in an active state before replacing the failed controller module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
 * Do not remove both controller modules at the same time. If a controller failover is in progress, do not shut down the standby controller module or remove it from the chassis.
 * After a controller failover, wait at least five minutes before removing either controller module.
 
@@ -227,7 +227,7 @@ StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosur
 
 * Make sure that both EBOD enclosure controller modules, both SAS cables, and all the hard disk drives are installed at all times.
 * If an EBOD enclosure controller module fails, request a replacement immediately.
-* If an EBOD enclosure controller module fails, make sure that the other controller module is active before you replace the failed module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+* If an EBOD enclosure controller module fails, make sure that the other controller module is active before you replace the failed module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
 * During an EBOD controller module replacement, continuously monitor the status of the component in the StorSimple Device Manager service by accessing **Monitor** > **Hardware health**.
 * If an SAS cable fails or requires replacement (Microsoft Support should be involved to make such a determination), make sure that you remove only the SAS cable that requires replacement.
 * Do not concurrently remove both SAS cables from the system at any point in time.

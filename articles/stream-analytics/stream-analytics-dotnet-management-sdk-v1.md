@@ -62,7 +62,7 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
    
         <appSettings>
           <!--CSM Prod related values-->
-          <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+          <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
           <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
           <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
           <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />

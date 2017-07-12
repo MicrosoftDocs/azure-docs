@@ -46,7 +46,7 @@ To configure your Azure Stack environment, do the following:
    * **Cloud administrative environment**
 
        ```PowerShell
-       Add-AzureStackAzureRmEnvironment `
+       Add-AzureRMEnvironment `
          -Name "AzureStackAdmin" `
          -ArmEndpoint "https://adminmanagement.local.azurestack.external"
        ```
@@ -54,7 +54,7 @@ To configure your Azure Stack environment, do the following:
    * **User environment**
 
        ```PowerShell
-       Add-AzureStackAzureRmEnvironment `
+       Add-AzureRMEnvironment `
          -Name "AzureStackUser" `
          -ArmEndpoint "https://management.local.azurestack.external" 
        ```
