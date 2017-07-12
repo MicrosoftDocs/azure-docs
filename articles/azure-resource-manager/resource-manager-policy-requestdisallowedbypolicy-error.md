@@ -20,7 +20,7 @@ ms.author: genli
 
 ## Symptom
 
-When you try to perform an action during deployment, you might receive a **RequestDisallowedByPolicy** error that prevents the action be performed. The following is a sample of the error:
+When you try to do an action during deployment, you might receive a **RequestDisallowedByPolicy** error that prevents the action be performed. The following is a sample of the error:
 
 ```
 {
@@ -53,9 +53,9 @@ az policy definition show --name regionPolicyAssignment
 
 ## Solution
 
-For security or compliance reasons, your IT department might enforce a resource policy that prohibits creation of Public IP address, Network Security Group, User-Defined Routes, or route tables. In the sample of the error that is described in "Symptoms", the policy is named **regionPolicyDefinition**, but it could be different. 
+For security or compliance, your IT department might enforce a resource policy that prohibits creating Public IP addresses, Network Security Groups, User-Defined Routes, or route tables. In the sample of the error message that is described in the "Symptoms" section, the policy is named **regionPolicyDefinition**, but it could be different.
+To resolve this problem, work with your IT department to review the resource policies, and determine how to perform the requested action in compliance with those policies.
 
-To resolve the problem, work with the IT Department to review the resource policies, and check how to perform the requested action in compliance. 
 
 For more information, see the following articles:
 
