@@ -20,7 +20,7 @@ ms.author: robmcm
 
 # Publish a Spring Boot app as a Docker container by using the Azure Toolkit for IntelliJ
 
-The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating standalone Java applications.
+The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot]. It provides a simplified approach for creating standalone Java applications.
 
 **[Docker]** is an open-source solution that helps developers automate the deployment, scaling, and management of their applications that are running in containers.
 
@@ -36,7 +36,7 @@ The following steps walk you through cloning the Spring Boot Docker repo by usin
 
 1. On the welcome screen, select the **GitHub** option in the **Check out from Version Control** list.
 
-   ![Check out from version control][CL01]
+   ![GitHub option for version control][CL01]
 
 1. Enter your credentials if you are prompted to log in.
 
@@ -110,7 +110,7 @@ IntelliJ imports the Spring Boot app as a project and displays the structure whe
 
 1. IntelliJ should display a **BUILD SUCCESS** message when your Spring Boot app is successfully created.
 
-   !["BUILD SUCCESS" message][BU03]
+   ![BUILD SUCCESS message][BU03]
 
 ### Create a deployment-ready artifact
 
@@ -140,7 +140,7 @@ To publish your Spring Boot app, you need to create a deployment-ready artifact.
 
       ![Specify artifact path][ART04b]
 
-   c. Click the ellipsis **...** to locate the main class.
+   c. Click the ellipsis (**...**) to locate the main class.
 
       ![Locate main class][ART04c]
 

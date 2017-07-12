@@ -19,17 +19,15 @@ ms.author: robmcm;asirveda
 ---
 
 # Azure Toolkit for Eclipse
-The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. It is an Open Source project, whose source code is available under the MIT License from the project's site at:
-
-* <https://github.com/microsoft/azure-tools-for-java>
+The Azure Toolkit for Eclipse provides templates and functionality that you can use to easily create, develop, test, and deploy Azure applications by using the Eclipse development environment. It is an open-source project whose source code is available under the [MIT license from the project's site](https://github.com/microsoft/azure-tools-for-java).
 
 > [!NOTE]
 > There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ](azure-toolkit-for-intellij.md).
 > 
 > 
 
-## Getting started with the Azure Toolkit for Eclipse
-The following articles will help you get started using the Azure Toolkit for Eclipse:
+## Get started with the Azure Toolkit for Eclipse
+The following articles will help you start using the Azure Toolkit for Eclipse:
 
 * [What's New in the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-whats-new.md)
 * [Installing the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-installation.md)
@@ -37,7 +35,7 @@ The following articles will help you get started using the Azure Toolkit for Ecl
 * [Create a Hello World Cloud Service for Azure in Eclipse](azure-toolkit-for-eclipse-creating-a-hello-world-application.md)
 * [Create a Hello World Web App for Azure in Eclipse](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
 
-## Configuring Azure Project Settings
+## Configure Azure project settings
 The following articles show you how to use the Azure Toolkit for Eclipse to configure settings for your Azure projects:
 
 * [Azure Project Properties](azure-toolkit-for-eclipse-azure-project-properties.md)
@@ -47,7 +45,7 @@ The following articles show you how to use the Azure Toolkit for Eclipse to conf
 * [Enable Session Affinity](azure-toolkit-for-eclipse-enable-session-affinity.md)
 * [Enabling Remote Access for Azure Deployments in Eclipse](azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md)
 
-## Using the Azure Toolkit for Eclipse
+## Use the Azure Toolkit for Eclipse
 The following articles demonstrate using the Azure Toolkit for Eclipse to add Azure functionality to your Java projects:
 
 * [Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java](azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md)
