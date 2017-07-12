@@ -36,7 +36,7 @@ Python can be used as a UDF from Hive through the HiveQL `TRANSFORM` statement. 
 **Linux-based HDInsight**
 
 ```hiveql
-add file wasbs:///streaming.py;
+add file wasb:///streaming.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'python streaming.py' AS
@@ -48,7 +48,7 @@ ORDER BY clientid LIMIT 50;
 **Windows-based HDInsight**
 
 ```hiveql
-add file wasbs:///streaming.py;
+add file wasb:///streaming.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'D:\Python27\python.exe streaming.py' AS
@@ -116,7 +116,7 @@ To specify the Python interpreter, use `register` when referencing the Python sc
 Once past registration, the Pig Latin for this example is the same for both:
 
 ```pig
-LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
 LOG = FILTER LOGS by LINE is not null;
 DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
 DUMP DETAILS;
@@ -207,7 +207,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 2. Enter the following query at the `hive>` prompt:
 
    ```hive
-   add file wasbs:///streaming.py;
+   add file wasb:///streaming.py;
    SELECT TRANSFORM (clientid, devicemake, devicemodel)
        USING 'python streaming.py' AS
        (clientid string, phoneLabel string, phoneHash string)
@@ -230,8 +230,8 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 2. Enter the following statements at the `grunt>` prompt:
 
    ```pig
-   Register wasbs:///pig_python.py using jython as myfuncs;
-   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   Register wasb:///pig_python.py using jython as myfuncs;
+   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -263,7 +263,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
    ```pig
    Register 'pig_python.py' using streaming_python as myfuncs;
-   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -346,7 +346,7 @@ $creds=Get-Credential -Message "Enter the login for the cluster"
 
 # If using a Windows-based HDInsight cluster, change the USING statement to:
 # "USING 'D:\Python27\python.exe streaming.py' AS " +
-$HiveQuery = "add file wasbs:///streaming.py;" +
+$HiveQuery = "add file wasb:///streaming.py;" +
                 "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
                 "USING 'python streaming.py' AS " +
                 "(clientid string, phoneLabel string, phoneHash string) " +
@@ -406,8 +406,8 @@ if(-not($sub))
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
-$PigQuery = "Register wasbs:///pig_python.py using jython as myfuncs;" +
-            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
+$PigQuery = "Register wasb:///pig_python.py using jython as myfuncs;" +
+            "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
             "LOG = FILTER LOGS by LINE is not null;" +
             "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
             "DUMP DETAILS;"
