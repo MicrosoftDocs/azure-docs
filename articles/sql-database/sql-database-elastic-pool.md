@@ -212,7 +212,7 @@ After adding databases to the pool, recommendations are dynamically generated ba
 
 ### Manage and monitor an elastic pool
 
-You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. From the portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
+In the Azure portal to monitor and manage an elastic pool and the databases in the pool. You can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
 The following graphic shows an example elastic pool. The view includes:
 
@@ -221,18 +221,18 @@ The following graphic shows an example elastic pool. The view includes:
 *  The **Create database** button that creates a database and adds it to the current elastic pool.
 *  Elastic jobs that help you manage large numbers of databases by running Transact SQL scripts against all databases in a list.
 
-![Pool view][2]
+![Pool view](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
 You can go to a particular pool to see its resource utilization. By default, the pool is configured to show storage and eDTU usage for the last hour. The chart can be configured to show different metrics over various time windows.
 
 1. Select an elastic pool to work with.
 2. Under **Elastic Pool Monitoring** is a chart labeled **Resource utilization**. Click the chart.
 
-	![Elastic pool monitoring][3]
+	![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
 	The **Metric** blade opens, showing a detailed view of the specified metrics over the specified time window.   
 
-	![Metric blade][9]
+	![Metric blade](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
 ### To customize the chart display
 
@@ -240,7 +240,7 @@ You can edit the chart and the metric blade to display other metrics such as CPU
 
 1. On the metric blade, click **Edit**.
 
-	![Click edit][6]
+	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
 
 2. In the **Edit Chart** blade, select a time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor.
 
@@ -258,11 +258,11 @@ Individual databases can also be monitored for potential trouble.
 
 1. Under **Elastic Database Monitoring**, there is a chart that displays metrics for five databases. By default, the chart displays the top 5 databases in the pool by average eDTU usage in the past hour. Click the chart.
 
-	![Elastic pool monitoring][4]
+	![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
 2. The **Database Resource Utilization** blade appears. This provides a detailed view of the database usage in the pool. Using the grid in the lower part of the blade, you can select any databases in the pool to display its usage in the chart (up to 5 databases). You can also customize the metrics and time window displayed in the chart by clicking **Edit chart**.
 
-	![Database resource utilization blade][8]
+	![Database resource utilization blade](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### To customize the view
 
@@ -282,7 +282,7 @@ Individual databases can also be monitored for potential trouble.
 
 In the database list in the **Database Resource Utilization** blade, you can find particular databases by looking through the pages in the list or by typing in the name of a database. Use the checkbox to select the database.
 
-![Search for databases to monitor][7]
+![Search for databases to monitor](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
 
 
 ### Add an alert to an elastic pool resource
@@ -309,7 +309,7 @@ You can add or remove databases from an existing pool. The databases can be in o
 
 1. In the blade for the pool, under **Elastic databases** click **Configure pool**.
 
-    ![Click Configure pool][1]
+    ![Click Configure pool](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
 2. In the **Configure pool** blade, click **Add to pool**.
 
