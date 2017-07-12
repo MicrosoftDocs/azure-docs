@@ -105,7 +105,9 @@ Key Vault needs permissions to list and regenerate keys for a storage account. S
 
 ### Storage account onboarding 
 
-An example onboarding: A key vault object owner adds a storage account object on AzKV to onboard a storage account.
+#### Example
+
+A key vault object owner adds a storage account object on AzKV to onboard a storage account.
 
 During onboarding, Key Vault needs to verify that the identity of the onboarding the account has access to *list* and *regenerate* the storage keys. Key Vault gets an OBO token from EvoSTS with audience as Azure Resource Manager and makes a list key call to Storage RP. If the list call fails, then the Key Vault object creation fails with *Forbidden* http status code. The keys listed in this fashion are cached with your key vault entity storage. 
 
