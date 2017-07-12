@@ -4,7 +4,7 @@ description: Learn how to set up and connect Adafruit Feather M0 WiFi to Azure I
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: ''
 
