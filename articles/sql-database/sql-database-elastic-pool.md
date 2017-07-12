@@ -169,7 +169,7 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 ## Manage SQL Database elastic pools using the Azure portal
 
-### Creating a new SQL Datbase elastic pool using the Azure portal
+### Creating a new SQL Database elastic pool using the Azure portal
 
 There are two ways you can create an elastic pool in the Azure portal. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends an elastic pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases. 
 
