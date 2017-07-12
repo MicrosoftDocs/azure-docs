@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: helaw
 
 ---
@@ -44,6 +44,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * Tenants are able to browse the full marketplace without a subscription, and will see administrative items like plans and offers.  These items are non-functional to tenants.
 * When selecting an infrastructure role instance,  you see an error showing a reference error. Use the browser’s refresh functionality to refresh the Admin Portal.
 * The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
+* You will receive repeated notifications for syndicated marketplace items that have completed downloading
 
 #### Services
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
@@ -51,7 +52,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * A tenant must have an existing storage account before creating a new Azure function.
-* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null".  Redeployment of the virtual machine succeeds.  
+* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null."  Redeployment of the virtual machine succeeds.  
 * Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources or entire resource group, and then delete tenant subscriptions.  
 * You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
 * Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
