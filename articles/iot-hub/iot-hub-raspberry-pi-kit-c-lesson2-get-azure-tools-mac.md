@@ -4,7 +4,7 @@ description: Install Python and Azure command-line interface (Azure CLI) on macO
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot cloud service, azure cli'
 

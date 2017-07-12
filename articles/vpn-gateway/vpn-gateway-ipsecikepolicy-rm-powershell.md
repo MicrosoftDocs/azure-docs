@@ -34,7 +34,9 @@ This article provides instructions to create and configure an IPsec/IKE policy a
 * [Part 5 - Manage (create, add, remove) IPsec/IKE policy for a connection](#managepolicy)
 
 > [!IMPORTANT]
-> 1. Please note that IPsec/IKE policy only works on ***Standard*** and ***HighPerformance*** ***Route-Based*** VPN gateways.
+> 1. Please note that IPsec/IKE policy only works on the following gateway SKUs:
+>     - ***VpnGw1, VpnGw2, VpnGw3*** (route-based)
+>     - ***Standard*** and ***HighPerformance*** (route-based)
 > 2. You can only specify ***one*** policy combination for a given connection.
 > 3. You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.
 > 4. Please consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections cannot establish if the policies are incompatible.
@@ -59,23 +61,38 @@ The table below lists the supported cryptographic algorithms and key strengths c
 | ---              | ---                                                                         |
 | IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                           |
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                   |
-| DH Group         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
+| DH Group         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
 | IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
 | IPsec Integrity  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| PFS Group        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, None                     |
-| QM SA Lifetime*  | Seconds (integer) and KBytes (integer)                                      |
-| Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False - default $False)            |
+| PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                            |
+| QM SA Lifetime   | (**Optional**: default values are used if not specified)<br>Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes)                                                                                |
+| Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False; **Optional**, default $False if not specified)                                                                         |
 |                  |                                                                             |
 
-> [!NOTE]
-> * (*) IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
-> * (**) Setting "UsePolicyBasedTrafficSelectors" to $True on a connection will configure the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
->   * 10.1.0.0/16 <====> 192.168.0.0/16
->   * 10.1.0.0/16 <====> 172.16.0.0/16
->   * 10.2.0.0/16 <====> 192.168.0.0/16
->   * 10.2.0.0/16 <====> 172.16.0.0/16
+> [!IMPORTANT]
+> 1. **If GCMAES is used as for IPsec Encryption algorithm, you must select the same GCMAES algorithm and key length for IPsec Integrity; e.g., using GCMAES128 for both**
+> 2. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
+> 3. Setting "UsePolicyBasedTrafficSelectors" to $True on a connection will configure the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
+>    * 10.1.0.0/16 <====> 192.168.0.0/16
+>    * 10.1.0.0/16 <====> 172.16.0.0/16
+>    * 10.2.0.0/16 <====> 192.168.0.0/16
+>    * 10.2.0.0/16 <====> 172.16.0.0/16
 
 See [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details regarding policy-based traffic selectors.
+
+The table below lists the corresponding Diffie-Hellman Groups supported by the custom policy:
+
+| **Diffie-Hellman Group**  | **DHGroup**              | **PFSGroup** | **Key length** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | 768-bit MODP   |
+| 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
+| 19                        | ECP256                   | ECP256       | 256-bit ECP    |
+| 20                        | ECP384                   | ECP284       | 384-bit ECP    |
+| 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
+|                           |                          |              |                |
+
+Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
 
 ## <a name ="crossprem"></a>Part 3 - Create a new S2S VPN connection with IPsec/IKE policy
 
@@ -154,11 +171,21 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 #### 1. Create an IPsec/IKE policy
 The sample script below creates an IPsec/IKE policy with the following algorithms and parameters:
+
 * IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, SA Lifetime 7200 seconds & 2048KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+```
+
+If you use GCMAES for IPsec, you must use the same GCMAES algorithm and key length for both IPsec encryption and integrity, for example:
+
+* IKEv2: AES256, SHA384, DHGroup24
+* IPsec: **GCMAES256, GCMAES256**, PFS24, SA Lifetime 7200 seconds & 2048KB
+
+```powershell
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
 #### 2. Create the S2S VPN connection with the IPsec/IKE policy
