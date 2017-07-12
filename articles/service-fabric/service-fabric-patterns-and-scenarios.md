@@ -86,7 +86,7 @@ Learn about migrating from a cloud service, in addition to migration of legacy a
 </table>
 
 ## Containers and Linux support
-Get the answer to the question, "Why containers?" Learn about the preview for Windows containers, Linux supports, and Linux containers orchestration. Plus, find out how to migrate .NET Core apps to Linux.
+Get the answer to the question, "Why containers?". Learn about the preview for Windows containers, Linux supports, and Linux containers orchestration. Plus, find out how to migrate .NET Core apps to Linux.
 
 <table><tr><th>Video</th><th>PowerPoint deck</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=V1ERJhSGD_305167344">
