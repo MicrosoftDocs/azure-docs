@@ -108,29 +108,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-five9-tutorial/tutorial_five9_url.png)
 	
-	a. For “Five9 Plus Adapter for Microsoft Dynamics CRM”:
-	
-	* In the **Identifier** textbox, type a URL using the following pattern:
-	`https://app.five9.com/appsvcs/saml/metadata/alias/msdc`
-	
-	* In the **Reply URL** textbox, type a URL using the following pattern:
-	`https://app.five9.com/appsvcs/saml/SSO/alias/msdc`
-	
-	b. For “Five9 Plus Adapter for Zendesk”:
-	
-	* In the **Identifier** textbox, type a URL using the following pattern:
-	`https://app.five9.com/appsvcs/saml/metadata/alias/zd`
-	
-	* In the **Reply URL** textbox, type a URL using the following pattern:
-	`https://app.five9.com/appsvcs/saml/SSO/alias/zd`
-	
-	c. For “Five9 Plus Adapter for Agent Desktop Toolkit”:
-	
-	* In the **Identifier** textbox, type a URL using the following pattern:
-	`https://app.five9.com/appsvcs/saml/metadata/alias/agent`
-	
-	* In the **Reply URL** textbox, type a URL using the following pattern:
-	`https://app.five9.com/appsvcs/saml/SSO/alias/agent`  
+	a. In the **Identifier** textbox, type a URL using the following patterns:
+
+	| |
+	|--|
+	| For “Five9 Plus Adapter for Microsoft Dynamics CRM” | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
+	| For “Five9 Plus Adapter for Zendesk” | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
+	| For “Five9 Plus Adapter for Agent Desktop Toolkit” | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern:
+
+	| |
+	|--|
+	| For “Five9 Plus Adapter for Microsoft Dynamics CRM” | `https://app.five9.com/appsvcs/saml/SSO/alias/msdc` |
+	| For “Five9 Plus Adapter for Zendesk” | `https://app.five9.com/appsvcs/saml/SSO/alias/zd` |
+	| For “Five9 Plus Adapter for Agent Desktop Toolkit” | `https://app.five9.com/appsvcs/saml/SSO/alias/agent` |
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
