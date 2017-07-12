@@ -64,7 +64,7 @@ The value for `application-type-build-path` is the name of the directory where y
 
 ### Create an application from an application type
 
-After you provision the application, name and create your application by using the following command:
+After you provision the application, use the following command to name and create your application:
 
 ```azurecli
 az sf application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0

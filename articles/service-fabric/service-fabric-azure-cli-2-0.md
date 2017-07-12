@@ -23,7 +23,7 @@ For more information, see the [Azure CLI 2.0 overview](https://docs.microsoft.co
 
 ## Azure CLI syntax
 
-In Azure CLI, all Service Fabric commands are prefixed with `az sf`. For general information about the commands you can use, run `az sf -h`. For detailed help with a single command, run `az sf <command> -h`.
+In Azure CLI, all Service Fabric commands are prefixed with `az sf`. For general information about the commands you can use, use `az sf -h`. For help with a single command, use `az sf <command> -h`.
 
 Service Fabric commands in Azure CLI follow this naming pattern:
 
@@ -46,7 +46,7 @@ az sf cluster select --endpoint http://testcluster.com:19080
 
 The cluster endpoint must be prefixed by `http` or `https`. It must include the port for the HTTP gateway. The port and address are the same as the Service Fabric Explorer URL.
 
-For clusters that are secured with a certificate, you can use either unencrypted `pem`, or `crt` and `key` files. For example:
+For clusters that are secured with a certificate, you can use either unencrypted .pem files, or .crt and .key files. For example:
 
 ```azurecli
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -56,13 +56,13 @@ For more information, see
 [Connect to a secure Azure Service Fabric cluster](service-fabric-connect-to-secure-cluster.md).
 
 > [!NOTE]
-> The `select` command doesn't act on any requests before it returns. To verify that you've specified a cluster correctly, run a command like `az sf cluster health`. Verify that the command doesn't return any errors.
+> The `select` command doesn't act on any requests before it returns. To verify that you've specified a cluster correctly, use a command like `az sf cluster health`. Verify that the command doesn't return any errors.
 
 ## Basic operations
 
 Cluster connection information persists across multiple Azure CLI sessions. After you select a Service Fabric cluster, you can run any Service Fabric command on the cluster.
 
-For example, to get the Service Fabric cluster health state, run the following command:
+For example, to get the Service Fabric cluster health state, use the following command:
 
 ```azurecli
 az sf cluster health
@@ -93,11 +93,11 @@ The command results in the following output (assuming that JSON output is specif
 }
 ```
 
-## Tips and FAQs
+## Tips and troubleshooting
 
 You might find the following information helpful if you run into issues while using Service Fabric commands in Azure CLI.
 
-### Convert a certificate from PFX to PEM
+### Convert a certificate from PFX to PEM format
 
 Azure CLI supports client-side certificates as PEM (.pem extension) files. If you use PFX files from Windows, you must convert those certificates to PEM format. To convert a PFX file to a PEM file, use the following command:
 
@@ -117,7 +117,7 @@ Verify that the specified cluster endpoint is available and listening. Also, ver
 
 ### Detailed logs
 
-When you debug or report an issue, often, it's useful to include detailed logs. Azure CLI offers a global `--debug` flag that increases the verbosity of log files.
+Detailed logs often are helpful when you debug or report an issue. Azure CLI offers a global `--debug` flag that increases the verbosity of log files.
 
 ### Command help and syntax
 
