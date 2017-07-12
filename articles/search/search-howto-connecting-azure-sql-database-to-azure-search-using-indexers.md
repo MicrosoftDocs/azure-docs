@@ -46,13 +46,14 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 | Criteria | Details |
 |----------|---------|
 | Data originates from a single table or view | If the data is scattered across multiple tables, you can create a view to produce a flattened rowset. However, if you use a view, you won’t be able to use SQL Server integrated change detection to refresh an index with incremental changes. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. |
-| Data type is compatible | Most but not all the SQL types are supported in an Azure Search index. For a list, see [Mapping data types in Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105). |
+| Data type is compatible | Most but not all the SQL types are supported in an Azure Search index. For a list, see [Mapping data types in Azure Search](#TypeMapping). |
 | Real-time data synchronization is not required | An indexer can re-index your table at most every five minutes. If your data changes frequently, and the changes need to be reflected in the index within seconds or single minutes, we recommend using [Azure Search Index API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) to push updated rows directly. |
 | Incremental indexing is possible | If you have a large data set and plan to run the indexer on a schedule, your schema must be structured in a way that allows us to efficiently identify changed (and deleted, if applicable) rows. Non-incremental indexing is only allowed if you're indexing on demand (not on schedule), or indexing less than 100,000 items. In high availability configurations, incremental indexing is only supported on primary replicas. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. |
 | Field size is under limit | The size of the indexed fields in a row cannot exceed the maximum size of an Azure Search indexing request, which is 16 MB. |
 
 ## Create an Azure SQL Indexer
-First, create the data source:
+
+1. Create the data source:
 
     POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -66,11 +67,11 @@ First, create the data source:
     }
 
 
-You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
+  You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
 
-Then, create the target Azure Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure search data types](#TypeMapping).
+2. Create the target Azure Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure search data types](#TypeMapping).
 
-Finally, create the indexer by giving it a name and referencing the data source and target index:
+3. Create the indexer by giving it a name and referencing the data source and target index:
 
     POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -89,7 +90,7 @@ An indexer created in this way doesn’t have a schedule. It automatically runs 
 
 You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
-You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#ConnectingFromAzure) for instructions on how to do that.
+You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for instructions on how to do that.
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
 
