@@ -36,7 +36,7 @@ To complete this quick start tutorial, make sure you have the following:
 - You have installed Python and related software for your operating system.
 
     - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/Python/mac/).
-    - **Ubuntu**:  Install Python and other required packages, and then install the Python Driver for SQL Server. See [Step 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/) .
+    - **Ubuntu**:  Install Python and other required packages, and then install the Python Driver for SQL Server. See [Step 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
     - **Windows**: Install the newest version of Python (environment variable is now configured for you), install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/windows/). 
 
 ## SQL server connection information
