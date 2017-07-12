@@ -82,8 +82,4 @@ To make an existing VM scale set capable of scaling to more than 100 VMs, you ne
 >[!NOTE] 
 You can change a scale set from supporting a single placement group only (the default behavior) to a supporting multiple placement groups, but you cannot convert the other way around. Therefore make sure you understand the properties of large scale sets before converting. In particular, make sure you do not need layer-4 load balancing with the Azure Load Balancer.
 
-## Additional notes
-Support for large scale sets, scale sets with attached data disks, and Azure Managed disks was added to the [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) version of the Microsoft.Compute APi. You can use any SDK or command-line tool built with this version or later of the API.
-
-
 

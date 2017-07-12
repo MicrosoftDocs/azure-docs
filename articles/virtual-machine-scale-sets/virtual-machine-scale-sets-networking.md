@@ -108,10 +108,10 @@ The output, for an individual virtual machine dns name would be in the following
 ```
 
 ## IPv6 preview for public IPs and Load Balancer pools
-You can configure IPv6 public IP addresses on an Azure Load Balancer, and route connections to virtual machine scale set backend pools. To use IPv6, currently in preview, first create an IPv6 public address resource. For example:
+You can configure [IPv6 public IP](../load-balancer/load-balancer-ipv6-overview.md) addresses on an Azure Load Balancer, and route connections to virtual machine scale set backend pools. To use IPv6 create an IPv6 public address resource. For example:
 ```json
 {
-    "apiVersion": "2016-03-30",
+    "apiVersion": "2016-09-01",
     "type": "Microsoft.Network/publicIPAddresses",
     "name": "[parameters('ipv6PublicIPAddressName')]",
     "location": "[parameters('location')]",
@@ -192,7 +192,7 @@ However, some scenarios do require scale set virtual machines to have their own 
 ### Creating a scale set with public IP per virtual machine
 To create a scale set that assigns a public IP address to each virtual machine with CLI 2.0, add the _--public-ip-per-vm_ parameter to the _vmss create_ command. 
 
-To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least 2017-03-30, and add a _publicIpAddressConfiguration_ JSON property to the scale set ipConfigurations section. For example:
+To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least _2017-03-30_, and add a _publicIpAddressConfiguration_ JSON property to the scale set ipConfigurations section. For example:
 
 ```json
 "publicIpAddressConfiguration": {
