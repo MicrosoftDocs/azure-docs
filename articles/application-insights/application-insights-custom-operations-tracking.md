@@ -29,8 +29,6 @@ It document is relevant for:
 - Application Insights for Web Applications (running ASP.NET) version `2.4+`
 - Application Insights for AspNetCore version `2.1+`
 
-More improvements and features are coming in the future versions!
-
 ## Overview
 By the operation, we understand some logical piece of work run by application. It has name, start time and duration, context of execution like user name, properties, and result. If operation `A` was initiated by operation `B` - operation `B` is set as a parent for `A`.  Operation can only have one parent and many children operations. You can read more about operations and telemetry correlation [here](application-insights-correlation.md).
 
