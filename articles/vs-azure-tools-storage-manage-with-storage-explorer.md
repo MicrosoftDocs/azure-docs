@@ -108,7 +108,7 @@ For Azure Stack Proof of Concept (POC), you need to export the Azure Stack autho
     The details for each field are as follows:
 
     * **Environment name**: The field can be customized by user.
-    * **Authority**: The value should be https://login.windows.net. For Azure China, use https://login.chinacloudapi.cn.
+    * **Authority**: The value should be https://login.microsoftonline.com. For Azure China, use https://login.chinacloudapi.cn.
     * **Sign in resource id**: Retrieve the value by executing one of the following PowerShell scripts:
 
         If you are a cloud administrator:
