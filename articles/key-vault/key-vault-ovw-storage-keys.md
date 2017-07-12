@@ -9,11 +9,11 @@ ms.date: 07/10/2017
 ---
 # Azure Key Vault Storage Account Keys
 
-Before Azure Key Vault Storage Account Keys, developers had to manage their own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Azure Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure storage account. 
+Before Azure Key Vault Storage Account Keys, developers had to manage their own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure Storage Account. 
 
-The Key Vault ASA key feature adds value through managing secret rotation for you. It also removes the need for your direct contact with an Azure Storage Account key by offering shared access signatures (SAS) as a method. 
+The ASA key feature manages secret rotation for you and removes the need for your direct contact with an ASA key by offering Shared Access Signatures (SAS) as a method. 
 
-For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+For more general information on Azure Storage Accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
 ## Supporting interfaces
 
@@ -31,7 +31,7 @@ Key Vault performs several internal management functions on your behalf when you
     - Key values are never returned in response to caller. 
     - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts. 
 2. Azure Key Vault allows you, the vault/object owner, to create SAS (account or service SAS) definitions. 
-    - The SAS value, created using SAS definition, is returned as a secret via the REST URI path.
+    - The SAS value, created using SAS definition, is returned as a secret via the REST URI path. For more information, see [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
 
 ### Naming guidance
 
@@ -60,7 +60,7 @@ var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSett
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
 -AccountName msak01 -Name blobsas1 -Protocol HttpsOrHttp -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
-//Get SAS token from Key Vault //....
+//Get SAS token from Key Vault
 
 var secret = await kv.GetSecretAsync("SecretUri");
 
@@ -74,32 +74,32 @@ var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("htt
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
-// If SAS token is about to expire then Get sasToken again from Key Vault 
-//.... 
- 
-// and update the accountSasCredential.UpdateSASToken(sasToken); 
+// If SAS token is about to expire then Get sasToken again from Key Vault and update it.
+
+accountSasCredential.UpdateSASToken(sasToken);
+
   ```
  
  ### Developer best practices 
 
-- Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as your manual management interferes with Key Vault's processes. 
+- Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself. Your attempts to manually manage will interferes with Key Vault's processes. 
 - Do not allow ASA keys to be managed by more than one key vault object. 
-- If you need to manually regenerate ASA keys, we recommend you regenerate them via Key Vault. 
+- If you need to manually regenerate ASA keys, we recommend that you regenerate them via Key Vault. 
 
 ## Getting started
 
 ### Setup for role-based access control permissions
 
-Key Vault needs permissions to list and regenerate keys for a storage account. Set this up using the following steps:
+Key Vault needs permissions to list and regenerate keys for a storage account. Set up these permissions using the following steps:
 
-1. Get ObjectId of KV through this command: 
+1. Get ObjectId of Key Vault: 
 `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`  
  
 2. Assign “Storage Key Operator” role to Azure Key Vault Identity: 
 `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'` 
 
 >[!NOTE]
-> For a classic account set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
+> For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
 
 ### Storage account onboarding 
 
