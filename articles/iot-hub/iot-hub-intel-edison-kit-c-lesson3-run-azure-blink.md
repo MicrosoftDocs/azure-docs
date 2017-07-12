@@ -4,7 +4,7 @@ description: Deploy and run a sample application to Intel Edison that sends mess
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot cloud service, arduino send data to cloud'
 
