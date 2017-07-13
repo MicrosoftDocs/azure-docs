@@ -108,7 +108,7 @@ The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
 
 Once you have completed debugging, resubmit the failed job.
 
-1. For code-behind solutions, copy your C# code into the code-behind source file (typically `Script.usql.cs`).
+1. For jobs with code-behind solutions, copy your C# code into the code-behind source file (typically `Script.usql.cs`).
 2. For jobs with assemblies, register the updated .dll assemblies into your ADLA database:
     1. From Server Explorer or Cloud Explorer, expand the **ADLA account > Databases** node.
     2. Right-click **Assemblies** and register your new .dll assemblies with the ADLA database:
