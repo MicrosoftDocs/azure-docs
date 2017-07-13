@@ -333,7 +333,7 @@ A: Yes. Indexer runs on one of the nodes in your search service, and that nodeâ€
 A: Yes and no
 
   + Yes, if the indexer is running on demand or on an initial run where the index is populated for the first time. 
-  + No, if the indexer is performing an incremental index and you are using a **rowversion** column ([High Water Mark policy](#HighWaterMarkPolicy) policy) to detect changes. The **rowversion** column depends on SQL Database's `MIN_ACTIVE_ROWVERSION` function, which is not available in secondary replicas. For this reason, indexing from a secondary replica is not allowed. The error you'll see when attempting to index from a secondary replica is: "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+  + No, if the indexer is performing an incremental index and you are using a **rowversion** column in a [High Water Mark policy](#HighWaterMarkPolicy) to detect changes. The **rowversion** column depends on SQL Database's `MIN_ACTIVE_ROWVERSION` function, which is not available in secondary replicas. For this reason, incremental indexing from a secondary replica is not allowed. The error you'll see when attempting to index from a secondary replica is: "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
 **Q:** Can I use an alternative, non-rowversion column for high water mark change tracking?
 
