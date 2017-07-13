@@ -46,7 +46,7 @@ Replicated tables work well for small dimension tables in a star schema. Dimensi
 Consider using a replicated table when:
 
 - The table size on disk is less than 2 GB, regardless of the number of rows. To find the size of a table, you can use the [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) command: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- The table is used in joins that require data movement. For example, a join on hash-distributed tables requires data movement when the joining columns are not the same distribution column. A join on a round-robin table requires data movement.
+- The table is used in joins that would otherwise require data movement. For example, a join on hash-distributed tables requires data movement when the joining columns are not the same distribution column. If one of the hash-distributed tables is small, consider a replicated table. A join on a round-robin table requires data movement. We recommend using replicated tables instead of round-robin tables in most cases. 
 
 
 Consider converting an existing distributed table to a replicated table when:
