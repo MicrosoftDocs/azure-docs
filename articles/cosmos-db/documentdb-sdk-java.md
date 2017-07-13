@@ -49,8 +49,8 @@ ms.custom: H1Hack27Feb2017
 ## Release Notes
 
 ### <a name="1.12.0"/>1.12.0
-* Added support for collection partitions split proof.
-* Fixed an issue with Strong and BoundedStaleness consistency level.
+* Critical bug fixes to request processing during partition splits.
+* Fixed an issue with the Strong and BoundedStaleness consistency levels.
 
 ### <a name="1.11.0"/>1.11.0
 * Added support for Request Unit per Minute (RU/m) feature.
