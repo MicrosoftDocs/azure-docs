@@ -49,6 +49,8 @@ The following are the questions that you must answer when planning to install HD
 
 ## <a id="existingvnet"></a>Add HDInsight to an existing virtual network
 
+Use the steps in this section to discover how to add HDInsight to an existing Azure Virtual Network.
+
 1. Are you using a classic or Resource Manager deployment model for the virtual network?
 
     HDInsight 3.4 and greater requires a Resource Manager virtual network. Earlier versions of HDInsight required a classic virtual network, however these versions have been, or will soon be retired.
