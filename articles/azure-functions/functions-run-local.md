@@ -98,7 +98,7 @@ Most triggers and bindings have a **Connection** property that maps to the name 
 
 These settings can also be read in your code as environment variables. In C#, use [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) or [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx). In JavaScript, use `process.env`. Settings specified as a system environment variable take precedence over values in the local.settings.json file. 
 
-Settings in the local.settings.json file are only used by Functions tools when running locally. They are not migrated automatically when the project is published to Azure. You must add these settings to your function app in Azure. You can add settings by using the [Azure portal](functions-how-to-use-azure-function-app-settings.md) or using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
+Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure.
 
 When no valid storage connection string is set for **AzureWebJobsStorage**, the following error message is shown:  
 
@@ -214,7 +214,7 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-## Publish a function app
+## <a name="publish"></a>Publish to Azure
 
 To publish a Functions project to a function app in Azure, use the `publish` command:
 

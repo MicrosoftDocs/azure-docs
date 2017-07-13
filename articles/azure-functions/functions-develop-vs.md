@@ -125,7 +125,11 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
 >[!NOTE]  
->Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not added automatically. To learn how to add settings using the [Azure portal](https://portal.azure.com), see the [Application Settings](functions-how-to-use-azure-function-app-settings.md#settings) section. You can also add application settings [using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+>Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not added automatically. You can add required settings to your function app in one of these ways:
+>
+>* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+>* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
+>* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
 
 ## Next steps
 
