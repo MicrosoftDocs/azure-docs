@@ -19,9 +19,18 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
 
 Azure Machine Learning provides two options that help you develop, experiment, and deploy advanced analytics applications at cloud scale. 
 
-* **Azure Machine Learning Workbench** - An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. 
+<table>
+    <tr><td><img src="media/index/machine-learning-workbench.svg" alt="" />
+        <strong>Azure Machine Learning Workbench</strong>
+        <br/>An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. 
+        </td>
+        <td><img src="media/index/machine-learning.svg" alt="" />
+        <strong>Azure Machine Learning Studio</strong>
+        <br/>A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
+        <td>
+    </tr>
+</table>
 
-* **Azure Machine Learning Studio** - A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -31,7 +40,7 @@ Azure Machine Learning provides two options that help you develop, experiment, a
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/MachineLearningWorkbench.svg" alt="" />
+                            <img src="media/index/machine-learning-workbench.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
