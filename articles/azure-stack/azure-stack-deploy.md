@@ -115,7 +115,7 @@ Make sure there is a DHCP server available on the network that the NIC connects 
 ### Internet access
 Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
 
-### Turn off telemetry (optional)
+## Turn off telemetry (optional)
 Microsoft Azure Stack includes Windows Server 2016 and SQL Server 2014. Neither of these products are changed from default settings and both are described by the Microsoft Enterprise Privacy Statement. Azure Stack also contains open source software which has not been modified to send telemetry to Microsoft. When a customer provides a Microsoft Azure account, Azure Stack collects the following information:
 
 - billing information as detailed in [Get consumption data for an Azure subscription](https://msdn.microsoft.com/en-us/library/azure/mt219001) and [Azure Stack Usage API FAQs](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-related-faq)
