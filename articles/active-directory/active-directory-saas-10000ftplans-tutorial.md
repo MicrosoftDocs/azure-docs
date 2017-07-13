@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/14/2017
 ms.author: jeedes
 
 ---
@@ -108,12 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.10000ft.com`
+    a. In the **Sign-on URL** textbox, type the URL: `https://app.10000ft.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://app.10000ft.com/saml/metadata`
+	b. In the **Identifier** textbox, type the URL: `https://app.10000ft.com/saml/metadata`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. The value for **Identifier** is different if you have a custom domain. Contact [10,000ft Plans support team](https://www.10000ft.com/plans/support) to get these values. 
+	> The value for **Identifier** is different if you have a custom domain. Contact [10,000ft Plans support team](https://www.10000ft.com/plans/support) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the certificate file on your computer.
 
@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_configure.png) 
 
-7. To configure single sign-on on **10,000ft Plans** side, you need to send the downloaded **Certificate(Raw)** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [10,000ft Plans support team](https://www.10000ft.com/plans/support).
+7. To configure single sign-on on **10,000ft Plans** side, you need to send the downloaded **Certificate(Raw), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [10,000ft Plans support team](https://www.10000ft.com/plans/support).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
