@@ -88,10 +88,8 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 
 An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
 
-    ```
     POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
     api-key: admin-key
-    ```
 
 You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
@@ -308,38 +306,37 @@ These settings are used in the `parameters.configuration` object in the indexer 
 
 ## FAQ
 
-**Q:** Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?
+**Q: Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?**
 
-A: Yes. However, you need to allow your search service to connect to your database. For more information, see [Configure a connection from an Azure Search indexer to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+Yes. However, you need to allow your search service to connect to your database. For more information, see [Configure a connection from an Azure Search indexer to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-**Q:** Can I use Azure SQL indexer with SQL databases running on-premises?
+**Q: Can I use Azure SQL indexer with SQL databases running on-premises?**
 
-A: We do not recommend or support this, as doing this would require you to open your databases to Internet traffic.
+No. We do not recommend or support this, as doing this would require you to open your databases to Internet traffic.
 
-**Q:** Can I use Azure SQL indexer with databases other than SQL Server running in IaaS on Azure?
+**Q: Can I use Azure SQL indexer with databases other than SQL Server running in IaaS on Azure?**
 
-A: We don’t support this scenario, because we haven’t tested the indexer with any databases other than SQL Server.  
+No. We don’t support this scenario, because we haven’t tested the indexer with any databases other than SQL Server.  
 
-**Q:** Can I create multiple indexers running on a schedule?
+**Q: Can I create multiple indexers running on a schedule?**
 
-A: Yes. However, only one indexer can be running on one node at one time. If you need multiple indexers running concurrently, consider scaling up your search service to more than one search unit.
+Yes. However, only one indexer can be running on one node at one time. If you need multiple indexers running concurrently, consider scaling up your search service to more than one search unit.
 
-**Q:** Does running an indexer affect my query workload?
+**Q: Does running an indexer affect my query workload?**
 
-A: Yes. Indexer runs on one of the nodes in your search service, and that node’s resources are shared between indexing and serving query traffic and other API requests. If you run intensive indexing and query workloads and encounter a high rate of 503 errors or increasing response times, consider [scaling up your search service](search-capacity-planning.md).
+Yes. Indexer runs on one of the nodes in your search service, and that node’s resources are shared between indexing and serving query traffic and other API requests. If you run intensive indexing and query workloads and encounter a high rate of 503 errors or increasing response times, consider [scaling up your search service](search-capacity-planning.md).
 
-**Q:** Can I use a secondary replica in a [failover cluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) as an indexer data source?
+**Q: Can I use a secondary replica in a [failover cluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) as an indexer data source?**
 
-A: Yes and no.
+Yes if the indexer runs on demand or the entire index is built. 
 
-  + Yes if the indexer runs on demand or the entire index is built. 
-  + No if indexing is incremental and you are using a **rowversion** column in a [High Water Mark policy](#HighWaterMarkPolicy) to detect changes. The **rowversion** column depends on SQL Database's `MIN_ACTIVE_ROWVERSION` function, which is not available in secondary replicas. 
+No if indexing is incremental and you are using a **rowversion** column in a [High Water Mark policy](#HighWaterMarkPolicy) to detect changes. The **rowversion** column depends on SQL Database's `MIN_ACTIVE_ROWVERSION` function, which is not available in secondary replicas. 
   
-   The error you'll see when attempting to index from a secondary replica is: "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+The error you'll see when attempting to index from a secondary replica is: "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
-**Q:** Can I use an alternative, non-rowversion column for high water mark change tracking?
+**Q: Can I use an alternative, non-rowversion column for high water mark change tracking?**
 
-A: Yes, but there are limitations when the `MIN_ACTIVE_ROWVERSION` function is not used: 
+Yes, but there are limitations when the `MIN_ACTIVE_ROWVERSION` function is not used: 
 
   + Outstanding transactions are not accounted for. As a workaround, you might want to batch table updates on one schedule, and then set the Azure Search indexer schedule to run afterwards.  
   + Some unknown number of rows are likely to be dropped during indexing. If this is acceptable, you can use a non-rowversion column. Periodically, you can run a full index rebuild to pick up any missing rows.
