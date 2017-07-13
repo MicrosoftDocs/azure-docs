@@ -165,8 +165,7 @@ The Azure CLI outputs information similar to the following example.
 "RUayjYjixJDWG5xTqIiXjC..."
 ```
 
-Copy the value of `primaryMasterKey`. You need this information in the next step.
-
+Copy the value of `primaryMasterKey`. Paste this over the  `<primary_master_key>` in `local-development.js`.
 
 Save your changes.
 
