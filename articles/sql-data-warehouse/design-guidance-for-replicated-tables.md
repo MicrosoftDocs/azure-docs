@@ -198,7 +198,7 @@ To force a rebuild, run the following statement on each table in the preceding o
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
  
-## <a href="preview"></a>Public preview notes
+## Public preview notes
 It is important to note that replicated tables are currently in a public preview phase.  Some differences exist for the preview version of the improvement versus the final version that is yet to be released.  
 
 Public preview behavior that will change in the final release:
