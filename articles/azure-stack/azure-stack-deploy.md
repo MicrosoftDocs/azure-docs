@@ -115,9 +115,32 @@ Make sure there is a DHCP server available on the network that the NIC connects 
 ### Internet access
 Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
 
-### Telemetry
+### Turn off telemetry (optional)
+Microsoft Azure Stack includes Windows Server 2016 and SQL Server 2014. Neither of these products are changed from default settings and both are described by the Microsoft Enterprise Privacy Statement. Azure Stack also contains open source software which has not been modified to send telemetry to Microsoft. When a customer provides a Microsoft Azure account, Azure Stack collects the following information:
+
+- billing information as detailed in [Get consumption data for an Azure subscription](https://msdn.microsoft.com/en-us/library/azure/mt219001) and [Azure Stack Usage API FAQs](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-related-faq)
+- deployment registration information
+- when an alert is opened and closed
+- the number of network resources
+- information about Azure-consistent storage
 
 To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
+
+If you don’t want to provide telemetry for Azure Stack, you can turn it off on the development kit host. 
+
+>[!NOTE]
+If you want to turn off telemetry for Azure Stack, you must do so before you run the deployment script.
+
+To turn off telemetry, follow these steps:
+
+1. Before running the deployment script, open Registry Editor on the development kit host and navigate to the following path:
+    Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection
+2. Double-click the **AllowTelemetry** key > change the **Value data** to 0 > click **OK**.
+
+Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur. Only critical security events from the operating system are sent.
+
+To configure SQL Server telemetry, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
+
 
 
 ## Next steps
