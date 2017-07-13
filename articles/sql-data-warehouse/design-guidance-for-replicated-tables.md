@@ -22,11 +22,11 @@ ms.author: rortloff;barbkess
 This article gives recommendations for designing replicated tables in your SQL Data Warehouse schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 
 > [!NOTE]
-> The replicated table feature is currently in public preview. For differences in behavior between preview and the general availability release, see the [Public preview notes](#preview) at the end of this article.
+> The replicated table feature is currently in public preview. For differences in behavior between preview and the general availability release, see the public preview notes at the end of this article.
 > 
 
 ## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see [Distributed data](sql-data-warehouse-tables-distributed-data.md). 
+This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see [Distributed data](sql-data-warehouse-distributed-data.md). 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
