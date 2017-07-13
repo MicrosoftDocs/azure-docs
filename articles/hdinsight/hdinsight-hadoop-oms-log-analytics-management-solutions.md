@@ -20,7 +20,7 @@ ms.author: nitinme
 ---
 # Add HDInsight cluster management solutions to Log Analytics 
 
-HDInsight provides cluster-specific management solutions that you can add  for Azure Log Analytics. [Management solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) add functionality to OMS, providing additional data and analysis tools to Log Analytics. These solutions collect important performance metrics from your HDInsight clusters and provides the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts. 
+HDInsight provides cluster-specific management solutions that you can add  for Azure Log Analytics. [Management solutions](../log-analytics/log-analytics-add-solutions.md) add functionality to OMS, providing additional data and analysis tools to Log Analytics. These solutions collect important performance metrics from your HDInsight clusters and provides the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts. 
 
 In this article, you learn how to add cluster-specific management solutions to an OMS workspace.
 
@@ -55,5 +55,4 @@ In this section you add an HBase cluster management solution to an existing OMS 
 ## See also
 
 * [Working with OMS Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Use View Designer to create custom views in Log Analytics](../log-analytics/log-analytics-view-designer.md)
 * [Create alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)
