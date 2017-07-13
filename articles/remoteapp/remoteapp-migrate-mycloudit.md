@@ -20,7 +20,7 @@ ms.author: mbaldwin
 
 **Do you currently use Microsoft Azure RemoteApp?**: MyCloudIT built an automated tool to migrate your Azure RemoteApp (ARA) collection(s) to the MyCloudIT management platform while continuing to run on Microsoft Azure.
 
-**Take advantage of the Azure Resource Manager (ARM) portal**: Completed migration into the MyCloudIT platform enables instant access to Azure's new Azure Resource Manager (ARM) portal. This portal contains all the new capabilities and innovations offered by Microsoft Azure, including access to Virtual Machine sizes to ensure your deployment is built to support the needs of your business.
+**Take advantage of the Azure Resource Manager portal**: Completed migration into the MyCloudIT platform enables instant access to Azure's new Azure Resource Manager portal. This portal contains all the new capabilities and innovations offered by Microsoft Azure, including access to Virtual Machine sizes to ensure your deployment is built to support the needs of your business.
 
 **Test in parallel to ensure the right solution for your needs**:  The MyCloudIT migration tool is built to initiate the migration process and test in parallel while your current ARA users continue to use ARA.  Your users will remain in ARA until your migration and testing are complete.  The migration tool is built to handle the typical ARA collection.  If you feel you have a unique, non-standard scenario, please contact us at [sales@conexlink.com](mailto:sales@conexlink.com) so we can provide a tailored plan to assist with your migration.
 
@@ -28,7 +28,7 @@ ms.author: mbaldwin
 
 ## What we will do for you
 
-MyCloudIT automates the migration of your Azure RemoteApp template from the Azure Classic portal of your subscription to the ARM Portal of your subscription with our automated migration tool.  
+MyCloudIT automates the migration of your Azure RemoteApp template from the Azure Classic portal of your subscription to the Azure Resource Manager Portal of your subscription with our automated migration tool.  
 
 > [!NOTE]
 > The Azure RemoteApp template must remain in the same Azure Region as your original Azure RemoteApp deployment.  If you need to change Azure Regions or Azure subscriptions during the migration, please contact us for additional guidance at [sales@conexlink.com](mailto:sales@conexlink.com).
@@ -38,8 +38,8 @@ Read below for detailed info on the automated migration process with the MyCloud
 1. The migration tool scans your current subscription(s) for all existing ARA deployments.  
 2. Select one ARA collection to migrate at a time.  If you have multiple collections, run our tool multiple times.
 3. You have the option to copy the User Profile Disks (UPD) to your new deployment so you can either retrieve legacy data, or manually map your UPDs to the new deployment. If you choose to copy your UPDs, we will save the UPDs and include a text file that maps the UPD name to each users' name.  The UPDs will be copied to a share on the RDSMGMT server `F:\Shares\LegacyUPD` and will be exposed via the share `\\RDSmgmt\LegacyUPD`. 
-4. Your migration will require no downtime for your current ARA deployment.  But, if any changes are made to the UPDs (from ARA) after the copy, these changes will not be reflected in the UPDs stored in the ARM portal. 
-5. If you have additional VMs like Domain Controllers and File Servers in your Classic Azure Virtual Network we will establish VNet peering between your existing Classic Azure Virtual Network and the new Virtual Network we create for you, in the new ARM Portal.
+4. Your migration will require no downtime for your current ARA deployment.  But, if any changes are made to the UPDs (from ARA) after the copy, these changes will not be reflected in the UPDs stored in the Azure Resource Manager portal. 
+5. If you have additional VMs like Domain Controllers and File Servers in your Classic Azure Virtual Network we will establish VNet peering between your existing Classic Azure Virtual Network and the new Virtual Network we create for you, in the new Azure Resource Manager Portal.
 6. Our automated solution will only establish VNet peering between your existing Classic Azure Virtual Network and the new Virtual Network if your existing ARA deployment is a Hybrid Deployment; meaning, you are authenticating with a Windows Server Active Directory Domain Controller in the existing Classic Virtual Network. If we do not establish VNet peering for your collection, but you require VNet peering, please contact us as [sales@conexlink.com](mailto:sales@conexlink.com) and we will be happy to configure VNet peering at no additional cost.
 7. Our automated solution will ensure your Azure DNS configuration is updated with the new Virtual Network settings to ensure your new deployment can connect to your existing Domain Controller in the classic VNet.
 8. Our automated solution will ensure that there are no IP address conflicts as we create this new Virtual Network and establish the VNet peering for deployments that have an existing Windows Server Active Directory Server.
@@ -73,5 +73,5 @@ Read below for detailed info on the automated migration process with the MyCloud
 
 Please see [MyCloudIT Pricing for RemoteApp Solutions](https://mcitdocuments.blob.core.windows.net/terms/MyCloudIT_Pricing_Overview.pdf) (PDF) for information on how to predict and manage your overall Azure costs.
 
-If you still have questions, please contact us at [sales@conexlink.com](mailto:sales@conexlink.com) or check out our full demo video <here>. 
+If you still have questions, please contact us at [sales@conexlink.com](mailto:sales@conexlink.com) or watch the full demo video [Azure RemoteApp Migration Tool - MyCloudIT](https://www.youtube.com/watch?v=YQ_1F-JeeLM&t=482s). 
 
