@@ -36,13 +36,13 @@ When running locally, a Functions project is a directory that has the files host
 
 At a command prompt, run the following command:
 
-```bash
+```shell
 func init MyFunctionProj
 ```
 
 The output looks like the following example:
 
-```bash
+```shell
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -66,8 +66,8 @@ The file local.settings.json stores app settings, connection strings, and settin
     "AzureWebJobsDashboard": "<connection string>", 
   },
   "Host": {
-    "LocalHttpPort": 7071, // If specified, this is the default port for "host start" and "run". Can be overridden by using the --port command-line option.
-    "CORS": "*"            // Origins to allow in the CORS setting.
+    "LocalHttpPort": 7071, 
+    "CORS": "*" 
   },
   "ConnectionStrings": {
     "SQLConnectionString": "Value"
@@ -77,61 +77,64 @@ The file local.settings.json stores app settings, connection strings, and settin
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally.   |
+| **Values** | Collection of application settings used when running locally. Add your application settings to this object.  |
 | **AzureWebJobsStorage** | Sets the connection string to the Azure Storage account that is used internally by the Azure Functions runtime. The storage account supports your function's triggers. This storage account connection setting is required for all functions except for HTTP triggered functions.  |
 | **AzureWebJobsDashboard** | Sets the connection string to the Azure Storage account that is used to store the function logs. This optional value makes the logs accessible in the portal.|
-| **Host** |  | 
+| **Host** | Settings in this section customize the Functions host process when running locally. | 
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
-| **CORS** | The CORS allowed origins, as a comma-separated list with no spaces. The wildcard value (**\***) is supported, which allows access to requests from any origin. |
+| **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (**\***) is supported, which allows requests from any origin. |
+| **ConnectionStrings** | Contains the database connection strings for your functions. Connection strings in this object are added to the environment with the provider type of **System.Data.SqlClient**.  | 
 
-These settings can then be read as environment variables. In C#, use `System.Environment.GetEnvironmentVariable` or `ConfigurationManager.AppSettings`. In JavaScript, use `process.env`. If the same setting is specified as a system environment variable, it takes precedence over values in local.settings.json. 
+Most triggers and bindings have a **Connection** property that maps to the name of an environment variable or app setting. For each connection property, there must be app setting defined in local.settings.json file. 
 
-Settings in the local.settings.json file are only used by Functions tools when running locally. They are not migrated automatically when the project is published to Azure. You must explicitly add these to the settings to your function app in Azure. You can add settings by using the [Azure portal](functions-how-to-use-azure-function-app-settings.md) or using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
+These settings can also be read in your code as environment variables. In C#, use [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) or [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx). In JavaScript, use `process.env`. Settings specified as a system environment variable take precedence over values in the local.settings.json file. 
 
->[!Note]
-> When a valid storage connection string is not set for **AzureWebJobsStorage**, the following error message is shown:  
->
->>Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
->
-> We recommend that you use an Azure Storage account when developing locally. Use of the Azure Storage Emulator is not supported by Azure Functions tools.
+Settings in the local.settings.json file are only used by Functions tools when running locally. They are not migrated automatically when the project is published to Azure. You must add these settings to your function app in Azure. You can add settings by using the [Azure portal](functions-how-to-use-azure-function-app-settings.md) or using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
 
+When no valid storage connection string is set for **AzureWebJobsStorage**, the following error message is shown:  
 
-The following settings customize the local Functions host:
-- `LocalHttpPort`. 
-- `CORS`. The CORS allowed origins, as a comma-separated list with no spaces. Use "*" to allow all.
-
-You can provide connection strings in the `ConnectionStrings` object. They are added to the environment with the provider name **System.Data.SqlClient**.
-
-Most triggers and bindings have a **Connection** property that is the name of an environment variable or app setting in local.settings.json. If the app setting value is missing, you see the following message:
-
-*Warning: Cannot find value named 'MyStorageConnection' in local.settings.json that matches 'connection' property set on 'blobTrigger' in 'BlobTriggerCSharp\function.json'. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.*
-
-The file local.settings.json is used only by Azure Functions Core Tools. To set app settings and connection strings in Azure, use the **Application Settings** blade.
+>Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionary fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
+  
+[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
 ### Configure app settings
 
 To set a value for connection strings, you can do one of the following:
-- Manually enter a connection string from [Azure Storage Explorer](http://storageexplorer.com/).
-- Use **func azure functionapp fetch-app-settings \<FunctionAppName\>**. Requires **azure login**.
-- Use **func azure functionapp storage fetch-connection-string \<StorageAccountName\>**. Requires **azure login**.
+* Enter the connection string from [Azure Storage Explorer](http://storageexplorer.com/).
+* Use one of the following commands:
+
+    ```shell
+    func azure functionapp fetch-app-settings <FunctionAppName>
+    ```
+    ```shell
+    func azure functionapp storage fetch-connection-string <StorageAccountName>
+    ```
+    Both commands require you to first sign-in to Azure.
 
 ## Create a function
 
-To create a function, run `func new`. This command has the following optional arguments:
+To create a function, run the following command:
 
-- `--language [-l]`. The template programming language, such as C#, F#, or JavaScript.
-- `--template [-t]`. The template name.
-- `--name [-n]`. The function name.
+```shell
+func new
+``` 
+`func new` supports the following optional arguments:
+
+| Argument     | Description                            |
+| ------------ | -------------------------------------- |
+| **--language [-l]** | The template programming language, such as C#, F#, or JavaScript. |
+| **--template [-t]** | The template name. |
+| **--name [-n]** | The function name. |
 
 For example, to create a JavaScript HTTP trigger, run:
 
-```
+```shell
 func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
 ```
 
 To create a queue-triggered function, run:
 
-```
+```shell
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
 
@@ -139,24 +142,26 @@ func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```shell
 func host start
 ```
 
-You can use the following options with `func host start`:
+`func host start` supports the following options:
 
-- `--port [-p]`. The local port to listen on. Default value: 7071.
-- `--debug <type>`. The options are VSCode and VS.
-- `--cors`. A comma-separated list of CORS origins, with no spaces.
-- `--nodeDebugPort [-n]`. The port for the node debugger to use. Default: A value from launch.json or 5858.
-- `--debugLevel [-d]`. The console trace level (off, verbose, info, warning, or error). Default: Info.
-- `--timeout [-t]`. The timeout for the Functions host to start, in seconds. Default: 20 seconds.
-- `--useHttps`. Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.
-- `--pause-on-error`. Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+|**--port [-p]** | The local port to listen on. Default value: 7071. |
+| **--debug <type>** | The options are VSCode and VS. |
+| **--cors** | A comma-separated list of CORS origins, with no spaces. |
+| **--nodeDebugPort [-n]** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
+| **--debugLevel [-d]** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
+| **--timeout [-t]** | The time out for the Functions host t     o start, in seconds. Default: 20 seconds.|
+| **--useHttps** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
+| **--pause-on-error** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
-```
+```shell
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -168,11 +173,11 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 To attach a debugger, pass the `--debug` argument. To debug JavaScript functions, use Visual Studio Code. For C# functions, use Visual Studio.
 
-To debug C# functions, use `--debug vs`. Alternatively, use [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/). 
+To debug C# functions, use `--debug vs`. You can also use [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/). 
 
 To launch the host and set up JavaScript debugging, run:
 
-```
+```shell
 func host start --debug vscode
 ```
 
@@ -182,19 +187,21 @@ Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Fun
 
 ### Call a function by using test data
 
-You can also invoke a function directly by using `func run <FunctionName>`. This command is similar to the **Test** tab in the Azure portal, where you can provide input data for the function. This command launches the entire Functions host.
+You can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal. This command launches the entire Functions host.
 
-You can use the following options with `func run`:
+`func run` supports the following options:
 
-- `--content [-c]`. Inline content.
-- `--debug [-d]`. Attach a debugger to the host process before running the function.
-- `--timeout [-t]`. Time to wait (in seconds) until the local Functions host is ready.
-- `--file [-f]`. The file name to use as content.
-- `--no-interactive`. Does not prompt for input. Useful for automation scenarios.
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **--content [-c]** | Inline content. |
+| **--debug [-d]** | Attach a debugger to the host process before running the function.|
+| **--timeout [-t]** | Time to wait (in seconds) until the local Functions host is ready.|
+| **--file [-f]** | The file name to use as content.|
+| **--no-interactive** | Does not prompt for input. Useful for automation scenarios.|
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
 
-```
+```shell
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -202,14 +209,16 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 To publish a Functions project to a function app in Azure, use the `publish` command:
 
-```
+```shell
 func azure functionapp publish <FunctionAppName>
 ```
 
 You can use the following options:
 
-- `--publish-local-settings [-i]`.  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.
-- `--overwrite-settings [-y]`. Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **--publish-local-settings [-i]** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
+| **--overwrite-settings [-y]** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, this command does not delete them from Azure. To delete these files, in the Azure Functions portal, use Kudu. To start Kudu, in the Azure Functions portal, select **Platform Features** > **Advanced Tools (Kudu)**. 
 
