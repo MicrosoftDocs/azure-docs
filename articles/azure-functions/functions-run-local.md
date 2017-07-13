@@ -45,13 +45,13 @@ When running locally, a Functions project is a directory that has the files host
 
 At a command prompt, run the following command:
 
-```shell
+```
 func init MyFunctionProj
 ```
 
 The output looks like the following example:
 
-```shell
+```
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -112,10 +112,10 @@ To set a value for connection strings, you can do one of the following:
 * Enter the connection string from [Azure Storage Explorer](http://storageexplorer.com/).
 * Use one of the following commands:
 
-    ```shell
+    ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    ```shell
+    ```
     func azure functionapp storage fetch-connection-string <StorageAccountName>
     ```
     Both commands require you to first sign-in to Azure.
@@ -124,7 +124,7 @@ To set a value for connection strings, you can do one of the following:
 
 To create a function, run the following command:
 
-```shell
+```
 func new
 ``` 
 `func new` supports the following optional arguments:
@@ -137,13 +137,13 @@ func new
 
 For example, to create a JavaScript HTTP trigger, run:
 
-```shell
+```
 func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
 ```
 
 To create a queue-triggered function, run:
 
-```shell
+```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
 
@@ -151,7 +151,7 @@ func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```shell
+```
 func host start
 ```
 
@@ -170,7 +170,7 @@ func host start
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
-```shell
+```
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -186,7 +186,7 @@ To debug C# functions, use `--debug vs`. You can also use [Azure Functions Visua
 
 To launch the host and set up JavaScript debugging, run:
 
-```shell
+```
 func host start --debug vscode
 ```
 
@@ -210,7 +210,7 @@ You can also invoke a function directly by using `func run <FunctionName>` and p
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
 
-```shell
+```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -218,7 +218,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 To publish a Functions project to a function app in Azure, use the `publish` command:
 
-```shell
+```
 func azure functionapp publish <FunctionAppName>
 ```
 
