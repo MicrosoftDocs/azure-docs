@@ -19,7 +19,7 @@ ms.author: ryanwi
 
 # Create your first C# Service Fabric stateful reliable services application
 
-This Quickstart helps you deploy your first Service Fabric application for .NET on Windows in just a few minutes. When you're finished, you'll have a local cluster running with a reliable service application.
+Learn how to deploy your first Service Fabric application for .NET on Windows in just a few minutes. When you're finished, you'll have a local cluster running with a reliable service application.
 
 ## Prerequisites
 
