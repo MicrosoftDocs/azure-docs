@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: robb
 
 ---
@@ -38,6 +38,7 @@ Here are the paths to some important logs and artifacts. We keep referring to th
 | **Monitoring Agent configuration file** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure diagnostics extension package** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Log collection utility path** | %SystemDrive%\Packages\GuestAgent\ |
+| **MonAgentHost log file** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### Virtual Machines
 | Artifact | Path |
@@ -49,9 +50,12 @@ Here are the paths to some important logs and artifacts. We keep referring to th
 | **Status file** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure diagnostics extension package** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Log collection utility path** | C:\WindowsAzure\Packages |
+| **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## Azure Diagnostics is not Starting
-Look at **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files from the location of the log files provided above for information on why diagnostics failed to start.  
+Look at **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files from the location of the log files provided above for information on why diagnostics failed to start. 
+
+If these logs indicate `Monitoring Agent not reporting success after launch`, it means there was a failure launching MonAgentHost.exe. Look at the logs for that in the location indicated for `MonAgentHost log file` in the section above.
 
 The last line of the log files contains the exit code.  
 
@@ -81,7 +85,7 @@ Diagnostics Configuration contains the part that instructs for a particular type
 - **Performance Counters**: open perfmon and check the counter.
 - **Trace Logs**:  Remote desktop into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/en-us/library/sk36c28t.aspx to setup the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
 If you don't see trace logs getting generated, follow [More About Trace Logs Missing](#more-about-trace-logs-missing).
- - **ETW traces**: Remote desktop into the VM and install PerfView.  In PerfView run File -> User Command -> Listen etwprovder1,etwprovider2,etc.  Note that the Listen command is case sensitive and there cannot be spaces between the comma separated list of ETW providers.  If the command fails to run you can click the 'Log' button in the bottom-right of the Perfview tool to see what was attempted to run and what the result was.  Assuming the input is correct then a new window will pop up and in a few seconds you will begin seeing ETW traces.
+- **ETW traces**: Remote desktop into the VM and install PerfView.  In PerfView run File -> User Command -> Listen etwprovder1,etwprovider2,etc.  Note that the Listen command is case sensitive and there cannot be spaces between the comma separated list of ETW providers.  If the command fails to run you can click the 'Log' button in the bottom-right of the Perfview tool to see what was attempted to run and what the result was.  Assuming the input is correct then a new window will pop up and in a few seconds you will begin seeing ETW traces.
 - **Event Logs**: Remote desktop into the VM. Open `Event Viewer` and ensure the events exist.
 #### Is data getting captured locally:
 Next make sure the data is getting captured locally.

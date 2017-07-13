@@ -53,13 +53,30 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * A tenant must have an existing storage account before creating a new Azure function.
 * VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null."  Redeployment of the virtual machine succeeds.  
-* Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources or entire resource group, and then delete tenant subscriptions.  
+* Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources or entire resource group, and then delete tenant subscriptions. 
 * You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
 * Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
 * Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration causes virtual machine creation to fail.
 * It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 * Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in mismatched state.
+* AzureRM PowerShell 1.2.10 requires extra configuration steps:
+    * Run this after running Add-AzureRMEnvironment for Azure AD deployments.  Provide the Name and GraphAudience values using the output from `Add-AzureRMEnvironment`.
+      
+      ```PowerShell
+      Set-AzureRmEnvironment -Name <Environment Name> -GraphAudience <Graph Endpoint URL>
+      ```
+    * Run this after running Add-AzureRMEnvironment for AD FS deployments.  Provide the Name and GraphAudience values using the output of `Add-AzureRMEnvironment`.
+      
+      ```PowerShell
+      Set-AzureRmEnvironment <Environment Name> -GraphAudience <Graph Endpoint URL> -EnableAdfsAuthentication:$true
+      ```
+    
+    As an example, the following is used for an Azure AD environment:
 
+    ```PowerShell
+      Set-AzureRmEnvironment AzureStack -GraphAudience https://graph.local.azurestack.external/
+    ```
+    
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
 * The compute resource provider displays an unknown state.

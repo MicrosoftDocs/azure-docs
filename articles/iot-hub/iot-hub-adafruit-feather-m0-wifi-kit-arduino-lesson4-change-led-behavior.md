@@ -4,7 +4,7 @@ description: Customize the messages to change the LED’s on and off behavior.
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'control led with arduino'
 
