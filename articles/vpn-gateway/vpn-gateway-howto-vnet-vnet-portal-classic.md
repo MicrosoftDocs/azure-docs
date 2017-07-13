@@ -81,7 +81,11 @@ The following table shows an example of how to define your VNets. Use the ranges
 
 ## <a name="vnetvalues"></a>Step 2 - Create the virtual networks
 
-Create two virtual networks in the [Azure portal](https://portal.azure.com). For the steps to create classic virtual networks, see [Create a classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). If you are using this article as an exercise, you can use the following example values:
+Create two virtual networks in the [Azure portal](https://portal.azure.com). For the steps to create classic virtual networks, see [Create a classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
+
+When using the portal to create a classic virtual network, you must navigate to the blade by clicking 'New'. In the Search the marketplace field, type 'Virtual Network'. Locate 'Virtual Network' from the returned list and click to open the Virtual Network blade. On the virtual network blade, select 'Classic' to create a classic VNet. If you try to create a virtual network in the portal by navigating a different way, you will not see the option to select 'Classic'.
+
+If you are using this article as an exercise, you can use the following example values:
 
 **Values for TestVNet1**
 
