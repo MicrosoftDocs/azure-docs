@@ -23,7 +23,7 @@ ms.author: nitinme
 In this article you will look at some scenarios on how to use Azure Log Analytics with Azure HDInsight clusters. Three most common scenarios are:
 
 * Analyze HDInsight cluster metrics in OMS
-* Look for specific log messages for HDInsight clusters
+* Search specific log messages for HDInsight clusters
 * Create alerts based on events ocurring in the clusters
 
 ## Prerequisites
@@ -34,7 +34,7 @@ In this article you will look at some scenarios on how to use Azure Log Analytic
 
 ## Analyze HDInsight cluster metrics in OMS
 
-In this section we walk through the steps you should take to look for specific metrics for your HDInsight cluster.
+In this section we walk through the steps to look for specific metrics for your HDInsight cluster.
 
 1. Open the OMS dashboard. In the Azure portal, open the HDInsight cluster blade that you associated with Azure Log Analytics, click the Monitoring tab, and the click **Open OMS Dashboard**.
 
@@ -58,7 +58,7 @@ In this section we walk through the steps you should take to look for specific m
     > You might need to click the **[+]More** button to find the metric you are looking for. Also, the **Apply** button is at the bottom of the list so you must scroll down to see it.
     > 
     >    
-    Notice that the query in the text box now changes to this.
+    Notice that the query in the text box now changes to one shown in the highlighted box below.
 
     ![Search specific metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Search specific metrics")
 
@@ -74,25 +74,40 @@ In this section we walk through the steps you should take to look for specific m
 
     ![Search specific metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-more-specific-metrics-1.png "Search specific metrics")
 
-## Configure HDInsight cluster to use Azure Log Analytics
+## Search specific log messages in HDInsight clusters
 
-In this section, you configure an existing HDInsight Hadoop cluster to use an Azure Log Analytics workspace to monitor jobs, debug logs, etc.
+In this section we walk through the steps to look error messages during a specific time window.
 
-1. In the Azure Portal, from the left pane, click **HDInsight clusters**, and then click the name of the cluster you want to configure with Azure Log Analytics.
+1. Open the OMS dashboard. In the Azure portal, open the HDInsight cluster blade that you associated with Azure Log Analytics, click the Monitoring tab, and the click **Open OMS Dashboard**.
 
-2. In the cluster blade, from the left pane, click **Monitoring**.
+    ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashoard")
 
-3. In the right pane, click **Enable**, and then select an existing Log Analytics workspace. Click **Save**.
+2. In the OMS dashboard, from the home screen, click **Log Search**.
 
-    ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
+    ![Open Log Search](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Open Log Search")
 
-4. Once the cluster is configured to use Log Analytics for monitoring, you will see an **Open OMS Dashboard** option at the top of the tab. Click the button.
+3. In the Log Search window, in the **Begin search here** text box, type `"Error"` (with the quotation marks) to search for all error messages for all HDInsight clusters configured to use Azure Log Analytics. Press ENTER.
 
-    ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "Open OMS dashboard")
+    ![Search all errors](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors.png "Search all errors")
 
-5. Enter your Azure credentials if prompted. You will be directed to the Microsoft OMS dashboard.
+4. You should see an output like the following.
 
-    ![Operations Management Suite portal](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "Operations Management Suite portal")
+    ![Search all errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Search all errors output")
+
+5. From the left pane, under **Type** category, search an error type that you want to dig deep into. For this tutorial, let's pick `log_jupyter_CL`. Select the checkbox corresponding to the metric, and then click **Apply**.
+
+    ![Search specific errors](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error.png "Search specific error")
+
+        
+6. Notice that the query in the text box now changes to one shown in the highlighted box below and the results are refined to only show the error of the type you selected.
+
+    ![Search specific errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-output.png "Search specific errors output")
+
+7. You can now dig deeper into this specific error list. For example, you can now refine the existing output based on the number of error messages in a 10 minute interval. Type the following query in the query text box.
+
+        "Error" (Type=log_jupyter_CL) |measure count() by Type interval 10minute
+
+8. 
 
 ## Next steps
 * [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
