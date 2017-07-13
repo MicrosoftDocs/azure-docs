@@ -1,7 +1,7 @@
 ---
-title: Docker Hub Continuous Deployment with Azure Web App on Linux | Microsoft Docs
+title: Continuous Deployment with Azure Web App on Linux | Microsoft Docs
 description: How to setup continuous deployment in Azure Web App on Linux.
-keywords: azure app service, linux, oss
+keywords: azure app service, linux, oss, acr
 services: app-service
 documentationcenter: ''
 author: ahmedelnably
@@ -18,11 +18,11 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Docker Hub Continuous Deployment with Azure Web App on Linux
+# Continuous Deployment with Azure Web App on Linux
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-In this tutorial, you configure continuous deployment for a custom container image from [Docker Hub](https://hub.docker.com).
+In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) repositroies or [Docker Hub](https://hub.docker.com).
 
 ## Step 1 - Log in to Azure
 
@@ -38,7 +38,22 @@ In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the v
 
 ![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## Step 3 - Add a web hook to Docker Hub
+## Step 3 - Add a web hook
+
+### Azure Container Registry
+
+In your registry portal blade, click **Webhooks**, create a new webhook by clicking **Add**. In the **Create webhook** give your webhook a name. For the Webhook URI, you need to provide the following endpoint:
+`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+
+Make sure that you define the scope as the repo that contains your container image.
+
+![insert image of webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
+
+Click **Create** to save configuration.
+
+When the image gets updated, the web app get updated autmatically with the new image.
+
+### Docker Hub
 
 In your Docker Hub page, click **Webhooks**, then **CREATE A WEBHOOK**.
 
@@ -58,6 +73,7 @@ When the image gets updated, the web app get updated automatically with the new 
 ## Next steps
 * [What is Azure Web App on Linux?](./app-service-linux-intro.md)
 * [Creating Apps in Azure Web App on Linux](./app-service-linux-how-to-create-web-app.md)
+* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)
 * [Using Ruby in Azure Web App on Linux](app-service-linux-ruby-get-started.md)
