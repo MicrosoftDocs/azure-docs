@@ -37,6 +37,8 @@ Set-PSRepository `
 
 ## Install the required version of PowerShell modules
 
+### Uninstall existing versions 
+
 Before installing the required version, make sure that you uninstall any existing Azure PowerShell modules. You can uninstall them by using one of the following two methods:
 
 a. To uninstall the existing PowerShell modules, sign in to the development kit, or to the Windows-based external client if you are planning to establish a VPN connection. Close all the active PowerShell sessions and run the following command: 
@@ -47,7 +49,40 @@ a. To uninstall the existing PowerShell modules, sign in to the development kit,
 
 b. Sign in to the development kit, or to the Windows-based external client if you are planning to establish a VPN connection. Delete all the folders that start with "Azure" from the `C:\Program Files (x86)\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules from the "AzureStackAdmin" and "global" user scopes. 
 
-Now, use the following steps to install PowerShell for Azure Stack:  
+The following sections describe the steps required to install PowerShell for Azure Stack. PowerShell can be installed on Azure Stack that is operated in connected, partially connected or in disconnected scenarios. 
+
+### Install PowerShell in a disconnected or in a partially connected scenario
+
+1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
+
+   ```powershell
+   $Path = "<Path that is used to save the packages>"
+
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.10
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.2.10 
+   ```
+
+2. Copy the downloaded packages over to a USB device.
+
+3. Sign in to the Azure Stack Development Kit and copy the packages from the USB device to a location on the development kit. 
+
+4. Use the following command to register this location as the default repository for the PowerShell modules:
+
+   ```powershell
+   $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+   $RepoName = "MyNuGetSource"
+
+   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+   ```
+
+5. Install the AzureRM and AzureStack modules
+
+   ```powershell
+   Install-Module AzureRM -RequiredVersion 1.2.10 -Repository $RepoName
+   Install-Module AzureStack -Repository $RepoName 
+   ```
+
+### Install PowerShell in a connected scenario 
 
 1. Azure Stack compatible AzureRM modules are installed through API version profiles.
 To learn about API version profiles and the cmdlets provided by them,
