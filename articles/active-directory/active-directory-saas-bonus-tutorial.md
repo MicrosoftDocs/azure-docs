@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Bonus.ly | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Bonus.ly.
+title: 'Tutorial: Azure Active Directory integration with Bonusly | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Bonusly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Bonus.ly
+# Tutorial: Azure Active Directory integration with Bonusly
 
-In this tutorial, you learn how to integrate Bonus.ly with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Bonusly with Azure Active Directory (Azure AD).
 
-Integrating Bonus.ly with Azure AD provides you with the following benefits:
+Integrating Bonusly with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Bonus.ly
-- You can enable your users to automatically get signed-on to Bonus.ly (Single Sign-On) with their Azure AD accounts
+- You can control in Azure AD who has access to Bonusly
+- You can enable your users to automatically get signed-on to Bonusly (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Bonus.ly, you need the following items:
+To configure Azure AD integration with Bonusly, you need the following items:
 
 - An Azure AD subscription
-- A Bonus.ly single sign-on enabled subscription
+- A Bonusly single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -47,13 +47,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Bonus.ly from the gallery
+1. Adding Bonusly from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Bonus.ly from the gallery
-To configure the integration of Bonus.ly into Azure AD, you need to add Bonus.ly from the gallery to your list of managed SaaS apps.
+## Adding Bonusly from the gallery
+To configure the integration of Bonusly into Azure AD, you need to add Bonusly from the gallery to your list of managed SaaS apps.
 
-**To add Bonus.ly from the gallery, perform the following steps:**
+**To add Bonusly from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -67,36 +67,36 @@ To configure the integration of Bonus.ly into Azure AD, you need to add Bonus.ly
 
 	![Applications][3]
 
-4. In the search box, type **Bonus.ly**.
+4. In the search box, type **Bonusly**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_search.png)
 
-5. In the results panel, select **Bonus.ly**, and then click **Add** button to add the application.
+5. In the results panel, select **Bonusly**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Bonus.ly based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Bonusly based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Bonus.ly is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Bonus.ly needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Bonusly is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Bonusly needs to be established.
 
-In Bonus.ly, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In Bonusly, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-To configure and test Azure AD single sign-on with Bonus.ly, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Bonusly, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Bonus.ly test user](#creating-a-bonusly-test-user)** - to have a counterpart of Britta Simon in Bonus.ly that is linked to the Azure AD representation of user.
+3. **[Creating a Bonusly test user](#creating-a-bonusly-test-user)** - to have a counterpart of Britta Simon in Bonusly that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Bonus.ly application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Bonusly application.
 
-**To configure Azure AD single sign-on with Bonus.ly, perform the following steps:**
+**To configure Azure AD single sign-on with Bonusly, perform the following steps:**
 
-1. In the Azure portal, on the **Bonus.ly** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **Bonusly** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
@@ -104,14 +104,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_samlbase.png)
 
-3. On the **Bonus.ly Domain and URLs** section, perform the following steps:
+3. On the **Bonusly Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_url.png)
 
-	In the **Reply URL** textbox, type a URL using the following pattern: `https://bonus.ly/saml/<tenant-name>`
+	In the **Reply URL** textbox, type a URL using the following pattern: `https://Bonusly/saml/<tenant-name>`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Reply URL. Contact [Bonus.ly support team](https://bonus.ly/contact) to get the value.
+	> The value is not real. Update the value with the actual Reply URL. Contact [Bonusly support team](https://Bonusly/contact) to get the value.
  
 4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value from the certificate.
 
@@ -121,11 +121,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-bonus-tutorial/tutorial_general_400.png)
 
-6. On the **Bonus.ly Configuration** section, click **Configure Bonus.ly** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Bonusly Configuration** section, click **Configure Bonusly** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_configure.png) 
 
-7. In a different browser window, log in to your **Bonus.ly** tenant.
+7. In a different browser window, log in to your **Bonusly** tenant.
 
 8. In the toolbar on the top, click **Settings**, and then select **Integrations and apps**.
    
@@ -142,7 +142,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     c. In the **IdP Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-    d. Copy the **Thumbprint** value from the downloaded certificate, and then paste it into the **Cert Fingerprint** textbox.
+    d. Paste the **Thumbprint** value copied from Azure portal into the **Cert Fingerprint** textbox.
    
 11. Click **save**.
 
@@ -181,15 +181,17 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a Bonus.ly test user
+### Creating a Bonusly test user
 
-In order to enable Azure AD users to log in to Bonus.ly, they must be provisioned into Bonus.ly. 
+In order to enable Azure AD users to log in to Bonusly, they must be provisioned into Bonusly. In the case of Bonusly, provisioning is a manual task.
 
-* In the case of Bonus.ly, provisioning is a manual task.
+>[!NOTE]
+>You can use any other Bonusly user account creation tools or APIs provided by Bonusly to provision AAD user accounts.
+>  
 
 **To configure user provisioning, perform the following steps:**
 
-1. In a web browser window, log in to your Bonus.ly tenant.
+1. In a web browser window, log in to your Bonusly tenant.
 
 2. Click **Settings**.
  
@@ -220,26 +222,22 @@ In order to enable Azure AD users to log in to Bonus.ly, they must be provisione
     d. Click **Save**.
    
      >[!NOTE]
-     >The AAD account holder receives an email that includes a link to confirm the account before it becomes active.
+     >The Azure AD account holder receives an email that includes a link to confirm the account before it becomes active.
      >  
-
->[!NOTE]
->You can use any other Bonus.ly user account creation tools or APIs provided by Bonus.ly to provision AAD user accounts.
->  
 
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Bonus.ly.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Bonusly.
 
 ![Assign User][200] 
 
-**To assign Britta Simon to Bonus.ly, perform the following steps:**
+**To assign Britta Simon to Bonusly, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **Bonus.ly**.
+2. In the applications list, select **Bonusly**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_app.png) 
 
@@ -262,7 +260,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Bonus.ly tile in the Access Panel, you should get automatically signed-on to your Bonus.ly application.
+When you click the Bonusly tile in the Access Panel, you should get automatically signed-on to your Bonusly application.
 
 ## Additional resources
 
