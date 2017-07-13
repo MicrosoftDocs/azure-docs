@@ -161,11 +161,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`	
 
-8. On the **Shmoop For Schools Configuration** section, click **Configure Shmoop For Schools** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_configure.png) 
-
-9. To configure single sign-on on **Shmoop For Schools** side, you need to send the downloaded **Metadata XML, SAML Entity ID, and SAML Single Sign-On Service URL** to [Shmoop For Schools support team](mailto:support@shmoop.com).
+8. To configure single sign-on on **Shmoop For Schools** side, you need to send the downloaded **Metadata XML and Metadata URL** to [Shmoop For Schools support team](mailto:support@shmoop.com).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
