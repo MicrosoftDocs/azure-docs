@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/06/2017
+ms.date: 07/12/2017
 ms.author: guybo
 
 ---
@@ -107,83 +107,6 @@ The output, for an individual virtual machine dns name would be in the following
 <vmname><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
-## IPv6 preview for public IPs and Load Balancer pools
-You can configure IPv6 public IP addresses on an Azure Load Balancer, and route connections to virtual machine scale set backend pools. To use IPv6, currently in preview, first create an IPv6 public address resource. For example:
-```json
-{
-    "apiVersion": "2016-03-30",
-    "type": "Microsoft.Network/publicIPAddresses",
-    "name": "[parameters('ipv6PublicIPAddressName')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "publicIPAddressVersion": "IPv6",
-        "publicIPAllocationMethod": "Dynamic",
-        "dnsSettings": {
-            "domainNameLabel": "[parameters('dnsNameforIPv6LbIP')]"
-        }
-    }
-}
-```
-Next, configure your load balancer front-end IP Configurations for IPv4 and IPv6 as needed:
-
-```json
-"frontendIPConfigurations": [
-    {
-        "name": "LoadBalancerFrontEndIPv6",
-        "properties": {
-            "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('ipv6PublicIPAddressName'))]"
-            }
-        }
-    }
-]
-```
-Define the required backend pools:
-```json
-"backendAddressPools": [
-    {
-        "name": "BackendPoolIPv4"
-    },
-    {
-        "name": "BackendPoolIPv6"
-    }
-]
-```
-Define any load balancer rules:
-```json
-{
-    "name": "LBRuleIPv6-46000",
-    "properties": {
-        "frontendIPConfiguration": {
-            "id": "[variables('ipv6FrontEndIPConfigID')]"
-        },
-        "backendAddressPool": {
-            "id": "[variables('ipv6LbBackendPoolID')]"
-        },
-        "protocol": "tcp",
-        "frontendPort": 46000,
-        "backendPort": 60001,
-        "probe": {
-            "id": "[variables('ipv4ipv6lbProbeID')]"
-        }
-    }
-}
-```
-Lastly, reference the IPv6 pool in the IPConfigurations section of the scale set network properties:
-```json
-{
-    "name": "ipv6IPConfig",
-    "properties": {
-        "privateIPAddressVersion": "IPv6",
-        "loadBalancerBackendAddressPools": [
-            {
-                "id": "[variables('ipv6LbBackendPoolID')]"
-            }
-        ]
-    }
-}
-```
-
 ## Public IPv4 per virtual machine
 In general, Azure scale set virtual machines do not require their own public IP addresses. For most scenarios, it is more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (aka a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
 
@@ -192,7 +115,7 @@ However, some scenarios do require scale set virtual machines to have their own 
 ### Creating a scale set with public IP per virtual machine
 To create a scale set that assigns a public IP address to each virtual machine with CLI 2.0, add the _--public-ip-per-vm_ parameter to the _vmss create_ command. 
 
-To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least 2017-03-30, and add a _publicIpAddressConfiguration_ JSON property to the scale set ipConfigurations section. For example:
+To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least _2017-03-30_, and add a _publicIpAddressConfiguration_ JSON property to the scale set ipConfigurations section. For example:
 
 ```json
 "publicIpAddressConfiguration": {
