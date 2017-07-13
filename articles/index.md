@@ -751,13 +751,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-store/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
@@ -2196,7 +2196,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
