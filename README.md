@@ -42,12 +42,13 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 
 
 ### Labels
-Automated labels are assigned to pull requests to help us manage the pull request workflow and to help let you know what's going on with your pull request:
+In the public azure-docs repository, automated labels are assigned to pull requests to help us manage the pull request workflow and to help let you know what's going on with your pull request:
 
 * Contribution License Agreement related
   * cla-not-required: The change is relatively minor and does not require that you sign a CLA.
   * cla-required: The scope of the change is relatively large and requires that you sign a CLA.
   * cla-signed: The contributor signed the CLA, so the pull request can now move forward for review.
 * Change sent to author: The author has been notified of the pending pull request.
+* ready-to-merge: Ready for review by our pull request review team.
 
 
