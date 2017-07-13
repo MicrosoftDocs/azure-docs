@@ -105,6 +105,29 @@ Perform the following steps to transition your service to the Azure portal.
 
 Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal.
 
+In the Azure portal, only the StorSimple devices running Update 3.0 and higher are supported. The devices that are running older versions have limited support. The following table summrizes which operations are supported on the device running versios prior to Update 3.0, once you have migrated from the classic to the Azure portal.
+
+| Operation                                                                                                                       | Supported      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Register a device                                                                                                               | Yes            |
+| Configure device settings such as general, network, and security                                                                | Yes            |
+| Scan, download, and install updates                                                                                             | Yes            |
+| Deactivate device                                                                                                               | Yes            |
+| Delete device                                                                                                                   | Yes            |
+| Create, modify, and delete a volume container                                                                                   | No             |
+| Create, modify, and delete a volume                                                                                             | No             |
+| Create, modify, and delete a backup policy                                                                                      | No             |
+| Take a manual backup                                                                                                            | No             |
+| Take a scheduled backup                                                                                                         | Not applicable |
+| Restore from a backupset                                                                                                        | No             |
+| Clone to a device running Update 3.0 and later <br> The source device is running version prior to Update 3.                                | Yes            |
+| Clone to a device running versions prior to Update 3.0                                                                          | No             |
+| Failover as Source Device (from Pre GU3 device to GU3 and higher)                                                               | Yes            |
+| Failover as Target Device (to pre GU3 device)                                                                                   | No             |
+| Clear an alert                                                                                                                  | Yes            |
+| View backup policies, backup catalog, volumes, volume containers, monitoring charts, jobs, and alerts created in classic portal | Yes            |
+| Turn on and off device controllers                                                                                              | Yes            |
+
 
 ## Delete a service
 
