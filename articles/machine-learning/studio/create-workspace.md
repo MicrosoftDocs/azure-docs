@@ -24,7 +24,7 @@ This menu links to topics that describe how to set up the various data science e
 
 To use Azure Machine Learning Studio, you need to have a Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ### To create a workspace
 1. Sign in to the [Azure portal](https://portal.azure.com/)

@@ -22,7 +22,7 @@ ms.author: roopalik;garye
 
 <!-- separating these 2 includes -->
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## What can I find in the Gallery?
 The Cortana Intelligence Gallery contains a variety of resources that you can use to develop your own analytics solutions.

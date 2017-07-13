@@ -25,7 +25,7 @@ ms.author: kbaroni;garye
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Goal
 Our project started with two goals in mind: 

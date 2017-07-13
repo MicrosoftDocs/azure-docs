@@ -33,7 +33,7 @@ In this article, you will learn basic concepts needed to develop a custom neural
 * The syntax and keywords of the Net# specification language
 * Examples of custom neural networks created using Net# 
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Neural network basics
 A neural network structure consists of ***nodes*** that are organized in ***layers***, and weighted ***connections*** (or ***edges***) between the nodes. The connections are directional, and each connection has a ***source*** node and a ***destination*** node.  
