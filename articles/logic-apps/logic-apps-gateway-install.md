@@ -14,7 +14,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 06/9/2017
+ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
 
 ---
@@ -31,7 +31,7 @@ Learn more about [how the data gateway works](#gateway-cloud-service).
 
 The gateway supports connections to these data sources on premises:
 
-*   BizTalk Server
+*   BizTalk Server 2016
 *   DB2  
 *   File System
 *   Informix
@@ -41,7 +41,7 @@ The gateway supports connections to these data sources on premises:
 *   PostgreSQL
 *   SAP Application Server 
 *   SAP Message Server
-*   SharePoint for HTTP only, not HTTPS
+*   SharePoint
 *   SQL Server
 *   Teradata
 
