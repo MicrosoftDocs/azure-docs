@@ -115,7 +115,7 @@ VM in Classic development model
 
 #### Step 2: Remove the lease from the VHD
 
-[Remove the lease from the VHD](#remove-the-lease-from-the-vhd), and then delete the storege account.
+[Remove the lease from the VHD](#remove-the-lease-from-the-vhd), and then delete the storage account.
 
 ## What is a lease?
 A lease is a lock that can be used to control access to a blob (for example, a VHD). When a blob is leased, only the owners of the lease can access the blob. A lease is important for the following reasons:
@@ -134,7 +134,7 @@ If the VHD is an OS disk, you must delete the VM to remove the lease:
 5. At the top of the **VM details** blade, select **Delete**, and then click **Yes** to confirm.
 6. The VM should be deleted, but the VHD should be retained. However, the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease is released, go to **All resources** > **Storage Account Name** > **Blobs** > **vhds**. In the **Blob properties** pane, the **Lease Status** value should be **Unlocked**.
 
-If the VHD is an data disk, detach the VHD from the VM to remove the lease:
+If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the **Hub** menu, select **Virtual Machines**.
