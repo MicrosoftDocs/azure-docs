@@ -103,8 +103,15 @@ To do this, use one of the following methods:
 
 4. Locate the VHD that we obtained from the disk URL earlier. Then, determine which VM is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD:
 
-   * OS disks generally follow this naming convention: VMNameYYYYMMDDHHMMSS.vhd
-   * Data disks generally follow this naming convention: VMName-YYYYMMDD-HHMMSS.vhd
+VM in Resource Manager model
+
+   * OS disks generally follow this naming convention: VMName-YYYY-MM-DD-HHMMSS.vhd
+   * Data disks generally follow this naming convention: VMName-YYYY-MM-DD-HHMMSS.vhd
+
+VM in Classic development model
+
+   * OS disks generally follow this naming convention: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd
+   * Data disks generally follow this naming convention: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd
 
 #### Step 2: Remove the lease from the VHD
 
