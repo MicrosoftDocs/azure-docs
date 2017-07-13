@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: markvi
 
 ---
@@ -58,13 +58,13 @@ Microsoft Teams also is supported separately as a cloud app in Azure Active Dire
 
 Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms. 
 
-## How many IP ranges does Named locations support?
+## How many IP ranges does named locations (preview) support?
 
 The number of locations you can configure is constrained by the size of the related object in Azure AD.
 You can configure:
 
 - One named location with up to 500 IP ranges
-- A maximum of 60 named locations with one IP range assigned to each of them 
+- A maximum of 60 named locations (preview) with one IP range assigned to each of them 
 
 
 ## Can I still use MFA Trusted IPs?
@@ -75,9 +75,9 @@ To use MFA Trusted IPs, under the locations condition, select **Trusted IPs** .
 ![Creating an Azure AD test user](./media/active-directory-conditional-faqs/01.png)
 
    
-## What kind of ranges should I define in named locations?
+## What kind of ranges should I define in named locations (preview)?
 
-Named locations are your organization’s IP ranges that you trust. If there are IP ranges that you do not trust, do not add them to named location. Named locations feed into the Azure AD security reports to strengthen the analysis.
+Named locations  (preview)are your organization’s IP ranges that you trust. If there are IP ranges that you do not trust, do not add them to named locations  (preview). Named locations (preview) feed into the Azure AD security reports to strengthen the analysis.
 
-## When should I use MFA Trusted IPs vs Named locations?
-We recommend that you use named locations since it provides better manageability and scalability. 
+## When should I use MFA trusted IPs vs named locations?
+We recommend that you use named locations (preview) because it provides better manageability and scalability. 
