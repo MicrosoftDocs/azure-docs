@@ -22,7 +22,7 @@ ms.author: aelnably;wesmc
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) repositroies or [Docker Hub](https://hub.docker.com).
+In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
 ## Step 1 - Log in to Azure
 
@@ -42,7 +42,7 @@ In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the v
 
 ### Azure Container Registry
 
-In your registry portal blade, click **Webhooks**, create a new webhook by clicking **Add**. In the **Create webhook** give your webhook a name. For the Webhook URI, you need to provide the following endpoint:
+In your registry portal blade, click **Webhooks**, create a new webhook by clicking **Add**. In the **Create webhook** blade, give your webhook a name. For the Webhook URI, you need to provide the following endpoint:
 `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 Make sure that you define the scope as the repo that contains your container image.
@@ -51,7 +51,7 @@ Make sure that you define the scope as the repo that contains your container ima
 
 Click **Create** to save configuration.
 
-When the image gets updated, the web app get updated autmatically with the new image.
+When the image gets updated, the web app get updated automatically with the new image.
 
 ### Docker Hub
 
