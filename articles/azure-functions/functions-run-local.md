@@ -19,16 +19,25 @@ ms.author: donnam, glenga
 ---
 # Code and test Azure functions locally
 
-You can use your favorite code editor and local development tools to run the Azure Functions runtime locally. Trigger on events in Azure and debug C# and JavaScript functions.
+While the [Azure portal](https://portal.azure.com) provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your functions can trigger on events in Azure, and you can debug your C# and JavaScript functions on your local computer. 
 
-To begin, install [Azure Functions Core Tools] from npm. Azure Functions Core Tools is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that runs in Azure.
+If you are a Visual Studio C# developer, Azure Functions also [integrates with Visual Studio 2017](functions-develop-vs.md).
+
+## Install the Azure Functions Core Tools
+
+Azure Functions Core Tools is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure.
+
+The [Azure Functions Core Tools] is provided as an npm package. You must first [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli). To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).  
+
+>[!NOTE]
+>At this time, the Azure Functions Core Tools package can only be installed on Windows computers. This restriction is due to a temporary limitation in the Functions host.
 
 [Azure Functions Core Tools] adds the following command aliases:
-- `func`
-- `azfun`
-- `azurefunctions`
+* **func**
+* **azfun**
+* **azurefunctions**
 
-Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli). To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
+All of these alias can be used instead of `func` shown in the examples in this topic.
 
 ## Create a local Functions project
 
