@@ -96,7 +96,6 @@
 #### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
-
 # Reference
 ## [Template format](/azure/templates/)
 ## [Template functions](resource-group-template-functions.md)
