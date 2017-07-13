@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.sugarondemand.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `https://<companyname>.sugarondemand.com` |
+	| `https://<companyname>.trial.sugarcrm` |
 
 	> [!NOTE] 
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Sugar CRM Client support team](https://support.sugarcrm.com/) to get the value. 
