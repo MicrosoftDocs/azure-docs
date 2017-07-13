@@ -4,7 +4,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## Contribute to Azure technical documentation
-We welcome contributions from our community (users, customers, partners, MSFT employees outside core Azure product units, etc.) as well as from employees across Microsoft. How you contribute depends on who you are:
+We welcome contributions from our community (users, customers, partners, MSFT employees outside core Azure product units, etc.) as well as from employees working in core Azure product units. How you contribute depends on who you are:
 
 * **Community - minor updates**: If you are contributing minor updates out of the goodness of your heart, you can find the article in this repository, or visit the article on [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) and click the **Edit** link in the article that goes to the GitHub source for the article. Then, just use the GitHub UI to make your updates. Or, you are welcome to fork the repository and submit updates from your fork.
 
