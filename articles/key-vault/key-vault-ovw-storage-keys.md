@@ -1,6 +1,9 @@
 ---
 ms.assetid: 
 title: Azure Key Vault Storage Account Keys
+description: Storage account keys provide a seemless integration between Azure Key Vault and key access to Azure Storage Account.
+ms.topic: article
+services: key-vault
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
@@ -82,7 +85,7 @@ accountSasCredential.UpdateSASToken(sasToken);
  
  ### Developer best practices 
 
-- Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself, you will interferes with Key Vault's processes. 
+- Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself, you will interfere with Key Vault's processes. 
 - Do not allow ASA keys to be managed by more than one Key Vault object. 
 - If you need to manually regenerate your ASA keys, we recommend that you regenerate them via Key Vault. 
 
@@ -94,14 +97,14 @@ Key Vault needs permissions to list and regenerate keys for a storage account. S
 
 1. Get ObjectId of Key Vault: 
 
-`Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
+    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 2. Assign Storage Key Operator role to Azure Key Vault Identity: 
 
-`New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
+    `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
 
->[!NOTE]
-> For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
+    >[!NOTE]
+    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
 
 ### Storage account onboarding 
 
@@ -129,7 +132,7 @@ The OBO token will only work when you use first-party, native client application
 
 - SAS tokens, constructed using Key Vault storage account keys, provide even more controlled access to an Azure storage account. For more information, see [Using shared access signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
-## See Also
+## See also
 
 - [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/)
 - [Key Vault Team Blog](https://blogs.technet.microsoft.com/kv/)
