@@ -57,7 +57,7 @@ To do this, use one of the following methods:
 
 1. When you delete the storage account, you will receive a message dialog such as the following: 
 
-    ![message when deleting the storage account](media/storage-use-storage-explorer-to-delete-vhd/delete-storage-error.png) 
+    ![message when deleting the storage account](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
 
 2. Check the **Disk URL** to identify the storage account and the VHD that prevents you delete the storage account. In the following example, the string before “.blob.core.windows.net “ is the storage account name, and "SCCM2012-2015-08-28.vhd" is the VHD name.  
 
@@ -66,16 +66,16 @@ To do this, use one of the following methods:
 ### Step 2 Delete the VHD by using Azure Storage Explorer
 
 1. Download and Install the latest version of [Azure Storage Explorer](http://storageexplorer.com/). This tool is a standalone app from Microsoft that allows you to easily work with Azure Storage data on Windows, macOS and Linux.
-2. Open Azure Storage Explorer, select ![account icon](media/storage-use-storage-explorer-to-delete-vhd/account.png) on the left bar, select your Azure environment, and then sign in.
+2. Open Azure Storage Explorer, select ![account icon](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) on the left bar, select your Azure environment, and then sign in.
 
 3. Select all subscriptions or the subscription that contains the storage account you want to delete.
 
-    ![add subscription](media/storage-use-storage-explorer-to-delete-vhd/addsub.png)
+    ![add subscription](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/addsub.png)
 
 4. Go to the storage account that we obtained from the disk URL earlier, select the **Blob Containers** > **vhds** and search for the VHD that prevents you delete the storage account.
 5. If the VHD is found,  check the **VM Name** column to find the VM that is using this VHD.
 
-    ![Check vm](media/storage-use-storage-explorer-to-delete-vhd/check-vm.png)
+    ![Check vm](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/check-vm.png)
 
 6. Remove the lease from the VHD by using Azure portal. For more information, see [Remove the lease from the VHD](#remove-the-lease-from-the-vhd). 
 
@@ -89,7 +89,7 @@ To do this, use one of the following methods:
 
 1. When you delete the storage account, you will receive a message dialog such as the following: 
 
-    ![message when deleting the storage account](media/storage-use-storage-explorer-to-delete-vhd/delete-storage-error.png) 
+    ![message when deleting the storage account](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
 
 2. Check the **Disk URL** to identify the storage account and the VHD that prevents you delete the storage account. In the following example, the string before “.blob.core.windows.net “ is the storage account name, and "SCCM2012-2015-08-28.vhd" is the VHD name.  
 
