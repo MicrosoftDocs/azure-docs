@@ -30,7 +30,7 @@ A work or school, or personal Microsoft account that is used to access and manag
 See [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 ## API app
-Another name for [App Service App](#app-service-app).
+Another name for [App Service app](#app-service-app).
 
 ## App Service app
 [App Service](app-service/app-service-value-prop-what-is.md) is a [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure. In App Service, an app is the compute resources that Azure provides for hosting a [website or web application](app-service-web/app-service-web-overview.md), [web API](app-service-api/app-service-api-apps-why-best-platform.md), or [mobile app backend](pp-service-mobile/app-service-mobile-value-prop.md). App Service apps are also referred to as *App Services*, *web apps*, *API apps*, and *mobile apps*. All of these app types offer the same set of features; they are different names for the same thing.
