@@ -87,13 +87,14 @@ The component that reads and writes to Azure Event Hubs is located in the [HDIns
 
 This xml defines a dependency for the eventhubs package, which contains both a spout for reading from Event Hubs, and a bolt for writing to it.
 
+```xml
 </source>
     <target>1.8</target>
     </configuration>
 </plugin>
 ```
 
-This configures the project to generate output for Java 8, which is used by HDInsight 3.5 or higher.
+This xml configures the project to generate output for Java 8, which is used by HDInsight 3.5 or higher.
 
 #### The maven-shade-plugin
 
@@ -132,7 +133,7 @@ This configures the project to generate output for Java 8, which is used by HDIn
 </plugin>
 ```
 
-This configures the solution to package the output into an uber jar. The jar contains both the project code and required dependencies. It is also used to:
+This xml configures the solution to package the output into an uber jar. The jar contains both the project code and required dependencies. It is also used to:
 
 * Rename license files for the dependencies.
 * Exclude security/signatures.
@@ -343,7 +344,7 @@ Output is logged to the console when running locally. Use __Ctrl+C__ to stop the
 
         scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
 
-    If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. For example, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`.
+    If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. For example, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
 
     This command copies the file to the home directory of your SSH user on the cluster.
 
