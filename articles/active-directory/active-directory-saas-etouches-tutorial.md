@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.eiseverywhere.com/<instance name>`
 
 	> [!NOTE] 
-	> These values are not real. You will update the value with the actual Sign on URL and Identifier, which is explained later in the tutorial.
+	> These values are not real. You update the value with the actual Sign on URL and Identifier, which is explained later in the tutorial.
 	> 
 
 4. etouches application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attribute** of the application. The following screenshot shows an example for this. 
@@ -154,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. Go to the **SAML** Configuration.
 
-    c. In the **General Settings** section paste the downloaded Metadata content from Azure AD into the textbox.
+    c. In the **General Settings** section, Open your downloaded certificate in Notepad, copy the content, and then paste it into the IDP metadata textbox. 
 
     d. Click on the **Save & Stay** button.
   
@@ -164,7 +164,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     g. In the Username field, select the **emailaddress** as shown in the image below. 
 
-    h. Copy the **SP entity ID and SSO URL / ACS** value and paste it into the **etouches Domain and URLs** section on Azure portal.
+    h. Copy the **SP entity ID** value and paste it into the **Identifier**  textbox, which is in **etouches Domain and URLs** section on Azure portal.
+
+	i. Copy the **SSO URL / ACS** value and paste it into the **Sign on URL** textbox, which is in **etouches Domain and URLs** section on Azure portal.
    
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
