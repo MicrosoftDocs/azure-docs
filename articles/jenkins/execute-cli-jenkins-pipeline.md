@@ -8,7 +8,7 @@ manager: douge
 editor: ''
 
 ms.assetid: 
-ms.service: multiple
+ms.service: jenkins
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -177,6 +177,8 @@ You see:
 
 ## Deploy to Azure Web App on Linux
 Now that you know how to use Azure CLI in your Jenkins pipeline, you can modify the script to deploy to an Azure Web App on Linux.
+
+Web App on Linux supports a different way to do the deployment which is to use Docker. To deploy, you need to provide a Dockerfile that packages your web app with service runtime into a docker image. The plugin will then build the image, push it to a docker registry and deploy the image to your web app.
 
 * Follow the steps [here](/azure/app-service-web/app-service-linux-how-to-create-web-app) to create an Azure Web App running on Linux.
 * Install docker on your Jenkins instance by following the instructions in this [article](https://docs.docker.com/engine/installation/linux/ubuntu/).
