@@ -41,7 +41,7 @@ Azure AD Application Proxy is:
    * You don't need to change or update your applications to work with Application Proxy. 
    * Your users get a consistent authentication experience. They can use the MyApps portal to get single sign-on to both SaaS apps in the cloud and your apps on-premises. 
 * **Secure**
-   * When you publish your apps using Azure AD Application Proxy, you can take advantage of the rich authorization controls and security analytics in Azure. You get advanced security capabilities for all your existing apps without having to change any app.
+   * When you publish your apps using Azure AD Application Proxy, you can take advantage of the rich authorization controls and security analytics in Azure. You get cloud-scale security and Azure security features like conditional access and two-step verification.
    * You don't have to open any inbound connections through your firewall to give your users remote access. 
 * **Cost-effective**
    * Application Proxy works in the cloud, so you can save time and money. On-premises solutions require you to set up and maintain DMZs, edge servers, or other complex infrastructures.  
@@ -56,11 +56,11 @@ With Azure AD Application Proxy you can access different types of internal appli
 * Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
 
 ## How does Application Proxy work?
-Application Proxy works by installing a slim Windows Server agent called a connector inside your network. With the connector, you don't have to open any inbound ports or put anything in the DMZ. If you have high traffic to your apps you can add more connectors, and Application Proxy takes care of the load balancing. The connectors are stateless and pull everything from the cloud as necessary.
+There are two components that you need to configure to make Application Proxy work: a connector and an external endpoint. 
 
-For information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md). 
+The connector is a lightweight agent that sits on a Windows Server inside your network. The connector facilitates the traffic flow from the Application Proxy service in the cloud to your application on-premises. It only uses outbound connections, so you don't have to open any inbound ports or put anything in the DMZ. The connectors are stateless and pull information from the cloud as necessary. For more information about connectors, like how they load-balance and authenticate, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md). 
 
-Every app that you publish with Application Proxy gets an external URL for your users to go to, and appears in the MyApps portal. When users access applications through one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.
+The external endpoint is how your users reach your applications while outside of your network. They can either go directly to an external URL that you determine, or they can access the application through the MyApps portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.
 
  ![AzureAD Application Proxy diagram](./media/active-directory-appssoaccess-whatis/azureappproxxy.png)
 
