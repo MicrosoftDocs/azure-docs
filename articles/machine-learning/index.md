@@ -19,23 +19,10 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
 
 Azure Machine Learning provides two options to help you develop, experiment, and deploy advanced analytics applications at cloud scale:
 
-<table>
-    <tr><td>
-        <a href="/azure/machine-learning/workbench/what-is-ml-workbench.md?toc=%2fazure%2fmachine-learning%2fworkbench%2ftoc.json">
-        <img src="media/index/machine-learning-workbench.svg" alt="" height=150 width=150 />
-        </br><strong>Azure Machine Learning Workbench</strong>
-        </a>
-        <br/>An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. 
-        </td>
-        <td>
-        <a href="/azure/machine-learning/studio/what-is-ml-studio.md?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">
-        <img src="media/index/machine-learning.svg" alt="" height=150 width=150 />
-        </br><strong>Azure Machine Learning Studio</strong>
-        </a>
-        <br/>A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
-        <td>
-    </tr>
-</table>
+|  |  |
+|--|--|
+| ![](media/index/machine-learning-workbench.svg) [Azure Machine Learning Workbench](/azure/machine-learning/workbench/what-is-ml-workbench.md?toc=%2fazure%2fmachine-learning%2fworkbench%2ftoc.json) <br>An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. | ![](media/index/machine-learning.svg) [Azure Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio.md?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json) <br>A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment. |
+| | |
 
 In addition, these tools are available to you in Azure Machine Learning:
 
