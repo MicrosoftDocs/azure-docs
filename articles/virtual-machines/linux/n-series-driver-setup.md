@@ -249,7 +249,6 @@ Then run installation commands specific for your distribution.
   ```
 2. Reconnect to the VM and install the latest Linux Integration Services for Hyper-V.
 
-  
   ```bash
   wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
  
