@@ -184,9 +184,9 @@ If your SQL database supports [change tracking](https://docs.microsoft.com/sql/r
 + Database version requirements:
   * SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs.
   * Azure SQL Database V12, if you're using Azure SQL Database.
-+ Tables only. It cannot be used with views. 
-+ On the database, enable change tracking for the table. See [Enable and disable change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for instructions.
-+ Verify the table does not use a composite primary key (primary key containing more than one column).  
++ Tables only (no views). 
++ On the database, [enable change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table. 
++ No composite primary key (a primary key containing more than one column) on the table.  
 
 #### Usage
 
@@ -330,10 +330,12 @@ A: Yes. Indexer runs on one of the nodes in your search service, and that nodeâ€
 
 **Q:** Can I use a secondary replica in a [failover cluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) as an indexer data source?
 
-A: Yes and no
+A: Yes and no.
 
-  + Yes, if the indexer is running on demand or on an initial run where the index is populated for the first time. 
-  + No, if the indexer is performing an incremental index and you are using a **rowversion** column in a [High Water Mark policy](#HighWaterMarkPolicy) to detect changes. The **rowversion** column depends on SQL Database's `MIN_ACTIVE_ROWVERSION` function, which is not available in secondary replicas. For this reason, incremental indexing from a secondary replica is not allowed. The error you'll see when attempting to index from a secondary replica is: "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+  + Yes if the indexer runs on demand or the entire index is built. 
+  + No if indexing is incremental and you are using a **rowversion** column in a [High Water Mark policy](#HighWaterMarkPolicy) to detect changes. The **rowversion** column depends on SQL Database's `MIN_ACTIVE_ROWVERSION` function, which is not available in secondary replicas. 
+  
+   The error you'll see when attempting to index from a secondary replica is: "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
 **Q:** Can I use an alternative, non-rowversion column for high water mark change tracking?
 
