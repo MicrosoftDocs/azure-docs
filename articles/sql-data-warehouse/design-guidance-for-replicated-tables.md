@@ -55,9 +55,9 @@ Consider converting an existing distributed table to a replicated table when:
  
 Avoid using a replicated table when:
 
-- The table has frequent insert, update, and delete operations. These data manipulation language (DML) operations require a rebuild of the replicated table. Frequent rebuilds will cause slower performance.
+- The table has frequent insert, update, and delete operations. These data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
 - The data warehouse is scaled frequently. Scaling a data warehouse changes the number of Compute nodes, which incurs a rebuild.
-- The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to hash distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Data Warehouse will only need to move data in the requested columns. 
+- The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to hash distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Data Warehouse only moves data in the requested columns. 
 
 
 
@@ -125,7 +125,7 @@ INNER JOIN dbo.DimSalesTerritory t
 WHERE d.FiscalYear = 2004
   AND t.SalesTerritoryGroup = 'North America'
 ```
-We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan which has multiple broadcast move operations: 
+We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan, which has multiple broadcast move operations: 
  
 ![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Round-robin query plan") 
 
@@ -199,9 +199,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
  
 ## Public preview notes
-It is important to note that replicated tables are currently in a public preview phase.  Some differences exist for the preview version of the improvement versus the final version that is yet to be released.  
-
-Public preview behaviors that will change:
+It is important to note that replicated tables are currently in a public preview phase.  The following behaviors are for preview only. They are different in the final release.
 
 - Locking behavior. When SQL Data Warehouse rebuilds a replicated table, the system takes an exclusive lock. The lock prevents all access to the table for the duration of the rebuild.
 - Rebuilding within a select statement. A replicated table rebuild happens as a step within the select statement that triggered the rebuild.  Depending on the size of the table, the impact to the initial select statement could be significant.  If multiple replicated tables are involved that need a rebuild, each copy is rebuilt serially as steps within the statement.
