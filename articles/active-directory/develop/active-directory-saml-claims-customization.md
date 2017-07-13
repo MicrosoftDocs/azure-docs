@@ -70,7 +70,7 @@ For example, you need to send the department that the user belongs to in their o
 > [!TIP]
 > The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premises Active Directory using the [Azure AD Connect tool](../active-directory-aadconnect.md).
 
-## Restricted Claims
+## Restricted claims
 
 There are some restricted claims in SAML. If you add these claims, then Azure AD will not send these claims. Following are the SAML restricted claim set:
 
@@ -129,10 +129,10 @@ There are some restricted claims in SAML. If you add these claims, then Azure AD
 * [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-claims-customization/user_attribute_section.png
-[2]: ./media/active-directory-saml-claims-customization/edit_claim_name_value.png
-[3]: ./media/active-directory-saml-claims-customization/delete_claim.png
-[4]: ./media/active-directory-saml-claims-customization/user_identifier.png
-[5]: ./media/active-directory-saml-claims-customization/extractemailprefix_function.png
-[6]: ./media/active-directory-saml-claims-customization/join_function.png
-[7]: ./media/active-directory-saml-claims-customization/add_attribute.png
+[1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png
+[2]: ./media/active-directory-saml-claims-customization/edit-claim-name-value.png
+[3]: ./media/active-directory-saml-claims-customization/delete-claim.png
+[4]: ./media/active-directory-saml-claims-customization/user-identifier.png
+[5]: ./media/active-directory-saml-claims-customization/extractemailprefix-function.png
+[6]: ./media/active-directory-saml-claims-customization/join-function.png
+[7]: ./media/active-directory-saml-claims-customization/add-attribute.png
