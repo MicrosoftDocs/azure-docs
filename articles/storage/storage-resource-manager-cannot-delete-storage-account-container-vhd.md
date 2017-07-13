@@ -102,7 +102,7 @@ To do this, use one of the following methods:
 
 4. Locate the VHD that we obtained from the disk URL earlier. Then, determine which VM is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD:
 
-VM in Resource Manager model
+VM in Resource Manager development  model
 
    * OS disks generally follow this naming convention: VMName-YYYY-MM-DD-HHMMSS.vhd
    * Data disks generally follow this naming convention: VMName-YYYY-MM-DD-HHMMSS.vhd
