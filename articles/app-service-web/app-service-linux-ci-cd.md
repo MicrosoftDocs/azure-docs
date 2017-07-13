@@ -38,18 +38,24 @@ In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the v
 
 ![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## Step 3 - Add a web hook
+## Step 3 - Prepare Webhook URL
+
+For the Webhook URL, you need to have the following endpoint:
+`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+
+You can obtain your `publishingusername` and `publishingpwd` by downloading the web app publish profile using the Azure portal.
+
+![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
+
+## Step 4 - Add a web hook
 
 ### Azure Container Registry
 
-In your registry portal blade, click **Webhooks**, create a new webhook by clicking **Add**. In the **Create webhook** blade, give your webhook a name. For the Webhook URI, you need to provide the following endpoint:
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+In your registry portal blade, click **Webhooks**, create a new webhook by clicking **Add**. In the **Create webhook** blade, give your webhook a name. For the Webhook URI, you need to provide the URL obtained from **Step 3**
 
 Make sure that you define the scope as the repo that contains your container image.
 
 ![insert image of webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-Click **Create** to save configuration.
 
 When the image gets updated, the web app get updated automatically with the new image.
 
@@ -59,14 +65,9 @@ In your Docker Hub page, click **Webhooks**, then **CREATE A WEBHOOK**.
 
 ![insert image of adding webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-For the Webhook URL, you need to have the following endpoint:
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+For the Webhook URL, you need to provide the URL obtained from **Step 3**
 
 ![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-You can obtain your `publishingusername` and `publishingpwd` by downloading the web app publish profile using the Azure portal.
-
-![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
 When the image gets updated, the web app get updated automatically with the new image.
 
