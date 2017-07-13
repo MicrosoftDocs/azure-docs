@@ -10,9 +10,11 @@ Create an IoT hub for your simulated device app to connect to. The following ste
     ![IoT hub blade][2]
    
    1. In the **Name** box, enter a name for your IoT hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
+
 > [!IMPORTANT]
 > We recommend avoiding sensitive or personally identifiable information while naming your IoT hub, since it will be publicly discoverable as a DNS endpoint.
 >
+
    1. Select a [pricing and scale tier][lnk-pricing]. This tutorial does not require a specific tier. For this tutorial, use the free F1 tier.
    1. In **Resource group**, either create a resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
    1. In **Location**, select the location to host your IoT hub. For this tutorial, choose your nearest location.
