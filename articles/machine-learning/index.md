@@ -10,16 +10,40 @@ ms.service: machine-learning
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 07/13/2017
 ms.author: carolz
 ---
 #Azure Machine Learning Documentation
 
 Learn how data scientists and developers use Machine Learning to embed predictive analytics into applications. Tutorials, videos, and example models show you how to build and deploy machine learning models.
 
+Azure Machine Learning provides two options that help you develop, experiment, and deploy advanced analytics applications at cloud scale. 
+
+* **Azure Machine Learning Workbench** - An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. 
+
+* **Azure Machine Learning Studio** - A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
+
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/machine-learning/machine-learning-what-is-machine-learning">
+        <a href="/azure/machine-learning/workbench/what-is-ml-workbench.md?toc=%2fazure%2fmachine-learning%2fworkbench%2ftoc.json">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/MachineLearningWorkbench.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about Azure Machine Learning Workbench</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/machine-learning/studio/what-is-ml-studio.md?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -29,7 +53,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Machine Learning</h3>
+                        <h3>Learn about Azure Machine Learning Studio</h3>
                     </div>
                 </div>
             </div>
@@ -55,7 +79,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers">
+        <a href="/azure/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,7 +97,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/machine-learning-create-experiment">
+        <a href="/azure/machine-learning/studio/create-experiment?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,7 +127,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (New)</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (Classic)</a></p>
+                        <p><a href="/azure/machine-learning/studio/powershell-module?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">PowerShell (Classic)</a></p>
                     </div>
                 </div>
             </div>
@@ -128,7 +152,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/machinelearning">REST API reference</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-web-service-error-codes">Web service error codes</a></p>
+                        <p><a href="/azure/machine-learning/studio/web-service-error-codes?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">Web service error codes</a></p>
                     </div>
                 </div>
             </div>
