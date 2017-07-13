@@ -41,7 +41,7 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 * [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
 
-### Labels
+## Labels
 In the public azure-docs repository, automated labels are assigned to pull requests to help us manage the pull request workflow and to help let you know what's going on with your pull request:
 
 * Contribution License Agreement related
