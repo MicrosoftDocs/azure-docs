@@ -41,32 +41,6 @@ The following diagram shows a replicated table that is accessible on each Comput
 
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table")  
 
-### Replicated tables have better query performance than round-robin tables
-
-A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system catalog view. 
-
-For example, in following query against the AdventureWorks schema, the ` FactInternetSales` table is hash-distributed. The `DimDate` and `DimSalesTerritory` tables are smaller dimension tables. This query returns the total sales in North America for fiscal year 2004:
- 
-```sql
-SELECT [TotalSalesAmount] = SUM(SalesAmount)
-FROM dbo.FactInternetSales s
-INNER JOIN dbo.DimDate d
-  ON d.DateKey = s.OrderDateKey
-INNER JOIN dbo.DimSalesTerritory t
-  ON t.SalesTerritoryKey = s.SalesTerritoryKey
-WHERE d.FiscalYear = 2004
-  AND t.SalesTerritoryGroup = 'North America'
-```
-We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan. Note there are multiple broadcast move operations. 
- 
-![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Round-robin query plan") 
-
-We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran the query again. The resulting query plan is much shorter and does not have any broadcast moves.
-
-![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "Round-robin query plan") 
-
-## When to use a replicated table
-
 Replicated tables work well for small dimension tables in a star schema. Dimension tables are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to fewer rebuilds of the replicated table. 
 
 Consider using a replicated table when:
@@ -133,6 +107,31 @@ RENAME OBJECT [dbo].[DimSalesTerritory_REPLICATE] TO [DimSalesTerritory];
 DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ```  
+
+### Query performance example for round-robin versus replicated 
+
+A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system catalog view. 
+
+For example, in following query against the AdventureWorks schema, the ` FactInternetSales` table is hash-distributed. The `DimDate` and `DimSalesTerritory` tables are smaller dimension tables. This query returns the total sales in North America for fiscal year 2004:
+ 
+```sql
+SELECT [TotalSalesAmount] = SUM(SalesAmount)
+FROM dbo.FactInternetSales s
+INNER JOIN dbo.DimDate d
+  ON d.DateKey = s.OrderDateKey
+INNER JOIN dbo.DimSalesTerritory t
+  ON t.SalesTerritoryKey = s.SalesTerritoryKey
+WHERE d.FiscalYear = 2004
+  AND t.SalesTerritoryGroup = 'North America'
+```
+We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan. Note there are multiple broadcast move operations. 
+ 
+![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Round-robin query plan") 
+
+We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran the query again. The resulting query plan is much shorter and does not have any broadcast moves.
+
+![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "Round-robin query plan") 
+
 
 ## Performance considerations for modifying replicated tables
 SQL Data Warehouse implements a replicated table by maintaining a master version of the table and copying the master version in full to one distribution database on each Compute node. After data is modified in the master table, SQL Data Warehouse requires a rebuild of the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then rebuilding the indexes.
