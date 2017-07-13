@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 
 ---
@@ -131,17 +131,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In the toolbar, click **Admin**, and then **Account**.
    
-    ![Admin](./media/active-directory-saas-bime-tutorial/IC775558.png "Admin")
+    ![Admin](./media/active-directory-saas-bime-tutorial/ic775558.png "Admin")
 
 9. On the account configuration page, perform the following steps:
    
-    ![Configure Single Sign-On](./media/active-directory-saas-bime-tutorial/IC775559.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-bime-tutorial/ic775559.png "Configure Single Sign-On")
    
     a. Select **Enable SAML authentication**.
 
     b. In the **Remote Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-    c. Copy the **Thumbprint** value from the downloaded certificate, and then paste it into the **Certificate Fingerprint** textbox.       
+    c.  Paste the **Thumbprint** value from Azure portal into the **Certificate Fingerprint** textbox.       
    
     d. Click **Save**.
 
@@ -182,9 +182,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Bime test user
 
-In order to enable Azure AD users to log in to Bime, they must be provisioned into Bime.  
-
-* In the case of Bime, provisioning is a manual task.
+In order to enable Azure AD users to log in to Bime, they must be provisioned into Bime. In the case of Bime, provisioning is a manual task.
 
 **To configure user provisioning, perform the following steps:**
 
@@ -192,15 +190,15 @@ In order to enable Azure AD users to log in to Bime, they must be provisioned in
 
 2. In the toolbar, click **Admin**, and then **Users**.
    
-    ![Admin](./media/active-directory-saas-bime-tutorial/IC775561.png "Admin")
+    ![Admin](./media/active-directory-saas-bime-tutorial/ic775561.png "Admin")
 
 3. In the **Users List**, click **Add New User** (“+”).
    
-    ![Users](./media/active-directory-saas-bime-tutorial/IC775562.png "Users")
+    ![Users](./media/active-directory-saas-bime-tutorial/ic775562.png "Users")
 
 4. On the **User Details** dialog page, perform the following steps:
    
-    ![User Details](./media/active-directory-saas-bime-tutorial/IC775563.png "User Details")
+    ![User Details](./media/active-directory-saas-bime-tutorial/ic775563.png "User Details")
    
     a. In the **First name** textbox, enter the first name of user like **Britta**.
 
