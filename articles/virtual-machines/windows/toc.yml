@@ -75,10 +75,6 @@
   - name: Planned maintenance
     href: planned-maintenance.md
     items:
-    - name: Preserving maintenance
-      href: preserving-maintenance.md
-    - name: Restarting maintenance
-      href: impactful-maintenance.md
     - name: Schedule
       href: planned-maintenance-schedule.md
   - name: VM sizes
