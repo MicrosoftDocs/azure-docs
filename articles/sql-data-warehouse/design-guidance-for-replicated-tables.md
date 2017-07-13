@@ -22,7 +22,7 @@ ms.author: rortloff;barbkess
 This article gives recommendations for designing replicated tables in your SQL Data Warehouse schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 
 > [!NOTE]
-> The replicated table feature is currently in public preview. For differences in behavior between preview and the general availability release, see the public preview notes at the end of this article.
+> The replicated table feature is currently in public preview. Some behaviors are subject to change.  For more information, see Public preview notes at the end of this article.
 > 
 
 ## Prerequisites
@@ -46,7 +46,8 @@ Replicated tables work well for small dimension tables in a star schema. Dimensi
 Consider using a replicated table when:
 
 - The table size on disk is less than 2 GB, regardless of the number of rows. To find the size of a table, you can use the [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) command: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- The table is used in distribution-incompatible joins. These joins require data movement because the joins are not on the same distribution column of hash-distributed tables, or because the joins involve round-robin tables. Joining a hash-distributed table to a replicated table does not require data movement.
+- The table is used in joins that would otherwise require data movement. For example, a join on hash-distributed tables requires data movement when the joining columns are not the same distribution column. If one of the hash-distributed tables is small, consider a replicated table. A join on a round-robin table requires data movement. We recommend using replicated tables instead of round-robin tables in most cases. 
+
 
 Consider converting an existing distributed table to a replicated table when:
 
@@ -54,9 +55,9 @@ Consider converting an existing distributed table to a replicated table when:
  
 Avoid using a replicated table when:
 
-- The table has frequent insert, update, and delete operations. These data manipulation language (DML) operations require a rebuild of the replicated table. Continual rebuilds slows performance.
+- The table has frequent insert, update, and delete operations. These data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
 - The data warehouse is scaled frequently. Scaling a data warehouse changes the number of Compute nodes, which incurs a rebuild.
-- The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to hash distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Data Warehouse will only need to move data in the requested columns. 
+- The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to hash distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Data Warehouse only moves data in the requested columns. 
 
 
 
@@ -124,7 +125,7 @@ INNER JOIN dbo.DimSalesTerritory t
 WHERE d.FiscalYear = 2004
   AND t.SalesTerritoryGroup = 'North America'
 ```
-We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan. Note there are multiple broadcast move operations. 
+We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan, which has multiple broadcast move operations: 
  
 ![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Round-robin query plan") 
 
@@ -134,7 +135,7 @@ We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran th
 
 
 ## Performance considerations for modifying replicated tables
-SQL Data Warehouse implements a replicated table by maintaining a master version of the table and copying the master version in full to one distribution database on each Compute node. After data is modified in the master table, SQL Data Warehouse requires a rebuild of the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then rebuilding the indexes.
+SQL Data Warehouse implements a replicated table by maintaining a master version of the table. It copies the master version to one distribution database on each Compute node. When there is a change, SQL Data Warehouse first updates the master table. Then it requires a rebuild of the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then rebuilding the indexes.
 
 Rebuilds are required after:
 - Data is loaded or modified
@@ -147,11 +148,10 @@ Rebuilds are not required after:
 
 The rebuild does not happen immediately after data is modified. Instead, the rebuild is triggered the first time a query selects from the table.
 
-Rebuilding the replicated table can slow query performance. Therefore, when designing a replicated table, try to minimize the number of times the table is rebuilt. We discuss ways to minimize rebuilds in the loading section.
-
+Rebuilding the replicated table can slow query performance. Therefore, when designing a replicated table, try to minimize the number of times the table is rebuilt. 
 
 ### Use indexes conservatively
-Standard indexing practices apply to replicated tables. In SQL Data Warehouse each index on a replicated table is rebuilt as part of the replicated table rebuild. Only use indexes when the performance gain outweighs the cost of rebuilding the indexes.  
+Standard indexing practices apply to replicated tables. SQL Data Warehouse rebuilds each replicated table index as part of the rebuild. Only use indexes when the performance gain outweighs the cost of rebuilding the indexes.  
  
 ### Batch data loads
 When loading data into replicated tables, try to minimize rebuilds by batching loads together. Perform all the batched loads before running select statements.
@@ -199,12 +199,10 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
  
 ## Public preview notes
-It is important to note that replicated tables are currently in a public preview phase.  Some differences exist for the preview version of the improvement versus the final version that is yet to be released.  
+It is important to note that replicated tables are currently in a public preview phase.  The following behaviors are for preview only. They are different in the final release.
 
-Public preview behavior that will change in the final release:
-
-- Locking behavior. When SQL Data Warehouse rebuilds a replicated table, the system takes an exclusive lock. This prevents all access to the table for the duration of the rebuild.
-- Rebuilding within a select statement. A replicated table rebuild happens as a step within the select statement that triggered the rebuild.  Depending on the size of the table, the impact to the initial select statement could be significant as a copy of the table needs to be built on each Compute node.  If multiple replicated tables are involved without full copies built, each fully copy is built serially as steps within the statement.
+- Locking behavior. When SQL Data Warehouse rebuilds a replicated table, the system takes an exclusive lock. The lock prevents all access to the table for the duration of the rebuild.
+- Rebuilding within a select statement. A replicated table rebuild happens as a step within the select statement that triggered the rebuild.  Depending on the size of the table, the impact to the initial select statement could be significant.  If multiple replicated tables are involved that need a rebuild, each copy is rebuilt serially as steps within the statement.
 
 ## Next Steps 
 To create a replicated table, use one of these statements:
