@@ -128,11 +128,11 @@ By default, non-SSL access is disabled for new caches. To enable the non-SSL por
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
 
 #### Memory policies
-The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
+The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache.
 
 ![Redis Cache Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
-**Maxmemory policy** allows you to choose from the following eviction policies:
+**Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
 * `volatile-lru` - this is the default.
 * `allkeys-lru`
