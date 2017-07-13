@@ -21,7 +21,7 @@ ms.author: echuvyrov
 # Create basic infrastructure in Azure by using Terraform
 This article describes the steps you need to take to provision a virtual machine, together with underlying infrastructure, into Azure. You will learn how to write Terraform scripts and how to visualize the changes before you make them in your cloud infrastructure. You also will learn how to create infrastructure in Azure by using Terraform.
 
-To get started, create a file called \_terraform_azure101.tf_ in your text editor of choice (Visual Studio Code/Sublime/Vim/etc.). The exact name of the file isn't important because Terraform accepts the folder name as a parameter: all scripts in the folder get executed. Paste the following code in the new file:
+To get started, create a file called \terraform_azure101.tf in your text editor of choice (Visual Studio Code/Sublime/Vim/etc.). The exact name of the file isn't important because Terraform accepts the folder name as a parameter: all scripts in the folder get executed. Paste the following code in the new file:
 
 ~~~~
 # Configure the Microsoft Azure Provider
@@ -45,6 +45,10 @@ The `azurerm_resource_group` resource instructs Terraform to create a new resour
 
 ## Execute the script
 After you save the script, exit to the console/command line, and type the following:
+```
+terraform init
+```
+to initialize Terraform provider for Azure. Then type the following:
 ```
 terraform plan terraformscripts
 ```
