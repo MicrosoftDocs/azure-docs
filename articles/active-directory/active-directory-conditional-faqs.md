@@ -60,11 +60,20 @@ Microsoft Teams desktop clients for Windows and Mac support modern authenticatio
 
 ## How many IP ranges does Named locations support?
 
-Markus to add 😊
+The number of locations you can configure is constrained by the size of the related object in Azure AD.
+You can configure:
+
+- One named location with up to 500 IP ranges
+- A maximum of 60 named locations with one IP range assigned to each of them 
+
 
 ## Can I still use MFA Trusted IPs?
 
-Yes, you can continue to use MFA Trusted IPs in Conditional Access policies. To use MFA Trusted IPs, you can select “Trusted IPs” under Locations condition.
+Yes, you can continue to use MFA Trusted IPs in Conditional Access policies.  
+To use MFA Trusted IPs, under the locations condition, select **Trusted IPs** .
+
+![Creating an Azure AD test user](./media/active-directory-conditional-faqs/01.png)
+
    
 ## What kind of ranges should I define in named locations?
 
