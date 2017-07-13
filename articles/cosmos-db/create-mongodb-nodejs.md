@@ -139,7 +139,7 @@ In this step, you connect your MEAN.js sample application to an Azure Cosmos DB 
 
 In your MEAN.js repository, open `config/env/local-development.js`.
 
-Replace the content of this file with the following code. Be sure to also replace the two `<cosmosdb-name>` placeholders with your Azure Cosmos DB account name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
+Replace the content of this file with the following code. Be sure to also replace the two `<cosmosdb-name>` placeholders with your Azure Cosmos DB account name.
 
 ```javascript
 'use strict';
