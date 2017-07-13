@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/14/2017
 ms.author: jeedes
 
 ---
@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. On the **Atlassian Cloud Domain and URLs** section, perform the following steps:
+3. On the **Atlassian Cloud Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
 
@@ -112,20 +112,26 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL as: `https://id.atlassian.com/login/saml/acs`
 
+4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
+
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.atlassian.net`
+
 	> [!NOTE] 
-	> You can get the exact value of the Identifier from the Atlassian Cloud SAML Configuration screen.
+	> These values are not real. Update these values with the actual Identifier and Sign-On URL. You can get the exact values from Atlassian Cloud SAML Configuration screen.
  
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png) 
 
-5. On the **Atlassian Cloud Configuration** section, click **Configure Atlassian Cloud** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Atlassian Cloud Configuration** section, click **Configure Atlassian Cloud** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png) 
 
-6. To get SSO configured for your application, login to the Atlassian Portal using the administrator rights.
+7. To get SSO configured for your application, login to the Atlassian Portal using the administrator rights.
 
-7. In the Authentication section of the left navigation click **Domains**.
+8. In the Authentication section of the left navigation click **Domains**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_06.png)
 
@@ -145,13 +151,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_10.png)
 
-8. In the left navigation bar, click **SAML**.
+9. In the left navigation bar, click **SAML**.
  
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-9. Create a SAML Configuration and add the Identity provider configuration.
+10. Create a SAML Configuration and add the Identity provider configuration.
 
-   ![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
     a. In the **Identity provider Entity ID** text box, paste the value of  **SAML Entity ID** which you have copied from Azure portal.
 
@@ -161,7 +167,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     d. Click **Save Configuration**  to Save the settings.
      
-10. Update the Azure AD settings to make sure that you have setup the correct Identifier URL.
+11. Update the Azure AD settings to make sure that you have setup the correct Identifier URL.
   
     a. Copy the **SP Identity ID** from the SAML screen and paste it in Azure AD as the **Identifier** value.
 
@@ -169,7 +175,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
      ![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 	
-11. In the Azure portal, Click **Save** button.
+12. In the Azure portal, Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
 
