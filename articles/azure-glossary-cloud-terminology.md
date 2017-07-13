@@ -33,7 +33,7 @@ See [How Azure subscriptions are associated with Azure Active Directory](active-
 Another name for [App Service app](#app-service-app).
 
 ## App Service app
-[App Service](app-service/app-service-value-prop-what-is.md) is a [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure. In App Service, an app is the compute resources that Azure provides for hosting a [website or web application](app-service-web/app-service-web-overview.md), [web API](app-service-api/app-service-api-apps-why-best-platform.md), or [mobile app backend](app-service-mobile/app-service-mobile-value-prop.md). App Service apps are also referred to as *App Services*, *web apps*, *API apps*, and *mobile apps*. All of these app types offer the same set of features; they are different names for the same thing.
+The compute resources that [Azure App Service](app-service/app-service-value-prop-what-is.md) provides for hosting a [website or web application](app-service-web/app-service-web-overview.md), [web API](app-service-api/app-service-api-apps-why-best-platform.md), or [mobile app backend](app-service-mobile/app-service-mobile-value-prop.md). App Service apps are also referred to as *App Services*, *web apps*, *API apps*, and *mobile apps*.
 
 ## availability set
 A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an availability set ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.  
@@ -76,7 +76,7 @@ See [Azure subscription and service limits, quotas, and constraints](azure-subsc
 ## load balancer
 A resource that distributes incoming traffic among computers in a network. In Azure, a load balancer distributes traffic to virtual machines defined in a load-balancer set. A [load balancer](load-balancer/load-balancer-overview.md) can be internet-facing, or it can be internal.  
 
-## Mobile app
+## mobile app
 Another name for [App Service App](#app-service-app).
 
 ## offer
@@ -115,7 +115,7 @@ The agreement that describes Microsoft’s commitments for uptime and connectivi
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>shared access signature (SAS)
-A shared access signature (SAS) enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](storage/storage-dotnet-shared-access-signature-part-1.md) to grant client access to objects such as blobs, and [IoT Hub uses SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) to grant devices permission to send telemetry.
+A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](storage/storage-dotnet-shared-access-signature-part-1.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) to grant devices permission to send telemetry.
 
 ## storage account
 An account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. The storage account name defines the unique namespace for Azure Storage data objects.  
