@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/13/2017
 ms.author: juliako
 
 ---
@@ -65,7 +65,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
         ...
             <appSettings>
               <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="RESTAPIEndpoint" value="YourRESTAPIEndpoint" />
+              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
             </appSettings>
 
         </configuration>
@@ -88,7 +88,7 @@ Here is a small example that connects to the AMS API and lists all available Med
 	    private static readonly string _AADTenantDomain =
 	        ConfigurationManager.AppSettings["AADTenantDomain"];
 	    private static readonly string _RESTAPIEndpoint =
-	        ConfigurationManager.AppSettings["RESTAPIEndpoint"];
+	        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 	
 	    private static CloudMediaContext _context = null;
 	    static void Main(string[] args)
