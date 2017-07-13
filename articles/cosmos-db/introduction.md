@@ -24,8 +24,12 @@ Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With 
 
 ![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
 
+## Solutions that will benefit from Azure Cosmos DB
+
+[Web, mobile, gaming, and IoT applications](use-cases.md) that need low response times and need to handle massive amounts of reads and writes on a [global](distribute-data-globally.md) scale will benefit from Azure Cosmos DB's [guaranteed](https://azure.microsoft.com/support/legal/sla/cosmos-db/) availability, high throughput, low latency, and tunable consistency.
+
 ## Key capabilities
-As a globally distributed database service, Azure Cosmos DB provides the following capabilities to help you build scalable, globally distributed, highly responsive applications:
+As a globally distributed database service, Azure Cosmos DB provides the following capabilities to help you build scalable, highly responsive applications:
 
 * **Turnkey global distribution**
     * You can [distribute your data](distribute-data-globally.md) to any number of Azure regions, with the [click of a button](tutorial-global-distribution-documentdb.md). This enables you to put your data where your users are, ensuring the lowest possible latency to your customers. 
@@ -33,38 +37,40 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
 
 
 * **Multiple data models and popular APIs for accessing and querying data**
-    * The atom-record-sequence (ARS) based data model that Azure Cosmos DB is built on natively supports multiple data models, including but not limited to document, graph, key-value, table, and columnar.
-    * APIs for the following data models are available in multiple languages:
-        * DocumentDB API
-        * MongoDB API
-        * Graph (Gremlin) API
-        * Table API
+    * The atom-record-sequence (ARS) based data model that Azure Cosmos DB is built on natively supports multiple data models, including but not limited to document, graph, key-value, table, and columnar data models.
+    * APIs for the following data models are supported with SDKs available in multiple languages:
+        * [DocumentDB API](documentdb-introduction.md)
+        * [MongoDB API](mongodb-introduction.md)
+        * [Table API](table-introduction.md)
+        * [Graph (Gremlin) API](graph-introduction.md)
         * Additional data models coming soon 
 
 * **Elastically scale throughput and storage on demand, worldwide**
     * Easily scale database throughput at [second](request-units.md) and [minute](request-units-per-minute.md) granularities, and change it anytime you want. 
-    * Scale storage size [transparently and automatically](partition-data.md) to cover your size requirements now and forever.
+    * Scale storage size [transparently and automatically](partition-data.md) to handle your size requirements now and forever.
 
-* [**Build highly responsive and mission-critical applications**](#low-latency) 
-    * Get access to your data with single digit millisecond latencies at the 99th percentile, anywhere in the world. 
+* **Build highly responsive and mission-critical applications**
+    * Azure Cosmos DB guarantees end-to-end low latency at the 99th percentile to its customers. 
+    * For a typical 1 KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 15 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
 
-* [**Ensure "always on" availability**](#high-availability)
+* **Ensure "always on" availability**
     * 99.99% availability within a single region.
     * Deploy to any number of [Azure regions](https://azure.microsoft.com/regions) for higher availability.
     * [Simulate a failure](regional-failover.md) of one or more regions with zero-data loss guarantees. 
 
-* [**Write globally distributed applications, the right way**](consistency-levels.md)
-    * Five consistency models models offer strong SQL-like consistency to NoSQL-like eventual consistency, and every thing in between. 
+* **Write globally distributed applications, the right way**
+    * Five [consistency models](consistency-levels.md) models provide a spectrum of strong SQL-like consistency all the way to NoSQL-like eventual consistency, and every thing in between. 
   
-* [**Money back guarantees**](#sla) 
+* **Money back guarantees**
     * Your data gets there fast, or your money back. 
     * [Service level agreements](https://aka.ms/acdbsla) for availability, latency, throughput, and consistency. 
 
-* [**No database schema/index management**](#schema-free)
+* **No database schema/index management**
     * Stop worrying about keeping your database schema and indexes in-sync with your application’s schema. We're schema-free. 
+    * Azure Cosmos DB’s database engine is fully schema-agnostic – it automatically indexes all the data it ingests without requiring any schema or indexes and serves blazing fast queries. 
 
-* [**Low cost of ownership**](#tco)
-    * Five to ten times [more cost effective](https://aka.ms/documentdb-tco-paper) than a non-managed solution.
+* **Low cost of ownership**
+    * Five to ten times [more cost effective](https://aka.ms/cosmos-db-tco-paper) than a non-managed solution.
     * Three times cheaper than DynamoDB.
 
 ## Capability comparison
