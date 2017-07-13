@@ -131,9 +131,9 @@ func new
 
 | Argument     | Description                            |
 | ------------ | -------------------------------------- |
-| **--language [-l]** | The template programming language, such as C#, F#, or JavaScript. |
-| **--template [-t]** | The template name. |
-| **--name [-n]** | The function name. |
+| **`--language -l`** | The template programming language, such as C#, F#, or JavaScript. |
+| **`--template -t`** | The template name. |
+| **`--name -n`** | The function name. |
 
 For example, to create a JavaScript HTTP trigger, run:
 
@@ -159,14 +159,14 @@ func host start
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-|**--port [-p]** | The local port to listen on. Default value: 7071. |
-| **--debug <type>** | The options are VSCode and VS. |
-| **--cors** | A comma-separated list of CORS origins, with no spaces. |
-| **--nodeDebugPort [-n]** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
-| **--debugLevel [-d]** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
-| **--timeout [-t]** | The time out for the Functions host t     o start, in seconds. Default: 20 seconds.|
-| **--useHttps** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
-| **--pause-on-error** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
+|**`--port -p`** | The local port to listen on. Default value: 7071. |
+| **`--debug <type>`** | The options are `VSCode` and `VS`. |
+| **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
+| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
+| **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
+| **`--timeout -t`** | The time out for the Functions host t     o start, in seconds. Default: 20 seconds.|
+| **`--useHttps`** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
+| **`--pause-on-error`** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
@@ -202,11 +202,11 @@ You can also invoke a function directly by using `func run <FunctionName>` and p
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **--content [-c]** | Inline content. |
-| **--debug [-d]** | Attach a debugger to the host process before running the function.|
-| **--timeout [-t]** | Time to wait (in seconds) until the local Functions host is ready.|
-| **--file [-f]** | The file name to use as content.|
-| **--no-interactive** | Does not prompt for input. Useful for automation scenarios.|
+| **`--content -c`** | Inline content. |
+| **`--debug -d`** | Attach a debugger to the host process before running the function.|
+| **`--timeout -t`** | Time to wait (in seconds) until the local Functions host is ready.|
+| **`--file -f`** | The file name to use as content.|
+| **`--no-interactive`** | Does not prompt for input. Useful for automation scenarios.|
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
 
@@ -226,8 +226,8 @@ You can use the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **--publish-local-settings [-i]** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
-| **--overwrite-settings [-y]** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
+| **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, this command does not delete them from Azure. To delete these files, in the Azure Functions portal, use Kudu. To start Kudu, in the Azure Functions portal, select **Platform Features** > **Advanced Tools (Kudu)**. 
 
