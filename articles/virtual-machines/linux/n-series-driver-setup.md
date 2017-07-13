@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/13/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -237,6 +237,8 @@ Then run installation commands specific for your distribution.
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
+> [!IMPORTANT]
+> If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 3. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the image, the kernel and LIS should not be upgraded.
 
 1. Get updates. 
 
@@ -245,8 +247,9 @@ Then run installation commands specific for your distribution.
 
   sudo reboot
   ```
-2. Reconnect to the VM and install the latest Linux Integration Services for Hyper-V:
- 
+2. Reconnect to the VM and install the latest Linux Integration Services for Hyper-V.
+
+  
   ```bash
   wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
  
