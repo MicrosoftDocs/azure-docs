@@ -4,7 +4,7 @@ description: Run a sample code on your host computer to read the messages from y
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'data in the cloud, cloud data collection, iot cloud service, iot data'
 
