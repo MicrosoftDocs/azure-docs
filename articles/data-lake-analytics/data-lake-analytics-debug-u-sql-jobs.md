@@ -115,7 +115,7 @@ Once you have completed debugging, resubmit the failed job.
     ![Azure Data Lake Analytics U-SQL debug register assembly](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)
 3. Resubmit your job.
 
-## Next Steps
+## Next steps
 
 - [U-SQL programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 - [Develop U-SQL User-defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
