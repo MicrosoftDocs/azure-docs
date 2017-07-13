@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/08/2016
-ms.author: donnam
+ms.date: 07/12/2017
+ms.author: donnam, glenga
 
 ---
 # Code and test Azure functions locally
@@ -36,13 +36,13 @@ When running locally, a Functions project is a directory that has the files host
 
 At a command prompt, run the following command:
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 The output looks like the following example:
 
-```
+```bash
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -60,10 +60,10 @@ The file local.settings.json stores app settings, connection strings, and settin
 
 ```json
 {
-  "IsEncrypted": false,   // If set to true, all values are encrypted by using a local machine key. Use with "func settings" commands.
+  "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>",   // This is required for all triggers except HTTP.
-    "AzureWebJobsDashboard": "<connection string>", // Optional, controls whether to log to the Monitor tab in the portal.
+    "AzureWebJobsStorage": "<connection string>", 
+    "AzureWebJobsDashboard": "<connection string>", 
   },
   "Host": {
     "LocalHttpPort": 7071, // If specified, this is the default port for "host start" and "run". Can be overridden by using the --port command-line option.
@@ -74,18 +74,30 @@ The file local.settings.json stores app settings, connection strings, and settin
   }
 }
 ```
+| Setting      | Description                            |
+| ------------ | -------------------------------------- |
+| **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
+| **Values** | Collection of application settings used when running locally.   |
+| **AzureWebJobsStorage** | Sets the connection string to the Azure Storage account that is used internally by the Azure Functions runtime. The storage account supports your function's triggers. This storage account connection setting is required for all functions except for HTTP triggered functions.  |
+| **AzureWebJobsDashboard** | Sets the connection string to the Azure Storage account that is used to store the function logs. This optional value makes the logs accessible in the portal.|
+| **Host** |  | 
+| **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
+| **CORS** | The CORS allowed origins, as a comma-separated list with no spaces. The wildcard value (**\***) is supported, which allows access to requests from any origin. |
 
-Specify app settings in the **Values** collection. These settings can then be read as environment variables. In C#, use `System.Environment.GetEnvironmentVariable` or `ConfigurationManager.AppSettings`. In JavaScript, use `process.env`. If the same setting is specified as a system environment variable, it takes precedence over values in local.settings.json.
+These settings can then be read as environment variables. In C#, use `System.Environment.GetEnvironmentVariable` or `ConfigurationManager.AppSettings`. In JavaScript, use `process.env`. If the same setting is specified as a system environment variable, it takes precedence over values in local.settings.json. 
 
-The app setting **AzureWebJobsStorage** is a special setting that's required by the Azure Functions runtime for all triggers other than HTTP. Internally, the runtime creates queues to manage triggers in this storage account. If a value for **AzureWebJobsStorage** is not specified and you use triggers other than HTTP, you see the following message:
+Settings in the local.settings.json file are only used by Functions tools when running locally. They are not migrated automatically when the project is published to Azure. You must explicitly add these to the settings to your function app in Azure. You can add settings by using the [Azure portal](functions-how-to-use-azure-function-app-settings.md) or using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
 
-*Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.*
+>[!Note]
+> When a valid storage connection string is not set for **AzureWebJobsStorage**, the following error message is shown:  
+>
+>>Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
+>
+> We recommend that you use an Azure Storage account when developing locally. Use of the Azure Storage Emulator is not supported by Azure Functions tools.
 
-> [!NOTE]
-> It's possible to use the local storage emulator, via the connection string  "AzureWebJobsStorage": "UseDevelopmentStorage=true". However, there might be differences in behavior compared to the Azure Storage service.
 
 The following settings customize the local Functions host:
-- `LocalHttpPort`. The default port to use for `func host start` `func run`. The `--port` command-line option takes precedence over this value.
+- `LocalHttpPort`. 
 - `CORS`. The CORS allowed origins, as a comma-separated list with no spaces. Use "*" to allow all.
 
 You can provide connection strings in the `ConnectionStrings` object. They are added to the environment with the provider name **System.Data.SqlClient**.
