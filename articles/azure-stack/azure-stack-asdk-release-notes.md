@@ -76,6 +76,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
     ```PowerShell
       Set-AzureRmEnvironment AzureStack -GraphAudience https://graph.local.azurestack.external/
     ```
+    
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
 * The compute resource provider displays an unknown state.
