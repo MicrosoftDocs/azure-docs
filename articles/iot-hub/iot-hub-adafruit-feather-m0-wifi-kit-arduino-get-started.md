@@ -154,7 +154,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
    ![Open the sample application in Arduino IDE](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
 
-1. Click **File** > **Preferences** (Windows/Linux) or **Arduino** > **Preferences** (Mac) and Copy and paste the link below into the **Additional Boards Manager URLs** option in the Arduino IDE preferences.
+1. Click **File** > **Preferences** (Windows/Linux) or **Arduino** > **Preferences** (Mac) and copy and paste the link below into the **Additional Boards Manager URLs** option in the Arduino IDE preferences.
    
    ```
    https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
