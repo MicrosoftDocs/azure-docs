@@ -44,8 +44,8 @@ When you open a failed job in Azure Data Lake Tools for Visual Studio, you see a
 
 Jobs may include code-behind source files or registered assemblies, and these two types have different debugging scenarios.
 
-    - [Debug a failed job with code-behind](#debug-job-failed-with-code-behind)
-    - [Debug a failed job with assemblies](#debug-job-failed-with-assemblies)
+- [Debug a failed job with code-behind](#debug-job-failed-with-code-behind)
+- [Debug a failed job with assemblies](#debug-job-failed-with-assemblies)
 
 
 ## Debug job failed with code-behind
