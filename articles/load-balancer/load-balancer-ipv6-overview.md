@@ -69,6 +69,8 @@ Limitations
 * Network Security Group (NSG) protection for IPv4 is supported in dual-stack (IPv4+IPv6) deployments. NSGs do not apply to the IPv6 endpoints.
 * The IPv6 endpoint on the VM is not exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
 * Changing the IdleTimeout parameter for IPv6 is **not currently supported**. The default is four minutes.
+* Changing the loadDistributionMethod parameter for IPv6 is **not currently supported**.
+* Setting the static IPv6 address is **not currently supported**.
 
 ## Next steps
 
