@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.eiseverywhere.com/<instance name>`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [etouches Client support team](https://www.etouches.com/event-software/support/customer-support/) to get these values.
+	> These values are not real. You will update the value with the actual Sign on URL and Identifier, which is explained later in the tutorial.
 	> 
 
 4. etouches application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attribute** of the application. The following screenshot shows an example for this. 
@@ -146,11 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_general_400.png)
 
-8. On the **etouches Configuration** section, click **Configure etouches** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_configure.png) 
-
-9. To get SSO configured for your application, perform the following steps in the etouches application: 
+8. To get SSO configured for your application, perform the following steps in the etouches application: 
 
     ![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_06.png) 
 
@@ -158,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. Go to the **SAML** Configuration.
 
-    c. In the **General Settings** section paste the Azure AD Federation Metadata content into the textbox.
+    c. In the **General Settings** section paste the downloaded Metadata content from Azure AD into the textbox.
 
     d. Click on the **Save & Stay** button.
   
@@ -168,7 +164,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     g. In the Username field, select the **emailaddress** as shown in the image below. 
 
-    h. Copy the **SSO URL / ACS** value and put it into the Azure AD portal Sign On URL textbox.
+    h. Copy the **SP entity ID and SSO URL / ACS** value and paste it into the **etouches Domain and URLs** section on Azure portal.
    
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
