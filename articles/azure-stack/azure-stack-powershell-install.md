@@ -58,8 +58,21 @@ The following sections describe the steps required to install PowerShell for Azu
    ```powershell
    $Path = "<Path that is used to save the packages>"
 
-   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.10
-   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.2.10 
+   Save-Package `
+     -ProviderName NuGet `
+     -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureRM `
+     -Path $Path `
+     -Force `
+     -RequiredVersion 1.2.10
+
+   Save-Package `
+     -ProviderName NuGet `
+     -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureStack `
+     -Path $Path `
+     -Force `
+     -RequiredVersion 1.2.10 
    ```
 
 2. Copy the downloaded packages over to a USB device.
@@ -72,14 +85,22 @@ The following sections describe the steps required to install PowerShell for Azu
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+   Register-PSRepository `
+     -Name $RepoName `
+     -SourceLocation $SourceLocation `
+     -InstallationPolicy Trusted
    ```
 
 5. Install the AzureRM and AzureStack modules
 
    ```powershell
-   Install-Module AzureRM -RequiredVersion 1.2.10 -Repository $RepoName
-   Install-Module AzureStack -Repository $RepoName 
+   Install-Module AzureRM `
+     -RequiredVersion 1.2.10 `
+     -Repository $RepoName
+
+   Install-Module AzureStack `
+     -RequiredVersion 1.2.10 `
+     -Repository $RepoName 
    ```
 
 ### Install PowerShell in a connected scenario 
