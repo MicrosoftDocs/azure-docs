@@ -125,7 +125,7 @@ The type name and type version must match the name and version in the previously
 
 ### Delete the application package
 
-After you've unprovisioned the application type, you can delete the application package from the image store if you no longer need it. Deleting application packages helps reclaim disk space. 
+After you have unprovisioned the application type, you can delete the application package from the image store if you no longer need it. Deleting application packages helps reclaim disk space. 
 
 To delete the application package from the image store, use the following command:
 
