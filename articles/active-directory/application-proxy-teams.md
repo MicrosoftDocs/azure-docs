@@ -1,5 +1,5 @@
 ---
-title: Access App Proxy apps in Teams | Microsoft Docs
+title: Access Azure AD App Proxy apps in Teams | Microsoft Docs
 description: Use Azure AD Application Proxy to access your on-premises application through Microsoft Teams. 
 services: active-directory
 documentationcenter: ''
