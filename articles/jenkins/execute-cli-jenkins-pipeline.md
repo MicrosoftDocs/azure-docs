@@ -178,9 +178,9 @@ You see:
 ## Deploy to Azure Web App on Linux
 Now that you know how to use Azure CLI in your Jenkins pipeline, you can modify the script to deploy to an Azure Web App on Linux.
 
-* Follow the steps [here](../app-service-web/app-service-linux-how-to-create-web-app) to create an Azure Web App running on Linux.
+* Follow the steps [here](/azure/app-service-web/app-service-linux-how-to-create-web-app) to create an Azure Web App running on Linux.
 * Install docker on your Jenkins instance by following the instructions in this [article](https://docs.docker.com/engine/installation/linux/ubuntu/).
-* Create a Container Registry in the Azure portal by using the steps [here](../container-registry/container-registry-get-started-azure-cli).
+* Create a Container Registry in the Azure portal by using the steps [here](/azure/container-registry/container-registry-get-started-azure-cli).
 * In the same [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) repo you forked, edit the **Jenkinsfile2** file:
     * Line 18-21, update to the names of your resource group, web app, and ACR respectively. 
         ```
