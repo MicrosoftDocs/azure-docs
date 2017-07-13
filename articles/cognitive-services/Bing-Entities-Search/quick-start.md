@@ -18,9 +18,7 @@ ms.author: scottwhi
 > [!NOTE]
 > Preview release of the Entity Search API. All aspects of the API and documentation are subject to change. 
 
-The Entity Search API lets you send a search query to Bing and get back search results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me).
-
-Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc. The API returns entities if Bing is confident that only one entity satisfies the request. For example, if the request specifies a movie, the response includes the entity if Bing is confident that only one movie satisfies the request. But if the request specifies the title of a movie franchise, the response will not include an entity because it's ambiguous as to which version you want.
+The Entity Search API lets you send a search query to Bing and get back search results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc. 
 
 ## First steps
 
@@ -138,7 +136,7 @@ BingAPIs-Market: en-US
 
 ## Next steps
 
-Try out the API. Go to [Entities Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/operations/5954b6a001840c0e983c6ae9). 
+Try out the API. Go to [Entities Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
 
 For details about consuming the response objects, see [Searching the Web for entities and places](./search-the-web.md).
 

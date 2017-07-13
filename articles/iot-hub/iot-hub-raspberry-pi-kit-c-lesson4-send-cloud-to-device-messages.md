@@ -4,7 +4,7 @@ description: A sample application runs on Pi and monitors incoming messages from
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'cloud to device, message from cloud'
 

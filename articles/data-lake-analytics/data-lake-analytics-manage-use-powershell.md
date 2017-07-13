@@ -3,8 +3,8 @@ title: Manage Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Learn how to manage Data Lake Analytics accounts, data sources, jobs, and catalog items. '
 services: data-lake-analytics
 documentationcenter: ''
-author: saveenr
-manager: saveenr
+author: matt1883
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
@@ -285,35 +285,25 @@ Stop-AdlJob -Account $adls -JobID $jobID
 Upload a file.
 
 ```powershell
-Import-AdlStoreItem -AccountName $adls `
-    -Path "<LocalPath>\data.tsv" `
-    -Destination "/data_copy.csv" 
+Import-AdlStoreItem -AccountName $adls -Path "c:\data.tsv" -Destination "/data_copy.csv" 
 ```
 
 Upload an entire folder.
 
 ```powershell
-Import-AdlStoreItem -AccountName $adls `
-    -Path "<LocalPath>\myData\" `
-    -Destination "/myData/" `
-    -Recurse
+Import-AdlStoreItem -AccountName $adls -Path "c:\myData\" -Destination "/myData/" -Recurse
 ```
 
 Download a file.
 
 ```powershell
-Export-AdlStoreItem -AccountName $adls `
-    -Path "/data.csv" `
-    -Destination "<LocalPath>\data.csv"
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "c:\data.csv"
 ```
 
 Download an entire folder.
 
 ```powershell
-Export-AdlStoreItem -AccountName $adls `
-    -Path "/" `
-    -Destination "<LocalPath>\myData\" `
-    -Recurse
+Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recurse
 ```
 
 > [!NOTE]

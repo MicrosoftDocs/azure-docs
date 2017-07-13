@@ -4,7 +4,7 @@ description: Install the tools and the software on your host computer running Wi
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot development, iot software, iot cloud service, internet of things software, azure cli, install git on windows, gulp run, install node js windows, install npm on windows, install python on windows'
 
