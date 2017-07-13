@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_url.png)
 
-	In the **Reply URL** textbox, type a URL using the following pattern: `https://Bonusly/saml/<tenant-name>`
+	In the **Reply URL** textbox, type a URL using the following pattern: `https://Bonus.ly/saml/<tenant-name>`
 
 	> [!NOTE] 
 	> The value is not real. Update the value with the actual Reply URL. Contact [Bonusly support team](https://Bonusly/contact) to get the value.
@@ -144,7 +144,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     d. Paste the **Thumbprint** value copied from Azure portal into the **Cert Fingerprint** textbox.
    
-11. Click **save**.
+11. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
