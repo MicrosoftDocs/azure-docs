@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/14/2017
 ms.author: jeedes
 
 ---
@@ -113,41 +113,43 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [FileCloud Client support team](https://www.getfilecloud.com/filecloud-support/) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [FileCloud Client support team](mailto:support@codelathe.com) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_certificate.png)
 
-5. On the **FileCloud Configuration** section, click **Configure FileCloud** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
+5. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_general_400.png)
+
+6. On the **FileCloud Configuration** section, click **Configure FileCloud** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_configure.png) 	 
 
-6. In a different web browser window, sign-on to your FileCloud tenant as an administrator.
+7. In a different web browser window, sign-on to your FileCloud tenant as an administrator.
 
-7. On the left navigation pane, click **Settings**. 
+8. On the left navigation pane, click **Settings**. 
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
-8. Click **SSO** tab on Settings section. 
+9. Click **SSO** tab on Settings section. 
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
-9. Select **SAML** as **Default SSO Type** on **Single Sign On (SSO) Settings** panel.
+10. Select **SAML** as **Default SSO Type** on **Single Sign On (SSO) Settings** panel.
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-10. In the **IdP End Point URL** textbox put the value of **SAML Entity ID** from Azure AD application configuration wizard on **SAML Settings** panel.
-   
+11. Paste **SAML Entity ID**, which you have copied from Azure portal into the **IdP End Point URL** textbox.
+
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
-11. Open your downloaded metadata file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Meta Data** textbox on **SAML Settings** panel.
-    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+12. Open your downloaded metadata file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Meta Data** textbox on **SAML Settings** panel.
 
-12. Click **Save** button.
+	![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_general_400.png)
+13. Click **Save** button.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -189,7 +191,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in FileCloud. FileCloud supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access FileCloud if it doesn't exist yet.
 
 >[!NOTE]
->If you need to create a user manually, you need to contact the [FileCloud Client support team](https://www.getfilecloud.com/filecloud-support/). 
+>If you need to create a user manually, you need to contact the [FileCloud Client support team](mailto:support@codelathe.com). 
 
 ### Assigning the Azure AD test user
 
