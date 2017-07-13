@@ -156,7 +156,7 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[az sql db update](/cli/azure/sql/db#update)|Updates a database|
 
 > [!TIP]
-> For an Azure CLI example script that  scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> For an Azure CLI example script that scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## Manage single database service tiers and performance levels using Transact-SQL
