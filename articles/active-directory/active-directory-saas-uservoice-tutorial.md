@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 07/14/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with UserVoice, you need the following items:
 
 - An Azure AD subscription
-- A UserVoice single-sign on enabled subscription
+- A UserVoice single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -41,7 +41,7 @@ To configure Azure AD integration with UserVoice, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here [trail offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -108,12 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.UserVoice.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantname>.UserVoice.com`
+
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantname>.UserVoice.com`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [UserVoice Client support team](https://www.uservoice.com/) to get this value. 
+	> These values are not real. Update these values with the actual Identifier and Sign-On URL. Contact [UserVoice Client support team](https://www.uservoice.com/) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the Certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_certificate.png) 
 
@@ -129,21 +131,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In the toolbar on the top, click **Settings**, and then select **Web portal** from the menu.
    
-    ![Settings](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
+    ![Settings](./media/active-directory-saas-uservoice-tutorial/ic777519.png "Settings")
 
 9. On the **Web portal** tab, in the **User authentication** section, click **Edit** to open the **Edit User Authentication** dialog page
    
-    ![Web portal](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Web portal")
+    ![Web portal](./media/active-directory-saas-uservoice-tutorial/ic777520.png "Web portal")
 
 10. On the **Edit User Authentication** dialog page, perform the following steps:
    
-    ![Edit user authentication](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Edit user authentication")
+    ![Edit user authentication](./media/active-directory-saas-uservoice-tutorial/ic777521.png "Edit user authentication")
    
     a. Click **Single Sign-On (SSO)**.
  
-    b. Paste the **SAML Single Sign-On Service URL** value into the **SSO Remote Sign-In** textbox.
+    b. Paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-In** textbox.
 
-    c. Paste the **Sign-Out URL** value into the **SSO Remote Sign-Out textbox**.
+    c. Paste the **Sign-Out URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-Out textbox**.
  
     d. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Current certificate SHA1 fingerprint** textbox.  
       
@@ -189,29 +191,28 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a UserVoice test user
 
-To enable Azure AD users to log in to UserVoice, they must be provisioned into UserVoice.  
-When UserVoice, provisioning is a manual task.
+To enable Azure AD users to log in to UserVoice, they must be provisioned into UserVoice. In the case of UserVoice, provisioning is a manual task.
 
 ### To provision a user account, perform the following steps:
 1. Log in to your **UserVoice** tenant.
 
 2. Go to **Settings**.
    
-    ![Settings](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
+    ![Settings](./media/active-directory-saas-uservoice-tutorial/ic777811.png "Settings")
 
 3. Click **General**.
 
 4. Click **Agents and permissions**.
    
-    ![Agents and permissions](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Agents and permissions")
+    ![Agents and permissions](./media/active-directory-saas-uservoice-tutorial/ic777812.png "Agents and permissions")
 
 5. Click **Add admins**.
    
-    ![Add admins](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Add admins")
+    ![Add admins](./media/active-directory-saas-uservoice-tutorial/ic777813.png "Add admins")
 
 6. On the **Invite admins** dialog, perform the following steps:
    
-    ![Invite admins](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invite admins")
+    ![Invite admins](./media/active-directory-saas-uservoice-tutorial/ic777814.png "Invite admins")
    
     a. In the Emails textbox, type the email address of the account you want to provision, and then click **Add**.
    
@@ -219,8 +220,6 @@ When UserVoice, provisioning is a manual task.
 
 > [!NOTE]
 > You can use any other UserVoice user account creation tools or APIs provided by UserVoice to provision AAD user accounts.
-> 
-> 
 
 ### Assigning the Azure AD test user
 
@@ -260,8 +259,6 @@ If you want to test your single sign-on settings, open the Access Panel. For mor
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
