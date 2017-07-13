@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (Node) | Microsoft Docs
-description: Learn how to send device-to-cloud messages to Azure IoT hub using IoT SDKs for Node.js. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
+description: Learn how to send device-to-cloud messages to Azure IoT Hub using IoT SDKs for Node.js. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts

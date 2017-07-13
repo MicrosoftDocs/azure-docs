@@ -4,7 +4,7 @@ description: Create a module and add it to a sample app to customize module beha
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: ''
 
