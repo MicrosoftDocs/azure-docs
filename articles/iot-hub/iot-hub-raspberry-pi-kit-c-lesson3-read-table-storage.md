@@ -4,7 +4,7 @@ description: Monitor the device-to-cloud messages as they are written to your Az
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'retrieve data from cloud, iot cloud service'
 
