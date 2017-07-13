@@ -42,7 +42,7 @@ When you open a failed job in Azure Data Lake Tools for Visual Studio, you see a
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-3. Jobs may include a code-behind source file or registered assemblies, and these two types have different debugging scenarios.
+Jobs may include code-behind source files or registered assemblies, and these two types have different debugging scenarios.
 
     - [Debug a failed job with code-behind](#debug-job-failed-with-code-behind)
     - [Debug a failed job with assemblies](#debug-job-failed-with-assemblies)
