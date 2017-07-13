@@ -37,7 +37,7 @@ Set-PSRepository `
 
 ## Install the required version of PowerShell modules
 
-### Uninstall existing versions 
+### Uninstall existing versions of PowerShell
 
 Before installing the required version, make sure that you uninstall any existing Azure PowerShell modules. You can uninstall them by using one of the following two methods:
 
