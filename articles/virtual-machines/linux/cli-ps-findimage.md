@@ -32,7 +32,7 @@ Run the [az vm image list](/cli/azure/vm/image#list) command, without the `--all
 az vm image list --output table
 ```
 
-The output includes the URN (the value in the *Urn* column), which is of the form *Publisher*:*Offer*:*Sku*:*Version*. Use this value to specify an image when creating a VM with `az vm create`. When creating a VM with one of the popular VM images, you can alternatively specify the URN alias, such as *UbuntuServer*.
+The output includes the URN (the value in the *Urn* column), which is of the form *Publisher*:*Offer*:*Sku*:*Version*. Use this value to specify an image when creating a VM with `az vm create`. When creating a VM with one of the popular VM images, you can alternatively specify the URN alias, such as *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -74,7 +74,7 @@ az vm image list --all > allImages.json
 
 ## Find specific images
 
-Use `az vm image list` with additional options to restrict your search to a specific location, offer, publisher, or sku. For example, the following command displays all Debian offers (remember that without the `--all` switch, it only searches the local cache of common images):
+Use `az vm image list` with additional options to restrict your search to a specific location, offer, publisher, or SKU. For example, the following command displays all Debian offers (remember that without the `--all` switch, it only searches the local cache of common images):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
@@ -243,4 +243,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
 ```
 ## Next steps
-Now you can choose precisely the image you want to use by taking note of the URN value. When specifying the image, you can optionally replace the version number in the URN can with “latest”. This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, which you just found, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Now you can choose precisely the image you want to use by taking note of the URN value. When specifying the image, you can optionally replace the version number in the URN with “latest”. This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, which you just found, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
