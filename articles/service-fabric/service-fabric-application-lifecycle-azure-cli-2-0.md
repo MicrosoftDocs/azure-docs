@@ -76,7 +76,7 @@ The application name must start with the prefix `fabric:/`.
 
 ### Create services for the new application
 
-After you've created an application, create services from the application. In the following example, we create a new stateless service from our application. The services that you can create from an application are defined in a service manifest in the previously provisioned application package.
+After you have created an application, create services from the application. In the following example, we create a new stateless service from our application. The services that you can create from an application are defined in a service manifest in the previously provisioned application package.
 
 ```azurecli
 az sf service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
