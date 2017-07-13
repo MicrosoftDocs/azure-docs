@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment | Microsoft Docs
-description: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment
+title: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs | Microsoft Docs
+description: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs
 services: storage
 documentationcenter: ''
 author: genlin
-manager: felixwu
+manager: cshepard
 editor: na
 tags: storage
 
@@ -18,8 +18,7 @@ ms.date: 06/13/2017
 ms.author: genli
 
 ---
-# Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment
-[!INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
+# Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs
 
 You might receive errors when you try to delete an Azure storage account, container, or virtual hard disk (VHD) in the [Azure portal](https://portal.azure.com). This article provides troubleshooting guidance to help resolve the problem in an Azure Resource Manager deployment.
 
@@ -132,7 +131,7 @@ If the VHD is an OS disk, you must delete the VM to remove the lease:
 3. Select the VM that holds a lease on the VHD.
 4. Make sure that nothing is actively using the virtual machine, and that you no longer need the virtual machine.
 5. At the top of the **VM details** blade, select **Delete**, and then click **Yes** to confirm.
-6. The VM should be deleted, but the VHD should be retained. However, the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease is released, go to **All resources** > **Storage Account Name** > **Blobs** > **vhds**. In the **Blob properties** pane, the **Lease Status** value should be **Unlocked**.
+6. The VM should be deleted, but the VHD can be retained. However, the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease is released, go to **All resources** > **Storage Account Name** > **Blobs** > **vhds**. In the **Blob properties** pane, the **Lease Status** value should be **Unlocked**.
 
 If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 
