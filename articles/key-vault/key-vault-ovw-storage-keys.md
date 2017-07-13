@@ -95,16 +95,16 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 Key Vault needs permissions to list and regenerate keys for a storage account. Set up these permissions using the following steps:
 
-1. Get ObjectId of Key Vault: 
+- Get ObjectId of Key Vault: 
 
     `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
-2. Assign Storage Key Operator role to Azure Key Vault Identity: 
+- Assign Storage Key Operator role to Azure Key Vault Identity: 
 
     `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
 
     >[!NOTE]
-    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
+    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role"*.
 
 ### Storage account onboarding 
 
