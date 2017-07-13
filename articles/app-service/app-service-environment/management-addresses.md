@@ -1,6 +1,6 @@
 ---
-title: App Service Environment management addresses
-description: Lists the management addresses used to command an ASE 
+title: Azure App Service Environment management addresses
+description: Lists the management addresses used to command an App Service Environment 
 services: app-service
 documentationcenter: na
 author: ccompy
