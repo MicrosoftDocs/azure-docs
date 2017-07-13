@@ -114,6 +114,9 @@ See [RBAC: Built-in roles](active-directory/role-based-access-built-in-roles.md)
 The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
+## <a name="sas"></a>shared access signature (SAS)
+A shared access signature (SAS) enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](storage/storage-dotnet-shared-access-signature-part-1.md) to grant client access to objects such as blobs, and [IoT Hub uses SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) to grant devices permission to send telemetry.
+
 ## storage account
 An account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. The storage account name defines the unique namespace for Azure Storage data objects.  
 See [About Azure storage accounts](storage/storage-create-storage-account.md)
