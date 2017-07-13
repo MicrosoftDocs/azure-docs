@@ -19,7 +19,7 @@ ms.author: donnam, glenga
 ---
 # Code and test Azure functions locally
 
-While the [Azure portal](https://portal.azure.com) provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your functions can trigger on events in Azure, and you can debug your C# and JavaScript functions on your local computer. 
+While the [Azure portal] provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your functions can trigger on events in Azure, and you can debug your C# and JavaScript functions on your local computer. 
 
 If you are a Visual Studio C# developer, Azure Functions also [integrates with Visual Studio 2017](functions-develop-vs.md).
 
@@ -178,7 +178,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### Debug
+### Debug in VS Code or Visual Studio
 
 To attach a debugger, pass the `--debug` argument. To debug JavaScript functions, use Visual Studio Code. For C# functions, use Visual Studio.
 
@@ -194,7 +194,7 @@ Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Fun
 
 ![JavaScript debugging with Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
 
-### Call a function by using test data
+### Passing test data to a function
 
 You can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal. This command launches the entire Functions host.
 
@@ -229,9 +229,10 @@ You can use the following options:
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
-The `publish` command uploads the contents of the Functions project directory. If you delete files locally, this command does not delete them from Azure. To delete these files, in the Azure Functions portal, use Kudu. To start Kudu, in the Azure Functions portal, select **Platform Features** > **Advanced Tools (Kudu)**. 
+The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].
 
 
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
+[Azure portal]: https://portal.azure.com 
