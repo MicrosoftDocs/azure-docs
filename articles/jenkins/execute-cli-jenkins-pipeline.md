@@ -139,13 +139,12 @@ Open the [Simple Java Web App for Azure](https://github.com/azure-devops/javaweb
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<app_name>'
-
 ```
+
 * Change line 23 to update credential ID in your Jenkins instance
 
 ```java
 withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
-
 ```
 
 ## Create Jenkins pipeline
@@ -178,7 +177,7 @@ You see:
 ## Deploy to Azure Web App on Linux
 Now that you know how to use Azure CLI in your Jenkins pipeline, you can modify the script to deploy to an Azure Web App on Linux.
 
-Web App on Linux supports a different way to do the deployment which is to use Docker. To deploy, you need to provide a Dockerfile that packages your web app with service runtime into a docker image. The plugin will then build the image, push it to a docker registry and deploy the image to your web app.
+Web App on Linux supports a different way to do the deployment, which is to use Docker. To deploy, you need to provide a Dockerfile that packages your web app with service runtime into a docker image. The plugin will then build the image, push it to a docker registry and deploy the image to your web app.
 
 * Follow the steps [here](/azure/app-service-web/app-service-linux-how-to-create-web-app) to create an Azure Web App running on Linux.
 * Install docker on your Jenkins instance by following the instructions in this [article](https://docs.docker.com/engine/installation/linux/ubuntu/).
