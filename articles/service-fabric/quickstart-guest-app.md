@@ -75,7 +75,7 @@ Includes the application manifest under *ApplicationPackageRoot*. Associated app
     
 For an overview of the contents of the service project, see [Getting started with Reliable Services](service-fabric-reliable-services-quick-start.md).
 
-## Setup networking
+## Set up networking
 
 The example Node.js app we're deploying uses port **80** and we need to tell Service Fabric that we need that port exposed.
 
@@ -102,9 +102,9 @@ Right-click on the project and choose **Publish...** which opens a dialog to pub
 
 Select the **PublishProfiles\Cloud.xml** target profile.
 
-If you haven't previously, choose an Azure account to deploy to. If you don't have one yet, sign-up for one [here][create-account].
+If you haven't previously, choose an Azure account to deploy to. If you don't have one yet, [sign-up for one][create-account].
 
-Under **Connection Endpoint**, select the Service Fabric cluster to deploy to. If you do not have one, select **&lt;Create New Cluster...&gt;** which opens up web browser window to the Azure portal. For more information on how to create a cluster in the portal, see [this article](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Under **Connection Endpoint**, select the Service Fabric cluster to deploy to. If you do not have one, select **&lt;Create New Cluster...&gt;** which opens up web browser window to the Azure portal. For more information, see [create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 When you create the Service Fabric cluster, make sure to set the **Custom endpoints** setting to **80**.
 
@@ -133,7 +133,7 @@ Navigate to this address where you will see the `HELLO WORLD` response.
 Do not forget to delete all of the resources you've created for this quickstart, as you are charged for those resources.
 
 ## Next steps
-Read more about [guest exectables](service-fabric-deploy-existing-app.md).
+Read more about [guest executables](service-fabric-deploy-existing-app.md).
 
 <!-- Image References -->
 
