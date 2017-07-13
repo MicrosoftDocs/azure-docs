@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Identity provider (IDP)** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
  
-    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Certificate fingerprint** textbox.    
+    c. Paste the **Thumbprint** value from Azure portal into the **Certificate fingerprint** textbox.    
 
     d.  In the **Remote sign-in URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
  
