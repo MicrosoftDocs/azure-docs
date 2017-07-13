@@ -27,7 +27,7 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 
 Azure Functions Core Tools is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure.
 
-The [Azure Functions Core Tools] is provided as an npm package. You must first [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli). To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).  
+The [Azure Functions Core Tools] is provided as an npm package. You must first [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.  
 
 >[!NOTE]
 >At this time, the Azure Functions Core Tools package can only be installed on Windows computers. This restriction is due to a temporary limitation in the Functions host.
@@ -231,6 +231,10 @@ You can use the following options:
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].
 
+## Next Steps
+
+Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
+To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues). 
 
 <!-- LINKS -->
 
