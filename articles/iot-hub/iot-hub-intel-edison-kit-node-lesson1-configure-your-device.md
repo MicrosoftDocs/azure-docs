@@ -4,7 +4,7 @@ description: Configure Intel Edison for first-time use.
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'arduino set up, connect arduino to pc, setup arduino, arduino board'
 

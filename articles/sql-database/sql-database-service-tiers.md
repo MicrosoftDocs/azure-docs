@@ -4,7 +4,7 @@ description: Compare SQL Database service tiers and performance levels for singl
 keywords: database options,database performance
 services: sql-database
 documentationcenter: ''
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
-ms.author: janeng
+ms.author: carlrab
 
 ---
 # What performance options are available for an Azure SQL Database
@@ -88,7 +88,7 @@ Changing the service tier and/or performance level of a database creates a repli
 The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, a 250 GB database that is changing to, from, or within a Standard service tier, should complete within 6 hours. For a database of the same size that is changing performance levels within the Premium service tier, it should complete within 3 hours.
 
 > [!TIP]
-> To check on the status of an ongoing SQL database scaling operation, you can use the following query: ```select * form sys.dm_operation_status```.
+> To check on the status of an ongoing SQL database scaling operation, you can use the following query: ```select * from sys.dm_operation_status```.
 >
 
 * If you are upgrading to a higher service tier or performance level, the maximum database size does not increase unless you explicitly specify a larger maximum size.
@@ -156,7 +156,7 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[az sql db update](/cli/azure/sql/db#update)|Updates a database|
 
 > [!TIP]
-> For an Azure CLI example script that  scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> For an Azure CLI example script that scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## Manage single database service tiers and performance levels using Transact-SQL
