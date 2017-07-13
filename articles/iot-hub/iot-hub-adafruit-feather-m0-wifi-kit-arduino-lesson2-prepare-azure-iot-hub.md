@@ -4,7 +4,7 @@ description: Create a resource group, create an Azure IoT hub, and register Adaf
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'connecting arduino to cloud, azure iot hub, internet of things cloud, azure iot hub create device, arduino cloud'
 

@@ -30,7 +30,7 @@
 ### [Secure email policies and configurations](secure-email-introduction.md)
 #### [Recommended policies](secure-email-recommended-policies.md)
 #### [Deploy policies and configurations](secure-email-deploy-recommended-policies.md)
-#### [EMS and Office 365 service descriptions](secure-email-ems-office365-service-descriptions.md)
+#### [EMS and Office 365 services overview](secure-email-ems-office365-service-descriptions.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
 
@@ -219,6 +219,7 @@
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Teams](application-proxy-teams.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 #### Use the classic portal
 ##### [Download connectors](application-proxy-enable-classic-portal.md)
