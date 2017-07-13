@@ -92,8 +92,6 @@ Click **Diagnose and solve problems** to be provided with common issues and stra
 ## Settings
 The **Settings** section allows you to access and configure the following settings for your cache.
 
-![Settings](./media/cache-configure/redis-cache-general-settings.png)
-
 * [Access keys](#access-keys)
 * [Advanced settings](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
@@ -101,6 +99,7 @@ The **Settings** section allows you to access and configure the following settin
 * [Redis cluster size](#cluster-size)
 * [Redis data persistence](#redis-data-persistence)
 * [Schedule updates](#schedule-updates)
+* [Geo-replication](#geo-replication)
 * [Virtual Network](#virtual-network)
 * [Firewall](#firewall)
 * [Properties](#properties)
