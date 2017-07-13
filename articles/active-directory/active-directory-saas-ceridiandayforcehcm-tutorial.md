@@ -113,24 +113,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Environment  | URL  |
 	| -- | -- |
 	| For production | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
-	| For test       | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>`|
+	| For test       | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
    	
 	b. In the **Identifier** textbox, type a URL using the following pattern:
 	
 	| Environment  | URL  |
 	| -- | -- |
 	| For production | `https://ncpingfederate.dayforcehcm.com/sp` |
-	| For test       | `https://fs-test.dayforcehcm.com/sp`|
+	| For test       | `https://fs-test.dayforcehcm.com/sp` |
 		
 	c. In the **Reply URL** textbox, type the URL used by Azure AD to post the response.
 
 	| Environment  | URL  |
 	| -- | -- |
 	| For production | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
-	| For test       | `https://fs-test.dayforcehcm.com/sp/ACS.saml2`|
+	| For test       | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/contact-us/index.html) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/contact-us/index.html) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
