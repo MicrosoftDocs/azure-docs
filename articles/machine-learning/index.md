@@ -17,20 +17,33 @@ ms.author: carolz
 
 Learn how data scientists and developers use Machine Learning to embed predictive analytics into applications. Tutorials, videos, and example models show you how to build and deploy machine learning models.
 
-Azure Machine Learning provides two options that help you develop, experiment, and deploy advanced analytics applications at cloud scale. 
+Azure Machine Learning provides two options to help you develop, experiment, and deploy advanced analytics applications at cloud scale:
 
 <table>
-    <tr><td><img src="media/index/machine-learning-workbench.svg" alt="" />
-        <strong>Azure Machine Learning Workbench</strong>
+    <tr><td>
+        <a href="/azure/machine-learning/workbench/what-is-ml-workbench.md?toc=%2fazure%2fmachine-learning%2fworkbench%2ftoc.json">
+        <img src="media/index/machine-learning-workbench.svg" alt="" height=150 width=150 />
+        </br><strong>Azure Machine Learning Workbench</strong>
+        </a>
         <br/>An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. 
         </td>
-        <td><img src="media/index/machine-learning.svg" alt="" />
-        <strong>Azure Machine Learning Studio</strong>
+        <td>
+        <a href="/azure/machine-learning/studio/what-is-ml-studio.md?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">
+        <img src="media/index/machine-learning.svg" alt="" height=150 width=150 />
+        </br><strong>Azure Machine Learning Studio</strong>
+        </a>
         <br/>A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
         <td>
     </tr>
 </table>
 
+In addition, these tools are available to you in Azure Machine Learning:
+
+* The [**Team Data Science Process (TDSP)**](team-data-science-process/data-science-process-overview.md?toc=%2fazure%2fmachine-learning%2fteam-data-science-process%2ftoc.json) provides a recommended lifecycle that you can use to structure the development of your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed.
+
+* The [**Data Science Virtual Machine (DSVM)**](machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fmachine-learning%2fdata-science-virtual-machine%2ftoc.json), a customized virtual machine (VM) image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. 
+    
+    
 
 <ul class="panelContent cardsFTitle">
     <li>
