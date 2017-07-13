@@ -7,13 +7,13 @@ manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 07/13/2017
 ms.author: slivkins;marcozo;alekh
 ---
 
-# Machine learning in Custom Decision Service (tutorial)
+# Machine learning in Custom Decision Service
 
-This tutorial addresses the advanced machine learning functionality in Custom Decision Service. For now, this functionality is only available in private preview. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification-format-and-apis). Featurization refers to representing your data as "features" for machine learning. Feature specification covers the JSON format and the ancillary APIs for specifying features.
+This tutorial addresses the advanced machine learning functionality in Custom Decision Service. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification-format-and-apis). Featurization refers to representing your data as "features" for machine learning. Feature specification covers the JSON format and the ancillary APIs for specifying features.
 
 By default, machine learning in Custom Decision Service is transparent to the customer. Features are automatically extracted from your content, and a standard reinforcement learning algorithm is used. Feature extraction leverages several other Microsoft Cognitive Services:
 [Entity Linking](../entitylinking/home.md),
