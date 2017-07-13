@@ -218,19 +218,32 @@ Using the Data Lake Tools, you can register custom code assemblies to the Data L
 
 **To register an assembly**
 
+You can register assembly through **ADL: Register Assembly** or **ADL: Register Assembly through Configuration**.
+
+**ADL: Register Assembly**
 1.	Press **CTRL+SHIFT+P** to open Command Palette.
-2.	Enter **ADL: Register Assembly** or **ADL: Register Assembly - Advanced**.
-3.	Select a Data Lake Analytics account.
-4.	Select a database.
-5.	Specify the local assembly path. If you select **Register Assembly**, it directly submits assembly.
-6.  If you select **ADL: Register Assembly - Advanced**, it shows a json file so that you can be reconfigure.
+2.	Enter **ADL: Register Assembly**. 
+3.	Specify the local assembly path. 
+4.	Select a Data Lake Analytics account.
+5.	Select a database.
+
+Results: The portal is opened in browser and displays the assembly registration process.  
+
+Another convenient way to trigger **ADL: Register Assembly** command is right click dll file in the EXPLORER. 
+
+**ADL: Register Assembly through Configuration**.
+1.	Press **CTRL+SHIFT+P** to open Command Palette.
+2.	Enter **ADL: Register Assembly through Configuration**. 
+3.	Specify the local assembly path. 
+4.  Open and configure the json file with the following properties:
 
 ![Data Lake Tools for Visual Studio Code code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
-- Assembly Dependencies: You can register other reference dependencies. Multiple dependencies the formate as {"depend1":"usql1.dll","depend2":"usql2.dll"}.
-- Resources: You can register any type of resource. Multiple resources the formate as ["xx.xx","xx.xx"].
-Save the config file (Ctrl + S) to proceed your registering assembly.  
+The output show you how to set these parameters.
+- Assembly Dependencies: Azure Data Lake Tool can auto detect whether refer other dependencies. Once detected, they were displayed here.
+- Resources: You can register any type of resources according the description in output panel.
+After setting up, save the config file (Ctrl + S) to proceed your registering assembly.  
 
-Another more convenient way to select **ADL: Register Assembly** on right click dll file in explorer.
+Another more convenient way to trigger **ADL: Register Assembly through Configuration** command is right click dll file in the EXPLORER. 
 
 The following U-SQL code demonstrates how to call an assembly. In the sample, the assembly name is *test*.
 
@@ -376,12 +389,12 @@ Another more convenient way to preview a file is through the right click context
 
        ![Data Lake Tools for Visual Studio Code preview file result](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
 
-### Upload file to Storage
+### Upload file 
 
-Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: : Upload to Storage Path** or **Upload to Storage Path - Advanced**.
-1.  Open Command Palette and input the command. This passage uses **Upload to Storage Path - Advanced** as an example.
+You can upload file through command **ADL: Upload File** or **ADL: Upload File through Configuration**.
 
-    ![Data Lake Tools for Visual Studio Code Select Upload to storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-storage.png)
+**ADL: Upload File**
+1.  Press CTRL+SHIFT+P to open Command Palette or right click on script editor, and then enter **Upload File**.
 2. Input a local path for uploading.
 
     ![Data Lake Tools for Visual Studio Code Input Local path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
@@ -405,15 +418,20 @@ Use Command Palette (**Ctrl+Shift+P**) and choose **ADL: : Upload to Storage Pat
 6. Listing you input the azure storage path. Select **Choose current folder**.
 
     ![Data Lake Tools for Visual Studio Code Select a folder](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-choose-current-folder.png)
-   
 
-7.  VSCode displays a json configurations file, you can make any further updates if needed. Save (CTRL+S) file to proceed the file upload.
-
-       ![Data Lake Tools for Visual Studio Code Input File](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
-
-8.  Results: The output window displays the file upload status.
+7.  Results: The output window displays the file upload status.
 
        ![Data Lake Tools for Visual Studio Code Upload Status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)    
+
+**ADL: Upload File through Configuration**
+1.  Press CTRL+SHIFT+P to open Command Palette or right click on script editor, and then enter **Upload File through Configuration**.
+2.  VSCode displays a json configurations file, you can make any further updates if needed.
+
+       ![Data Lake Tools for Visual Studio Code Input File](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
+You can set configuration file according example that show in output panel. After setting up, save (CTRL+S) file to proceed the file upload.
+3.  Results: The output window displays the file upload status.
+
+       ![Data Lake Tools for Visual Studio Code Upload Status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
 
 Another convenient way to upload file to storage is through the right click menu on file full path or file relative path in script editor. Input local file path and choose the account, then the output window displays the uploading status. 
 
@@ -427,7 +445,7 @@ You can open **Web Azure Storage Explorer** through command: **ADL: Open Web Azu
 ADL Tools open the Azure storage path in the portal. You can visit path and preview file from web.
 
 ### Local Run
-U-SQL local run for windows has been implemented to allow you to perform local run to test your local data, validate your script locally before publishing you production ready code to ADLA clusters. You can start your local run service, confirm the configurations, and submit your U-SQL job to the local run service.
+U-SQL local run for windows has been implemented to allow you to perform local run to test your local data, validate your script locally before publishing you production ready code to ADLA. You can start your local run service, confirm the configurations, and submit your U-SQL job to the local run service.
 
 1. Press CTRL+SHIFT+P to open Command Palette and enter **Start Local Run Service**.
 2. The cmd console shows up. For first time users, you need to enter 3, then input a local folder path for your data input and output. For other options, you can simply use the default value. 
