@@ -109,12 +109,19 @@ By selecting cloud apps, you define the scope of cloud apps your policy applies 
 
 - **How** - As long as access to your apps is performed under conditions you can control, there might be no need for imposing additional controls on how your cloud apps are accessed by your users. However, things might look different if access to your cloud apps is performed, for example, from networks that are not trusted or devices that are not compliant. In a condition statement, you can define certain access conditions that have additional requirements for how access to your apps is performed.
 
-	![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## Conditions
 
 In the current implementation of Azure Active Directory, you can define conditions for the following areas:
+
+- Sign-in risk
+- Device platforms
+- Locations
+- Client apps
+
+![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+
 
 ### Sign-in risk
 
@@ -157,9 +164,9 @@ The **Select** blade provides you with a list of your configured named locations
 While you can select named locations (preview) and trusted IPs in your location condition, we recommend that you use named locations (preview) because it provides better manageability and scalability.
 
 
-### Client app
+### Client apps
 
-The client app can be either on a generic level the app (web browser, mobile app, desktop client) you have used to connect to Azure Active Directory or you can specifically select Exchange Active Sync.  
+The client apps can be either on a generic level the app (web browser, mobile app, desktop client) you have used to connect to Azure Active Directory or you can specifically select Exchange Active Sync.  
 Legacy authentication refers to clients using basic authentication such as older Office clients that don’t use modern authentication. Conditional access is currently not supported with legacy authentication.
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/04.png)
