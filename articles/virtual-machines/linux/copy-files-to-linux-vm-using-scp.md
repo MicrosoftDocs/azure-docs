@@ -66,7 +66,7 @@ For this example, we copy a directory of log files from the Linux VM down to you
 The following command copies files in the */home/azureuser/logs/* directory on the Azure VM to the local /tmp directory
 
 ```bash
-scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/git 
+scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
 The `-r` cli flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command-line syntax is similar to a `cp` copy command.
