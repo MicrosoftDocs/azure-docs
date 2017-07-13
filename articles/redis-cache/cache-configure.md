@@ -126,7 +126,6 @@ By default, non-SSL access is disabled for new caches. To enable the non-SSL por
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
-
 #### Memory policies
 The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache.
 
