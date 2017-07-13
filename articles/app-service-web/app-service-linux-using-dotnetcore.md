@@ -143,9 +143,24 @@ git push master
 
 You don't need to push any files under *bin/* or *obj/* directories because your application is built in the cloud when pushing your application. After the build process is complete, binary files are copied into the application's directory at */home/site/wwwroot/*.
 
-Confirm that the remote deployment operations report success. Push operations may take a while since package resolution and build process run in the cloud.
+Confirm that the remote deployment operations report success. Push operations may take a while since package resolution and build process run in the cloud. You will see several status messages, including ones stating that files have been copied. The output should look similar to the following:
 
-![Pushing the application to the cloud][8]
+```bash
+/* some output has been removed for brevity */
+remote: Copying file: 'System.Net.Websockets.dll' 
+remote: Copying file: 'System.Runtime.CompilerServices.Unsafe.dll' 
+remote: Copying file: 'System.Runtime.Serialization.Primitives.dll' 
+remote: Copying file: 'System.Text.Encodings.Web.dll' 
+remote: Copying file: 'hellodotnetcore.deps.json' 
+remote: Copying file: 'hellodotnetcore.dll' 
+remote: Omitting next output lines...
+remote: Finished successfully.
+remote: Running post deployment commands...
+remote: Deployment successful.
+To https://hellodotnetcore.scm.azurewebsites.net/
+ * [new branch]           master -> master
+
+```
 
 Once the deployment has completed, restart your web app for the deployment to take effect. To do this, go to the Azure portal and navigate to the **Overview** page of your web app. Select the **Restart** button in the page. When a popup window shows up, select **Yes** to confirm. You can then browse your web app, as shown here:
 
