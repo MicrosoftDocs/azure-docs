@@ -14,7 +14,7 @@ ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
 
 ---
-# Consume a Service Catalog Managed Application
+# Consume a Service Catalog managed application
 
 As described in the [Managed Application overview](managed-application-overview.md) article, there are two scenarios in the end to end experience. One is the publisher or ISV who wants to create a managed application for use by customers. The second is the end customer or the consumer of the managed application. This article covers the second scenario and explains how an end customer can consume a managed application provided by an ISV.
 
@@ -114,4 +114,6 @@ This preview release includes the following issues:
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
-* To understand the vendor experience, see [Create and publish an Azure Managed Application](managed-application-publishing.md).
+* For information about publishing a Service Catalog managed application, see [Create and publish Service Catalog managed application](managed-application-publishing.md).
+* For information about publishing managed applications to the Marketplace, see [Azure Managed Applications in the Marketplace](managed-application-author-marketplace.md).
+* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](managed-application-consume-marketplace.md).
