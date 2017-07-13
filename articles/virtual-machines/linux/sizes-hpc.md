@@ -38,7 +38,7 @@ Following are requirements for RDMA-capable Linux VMs to access the Azure RDMA n
   
     * SLES 12 SP1 for HPC, or SLES 12 SP1 for HPC (Premium)
     
-    * CentOS-based 7.3 HPC, CentOS-based 7.1 HPC, or CentOS-based 6.5 HPC  
+    * CentOS-based 7.3 HPC, CentOS-based 7.1 HPC, CentOS-based 6.8 HPC, or CentOS-based 6.5 HPC  
  
         > [!NOTE]
         > For H-series VMs, we recommend either a SLES 12 SP1 for HPC image or CentOS-based 7.1 or later HPC image.
