@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover custom machine learning modules in Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Custom modules for Machine Learning Studio
 Cortana Intelligence Gallery offers several [custom modules](https://gallery.cortanaintelligence.com/customModules) that expand the capabilities of Azure Machine Learning Studio. You can import the modules to use in your experiments, so you can develop even more advanced predictive analytics solutions.

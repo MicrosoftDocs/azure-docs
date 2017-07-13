@@ -44,7 +44,7 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 
 ![HDInsight cluster type configuration](./media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png)
 
-> [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+> [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 > 
 > 
 

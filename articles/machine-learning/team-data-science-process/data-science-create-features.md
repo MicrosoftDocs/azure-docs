@@ -20,7 +20,7 @@ ms.author: zhangya;bradsev
 # Feature engineering in data science
 This topic explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning. The examples used to illustrate this process are drawn from Azure Machine Learning Studio. 
 
-[!INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
 This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 

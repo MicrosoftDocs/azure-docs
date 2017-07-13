@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover and share tutorials in Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Tutorials
 Cortana Intelligence Gallery offers several [tutorials](https://gallery.cortanaintelligence.com/tutorials) that can walk you through machine learning technologies and concepts. Tutorials also might describe advanced methods for solving machine learning problems.

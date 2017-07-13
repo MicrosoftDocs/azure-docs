@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover and share collections in Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Collections
 You can use a [collection](https://gallery.cortanaintelligence.com/collections) to group experiments, APIs, and other Gallery items that you use for a specific solution or concept. You can group them to use, to save for later reference, or to share.

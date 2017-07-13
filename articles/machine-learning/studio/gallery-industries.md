@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover industry-specific solutions in the Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Industry-specific Cortana Intelligence solutions
 The

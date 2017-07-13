@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Share and discover resources in the Cortana Intelligence Gallery
-[!INCLUDE [gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
 

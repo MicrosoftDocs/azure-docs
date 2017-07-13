@@ -20,7 +20,7 @@ ms.author: garye;bradsev;ahgyger
 # Create and share an Azure Machine Learning workspace
 This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
 
-[!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+[!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
 
 To use Azure Machine Learning Studio, you need to have a Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
