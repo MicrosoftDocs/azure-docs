@@ -112,22 +112,30 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
+4. On the **Soonr Workplace Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
+	
+	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_url1.png)
+
+	a. Click on the **Show advanced URL settings**.
+
+	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<servername>.soonr.com/singlesignon/saml/SSO`
+
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Soonr Workplace support team](https://awp.autotask.net/help/) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Sign on URL and Reply URL. Contact [Soonr Workplace support team](https://awp.autotask.net/help/) to get these values.
  
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_certificate.png) 
 
-5. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_general_400.png)
 
-6. On the **Soonr Workplace Configuration** section, click **Configure Soonr Workplace** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Soonr Workplace Configuration** section, click **Configure Soonr Workplace** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_configure.png) 
 
-7. To configure single sign-on on **Soonr Workplace** side, you need to send the downloaded **Metadata XML**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Soonr Workplace support team](https://awp.autotask.net/help/). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **Soonr Workplace** side, you need to send the downloaded **Metadata XML**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Soonr Workplace support team](https://awp.autotask.net/help/). They set this setting to have the SAML SSO connection set properly on both sides.
 
     >[!NOTE]
 	>This application is superseded by <a href="https://azure.microsoft.com/en-us/marketplace/partners/autotask-corporataion/autotask/">Autotask Workplace</a> and you can refer <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-autotaskworkplace-tutorial">this</a> tutorial for configuring the application with Azure AD.
