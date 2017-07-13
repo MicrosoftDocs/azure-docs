@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Select your installation type | Microsoft Docs'
 description: This topic walks you through how to select the installation type to use for Azure AD Connect
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Select which installation type to use for Azure AD Connect
 Azure AD Connect has two installation types for new installation: Express and customized. This topic helps you to decide which option to use during installation.

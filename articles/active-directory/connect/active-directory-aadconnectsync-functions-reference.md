@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Functions Reference | Microsoft Docs'
 description: Reference of declarative provisioning expressions in Azure AD Connect sync.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: Functions Reference
 In Azure AD Connect, functions are used to manipulate an attribute value during synchronization.  

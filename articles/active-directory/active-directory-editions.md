@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory editions | Microsoft Docs
 description: This article explains choices for free and paid editions of Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1, and Azure Active Directory Premium P2 are the paid editions.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 
+ms.reviewer: kbrint
+ms.custom: iamfeature=AzureADGeneral
 ---
 # Azure Active Directory editions
 All Microsoft Online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. If you subscribe to any of Microsoft Online business services (for example, Office 365 or Microsoft Azure), you get Azure AD with access to all of the Free features, described below.  

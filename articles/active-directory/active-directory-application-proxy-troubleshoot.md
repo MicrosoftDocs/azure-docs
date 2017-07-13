@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
@@ -17,7 +17,8 @@ ms.topic: article
 ms.date: 03/27/2017
 ms.author: kgremban
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017; iamfeature=AppProxy
+ms.reviewer: harshja
 ---
 
 

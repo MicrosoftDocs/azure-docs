@@ -1,4 +1,4 @@
----
+﻿---
 title:  What's new in Enterprise Application management in Azure Active Directory  | Microsoft Docs
 description: Learn what's new in Enterprise Application management in Azure Active Directory.
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # What's new in Enterprise Application management in Azure Active Directory 
 

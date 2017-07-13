@@ -1,4 +1,4 @@
----
+﻿---
 title: Sign ins from unknown sources
 description: A report that indicates users who have successfully signed in to your directory from an anonymous proxy IP address.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Sign ins from unknown sources
 This report indicates users who have successfully signed in to your directory while assigned a client IP address that has been recognized by Microsoft as an anonymous proxy IP address (for example, a Tor IP address). These proxies are often used by users that want to hide their computer’s IP address, and may be used for malicious intent.

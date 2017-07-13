@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot Azure Active Directory Application Management | Microsoft Docs
 description: Resolve the most common issues related to Azure Active Directory Application Management
 services: active-directory
@@ -14,6 +14,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Troubleshoot Azure Active Directory Application Management

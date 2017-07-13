@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Connector Version Release History
 The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM) are updated frequently.

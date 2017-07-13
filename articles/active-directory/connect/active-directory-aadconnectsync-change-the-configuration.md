@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Make a configuration change in Azure AD Connect sync | Microsoft Docs'
 description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: How to make a change to the default configuration
 The purpose of this topic is to walk you through how to make changes to the default configuration in Azure AD Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make some simple changes to your own configuration based on your own business rules.

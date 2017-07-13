@@ -1,4 +1,4 @@
----
+﻿---
 title: Prerequisites to access the Azure AD reporting API. | Microsoft Docs
 description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Prerequisites to access the Azure AD reporting API
 The [Azure AD reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.

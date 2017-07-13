@@ -1,4 +1,4 @@
----
+﻿---
 title: Problem adding an Azure AD Gallery application | Microsoft Docs
 description: Understand the common problems people face when adding Azure AD Gallery applications and what you can do to resolve them
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problem adding an Azure AD Gallery application

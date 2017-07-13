@@ -1,4 +1,4 @@
----
+﻿---
 title: How to configure an Application Proxy application to use Kerberos Constrained Delegation | Microsoft Docs
 description: How to configure Kerberos Constrained Delegation for an Azure AD Application Proxy application.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 
 # How to configure an Application Proxy application to use Kerberos Constrained Delegation

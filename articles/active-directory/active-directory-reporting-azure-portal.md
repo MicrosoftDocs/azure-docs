@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Azure Active Directory reporting | Microsoft Docs
 description: Lists the various available reports for Azure Active Directory
@@ -17,6 +17,8 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Azure Active Directory reporting
 

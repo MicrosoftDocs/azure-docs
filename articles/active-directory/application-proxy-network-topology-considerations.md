@@ -1,4 +1,4 @@
----
+﻿---
 title: Network topology considerations when using Azure Active Directory Application Proxy | Microsoft Docs
 description: Covers network topology considerations when using Azure AD Application Proxy.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: kgremban
 
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 
 # Network topology considerations when using Azure Active Directory Application Proxy

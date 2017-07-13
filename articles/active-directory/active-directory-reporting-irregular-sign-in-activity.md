@@ -1,4 +1,4 @@
----
+﻿---
 title: Irregular sign-in activity
 description: A report that includes sign ins that have been identified as anomalous by our machine learning algorithms.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Irregular sign-in activity
 Irregular sign-ins are those that have been identified by our machine learning algorithms, on the basis of an "impossible travel" condition combined with an anomalous sign in location and device. This may indicate that a hacker has successfully signed in using this account.

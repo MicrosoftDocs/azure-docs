@@ -1,4 +1,4 @@
----
+﻿---
 title: Identity synchronization and duplicate attribute resiliency | Microsoft Docs
 description: New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Identity synchronization and duplicate attribute resiliency
 Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.

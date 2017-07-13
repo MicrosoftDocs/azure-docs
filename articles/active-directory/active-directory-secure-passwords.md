@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD tiered password security | Microsoft Docs
 description: Explains how Azure AD enforces strong passwords and protects users passwords from cyber criminals, 
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: joflore
 
+ms.reviewer: gahug
+ms.custom: iamfeature=Passwords
 ---
 # A multi-tiered approach to Azure AD password security
 

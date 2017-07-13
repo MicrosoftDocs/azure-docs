@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Changing the default configuration | Microsoft Docs'
 description: Provides best practices for changing the default configuration of Azure AD Connect sync.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: Best practices for changing the default configuration
 The purpose of this topic is to describe supported and unsupported changes to Azure AD Connect sync.

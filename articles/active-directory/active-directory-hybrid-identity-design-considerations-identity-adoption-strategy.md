@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations - define a hybrid identity adoption strategy | Microsoft Docs
 description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
 documentationcenter: ''
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 
+ms.reviewer: sakula
+ms.custom: iamfeature=HybridIdentity
 ---
 # Define a hybrid identity adoption strategy
 In this task, you’ll define the hybrid identity adoption strategy for your hybrid identity solution to meet the business requirements that were discussed in :

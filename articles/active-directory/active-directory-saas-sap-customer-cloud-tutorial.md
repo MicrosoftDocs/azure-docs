@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with SAP Cloud for Customer | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud for Customer.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Tutorial: Azure Active Directory integration with SAP Cloud for Customer
 In this tutorial, you learn how to integrate SAP Cloud for Customer with Azure Active Directory (Azure AD).

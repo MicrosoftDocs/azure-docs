@@ -1,4 +1,4 @@
----
+﻿---
 title: Learn about the different token and claim types supported by Azure AD | Microsoft Docs
 description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 ms.author: dastrock
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=AzureADGeneral
 
+ms.reviewer: kbrint
 ---
 # Azure AD token reference
 Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token.

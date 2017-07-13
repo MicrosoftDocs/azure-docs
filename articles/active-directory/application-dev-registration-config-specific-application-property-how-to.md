@@ -1,4 +1,4 @@
----
+﻿---
 title: How to fill out specific fields for a custom-developed application | Microsoft Docs
 description: Guidance on how to fill out specific fields when you are registering a custom developed application with Azure AD
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to fill out specific fields for a custom-developed application

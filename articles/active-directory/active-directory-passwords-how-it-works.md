@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Deep-dive: Azure AD SSPR | Microsoft Docs'
 description: Azure AD self-service password reset deep dive
 services: active-directory
@@ -7,7 +7,7 @@ documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
 ms.reviewer: gahug
-
+; gahug
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
 ms.workload: identity
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: joflore
-ms.custom: it-pro
+ms.custom: it-pro; iamfeature=Passwords
 
 ---
 # Self-service password reset in Azure AD deep dive

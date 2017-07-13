@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Google Apps | Microsoft Docs'
 description: Learn how to use Google Apps with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 05/16/2016
 ms.author: asmalser
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Tutorial: Azure Active Directory integration with Google Apps
 This tutorial will show you how to connect your Google Apps environment to your Azure Active Directory (Azure AD). You will learn how to configure single sign-on to Google Apps, how to enable automated user provisioning, and how to assign users to have access to Google Apps. 

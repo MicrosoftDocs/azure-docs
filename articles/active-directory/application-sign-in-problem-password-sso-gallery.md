@@ -1,4 +1,4 @@
----
+﻿---
 title: Problems signing in to an Azure AD Gallery application configured for federated single sign-on | Microsoft Docs
 description: How to troubleshoot issues with Azure AD Gallery application configured for password single sign-on
 documentationcenter: ''
@@ -14,6 +14,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problems signing in to an Azure AD Gallery application configured for federated single sign-on

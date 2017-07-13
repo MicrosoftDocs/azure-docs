@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Identity | Microsoft Docs
 description: Learn about using Azure Active Directory.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: Jeff.Gilbert
 ROBOTS: NOINDEX,NOFOLLOW
+ms.reviewer: kbrint
+ms.custom: iamfeature=AzureADGeneral
 ---
 # The fundamentals of Azure identity management
 [!INCLUDE [identity](../../includes/identity.md)]

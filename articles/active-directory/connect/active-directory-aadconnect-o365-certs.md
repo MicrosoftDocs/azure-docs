@@ -1,4 +1,4 @@
----
+﻿---
 title: Certificate renewal for Office 365 and Azure AD users | Microsoft Docs
 description: This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Renew federation certificates for Office 365 and Azure Active Directory
 ## Overview

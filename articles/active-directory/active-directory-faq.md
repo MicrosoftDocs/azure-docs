@@ -16,6 +16,8 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: markvi
 
+ms.reviewer: kbrint
+ms.custom: iamfeature=AzureADGeneral
 ---
 # Azure Active Directory FAQ
 Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.

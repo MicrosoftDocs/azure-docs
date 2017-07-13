@@ -1,4 +1,4 @@
----
+﻿---
 title: The Azure AD Connect Sync Service Manager Metaverse Search| Microsoft Docs'
 description: Understand the Metaverse Search tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Sync Service Manager Metaverse Search
 

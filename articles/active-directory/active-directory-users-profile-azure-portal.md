@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Add or change profile information for a user in Azure Active Directory | Microsoft Docs
 description: Explains how to add the user profile, including profile picture, in Azure Active Directory
@@ -17,7 +17,8 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-
+; jeffsta
+ms.custom: iamfeature=Users
 ---
 # Add or change profile information for a user in Azure Active Directory
 This article explains how to add user profile information, such as a profile picture or phone and email authentication information, in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md).

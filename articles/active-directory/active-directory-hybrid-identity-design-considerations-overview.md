@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations - overview | Microsoft Docs
 description: Overview and content map of Hybrid Identity design considerations guide
 documentationcenter: ''
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 
+ms.reviewer: sakula
+ms.custom: iamfeature=HybridIdentity
 ---
 # Azure Active Directory Hybrid Identity Design Considerations
 Consumer-based devices are proliferating the corporate world, and cloud-based software-as-a-service (SaaS) applications are easy to adopt. As a result, maintaining control of users’ application access across internal datacenters and cloud platforms is challenging.  

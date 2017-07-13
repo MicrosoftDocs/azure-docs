@@ -1,4 +1,4 @@
----
+﻿---
 title: Problem configuring user provisioning to an Azure AD Gallery application | Microsoft Docs
 description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure AD Application Gallery
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problem configuring user provisioning to an Azure AD Gallery application

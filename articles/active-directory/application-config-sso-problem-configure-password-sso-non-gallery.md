@@ -1,4 +1,4 @@
----
+﻿---
 title: Problem configuring password single sign-on for a non-gallery application | Microsoft Docs
 description: Understand the common problems people face when configuring Password Single Sign-on for custom non-gallery applications that are not listed in the Azure AD Application Gallery
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problem configuring password single sign-on for a non-gallery application

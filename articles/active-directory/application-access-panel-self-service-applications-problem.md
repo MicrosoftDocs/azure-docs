@@ -1,4 +1,4 @@
----
+﻿---
 title: Problem using self-service application access | Microsoft Docs 
 description: Troubleshoot problems related to self-service application access
 services: active-directory
@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
+ms.custom: iamfeature=AccessPanel
 ---
 
 # Problem using self-service application access

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Accounts and permissions | Microsoft Docs'
 description: This topic describes the accounts used and created and permissions required.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect: Accounts and permissions
 The Azure AD Connect installation wizard offers two different paths:

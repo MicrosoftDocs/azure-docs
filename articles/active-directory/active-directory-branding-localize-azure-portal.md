@@ -1,4 +1,4 @@
----
+﻿---
 title: Add language-specific company branding to your sign-in page in the Azure Active Directory | Microsoft Docs
 description: Learn how to add a language specific company branding pictures and text to an Azure sign-in page
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 
+ms.reviewer: jeffsta
+ms.custom: iamfeature=Branding
 ---
 # Add language-specific company branding to your sign-in page in the Azure Active Directory
 To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.

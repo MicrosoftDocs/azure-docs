@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync:  Changing the Azure AD Connect Sync service account | Microsoft Docs'
 description: This topic document describes the encryption key and how to abandon it after the password is changed.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Changing the Azure AD Connect sync service account password
 If you change the  Azure AD Connect sync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the Azure AD Connect sync service account password. 

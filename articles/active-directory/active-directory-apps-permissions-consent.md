@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Apps, permissions, and consent in Azure Active Directory.| Microsoft Docs'
 description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for Office 365, Azure, and SaaS applications integrated with Azure AD.
 keywords: introduction to Azure AD, apps, what is Azure AD Connect, install active directory
@@ -16,6 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/17/2016
 ms.author: billmath
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Apps, permissions, and consent in Azure Active Directory

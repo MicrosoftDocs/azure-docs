@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory risk events | Microsoft Docs
 description: This topic gives you a detailed overview of what risk events are.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Azure Active Directory risk events
 

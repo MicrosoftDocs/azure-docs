@@ -1,4 +1,4 @@
----
+﻿---
 title: How to assign users and groups to an application | Microsoft Docs
 description: Assign users to the application to grant access
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to assign users and groups to an application

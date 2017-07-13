@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Seamless Single Sign-On | Microsoft Docs'
 description: This topic describes Azure Active Directory (Azure AD) Seamless Single Sign-On and how it allows you to provide true single sign-on for corporate desktop users inside your corporate network.
 services: active-directory
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: billmath
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 
 # Azure Active Directory Seamless Single Sign-On

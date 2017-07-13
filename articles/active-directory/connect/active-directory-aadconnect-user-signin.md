@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: User sign-in | Microsoft Docs'
 description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect user sign-in options
 Azure Active Directory (Azure AD) Connect allows your users to sign in to both cloud and on-premises resources by using the same passwords. This article describes key concepts for each identity model to help you choose the identity that you want to use for signing in to Azure AD.

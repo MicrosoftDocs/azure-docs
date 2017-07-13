@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory Reporting FAQ | Microsoft Docs
 description: Azure Active Directory reporting FAQ.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Azure Active Directory reporting FAQ
 

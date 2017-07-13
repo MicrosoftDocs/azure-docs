@@ -1,4 +1,4 @@
----
+﻿---
 title: Problem configuring federated single sign-on for an Azure AD Gallery application | Microsoft Docs
 description: Address some of the common problems you may encounter when configuring federated single sign-on using SAML for applications that are listed in the Azure AD Application Gallery
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problem configuring federated single sign-on for an Azure AD Gallery application

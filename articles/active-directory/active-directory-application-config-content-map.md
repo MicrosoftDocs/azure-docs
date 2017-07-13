@@ -1,4 +1,4 @@
----
+﻿---
 title: Problems adding or configuring applications"
 description: Problems adding or configuring applications"
 services: active-directory
@@ -14,6 +14,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problems adding or configuring applications

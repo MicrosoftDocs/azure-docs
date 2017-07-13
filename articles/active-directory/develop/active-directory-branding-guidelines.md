@@ -1,4 +1,4 @@
----
+﻿---
 title: Branding Guidelines for Applications | Microsoft Docs
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=Branding
 
+ms.reviewer: jeffsta
 ---
 # Branding Guidelines for Applications
 This topic discusses the branding guidelines you should use when developing applications with Azure Active Directory (Azure AD). These guidelines will help direct your customers when they want to use their work or school account, managed in Azure AD, or their personal account for sign-up and sign-in to your application.
