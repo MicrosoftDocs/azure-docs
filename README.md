@@ -10,7 +10,7 @@ We welcome contributions from our community (users, customers, partners, MSFT em
 
 * **Community - new articles**: If you're part of the Azure community and you want to create a new article, you need to work with an employee to help bring that new content in through a combination of work in the public and private repository.
 
-* **Employees**: If you are a technical writer, program manager, or developer from the product team for an Azure service and it's your job to contribute to or author technical articles, you should use the private repository (https://github.com/MicrosoftDocs/azure-docs-pr). If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, a markdown editor, and learn some git commands.
+* **Employees**: If you are a technical writer, program manager, or developer from the product team for an Azure service and it's your job to contribute to or author technical articles, you should use the private repository (https://github.com/MicrosoftDocs/azure-docs-pr). If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, a markdown editor, and learn some git commands. See [the internal contributor's guide](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) for more information.
 
 
 ## About your contributions to Azure content
