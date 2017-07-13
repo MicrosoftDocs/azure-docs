@@ -1,22 +1,6 @@
 ---
-title: Recovery Services vault FAQ | Microsoft Docs
-description: This version of the FAQ supports the Public Preview release of the Azure Backup service. Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution.
-services: backup
-documentationcenter: ''
-author: markgalioto
-manager: carmonm
-editor: ''
-keywords: backup solution; backup service
-
-ms.assetid: 5f55b500-1ee9-4f64-9306-02d6f7a8eded
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/21/2016
-ms.author: markgal;trinadhk;
-
+redirect_url: /azure/backup/backup-azure-backup-faq
+redirect_document_id: TRUE
 ---
 # Recovery Services vault - FAQ
 This article provides information specific to Recovery Services vault and it supplements the [Azure Backup FAQ](backup-azure-backup-faq.md). The Azure Backup FAQ provides the full set of questions and answers about the Azure Backup service.  
