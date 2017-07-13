@@ -48,6 +48,8 @@ Developers can also push to a container registry as part of a container developm
 
   You [control access](container-registry-authentication.md) to a container registry using an Azure Active Directory-backed [service principal](../active-directory/active-directory-application-objects.md) or a provided admin account. Run the standard `docker login` command to authenticate with a registry.
 
+* **Managed Registry** - A tier that offers additional capabilities for registries in three SKUs - Basic, Standard, and Premium. The images in these SKUs are stored in Storage Accounts managed by the Azure Container Registries service, which improves reliability and enables new features. New capabilities include webhook integration, repository authentication with Azure Active Directory, and support for delete functionality. Users have the option to choose between managed registries or to create a registry backed by their own Storage Accounts when creating registries.
+
 * **Repository** - A registry contains one or more repositories, which are groups of container images. Azure Container Registry supports multilevel repository namespaces. This feature enables you to group collections of images related to a specific app, or a collection of apps to specific development or operational teams. For example:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` represents a corporate-wide image

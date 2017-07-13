@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/virtual-machines/windows/sa-copy-generalized.md
+redirect_url: /azure/virtual-machines/windows/sa-copy-generalized
 redirect_document_id: true
 ---

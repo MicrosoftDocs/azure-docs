@@ -4,7 +4,7 @@ description: Clone the sample C application from GitHub, and run gulp to deploy 
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'arduino led projects, arduino led blink, arduino led blink code, arduino blink program, arduino blink example'
 

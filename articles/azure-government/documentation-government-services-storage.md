@@ -76,7 +76,7 @@ For more information on APIs, see the <a href="https://msdn.microsoft.com/librar
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
 > [!NOTE]
-> If error 53 "The network path was not found." is returned, while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
+> If error 53 "The network path was not found." is returned, while [mounting the file share] (../storage/storage-dotnet-how-to-use-files.md). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
 >
 >
 

@@ -4,7 +4,7 @@ description: Get started with IoT Gateway Starter Kit, create your Azure IoT hub
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot hub, iot gateway, getting started with the internet of things, iot toolkit'
 

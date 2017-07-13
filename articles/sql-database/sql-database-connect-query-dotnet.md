@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-connect-query-visual-studio
+redirect_url: /azure/sql-database/sql-database-connect-query-dotnet-visual-studio
 --- 

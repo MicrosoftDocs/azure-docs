@@ -4,7 +4,7 @@ description: Create a resource group, create an Azure IoT hub, and register Pi i
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'raspberry pi cloud, pi cloud connect'
 
