@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/14/2017
 ms.author: jeedes
 
 ---
@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Environment  | URL  |
 	| -- | -- |
 	| For production | `https://ncpingfederate.dayforcehcm.com/sp` |
-	| For Non prod/Test | `https://fs-test.dayforcehcm.com/sp`|
+	| For test | `https://fs-test.dayforcehcm.com/sp`|
 		
 	c. In the **Reply URL** textbox, type the URL used by Azure AD to post the response.
 
