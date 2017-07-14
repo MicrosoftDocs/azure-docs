@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/30/2017
+ms.date: 07/14/2017
 ms.author: larryfr
 ---
 # Analyze logs for Apache Kafka (preview) on HDInsight
@@ -63,7 +63,10 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
     * CPU usage: `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
     * Incoming messages per second: `Type=kafkametrics_CL ClusterName_s="kafkaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
     * Incoming bytes per second: `Type=kafkametrics_CL HostName_s="wn0-kafkao" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
-    * Outgoing bytes per second: `Type=kafkametrics_CL ClusterName_s="kafkaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | measure avg(kafka-BrokerTopicMetrics-BytesOutPerSec-Count_value_d) interval 1HOUR`
+    * Outgoing bytes per second: `Type=kafkametrics_CL ClusterName_s="kafkaaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
+
+    > [!IMPORTANT]
+    > Replace the query values with those of your cluster. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
 
     You can also enter `*` to search all types logged. Currently the following logs are available for queries:
 
