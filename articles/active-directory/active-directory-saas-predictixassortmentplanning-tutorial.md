@@ -88,7 +88,7 @@ To configure and test Azure AD single sign-on with Predictix Assortment Planning
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Predictix Assortment Planning test user](#creating-a-predictixassortmentplanning-test-user)** - to have a counterpart of Britta Simon in Predictix Assortment Planning that is linked to the Azure AD representation of user.
+3. **[Creating a Predictix Assortment Planning test user](#creating-a-predictix-assortment-planning-test-user)** - to have a counterpart of Britta Simon in Predictix Assortment Planning that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -116,13 +116,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<sub-domain>.ap.preddictix.com/sso/request`|
 	| `https://<sub-domain>.dev.ap.predictix.com/`|
 
-
 	b. In the **Identifier** textbox, type a URL using the following pattern:
 	| |
 	|--|--|
 	| `https://<sub-domain>.ap.preddictix.com`|
 	| `https://<sub-domain>.dev.ap.predictix.com`|
-
+	
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Predictix Assortment Planning Client support team](http://www.infor.com/contact/) to get these values. 
  
