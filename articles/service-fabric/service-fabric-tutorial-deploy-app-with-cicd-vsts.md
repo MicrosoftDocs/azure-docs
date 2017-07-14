@@ -63,43 +63,37 @@ Verify your email and select your account in the **Team Services Domain** drop-d
 Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository** name and select a team project. You can view your code on the web by selecting **See it on the web**.
 
 ## Configure Continuous Delivery with VSTS
-Use the built in wizard in Visual Studio to configure continuous Delivery with VSTS.
+Use the built in wizard in Visual Studio to configure continuous delivery with VSTS.
 
-**Right-click** your **Service Fabric application** project in the **Solution Explorer** -> **Add** -> **Continuous Delivery with VSTS**. This will bring up a dialog for you to input the required configuration.
+1. Right-click the **MyApplication** application project in **Solution Explorer**, the select **Add** -> **Continuous Delivery with VSTS**. A dialog box pops up for you to input the required configuration.
 
-![Continuous Delivery with VSTS][continuous-delivery-with-VSTS]
+    ![Continuous Delivery with VSTS][continuous-delivery-with-VSTS]
 
-The dialog will default to the use the Account, Project and Git Repository that is already connected to your solution.
+    **Account**, **Project**, and **Git Repository** values are automatically entered.
 
-Choose **Hosted VS2017** as the agent queue.
+2. Choose **Hosted VS2017** as the agent queue.
 
-Choose **Create Connection** in the Cluster Connection drop-down. This will open a web site to configure a Service Endpoint in VSTS. Set focus on the browser window and choose **New Service Endpoint** -> **Service Fabric**.
+3. Choose **Create Connection** in the **Cluster Connection** drop-down, which opens a web site to configure a Service Endpoint in VSTS. 
 
-![New Service Endpoint][new-service-endpoint]
+4. Set focus on the browser window and choose **New Service Endpoint** -> **Service Fabric**.
 
-This will bring up a dialog to configure the cluster endpoint and authentication.
+    ![New Service Endpoint][new-service-endpoint]
 
-![New Service Endpoint Dialog][new-service-endpoint-dialog]
+    A dialog pops up to configure the cluster endpoint and authentication.
 
-If you used the [Create a Windows Service Fabric cluster on Azure Tutorial](service-fabric-tutorial-create-cluster-azure-ps.md), leave the authentication as **Certificate Based**.
+    ![New Service Endpoint Dialog][new-service-endpoint-dialog]
 
-Complete the dialog:
-
-1. Type in any name in the **Connection Name**.
-2. Type the cluster's management endpoint in the **Cluster Endpoint** field (for example, "tcp://mycluster.eastus.cloudapp.azure.com:19000").
-   - Remember to specify tcp:// as the protocol and management endpoint port (default is 19000).
-3. Input the server certificate thumbprint, which can be obtained by browsing to Service Fabric Explorer of your cluster (e.g. https://mycluster.eastus.cloudapp.azure.com:19080).
-   - Choose the **Cluster** node in the tree view and the **Manifest** tab in the right hand pane.
-   - Look for the **<ServerCertificate>** element in the XML file and copy the content of the **X509FindValue** attribute.
-4. In the **Client Certificate** field, input the client certificate as a Base64 encoded string. This is the only way to get the certificate installed on the build agent.
-To do this follow these steps:
-   - Make sure you have the certificate as a PFX file available.
-   - Run the following PowerShell command to output the PFX file as a Base64Encoded string to the clipboard.
-       ```
-       [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(C:\path\to\certificate.pfx)) | clip
-       ```
-   - Paste (ctrl+v) the value form the clipboard in to the field in the dialog.
-5. Type the **Certificate Password** in the **Password** field and click **OK**.
+5. Select **Certificate Based** and complete the dialog:
+    1. Enter a **Connection Name**.
+    2. Enter the cluster's management endpoint in the **Cluster Endpoint** field (for example, "tcp://mycluster.eastus.cloudapp.azure.com:19000"). Specify "tcp://" as the protocol.  The default anagement endpoint port is 19000.
+    3. Input the **Server Certificate Thumbprint**.  The thumbprint can be obtained by opening Service Fabric Explorer for your cluster (https://mycluster.eastus.cloudapp.azure.com:19080).
+        - Choose the **Cluster** node in the tree view and the **Manifest** tab in the right hand pane.
+        - Look for the **<ServerCertificate>** element in the XML file and copy the content of the **X509FindValue** attribute.
+    4. In the **Client Certificate** field, input the client certificate as a Base64 encoded string, required to get the certificate installed on the build agent:
+        - Make sure you have the certificate as a PFX file available.
+        - Run the following PowerShell command to output the PFX file as a Base64Encoded string to the clipboard: `[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(C:\path\to\certificate.pfx)) | clip`
+        - Paste (ctrl+v) the value form the clipboard in to the field in the dialog.
+    5. Type the **Certificate Password** in the **Password** field and click **OK**.
 
 Go back to Visual Studio and choose **<Refresh>** in the **Cluster Connection** field in the in the Continuous Delivery with VSTS dialog. The cluster endpoint you just created should now show up in the drop-down.
 
