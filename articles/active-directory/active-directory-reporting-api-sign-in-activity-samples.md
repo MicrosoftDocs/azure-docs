@@ -24,7 +24,7 @@ The scope of this topic is to provide you with sample code for the **sign-in act
 
 See:
 
-* [Audit logs](active-directory-reporting-azure-portal.md#audit-logs)  for more conceptual information
+* [Audit logs](active-directory-reporting-azure-portal.md#activity-reports)  for more conceptual information
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
 For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
@@ -36,7 +36,7 @@ Before you can use the samples in this topic, you need to complete the [prerequi
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
     $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
-    $loginURL       = "https://login.windows.net/"
+    $loginURL       = "https://login.microsoftonline.com/"
     $tenantdomain   = "<tenantDomain>"
     $ daterange            # For example, contoso.onmicrosoft.com
 

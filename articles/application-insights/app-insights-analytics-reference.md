@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: cfreeman
 
 ---
@@ -2600,17 +2600,29 @@ range t from 1 to 1 step 1
 |4.0|10.0|
 ### series_outliers 
 
-The series_outliers() function takes a column containing dynamic array as input and generates a dynamic numeric array of the same length as the input. Each value of the array indicates a score indicating a possible anomaly using Tukey's test. A value greater than 1.5 or less than -1.5 indicates a rise or decline anomaly respectively in the same element of the input.  
+The series_outliers() function takes a column containing a dynamic array as input and generates a dynamic numeric array of the same length as the input. Each value of the array indicates a score indicating a possible anomaly using Tukey's test. A value greater than 1.5 or less than -1.5 indicates a rise or decline anomaly respectively in the same element of the input.  
 
 **Syntax**  
 
 ```
-series_outliers(x,kind)  
+series_outliers(x,kind,ignore_val,min_percentile,max_percentile)  
 ```
 **Arguments** 
 * *x:* Dynamic array cell which is an array of numeric values. The values are assumed to be equidistant, otherwise it may yield unexpected results.  
-* *kind:* Algorithm of outlier detection. Currently supports "tukey".  
-Most convenient way of using this function is applying it to results of make-series operator.  
+* *kind:* Algorithm of outlier detection. Currently supports "tukey" and "ctukey". Default is "ctukey".  
+* *ignore_val:* numeric value indicating missing values in the series, default is double(null).
+* *min_percentile:*  for calulation of the normal inter-quantile range, default is 10 (ctukey only).
+* *max_percentile:*  for calulation of the normal inter-quantile range, default is 90 (ctukey only).
+
+The following table describes differences between "tukey" and "ctukey":
+
+|Algorithm|Default quantile range|Supports custom quantile range|
+|---------|----------------------|------------------------------|
+|"tukey"|25% / 75%|No|
+|"ctukey"|10% / 90%|Yes|
+
+**Important note** 
+The most convenient way of using this function is applying it to results of the `make-series` operator.
 
 **Examples** 
 
