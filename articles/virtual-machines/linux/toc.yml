@@ -379,6 +379,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Supportability of adding Azure VM to an existing availability set
+      href: ../virtual-machines-availability-set-supportability.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
     - name: SSH connections
