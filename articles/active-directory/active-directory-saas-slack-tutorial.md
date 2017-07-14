@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Slack | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Slack.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Tutorial: Azure Active Directory integration with Slack
 

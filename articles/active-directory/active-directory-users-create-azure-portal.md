@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Add new users to Azure Active Directory | Microsoft Docs
 description: Explains how to add new users or change user information in Azure Active Directory.
@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
+; jeffsta
 
-
+ms.custom: iamfeature=Users
 ---
 # Add new users to Azure Active Directory
 > [!div class="op_single_selector"]

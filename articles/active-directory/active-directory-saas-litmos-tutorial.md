@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Litmos | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Litmos.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: jeedes
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Tutorial: Azure Active Directory integration with Litmos
 The objective of this tutorial is to show you how to integrate Litmos with Azure Active Directory (Azure AD).  

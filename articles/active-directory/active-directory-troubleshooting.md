@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Troubleshooting: ''Active Directory'' item is missing or not available | Microsoft Docs'
 description: What to do when Active Directory menu item doesn't appear in the Azure Management Portal.
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 
+ms.reviewer: kbrint
+ms.custom: iamfeature=AzureADGeneral
 ---
 # Troubleshooting: 'Active Directory' item is missing or not available
 Many of the instructions for using Azure Active Directory features and services begin with "Go to the Azure Management Portal and click **Active Directory**." But what do you do if the Active Directory extension or menu item does not appear or if it is marked **Not Available**? This topic is designed to help. It describes the conditions under which **Active Directory** does not appear or is unavailable and explains how to proceed.

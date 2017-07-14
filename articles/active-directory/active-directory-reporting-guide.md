@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory Reporting Guide | Microsoft Docs
 description: A guide containing all Azure Active Directory Reporting articles
 services: active-directory
@@ -15,6 +15,8 @@ ms.workload: identity
 ms.date: 01/19/2017
 ms.author: femila;markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Azure Active Directory Reporting Guide
 > [!div class="op_single_selector"]

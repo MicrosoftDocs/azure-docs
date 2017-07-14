@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory audit report events | Microsoft Docs
 description: Audited events that are available for viewing and downloading from your Azure Active Directory
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 06/16/2017
 ms.author: dhanyahk;markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Azure Active Directory audit report events
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*

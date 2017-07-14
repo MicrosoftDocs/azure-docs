@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Reporting: Azure AD SSPR | Microsoft Docs'
 description: Reporting on Azure AD self-service password reset events
 services: active-directory
@@ -7,7 +7,7 @@ documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
 ms.reviewer: gahug
-
+; gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
-ms.custom: it-pro
+ms.custom: it-pro; iamfeature=Passwords
 
 ---
 # Reporting options for Azure AD password management

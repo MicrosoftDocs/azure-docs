@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Azure AD SSO for applications | Microsoft Docs
 description: Learn how to self-service connect apps to Azure Active Directory using SAML and password-based SSO
 services: active-directory
@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.author: asmalser
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017; iamfeature=Applications
 
+ms.reviewer: asteen
 ---
 # Configuring single sign-on to applications that are not in the Azure Active Directory application gallery
 This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18th, 2015 and is included in [Azure Active Directory Premium](active-directory-editions.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).

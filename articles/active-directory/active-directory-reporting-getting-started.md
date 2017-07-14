@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory Reporting: Getting started | Microsoft Docs'
 description: Lists the various available reports in Azure Active Directory reporting
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Getting started with Azure Active Directory Reporting
 ## What it is

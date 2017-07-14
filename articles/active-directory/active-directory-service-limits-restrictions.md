@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory service limits and restrictions
 description: Usage constraints and other service limits for the Azure Active Directory service
 services: active-directory
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2017
 ms.author: curtand
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=AzureADGeneral
 
+ms.reviewer: kbrint
 ---
 # Azure AD service limits and restrictions
 This article contains the usage constraints and other service limits for the Azure Active Directory (Azure AD) service. If you’re looking for the full set of Microsoft Azure service limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).

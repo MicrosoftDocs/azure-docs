@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory reporting latencies | Microsoft Docs
 description: Learn about the amount of time it takes for reporting events to show up in your Azure portal
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi;dhanyahk
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Azure Active Directory reporting latencies
 

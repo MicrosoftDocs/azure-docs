@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Cerner Central | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cerner Central.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Tutorial: Azure Active Directory integration with Cerner Central
 

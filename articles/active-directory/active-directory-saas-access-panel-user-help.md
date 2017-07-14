@@ -1,4 +1,4 @@
----
+﻿---
 title: Do you need help with the My Apps portal in Azure Active Directory | Microsoft Docs
 description: Get instructions to perform common tasks when working with the access panel.
 services: active-directory
@@ -16,7 +16,8 @@ ms.topic: article
 ms.date: 07/06/17
 ms.author: markvi
 ms.reviewer: japere
-
+; japere
+ms.custom: iamfeature=AccessPanel
 ---
 # Do you need help with the My Apps portal?
 

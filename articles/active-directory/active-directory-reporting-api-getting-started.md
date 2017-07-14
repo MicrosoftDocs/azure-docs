@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Getting started with the Azure AD reporting API on the Azure AD classic portal | Microsoft Docs
 description: How to get started with the Azure Active Directory reporting API
@@ -17,6 +17,8 @@ ms.workload: identity
 ms.date: 05/18/2017
 ms.author: dhanyahk;markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Getting started with the Azure Active Directory reporting API on the Azure AD classic portal
 *This topic is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*

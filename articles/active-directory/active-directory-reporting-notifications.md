@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory Reporting Notifications
 description: How to use the Azure Active Directory reporting notifications for suspicious sign ins.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Azure Active Directory Reporting Notifications
 ## What reports generate email notifications

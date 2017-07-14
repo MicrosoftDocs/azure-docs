@@ -1,4 +1,4 @@
----
+﻿---
 title: Self-service application access and delegated management with Azure Active Directory | Microsoft Docs
 description: This article describes how to enable self-service application access and delegated management with Azure Active Directory.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: curtand
 
+ms.reviewer: japere
+ms.custom: iamfeature=AccessPanel
 ---
 # Self-service application access and delegated management with Azure Active Directory
 Enabling self-service capabilities for end users is a common scenario for enterprise IT. Lots of users, lots of applications, and the person who is best-informed to make access grant decisions may not be the directory administrator. Often the best person to decide who can access an application is a team lead or other delegated administrator. But at the end of the day, it’s the user who uses the app, and the user knows what they need to be able to do their job.

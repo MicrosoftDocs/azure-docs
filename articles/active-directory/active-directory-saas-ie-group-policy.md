@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy Azure Access Panel Extension for IE using a GPO | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 05/16/2017
 ms.author: markvi
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017; iamfeature=Applications
 
+ms.reviewer: asteen
 ---
 # How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
 This tutorial shows how to use group policy to remotely install the Access Panel extension for Internet Explorer on your users' machines. This extension is required for Internet Explorer users who need to sign into apps that are configured using [password-based single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).

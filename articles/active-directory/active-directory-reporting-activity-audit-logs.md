@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Audit activity reports in the Azure Active Directory portal | Microsoft Docs
 description: Introduction to the audit activity reports in the Azure Active Directory portal
@@ -17,6 +17,8 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
 
+ms.reviewer: dhanyahk
+ms.custom: iamfeature=Reporting
 ---
 # Audit activity reports in the Azure Active Directory portal 
 
