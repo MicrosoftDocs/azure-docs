@@ -108,7 +108,6 @@ sql-database-service-tiers.md
 >
 > For example, suppose a 125 eDTU Premium pool has set its storage max to 1 TB. The amount of storage included is 250 GB. So, the extra storage amount is the storage max less the storage included which is 1 TB – 250 GB = 1024 GB – 250 GB = 774 GB. The pool in this example is in the Premium tier, and the unit price for extra storage in this tier is approximately $0.17/GB/month during preview. Therefore, the price of the extra storage is 774 GB * $0.17/GB/month = $131.58/month during the preview. The total price this Premium pool is the summation of its eDTU price and extra storage price. The price of a 125 eDTU Premium pool without any extra storage is $697.13/month. Therefore, the total price for a 125 eDTU Premium pool with 1 TB is $697.13/month + $131.58/month = $828.71/month.
 >
->
 >\*\* Min/max eDTUs per database starting at 200 eDTUs and higher is in public preview.
 >
 >\*\*\* Premium pools with more than 1 TB of storage is currently in public preview in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The max storage per pool for all other regions is currently limited to 1 TB.
