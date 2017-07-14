@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/17/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with TigerText Secure Messenger, you need the 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial Offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -108,12 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-tigertext-tutorial/tutorial_tigertext_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://home.tigertext.com`
+    a. In the **Sign-on URL** textbox, type URL as: `https://home.tigertext.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://saml-lb.tigertext.me/<companyname>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [TigerText Secure Messenger Client support team](mailTo:prosupport@tigertext.com) to get these values. 
+	> This value is not real. Update this value with the actual Identifier. Contact [TigerText Secure Messenger Client support team](mailTo:prosupport@tigertext.com) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -123,11 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-tigertext-tutorial/tutorial_general_400.png)
 
-6. On the **TigerText Secure Messenger Configuration** section, click **Configure TigerText Secure Messenger** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/active-directory-saas-tigertext-tutorial/tutorial_tigertext_configure.png) 
-
-7. To get single sign-on configured for your application, contact [TigerText Secure Messenger support team](mailTo:prosupport@tigertext.com) and provide them the **Downloaded metadata**.
+6. To get single sign-on configured for your application, contact [TigerText Secure Messenger support team](mailTo:prosupport@tigertext.com) and provide them the **Downloaded metadata**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
