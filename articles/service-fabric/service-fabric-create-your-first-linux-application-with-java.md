@@ -18,10 +18,6 @@ ms.author: ryanwi
 
 ---
 # Create your first Java Service Fabric reliable actors application on Linux
-> [!div class="op_single_selector"]
-> * [First C# reliable actors application](service-fabric-quickstart-actor-service.md)
-> * [First Java reliable actors application](service-fabric-create-your-first-linux-application-with-java.md)
->
 
 This quickstart helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service application running on the local development cluster.  
 
