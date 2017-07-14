@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with Litmos, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Litmos support team](https://www.litmos.com/contact-us/) to get these values.
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_certificate.png) 
 
