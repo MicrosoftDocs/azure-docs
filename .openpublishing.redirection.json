@@ -4606,8 +4606,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-suite/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md",
-            "redirect_url": "/azure/iot-suite/iot-hub-raspberry-pi-kit-node-get-started",
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices-mbed.md",
+            "redirect_url": "/azure/iot-suite",
             "redirect_document_id": false
         },
         {
