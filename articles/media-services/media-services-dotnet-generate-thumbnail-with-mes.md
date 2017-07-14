@@ -220,7 +220,7 @@ The following code example uses Media Services .NET SDK to perform the following
 		    private static readonly string _AADTenantDomain =
 			ConfigurationManager.AppSettings["AADTenantDomain"];
 		    private static readonly string _RESTAPIEndpoint =
-			ConfigurationManager.AppSettings["RESTAPIEndpoint"];
+			ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
 		    private static CloudMediaContext _context = null;
 
