@@ -23,7 +23,7 @@ ms.author: ryanwi
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quick start walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster.  You will also share your containerized application through [Azure Container Registry](/azure/container-registry/).  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster.  You will also share your containerized application through [Azure Container Registry](/azure/container-registry/).  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 ## Prerequisites
 A development computer running:
@@ -36,7 +36,7 @@ A Windows cluster with three or more nodes running on Windows Server 2016 with C
 A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
 ## Define the Docker container
-Build an image based on the [python image](https://hub.docker.com/_/python/) located on Docker Hub. 
+Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub. 
 
 Define your Docker container in a Dockerfile. The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image. 
 
@@ -168,13 +168,13 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
 3. Select **Guest Container** from the list of **service templates**.
 4. In **Image Name** enter "myregistry.azurecr.io/samples/helloworldapp", the image you pushed to your container repository. 
 5. Give your service a name, and click **OK**.
-6. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to an ```Endpoint``` in the ServiceManifest.xml file. For this quick start, the containerized service listens on port 80: 
+6. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to an ```Endpoint``` in the ServiceManifest.xml file. For this article, the containerized service listens on port 80: 
 
     ```xml
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     ```
     Providing the ```UriScheme``` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
-7. Configure the container port-to-host port mapping by specifying a ```PortBinding``` policy in ```ContainerHostPolicies``` of the ApplicationManifest.xml file.  For this quick start, ```ContainerPort``` is 8081 (the container exposes port 80, as specified in the Dockerfile) and ```EndpointRef``` is "Guest1TypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 8081 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add ```RepositoryCredentials```.  For this quick start, add the account name and password for the myregistry.azurecr.io container registry. 
+7. Configure the container port-to-host port mapping by specifying a ```PortBinding``` policy in ```ContainerHostPolicies``` of the ApplicationManifest.xml file.  For this article, ```ContainerPort``` is 8081 (the container exposes port 80, as specified in the Dockerfile) and ```EndpointRef``` is "Guest1TypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 8081 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add ```RepositoryCredentials```.  For this article, add the account name and password for the myregistry.azurecr.io container registry. 
 
     ```xml
     <Policies>
@@ -217,7 +217,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## Complete example Service Fabric application and service manifests
-Here are the complete service and application manifests used in this quick start.
+Here are the complete service and application manifests used in this article.
 
 ### ServiceManifest.xml
 ```xml
