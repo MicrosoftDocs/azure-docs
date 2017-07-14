@@ -42,7 +42,7 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connect to your app service
-1. Before starting the Gremlin Console, create or modify the `remote-secure.yaml` configuration file in the `apache-tinkerpop-gremlin-console-3.2.4/conf` directory.
+1. Before starting the Gremlin Console, create or modify the remote-secure.yaml configuration file in the apache-tinkerpop-gremlin-console-3.2.4/conf directory.
 2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations:
 
     Setting|Suggested value|Description
@@ -54,10 +54,10 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
     connectionPool|{enableSsl: true}|Your connection pool setting for SSL.
     serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
 
-    For the `hosts` value, copy the **Gremlin URI** value from the **Overview** page:
+    For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
 ![View and copy the Gremlin URI value on the Overview page in the Azure portal](./media/create-graph-gremlin-console/gremlin-uri.png)
 
-    For the `password` value, copy the **Primary key** from the **Keys** page:
+    For the password value, copy the **Primary key** from the **Keys** page:
 ![View and copy your primary key in the Azure portal, Keys page](./media/create-graph-gremlin-console/keys.png)
 
 

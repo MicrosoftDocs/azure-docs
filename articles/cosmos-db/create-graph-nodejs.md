@@ -91,9 +91,9 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
 
 ## Update your connection string
 
-1. Open the `config.js` file. 
+1. Open the config.js file. 
 
-2. In `config.js`, fill in the `config.endpoint` key with the **Gremlin URI** value from the **Overview** page of the Azure portal. 
+2. In config.js, fill in the config.endpoint key with the **Gremlin URI** value from the **Overview** page of the Azure portal. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
@@ -103,13 +103,13 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
 
    The Gremlin endpoint must be only the host name without the protocol/port number, like `mygraphdb.graphs.azure.com` (not `https://mygraphdb.graphs.azure.com` or `mygraphdb.graphs.azure.com:433`).
 
-3. In `config.js`, fill in the `config.primaryKey` value in with the **Primary Key** value from the **Keys** page of the Azure portal. 
+3. In config.js, fill in the config.primaryKey value in with the **Primary Key** value from the **Keys** page of the Azure portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
    ![The Azure portal Keys blade](./media/create-graph-nodejs/keys.png)
 
-4. Enter the database name, and graph (container) name for the value of `config.database` and `config.collection`. 
+4. Enter the database name, and graph (container) name for the value of config.database and config.collection. 
 
 Here is an example of what your completed config.js file should look like:
 
