@@ -1,4 +1,4 @@
----
+﻿---
 title: Cloud App Discovery Security and Privacy Considerations | Microsoft Docs
 description: This topic describes the security and privacy considerations related to Cloud App Discovery.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 
+ms.reviewer: harshja
+ms.custom: iamfeature=CloudAppDiscovery
 ---
 # Cloud App Discovery Security and Privacy Considerations
 Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the security of your organization.  

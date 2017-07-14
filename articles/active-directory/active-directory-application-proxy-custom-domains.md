@@ -1,4 +1,4 @@
----
+﻿---
 title: Custom domains in Azure AD Application Proxy | Microsoft Docs
 description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: kgremban
 
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 # Working with custom domains in Azure AD Application Proxy
 Using a default domain enables you to set the same URL as the internal and external URL for accessing the application so that your users only have one URL to remember to access the app, no matter where they are accessing from. This also lets you create a single shortcut in the Access Panel for the application. If you use the default domain provided by Azure AD Application Proxy, there’s no additional configuration you need to enable your domain. If you use a custom domain, there are a few things you need to do to make sure that Application Proxy recognizes your domain and validates its certificates.

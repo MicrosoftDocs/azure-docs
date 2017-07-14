@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing access to apps using Azure AD | Microsoft Docs
 description: Describes how Azure Active Directory enables organizations to specify the apps to which each user has access.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Managing access to apps
 Ongoing access management, usage evaluation, and reporting continue to be a challenge after an app is integrated into your organization's identity system. In many cases, IT Administrators or helpdesk have to take an ongoing active role in managing access to your apps. Sometimes, assignment is performed by a general or divisional IT team. Often, the assignment decision is intended to be delegated to the business decision maker, requiring their approval before IT makes the assignment.  Other organizations invest in integration with an existing automated identity and access management system, like Role-Based Access Control (RBAC) or Attribute-Based Access Control (ABAC). Both the integration and rule development tend to be specialized and expensive. Monitoring or reporting on either management approach is its own separate, costly, and complex investment.

@@ -1,4 +1,4 @@
----
+﻿---
 title: Configurable token lifetimes in Azure Active Directory | Microsoft Docs
 description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory
@@ -15,8 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=Applications
 
+ms.reviewer: asteen
 ---
 # Configurable token lifetimes in Azure Active Directory (Public Preview)
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.

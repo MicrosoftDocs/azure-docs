@@ -1,4 +1,4 @@
----
+﻿---
 title: Problems configuring the Azure AD Application Proxy"
 description: Problems configuring the Azure AD Application Proxy"
 services: active-directory
@@ -14,6 +14,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 
 # Problems configuring the Azure AD Application Proxy

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD: SSPR registration | Microsoft Docs'
 description: Register authentication data for Azure AD self-service password reset
 services: active-directory
@@ -7,7 +7,7 @@ documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
 ms.reviewer: gahug
-
+; gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: joflore
-ms.custom: end-user
+ms.custom: end-user; iamfeature=Passwords
 
 ---
 # Register for self-service password reset

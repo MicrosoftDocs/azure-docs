@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations - determine data protection requirements | Microsoft Docs
 description: When planning your hybrid identity solution, identify the data protection requirements for your business and which options are available to best fulfil these requirements.
 documentationcenter: ''
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 
+ms.reviewer: sakula
+ms.custom: iamfeature=HybridIdentity
 ---
 # Plan for enhancing data security through strong identity solution
 The first step to protect the data is identify who can access that data and as part of this process you need to have an identity solution that can integrates with your system to provide authentication and authorization capabilities. Authentication and authorization are often confused with each other and their roles misunderstood. In reality they are quite different, as shown in the figure below:

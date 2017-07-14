@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Get started integrating Azure AD with apps | Microsoft Docs
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
@@ -17,6 +17,8 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Integrating Azure Active Directory with applications getting started guide
 ## Overview

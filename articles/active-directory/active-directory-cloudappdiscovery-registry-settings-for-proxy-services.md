@@ -1,4 +1,4 @@
----
+﻿---
 title: Cloud App Discovery Registry Settings for Proxy Services | Microsoft Docs
 description: The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 
+ms.reviewer: harshja
+ms.custom: iamfeature=CloudAppDiscovery
 ---
 # Cloud App Discovery Registry Settings for Proxy Services
 By default, the Cloud App Discovery agent is configured to use only the ports 80 or 443. 

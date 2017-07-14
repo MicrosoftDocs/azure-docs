@@ -1,4 +1,4 @@
----
+﻿---
 title: Assign users to a custom domain in Azure Active Directory | Microsoft Docs
 description: How to populate a custom domain in Azure Active Directory with user accounts.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: curtand
 
+ms.reviewer: jeffsta
+ms.custom: iamfeature=Domain
 ---
 # Assign users to a custom domain
 After you have added your custom domain to Azure Active Directory, you must add the user accounts for this domain so that you can begin authenticating them.

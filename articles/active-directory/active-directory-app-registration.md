@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory App Registration | Microsoft Docs
 description: This article describes how to use the Azure portal to register an application with Azure Active Directory
 services: active-directory
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Register your application with your Azure Active Directory tenant

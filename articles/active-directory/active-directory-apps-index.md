@@ -1,4 +1,4 @@
----
+﻿---
 title: Article Index for Application Management in Azure Active Directory | Microsoft Azure
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 # Article Index for Application Management in Azure Active Directory
 This page provides a comprehensive list of every document written about the various application-related features in Azure Active Directory (Azure AD).

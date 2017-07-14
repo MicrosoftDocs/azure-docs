@@ -1,4 +1,4 @@
----
+﻿---
 title: Classic portal Azure AD App Proxy connectors | Microsoft Docs
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 04/23/2017
 ms.author: kgremban
 
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 # Publish applications on separate networks and locations using connector groups
 > [!div class="op_single_selector"]

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations- next steps| Microsoft Docs
 description: A synopsis and next steps after you have read the Hybrid Identity design considerations guide
 documentationcenter: ''
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 
+ms.reviewer: sakula
+ms.custom: iamfeature=HybridIdentity
 ---
 # Azure Active Directory hybrid identity design considerations- next steps
 Now that you’ve completed defining your requirements and examining all the options for your mobile device management solution, you’re ready to take the next steps for deploying the supporting infrastructure that’s right for you and your organization.
