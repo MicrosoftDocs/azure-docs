@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/15/2017
 ms.author: jeedes
 
 ---
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.litmos.com/integration/samllogin`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Litmos support team](https://www.litmos.com/contact-us/) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL, which are explained later in tutorial or contact [Litmos support team](https://www.litmos.com/contact-us/) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -159,7 +159,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Azure AD Single Sign-On][24] 
 
-11. Copy the value under **The SAML endpoint for litmos is:**.
+11. Copy the value under **The SAML endpoint for litmos is:** and paste it into the **Reply URL** textbox in the **Litmos Domain and URLs** section in Azure portal. 
    
     ![Azure AD Single Sign-On][26] 
 
@@ -229,7 +229,7 @@ The Litmos application supports Just-in-Time provisioning. This means, a user ac
    
     ![Azure AD Single Sign-On][24] 
 	
-5. Select **Autogenerate Users:**.
+5. Select **Autogenerate Users:**
    
     ![Azure AD Single Sign-On][27] 
 
