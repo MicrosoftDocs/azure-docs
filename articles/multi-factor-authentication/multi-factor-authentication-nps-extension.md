@@ -235,4 +235,6 @@ Verify that https://adnotifications.windowsazure.com is reachable from the serve
 
 ## Next steps
 
-See how to integrate Azure MFA with [Active Directory](multi-factor-authentication-get-started-server-dirint.md), [RADIUS authentication](multi-factor-authentication-get-started-server-radius.md), and [LDAP authentication](multi-factor-authentication-get-started-server-ldap.md).
+- Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](nps-extension-advanced-configuration.md)
+
+- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)

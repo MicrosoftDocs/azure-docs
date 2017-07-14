@@ -28,21 +28,21 @@ Since the NPS extension connects to both your on-premises and cloud directories,
 
 Within the NPS extension, you can designate an Active Directory attribute to be used in place of the UPN for Azure Multi-Factor Authentication. This enables you to protect your on-premises resources with two-step verification without modifying your on-premises UPNs. 
 
-To configure alternate login IDs, use the following registry values under `HKLMSOFTWARE\Microsoft\AzureMfa`:
+To configure alternate login IDs, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and edit the following registry values:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Empty | Designate the name of Active Directory attribute that you want to use instead of the UPN. This attribute is used as the AlternateLoginId attribute. If this registry value is set to a [valid Active Directory attribute](https://msdn.microsoft.com/library/ms675090.aspx) (for example, mail or displayName), then the attribute's value is used in place of the user's UPN for authentication. If this registry value is empty or not configured, then AlternateLoginId is disabled and the user's UPN is used for authentication. |
-| LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Use this flag to force the use of Global Catalog for LDAP searches when looking up AlternateLoginId. Configure a domain controller as a Global Catalog, add the AlternateLoginId attribute to the Global Catalog, and then enable this flag. <br><br> If LDAP_LOOKUP_FORESTS is configured (not empty), this flag is enforced as true, regardless of the value of the registry setting. In this case, the NPS extension requires the Global Catalog to be configured with the AlternateLoginId attribute for each forest. |
+| LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Use this flag to force the use of Global Catalog for LDAP searches when looking up AlternateLoginId. Configure a domain controller as a Global Catalog, add the AlternateLoginId attribute to the Global Catalog, and then enable this flag. <br><br> If LDAP_LOOKUP_FORESTS is configured (not empty), **this flag is enforced as true**, regardless of the value of the registry setting. In this case, the NPS extension requires the Global Catalog to be configured with the AlternateLoginId attribute for each forest. |
 | LDAP_LOOKUP_FORESTS | string | Empty | Provide a semi-colon separated list of forests to search. For example, *contoso.com;foobar.com*. If this registry value is configured, the NPS extension iteratively searches all the forests in the order in which they were listed, and returns the first successful AlternateLoginId value. If this registry value is not configured, the AlternateLoginId lookup is confined to the current domain.|
 
-To troubleshoot problems with alternate login IDs, use the recommended steps for [Alternate login ID errors](multi-factor-authentication-nps-errors.md#alternate-login-id-errors)
+To troubleshoot problems with alternate login IDs, use the recommended steps for [Alternate login ID errors](multi-factor-authentication-nps-errors.md#alternate-login-id-errors).
 
 ## IP exceptions
 
 If you need to monitor server availability, like if load balancers verify which servers are running before sending workloads, you don't want these checks to be blocked by verification requests. Instead, create a list of IP addresses that you know are used by service accounts, and disable Multi-Factor Authentication requirements for that list. 
 
-To configure an IP whitelist, go to `HKLMSOFTWARE\Microsoft\AzureMfa` and configure the following registry value: 
+To configure an IP whitelist, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and configure the following registry value: 
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
