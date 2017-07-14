@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/16/2017
 ms.author: jeedes
 
 ---
@@ -203,7 +203,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in Voyance. Voyance supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Voyance if it doesn't exist yet.
 
 >[!NOTE]
->If you need to create a user manually, you need to contact [Voyance support team](emaiLto:support@nyansa.com).
+>If you need to create a user manually, you need to contact [Voyance support team](maiLto:support@nyansa.com).
 
 ### Assigning the Azure AD test user
 
