@@ -67,12 +67,12 @@ Next, create separate credentials for Terraform.
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Your appId, password (password), sp_name, and tenant are returned. Make a note of the client\_id and client\_secret.
+Your appId, password, sp_name, and tenant are returned. Make a note of the appId and password.
 
-To confirm your credentials (service principal), open a new shell and run the following commands. Substitute the returned values for sp_name, client\_secret, and tenant:
+To confirm your credentials (service principal), open a new shell and run the following commands. Substitute the returned values for sp_name, password, and tenant:
 
 ```
-az login --service-principal -u SP_NAME -p CLIENT_SECRET --tenant TENANT
+az login --service-principal -u SP_NAME -p PASSWORD --tenant TENANT
 az vm list-sizes --location westus
 ```
 
