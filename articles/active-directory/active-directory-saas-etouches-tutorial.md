@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/14/2017
 ms.author: jeedes
 
 ---
@@ -154,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. Go to the **SAML** Configuration.
 
-    c. In the **General Settings** section, Open your downloaded certificate in Notepad, copy the content, and then paste it into the IDP metadata textbox. 
+    c. In the **General Settings** section, open your downloaded certificate from Azure portal in notepad, copy the content, and then paste it into the IDP metadata textbox. 
 
     d. Click on the **Save & Stay** button.
   
