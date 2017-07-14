@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
+	c. From the **Value** list, type the attribute value shown for that row. The token generated value is explained later in tutorial.
 	
 	d. Click **Ok**.	
 
