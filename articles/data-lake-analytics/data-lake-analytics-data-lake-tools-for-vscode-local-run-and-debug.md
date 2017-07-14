@@ -24,6 +24,7 @@ ms.author: jejiang
 - Azure Data Lake Tool for Visual Studio Code. For instructions,  see [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 - C# for Visual Studio Code (if you want to perform USQL Local Debug). 
    ![Data Lake Tools for Visual Studio Code install vscodeCsharp](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-install-ms-vscodecsharp.png)
+   
    > [!NOTE]
    > The USQL local run & debug features currently only support windows users. 
 
