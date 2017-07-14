@@ -1,4 +1,4 @@
----
+﻿---
   title: Migrating to Azure Premium Storage using Azure Site Recovery | Microsoft Docs
   description: Migrate your existing virtual machines to Azure Premium Storage using Site Recovery. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
   services: storage
@@ -86,7 +86,7 @@ You can use Site Recovery to migrate Azure IaaS VMs between regions or within sa
 
     ![][5]
 
-    3c. On the VM you're using as the configuration server, run Unified Setup to install the configuration server and the process server. You can walk through the screenshots [here](../site-recovery/site-recovery-vmware-to-azure.mdt) to complete the installation. You can refer to the following screenshots for steps specified for this migration scenario.
+    3c. On the VM you're using as the configuration server, run Unified Setup to install the configuration server and the process server. You can walk through the screenshots [here](../site-recovery/site-recovery-vmware-to-azure.md) to complete the installation. You can refer to the following screenshots for steps specified for this migration scenario.
 
     In **Before you begin**, select **Install the configuration server and process server**.
 
