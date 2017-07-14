@@ -1,23 +1,23 @@
 ---
-title: How to use PerfInsights 3.2 | Microsoft Docs
-description: Learns how to use PerfInsights 3.2
-services: storage
+title: How to use PerfInsights | Microsoft Docs
+description: Learns how to use PerfInsights.
+services: ''
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: cshepard
 editor: na
-tags: storage
+tags: ''
 
-ms.service: storage
+ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/14/2017
 ms.author: genli
 
 ---
-# How to use PerfInsights 3.2
+# How to use PerfInsights
 
 ## Overview
 
