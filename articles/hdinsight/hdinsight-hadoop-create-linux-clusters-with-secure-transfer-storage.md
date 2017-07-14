@@ -38,41 +38,14 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Enter or select the following values:
-   
-    ![HDInsight Linux get started Resource Manager template on portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Deploy Hadoop cluster in HDInsigut using the Azure portal and a resource group manager template").
-   
-    * **Subscription**: Select your Azure subscription.
-    * **Resource group**: Create a resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. 
-    * **Location**: Select an Azure location where you want to create your cluster.  Choose a location closer to you for better performance. 
-    * **Cluster Type**: Select **hadoop** for this tutorial.
-    * **Cluster Name**: Enter a name for the Hadoop cluster.
-    * **Cluster login name and password**: The default login name is **admin**.
-    * **SSH username and password**: The default username is **sshuser**.  You can rename it. 
-     
-    Some properties have been hardcoded in the template.  You can configure these values from the template.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fsecuretransfer%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    * **Location**: The location of the cluster and the dependent storage account share the same location as the resource group.
-    * **Cluster version**: 3.6
-    * **OS Type**: Linux
-    * **Number of worker nodes**: 2
+2. Follow the instructions to create the cluster.  For the detailed instructions, see [Create cluster](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). The template creates a version 3.6 cluster.
 
-     Each cluster has an Azure Storage account dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account. 
-     
-     For more explanation of these properties, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-
-3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then click **Purchase**. You shall see a new tile titled **Deploying Template deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. And the portal automatically opens the resource group in a new blade. You can see both the cluster and the default storage listed.
-   
-    ![HDInsight Linux get started resource group](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group").
-
-4. Click the cluster name to open the cluster in a new blade.
-
-   ![HDInsight Linux get started cluster settings](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")
 
 ## Enable secure transfer for the storage accounts
 
-Currently, you can enable secure transfer for the storage accounts only after the HDInsight cluster has been created.  For the instructions for enabling secure transfer, see [Require secure transfer for an existing storage account](../storage/storage-rquire-secure-transfer.md).
+Currently, you can enable secure transfer for the storage accounts only after the HDInsight cluster has been created.  For the instructions for enabling secure transfer, see [Require secure transfer for an existing storage account](../storage/storage-require-secure-transfer.md).
 
 
 ## Configure the defaultFS setting
