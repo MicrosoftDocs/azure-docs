@@ -123,6 +123,7 @@ redis resource is deployed into this subnet.
 ## Services that do not enable move
 The services that currently do not enable moving a resource are:
 
+* AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
 * Availability sets with Virtual Machines with Managed Disks
