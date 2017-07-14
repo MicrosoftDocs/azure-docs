@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/14/2017
 ms.author: jeedes
 
 ---
@@ -108,11 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://YOUR_SERVER_URL/saml/init`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YOUR_SERVER_URL>/saml/init`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://YOUR_SERVER_URL`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<YOUR_SERVER_URL>`
 
-	c. b. In the **Reply URL** textbox, type a URL using the following pattern: `https://YOUR_SERVER_URL/saml/consume`
+	c. b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<YOUR_SERVER_URL>/saml/consume`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and, Reply URL. Contact [LiquidFiles Client support team](https://www.liquidfiles.com/support.html) to get these values. 
@@ -188,7 +188,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a LiquidFiles test user
 
-The objective of this section is to create a user called Britta Simon in LiquidFiles. Work with [LiquidFiles Client support team](https://www.liquidfiles.com/support.html) to add the users in the LiquidFiles account.
+The objective of this section is to create a user called Britta Simon in LiquidFiles. Work with your LiquidFiles server administrator to get yourself added as a user before logging in to your LiquidFiles application.
 
 ### Assigning the Azure AD test user
 
