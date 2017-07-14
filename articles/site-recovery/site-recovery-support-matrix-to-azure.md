@@ -193,7 +193,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 
 **Entity** | **Requirements** | **Details**
 --- | --- | ---
-**Guest operating system** | Hyper-V to Azure replication: Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication: Check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | Prerequisites check will fail if unsupported.
+**Guest operating system** | Hyper-V to Azure replication: Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication: Check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md) | Prerequisites check will fail if unsupported.
 **Guest operating system architecture** | 64-bit | Prerequisites check will fail if unsupported
 **Operating system disk size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Operating system disk count** | 1 | Prerequisites check will fail if unsupported.
