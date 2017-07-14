@@ -60,7 +60,7 @@ For this example, we're using C# to create the retraining application. You can a
 
 To call the retraining APIs:
 
-1. Create a C# console application in Visual Studio (**New** > **Project** > **Windows Desktop** > **Console Application**).
+1. Create a C# console application in Visual Studio: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
 2. Sign in to the Machine Learning Web Services portal.
 3. Click the web service that you're working with.
 4. Click **Consume**.
