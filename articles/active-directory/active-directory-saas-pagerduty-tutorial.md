@@ -131,25 +131,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In the menu on the top, click **Account Settings**.
    
-   ![Account Settings](./media/active-directory-saas-pagerduty-tutorial/ic778535.png "Account Settings")
+    ![Account Settings](./media/active-directory-saas-pagerduty-tutorial/ic778535.png "Account Settings")
 
-9. Click **single sign-on**.
+9. Click **Single Sign-on**.
    
-   ![Single sign-on](./media/active-directory-saas-pagerduty-tutorial/ic778536.png "Single sign-on")
+    ![Single sign-on](./media/active-directory-saas-pagerduty-tutorial/ic778536.png "Single sign-on")
 
-10. On the Enable Single Sign-on (SSO) page, perform the following steps:
+10. On the **Enable Single Sign-on (SSO)** page, perform the following steps:
    
-   ![Enable single sign-on](./media/active-directory-saas-pagerduty-tutorial/ic778537.png "Enable single sign-on")
+    ![Enable single sign-on](./media/active-directory-saas-pagerduty-tutorial/ic778537.png "Enable single sign-on")
    
-  a. Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
+    a. Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
   
-  b. In the **Login URL** textbox, paste **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+    b. In the **Login URL** textbox, paste **SAML Single Sign-On Service URL** which you have copied from Azure portal.
   
-  c. In the **Logout URL** textbox, paste **Sign-Out URL** which you have copied from Azure portal.
+    c. In the **Logout URL** textbox, paste **Sign-Out URL** which you have copied from Azure portal.
  
-  d. Select **Turn on Single Sign-on**.
+    d. Select **Turn on Single Sign-on**.
  
-  e. Click **Save Changes**.
+    e. Click **Save Changes**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -201,20 +201,20 @@ In the case of PagerDuty, provisioning is a manual task.
 
 3. Click **Add Users**.
    
-   ![Add Users](./media/active-directory-saas-pagerduty-tutorial/ic778539.png "Add Users")
+    ![Add Users](./media/active-directory-saas-pagerduty-tutorial/ic778539.png "Add Users")
 
 4.  On the **Invite your team** dialog, perform the following steps:
    
-   ![Invite your team](./media/active-directory-saas-pagerduty-tutorial/ic778540.png "Invite your team")
+    ![Invite your team](./media/active-directory-saas-pagerduty-tutorial/ic778540.png "Invite your team")
 
-   a. Type the **First and Last Name** of user like **Britta Simon**. 
+    a. Type the **First and Last Name** of user like **Britta Simon**. 
    
-   b. Enter **Email** address of user like **brittasimon@contoso.com**.
+    b. Enter **Email** address of user like **brittasimon@contoso.com**.
    
-   c. Click **Add**, and then click **Send Invites**.
+    c. Click **Add**, and then click **Send Invites**.
    
-   >[!NOTE]
-   >All added users will receive an invite to create a PagerDuty account.
+    >[!NOTE]
+    >All added users will receive an invite to create a PagerDuty account.
 
 ### Assigning the Azure AD test user
 
