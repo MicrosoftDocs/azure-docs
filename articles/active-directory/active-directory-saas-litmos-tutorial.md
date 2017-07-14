@@ -229,7 +229,7 @@ The Litmos application supports Just-in-Time provisioning. This means, a user ac
    
     ![Azure AD Single Sign-On][24] 
 	
-5. Select **Autogenerate Users:**
+5. Select **Autogenerate Users**
    
     ![Azure AD Single Sign-On][27] 
 
