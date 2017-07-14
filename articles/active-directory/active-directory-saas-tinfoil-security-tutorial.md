@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     d. In **SAML Certificate Fingerprint** textbox, paste the value of **Thumbprint** which you have copied from **SAML Signing Certificate** section.
   
-    e. Copy **Your Account ID** value and paste the value in **Attribute Value** textbox under **Add Attribute** section.
+    e. Copy **Your Account ID** value and paste the value in **Attribute Value** textbox under **Add Attribute** section in Azure portal.
    
     f. Click **Save**.
 
