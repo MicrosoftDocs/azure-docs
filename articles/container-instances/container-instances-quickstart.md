@@ -37,19 +37,19 @@ You can create a container by providing a name for the container, a Docker image
 To begin, create a resource group to store your containers:
 
 ```azurecli-interactive
-az group create -l westus -n cseriesgroup
+az group create -l westus -n acidemogroup
 ```
 
 Now, create a container in that group and give it a public IP address:
 
 ```azurecli-interactive
-az container create --name myContainer --image seanmckenna/aci-helloworld -g cseriesgroup --ip-address public 
+az container create --name myContainer --image seanmckenna/aci-helloworld -g acidemogroup --ip-address public 
 ```
 
 Within a few seconds, you should get a response to your request. Initially,the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
 
 ```azurecli-interactive
-az container show myContainer -g cseriesgroup
+az container show myContainer -g acidemogroup
 ```
 
 Once the container moves to the **Succeeded** state, you will be able to reach it using the IP address shown in the output. 
@@ -59,7 +59,7 @@ Once the container moves to the **Succeeded** state, you will be able to reach i
 You can pull the logs for the container you created using the `logs` command:
 
 ```azurecli-interactive
-az container logs --name myContainer -g cseriesgroup
+az container logs --name myContainer -g acidemogroup
 ```
 
 ## Delete the container
@@ -67,7 +67,7 @@ az container logs --name myContainer -g cseriesgroup
 When you are done with the container, you can remove it using the `delete` command:
 
 ```azurecli-interactive
-az container delete --name myContainer -g cseriesgroup
+az container delete --name myContainer -g acidemogroup
 ```
 
 ## Next steps
