@@ -36,6 +36,14 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | **REQUEST_MISSING_CODE** | If SMS or Oath tokens are used for the secondary authentication method, then the password ecryption protocol between NPS and Nas servers must be PAP. The NPS extension does not support other password encryption methods at this point.|
 | **USERNAME_CANONICALIZATION_ERROR** | Verify that the user is present in your on-premises Active Directory instance, and that the NPS Service has permissions to access the directory. If you are using cross-forest trusts, [contact support](#contact-microsoft-support) for further help. |
 
+### Alternate login ID errors
+
+| Error code | Error message | Troubleshooting steps |
+| ---------- | ------------- | --------------------- |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error: userObjectSid lookup failed | Verify that the user exists in your on-premises Active Directory instance. If you are using cross-forest trusts, [contact support](#contact-microsoft-support) for further help. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error: Alternate LoginId lookup failed | Verify that `LDAP_ALTERNATE_LOGINID_ATTRIBUTE` is set to a [valid active directory attribute](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br> If `LDAP_FORCE_GLOBAL_CATALOG` is set to True, or `LDAP_LOOKUP_FORESTS` is configured with a non-empty value, verify that you have configured a Global Catalog and that the AlternateLoginId attribute is added to it. <br> If `LDAP_LOOKUP_FORESTS` is configured with a non-empty value, verify that the value is correct. If there is more than one forest name, the names must be separated with semi-colons, not spaces. <br> If these steps don't fix the problem, [contact support](#contact-microsoft-support) for more help. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error: Alternate LoginId value is empty | Verify that the AlternateLoginId attribute is configured for the user. |
+
 
 ## Errors your users may encounter
 
