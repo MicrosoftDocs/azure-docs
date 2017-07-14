@@ -38,6 +38,20 @@ To configure alternate login IDs, use the following registry values under `HKLMS
 
 To troubleshoot problems with alternate login IDs, use the recommended steps for [Alternate login ID errors](multi-factor-authentication-nps-errors.md#alternate-login-id-errors)
 
+## IP exceptions
+
+If you need to monitor server availability, like if load balancers verify which servers are running before sending workloads, you don't want these checks to be blocked by verification requests. Instead, create a list of IP addresses that you know are used by service accounts, and disable Multi-Factor Authentication requirements for that list. 
+
+To configure an IP whitelist, go to `HKLMSOFTWARE\Microsoft\AzureMfa` and configure the following registry value: 
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| IP_WHITELIST | string | Empty | Provide a semi-colon separated list of IP addresses. Include the IP addresses of machines where service requests originate, like the NAS/VPN server. IP ranges are subnets are not supported. <br> For example, *10.0.0.1;10.0.0.2;10.0.0.3*.
+
+When a request comes in from an IP address that exists in the whitelist, two-step verification is skipped. The IP whitelist is compared to the IP address that is provided in the `ratNASIPAddress` attribute of the RADIUS request. If a RADIUS request comes in without the `ratNASIPAddress` attribute, the following warning is logged:
+
+    P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in `NasIpAddress` attribute.
+
 ## Next steps
 
 - [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)
