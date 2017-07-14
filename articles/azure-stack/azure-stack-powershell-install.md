@@ -118,7 +118,7 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
 
 3. Sign in to the development kit and copy the packages from the USB device to a location on the development kit. 
 
-4. Now you must register this package location as the default repository to install modules. Use the following command to register this the default repository:
+4. Now you must register this location as the default repository to install the PowerShell modules. Use the following command to register the default repository:
 
    ```powershell
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
