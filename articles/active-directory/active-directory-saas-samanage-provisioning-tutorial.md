@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/14/2017
 ms.author: asmalser-msft
 ---
 
@@ -30,7 +30,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A Samanage tenant with the [Professional plan](https://www.samanage.com/pricing/) or better enabled 
 *   A user account in Samanage with Admin permissions 
 
-Note: The Azure AD provisioning integration relies on the [Samanage REST API](https://www.samanage.com/api/), which is available to Samanage teams on the Professional plan or better.
+> [!NOTE]
+> The Azure AD provisioning integration relies on the [Samanage REST API](https://www.samanage.com/api/), which is available to Samanage teams on the Professional plan or better.
 
 ## Assigning users to Samanage
 
@@ -46,50 +47,52 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 *	When assigning a user to Samanage, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. The **Default Access** role does not work for provisioning, and these users are skipped.
 
-**Note:** As an added feature, the provisioning service reads any custom roles defined in Samanage, and imports them into Azure AD where they can be selected in the Select Role dialog. These roles will be visible in the Azure portal after the provisioning service is enabled and one synchronization cycle has completed.
+> [!NOTE]
+> As an added feature, the provisioning service reads any custom roles defined in Samanage, and imports them into Azure AD where they can be selected in the Select Role dialog. These roles will be visible in the Azure portal after the provisioning service is enabled and one synchronization cycle has completed.
 
 ## Configuring user provisioning to Samanage 
 
 This section guides you through connecting your Azure AD to Samanage's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Samanage based on user and group assignment in Azure AD.
 
-**Tip:** You may also choose to enabled SAML-based Single Sign-On for Samanage, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> [!TIP]
+> You may also choose to enabled SAML-based Single Sign-On for Samanage, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 
 ### Configure automatic user account provisioning to Samanage in Azure AD:
 
 
-1)	In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
 
-2) If you have already configured Samanage for single sign-on, search for your instance of Samanage using the search field. Otherwise, select **Add** and search for **Samanage** in the application gallery. Select Samanage from the search results, and add it to your list of applications.
+2. If you have already configured Samanage for single sign-on, search for your instance of Samanage using the search field. Otherwise, select **Add** and search for **Samanage** in the application gallery. Select Samanage from the search results, and add it to your list of applications.
 
-3)	Select your instance of Samanage, then select the **Provisioning** tab.
+3. Select your instance of Samanage, then select the **Provisioning** tab.
 
-4)	Set the **Provisioning Mode** to **Automatic**.
+4. Set the **Provisioning Mode** to **Automatic**.
 
 ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
 
-5)	Under the **Admin Credentials** section, input the **Admin Username&Admin Password** of your Samanage's account. 
+5. Under the **Admin Credentials** section, input the **Admin Username&Admin Password** of your Samanage's account. 
 
-6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Samanage app. If the connection fails, ensure your Samanage account has Admin permissions and try step 5 again.
+6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Samanage app. If the connection fails, ensure your Samanage account has Admin permissions and try step 5 again.
 
-7) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
+7. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
 
-8) Click **Save**. 
+8. Click **Save**. 
 
-9) Under the Mappings section, select **Synchronize Azure Active Directory Users to Samanage**.
+9. Under the Mappings section, select **Synchronize Azure Active Directory Users to Samanage**.
 
-10) In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Samanage. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the Save button to commit any changes.
+10. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Samanage. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the Save button to commit any changes.
 
-11) To enable the Azure AD provisioning service for Samanage, change the **Provisioning Status** to **On** in the **Settings** section
+11. To enable the Azure AD provisioning service for Samanage, change the **Provisioning Status** to **On** in the **Settings** section
 
-12) Click **Save**. 
+12. Click **Save**. 
 
 This operation starts the initial synchronization of any users and/or groups assigned to Samanage in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
-## Additional Resources
+## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
