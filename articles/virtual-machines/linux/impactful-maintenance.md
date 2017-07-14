@@ -54,22 +54,21 @@ VMs for the maintenance. During this time window, which follows the
 pre-emptive maintenance window, you can still query for the maintenance
 window, but no longer be able to orchestrate the maintenance.
 
-## Availability considerations during planned maintenance 
 
-### Paired regions
+
+## Paired regions
 
 Each Azure region is paired with another region within the same
-geography, together making a regional pair. When executing maintenance,
-Azure will only update the Virtual Machine instances in a single region
-of its pair. For example, when updating the Virtual Machines in North
-Central US, Azure will not update any Virtual Machines in South Central
-US at the same time. This will be scheduled at a separate time, enabling
+geography, making a regional pair. Azure will only update host one region
+of the pair at a time. For example, when updating the VMs <!-- VMs or hosts? -->) in North
+Central US, Azure will not update any VMs in South Central
+US at the same time, enabling
 failover or load balancing between regions. However, other regions such
 as North Europe can be under maintenance at the same time as East US.
 Read more about [Azure region
 pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### Single instance VMs vs. availability set or VM scale set
+## Availability sets
 
 When deploying a workload using virtual machines in Azure, you can create the VMs within an availability set in order to provide
 high availability to your application. This configuration ensures that during
@@ -78,8 +77,11 @@ either an outage or maintenance events, at least one virtual machine is availabl
 Within an availability set, individual VMs are spread across up to 20
 update domains. During planned maintenance, only a single update domain
 is impacted at any given time. The order of update domains being
-impacted may not proceed sequentially during planned maintenance. For single instance VMs (not part of availability set), there is no way to predict or determine which and how many VMs
-are impacted together.
+impacted may not proceed sequentially during planned maintenance. 
+
+For more information, see [Availability](xxx.md)
+
+### Scale sets
 
 Virtual machine scale sets are an Azure compute resource that enables
 you to deploy and manage a set of identical VMs as a single resource.
