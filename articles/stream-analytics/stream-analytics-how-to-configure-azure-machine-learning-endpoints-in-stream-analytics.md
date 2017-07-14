@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Azure Machine Learning endpoints in Stream Analytics | Microsoft Docs
 description: Machine Language User defined functions in Stream Analytics
 keywords: ''
@@ -32,7 +32,7 @@ Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool yo
 Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution. The specific service is named a [Request/Response Service](../machine-learning/machine-learning-consume-web-services.md) in AzureML studio.
 
 ## Machine Learning resources needed for Stream Analytics jobs
-For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key), and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
+For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md), and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
 
 ## Configure a Stream Analytics and Machine Learning UDF via REST API
 By using REST APIs you may configure your job to call Azure Machine Language functions. The steps are as follows:

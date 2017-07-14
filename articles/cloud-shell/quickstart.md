@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/10/2017
 ms.author: juluk
 ---
 
@@ -38,7 +38,7 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 `az account set --subscription my-subscription-name`
 
 > [!TIP]
-> Your subscription will be remembered for future sessions using `azureProfile.json` held in your $Home directory.
+> Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
 
 ### Create a resource group
 Create a new resouce group in WestUS named "MyRG": <br>
