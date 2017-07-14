@@ -72,7 +72,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 
 ## Enable secure transfer for the storage accounts
 
-Currently, you can enable secure transfer for the storage accounts only after the HDInsight cluster has been created.  For the instructions for enabling secure transfer, see [Require secure transfer for an existing storage account](../storage/storage-rquire-secure-transfer.md#enable-secure-transfer-required-in-the-azure-portal).
+Currently, you can enable secure transfer for the storage accounts only after the HDInsight cluster has been created.  For the instructions for enabling secure transfer, see [Require secure transfer for an existing storage account](../storage/storage-rquire-secure-transfer.md).
 
 
 ## Configure the defaultFS setting
@@ -81,7 +81,7 @@ This step is required only if you use a secure transfer enabled storage account 
 
 **To configure the defaultFS setting**
 
-1. Sign in to the Ambari Web UI.  See [Connectivity](./hdinsight-hadoop-manage-ambari#connectivity.md).
+1. Sign in to the Ambari Web UI.  See [Connectivity](./hdinsight-hadoop-manage-ambari.md#connectivity).
 2. From the left menu, click **HDFS**.
 3. Click the **Configs** tab.
 4. Click the **Advanced** tab.
