@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Tinfoil Security | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Tinfoil Security.
+title: 'Tutorial: Azure Active Directory integration with TINFOIL SECURITY | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and TINFOIL SECURITY.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/17/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Tinfoil Security
+# Tutorial: Azure Active Directory integration with TINFOIL SECURITY
 
-In this tutorial, you learn how to integrate Tinfoil Security with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate TINFOIL SECURITY with Azure Active Directory (Azure AD).
 
-Integrating Tinfoil Security with Azure AD provides you with the following benefits:
+Integrating TINFOIL SECURITY with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Tinfoil Security
-- You can enable your users to automatically get signed-on to Tinfoil Security (Single Sign-On) with their Azure AD accounts
+- You can control in Azure AD who has access to TINFOIL SECURITY
+- You can enable your users to automatically get signed-on to TINFOIL SECURITY (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Tinfoil Security, you need the following items:
+To configure Azure AD integration with TINFOIL SECURITY, you need the following items:
 
 - An Azure AD subscription
-- A Tinfoil Security single sign-on enabled subscription
+- A TINFOIL SECURITY single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -41,19 +41,19 @@ To configure Azure AD integration with Tinfoil Security, you need the following 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial here: [trial offer](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial Offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Tinfoil Security from the gallery
+1. Adding TINFOIL SECURITY from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Tinfoil Security from the gallery
-To configure the integration of Tinfoil Security into Azure AD, you need to add Tinfoil Security from the gallery to your list of managed SaaS apps.
+## Adding TINFOIL SECURITY from the gallery
+To configure the integration of TINFOIL SECURITY into Azure AD, you need to add TINFOIL SECURITY from the gallery to your list of managed SaaS apps.
 
-**To add Tinfoil Security from the gallery, perform the following steps:**
+**To add TINFOIL SECURITY from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -67,36 +67,36 @@ To configure the integration of Tinfoil Security into Azure AD, you need to add 
 
 	![Applications][3]
 
-4. In the search box, type **Tinfoil Security**.
+4. In the search box, type **TINFOIL SECURITY**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_search.png)
 
-5. In the results panel, select **Tinfoil Security**, and then click **Add** button to add the application.
+5. In the results panel, select **TINFOIL SECURITY**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Tinfoil Security based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with TINFOIL SECURITY based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Tinfoil Security is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Tinfoil Security needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in TINFOIL SECURITY is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in TINFOIL SECURITY needs to be established.
 
-In Tinfoil Security, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In TINFOIL SECURITY, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-To configure and test Azure AD single sign-on with Tinfoil Security, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with TINFOIL SECURITY, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Tinfoil Security test user](#creating-a-tinfoil-security-test-user)** - to have a counterpart of Britta Simon in Tinfoil Security that is linked to the Azure AD representation of user.
+3. **[Creating a TINFOIL SECURITY test user](#creating-a-tinfoil-security-test-user)** - to have a counterpart of Britta Simon in TINFOIL SECURITY that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Tinfoil Security application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your TINFOIL SECURITY application.
 
-**To configure Azure AD single sign-on with Tinfoil Security, perform the following steps:**
+**To configure Azure AD single sign-on with TINFOIL SECURITY, perform the following steps:**
 
-1. In the Azure portal, on the **Tinfoil Security** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **TINFOIL SECURITY** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_samlbase.png)
 
-3. On the **Tinfoil Security Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+3. On the **TINFOIL SECURITY Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
 
 	![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
 
@@ -137,11 +137,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_400.png)
 
-7. On the **Tinfoil Security Configuration** section, click **Configure Tinfoil Security** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **TINFOIL SECURITY Configuration** section, click **Configure TINFOIL SECURITY** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_configure.png) 
 
-8. In a different web browser window, log into your Tinfoil Security company site as an administrator.
+8. In a different web browser window, log into your TINFOIL SECURITY company site as an administrator.
 
 9. In the toolbar on the top, click **My Account**.
    
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     d. In **SAML Certificate Fingerprint** textbox, paste the value of **Thumbprint** which you have copied from **SAML Signing Certificate** section.
   
-    e. Copy **Your Account ID**.
+    e. Copy **Your Account ID** value and paste the value in **Attribute Value** textbox under **Add Attribute** section.
    
     f. Click **Save**.
 
@@ -202,30 +202,34 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a Tinfoil Security test user
+### Creating a TINFOIL SECURITY test user
 
-1. If the user is a part of an Enterprise account, you need to [contact the Tinfoil Security support team](https://www.tinfoilsecurity.com/contact) to get the user account created.
+In order to enable Azure AD users to log into TINFOIL SECURITY, they must be provisioned into TINFOIL SECURITY. In the case of TINFOIL SECURITY, provisioning is a manual task.
 
-2. If the user is a regular Tinfoil Security SaaS user, then the user can add a collaborator to any of the user’s sites. This triggers a process to send an invitation to the specified email to create a new Tinfoil Security user account.
+**To get a user provisioned, perform the following steps:**
+
+1. If the user is a part of an Enterprise account, you need to [contact the TINFOIL SECURITY support team](https://www.tinfoilsecurity.com/contact) to get the user account created.
+
+2. If the user is a regular TINFOIL SECURITY SaaS user, then the user can add a collaborator to any of the user’s sites. This triggers a process to send an invitation to the specified email to create a new TINFOIL SECURITY user account.
 
 > [!NOTE]
-> You can use any other Tinfoil Security user account creation tools or APIs provided by Tinfoil Security to provision Azure AD user accounts.
+> You can use any other TINFOIL SECURITY user account creation tools or APIs provided by TINFOIL SECURITY to provision Azure AD user accounts.
 > 
 > 
 
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Tinfoil Security.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to TINFOIL SECURITY.
 
 ![Assign User][200] 
 
-**To assign Britta Simon to Tinfoil Security, perform the following steps:**
+**To assign Britta Simon to TINFOIL SECURITY, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **Tinfoil Security**.
+2. In the applications list, select **TINFOIL SECURITY**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_app.png) 
 
@@ -247,7 +251,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Tinfoil Security tile in the Access Panel, you should get automatically signed-on to your Tinfoil Security application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the TINFOIL SECURITY tile in the Access Panel, you should get automatically signed-on to your TINFOIL SECURITY application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
