@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 07/15/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with Druva, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here [trail offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://cloud.druva.com/home`	
+    In the **Sign-on URL** textbox, type the URL: `https://cloud.druva.com/home`	
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -154,9 +154,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Single Sign-On Settings](./media/active-directory-saas-druva-tutorial/ic795092.png "Single Sign-On Settings")
 	
-	a. Paste **SAML Single Sign-On Service URL** value which you have copied from the Azure portal into the **ID Provider Login URL** textbox.
+	a. Paste **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal into the **ID Provider Login URL** textbox.
 	
-	b. Paste **Sign-Out URL** value which you have copied from the Azure portal into the **ID Provider Logout URL** textbox.
+	b. Paste **Sign-Out URL** value, which you have copied from the Azure portal into the **ID Provider Logout URL** textbox.
 	
 	 c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
 	 
@@ -211,9 +211,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Druva test user
 
-In order to enable Azure AD users to log in to Druva, they must be provisioned into Druva. 
-
-In the case of Druva, provisioning is a manual task.
+In order to enable Azure AD users to log in to Druva, they must be provisioned into Druva. In the case of Druva, provisioning is a manual task.
 
 **To configure user provisioning, perform the following steps:**
 
@@ -231,12 +229,14 @@ In the case of Druva, provisioning is a manual task.
    
    ![Create NewUser](./media/active-directory-saas-druva-tutorial/ic795099.png "Create NewUser")
    
-   a. Type the email address and the name of a valid Azure Active Directory user account you want to provision into the related textboxes.
+   a. In the **Email address** textbox, enter the email of user like **brittasimon@contoso.com**.
    
-   b. Click **Create User**.
+   b. In the **Name** textbox, enter the name of user like **BrittaSimon**.
+   
+   c. Click **Create User**.
 
 >[!NOTE]
->You can use any other Druva user account creation tools or APIs provided by Druva to provision AAD user accounts.
+>You can use any other Druva user account creation tools or APIs provided by Druva to provision Azure AD user accounts.
 
 ### Assigning the Azure AD test user
 
@@ -271,10 +271,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
- 
-When you click the Druva tile in the Access Panel, you should get automatically signed-on to your Druva application.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the Druva tile in the Access Panel, you should get automatically signed-on to your Druva application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
