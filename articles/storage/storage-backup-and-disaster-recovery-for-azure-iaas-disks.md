@@ -100,7 +100,7 @@ If you use [Premium Storage disks](storage-premium-storage.md), [Managed Disks](
 
 For [Unmanaged Disks](storage-about-disks-and-vhds-windows.md#unmanaged-disks), you can use the LRS storage type for IaaS disks, but ensure that Azure Backup is enabled with the GRS option for the Recovery Services Vault.
 
-**If you use the [GRS](storage-redundancy.md#geo-redundant-storage)/[RA-GRS](storage-redundancy.md#read-access-geo-redundant-storage) option for your Unmanaged Disks, you still need consistent snapshots for Backup and DR.** You must use either [Azure Backup Service](https://azure.microsoft.com/en-us/services/backup/) or [consistent snapshots](#consistent-snapshots).
+**If you use the [GRS](storage-redundancy.md#geo-redundant-storage)/[RA-GRS](storage-redundancy.md#read-access-geo-redundant-storage) option for your Unmanaged Disks, you still need consistent snapshots for Backup and DR.** You must use either [Azure Backup Service](https://azure.microsoft.com/en-us/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
 
 The following is a summary of solutions for DR.
 
@@ -109,10 +109,10 @@ The following is a summary of solutions for DR.
 | *Premium Storage Disks* | Local ([LRS](storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/) |
 | *Managed Disks* | Local ([LRS](storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/) |
 | *Unmanaged LRS Disks* | Local ([LRS](storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/) |
-| *Unmanaged GRS Disks* | Cross region ([GRS](storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/)<br/>[Consistent snapshots](#consistent-snapshots) |
-| *Unmanaged RA-GRS Disks* | Cross region ([RA-GRS](storage-redundancy.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/)<br/>[Consistent snapshots](#consistent-snapshots) |
+| *Unmanaged GRS Disks* | Cross region ([GRS](storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
+| *Unmanaged RA-GRS Disks* | Cross region ([RA-GRS](storage-redundancy.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
 
-High availability can best by met through the use of Managed Disks in an Availability Set along with Azure Backup. If you are using Unmanaged Disks, you can still  use Azure Backup for DR. If you are unable to use Azure Backup, then taking [consistent snapshots](#consistent-snapshots) as described in a later section is an alternative solution for Backup and DR.
+High availability can best by met through the use of Managed Disks in an Availability Set along with Azure Backup. If you are using Unmanaged Disks, you can still  use Azure Backup for DR. If you are unable to use Azure Backup, then taking [consistent snapshots](#alternative-solution-consistent-snapshots) as described in a later section is an alternative solution for Backup and DR.
 
 Your choices for high availability, backup and DR at Application or Infrastructure levels can be represented as below:
 
@@ -186,7 +186,7 @@ To avoid this situation, the backup process must implement the following steps:
 
 Some Windows applications like SQL Server provide a coordinated backup mechanism via VSS to create application-consistent backups. On Linux, you can use a tool like fsfreeze for coordinating the disks, which will provide file-consistent backups, but not application-consistent snapshots. This process is complicated, so and you should consider using [Azure Backup](../backup/backup-azure-vms-introduction.md) or a third-party backup solution which already implement this.
 
-The above process will result in a collection of coordinated snapshots for all the VM disks, representing a specific point-in-time view of the VM. This is a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. See below for the steps to [copy the backups to another region](#copy-the-backups-to-another-region) for DR.
+The above process will result in a collection of coordinated snapshots for all the VM disks, representing a specific point-in-time view of the VM. This is a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. See below for the steps to [copy the backups to another region](#copy-the-snapshots-to-another-region) for DR.
 
 ### Creating snapshots while the VM is offline
 
