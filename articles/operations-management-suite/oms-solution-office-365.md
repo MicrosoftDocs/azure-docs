@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/13/2017
 ms.author: magoedte
 
 ---
@@ -31,9 +31,9 @@ The Office 365 solution for Operations Management Suite (OMS) allows you to moni
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
 
-- Organizational Office 365 subscription.
+- Organizational Office 365 subscription.a
 - Credentials for a user account that is a Global Administrator.
-- To receive audit data, you must [configure auditing](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.
+- To receive audit data, you must [configure auditing](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.  You can still install the solution and collect other data if auditing is not configured.
  
 
 
@@ -81,7 +81,7 @@ The dashboard includes the columns in the following table. Each column lists the
 
 ## Log Analytics records
 
-All records created in the Log Analytics workspace by the Office 365 solution have a **Type** of **OfficeActivity**.  The **OfficeWorkload** property determines which Office 365 service the record refers to - Exchange, AzureActiveDirectory or SharePoint.  The **RecordType** property specifies the type of operation.  The properties will vary for each operation type and are shown in the tables below.
+All records created in the Log Analytics workspace by the Office 365 solution have a **Type** of **OfficeActivity**.  The **OfficeWorkload** property determines which Office 365 service the record refers to - Exchange, AzureActiveDirectory, SharePoint, or OneDrive.  The **RecordType** property specifies the type of operation.  The properties will vary for each operation type and are shown in the tables below.
 
 ### Common properties
 The following properties are common to all Office 365 records.
@@ -101,6 +101,7 @@ The following properties are common to all Office 365 records.
 
 
 ### Azure Active Directory base
+The following properties are common to all Azure Active Directory records.
 
 | Property | Description |
 |:--- |:--- |
@@ -108,7 +109,6 @@ The following properties are common to all Office 365 records.
 | RecordType     | AzureActiveDirectory |
 | AzureActiveDirectory_EventType | The type of Azure AD event. |
 | ExtendedProperties | The extended properties of the Azure AD event. |
-| ModifiedProperties | This property is included for admin events. The property includes the name of the property that was modified, the new value of the modified property, and the previous value of the modified property. |
 
 
 ### Azure Active Directory Account logon
@@ -142,6 +142,7 @@ These records are created when change or additions are made to Azure Active Dire
 
 
 ### Data Center Security
+These records are created from Data Center Security audit data.  
 
 | Property | Description |
 |:--- |:--- |
@@ -164,7 +165,6 @@ These records are created when changes are made to Exchange configuration.
 | RecordType     | ExchangeAdmin |
 | ExternalAccess | 	Specifies whether the cmdlet was run by a user in your organization, by Microsoft datacenter personnel or a datacenter service account, or by a delegated administrator. The value False indicates that the cmdlet was run by someone in your organization. The value True indicates that the cmdlet was run by datacenter personnel, a datacenter service account, or a delegated administrator. |
 | ModifiedObjectResolvedName | 	This is the user friendly name of the object that was modified by the cmdlet. This is logged only if the cmdlet modifies the object. |
-| ModifiedProperties | The property is included for admin events. The property includes the name of the property that was modified, the new value of the modified property, and the previous value of the modified object. |
 | OrganizationName | The name of the tenant. |
 | OriginatingServer | The name of the server from which the cmdlet was executed. |
 | Parameters | The name and value for all parameters that were used with the cmdlet that is identified in the Operations property. |
@@ -182,7 +182,6 @@ These records are created when changes or additions are made to Exchange mailbox
 | ClientMachineName | The machine name that hosts the Outlook client. |
 | ClientProcessName | The email client that was used to access the mailbox. |
 | ClientVersion | The version of the email client . |
-| ExternalAccess | 	This is true if the logon user's domain is different from the mailbox owner's domain. |
 | InternalLogonType | Reserved for internal use. |
 | Logon_Type | Indicates the type of user who accessed the mailbox and performed the operation that was logged. |
 | LogonUserDisplayName | 	The user-friendly name of the user who performed the operation. |
@@ -191,11 +190,10 @@ These records are created when changes or additions are made to Exchange mailbox
 | MailboxOwnerMasterAccountSid | Mailbox owner account's master account SID. |
 | MailboxOwnerSid | The SID of the mailbox owner. |
 | MailboxOwnerUPN | The email address of the person who owns the mailbox that was accessed. |
-| OriginatingServer | This is from where the operation originated. |
-| OrganizationName | 	The name of the tenant. |
 
 
 ### Exchange Mailbox Audit
+These records are created when a mailbox audit entry is created.
 
 | Property | Description |
 |:--- |:--- |
@@ -227,6 +225,7 @@ These records are created when changes or additions are made to Exchange groups.
 
 
 ### SharePoint Base
+These properties are common to all SharePoint records.
 
 | Property | Description |
 |:--- |:--- |
