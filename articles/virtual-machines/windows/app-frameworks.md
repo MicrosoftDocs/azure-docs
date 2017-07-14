@@ -3,7 +3,7 @@ title: Deploy application frameworks on Windows VMs in Azure | Microsoft Docs
 description: Create popular application frameworks on Windows VMs using Azure Resource Manager templates to install Active Directory, Docker, and many more.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: squillace
+author: dlepow
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/19/2017
-ms.author: rasquill
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
