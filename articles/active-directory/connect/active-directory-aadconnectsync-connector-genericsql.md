@@ -1,4 +1,4 @@
----
+﻿---
 title: Generic SQL Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic SQL Connector.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Generic SQL Connector technical reference
 This article describes the Generic SQL Connector. The article applies to the following products:

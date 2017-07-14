@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Sync service instances | Microsoft Docs'
 description: This page documents special considerations for Azure AD instances.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect: Special considerations for instances
 Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Office 365. But there are also other instances and these have different requirements for URLs and other special considerations.

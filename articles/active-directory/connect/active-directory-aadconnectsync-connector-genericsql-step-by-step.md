@@ -1,4 +1,4 @@
----
+﻿---
 title: Generic SQL Connector step-by step | Microsoft Docs
 description: This article is walking you through a simple HR system step-by-step using the Generic SQL Connector.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Generic SQL Connector step-by-step
 This topic is a step-by-step guide. It creates a simple sample HR database and use it for importing some users and their group membership.

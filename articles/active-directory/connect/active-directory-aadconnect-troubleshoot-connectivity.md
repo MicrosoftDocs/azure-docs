@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Troubleshoot connectivity issues | Microsoft Docs'
 description: Explains how to troubleshoot connectivity issues with Azure AD Connect.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Troubleshoot connectivity issues with Azure AD Connect
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.

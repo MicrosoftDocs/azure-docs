@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Azure AD Connect Health with AD FS | Microsoft Docs
 description: This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure.
 services: active-directory
@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/27/2017
 ms.author: vakarand
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017; iamfeature=AADConnect
+ms.reviewer: cychua
 ---
 # Monitor AD FS using Azure AD Connect Health
 The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).

@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
-ms.custom: pim
+ms.custom: pim; iamfeature=Directory
 
+ms.reviewer: jeffsta
 ---
 
 # Azure Active Directory Privileged Identity Management subscription requirements

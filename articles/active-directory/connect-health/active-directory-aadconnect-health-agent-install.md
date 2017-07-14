@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect Health Agent installation | Microsoft Docs
 description: This is the Azure AD Connect Health page that describes the agent installation for AD FS and Sync.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: vakarand
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect Health Agent Installation
 This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect sync service shadow attributes | Microsoft Docs
 description: Describes how shadow attributes work in Azure AD Connect sync service.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync service shadow attributes
 Most attributes are represented the same way in Azure AD as they are in your on-premises Active Directory. But some attributes have some special handling and the attribute value in Azure AD might be different than what Azure AD Connect synchronizes.

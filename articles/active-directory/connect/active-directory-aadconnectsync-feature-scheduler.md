@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Scheduler | Microsoft Docs'
 description: This topic describes the built-in scheduler feature in Azure AD Connect sync.
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: Scheduler
 This topic describes the built-in scheduler in Azure AD Connect sync (a.k.a. sync engine).

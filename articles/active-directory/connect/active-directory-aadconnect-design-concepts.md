@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Design concepts | Microsoft Docs'
 description: This topic details certain implementation design areas
 services: active-directory
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
-ms.custom: azure-ad-connect
+ms.custom: azure-ad-connect; iamfeature=AADConnect
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,6 +17,7 @@ ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
 
+ms.reviewer: cychua
 ---
 # Azure AD Connect: Design concepts
 The purpose of this topic is to describe areas that must be thought through during the implementation design of Azure AD Connect. This topic is a deep dive on certain areas and these concepts are briefly described in other topics as well.

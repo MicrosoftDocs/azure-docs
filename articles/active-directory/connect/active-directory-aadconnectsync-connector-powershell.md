@@ -1,4 +1,4 @@
----
+﻿---
 title: PowerShell Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Windows PowerShell Connector.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Windows PowerShell Connector technical reference
 This article describes the Windows PowerShell Connector. The article applies to the following products:

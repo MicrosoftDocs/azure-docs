@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory Connect: FAQ - | Microsoft Docs'
 description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
@@ -14,6 +14,8 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Frequently asked questions for Azure Active Directory Connect
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Troubleshoot Pass-through Authentication | Microsoft Docs'
 description: This article describes how to troubleshoot Azure Active Directory (Azure AD) Pass-through Authentication.
 services: active-directory
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
+ms.reviewer: swkish
+ms.custom: iamfeature=AADConnect
 ---
 
 # Troubleshoot Azure Active Directory Pass-through Authentication

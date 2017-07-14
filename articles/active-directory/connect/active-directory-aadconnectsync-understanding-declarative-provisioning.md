@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Understanding Declarative Provisioning | Microsoft Docs'
 description: Explains the declarative provisioning configuration model in Azure AD Connect.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: Understanding Declarative Provisioning
 This topic explains the configuration model in Azure AD Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things described in this topic are advanced and not required for most customer scenarios.

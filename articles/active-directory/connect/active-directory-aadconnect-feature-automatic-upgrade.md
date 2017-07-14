@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Automatic upgrade | Microsoft Docs'
 description: This topic describes the built-in automatic upgrade feature in Azure AD Connect sync.
 services: active-directory
@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect: Automatic upgrade
 This feature was introduced with build 1.1.105.0 (released February 2016).

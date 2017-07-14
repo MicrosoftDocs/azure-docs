@@ -1,4 +1,4 @@
----
+﻿---
 title: Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory | Microsoft Docs
 description: Learn how to customize the claims issued in the SAML token for pre-integrated apps in Azure Active Directory
 services: active-directory
@@ -15,8 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.custom: aaddev
+ms.custom: aaddev; iamfeature=Applications
 
+ms.reviewer: asteen
 ---
 # Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory
 Today Azure Active Directory supports thousands of pre-integrated applications in the Azure AD Application Gallery, including over 360 that support single sign-on using the SAML 2.0 protocol. When a user authenticates to an application through Azure AD using SAML, Azure AD sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as "claims".

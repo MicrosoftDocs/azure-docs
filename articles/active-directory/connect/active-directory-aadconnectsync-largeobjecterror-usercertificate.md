@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Handling LargeObject errors caused by userCertificate attribute | Microsoft Docs'
 description: This topic provides the remediation steps for LargeObject errors caused by userCertificate attribute.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 
 # Azure AD Connect sync: Handling LargeObject errors caused by userCertificate attribute

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Upgrade from DirSync | Microsoft Docs'
 description: Learn how to upgrade from DirSync to Azure AD Connect. This articles describes the steps for upgrading from DirSync to Azure AD Connect.
 services: active-directory
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.author: billmath
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 
 # Azure AD Connect: Upgrade from DirSync

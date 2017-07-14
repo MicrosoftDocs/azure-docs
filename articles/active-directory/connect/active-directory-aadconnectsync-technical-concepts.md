@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Technical concepts | Microsoft Docs'
 description: Explains the technical concepts of Azure AD Connect sync.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi;andkjell
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: Technical Concepts
 This article is a summary of the topic [Understanding architecture](active-directory-aadconnectsync-technical-concepts.md).

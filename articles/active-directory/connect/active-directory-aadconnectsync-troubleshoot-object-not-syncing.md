@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot an object that is not synchronizing to Azure AD | Microsoft Docs'
 description: Troubleshoot why an object is not synchronizing to Azure AD.
 services: active-directory
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
 

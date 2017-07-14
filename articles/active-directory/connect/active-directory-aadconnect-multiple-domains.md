@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect Multiple Domains
 description: This document describes setting up and configuring multiple top level domains with O365 and Azure AD.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Multiple Domain Support for Federating with Azure AD
 The following documentation provides guidance on how to use multiple top-level domains and sub-domains when federating with Office 365 or Azure AD domains.

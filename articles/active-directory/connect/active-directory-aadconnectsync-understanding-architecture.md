@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Understanding the architecture | Microsoft Docs'
 description: This topic describes the architecture of Azure AD Connect sync and explains the terms used.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: Understanding the architecture
 This topic covers the basic architecture for Azure AD Connect sync. In many aspects, it is similar to its predecessors MIIS 2003, ILM 2007, and FIM 2010. Azure AD Connect sync is the evolution of these technologies. If you are familiar with any of these earlier technologies, the content of this topic will be familiar to you as well. If you are new to synchronization, then this topic is for you. It is however not a requirement to know the details of this topic to be successful in making customizations to Azure AD Connect sync (called sync engine in this topic).

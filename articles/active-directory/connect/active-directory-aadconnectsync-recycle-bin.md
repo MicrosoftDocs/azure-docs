@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Enable AD recycle bin | Microsoft Docs'
 description: This topic recommends the use of AD Recycle Bin feature with Azure AD Connect.
 services: active-directory
@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 
+ms.reviewer: cychua
+ms.custom: iamfeature=AADConnect
 ---
 # Azure AD Connect sync: Enable AD recycle bin
 It is recommended that you enable the AD Recycle Bin feature for your on-premises Active Directories, which are synchronized to Azure AD. 
