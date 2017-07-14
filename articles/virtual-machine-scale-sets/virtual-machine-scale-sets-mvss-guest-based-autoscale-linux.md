@@ -1,5 +1,5 @@
 ---
-title: 'Autoscale using guest metrics in a Linux scale set template | Microsoft Docs'
+title: 'Use Azure autoscale with guest metrics in a Linux scale set template | Microsoft Docs'
 description: Learn how to autoscale using guest metrics in a Linux Virtual Machine Scale Set template
 services: virtual-machine-scale-sets
 documentationcenter: ''
