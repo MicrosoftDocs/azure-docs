@@ -1,5 +1,5 @@
 ---
-title: Create HDInsight (Hadoop) clusters by using templates | Microsoft Docs
+title: Create Hadoop clusters by using templates - Azure HDInsight | Microsoft Docs
 description: Learn how to create clusters for HDInsight by using Resource Manager templates
 services: hdinsight
 documentationcenter: ''

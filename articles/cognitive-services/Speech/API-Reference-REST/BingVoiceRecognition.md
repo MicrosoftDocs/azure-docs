@@ -8,37 +8,44 @@ manager: yanbo
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: prrajan
+ms.date: 06/05/2017
+ms.author: jstock
 ---
 
-# API reference for speech to text conversion
-The API reference for converting speech to text using http based REST protocol or web socket based protocol. 
+# Converting speech to text with Microsoft APIs
+You can choose to convert speech to text using either an [HTTP-based REST protocol](#REST_protocol) or a [WebSocket-based protocol](#WebSocket_protocol). 
+The protocol you select depends on the needs of your application.
 
-## REST
-Microsoft's Cognitive Services REST Speech Recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. The REST Speech Recognition API is most suitable for applications where real-time user feedback is not required or for platforms that do not support the IETF web socket standard.
+## REST <a id="REST_protocol"></a>
+Microsoft's [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) Speech Recognition API is an HTTP 1.1 protocol definition for building 
+simple speech applications that perform speech recognition. This API is most 
+suitable for applications where continuous user feedback is not required or for platforms that do not support 
+the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
 
-* Continuous recognition is not supported. 
 * Utterances are limited to a maximum of 15 seconds
 * Partial results are not returned. Only the final phrase result is returned.
-* Service endpointing is not supported; clients must determine the end of speech. 
-* The single recognition phrase result is returned to the client only after the client stops writing to the request stream.
+* Service end-of-speech detection is not supported; clients must determine the end of speech. 
+* A single recognition phrase result is returned to the client only after the client stops writing to the request stream.
+* Continuous recognition is not supported. 
 
-If these features are important to your app's functionality, use the web socket API instead.
+If these features are important to your application's functionality, use the [WebSocket API](#WebSocket_protocol).
 
-## WebSocket
-Microsoft's Cognitive Services WebSocket Speech Recognition API is a WebSocket-based service protocol definition that enables subscribers to build full-featured speech applications that provide a rich user experience. This protocol extends the Microsoft Speech SDK protocol, which powers a wide variety of speech applications throughout the industry.
+## WebSocket <a id="WebSocket_protocol"></a>
+Microsoft's WebSocket Speech Recognition API is a service protocol definition that uses a [WebSocket](https://tools.ietf.org/html/rfc6455) for bi-direction communication.
+With this API, you can build full-featured speech applications that provide a rich user experience.
 
-[Javascript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of websocket protocol. SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, you can create your own implementation based on the [documented protocol](websocketprotocol.md).
+A [Javascript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of protocol. 
+SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, you can create your own implementation 
+based on the [protocol documentation](websocketprotocol.md).
 
 ## Endpoints
 The API endpoints based on user scenario are highlighted here:
 
 | Mode | Path | Example URL |
 |-----|-----|-----|
-|Interactive|/speech/recognize/interactive/cognitiveservices/v1 |[https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR](https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR) | 
-| Conversation	|/speech/recognize/conversation/cognitiveservices/v1 |[https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US](https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US) |
-|Dictation|	/speech/recognize/dictation/cognitiveservices/v1	|[https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR](https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR)  |
+|Interactive|/speech/recognition/interactive/cognitiveservices/v1 |[https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR](https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR) | 
+| Conversation	|/speech/recognition/conversation/cognitiveservices/v1 |[https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US](https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US) |
+|Dictation|	/speech/recognition/dictation/cognitiveservices/v1	|[https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR](https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR)  |
 
 ## Recognition Modes
 There are three modes of recognition: interactive, conversational, and dictation mode. 
@@ -79,15 +86,31 @@ The following characteristics are typical of dictation mode applications:
 * Users employ full sentences lasting 5-8 seconds.
 
 > [!NOTE]
-> In Dictation & Conversation modes partial results are not returned. More stable, phrase results are.
-> Phrase results are emitted during silence boundaries in the audio stream. In the future, we plan on exposing more 
-> real-time partial results which can be used to improve user-experience generally in realtime dictation scenarios.
+> In Dictation and Conversation modes, the Microsoft Speech Service does not return partial results. Instead, the service returns stable
+> phrase results after silence boundaries in the audio stream. Microsoft may enhance the speech protocol to
+> improve the user experience in these continuous recognition modes.
 
-## Recognition Languages
-The following locales are supported by the Speech Recognition API.
+## Recognition language 
+The *recognition language* specifies the language that your application user speaks. Specify the  *recognition language* with the 
+*language* URL query parameter on the connection. The value of the *language* query parameter **must** be one of the languages supported by the 
+Microsoft Speech Service, specified in [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) format. The Microsoft Speech Service rejects 
+invalid connection requests with an ```HTTP 400 Bad Request``` response.
+An invalid request is one that:
+* does not include a *language* query parameter value
+* includes a *language* query parameter that is not correctly formatted
+* includes a *language* query parameter that is not one of the support languages
+
+You may choose to build an application that supports one or all of the languages supported by the Microsoft Speech Service.
+
+### Example
+In the example below, an application uses *conversation* speech recognition mode for a US English speaker.
+
+```
+https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+```
 
 ### Interactive and dictation mode
-These `locale` codes are supported in **interactive** and **dictation** mode.
+Microsoft's Speech Recognition API supports the following languages in **interactive** and **dictation** modes. 
 
 |Code |  | Code |  |
 |-----|-----|-----|-----|
@@ -104,11 +127,11 @@ These `locale` codes are supported in **interactive** and **dictation** mode.
 | es-ES | Spanish (Spain) | sv-SE | Swedish (Sweden) |
 | es-MX | Spanish (Mexico) |zh-CN | Chinese (Mandarin, simplified)  |
 | fi-FI | Finnish (Finland) |zh-HK | Chinese (Hong Kong) |
-| fr-CA | Spanish (Mexico) | zh-TW | Chinese (Mandarin, Taiwanese)|
+| fr-CA | French (Canada) | zh-TW | Chinese (Mandarin, Taiwanese)|
 | fr-FR | French (France) | ||
 
 ### Conversational mode
-These `locale` codes are supported in **conversational** mode.
+Microsoft's Speech Recognition API supports the following languages in **conversation** modes. 
 
 |Code||Code||
 |-----|-----|-----|-----|
@@ -120,8 +143,7 @@ These `locale` codes are supported in **conversational** mode.
  
 ## Output Format
 The Microsoft Speech Service can return different payload formats of recognition phrase results. All payloads are JSON structures. 
-
-Control the phrase result format by specifying the `format` URL query parameter. By default, the Microsoft Speech Service will return `simple` results. 
+You can control the phrase result format by specifying the `format` URL query parameter. By default, the Microsoft Speech Service returns `simple` results. 
 
 | Format | Description |
 |-----|-----|
@@ -133,28 +155,29 @@ The **detailed** format contains the following four recognition forms:
 ### Lexical Form
 The lexical form is the recognized text exactly how they occurred in the utterance without any punctuation or capitalization. For example, the lexical form of the address `1020 Enterprise Way` would be `ten twenty enterprise way`, assuming it was spoken that way. The lexical form of the sentence `Remind me to buy 5 pencils.` is `remind me to buy five pencils`.
 
-The lexical form is most appropriate for applications that need to perform non-standard text normalization or that otherwise need unprocessed recognition words. Profanity is never masked in the lexical form.
+The lexical form is most appropriate for applications that need to perform non-standard text normalization. The lexical form is also appropriate for
+applications that need unprocessed recognition words.
+
+Profanity is never masked in the lexical form.
 
 ### Inverse Text Normalization (ITN) form
-Text normalization is the process of converting text from one form into another "canonical" form. For example, the phone number `555-1212` might be converted to the canonical form `five five five one two one two`. *Inverse* text normalization (ITN) reverses this process, converting the words `five five five one two one two` to the inverted canonical form `555-1212`. Note that the ITN form of a recognition result does not include any capitalization or punctuation. 
+Text normalization is the process of converting text from one form into another "canonical" form. For example, the phone number `555-1212` might be converted to the canonical form `five five five one two one two`. *Inverse* text normalization (ITN) reverses this process, converting the words `five five five one two one two` to the inverted canonical form `555-1212`. The ITN form of a recognition result does not include any capitalization or punctuation. 
 
-ITN form is most appropriate for applications that take action on the recognized text. For example, an application that allows a user to speak search terms and then uses these search terms in a web search query would use the ITN form of the recognition result. Profanity is never masked in the ITN form; to mask profanity, use the **Masked ITN form**.
+The ITN form is most appropriate for applications that act on the recognized text. For example, an application that allows a user to speak search terms and then uses these terms in a web query would use the ITN form. Profanity is never masked in the ITN form; to mask profanity, use the **Masked ITN form**.
 
 ### Masked Inverse Text Normalization (ITN) Form
-Since profanity is naturally a part of spoken language, the Microsoft Speech Service recognizes these words and phrases when they are spoken. Profanity may not, however, be appropriate for all applications, especially those with a restricted, non-adult user audience.
+Since profanity is naturally a part of spoken language, the Microsoft Speech Service recognizes these words and phrases when they are spoken. Profanity may not, however, be appropriate for all applications, especially those applications with a restricted, non-adult user audience.
 
-The masked ITN form applies profanity masking to the Inverse text normalization form. To mask profanity, set the value of the profanity parameter value to `masked`. When profanity is masked, words recognized as part of the language's profanity lexicon are replaced with asterisks. For example: `remind me to buy 5 **** pencils`. Note that the Masked ITN form of a recognition result does not include any capitalization or punctuation. 
+The masked ITN form applies profanity masking to the Inverse text normalization form. To mask profanity, set the value of the profanity parameter value to `masked`. When profanity is masked, words recognized as part of the language's profanity lexicon are replaced with asterisks. For example: `remind me to buy 5 **** pencils`. The Masked ITN form of a recognition result does not include any capitalization or punctuation. 
 
 > [!NOTE] 
-> If the profanity query parameter value is set to `raw`, the Masked ITN form will be exactly
-> the same as the ITN form. Profanity will **not** be masked. 
+> If the profanity query parameter value is set to `raw`, the Masked ITN form is the same as the ITN form. Profanity is **not** masked. 
 
 ### Display Form
 Punctuation and capitalization signal where to put emphasis, where to pause, and so on, which makes text easier to understand. The display form adds punctuation and capitalization to recognition results, making it the most appropriate form for applications that display the spoken text.
 
-The display form of the spoken sentence `Remind me to buy 5 pencils.` is exactly the same: `Remind me to buy 5 pencils.` 
-
-Since Display form extends the Masked ITN form, you can set the profanity parameter value to `masked` or `raw`. If the value is set to `raw`, the recognition results will include any profanity spoken by the user. If `masked`, words recognized as part of the language's profanity lexicon are replaced with asterisks.
+Since Display form extends the Masked ITN form, you can set the profanity parameter value to `masked` or `raw`. If the value is set to `raw`, the recognition results include any 
+profanity spoken by the user. If `masked`, words recognized as part of the language's profanity lexicon are replaced with asterisks.
 
 ## Sample Responses
 All payloads are JSON structures.
@@ -194,28 +217,38 @@ The payload format of the `detailed` phrase result:
 }
 ```
 ## N-Best Values
-A listener, whether human or machine, can never be absolutely certain that they heard *exactly* what was spoken. A listener can only assign a *probability* to a particular interpretation of an utterance. 
+A listener, whether human or machine, can never be certain that they heard *exactly* what was spoken. A listener can only assign a *probability* to a particular interpretation of an utterance. 
+In normal conditions, when speaking to others with whom they frequently interact, people have a high probability of recognizing the words that were spoken. 
+Machine-based speech listeners strive to achieve similar accuracy levels and, under the right conditions, [they achieve parity with humans](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
-In normal conditions, when speaking to others with whom they frequently interact, most people have an extremely high probability of recognizing the meaning of things that they hear and a very high probability of recognizing the actual words that were spoken. Machine-based speech listeners strive to achieve similar accuracy levels and, under the right conditions, they can do as well as humans.
+The algorithms used in speech recognition explore alternative interpretations of an utterance as part of normal processing. Usually, these alternatives are discarded 
+as the evidence in favor of a single interpretation becomes overwhelming. In less than optimal conditions, however, the speech recognizer finishes with a list of 
+alternate possible interpretations. The top **N** alternatives in this list are called the **N-Best List**. Each alternative is assigned 
+a [confidence score](#confidence). Confidence scores range from 0 to 1.
+A score of 1 represents the highest level of confidence. A score of 0 represents the lowest level of confidence.
 
-The algorithms used in speech recognition explore alternative interpretations of an utterance as part of normal processing. Usually, these alternatives are discarded as the evidence in favor of a single interpretation becomes overwhelming. In less than optimal conditions, however, the speech recognizer finishes with a list of alternate possible interpretations. It's just not sure.
-
-The top **N** alternatives in this list are called the **N-Best List**. Each alternative is assigned a [confidence score](#confidence) ranging from 0 to 1, where 1 represents the highest level of confidence that this result matches what was actually spoken.
-
-Note that the number of entries in the N-Best List will vary across multiple utterances and even across multiple recognitions of the same utterance: one, two, or even three entries. This variation is a natural and expected outcome of the probabilistic nature of the speech recognition algorithm.
+> [!NOTE]
+> The number of entries in the N-Best List vary across multiple utterances. The number of entries can vary across multiple recognitions of the *same* utterance.
+> This variation is a natural and expected outcome of the probabilistic nature of the speech recognition algorithm.
  
 ## Confidence scores <a id="confidence"></a>
-Confidence scores are integral to speech recognition systems. The Microsoft Speech Service obtains these scores from a confidence classifier that is trained over a set of features designed to maximally discriminate between correct and incorrect recognitions. Confidence scores are evaluated for individual words as well as for an entire utterance.
+Confidence scores are integral to speech recognition systems. The Microsoft Speech Service obtains confidence scores from a *Confidence Classifier*. 
+Microsoft trains the *Confidence Classifier* over a set of features designed to maximally discriminate between correct and incorrect recognition.
+Confidence scores are evaluated for individual words and for an entire utterance.
 
-The confidence scores lie in a continuous range between 0 and 1, where 1 indicates the highest confidence.
-Lower scores indicate the presence of incorrect recognitions, whether within or outside of the grammar(s) used for recognition. Either the word wasn't included in the grammar(s) specified for this language, or the word was included but not recognized.
-
-If you choose to make use of the confidence scores returned by the Microsoft Speech Service, you should be aware of the following behaviors.
-* Confidence scores can only be compared within the same recognition mode and language. Do not compare scores between different languages or different recognition modes. For example, the confidence scores of an utterance sent in interactive recognition mode has **no** correlation to the confidence score of the same utterance sent in dictation mode.
+If you choose to use the confidence scores returned by the Microsoft Speech Service, you should be aware of the following behavior:
+* Confidence scores can only be compared within the same recognition mode and language. Do not compare scores between different languages or 
+different recognition modes. For example, a confidence scores in interactive recognition mode have **no** correlation to 
+a confidence score in dictation mode.
 * Confidence scores are best used on a restricted set of utterances. There is naturally a huge degree of variability in the scores for a large set of utterances.
 
-If you choose to make use of the confidence scores as a *threshold* on which your application will take action, you should first execute speech recognition on a representative sample of utterances for your application and then base your threshold values on some percentile of confidence for that sample.
-No single threshold value is appropriate for all applications. An acceptable confidence score for one application may be unacceptable for another application; you must establish and maintain threshold values that make sense for your particular application.
+If you choose to use a confidence score value as a *threshold* on which your application acts, you should use speech recognition to establish the threshold
+values.
+1. Execute speech recognition on a representative sample of utterances for your application
+2. Collect the confidence scores for each recognition in the sample set.
+3. Base your threshold value on some percentile of confidence for that sample.
+
+No single threshold value is appropriate for all applications. An acceptable confidence score for one application may be unacceptable for another application.
  
 ## Profanity Handling in Speech Recognition
 The Microsoft Speech Service recognizes all forms of human speech, including words and phrases that many people would classify as "profanity." You can control how the
@@ -224,22 +257,24 @@ not return *speech.hypothesis* messages that contain profanity.
 
 | *Profanity* Value | Description |
 | - | - |
-| *masked* | This is the default behavior. The Microsoft Speech Service masks profanity with asterisks. | 
+| *masked* | The Microsoft Speech Service masks profanity with asterisks. This behavior is the default. | 
 | *removed* | The Microsoft Speech Service removes profanity from all results. |
 | *raw* | The Microsoft Speech Service recognizes and returns profanity in all results. |
 
 ### Masked Profanity Parameter Value
-When the *profanity* query parameter has the value *masked*, or if the *profanity* query parameter is not specified for the request, the Microsoft Speech Service 
-replaces profanity in the recognition results with asterisks and does not return *speech.hypothesis* messages that contain profanity.
+To mask profanity, set the *profanity* query parameter to the value *masked*. When the *profanity* query parameter has this value
+or is not specified for a request, the Microsoft Speech Service *masks* profanity. The service performs masking by replacing profanity the recognition results with asterisks.
+When you specify the profanity masking handling, the service does not return *speech.hypothesis* messages that contain profanity.
 
 ### Removed Profanity Parameter Value
 When the *profanity* query parameter has the value *removed*, the Microsoft Speech Service 
-removes profanity from both *speech.phrase* and *speech.hypothesis* messages. The results are the same *as if the profanity words had never been spoken*.
+removes profanity from both *speech.phrase* and *speech.hypothesis* messages. The results are the same *as if the profanity words were not spoken*.
 
-If removing profanity from the *speech.phrase*
-result means that all recognition alternatives are eliminated and the recognition mode is *dictation* or *conversation*, the Microsoft Speech Service does not return a 
-*speech.result*. If all recognition alternatives are elminated and the recognition mode is *interactive*, the service returns a *speech.result* with the status code *NoMatch*. 
+#### Profanity-Only Utterances
+A user may speak *only* profanity when an application has configured the Microsoft Speech Service to remove profanity. For this scenario, if the recognition
+mode is *dictation* or *conversation*, the Microsoft Speech Service does not return a *speech.result*. If the recognition mode is *interactive*, the service 
+returns a *speech.result* with the status code *NoMatch*. 
 
 ### Raw Profanity Parameter Value
 When the *profanity* query parameter has the value *raw*, the Microsoft Speech Service 
-does not filter or mask profanity in either the *speech.phrase* or *speech.hypothesis* messages.
+does not remove or mask profanity in either the *speech.phrase* or *speech.hypothesis* messages.

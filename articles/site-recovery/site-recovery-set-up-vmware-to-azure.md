@@ -19,8 +19,8 @@ ms.author: anoopkv
 
 # Set up the source environment (VMware to Azure)
 > [!div class="op_single_selector"]
-> * [VMware Virtual Machines](./site-recovery-set-up-vmware-to-azure.md)
-> * [Physical Servers](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware to Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)
 
 This article describes how to set up your on-premises environment to start replicating virtual machines running on VMware to Azure.
 

@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: scale out apps
+ms.custom: mvc,scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

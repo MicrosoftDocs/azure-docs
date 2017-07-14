@@ -34,7 +34,7 @@ Certain commands such as `git clone` within the `clouddrive` directory do not ha
 Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode is not supported.
 
 ## Copy and paste
-Ctrl-v and Ctrl-c do not function as copy/paste on Windows machines, please us Ctrl-insert and Shift-insert to copy/paste.
+Ctrl-v and Ctrl-c do not function as copy/paste on Windows machines, please use Ctrl-insert and Shift-insert to copy/paste.
 Right-click copy paste options are also available, however this is subject to browser-specific clipboard access.
 
 ## Usage limits

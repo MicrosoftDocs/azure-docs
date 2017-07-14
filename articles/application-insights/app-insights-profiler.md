@@ -217,13 +217,17 @@ File a support ticket from the portal. Please include the correlation ID from th
 
 ## Manual installation
 
-When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually if your environment requires, for example, if your application runs in a private network using Internal Load Balancer:
+When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually if your environment requires, for example, if your application runs in Azure App Service Environment (ASE):
 
-1. In the Web app control blade, open Settings.
+1. In the web app control blade, open Settings.
 2. Set ".Net Framework version" to v4.6.
 3. Set "Always On" to On.
 4. Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
-5. In **Extensions**, Add "Application Insights". It will take a few minutes to install.
+5. Open Advanced Tools.
+6. Click "Go" to open the Kudu website.
+7. In the Kudu website, select "Site extensions".
+8. Install "__Application Insights__" from Gallery.
+9. Restart the web app.
 
 ## <a id="aspnetcore"></a>ASP.NET Core Support
 

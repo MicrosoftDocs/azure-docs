@@ -127,7 +127,7 @@ The claim `city` is not otherwise defined anywhere in our schema. So we will add
 
 ## Step 4 - Include the REST service claims exchange as an Orchestration Step in your Profile Edit User journey in your TrustFrameworkExtensions.xml
 
-We have decided to add the step the profile edit user journey, after the user has authenticated (Orchestration steps 1-4 – see below), and the user has provided the updated profile information (Step 5).
+We have decided to add a step to the profile edit user journey, after the user has authenticated (Orchestration steps 1-4 – see below), and the user has provided the updated profile information (Step 5).
 
 > [!NOTE]
 > There are many use cases where the REST API Call can be used as an Orchestration Step.  As an Orchestration Step, it may be used as an update to an external system once a user has successfully completed a task like first time registration, or profile update to keep information synchronized.  In this case it is used to augment the information provided to the application after profile edit.

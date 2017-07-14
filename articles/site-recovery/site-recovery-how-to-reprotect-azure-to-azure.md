@@ -19,9 +19,7 @@ ms.author: ruturajd
 ---
 # Reprotect from failed over Azure region back to primary region
 
-> [!div class="op_single_selector"]
-> * [Azure to Azure](site-recovery-how-to-reprotect-azure-to-azure.md)
-> * [On-premises to Azure](site-recovery-how-to-reprotect.md)
+
 
 >[!NOTE]
 >

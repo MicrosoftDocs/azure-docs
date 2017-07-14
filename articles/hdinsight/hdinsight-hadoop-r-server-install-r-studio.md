@@ -1,5 +1,5 @@
 ---
-title: Install RStudio with R Server on HDInsight | Microsoft Docs
+title: Install RStudio with R Server on HDInsight - Azure | Microsoft Docs
 description: How to install RStudio with R Server on HDInsight.
 services: hdinsight
 documentationcenter: ''

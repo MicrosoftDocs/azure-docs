@@ -8,10 +8,8 @@ Azure offers the following VPN gateway SKUs:
 |**Basic** | Max. 10                         | Max. 128               | 100 Mbps                    | 
 |          |                                 |                        |                             | 
 
-Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
+- Throughput is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
 
-SLA (Service Level Agreement) information can be found on the [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/) page.
+- Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
 
-> [!NOTE]
-> * The throughput is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
-> * VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+- SLA (Service Level Agreement) information can be found on the [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/) page.

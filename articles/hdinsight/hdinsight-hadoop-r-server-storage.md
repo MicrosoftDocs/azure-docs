@@ -1,5 +1,5 @@
 ---
-title: Azure Storage options for R Server on HDInsight | Microsoft Docs
+title: Azure Storage options for R Server on HDInsight - Azure | Microsoft Docs
 description: Learn about the different storage options available to users with R Server on HDInsight
 services: HDInsight
 documentationcenter: ''

@@ -284,7 +284,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 
 ## Create data factory
-In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform data. Run the following commands to create the data factory:
+In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run a Hive script to transform data. Run the following commands to create the data factory:
 
 1. Assign the command to variable named **cmd**.
 
@@ -329,7 +329,7 @@ Note the following points:
 Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent data in linked data stores.
 
 ## Create linked services
-In this step, you link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample.
+In this step, you link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. The HDInsight linked service is used to run a Hive script specified in the activity of the pipeline in this sample.
 
 ### Create Azure Storage linked service
 In this step, you link your Azure Storage account to your data factory. With this tutorial, you use the same Azure Storage account to store input/output data and the HQL script file.

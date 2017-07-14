@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Install PowerShell for Azure Stack  
 
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. In this guide, we walk you through the steps required to install PowerShell in Azure Stack by using the PowerShell commands. You can use the steps described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN.
+Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. In this guide, we walk you through the steps required to install PowerShell in Azure Stack by using the PowerShell commands. You can use the steps described in this article either from the Azure Stack POC computer, or from a Windows-based external client if you are connected through VPN.
 
 > [!NOTE]
 > The following steps require PowerShell 5.0.  To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.
@@ -35,13 +35,17 @@ Get-PSRepository
 
 ## Install the required version of PowerShell modules
 
-Before installing the required version, make sure that you uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command: 
+Before installing the required version, make sure that you uninstall any existing Azure PowerShell modules. You can uninstall the existing modules by using one of the following two methods:
 
-```powershell
-Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
-```
+a. To uninstall the existing PowerShell modules, sign in to your Azure Stack POC computer, or to the Windows-based external client if you are planning to establish a VPN connection. Close all the active PowerShell sessions and run the following command: 
 
-Now,use the following steps to install PowerShell for Azure Stack:  
+   ```powershell
+   Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
+   ```
+
+b. Sign in to your Azure Stack POC computer, or to the Windows-based external client if you are planning to establish a VPN connection. Delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules from the "AzureStackAdmin" and "global" user scopes. 
+
+Now, use the following steps to install PowerShell for Azure Stack:  
 
 1. Azure Stack compatible AzureRM modules are installed through API version profiles.
 To learn about API version profiles and the cmdlets provided by them,

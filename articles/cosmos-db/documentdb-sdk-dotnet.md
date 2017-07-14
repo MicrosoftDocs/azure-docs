@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: khdang
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -49,7 +49,7 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.14.1"/>1.14.1
-*	Fixed an issue in the native assembly which affected x64 machines that don’t support SSE4 instruction.
+*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw SEHException when running DocumentDB queries.
 
 ### <a name="1.14.0"/>1.14.0
 *	Added support for Request Unit per Minute (RU/m) feature.

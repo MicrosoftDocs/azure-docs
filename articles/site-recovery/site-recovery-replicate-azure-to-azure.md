@@ -21,9 +21,7 @@ ms.author: asgang
 
 # Replicate Azure virtual machines to another Azure region
 
-> [!div class="op_single_selector"]
-> * [Azure to Azure](site-recovery-replicate-azure-to-azure.md)
-> * [VMware to Azure](site-recovery-replicate-vmware-to-azure.md)
+
 
 >[!NOTE]
 >

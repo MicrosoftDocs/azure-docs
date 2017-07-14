@@ -1,6 +1,6 @@
 ---
-title: Query Hive through JDBC - Azure HDInsight | Microsoft Docs
-description: Learn how to use JDBC to connect to Hive on Hadoop clusters in Azure HDInsight.
+title: Query Hive through the JDBC driver - Azure HDInsight | Microsoft Docs
+description: Use the JDBC driver from a Java application to submit Hive queries to Hadoop on HDInsight. Connect programmatically and from the SQuirrel SQL client.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -10,7 +10,7 @@ tags: azure-portal
 
 ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -19,11 +19,11 @@ ms.date: 05/22/2017
 ms.author: larryfr
 
 ---
-# Query Hive through JDBC
+# Query Hive through the JDBC driver in HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Learn how to use JDBC from a Java application to submit Hive queries to Hadoop in Azure HDInsight. The information in this document demonstrates how to connect programmatically and from the SQuirrel SQL client.
+Learn how to use the JDBC driver from a Java application to submit Hive queries to Hadoop in Azure HDInsight. The information in this document demonstrates how to connect programmatically and from the SQuirrel SQL client.
 
 For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
@@ -40,7 +40,7 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 
 * [Apache Maven](https://maven.apache.org). Maven is a project build system for Java projects that is used by the project associated with this article.
 
-## JDBC Connection string
+## JDBC connection string
 
 JDBC connections to an HDInsight cluster on Azure are made over 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following is an example connection string:
 

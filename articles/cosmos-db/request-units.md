@@ -2,7 +2,7 @@
 title: Request units & estimating throughput - Azure Cosmos DB | Microsoft Docs
 description: Learn about how to understand, specify, and estimate request unit requirements in Azure Cosmos DB.
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: syamk
+ms.author: mimig
 
 ---
 # Request Units in Azure Cosmos DB
@@ -27,7 +27,7 @@ Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.
 
 Azure Cosmos DB supports a number of APIs with different operations ranging from reads, writes to complex graph queries. Since not all requests are equal, they are assigned a normalized amount of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
 
-To provide a predictable performance, you need to reserve throughput by unit of 100 RU/Second. For each block of 100 RU/second, you can attach a block of 1,000 RU/minute. Combining provisioning per second and per minute is extremely powerful as you do not need to provision for peak and can save up to 75% in cost versus any service working only with per second provisioning.
+To provide a predictable performance, you need to reserve throughput by unit of 100 RU/second. For each block of 100 RU/second, you can attach a block of 1,000 RU/minute. Combining provisioning per second and per minute is extremely powerful as you do not need to provision for peak and can save up to 75% in cost versus any service working only with per second provisioning.
 
 After reading this article, you'll be able to answer the following questions:  
 

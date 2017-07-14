@@ -1,5 +1,5 @@
 ---
-title: Add Hive libraries during HDInsight cluster creation | Microsoft Docs
+title: Add Hive libraries during HDInsight cluster creation - Azure | Microsoft Docs
 description: Learn how to add Hive libraries (jar files,) to an HDInsight cluster during cluster creation.
 services: hdinsight
 documentationcenter: ''

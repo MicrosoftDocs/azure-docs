@@ -1,6 +1,6 @@
 ﻿---
-title: Customize HDInsight clusters using script actions | Microsoft Docs
-description: Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that on the cluster nodes, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
+title: Customize HDInsight clusters using script actions - Azure | Microsoft Docs
+description: Add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts  that can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist

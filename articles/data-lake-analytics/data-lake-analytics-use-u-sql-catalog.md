@@ -42,7 +42,7 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
 
 **To manage the catalog**
 
-1. Open Visual Studio, and connect to azure. For the instructions, see [Connect to Azure](data-lake-analytics-data-lake-tools-get-started.md#connect-to-azure).
+1. Open Visual Studio, and connect to azure. For the instructions, see [Connect to Azure](data-lake-analytics-data-lake-tools-get-started.md#connect-to-an-azure-data-lake-analytics-account).
 2. Open **Server Explorer** by press **CTRL+ALT+S**.
 3. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Databases**, and then expand **master**.
 

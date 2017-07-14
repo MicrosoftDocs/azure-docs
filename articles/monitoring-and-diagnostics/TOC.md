@@ -29,8 +29,8 @@
 ### [Common metrics](insights-autoscale-common-metrics.md)
 ### [Common patterns](monitoring-autoscale-common-scale-patterns.md)
 ### [Autoscale using a custom metric](monitoring-autoscale-scale-by-custom-metric.md)
-### [Autoscale VM Scale Sets using Resource Manager templates](insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Automatically scale machines in a virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+### [Autoscale VM Scale sets using Resource Manager templates](insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### [Automatically scale machines in a VM Scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configure webhooks and email notifications on autoscale](insights-autoscale-to-webhook-email.md)
 ## Use the activity log
 ### [View events in activity log](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
@@ -39,10 +39,10 @@
 ### [Stream activity log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Create activity log alerts with Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Service notifications
+## Use Service notifications
 ### [View service notifications](monitoring-service-notifications.md)
 ### [Configure alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md)
-## Action Groups
+## Use Action Groups
 ### [Learn about webhook schema](monitoring-activity-log-alerts-webhook.md)
 ### [SMS Alert behavior](monitoring-sms-alert-behavior.md)
 ### [Alert Rate limiting](monitoring-alerts-rate-limiting.md)

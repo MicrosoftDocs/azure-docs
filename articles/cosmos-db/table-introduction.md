@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introduction to Azure Cosmos DB's Table API | Microsoft Docs
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency using the popular OSS MongoDB APIs.
 services: cosmos-db
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2017
+ms.date: 06/09/2017
 ms.author: arramac
 
 ---
@@ -23,7 +23,7 @@ ms.author: arramac
 
 ![Azure Table storage API and Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
-Azure Cosmos DB provides the Table API for applications that need a key-value store with flexible schema. [Azure Table storage](../storage/storage-introduction.md) SDKs and REST APIs can be used to work with Azure Cosmos DB. You can use Azure Cosmos DB to create tables with high throughput requirements. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), currently in public preview. 
+Azure Cosmos DB provides the Table API (preview) for applications that need a key-value store with flexible schema, predictable performance, global distribution, and high throughput. The Table API provides the same functionality as Azure Table storage, but leverages the benefits of the Azure Cosmos DB engine. 
 
 You can continue to use Azure Table storage for tables with high storage and lower throughput requirements. Azure Cosmos DB will introduce support for storage-optimized tables in a future update, and existing and new Azure Table storage accounts will be upgraded to Azure Cosmos DB.
 

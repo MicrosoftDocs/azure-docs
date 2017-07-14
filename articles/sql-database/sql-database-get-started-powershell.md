@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell

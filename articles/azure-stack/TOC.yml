@@ -162,7 +162,7 @@
       - name: Overview
         href: azure-stack-storage-overview.md
       - name: Storage considerations
-        href: azure-stack-acs-differences-tp2.md
+        href: azure-stack-acs-differences.md
     - name: Network
       items:
       - name: iDNS for Azure Stack

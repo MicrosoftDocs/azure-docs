@@ -29,7 +29,7 @@ Before you begin this tutorial, you must have an **Azure subscription**. See [Ge
 
 ## Create a Data Lake Analytics account
 
-Now, you will create a Data Lake Analytics and a Data Lake Store account simultaneously.  This step is simple and only takes about 60 seconds to finish.
+Now, you will create a Data Lake Analytics and a Data Lake Store account at the same time.  This step is simple and only takes about 60 seconds to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
@@ -45,7 +45,7 @@ Now, you will create a Data Lake Analytics and a Data Lake Store account simulta
 
 ## Your first U-SQL script
 
-The following text is a very simply U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
+The following text is a very simple U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
 
 ```
 @a  = 
@@ -65,8 +65,8 @@ OUTPUT @a
 1. From the Data Lake Analytics account, click **New Job**.
 2. Paste in the text of the U-SQL script shown above. 
 3. Click **Submit Job**.   
-4. Wait until the job status is changed to **Succeeded**.
-5. If job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+4. Wait until the job status changes to **Succeeded**.
+5. If the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 6. Click the **Output** tab, and then click `SearchLog-from-Data-Lake.csv`. 
 
 ## See also

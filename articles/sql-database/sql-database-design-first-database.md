@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases
+ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

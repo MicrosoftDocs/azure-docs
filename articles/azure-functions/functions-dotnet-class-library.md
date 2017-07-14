@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/07/2017
+ms.date: 06/09/2017
 ms.author: donnam
 
 ---
@@ -52,19 +52,19 @@ The following table lists the triggers and bindings that are available in an Azu
 
 | Binding | Attribute | NuGet package |
 |------   | ------    | ------        |
-| [Blob storage trigger, input, output](#blob-storage) | [`BlobAttribute`], [`StorageAccountAttribute`] | [Microsoft.Azure.WebJobs] | [Blob storage] |
-| [Cosmos DB input and output binding](#cosmos-db) | [`DocumentDBAttribute`] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
-| [Event Hubs trigger and output](#event-hub) | [`EventHubTriggerAttribute`], [`EventHubAttribute`] | [Microsoft.Azure.WebJobs.ServiceBus] |
-| [External file input and output](#api-hub) | [`ApiHubFileAttribute`] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
-| [HTTP and webhook trigger](#http) | [`HttpTriggerAttribute`] | [Microsoft.Azure.WebJobs.Extensions.Http] |
-| [Mobile Apps input and output](#mobile-apps) | [`MobileTableAttribute`] | [Microsoft.Azure.WebJobs.Extensions.MobileApps] | 
-| [Notification Hubs output](#nh) | [`NotificationHubAttribute`] | [Microsoft.Azure.WebJobs.Extensions.NotificationHubs] | 
-| [Queue storage trigger and output](#queue) | [`QueueAttribute`], [`StorageAccountAttribute`] | [Microsoft.Azure.WebJobs] | 
-| [SendGrid output](#sendgrid) | [`SendGridAttribute`] | [Microsoft.Azure.WebJobs.Extensions.SendGrid] | 
-| [Service Bus trigger and output](#service-bus) | [`ServiceBusAttribute`], [`ServiceBusAccountAttribute`] | [Microsoft.Azure.WebJobs.ServiceBus]
-| [Table storage input and output](#table) | [`TableAttribute`], [`StorageAccountAttribute`] | [Microsoft.Azure.WebJobs] | 
-| [Timer trigger](#timer) | [`TimerTriggerAttribute`] | [Microsoft.Azure.WebJobs.Extensions] | 
-| [Twilio output](#twilio) | [`TwilioSmsAttribute`] | [Microsoft.Azure.WebJobs.Extensions.Twilio] | 
+| [Blob storage trigger, input, output](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Blob storage] |
+| [Cosmos DB input and output binding](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Event Hubs trigger and output](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
+| [External file input and output](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
+| [HTTP and webhook trigger](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
+| [Mobile Apps input and output](#mobile-apps) | [MobileTableAttribute] | [Microsoft.Azure.WebJobs.Extensions.MobileApps] | 
+| [Notification Hubs output](#nh) | [NotificationHubAttribute] | [Microsoft.Azure.WebJobs.Extensions.NotificationHubs] | 
+| [Queue storage trigger and output](#queue) | [QueueAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
+| [SendGrid output](#sendgrid) | [SendGridAttribute] | [Microsoft.Azure.WebJobs.Extensions.SendGrid] | 
+| [Service Bus trigger and output](#service-bus) | [ServiceBusAttribute], [ServiceBusAccountAttribute] | [Microsoft.Azure.WebJobs.ServiceBus]
+| [Table storage input and output](#table) | [TableAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
+| [Timer trigger](#timer) | [TimerTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions] | 
+| [Twilio output](#twilio) | [TwilioSmsAttribute] | [Microsoft.Azure.WebJobs.Extensions.Twilio] | 
 
 <a name="blob-storage"></a>
 
@@ -397,19 +397,19 @@ For more information on using Azure Functions in C# scripting, see [Azure Functi
 
 
 <!-- Links to source --> 
-[`DocumentDBAttribute`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
-[`EventHubAttribute`]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
-[`EventHubTriggerAttribute`]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
-[`MobileTableAttribute`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
-[`NotificationHubAttribute`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs 
-[`ServiceBusAttribute`]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs
-[`ServiceBusAccountAttribute`]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs
-[`QueueAttribute`]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs
-[`StorageAccountAttribute`]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs
-[`BlobAttribute`]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs
-[`TableAttribute`]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs
-[`TwilioSmsAttribute`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs
-[`SendGridAttribute`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs
-[`HttpTriggerAttribute`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
-[`ApiHubFileAttribute`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
-[`TimerTriggerAttribute`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
+[DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
+[EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
+[EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
+[MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
+[NotificationHubAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs 
+[ServiceBusAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs
+[ServiceBusAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs
+[QueueAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs
+[StorageAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs
+[BlobAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs
+[TableAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs
+[TwilioSmsAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs
+[SendGridAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs
+[HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
+[ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
+[TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs

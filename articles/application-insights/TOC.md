@@ -43,6 +43,7 @@
 ### Azure
 #### [Profiler](app-insights-profiler.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
+#### [Previews](app-insights-previews.md)
 
 ### ASP.NET
 #### [Collect more telemetry](app-insights-asp-net-more.md)

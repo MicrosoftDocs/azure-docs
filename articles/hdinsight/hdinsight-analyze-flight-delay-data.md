@@ -1,5 +1,5 @@
 ---
-title: Analyze flight delay data with Hadoop in HDInsight | Microsoft Docs
+title: Analyze flight delay data with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use one Windows PowerShell script to create an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster.
 services: hdinsight
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ﻿---
-title: Extend HDInsight with Virtual Network | Microsoft Docs
+title: Extend HDInsight with Virtual Network - Azure | Microsoft Docs
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
 documentationcenter: ''
