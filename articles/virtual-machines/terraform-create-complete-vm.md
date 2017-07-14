@@ -68,6 +68,7 @@ In the Azure portal, you should see the new empty resource group called `terrafo
 Let's extend the Terraform script we've created with the details that are necessary to provision a virtual machine running Ubuntu. The resources that you provision in the following sections are:
 
 * A network with a single subnet
+
 * A network interface card 
 * A storage account with a storage container
 * A public IP
