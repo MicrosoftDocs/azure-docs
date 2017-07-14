@@ -266,6 +266,9 @@
       href: ./app-service-app-service-environment-web-application-firewall.md
     - name: Geographically distributed scale
       href: ./app-service-app-service-environment-geo-distributed-scale.md
+    - name: Management address list
+      href: ../app-service/app-service-environment/management-addresses.md
+
 - name: Reference
   items:
   - name: CLI 2.0

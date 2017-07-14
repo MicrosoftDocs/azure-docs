@@ -79,5 +79,5 @@ Here each top-level `<item>` element describes an article. `<link>` is mandatory
 
 ### Next steps
 
-* Work through a [tutorial](custom-decision-service-tutorial.md) for a more in-depth example.
+* Work through a [tutorial](custom-decision-service-tutorial-news.md) for a more in-depth example.
 * Consult the [API reference](custom-decision-service-api-reference.md) to learn more about the provided functionality.
