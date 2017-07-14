@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Add or change work information for a user in Azure Active Directory | Microsoft Docs
 description: Explains how to add phone numbers, department names, and other work information for a user in Azure Active Directory
@@ -17,7 +17,8 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
-
+; jeffsta
+ms.custom: iamfeature=Users
 ---
 # Add or change work information for a user in Azure Active Directory
 This article explains how to add or change work information such as phone numbers or department names for a user in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-external-azure-portal.md).

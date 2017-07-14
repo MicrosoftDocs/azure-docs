@@ -1,4 +1,4 @@
----
+﻿---
 title: Upgrade to Azure AD Application Proxy | Microsoft Docs
 description: Choose which proxy solution is best if you're upgrading from Microsoft Forefront or Unified Access Gateway.
 services: active-directory
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: kgremban
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 # Upgrade to Azure AD proxies from Microsoft Forefront or Unified Access Gateway
 

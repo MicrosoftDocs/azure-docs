@@ -1,4 +1,4 @@
----
+﻿---
 title: How to add a multi-tenant application to the Azure AD application gallery | Microsoft Docs
 description:  Explains how you can list your custom developed multi-tenant application in the Azure AD Application Gallery
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to add a multi-tenant application to the Azure AD application gallery

@@ -1,4 +1,4 @@
----
+﻿---
 title: Publish apps with Azure AD Application Proxy | Microsoft Docs
 description: Publish on-premises applications to the cloud with Azure AD Application Proxy in the Azure portal.
 services: active-directory
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: kgremban
+ms.reviewer: harshja
+ms.custom: iamfeature=AppProxy
 ---
 
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Problems signing in to an application from the access panel | Microsoft Docs
 description: How to troubleshoot issues accessing an application from the Microsoft Azure AD Access Panel at myapps.microsoft.com
 services: active-directory
@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
+ms.custom: iamfeature=AccessPanel
 ---
 
 # Problems signing in to an application from the access panel

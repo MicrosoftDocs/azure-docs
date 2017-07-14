@@ -1,4 +1,4 @@
----
+﻿---
 title: Sign up for Azure as an organization
 description: Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premises server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD.
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
 
+ms.reviewer: jeffsta
+ms.custom: iamfeature=Subscriptions
 ---
 # Sign up for Azure as an organization
 Until recently, you could only sign up for a new Microsoft Azure subscription using your Microsoft account (Windows Live ID). Azure now supports using either of the following two account methods to sign up:

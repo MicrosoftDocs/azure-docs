@@ -1,4 +1,4 @@
----
+﻿---
 title: Problem installing the application access panel browser extension | Microsoft Docs
 description: How to fix common errors encountered when installing the access panel browser extension
 services: active-directory
@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
+ms.custom: iamfeature=AccessPanel
 ---
 
 # Problem installing the application access panel browser extension

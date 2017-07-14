@@ -1,4 +1,4 @@
----
+﻿---
 title: Problems signing in to an Azure AD Gallery application configured for password single sign-on | Microsoft Docs
 description: Discusses problem areas that provide guidance to troubleshoot issues related to signing in to Azure AD Gallery applications configured for password single sign-on
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problems signing in to an Azure AD Gallery application configured for password single sign-on

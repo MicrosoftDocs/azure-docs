@@ -1,4 +1,4 @@
----
+﻿---
 title: Find out when a specific user will be able to access an application | Microsoft Docs
 description: How to find out when a critically important user be able to access an application you have configured for user provisioning with Azure AD
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Find out when a specific user will be able to access an application

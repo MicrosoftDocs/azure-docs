@@ -1,4 +1,4 @@
----
+﻿---
 title: Error on an application's page after signing in | Microsoft Docs
 description: How to resolve issues with Azure AD sign in when the application itself emits an error
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Error on an application's page after signing in

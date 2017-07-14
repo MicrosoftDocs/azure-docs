@@ -1,4 +1,4 @@
----
+﻿---
 title:  Unexpected error when performing consent to an application | Microsoft Docs
 description: Discusses errors that can occur during the process of consenting to an application and what you can do about them
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Unexpected error when performing consent to an application

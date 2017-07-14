@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use self-service application access | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
+ms.custom: iamfeature=AccessPanel
 ---
 
 # How to use self-service application access

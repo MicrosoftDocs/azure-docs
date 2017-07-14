@@ -1,4 +1,4 @@
----
+﻿---
 title: Problems signing in to an custom-developed application | Microsoft Docs
 description: Common rrors that could be causing you to not be able to sign into an application you have developed with Azure AD
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # Problems signing in to an custom-developed application

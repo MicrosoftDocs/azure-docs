@@ -1,4 +1,4 @@
----
+﻿---
 title: How to Assign users to applications | Microsoft Docs
 description: Understand how users get assigned to an application in your tenant
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to assign users to applications

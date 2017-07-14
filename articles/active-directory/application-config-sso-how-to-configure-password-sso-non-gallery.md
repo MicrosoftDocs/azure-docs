@@ -1,4 +1,4 @@
----
+﻿---
 title: How to configure password single sign-on for a non-gallery applicationn | Microsoft Docs
 description: How to configure an custom non-gallery application for secure password-based single sign-on when it is not listed in the Azure AD Application Gallery
 services: active-directory
@@ -15,6 +15,8 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+ms.custom: iamfeature=Applications
 ---
 
 # How to configure password single sign-on for a non-gallery application
