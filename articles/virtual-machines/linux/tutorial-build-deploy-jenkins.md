@@ -251,9 +251,7 @@ The **Shell Script** task is used to provide the configuration for a script to r
 
 1. Open the **Logs** tab to watch the release console output.
 
-## View the deployed app
-
-* In your browser, open the URL of one of the servers you added to your deployment group. For example, enter `http://{your-server-ip-address}`
+1. In your browser, open the URL of one of the servers you added to your deployment group. For example, enter `http://{your-server-ip-address}`
 
 ## Start a CI/CD deployment
 
