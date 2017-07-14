@@ -17,6 +17,8 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
+    - name: .Net
+      href: connect-csharp.md    
     - name: Python
       href: connect-python.md
     - name: Node.js
