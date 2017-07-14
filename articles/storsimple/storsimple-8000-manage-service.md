@@ -50,7 +50,7 @@ Perform the following steps to create a service.
 
 For each StorSimple Device Manager service, the following attributes exist:
 
-* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. **The service name cannot be changed after the service is created. This is also true for other entities such as volumes, volume containers that cannot be renamed in the Azure portal.**
+* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. **The service name cannot be changed after the service is created. This is also true for other entities such as devices, volumes, volume containers, and backup policies that cannot be renamed in the Azure portal.**
 * **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
 * **Location** – The geographical location in which the StorSimple device will be deployed.
 * **Subscription** – The billing subscription that is associated with your service.
@@ -120,10 +120,10 @@ In the Azure portal, only the StorSimple devices running Update 3.0 and higher a
 | Take a manual backup                                                                                                            | No             |
 | Take a scheduled backup                                                                                                         | Not applicable |
 | Restore from a backupset                                                                                                        | No             |
-| Clone to a device running Update 3.0 and later <br> The source device is running version prior to Update 3.                                | Yes            |
+| Clone to a device running Update 3.0 and later <br> The source device is running version prior to Update 3.0.                                | Yes            |
 | Clone to a device running versions prior to Update 3.0                                                                          | No             |
-| Failover as Source Device (from Pre GU3 device to GU3 and higher)                                                               | Yes            |
-| Failover as Target Device (to pre GU3 device)                                                                                   | No             |
+| Failover as source device <br> (from a device running version prior to Update 3.0 to a device running Update 3.0 and later)                                                               | Yes            |
+| Failover as target device <br> (to a device running software version prior to Update 3.0)                                                                                   | No             |
 | Clear an alert                                                                                                                  | Yes            |
 | View backup policies, backup catalog, volumes, volume containers, monitoring charts, jobs, and alerts created in classic portal | Yes            |
 | Turn on and off device controllers                                                                                              | Yes            |
