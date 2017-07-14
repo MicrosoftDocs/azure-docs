@@ -1,6 +1,6 @@
 ---
 title: CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
-description: Set up continuous integration (CI) and continuous deployment (CD) of an app using Jenkins to Azure VMs from Release Management in Visual Studio Team Services (VSTS) or Microsoft Team Foundation Server (TFS)
+description: Set up continuous integration (CI) and continuous deployment (CD) of a Node.js app using Jenkins to Azure VMs from Release Management in Visual Studio Team Services (VSTS) or Microsoft Team Foundation Server (TFS)
 author: ahomer
 manager: douge
 editor: tysonn
@@ -17,11 +17,11 @@ ms.author: ahomer
 ms.custom: mvc
 ---
 
-# Implement continuous deployment of your app to Linux VMs using Jenkins and Team Services
+# Deploy your app to Linux VMs using Jenkins and Team Services
 
 Continuous integration (CI) and continuous deployment (CD) is a pipeline by which you can build, release, and deploy your code. Team Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular 3rd-party CI/CD server-based tool that also provides CI/CD automation. You can use both together to customize how you deliver your cloud app or service.
 
-In this tutorial, you use Jenkins to build a Node.js web app, and Visual Studio Team Services to deploy it
+In this tutorial, you use Jenkins to build a **Node.js web app**, and Visual Studio Team Services to deploy it
 to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) containing Linux virtual machines.
 
 You will:
@@ -46,7 +46,7 @@ You will:
 * Create a personal access token (PAT) in your Team Services account if you don't already have one. Jenkins requires this information to access your Team Services account.
   Read [How do I create a personal access token for Team Services and TFS](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) to learn how to generate one.
 
-### Get the sample app
+## Get the sample app
 
 You need an app to deploy stored in a Git repository.
 For this tutorial, we recommend you use [this sample app available from
@@ -60,23 +60,20 @@ GitHub](https://github.com/azooinmyluggage/fabrikam-node).
 > For more information, see [Fork a repo](https://help.github.com/articles/fork-a-repo/)
 and [Making a private repository public](https://help.github.com/articles/making-a-private-repository-public/).
 
-### About the sample app
-
-This section describes the sample app used in this tutorial. You can skip this and go to [Configure Jenkins plugins](#Configure Jenkins plugins).
-
-The app was built using [Yeoman](http://yeoman.io/learning/index.html);
-it uses **Express**, **bower**, and **grunt**; and it has some **npm** packages as dependencies.
-The sample app contains a set of
-[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
-that are used to dynamically create the virtual machines for deployment on Azure. These templates are used by tasks in the [Team
-Services release definition](https://www.visualstudio.com/docs/build/actions/work-with-release-definitions).
-The main template creates a network security group, a virtual machine, 
-and a virtual network. It assigns a public IP address and opens inbound
-port 80. It also adds a tag that is used by the deployment group to 
-select the machines to receive the deployment.
-
-The sample also contains a script that sets up Nginx and deploys the app. It is executed on each of the virtual
-machines. Specifically, the script installs Node, Nginx, and PM2; configures Nginx and PM2; then starts the Node app.
+> [!NOTE]
+> The app was built using [Yeoman](http://yeoman.io/learning/index.html);
+> it uses **Express**, **bower**, and **grunt**; and it has some **npm** packages as dependencies.
+> The sample app contains a set of
+> [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
+> that are used to dynamically create the virtual machines for deployment on Azure. These templates are used by tasks in the [Team
+> Services release definition](https://www.visualstudio.com/docs/build/actions/work-with-release-definitions).
+> The main template creates a network security group, a virtual machine, 
+> and a virtual network. It assigns a public IP address and opens inbound
+> port 80. It also adds a tag that is used by the deployment group to 
+> select the machines to receive the deployment.
+>
+> The sample also contains a script that sets up Nginx and deploys the app. It is executed on each of the virtual
+> machines. Specifically, the script installs Node, Nginx, and PM2; configures Nginx and PM2; then starts the Node app.
 
 ## Configure Jenkins plugins
 
@@ -156,9 +153,8 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
 1. Enter a name for the deployment group, and an optional description.
    Then choose **Create**.
 
-The virtual machines to populate the new deployment group are created
-by the Azure Resource Group Deployment task when it executes the Azure Resource Manager template.
-You don't need to register the virtual machines manually.
+The Azure Resource Group Deployment task creates and registers the VMs when it runs using the Azure Resource Manager template.
+You don't need to create and register the virtual machines yourself.
 
 ## Create a release definition
 
@@ -189,7 +185,7 @@ To create the release definition in Team Services:
 
    - Choose the "padlock" icon next to the value textbox to protect the password. 
 
-### Configure the Azure Resource Group Deployment task
+## Configure the Azure Resource Group Deployment task
 
 The **Azure Resource Group Deployment** task is used to create the deployment group. Configure it as follows:
 
@@ -225,7 +221,7 @@ The **Azure Resource Group Deployment** task is used to create the deployment gr
 The default settings for the Azure Resource Group Deployment task are to create or update a resource,
 and to do so incrementally. The task creates the VMs the first time it runs, and subsequently just update them.
 
-### Configure the Shell Script task
+## Configure the Shell Script task
 
 The **Shell Script** task is used to provide the configuration for a script to run on each server to install Node.js and start the app. Configure it as follows:
 
@@ -235,7 +231,7 @@ The **Shell Script** task is used to provide the configuration for a script to r
 
 * **Working Directory**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node`
    
-### Rename and save the release definition
+## Rename and save the release definition
 
 1. Edit the name of the release definition to the name you specified in the
    **Post-build Actions** tab of the build in Jenkins. Jenkins requires this name
@@ -286,5 +282,5 @@ In this tutorial, you automated the deployment of an app to Azure using Jenkins 
 
 Follow this link to see pre-built virtual machine script samples.
 
-[!div class="nextstepaction"]
-[Linux virtual machine script samples](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
+> [!div class="nextstepaction"]
+> [Linux virtual machine script samples](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
