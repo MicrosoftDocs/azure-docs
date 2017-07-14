@@ -10,20 +10,24 @@ No, you must specify all algorithms and parameters for both IKE (Main Mode) and 
 ### What are the algorithms and key strengths supported in the custom policy?
 The table below lists the supported cryptographic algorithms and key strengths configurable by the customers. You must select one option for every field.
 
-| **IPsec/IKEv2**  | **Options**                                                                 |
-| ---              | ---                                                                         |
-| IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                           |
-| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                   |
-| DH Group         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
-| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
-| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| PFS Group        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, None                     |
-| QM SA Lifetime*  | Seconds (integer; **min. 300**) and KBytes (integer; **min. 1024**)                                      |
-| Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False; default $False)                             |
-|                  |                                                                             |
+| **IPsec/IKEv2**  | **Options**                                                                   |
+| ---              | ---                                                                           |
+| IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                             |
+| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
+| DH Group         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
+| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
+| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
+| QM SA Lifetime   | Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes)           |
+| Traffic Selector | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
+|                  |                                                                               |
 
-* (*) IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
-* (**) Please see the next FAQ item for "UsePolicyBasedTrafficSelectors"
+> [!IMPORTANT]
+> 1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group **14** in IKE and IPsec PFS. Please see [Diffie-Hellman Groups](#DH) for the complete mappings.
+> 2. For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
+> 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
+> 4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5hrs) and 102400000 KBytes (102GB) are used.
+> 5. UsePolicyBasedTrafficSelector is an option parameter on the connection. Please see the next FAQ item for "UsePolicyBasedTrafficSelectors"
 
 ### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
 Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:
@@ -45,6 +49,21 @@ If you enable **UsePolicyBasedTrafficSelectors**, you need to ensure your VPN de
 * 10.2.0.0/16 <====> 172.16.0.0/16
 
 Refer to [Connect multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details on how to use this option.
+
+### <a name ="DH"></a>Which Diffie-Hellman Groups are supported?
+The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and IPsec (PFSGroup):
+
+| **Diffie-Hellman Group**  | **DHGroup**              | **PFSGroup** | **Key length** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | 768-bit MODP   |
+| 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
+| 19                        | ECP256                   | ECP256       | 256-bit ECP    |
+| 20                        | ECP384                   | ECP284       | 384-bit ECP    |
+| 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
+|                           |                          |              |                |
+
+Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
 
 ### Does the custom policy replace the default IPsec/IKE policy sets for Azure VPN gateways?
 Yes, once a custom policy is specified on a connection, Azure VPN gateway will only use the policy on the connection, both as IKE initiator and IKE responder.

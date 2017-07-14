@@ -37,7 +37,7 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure Client-Side Encryption](../storage/storage-client-side-encryption.md)
 * [Azure Storage Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md)
 * [Azure Storage Account Keys](../storage/storage-create-storage-account.md)
-* [Azure File Shares with SMB 3.0 Encryption](../storage/storage-dotnet-how-to-use-files.md)
+* [Azure File shares with SMB 3.0 Encryption](../storage/storage-dotnet-how-to-use-files.md)
 * [Azure Storage Analytics](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## Azure Database Security

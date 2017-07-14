@@ -30,7 +30,7 @@ You also need to:
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **myserver4demo**.
+2. In the left pane, click **All resources**, and then search for the server you have created (for example, **myserver4demo**).
 3. Click the server name.
 4. Select the server's **Properties** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for MySQL server name](./media/connect-java/1_server-properties-name-login.png)
