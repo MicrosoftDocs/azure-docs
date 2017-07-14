@@ -42,7 +42,7 @@ When you reach the daily limit, data collection stops until the next day. Data s
 Log Analytics uses UTC time and each day starts at midnight UTC. If the workspace reaches the daily limit, processing resumes during the first hour of the next UTC day.
 
 ### Create an alert when data collection stops
-Use the steps described in [create an alert rule](log-analytics-alerts-creating#create-an-alert-rule.md) to be notified when data collection stops.
+Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when data collection stops.
 
 Use the following search query for the alert rule: 
 `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
@@ -96,7 +96,7 @@ The following query uses a simple formula to predict when more than 100 GB of da
 
 To alert on a different data volume, change the 100 in the queries to the number of GB you want to alert on.
 
-Use the steps described in [create an alert rule](log-analytics-alerts-creating#create-an-alert-rule.md) to be notified when data collection is higher than expected.
+Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when data collection is higher than expected.
 
 When creating the alert for the first query -- when there is more than 100 GB of data in 24 hours, set the:
 - **Name** to *Data volume greater than 100 GB in 24 hours*
