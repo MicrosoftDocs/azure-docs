@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2017
+ms.date: 07/13/2017
 ms.author: ryanwi
 
 ---
@@ -80,8 +80,6 @@ New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname
 | *$clustersize* | The number of nodes in the cluster.  One and three node clusters are useful for development and testing but cannot be used for production workloads. |
 
 The command can take anywhere from 10 minutes to 30 minutes to complete.  When completed, you see output containing information about the certificate, the key vault where it was uploaded to, and the local folder where the certificate is copied. 
-
-![PowerShell output](./media/service-fabric-tutorial-create-cluster-azure-ps/psout.PNG)
 
 Copy the entire output and save to a text file. Make a note of the following information from the output, which is needed later in this tutorial.
  
