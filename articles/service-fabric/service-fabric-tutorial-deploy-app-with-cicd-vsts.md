@@ -65,7 +65,7 @@ Publishing the repo creates a new team project in your account with the same nam
 ## Configure Continuous Delivery with VSTS
 Use the built in wizard in Visual Studio to configure continuous delivery with VSTS.
 
-1. Right-click the **MyApplication** application project in **Solution Explorer**, the select **Add** -> **Continuous Delivery with VSTS**. A dialog box pops up for you to input the required configuration.
+1. Right-click the **MyApplication** application project in **Solution Explorer**, then select **Add** -> **Continuous Delivery with VSTS**. A dialog box pops up for you to input the required configuration.
 
     ![Continuous Delivery with VSTS][continuous-delivery-with-VSTS]
 
@@ -79,11 +79,12 @@ Use the built in wizard in Visual Studio to configure continuous delivery with V
 
     ![New Service Endpoint][new-service-endpoint]
 
-    A dialog pops up to configure the cluster endpoint and authentication.
+    A dialog pops up to add a new Service Fabric connection.
+    
+5. Select **Certificate Based** and complete the dialog:
 
     ![New Service Endpoint Dialog][new-service-endpoint-dialog]
 
-5. Select **Certificate Based** and complete the dialog:
     1. Enter a **Connection Name**.
     2. Enter the cluster's management endpoint in the **Cluster Endpoint** field (for example, "tcp://mycluster.eastus.cloudapp.azure.com:19000"). Specify "tcp://" as the protocol.  The default anagement endpoint port is 19000.
     3. Input the **Server Certificate Thumbprint**.  The thumbprint can be obtained by opening Service Fabric Explorer for your cluster (https://mycluster.eastus.cloudapp.azure.com:19080).
@@ -126,7 +127,7 @@ Verify that the deployment succeeded and the application is running in the clust
 ![Service Fabric Explorer][sfx1]
 
 ## Update the application
-Do a code changes in the application, and commit them, following the steps above.
+Make code changes in the application.  Save and commit the changes, following the previous steps.
 
 Once the upgrade of the application begins, you can watch the upgrade progress in Service Fabric Explorer:
 
