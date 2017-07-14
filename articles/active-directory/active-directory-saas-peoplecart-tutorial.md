@@ -108,11 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-peoplecart-tutorial/tutorial_peoplecart_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `: https://<companyname>.peoplecart.com/SignIn.aspx`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.peoplecart.com/SignIn.aspx`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `: https://<companyname>.peoplecart.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.peoplecart.com`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `: https://<companyname>.peoplecart.com/loginverify.aspx`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.peoplecart.com/loginverify.aspx`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and, Reply URL. Contact [Peoplecart Client support team](https://peoplecart.com/ContactUs.aspx) to get these values. 
@@ -168,7 +168,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Peoplecart test user
 
-In this section, you create a user called Britta Simon in Peoplecart. Work with [Peoplecart support team](https://peoplecart.com/ContactUs.aspx) to add the users in the Peoplecart platform and enable SSO.
+In this section, you create a user called Britta Simon in Peoplecart. Work with [Peoplecart support team](https://peoplecart.com/ContactUs.aspx) to add the users in the Peoplecart platform. Users must be created and activated before you use single sign-on. 
 
 ### Assigning the Azure AD test user
 
@@ -202,9 +202,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Peoplecart tile in the Access Panel, you should get automatically signed-on to your Peoplecart application.
+When you click the Peoplecart tile in the Access Panel, you should get login page of Peoplecart application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
