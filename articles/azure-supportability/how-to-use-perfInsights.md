@@ -82,7 +82,7 @@ This scenario runs a [performance counter](https://msdn.microsoft.com/en-us/libr
 
 ### Azure Files analysis 
 
-This scenario runs a special performance counter capture together with a network trace. The capture includes all the SMB Client Shares(*)\* counters. The following are some key SMB client share performance counters that are part of the capture:
+This scenario runs a special performance counter capture together with a network trace. The capture includes all the "SMB Client Shares" counters. The following are some key SMB client share performance counters that are part of the capture:
 
 | **Type**     | **SMB client shares counter** |
 |--------------|-------------------------------|
@@ -109,6 +109,7 @@ When you run a custom configuration, you are running all traces (performance dia
 > [!Note]
 > This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
 > increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
+>
 
 ## What kind of information is collected by the script?
 
@@ -155,17 +156,17 @@ Runs a rule-based engine in the background to collect data and diagnose ongoing 
 
 Collects the following Performance Counters:
 
-- \Process(*)\*, \Processor(*)\*, \Memory(*)\*, \Thread(*)\*, \PhysicalDisk(*)\*, \LogicalDisk(*)\*
+- \Process, \Processor, \Memory, \Thread, \PhysicalDisk, \LogicalDisk
 - \Cache\Dirty Pages, \Cache\Lazy Write Flushes/sec, \Server\Pool Nonpaged, Failures, \Server\Pool Paged Failures
-- Selected counters under \Network Interface(*), \IPv4\Datagrams*, \IPv6\Datagrams*, \TCPv4\Segments*, \TCPv6\Segments*,  \Network Adapter(*), \WFPv4\Packets*, \WFPv6\Packets*, \UDPv4\Datagrams*, \UDPv6\Datagrams*, \TCPv4\Connection*, \TCPv6\Connection*, \Network QoS Policy\Packets*, \Per Processor Network Interface Card Activity\, \Microsoft Winsock BSP\ 
+- Selected counters under \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments,  \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \Network QoS Policy\Packets, \Per Processor Network Interface Card Activity, \Microsoft Winsock BSP
 
 #### For SQL Server instances
-- \SQL Server:Buffer Manager\*, \SQLServer:Resource Pool Stats(*)\*, \SQLServer:SQL Statistics\*,
-- \SQLServer:Locks(*)\*, \SQLServer:General, Statistics\*,
-- \SQLServer:Access Methods\*
+- \SQL Server:Buffer Manager, \SQLServer:Resource Pool Stats, \SQLServer:SQL Statistics\
+- \SQLServer:Locks, \SQLServer:General, Statistics
+- \SQLServer:Access Methods
 
 #### For Azure Files
-\SMB Client Shares(*)\*
+\SMB Client Shares
 
 #### Diskspd Benchmark trace (***)
 Diskspd IO workload tests [OS Disk (write) and pool drives (read/write)]
