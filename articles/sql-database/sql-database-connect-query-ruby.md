@@ -16,12 +16,11 @@ ms.devlang: ruby
 ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
-
 ---
 
 # Azure SQL Database: Use Ruby to connect and query data
 
-This quick start demonstrates how to use [Ruby](https://Ruby.org) to connect to an Azure SQL database; then use Transact-SQL statements to  query, insert, update, and delete data in the database from Mac OS and Ubuntu Linux platforms.
+This quick start demonstrates how to use [Ruby](https://www.ruby-lang.org) to connect to an Azure SQL database; then use Transact-SQL statements to  query, insert, update, and delete data in the database from Mac OS and Ubuntu Linux platforms.
 
 ## Prerequisites
 
@@ -59,7 +58,7 @@ make install
 gem install tiny_tds
 ```
 
-## Get connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 

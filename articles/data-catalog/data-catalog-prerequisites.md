@@ -20,7 +20,7 @@ ms.author: maroche
 ---
 # Azure Data Catalog prerequisites
 
-You’ll need to take care of a few things before you can set up Azure Data Catalog. Don’t worry, this process won’t take long.
+You need to take care of a few things before you can set up Azure Data Catalog. Don’t worry, this process does not take long.
 
 ## Azure subscription
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
@@ -33,12 +33,12 @@ To set up Data Catalog, you must be signed in with an Azure Active Directory (Az
 Azure AD provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-in to any cloud and on-premises web application. Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory?](../active-directory/active-directory-whatis.md).
 
 > [!NOTE]
-> By using the [Azure portal](http://portal.azure.com/), you can sign in with either a personal Microsoft account or an Azure Active Directory work or school account. To set up Data Catalog by using either the Azure portal or the [Data Catalog portal](http://www.azuredatacatalog.com), you must be signed in with an Azure Active Directory account, not a personal account.
+> By using the [Azure portal](http://portal.azure.com/), you can sign in with either a personal Microsoft account or an Azure Active Directory work or school account. To set up Data Catalog by using either the Azure portal or the [Data Catalog portal](http://www.azuredatacatalog.com), you must sign in with an Azure Active Directory account, not a personal account.
 >
 >
 
 ## Active Directory policy configuration
-You might encounter a situation where you can sign in to the Data Catalog portal, but when you attempt to sign in to the data source registration tool you encounter an error message that prevents you from signing in. This problem behavior might occur only when you're on the company network, or it might occur only when you're connecting from outside the company network.
+You might encounter a situation where you can sign in to the Data Catalog portal, but when you attempt to sign in to the data source registration tool, you encounter an error message that prevents you from signing in. This problem behavior might occur only when you're on the company network, or it might occur only when you're connecting from outside the company network.
 
 The data source registration tool uses Forms Authentication to validate your user credentials against Active Directory. To help you sign in successfully, an Active Directory administrator must enable Forms Authentication in the Global Authentication Policy.
 

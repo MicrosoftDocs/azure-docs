@@ -5,8 +5,7 @@ services: mysql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/05/2017

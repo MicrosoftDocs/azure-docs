@@ -31,9 +31,10 @@ Load balancing provides a higher level of availability by spreading incoming req
 > * View a load balancer in action
 > * Add and remove VMs from a load balancer
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Azure load balancer overview
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM.

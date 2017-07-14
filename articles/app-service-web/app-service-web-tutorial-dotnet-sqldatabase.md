@@ -88,7 +88,7 @@ Once signed in, you're ready to create all the resources you need for your Azure
 
 ### Configure the web app name
 
-You can keep the generated web app name, or change it to another unique name. The web app name is used as part of the default URL for your app (`<app_name>.azurewebsites.net`). The web app name needs to be unique across all apps in Azure. 
+You can keep the generated web app name, or change it to another unique name (valid characters are `a-z`, `0-9`, and `-`). The web app name is used as part of the default URL for your app (`<app_name>.azurewebsites.net`, where `<app_name>` is your web app name). The web app name needs to be unique across all apps in Azure. 
 
 ![Create app service dialog](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
 
@@ -115,13 +115,15 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 
 ![Create App Service plan](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| Setting  | Value | For more information |
+| Setting  | Suggested value | For more information |
 | ----------------- | ------------ | ----|
 |**App Service Plan**| myAppServicePlan | [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
 |**Location**| West Europe | [Azure regions](https://azure.microsoft.com/regions/) |
 |**Size**| Free | [Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/)|
 
 ### Create a SQL Server instance
+
+Before creating a database, you need an [Azure SQL Database logical server](../sql-database/sql-database-features.md). A logical server contains a group of databases managed as a group.
 
 Select **Explore additional Azure services**.
 
@@ -133,13 +135,17 @@ In the **Services** tab, click the **+** icon next to **SQL Database**.
 
 In the **Configure SQL Database** dialog, click **New** next to **SQL Server**. 
 
-A unique server name is generated. This name is used as part of the default URL for your database server, `<server_name>.database.windows.net`. It must be unique across all SQL Server instances in Azure. You can change the server name, but for this tutorial, keep the generated value.
+A unique server name is generated. This name is used as part of the default URL for your logical server, `<server_name>.database.windows.net`. It must be unique across all logical server instances in Azure. You can change the server name, but for this tutorial, keep the generated value.
 
-Add an administrator username and password, and then select **OK**.
+Add an administrator username and password, and then select **OK**. For password complexity requirements, see [Password Policy](/sql/relational-databases/security/password-policy).
+
+Remember this username and password. You need them to manage the logical server instance later.
 
 ![Create SQL Server instance](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-The **Configure SQL Database** dialog is displayed: 
+### Create a SQL Database
+
+In the **Configure SQL Database** dialog: 
 
 * Keep the default generated **Database Name**.
 * In **Connection String Name**, type *MyDbConnection*. This name must match the connection string that is referenced in *Models/MyDatabaseContext.cs*.
@@ -199,7 +205,9 @@ Right-click on the `Todoes` table and select **View Data**.
 
 ## Update app with Code First Migrations
 
-In this step, you use Code First Migrations in Entity Framework to make a change to your database schema and publish it to Azure.
+You can use the familiar tools in Visual Studio to update your database and web app in Azure. In this step, you use Code First Migrations in Entity Framework to make a change to your database schema and publish it to Azure.
+
+For more information about using Entity Framework Code First Migrations, see [Getting Started with Entity Framework 6 Code First using MVC 5](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 ### Update your data model
 
@@ -215,7 +223,7 @@ Run a few commands to make updates to your local database.
 
 From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Console**.
 
-Enable Code First Migrations:
+In the Package Manager Console window, enable Code First Migrations:
 
 ```PowerShell
 Enable-Migrations

@@ -143,10 +143,14 @@ To run the sample:
 1. At a command prompt, navigate to the **build** folder in your local copy of the **iot-edge** repository.
 2. Run the following command:
    
-    ```
+    ```cmd
     samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe ..\samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
-3. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to monitor the messages that IoT hub receives from the gateway.
+3. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to monitor the messages that IoT hub receives from the gateway. For example, using iothub-explorer you can monitor device-to-cloud messages using the following command:
+
+    ```cmd
+    iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
+    ```
 
 ## Next steps
 
