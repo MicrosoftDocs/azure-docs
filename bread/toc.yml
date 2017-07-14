@@ -312,14 +312,14 @@
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/
         items:
-          - name: Classic Deployment
+          - name: Linux classic deployments
             tocHref: /azure/virtual-machines/linux/classic/
             topicHref: /azure/virtual-machines/linux/classic/
       - name: Windows
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/
         items:
-          - name: Classic Deployment
+          - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
   - name: Virtual Network
