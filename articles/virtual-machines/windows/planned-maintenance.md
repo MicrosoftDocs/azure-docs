@@ -20,24 +20,22 @@ ms.author: cynthn
 ---
 # Planned maintenance for Windows virtual machines 
 
-Microsoft Azure periodically performs updates across the globe to
+Azure periodically performs updates 
 improve the reliability, performance, and security of the host
-infrastructure that underlies virtual machines. Such updates range from
+infrastructure for virtual machines. These updates range from
 patching software components in the hosting environment (OS, hypervisor
 and various agents deployed on the host), upgrading networking
-components, all the way to hardware decommissioning.
+components, to hardware decommissioning.
 
-The majority of these updates are performed without any impact to hosted
-virtual machines or cloud services.
+The majority of these updates are performed without any impact to the hosted
+virtual machines.
 
-However, there are cases where updates do have an impact to hosted
-virtual machines:
+However, there are cases where updates do have an impact:
 
--   VM preserving maintenance using In-place VM migration describes a class of updates where virtual machines are not rebooted
-    during the maintenance.
+-   In-place VM migration during the maintenance (where VMs are not rebooted) is called **VM preserving maintenance**.
 
--   VM restarting maintenance which require a reboot or redeploy to hosted
-    virtual machines.
+-   Maintenance that requires a reboot or redeploy to hosted
+    virtual machines is called **VM restarting maintenance**.
 
 Please note that this page describes how Microsoft Azure performs
 planned maintenance. For more information about unplanned events
@@ -47,69 +45,33 @@ machines](manage-availability.md).
 
 ## VM preserving maintenance with In-place VM migration
 
-While the majority of updates have no impact to hosted VMs, there are
-cases where updates to components or services result in minimal
-interference to running VMs (without a full reboot of the virtual
-machine).
-
-These updates are accomplished with technology that enables in-place
-live migration, also called "memory-preserving update". When updating
-the host, the virtual machine is placed into a “paused” state,
-preserving the memory in RAM, while the hosting environment (e.g. the
-underlying operating system) applies the necessary updates and patches.
-The virtual machine is then resumed within 30 seconds of being paused.
+WHen updates don't require a full reboot, an in-place
+live migration (memory-preserving update) is used. During the update the virtual machine is paused for about 30 seconds,
+preserving the memory in RAM, while the hosting environment applies the necessary updates and patches.
+The virtual machine is then resumed.
 After resuming, the clock of the virtual machine is automatically
 synchronized.
 
-Not all updates can be deployed by using this mechanism, but given the
-short pause period, deploying updates in this way greatly reduces impact
-to virtual machines.
+For VMs in availability sets, update domains are updated one at a time. Pausing all VMs in the UD, resuming them and then going on to the next UD.
 
-Multi-instance updates (VMs in an availability set) are applied one
-update domain at a time.
-
-Some applications may be impacted by these updates more than others. 
-Applications that perform real-time event processing, media streaming 
+Some applications may be impacted by these types of updates. Applications that perform real-time event processing, media streaming 
 or transcoding, or high throughput networking scenarios, for example,
-may not be designed to tolerate a 30 second pause. 
+may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? -->
 Applications running in a virtual machine can learn about upcoming
 updates by calling the [Scheduled Events](../virtual-machines-scheduled-events.md)
 API of the [Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).
 
 ## Impactful maintenance for virtual machines
 
-There are few cases where your VMs are rebooted due to planned
-maintenance to the underlying infrastructure. Being impactful to the
-availability of your VMs hosted in Azure, the following are now
-available for you to use:
+When VMs need to be rebooted for planned maintenance, you will be notified at least 30 days in advance. 
 
--   Notification sent at least 30 days before the impact.
+Planned maintenance has two phases: the Pre-emptive (or self-service)
+Maintenance Window and a Scheduled Maintenance Window.
 
--   Visibility to the maintenance windows per each VM.
+The **Pre-emptive Maintenance Window** lets you initiate the maintenance on your VMs at a time that works for you. DUring this time, you can query each VM to see their status  and check the result of your last initiated maintenance request.
 
--   Flexibility and control in setting the exact time for maintenance to
-    impact your VMs.
-
-Maintenance in Microsoft Azure is scheduled in iterations. Initial
-iterations have smaller scope in order to reduce the risk involved in
-rolling out new fixes and capabilities. Later iterations may span
-multiple regions (never from the same region pair). A VM is included in a single maintenance iteration. If an iteration is aborted, remaining VMs are included in another, future, 
-iteration.
-
-The planned maintenance iteration has two phases: Pre-emptive
-Maintenance Window and a Scheduled-Maintenance Window.
-
-The **Pre-emptive Maintenance Window** provides you with the flexibility
-to initiate the maintenance on your VMs. By doing so, you can determine
-when your VMs are impacted, the sequence of the update, and the time
-between each VM being maintained. You can query each VM to see whether
-it is planned for maintenance and check the result of your last
-initiated maintenance request.
-
-The **Scheduled Maintenance Window** is when Azure has scheduled your
-VMs for the maintenance. During this time window, which follows the
-pre-emptive maintenance window, you can still query for the maintenance
-window, but no longer be able to orchestrate the maintenance.
+When the pre-emptive window has passed, the **Scheduled Maintenance Window** begins. During this time window, you can still query for the maintenance
+window, but no longer be able to start the maintenance yourself.
 
 ## Availability Considerations during Planned Maintenance 
 
@@ -239,4 +201,4 @@ and offered a new opportunity to schedule and sequence the impact on
 your VMs.
 
 
-[!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
+
