@@ -67,14 +67,14 @@ There are many ways in which numeric values are used to quantify, express, and d
 
 | Utterance        | Entity   | Resolution |
 | ------------- |:----------------:| --------------:|
-| one thousand  | "one thousand" |   "1000"      | 
-| 1,000         | "1,000"    |   "1000"      |
-|  1/2          | "1 / 2"    |    "0.5"      |
-|  one half     | "one half"     |    "0.5"      |
-| one hundred fifty| "one hundred fifty" | "150" |
-| one hundred and fifty| "one hundred and fifty" | "150"|
-| one point five| "one point five" |  "1.5" |
-| two dozen     | "two dozen" | "24" |
+| one thousand times  | "one thousand" |   "1000"      | 
+| 1,000 people        | "1,000"    |   "1000"      |
+|  1/2 cup         | "1 / 2"    |    "0.5"      |
+|  one half the amount     | "one half"     |    "0.5"      |
+| one hundred fifty orders | "one hundred fifty" | "150" |
+| one hundred and fifty books | "one hundred and fifty" | "150"|
+| a grade of one point five| "one point five" |  "1.5" |
+| buy two dozen eggs    | "two dozen" | "24" |
 
 
 LUIS includes the recognized value of a **builtin.number** entity in the `resolution` field of the JSON response it returns.
