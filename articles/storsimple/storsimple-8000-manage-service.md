@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/07/2017
+ms.date: 07/13/2017
 ms.author: alkohli
 
 ---
@@ -50,7 +50,7 @@ Perform the following steps to create a service.
 
 For each StorSimple Device Manager service, the following attributes exist:
 
-* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. **The service name cannot be changed after the service is created.**
+* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. **The service name cannot be changed after the service is created. This is also true for other entities such as devices, volumes, volume containers, and backup policies that cannot be renamed in the Azure portal.**
 * **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
 * **Location** – The geographical location in which the StorSimple device will be deployed.
 * **Subscription** – The billing subscription that is associated with your service.
@@ -104,6 +104,29 @@ Perform the following steps to transition your service to the Azure portal.
 3. Click **Migrate**. The transition begins and takes a few minutes to complete.
 
 Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal.
+
+In the Azure portal, only the StorSimple devices running Update 3.0 and higher are supported. The devices that are running older versions have limited support. The following table summrizes which operations are supported on the device running versios prior to Update 3.0, once you have migrated from the classic to the Azure portal.
+
+| Operation                                                                                                                       | Supported      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Register a device                                                                                                               | Yes            |
+| Configure device settings such as general, network, and security                                                                | Yes            |
+| Scan, download, and install updates                                                                                             | Yes            |
+| Deactivate device                                                                                                               | Yes            |
+| Delete device                                                                                                                   | Yes            |
+| Create, modify, and delete a volume container                                                                                   | No             |
+| Create, modify, and delete a volume                                                                                             | No             |
+| Create, modify, and delete a backup policy                                                                                      | No             |
+| Take a manual backup                                                                                                            | No             |
+| Take a scheduled backup                                                                                                         | Not applicable |
+| Restore from a backupset                                                                                                        | No             |
+| Clone to a device running Update 3.0 and later <br> The source device is running version prior to Update 3.0.                                | Yes            |
+| Clone to a device running versions prior to Update 3.0                                                                          | No             |
+| Failover as source device <br> (from a device running version prior to Update 3.0 to a device running Update 3.0 and later)                                                               | Yes            |
+| Failover as target device <br> (to a device running software version prior to Update 3.0)                                                                                   | No             |
+| Clear an alert                                                                                                                  | Yes            |
+| View backup policies, backup catalog, volumes, volume containers, monitoring charts, jobs, and alerts created in classic portal | Yes            |
+| Turn on and off device controllers                                                                                              | Yes            |
 
 
 ## Delete a service
@@ -161,6 +184,71 @@ Perform the following steps to regenerate a service registration key.
 4. A new service registration key will appear.
 
 5. Copy this key and save it for registering any new devices with this service.
+
+
+
+## Change the service data encryption key
+Service data encryption keys are used to encrypt confidential customer data, such as storage account credentials, that are sent from your StorSimple Manager service to the StorSimple device. You will need to change these keys periodically if your IT organization has a key rotation policy on the storage devices. The key change process can be slightly different depending on whether there is a single device or multiple devices managed by the StorSimple Manager service. For more information, go to [StorSimple security and data protection](storsimple-8000-security.md).
+
+Changing the service data encryption key is a 3-step process:
+
+1. Using Windows PowerShell scripts for Azure Resource Manager, authorize a device to change the service data encryption key.
+2. Using Windows PowerShell for StorSimple, initiate the service data encryption key change.
+3. If you have more than one StorSimple device, update the service data encryption key on the other devices.
+
+### Step 1: Use Windows PowerShell script to Authorize a device to change the service data encryption key
+Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys. The service administrator will then authorize the device to change the key.
+
+This step is performed using the Azure Resource Manager based script. The service administrator can select a device that is eligible to be authorized. The device is then authorized to start the service data encryption key change process. 
+
+For more information about using the script, go to [Authorize-ServiceEncryptionRollover.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
+
+#### Which devices can be authorized to change service data encryption keys?
+A device must meet the following criteria before it can be authorized to initiate service data encryption key changes:
+
+* The device must be online to be eligible for service data encryption key change authorization.
+* You can authorize the same device again after 30 minutes if the key change has not been initiated.
+* You can authorize a different device, provided that the key change has not been initiated by the previously authorized device. After the new device has been authorized, the old device cannot initiate the change.
+* You cannot authorize a device while the rollover of the service data encryption key is in progress.
+* You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not. 
+
+### Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change
+This step is performed in the Windows PowerShell for StorSimple interface on the authorized StorSimple device.
+
+> [!NOTE]
+> No operations can be performed in the Azure portal of your StorSimple Manager service until the key rollover is completed.
+> 
+> 
+
+If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.
+
+#### To initiate the service data encryption key change
+1. Select option 1 to log on with full access.
+2. At the command prompt, type:
+   
+     `Invoke-HcsmServiceDataEncryptionKeyChange`
+3. After the cmdlet has successfully completed, you will get a new service data encryption key. Copy and save this key for use in step 3 of this process. This key will be used to update all the remaining devices registered with the StorSimple Manager service.
+   
+   > [!NOTE]
+   > This process must be initiated within four hours of authorizing a StorSimple device.
+   > 
+   > 
+   
+   This new key is then sent to the service to be pushed to all the devices that are registered with the service. An alert will then appear on the service dashboard. The service will disable all the operations on the registered devices, and the device administrator will then need to update the service data encryption key on the other devices. However, the I/Os (hosts sending data to the cloud) will not be disrupted.
+   
+   If you have a single device registered to your service, the rollover process is now complete and you can skip the next step. If you have multiple devices registered to your service, proceed to step 3.
+
+### Step 3: Update the service data encryption key on other StorSimple devices
+These steps must be performed in the Windows PowerShell interface of your StorSimple device if you have multiple devices registered to your StorSimple Manager service. The key that you obtained in Step 2 must be used to update all the remaining StorSimple device registered with the StorSimple Manager service.
+
+Perform the following steps to update the service data encryption on your device.
+
+#### To update the service data encryption key
+1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1 to log on with full access.
+2. At the command prompt, type:
+   
+    `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](#to-initiate-the-service-data-encryption-key-change).
 
 
 ## Next steps
