@@ -25,7 +25,7 @@ When you deploy an Azure virtual machine scale set through the portal, certain n
 You can configure all of the features covered in this article using Azure Resource Manager templates. Azure CLI examples are also included for selected features. Use a July 2017 or later CLI version. Additional CLI, and PowerShell, examples will be added soon.
 
 ## Accelerated Networking
-Azure [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-vm-accelerated-networking) improves  network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To use accelerated networking with scale sets, set enableAcceleratedNetworking to _true_ in your scale set's networkInterfaceConfigurations settings. For example:
+Azure [Accelerated Networking](../virtual-network/virtual-network-create-vm-accelerated-networking.md) improves  network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To use accelerated networking with scale sets, set enableAcceleratedNetworking to **true** in your scale set's networkInterfaceConfigurations settings. For example:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -54,9 +54,9 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ## Configurable DNS Settings
 By default, scale sets take on the specific DNS settings of the VNET and subnet they were created in. You can however, configure the DNS settings for a scale set directly.
-
+~
 ### Creating a scale set with configurable DNS servers
-To create a scale set with a custom DNS configuration using CLI 2.0, add the --dns-servers argument to the _vmss create_ command, followed by space separated server ip addresses. For example:
+To create a scale set with a custom DNS configuration using CLI 2.0, add the **--dns-servers** argument to the **vmss create** command, followed by space separated server ip addresses. For example:
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
@@ -68,9 +68,9 @@ To configure custom DNS servers in an Azure template, add a dnsSettings property
 ```
 
 ### Creating a scale set with configurable virtual machine domain names
-To create a scale set with a custom DNS name for virtual machines using CLI 2.0, add the _--vm-domain-name_ argument to the _vmss create_ command, followed by a string representing the domain name.
+To create a scale set with a custom DNS name for virtual machines using CLI 2.0, add the **--vm-domain-name** argument to the **vmss create** command, followed by a string representing the domain name.
 
-To set the domain name in an Azure template, add a dnsSettings property to the scale set networkInterfaceConfigurations section. For example:
+To set the domain name in an Azure template, add a **dnsSettings** property to the scale set **networkInterfaceConfigurations** section. For example:
 
 ```json
 "networkProfile": {
@@ -113,9 +113,9 @@ In general, Azure scale set virtual machines do not require their own public IP 
 However, some scenarios do require scale set virtual machines to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine, which is doing game physics processing. Another example is where virtual machines need to make external connections to one another across regions in a distributed database.
 
 ### Creating a scale set with public IP per virtual machine
-To create a scale set that assigns a public IP address to each virtual machine with CLI 2.0, add the _--public-ip-per-vm_ parameter to the _vmss create_ command. 
+To create a scale set that assigns a public IP address to each virtual machine with CLI 2.0, add the **--public-ip-per-vm** parameter to the **vmss create** command. 
 
-To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least _2017-03-30_, and add a _publicIpAddressConfiguration_ JSON property to the scale set ipConfigurations section. For example:
+To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least **2017-03-30**, and add a **publicIpAddressConfiguration** JSON property to the scale set ipConfigurations section. For example:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -128,11 +128,11 @@ To create a scale set using an Azure template, make sure the API version of the 
 Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### Querying the public IP addresses of the virtual machines in a scale set
-To list the public IP addresses assigned to scale set virtual machines using CLI 2.0, use the _az vmss list-instance-public-ips_ command.
+To list the public IP addresses assigned to scale set virtual machines using CLI 2.0, use the **az vmss list-instance-public-ips** command.
 
-You can also query the public IP addresses assigned to scale set virtual machines using the [Azure Resource Explorer](https://resources.azure.com), or the Azure REST API with version _2017-03-30_ or higher.
+You can also query the public IP addresses assigned to scale set virtual machines using the [Azure Resource Explorer](https://resources.azure.com), or the Azure REST API with version **2017-03-30** or higher.
 
-To view public IP addresses for a scale set using the Resource Explorer, look at the _publicipaddresses_ section under your scale set. For example:
+To view public IP addresses for a scale set using the Resource Explorer, look at the **publicipaddresses** section under your scale set. For example:
 https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
 ```
