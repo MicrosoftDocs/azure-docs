@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 07/17/2017
 ms.author: jeedes
 
 ---
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `http://<companyname>.my.salesforce.com`
 
 	> [!NOTE] 
-	> This values is not real. Update this value with the actual Sign-On URL. Contact [Work.com Client support team](https://help.salesforce.com/articleView?id=000159855&type=3) to get this value. 
+	> This value is not real. Update this value with the actual Sign-On URL. Contact [Work.com Client support team](https://help.salesforce.com/articleView?id=000159855&type=3) to get this value. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -134,9 +134,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![My Domain](./media/active-directory-saas-work-com-tutorial/ic767825.png "My Domain")
 
-10. To verify that your domain has been setup correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
+10. To verify that your domain has been set up correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
    
-    ![Doman Deployed to User](./media/active-directory-saas-work-com-tutorial/ic784377.png "Doman Deployed to User")
+    ![Domain Deployed to User](./media/active-directory-saas-work-com-tutorial/ic784377.png "Domain Deployed to User")
 
 11. Log in to your Work.com tenant.
 
