@@ -19,34 +19,6 @@ ms.author: magoedte
 # Analyze data usage in Log Analytics
 Log Analytics includes information on the amount of data collected, which computers sent the data and the different types of data sent.  Use the **Log Analytics Usage** dashboard to see the amount of data sent to the Log Analytics service. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
 
-## Troubleshoot missing data
-One of the most common reasons that your workspace is missing data is that data collection stopped.
-
-Log Analytics creates an event of type *Operation* when data collection starts and stops. 
-
-Run the following query in search to check if you are reaching the daily limit and missing data:
-`Type=Operation OperationCategory="Data Collection Status"`
-
-When data collection stops, the *OperationStatus* is **Warning**. When data collection starts, the *OperationStatus* is **Succeeded**. 
-
-The following table describes reasons that data collection stops and a suggested action to resume data collection:
-
-| Reason data collection stops                       | To resume data collection |
-| -------------------------------------------------- | ----------------  |
-| Daily limit of free data reached<sup>1</sup>       | Wait until the following day for collection to automatically restart, or<br> Change to a paid pricing tier |
-| Azure subscription is in a suspended state due to: <br> Free trial ended <br> Azure pass expired <br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)                          | Convert to a paid subscription <br> Convert to a paid subscription <br> Remove limit, or wait until limit resets |
-
-<sup>1</sup> If your workspace is on the free pricing tier, you're limited to sending 500 MB of data per day to the service. 
-When you reach the daily limit, data collection stops until the next day. Data sent while data collection is stopped is not indexed and is not available for searching. When data collection resumes, processing occurs only for new data sent. 
-
-Log Analytics uses UTC time and each day starts at midnight UTC. If the workspace reaches the daily limit, processing resumes during the first hour of the next UTC day.
-
-### Create an alert when data collection stops
-Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when data collection stops.
-
-Use the following search query for the alert rule: 
-`Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-
 ## Understand the Usage dashboard
 The **Log Analytics usage** dashboard displays the following information:
 
@@ -130,15 +102,15 @@ Higher usage is caused by one, or both of:
 ### Check if there is more data than expected 
 There are two key sections of the usage page that help identify what is causing the most data to be collected.
 
-![data volume charts](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
-
 The *Data volume over time* chart shows the total volume of data sent and the computers sending the most data. The chart at the top allows you to see if your overall data usage is growing, remaining steady or decreasing. The list of computers shows the 10 computers sending the most data.
 
 The *Data volume by solution* chart shows the volume of data that is sent by each solution and the solutions sending the most data. The chart at the top shows the total volume of data that is sent by each solution over time. This information allows you to identify whether a solution is sending more data, about the same amount of data, or less data over time. The list of solutions shows the 10 solutions sending the most data. 
 
+![data volume charts](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
+
 Look at the *Data volume over time* chart. To see the solutions and data types that are sending the most data for a specific computer, click on the name of the computer. Click on the name of the first computer in the list.
 
-In the following screenshot, the *Log Management - Perf* data type is sending the most data for the computer. 
+In the following screenshot, the *Log Management / Perf* data type is sending the most data for the computer. 
 ![data volume for a computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
 
@@ -154,10 +126,10 @@ Use the following steps to reduce the volume of logs collected:
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
 | Security events            | Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Change the security audit policy. For example, turn off [audit filtering platform](https://technet.microsoft.com/en-us/library/dd772749(WS.10).aspx) events. |
-| Performance counters       | Change [performance counter configuration(log-analytics-data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
+| Performance counters       | Change [performance counter configuration](log-analytics-data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
 | Event logs                 | Change [event log configuration](log-analytics-data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
 | Syslog                     | Change [syslog configuration](log-analytics-data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
-| Data from | Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
+| Solution data from computers that don't need the solution | Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
 
 ### Check if there are more nodes than expected
 If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.
