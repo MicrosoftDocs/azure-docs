@@ -28,7 +28,7 @@ In addition, these tools are available to you in Azure Machine Learning:
 
 * The [**Team Data Science Process (TDSP)**](team-data-science-process/data-science-process-overview.md?toc=%2fazure%2fmachine-learning%2fteam-data-science-process%2ftoc.json) provides a recommended lifecycle that you can use to structure the development of your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed.
 
-* The [**Data Science Virtual Machine (DSVM)**](machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fmachine-learning%2fdata-science-virtual-machine%2ftoc.json), a customized virtual machine (VM) image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. 
+* The [**Data Science Virtual Machine (DSVM)**](./data-science-virtual-machine/data-science-virtual-machine-overview.md?toc=%2fazure%2fmachine-learning%2fdata-science-virtual-machine%2ftoc.json), a customized virtual machine (VM) image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. 
 
 <br>
 <br>
