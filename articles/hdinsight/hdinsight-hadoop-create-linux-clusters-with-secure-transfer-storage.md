@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/13/2017
+ms.date: 07/14/2017
 ms.author: jgao
 
 ---
 # Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 
-The [Secure transfer required](../storage/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer. Currently, you cannot directly create a HDInsight cluster with secure transfer enabled Azure storage accounts. You can only enable the secure transfer feature after a cluster is created. If you enabled the feature for the default storage account, you must also use the Ambari UI to configure HDFS>Configs>Advanced>Advance core-site>fs.defaultFS by replacing wasb://container@sname.blob.core.windows.net to wasbs://container@sname.blob.core.windows.net. 
+The [Secure transfer required](../storage/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer. Currently, you cannot directly create a HDInsight cluster with secure transfer enabled Azure storage accounts. You can only enable the secure transfer feature after a cluster is created. If you enabled the feature for the default storage account, you must also configure the fs.defaultFS setting. 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
