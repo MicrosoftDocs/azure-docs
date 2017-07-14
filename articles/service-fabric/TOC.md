@@ -6,14 +6,14 @@
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
 
 # Tutorials
-## Create and deploy a .NET application
+## Deploy a .NET application
 ### [1- Build a .NET application](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- Deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- Configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
-## Lift and shift an existing .NET application
+## Lift and shift an application
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Deploy an existing .NET application using Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Samples
 ## [PowerShell](service-fabric-powershell-samples.md) 
@@ -322,12 +322,12 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Common questions about Service Fabric](service-fabric-common-questions.md)
+## [Common questions](service-fabric-common-questions.md)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Sample code](http://aka.ms/servicefabricsamples)
-## [Service Fabric support options](service-fabric-support.md)
+## [Support options](service-fabric-support.md)
 ## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
