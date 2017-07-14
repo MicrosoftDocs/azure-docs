@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: glenga, donnam
 ---
 # Azure Functions Tools for Visual Studio  
@@ -60,9 +60,13 @@ When you create a new project using the Azure Functions template, you get an emp
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) reference article.
     
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the Azure Functions Core Tools. Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. To set the storage account connection string:
+The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
+
+[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+
+ To set the storage account connection string:
 
 1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.   
 
@@ -121,7 +125,11 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
 >[!NOTE]  
->Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not added automatically. To learn how to add settings using the [Azure portal](https://portal.azure.com), see the [Application Settings](functions-how-to-use-azure-function-app-settings.md#settings) section. You can also add application settings [using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+>Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not added automatically. You can add required settings to your function app in one of these ways:
+>
+>* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+>* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
+>* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
 
 ## Next steps
 
