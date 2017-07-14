@@ -33,6 +33,9 @@ The Azure portal is a web-based management tool for services and resources hoste
 ## Create clusters
 The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
+
 1. Sign in to the [Azure  portal](https://portal.azure.com).
 2. Click **+**, click **Intelligence + Analytics**, and then click **HDInsight**.
    
@@ -73,8 +76,6 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 	* Click **Next**.
 
 4. On the **Storage** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage. Look at the table below for more information.
-
-    [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 	![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creating a new cluster in the Azure portal")
 
