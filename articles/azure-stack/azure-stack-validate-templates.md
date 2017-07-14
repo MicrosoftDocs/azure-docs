@@ -64,7 +64,7 @@ Any template validation warnings or errors are logged to the PowerShell console,
 
 
 ### Examples
-This example validates all the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates) downloaded locally, and also validates the VM sizes and extensions against Azure Stack TP2 capabilities.
+This example validates all the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates) downloaded locally, and also validates the VM sizes and extensions against Azure Stack Development Kit capabilities.
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
