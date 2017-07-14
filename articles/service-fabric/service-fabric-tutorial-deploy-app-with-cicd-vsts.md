@@ -95,9 +95,9 @@ Use the built in wizard in Visual Studio to configure continuous delivery with V
         - Paste (ctrl+v) the value form the clipboard in to the field in the dialog.
     5. Type the **Certificate Password** in the **Password** field and click **OK**.
 
-Go back to Visual Studio and choose **<Refresh>** in the **Cluster Connection** field in the in the Continuous Delivery with VSTS dialog. The cluster endpoint you just created should now show up in the drop-down.
+6. In Visual Studio, choose **<Refresh>** in the **Cluster Connection** field of the **Continuous Delivery with VSTS** dialog. The cluster endpoint you just created should now show up in the drop-down.
 
-Either choose the default build and release definition name, or change the proposed names in the dialog. Click **OK** once you're done.
+7. Either choose the default build and release definition name, or change the proposed names in the dialog. Click **OK** once you're done.
 
 After a while a dialog pops-up in Visual Studio, asking if you want to open the build and release definition in you browser. You can choose to do so to inspect how they are configured, but this is not required in order to complete this tutorial.
 
