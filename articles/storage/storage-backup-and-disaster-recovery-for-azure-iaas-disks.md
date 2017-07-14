@@ -33,7 +33,7 @@ For regional disaster recovery, you must backup your IaaS VM disks to a differen
 
 Before we look at Backup and DR options, let’s recap a few methods available for handling localized failures.
 
-## Azure IaaS Resiliency
+### Azure IaaS Resiliency
 
 *Resiliency* refers to the tolerance for normal failures that occur in hardware components. Resiliency is the ability to recover from failures and continue to function. It's not about avoiding failures, but responding to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state following a failure. Azure Virtual Machines and Disks are designed to be resilient to common hardware faults. Let us look at how the Azure IaaS platform provides this resiliency.
 
@@ -49,5 +49,59 @@ Localized hardware faults on the compute host or in the storage platform can som
 
 To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can leverage [Availability Sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability). Two or more virtual machines in an availability set provides redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components. Thus, localized hardware failures typically do not affect multiple VMs in the set at the same time, providing high availability for your application. It is considered a good practice to use availability sets when high availability is required. For more information, see the Disaster Recovery aspects detailed below.
 
-## Backup and Disaster Recovery
+### Backup and Disaster Recovery
+
+Disaster recovery (DR) is the ability to recover from rare but major incidents: non-transient, wide-scale failures, such as service disruption that affects an entire region. Disaster recovery includes data backup and archiving, and may include manual intervention, such as restoring a database from backup.
+
+The Azure platform’s built-in protection against localized failures may not fully protect the VMs/disks in the case of major disasters which can cause large-scale outages. This includes catastrophic events such as a data center being hit by a hurricane, earthquake, fire, or large scale hardware unit failures. In addition, you may encounter failures due to application or data issues.
+
+To help protect your IaaS workloads from outages, you should plan for redundancy and backups to enable recovery. For disaster recovery, you should plan redundancy and backup in a different geographic location away from the primary site. This helps ensure your backup is not affected by the same event that originally impacted the VM or disks. For more information, see Disaster Recovery for [Applications built on Azure](https://docs.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery-azure-applications).
+
+Your DR considerations may include the following aspects:
+
+1. High Availability (HA) is the ability of the application to continue running in a healthy state, without significant downtime. By "healthy state," we mean the application is responsive, and users can connect to the application and interact with it. Certain mission-critical applications and databases may be required to be available always, even when there are failures in the platform. For these workloads, you may need to plan redundancy for the application as well as the data.
+
+2. Data Durability: In some cases, the main consideration is ensuring the data is preserved in the case of a disaster. Therefore, you may need a backup of your data in a different site. For such workloads, you may not need full redundancy for the application, but a regular backup of the disks.
+
+## Backup and DR Scenarios
+
+Let’s look at a few typical examples of application workload scenarios and the considerations for planning Disaster Recovery.
+
+### Scenario 1: Major Database Solutions
+
+Consider a production database server like SQL Server or Oracle that can support High Availability. Critical production applications and users depend on this database. The Disaster Recovery plan for this system may need to support the following requirements:
+
+1. Data must be protected and recoverable.
+2.	Server must be available for use.
+
+This may require maintaining a replica of the database in a different region as a backup. Depending on the requirements for server availability and data recovery, the solution could range from an Active-Active or Active-Passive replica site to periodic offline backups of the data. Relational databases such as SQL Server and Oracle provide various options for replication. For SQL Server, [SQL Server Always On Availability Groups](https://msdn.microsoft.com/en-us/library/hh510230.aspx) can be used for high availability.
+
+NoSQL databases like MongoDB also support [replicas](https://docs.mongodb.com/manual/replication/) for redundancy. The replicas for high availability can be used.
+
+### Scenario 2: A cluster of redundant VMs
+
+Consider a workload handled by a cluster of VMs that provide redundancy and load balancing. One example would be a Cassandra cluster deployed in a region. This type of architecture already provides a high level of redundancy within that region. However, to protect the workload from a regional level failure, you should consider spreading the cluster across two regions or making periodic backups to another region.
+
+### Scenario 3: IaaS Application Workload
+
+This could be a typical production workload running on an Azure VM. For example, it could be a web server or file server holding the content and other resources of a site. It could also be a custom-built business application running on a VM that stored its data, resources, and application state on the VM disks. In this case, it is important to make sure you take backups on a regular basis. Backup frequency should be based on the nature of the VM workload. For example, if the application runs every day and modifies data, then the backup should be taken every hour.
+
+Another example is a reporting server that pull data from other sources and generates aggregated reports. Loss of this VM or disks will lead to the loss of the reports. However, it may be possible to rerun the reporting process and regenerate the output. In that case, you don’t really have a loss of data even if the reporting server is hit with a disaster, so you could have a higher level of tolerance for losing part of the data on the reporting server. In that case, less frequent backups is an option to reduce the cost.
+
+### Scenario 4: IaaS Application data issues
+
+You have an application that computes, maintains, and serves critical commercial data such as pricing information. A new version of your application had a software bug which incorrectly computed the pricing and corrupted the existing commerce data served by the platform. Here, the best course of action would be to revert to the earlier version of the application and the data first. To enable this, take periodic backups of your system.
+
+## Disaster Recovery Solution: Azure Backup Service
+
+[Azure Backup Service](https://azure.microsoft.com/en-us/services/backup/) is can be used for Backup and DR, and it works with [Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview) as well as [Unmanaged Disks](https://docs.microsoft.com/en-us/azure/storage/storage-about-disks-and-vhds-windows#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration and backup retention policies. 
+
+If you use [Premium Storage disks](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage), [Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview), or other disk types with the [locally redundant storage (LRS)](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#locally-redundant-storage) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
+
+For [Unmanaged Disks](https://docs.microsoft.com/en-us/azure/storage/storage-about-disks-and-vhds-windows#unmanaged-disks), you can use the LRS storage type for IaaS disks, but ensure that Azure Backup is enabled with the GRS option for the Recovery Services Vault.
+
+If you use the [GRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#geo-redundant-storage)/[RA-GRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#read-access-geo-redundant-storage) option for your Unmanaged Disks, you still need consistent snapshots for Backup and DR. You must use either [Azure Backup Service](https://azure.microsoft.com/en-us/services/backup/) or [consistent snapshots]().
+
+The following is a summary of solutions for DR.
+
 
