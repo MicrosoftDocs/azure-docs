@@ -4606,6 +4606,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices-mbed.md",
+            "redirect_url": "/azure/iot-suite",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md",
             "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
             "redirect_document_id": false
