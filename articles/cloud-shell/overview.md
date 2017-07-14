@@ -53,7 +53,7 @@ Three resources will be created on your behalf:
 #### Use existing resources
 ![](media/advanced-storage.png)
 
-An advanced option is also provided allowing you to associate existing resources to Cloud Shell. When presented with the storage setup prompt, click "Advanced settings" to select additional options. Existing file shares will receive a 5-GB user image to persist your $Home directory. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally redundant storage accounts.
+An advanced option is also provided allowing you to associate existing resources to Cloud Shell. When presented with the storage setup prompt, click "Show advanced settings" to select additional options. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally redundant storage accounts.
 
 [Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.] (persisting-shell-storage.md).
 
