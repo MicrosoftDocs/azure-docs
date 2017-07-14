@@ -29,7 +29,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
 
 * Run the client in the same virtual network as Kafka on HDInsight. This configuration is used in the [Start with Apache Kafka (preview) on HDInsight](hdinsight-apache-kafka-get-started.md) document. The client runs directly on the HDInsight cluster nodes or on another virtual machine in the same network.
 
-* Connect a private network, such as your on-premises network, to the virtual network. This configuration allows clients in your on-premises network to directly work with Kafka. Perform the following tasks to enable this configuration:
+* Connect a private network, such as your on-premises network, to the virtual network. This configuration allows clients in your on-premises network to directly work with Kafka. To enable this configuration, perform the following tasks:
 
     1. Create a virtual network.
     2. Create a VPN gateway that uses a site-to-site configuration. The configuration used in this document connects to a VPN gateway device in your on-premises network.
@@ -43,14 +43,14 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
 
     * Each client must connect using a VPN software client. Azure only provides a Windows-based client.
 
-    * The client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. This requires additional configuration on the Kafka server
+    * The client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
 
-    For these reasons, we only recommend this configuration for development purposes. Perform the following tasks to enable this configuration:
+    For these reasons, we only recommend this configuration for development purposes. To enable this configuration, perform the following tasks:
 
     1. Create a virtual network.
-    2. Create a VPN gateway that uses a point-to-site configuration. This provides a VPN client that can be installed on Windows clients.
+    2. Create a VPN gateway that uses a point-to-site configuration. This configuration provides a VPN client that can be installed on Windows clients.
     3. Install Kafka on HDInsight into the virtual network.
-    4. Configure Kafka for IP advertising. This allows the client to connect using IP addressing instead of domain names.
+    4. Configure Kafka for IP advertising. This configuration allows the client to connect using IP addressing instead of domain names.
     5. Download and use the VPN client on the development system.
 
 For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md).
@@ -80,7 +80,7 @@ Use the steps in this section to create the following configuration:
 * Azure Storage Account (used by HDInsight)
 * Kafka on HDInsight
 
-1. Follow the steps in the [Working with self-signed certificates for Point-to-site connections](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document to create the certificates needed for the gateway.
+1. Follow the steps in the [Working with self-signed certificates for Point-to-site connections](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document. This document creates the certificates needed for the gateway.
 
 2. Open a PowerShell prompt and use the following code to log in to your Azure subscription:
 
@@ -294,7 +294,9 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
 To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate) document.
 
-## <a id="python-client"></a> Example: Remote Kafka client
+## <a id="python-client"></a> Example: Python client
+
+To validate connectivity to Kafka, use the following steps to create and run a Python producer and consumer:
 
 1. Use one of the following methods to retrieve the fully qualified domain name (FQDN) and IP addresses of the nodes in the Kafka cluster:
 
