@@ -100,8 +100,28 @@ If you use [Premium Storage disks](https://docs.microsoft.com/en-us/azure/storag
 
 For [Unmanaged Disks](https://docs.microsoft.com/en-us/azure/storage/storage-about-disks-and-vhds-windows#unmanaged-disks), you can use the LRS storage type for IaaS disks, but ensure that Azure Backup is enabled with the GRS option for the Recovery Services Vault.
 
-If you use the [GRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#geo-redundant-storage)/[RA-GRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#read-access-geo-redundant-storage) option for your Unmanaged Disks, you still need consistent snapshots for Backup and DR. You must use either [Azure Backup Service](https://azure.microsoft.com/en-us/services/backup/) or [consistent snapshots]().
+If you use the [GRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#geo-redundant-storage)/[RA-GRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#read-access-geo-redundant-storage) option for your Unmanaged Disks, you still need consistent snapshots for Backup and DR. You must use either [Azure Backup Service](https://azure.microsoft.com/en-us/services/backup/) or [consistent snapshots](//TODO).
 
 The following is a summary of solutions for DR.
 
+| Scenario | Automatic Replication | DR Solution |
+| --- | --- | --- |
+| *Premium Storage Disks* | Local ([LRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/) |
+| *Managed Disks* | Local ([LRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/) |
+| *Unmanaged LRS Disks* | Local ([LRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/) |
+| *Unmanaged GRS Disks* | Cross region ([GRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/)<br/>[Consistent snapshots](//TODO) |
+| *Unmanaged RA-GRS Disks* | Cross region ([RA-GRS](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/en-us/services/backup/)<br/>[Consistent snapshots](//TODO) |
+
+High availability can best by met through the use of Managed Disks in an Availability Set along with Azure Backup. If you are using Unmanaged Disks, you can still  use Azure Backup for DR. If you are unable to use Azure Backup, then taking [consistent snapshots](//TODO) as described in a later section is an alternative solution for Backup and DR.
+
+Your choices for high availability, backup and DR at Application or Infrastructure levels can be represented as below:
+
+| *Level* |	High Availability	| Backup / DR |
+| --- | --- | --- |
+| *Application* | SQL Always On	| Azure Backup |
+| *Infrastructure*	| Availability Set	| GRS with consistent snapshots |
+
+### Using the Azure Backup Service
+
+[Azure Backup](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms-introduction/) can backup your VMs running Windows or Linux to the Azure Recovery Services Vault. Backing up and restoring business-critical data is complicated by the fact that business-critical data must be backed up while the applications that produce the data are running. To address this, Azure Backup provides application-consistent backups for Microsoft workloads by using the Volume Shadow Service (VSS) to ensure that data is written correctly to storage. For Linux VMs, only file-consistent backups are possible, since Linux does not have functionality equivalent to VSS.
 
