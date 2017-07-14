@@ -33,7 +33,7 @@ To configure alternate login IDs, use the following registry values under `HKLMS
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Empty | Designate the name of Active Directory attribute that you want to use instead of the UPN. This attribute is used as the AlternateLoginId attribute. If this registry value is set to a [valid Active Directory attribute](https://msdn.microsoft.com/library/ms675090.aspx) (for example, mail or displayName), then the attribute's value is used in place of the user's UPN for authentication. If this registry value is empty or not configured, then AlternateLoginId is disabled and the user's UPN is used for authentication. |
-| LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Use this flag to force the use of Global Catalog for LDAP searches when looking up AlternateLoginId. Configure a domain controller as a Global Catalog, add the AlternateLoginId attribute to the Global Catalog, and then enable this flag. <br> If `LDAP_LOOKUP_FORESTS` is configured (not empty), this flag is enforced as true, regardless of the value of the registry setting. In this case, the NPS extension requires the Global Catalog to be configured with the AlternateLoginId attribute for each forest. |
+| LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Use this flag to force the use of Global Catalog for LDAP searches when looking up AlternateLoginId. Configure a domain controller as a Global Catalog, add the AlternateLoginId attribute to the Global Catalog, and then enable this flag. <br><br> If LDAP_LOOKUP_FORESTS is configured (not empty), this flag is enforced as true, regardless of the value of the registry setting. In this case, the NPS extension requires the Global Catalog to be configured with the AlternateLoginId attribute for each forest. |
 | LDAP_LOOKUP_FORESTS | string | Empty | Provide a semi-colon separated list of forests to search. For example, *contoso.com;foobar.com*. If this registry value is configured, the NPS extension iteratively searches all the forests in the order in which they were listed, and returns the first successful AlternateLoginId value. If this registry value is not configured, the AlternateLoginId lookup is confined to the current domain.|
 
 To troubleshoot problems with alternate login IDs, use the recommended steps for [Alternate login ID errors](multi-factor-authentication-nps-errors.md#alternate-login-id-errors)
@@ -46,12 +46,10 @@ To configure an IP whitelist, go to `HKLMSOFTWARE\Microsoft\AzureMfa` and config
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | string | Empty | Provide a semi-colon separated list of IP addresses. Include the IP addresses of machines where service requests originate, like the NAS/VPN server. IP ranges are subnets are not supported. <br> For example, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | string | Empty | Provide a semi-colon separated list of IP addresses. Include the IP addresses of machines where service requests originate, like the NAS/VPN server. IP ranges are subnets are not supported. <br><br> For example, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-When a request comes in from an IP address that exists in the whitelist, two-step verification is skipped. The IP whitelist is compared to the IP address that is provided in the `ratNASIPAddress` attribute of the RADIUS request. If a RADIUS request comes in without the `ratNASIPAddress` attribute, the following warning is logged:
-
-    P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in `NasIpAddress` attribute.
+When a request comes in from an IP address that exists in the whitelist, two-step verification is skipped. The IP whitelist is compared to the IP address that is provided in the *ratNASIPAddress* attribute of the RADIUS request. If a RADIUS request comes in without the ratNASIPAddress attribute, the following warning is logged: "P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute."
 
 ## Next steps
 
-- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)
+[Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)

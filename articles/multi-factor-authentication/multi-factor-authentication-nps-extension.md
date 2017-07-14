@@ -115,9 +115,9 @@ You can [disable unsupported authentication methods](multi-factor-authentication
 Before you deploy the full NPS extension, you need to enable MFA for the users that you want to perform two-step verification. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
 
 Use these steps to get a test account started:
-1. [Enable an account for MFA](multi-factor-authentication-get-started-user-states.md).
-2. Go to any website that kicks off an Azure AD authentication, like https://portal.azure.com.
-3. [Register for two-step verification](./end-user/multi-factor-authentication-end-user-first-time.md).
+1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account. 
+2. Follow the prompts to set up a verification method.
+3. Either create a conditional access policy or [change the user state](multi-factor-authentication-get-started-user-states.md) to require two-step verification for the test account. 
 
 Your users also need to follow these steps to enroll before they can authenticate with the NPS extension.
 
