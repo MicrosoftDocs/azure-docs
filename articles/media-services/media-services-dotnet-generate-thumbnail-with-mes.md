@@ -135,7 +135,7 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 
 ## Example – one image at a specific timestamp
 
-The following JSON and XML preset can be used to produce a single JPEG image at the 30 second mark of the input video. Needless to say, this preset expects the input to be more than 30 seconds in duration (else the job will fail).
+The following JSON and XML preset can be used to produce a single JPEG image at the 30 second mark of the input video. This preset expects the input to be more than 30 seconds in duration (else the job will fail).
 
 ### JSON preset
 
