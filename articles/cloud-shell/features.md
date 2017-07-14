@@ -23,7 +23,7 @@ Azure Cloud Shell is a browser-based shell experience to manage and develop Azur
 Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
 
 Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. 
-Since Cloud Shell is built for interactive sessions, shells automatically terminate after 10 minutes of shell inactivity.
+Since Cloud Shell is built for interactive sessions, shells automatically terminate after 20 minutes of shell inactivity.
 
 ## Bash in Cloud Shell
 ### Tools

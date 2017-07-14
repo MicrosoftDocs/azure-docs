@@ -59,7 +59,7 @@ An advanced option is also provided allowing you to associate existing resources
 
 ## Concepts
 * Cloud Shell runs on a temporary machine provided on a per-session, per-user basis
-* Cloud Shell times out after 10 minutes without interactive activity
+* Cloud Shell times out after 20 minutes without interactive activity
 * Cloud Shell can only be accessed with a file share attached
 * Cloud Shell is assigned one machine per user account
 * Permissions are set as a regular Linux user
