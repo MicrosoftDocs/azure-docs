@@ -170,7 +170,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Yonyx Interactive Guides. Yonyx Interactive Guides supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user is created during an attempt to access Adobe Creative Cloud if it doesn't exist yet.
+There is no action item for you in this section. A new user is created during an attempt to access Yonyx Interactive Guides if it doesn't exist yet.
 
 >[!NOTE]
 >If you need to create a user manually, you need to contact the Yonyx Interactive Guides support team via <mailto:support@yonyx.com>. 
