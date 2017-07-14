@@ -55,6 +55,9 @@ This step is required only if you use a secure transfer enabled storage account 
 **To configure the defaultFS setting**
 
 1. Sign in to the Ambari Web UI.  See [Connectivity](./hdinsight-hadoop-manage-ambari.md#connectivity).
+
+     ![configure secure transfer hdinsight cluster](./media/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage/hdinsight-hadoop-secure-transfer-configure.png "Configure secure transfer HDInsight cluster")
+
 2. From the left menu, click **HDFS**.
 3. Click the **Configs** tab.
 4. Click the **Advanced** tab.
