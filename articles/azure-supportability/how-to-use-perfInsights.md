@@ -63,8 +63,9 @@ This is a passive collection of information that shouldn't affect the system.
 This scenario runs the [diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS and MBPS) for all drives that are attached to the VM. 
 
 > [!Note]
-> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. (An > increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.)
-
+> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
+> increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
+>
 
 ### General VM Slow analysis 
 
@@ -75,7 +76,9 @@ This scenario runs a [performance counter](https://msdn.microsoft.com/en-us/libr
 This scenario runs a [performance counter](https://msdn.microsoft.com/en-us/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
 
 > [!Note]
-> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. (An > increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.)
+> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
+> increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
+>
 
 ### Azure Files analysis 
 
@@ -104,7 +107,8 @@ This scenario runs a special performance counter capture together with a network
 When you run a custom configuration, you are running all traces (performance diagnostics, performance counter, xperf, network, storport) in parallel, depending how many different traces are selected. After tracing is completed, the tool runs the diskspd benchmark, if it is selected. 
 
 > [!Note]
-> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. (An > increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.)
+> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
+> increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
 
 ## What kind of information is collected by the script?
 
