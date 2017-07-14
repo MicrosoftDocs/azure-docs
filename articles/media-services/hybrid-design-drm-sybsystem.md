@@ -3,7 +3,7 @@ title: Hybrid design of DRM subsystem using Azure Media Services | Microsoft Doc
 description: This topic discusses hybrid design of DRM subsystem using Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: willzhan
 manager: erikre
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: juliako
+ms.author: willzhan;juliako
 
 ---
 # Hybrid design of DRM subsystem
@@ -23,7 +23,7 @@ This topic discusses hybrid design of DRM subsystem using Azure Media Services.
 
 ## Overview
 
-Azure Media Services provides support for the following 3 DRM system:
+Azure Media Services provides support for the following three DRM system:
 
 * PlayReady
 * Widevine (Modular)
