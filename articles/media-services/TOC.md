@@ -137,10 +137,9 @@
 ### [Using Axinom to deliver Widevine licenses to Media Services  ](media-services-axinom-integration.md)
 ### [Using castLabs to deliver Widevine licenses to Media Services](media-services-castlabs-integration.md)
 
-### Asset delivery
-#### Configure asset delivery policies
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Configure asset delivery policies
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Create ContentKeys
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
