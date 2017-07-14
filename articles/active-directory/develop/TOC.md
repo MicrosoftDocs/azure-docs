@@ -89,7 +89,7 @@
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Web apps
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
+#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
 ## Guides

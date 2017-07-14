@@ -1,7 +1,13 @@
 
 ## Setting up your web server or project
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
+> Prefer to download this sample's project instead? 
+> - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/master.zip)
+>
+> or
+> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/webserver.zip) for a local web server, such as Phython
+>
+> And then  skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing it.
 
 ## Prerequisites
 A local web server such as [Python](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup. 
