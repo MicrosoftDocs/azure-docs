@@ -1,6 +1,6 @@
 ---
-title: Create your first Azure C-Series container | Azure Docs
-description: Deploy and get started with C-Series
+title: Create your first Azure Container Instances container | Azure Docs
+description: Deploy and get started with Azure Container Instances
 services: container-service
 documentationcenter: ''
 author: seanmck
@@ -20,9 +20,9 @@ ms.author: seanmck
 ms.custom: 
 ---
 
-# Create your first container in C-Series
+# Create your first container in Azure Container Instances
 
-C-Series makes it easy to create and manage containers in Azure. In this article, we will create a container in Azure and expose it to the internet with a public IP address.
+Azure Container Instances makes it easy to create and manage containers in Azure. In this article, we will create a container in Azure and expose it to the internet with a public IP address.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
