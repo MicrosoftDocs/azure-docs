@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/14/2017
 ms.author: juliako
 
 ---
@@ -96,8 +96,8 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 	        }
 	      ],
 	      "Start": "5%",
-	      "Step": "10%",
-	      "Range": "96%",
+	      "Step": "1",
+	      "Range": "1",
 	      "Type": "JpgImage"
 	    }
 	  ],
@@ -152,8 +152,8 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 	        }
 	      ],
 	      "Start": "00:00:30",
-	      "Step": "00:00:02",
-	      "Range": "00:00:01",
+	      "Step": "1",
+	      "Range": "1",
 	      "Type": "JpgImage"
 	    }
 	  ],
