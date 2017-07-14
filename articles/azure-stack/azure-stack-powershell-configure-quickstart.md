@@ -25,6 +25,8 @@ This article is a quick start to install and configure PowerShell for Azure Stac
 This article is a condensed version of the steps described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. To install and configure PowerShell, sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Next, open an elevated PowerShell ISE session and run the following script:
 
 ```powershell
+# Specify Azure Active Directory tenant name
+$TenantName = "<mydirectory>.onmicrosoft.com"
 
 # Set the module repository and the execution policy
 Set-PSRepository `
@@ -75,7 +77,7 @@ Add-AzureRMEnvironment `
   -ArmEndpoint https://adminmanagement.local.azurestack.external
 
 $TenantID = Get-AzsDirectoryTenantId `
-  -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+  -AADTenantName $TenantName `
   -EnvironmentName AzureStackAdmin
 
 # Sign-in to the administrative portal.
