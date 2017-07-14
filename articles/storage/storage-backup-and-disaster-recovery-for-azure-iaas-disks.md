@@ -127,8 +127,136 @@ Your choices for high availability, backup and DR at Application or Infrastructu
 
 ![][1]
 
+When Azure Backup initiates a backup job at the scheduled time, it triggers the backup extension installed in the VM to take a point-in-time snapshot. A snapshot is taken in coordination with VSS to get a consistent snapshot of the disks in the virtual machine without having to shut it down. The backup extension in the VM flushes all writes before taking the consistent snapshot of all the disks. After the snapshot is taken, the data is transferred by Azure Backup to the backup vault. To make the backup process more efficient, the service identifies and transfers only the blocks of data that have changed since the last backup.
 
+
+To restore, you can view the available backups through Azure Backup and then initiate a restore. You can create and restore Azure backups through the [Azure portal](https://portal.azure.com/), [using PowerShell](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms-automation/), or using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). For more information, see Azure Backup.
+
+### Steps to Enable Backup
+
+The following steps are typically used to enable backups of your VMs using the [Azure Portal](https://portal.azure.com/). There will be some variations depending on your exact scenario. Refer to the [Azure Backup](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms-introduction/) documentation for full details. Azure Backup also [supports VMs with Managed Disks](https://azure.microsoft.com/en-us/blog/azure-managed-disk-backup/).
+
+1.	Create a recovery services vault for a VM using the following steps:
+
+    a.	Using the [Azure portal](https://portal.azure.com/), browse all resources and find “Recovery Services vaults”.
+
+    b.	On the Recovery Services vaults menu, click Add and follow the steps to create a new vault in the same region as the VM. For example, if your VM is in West US region, pick West US for the vault.
+
+2.	Verify the Storage replication for the newly created vault. To do this, access the vault from the Recovery Services vaults blade and go to the settings/Backup Configuration. Ensure the GRS option is selected by default. This will ensure that your vault is automatically replicated to a secondary data center. For example, your vault in West US will be automatically replicated to East US.
+
+3.	Configure the backup policy and select the VM from the same UI.
+
+4.	Make sure the Backup Agent is installed on the VM. If your VM is created using an Azure gallery image, then the Backup agent is already installed. Otherwise (that is, if you are using a custom image), use instructions to [Install the VM Agent on the virtual machine](https://docs.microsoft.com/en-us/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+
+5.	Make sure that the VM allows network connectivity for the backup service to function. Follow these instructions for [Network connectivity](https://docs.microsoft.com/en-us/azure/backup/backup-azure-arm-vms-prepare#network-connectivity).
+
+6.	Once the above steps are completed, the backup will run at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
+
+For automating Azure Backup using scripts, please refer to [PowerShell cmdlets for VM backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-automation).
+
+### Steps for Recovery
+
+If you need to repair or rebuild a VM, you can restore the VM from any of the backup recovery points in the vault. There are a couple of different options for performing the recovery:
+
+1.	You can create a new VM as a point-in-time representation of your backed-up VM.
+
+2.	You can restore the disks and then use the template for the VM to customize and rebuild the restored VM. 
+
+See instructions to [Use Azure portal to restore virtual machines](https://docs.microsoft.com/en-us/azure/backup/backup-azure-arm-restore-vms#restoring-a-vm-during-azure-datacenter-disaster). The document also explains the specific steps for restoring backed-up VMs to the paired data center using your geo-redundant backup vault in the case of a disaster at the primary data center. In that case, Azure Backup uses the Compute service from the secondary region to create the restored virtual machine.
+
+You can also use PowerShell for [restoring a VM](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-automation#restore-an-azure-vm) or for [creating a new VM from restored disks](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+
+## Alternative Solution: Consistent Snapshots
+
+If you are unable to use the Azure Backup Service, you can implement your own backup mechanism using snapshots. It is complicated to create consistent snapshots for all disks used by a VM and then replicate those snapshots to another region. For this reason, Azure considers leveraging the Backup Service a better option than building a custom solution. If you use RA-GRS/GRS storage for disks, snapshots are automatically replicated to a secondary data center. If you use LRS storage for disks, you will need to replicate the data yourself. For more information, see [Back up Azure unmanaged VM disks with incremental snapshots](https://docs.microsoft.com/en-us/azure/storage/storage-incremental-snapshots).
+
+A snapshot is a representation of an object at a specific point in time. A snapshot will incur billing for the incremental size of the data it holds. For more information, see [Create a blob snapshot](https://docs.microsoft.com/en-us/azure/storage/storage-blob-snapshots).
+
+### Creating snapshots while the VM is running
+
+While you can take a snapshot at any time, if the VM is running, there is still data being streamed to the disks, and the snapshots may contain partial operations that were in flight. Also, if there are several disks involved, the snapshots of different disks may have occurred at different times, which means these snapshots may not be coordinated. This is especially problematic for striped volumes whose files can be corrupted if changes were being made during backup.
+
+To avoid this situation, the backup process must implement the following steps:
+
+1.	Freeze all the disks
+
+2.	Flush all the pending writes
+
+3.	Then, [create a blob snapshot](https://docs.microsoft.com/en-us/azure/storage/storage-blob-snapshots) for all the disks
+
+Some Windows applications like SQL Server provide a coordinated backup mechanism via VSS to create application-consistent backups. On Linux, you can use a tool like fsfreeze for coordinating the disks, which will provide file-consistent backups, but not application-consistent snapshots. This process is complicated, so and you should consider using [Azure Backup](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms-introduction/) or a third-party backup solution which already implement this.
+
+The above process will result in a collection of coordinated snapshots for all the VM disks, representing a specific point-in-time view of the VM. This is a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. See below for the steps to [copy the backups to another region](//TODO) for DR.
+
+### Creating snapshots while the VM is offline
+
+Another option to create consistent backups is shutting down the VM and taking blob snapshots of each disk. This is easier than coordinating snapshots of a running VM, but it requires a few minutes of downtime. For this process, follow these steps:
+
+1. Shut down the VM.
+
+2. Create a snapshot of each VHD blob, which only takes a few seconds.
+
+    To create a snapshot, you can use [PowerShell](https://azure.microsoft.com/documentation/articles/storage-powershell-guide-full#how-to-manage-azure-blob-snapshots), the [Azure Storage Rest API](https://msdn.microsoft.com/en-us/library/azure/ee691971.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/xplat-cli-install), or one of the Azure Storage Client Libraries such as [the Storage client library for .NET](https://msdn.microsoft.com/en-us/library/azure/hh488361.aspx).
+
+3. Start the VM, which ends the downtime. Typically the entire process completes within a few minutes.
+
+This process yields a collection of consistent snapshots for all the disks, providing a backup restore point for the VM. See below for the steps to copy the snapshots to another region for DR.
+
+### Copy the snapshots to another region
+
+Creation of the snapshots alone may not be sufficient for DR. You must also replicate the snapshot backups to another region.
+
+If you are using GRS or RA-GRS for your disks, then the snapshots are replicated to the secondary region automatically. There can be a few minutes of lag before the replication, and if the primary data center goes down before the snapshots finish replicating, you will not be able to access the snapshots from the secondary data center. The likelihood of this is small.
+
+> [!Note] 
+> Only having the disks in a GRS or RA-GRS account does not protect the VM from disasters. You must also create coordinated snapshots or use Azure Backup. This is required to recover a VM to a consistent state.
+
+If you are using LRS, you must copy the snapshots to a different storage account immediately after creating the snapshot. The copy target could be an LRS storage account in a different region, resulting in the copy being in a remote region. You can also copy the snapshot to an RA-GRS storage account in the same region. In this case, the snapshot will be lazily replicated to the remote secondary region. Your backup is protected from disasters at the primary site once the copying and replication is complete.
+
+To copy your incremental snapshots for DR efficiently, review the instructions in [Back up Azure unmanaged VM disks with incremental snapshots](https://docs.microsoft.com/en-us/azure/storage/storage-incremental-snapshots).
+
+![][2]
+
+### Recovery from Snapshots
+
+To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot, thus reverting the disk to the snapshot; this is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account (in the case of RA-GRS), it must be copied to a primary account. You can copy a snapshot [using PowerShell](https://docs.microsoft.com/en-us/azure/storage/storage-powershell-guide-full#how-to-copy-a-snapshot-of-a-blob) or using the AzCopy utility. For more information, see [Transfer data with the AzCopy Command-Line Utility](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+
+In the case of VMs with multiple disks, you must copy all the snapshots that are part of the same coordinated restore point. Once you copy the snapshots to writable VHD blobs, you can use the blobs to recreate your VM using the template for the VM.
+
+## Other options
+
+### SQL Server
+
+SQL Server running in a VM has its own built-in capabilities to backup your SQL Server database to Azure Blob storage or a file share. If the storage account is GRS or RA-GRS, you can access those backups in the storage account’s secondary data center in the event of a disaster, with the same restrictions as discussed previously. For more information, see [Backup and Restore for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sql-backup-recovery?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In addition to backup and restore, [SQL Server Always On Availability Groups](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sql-high-availability-dr?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) can maintain secondary replicas of databases to greatly reduce the disaster recovery time.
+
+## Other considerations
+
+This article has discussed how to backup or take snapshots of your VMs and their disks to support disaster recovery, and how to use those to recover. With the Azure Resource Manager model, many people use templates to create their VMs and other infrastructure in Azure. You can use a template to create a VM that has the same configuration every time. If you use custom images for creating your VMs, you must also make sure your images are protected by using an RA-GRS account to store them.
+
+Consequently, your backup process may be a combination of two things:
+
+1. Backup the data (disks)
+2. Backup the configuration (templates, custom images)
+
+Depending on the backup option you choose, you may have to handle the backup of both the data and the configuration, or the backup service may handle all of that for you.
+
+## Appendix - Understanding the impact of LRS, GRS, and RA-GRS
+
+For storage accounts in Azure, there are three types of data redundancy that you should consider regarding disaster recovery – locally redundant (LRS), geo-redundant (GRS), or geo-redundant with read access (RA-GRS). 
+
+Locally Redundant Storage (LRS) retains three copies of the data in the same data center. When writing the data, all three copies are updated before success is returned to the caller, so you know they are identical. Your disk is protected from local failures, since it is extremely unlikely that all three copies would be impacted at the same time. In the case of LRS, there is no geo-redundancy, so the disk is not protected from catastrophic failures that can impact an entire data center or storage unit.
+
+With GRS and RA-GRS, three copies of your data are retained in the primary region (selected by you), and three more copies of your data are retained in a corresponding secondary region (set by Azure). For example, if you store data in West US, the data will be replicated to East US. This is done asynchronously, and there is a small delay between updates to the primary and secondary. Replicas of the disks on the secondary site are consistent on a per-disk basis (with the delay), but replicas of multiple active disks may not be in sync **with each other**. To have consistent replicas across multiple disks, consistent snapshots are needed.
+
+The main difference between GRS and RA-GRS is that with RA-GRS, you can read the secondary copy at any time. If there is a problem that renders the data in the primary region inaccessible, the Azure team will make every effort to restore access. While the primary is down, if you have RA-GRS enabled, you can access the data in the secondary data center. Therefore, if you plan to read from the replica while the primary is inaccessible, then RA-GRS should be considered.
+
+If it turns out to be a significant outage, the Azure team may trigger a geo-failover and change the primary DNS entries to point to secondary storage. At this point, if you have either GRS or RA-GRS enabled, you can access the data in the region that used to be the secondary. In other words, if your storage account is GRS and there is a problem, you can access the secondary storage only if there is a geo-failover.
+
+For more information, see [What to do if an Azure Storage outage occurs](https://docs.microsoft.com/en-us/azure/storage/storage-disaster-recovery-guidance). 
+
+Note that Microsoft controls whether a failover occurs. Failover is not controlled per storage account, therefore it is not decided by individual customers. To implement Disaster Recovery for specific storage accounts or virtual machine disks, you must use the techniques described previously in this article.
 
 
 
 [1]: ./media/storage-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
+[2]: ./media/storage-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
