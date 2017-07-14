@@ -19,6 +19,8 @@ ms.author: parakhj
 ---
 # Azure Active Directory B2C: Custom policies
 
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 ## What are custom policies?
 
 Custom policies are configuration files that define the behavior of your Azure AD B2C tenant. Whereas **built-in policies** are predefined in the Azure AD B2C portal for the most common identity tasks, custom policies can be fully edited by an identity developer to complete a near unlimited number of tasks. Read on to determine if custom policies are right for you and your identity scenario.
