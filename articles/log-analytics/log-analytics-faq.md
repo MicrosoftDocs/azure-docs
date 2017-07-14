@@ -17,7 +17,7 @@ ms.author: magoedte
 
 ---
 # Log Analytics FAQ
-This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Operations Management Suite (OMS). If you have any additional questions about Log Analytics, please go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
+This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Operations Management Suite (OMS). If you have any additional questions about Log Analytics, go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ## General
 ### Q. What checks are performed by the AD and SQL Assessment solutions?
@@ -30,21 +30,23 @@ A. The following query shows a description of all checks currently performed:
 
 The results can then be exported to Excel for further review.
 
-### Q: Why do I see something different than *OMS* in SCOM Administration?
+### Q: Why do I see something different than *OMS* in System Center Operations Manager console?
 
-A: Depending on what Update Rollup of SCOM you are in, you may see a node for *System Center Advisor*, *Operational Insights*, or *Log Analytics*.
+A: Depending on what Update Rollup of Operations Manager you are on, you may see a node for *System Center Advisor*, *Operational Insights*, or *Log Analytics*.
 
-The text string update to *OMS* is included in a management pack, which needs to be imported manually. Follow the instructions on the latest SCOM Update Rollup KB article and refresh the OMS console to see the latest updates in the *OMS* node.
+The text string update to *OMS* is included in a management pack, which needs to be imported manually. To see the current text and functionality, follow the instructions on the latest System Center Operations Manager Update Rollup KB article and refresh the console.
 
-### Q: Is there an *on-premises* version of OMS?
+### Q: Is there an *on-premises* version of Log Analytics?
 
-A: No. Log Analytics processes and stores very large amounts of data. As a cloud service, Log Analytics is able to scale-up if necessary and avoid any performance impact to your environment.
+A: No. Log Analytics processes and stores large amounts of data. As a cloud service, Log Analytics is able to scale-up if necessary and avoid any performance impact to your environment.
 
-Also, being a cloud service means you don't need to keep the Log Analytics infrastructure up and running and can receive frequent feature updates and fixes.
+Additional benefits include:
+- Microsoft runs the Log Analytics infrastructure, saving you costs
+- Regular deployment of feature updates and fixes.
 
 ### Q. How do I troubleshoot that Log Analytics is no longer collecting data?
 
-A: One of the most common reasons that your workspace is missing data or that data collection stopped is that you are on the free pricing tier and have sent more than 500 MB of data in a day.
+A: If you are on the free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.
 
 Log Analytics creates an event of type *Operation* when data collection starts and stops. 
 
@@ -69,7 +71,7 @@ Log Analytics uses UTC time and each day starts at midnight UTC. If the workspac
 
 A: Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when data collection stops.
 
-When creating the alert for the when data collection stops, set the:
+When creating the alert for when data collection stops, set the:
 - **Name** to *Data collection stopped*
 - **Severity** to *Warning*
 - **Search query** to `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
@@ -84,34 +86,33 @@ Use the steps described in [add actions to alert rules](log-analytics-alerts-act
 ## Configuration
 ### Q. Can I change the name of the table/blob container used to read from Azure Diagnostics (WAD)?
 
-A.    No, this is not currently possible, but is planned for a future release.
+A. No, it is not currently possible to read from arbitrary tables or containers in Azure storage.
 
-### Q. What IP addresses do the OMS services use? How do I ensure that my firewall only allows traffic to the OMS Services?
+### Q. What IP addresses does the Log Analytics service use? How do I ensure that my firewall only allows traffic to the Log Analytics service?
 
-A. The Log Analytics service is built on top of Azure and the endpoints receive IPs that are in the [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653).
+A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653).
 
-As service deployments are made, the actual IP addresses of the OMS services change. The DNS names to allow through your firewall are documented at [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
+As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented at [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
 
-### Q. I use ExpressRoute for connecting to Azure. Will my Log Analytics traffic use my ExpressRoute connection?
+### Q. I use ExpressRoute for connecting to Azure. Does my Log Analytics traffic use my ExpressRoute connection?
 
 A. The different types of ExpressRoute traffic are described in the [ExpressRoute documentation](../expressroute/expressroute-faqs.md#supported-services).
 
 Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 
 ### Q. Is there a simple and easy way to move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription
-We have several customer's OMS workspaces that we were testing and trialing in our Azure subscription, and they are moving to production so we want to move them to their own Azure/OMS subscription.  
 
-A. The `Move-AzureRmResource` cmdlet will let you move an Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+A. The `Move-AzureRmResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
 
 This change can also be made in the Azure portal.
 
 You can’t move data from one Log Analytics workspace to another, or change the region that Log Analytics data is stored in.
 
-### Q: How do I add OMS to SCOM?
+### Q: How do I add OMS to System Center Operations Manager?
 
-A:  Updating to the latest update rollup and importing management packs will enable you to connect SCOM to Log Analytics.
+A:  Updating to the latest update rollup and importing management packs enables you to connect Operations Manager to Log Analytics.
 
-Note that the SCOM connection to Log Analytics is only available for SCOM 2012 SP1 and higher.
+>[Note] The Operations Manager connection to Log Analytics is only available for System Center Operations Manager 2012 SP1 and later.
 
 ### Q: How can I confirm that an agent is able to communicate with Log Analytics?
 
@@ -119,25 +120,24 @@ A: To ensure that the agent can communicate with OMS, go to: Control Panel, Secu
 
 Under the **Azure Log Analytics (OMS)** tab, look for a green check mark. A green check mark icon confirms that the agent is able to communicate with the OMS service.
 
-A yellow warning icon means the agent is having issues communication with OMS. One common reason is the Microsoft Monitoring Agent service has been stopped and needs to be restarted.
+A yellow warning icon means the agent is having issues communication with OMS. One common reason is the Microsoft Monitoring Agent service has stopped. Use service control manager to restart the service.
 
 ### Q: How do I stop an agent from communicating with Log Analytics?
 
-A: In SCOM, remove the computer from the OMS managed list. This stops all communication through SCOM for that agent. For agents connected to OMS directly, you can stop them from communicating with OMS through: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
+A: In System Center Operations Manager, remove the computer from the Advisor managed computer list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics. For agents connected to Log Analytics directly, you can stop them from communicating through: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
 Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
 
 ### Q: Why am I getting an error when I try to move my workspace from one Azure subscription to another?
 
-A: When you add a solution, Azure creates a resource in the Azure subscription that the workspace is in.
+A: If you are using the Azure portal, ensure only the workspace is selected for the move. Do not select the solutions -- they will automatically move after the workspace moves. 
 
-Typically, the person adding the subscription is either an administrator or contributor for the *Azure subscription*. Administrator or Contributor in the OMS portal is not enough if the user doesn’t also have the same permissions in the Azure portal for the Azure subscription.
-
+Ensure you have permission in both Azure subscriptions.
 
 ## Agent data
 ### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?
 A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
 
-The Log Analytics agent was designed to ensure it has a small footprint. One of our customers wrote a blog about the tests they performed against our agent and how impressed they were. The data volume will vary based on the solutions your customers enables. You can find detailed information on the data volume and see the breakup by solution under the **Usage** tile in the OMS overview page.
+The Log Analytics agent was designed to ensure it has a small footprint. One of our customers wrote a blog about the tests they performed against our agent and how impressed they were. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakup by solution in the [Usage](log-analytics-usage.md) page.
 
 For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) about the low footprint of the OMS agent.
 
@@ -147,7 +147,7 @@ A. Bandwidth is a function on the amount of data sent. Data is compressed as it 
 
 ### Q. How much data is sent per agent?
 
-A. This largely depends on:
+A. The amount of data sent per agent depends on:
 
 * the solutions you have enabled
 * the number of logs and performance counters being collected
@@ -155,7 +155,7 @@ A. This largely depends on:
 
 The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](log-analytics-usage.md) page.
 
-For computers that are able to run the WireData agent, you can see how much data is being sent using the following query:
+For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
 
 ```
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
