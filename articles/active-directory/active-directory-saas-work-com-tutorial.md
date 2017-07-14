@@ -251,15 +251,21 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
 
 5. In the User Edit section, perform the following steps, in attributes of a valid Azure AD account you want to provision into the related textboxes:
    
-    ![User Edit](./media/active-directory-saas-work-com-tutorial/IC794118.png "User Edit")
+    ![User Edit](./media/active-directory-saas-work-com-tutorial/ic794118.png "User Edit")
    
     a. In the **First Name** textbox, type the **first name** of the user **Britta**.
 	
 	b. In the **Last Name** textbox, type the **last name** of the user **Simon**.
 	
-	c. In the **Alias** textbox, type the **name** of the user **BrittaSimon**.
-	
-	d. Select **Role**, **User License** and **Profile**.
+	c. In the **Alias** textbox, type the **name** of the user **BrittaS**.
+    
+    d. In the **Email** textbox, type the **email address** of user **Brittasimon@contoso.com**.
+    
+    e. In the **User Name** textbox, type a user name of user like **Brittasimon@contoso.com**.
+    
+    f. In the **Nick Name** textbox, type a **nick name** of user **Simon**.
+    
+    d. Select **Role**, **User License** and **Profile**.
 	
 	e. Click **Save**.  
       
