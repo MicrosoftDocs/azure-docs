@@ -125,7 +125,7 @@ Your choices for high availability, backup and DR at Application or Infrastructu
 
 [Azure Backup](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms-introduction/) can backup your VMs running Windows or Linux to the Azure Recovery Services Vault. Backing up and restoring business-critical data is complicated by the fact that business-critical data must be backed up while the applications that produce the data are running. To address this, Azure Backup provides application-consistent backups for Microsoft workloads by using the Volume Shadow Service (VSS) to ensure that data is written correctly to storage. For Linux VMs, only file-consistent backups are possible, since Linux does not have functionality equivalent to VSS.
 
-    ![][1]
+![][1]
 
 
 
