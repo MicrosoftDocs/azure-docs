@@ -1,21 +1,21 @@
 ---
-title: Azure Custom Decision Service tutorial | Microsoft Docs
-description: An end-to-end tutorial for Azure Custom Decision Service, a cloud-based API for contextual decision-making that sharpens with experience.
+title: Article personalization with Azure Custom Decision Service (tutorial) | Microsoft Docs
+description: A tutorial for article personalization with Azure Custom Decision Service, a cloud-based API for contextual decision-making.
 services: cognitive-services
 author: slivkins
 manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/13/2017
 ms.author: slivkins;marcozo;alekh
 ---
 
-# Tutorial for Custom Decision Service
+# Article personalization with Custom Decision Service
 
 This tutorial focuses on personalizing the selection of articles on the front page of a website. In this example, we consider a typical scenario when Azure Custom Decision Service is applied to *multiple* lists of articles on the same front page. For concreteness, suppose we have a news website that covers only politics and sports. This website features three ranked lists of articles: politics, sports, and recent. We assume the news website has enough traffic for the [application-specific learning mode](custom-decision-service-overview.md#application-specific-learning-mode).
 
-## Framing
+## Applications and action sets
 
 First, let's explain how to fit your scenario into our framework. We create three applications, one for each list that is being optimized: respectively, app-politics, app-sports, and app-recent. To specify the candidate articles for each application, we maintain two action sets: one for politics and one for sports. The action set for app-recent is obtained automatically as a union of the other two.
 
