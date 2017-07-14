@@ -40,111 +40,59 @@ To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-fe
 
 ## Create an offer
 
-Now you can get things ready for your users. Create an offer that they can then subscribe to.
-
-1. **Set quotas**
-
-   Quotas define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. To add a service to a plan, the cloud administrator must configure the quota settings for that service.
-
-   a. Sign in to the Azure Stack portal at https://adminportal.local.azurestack.external using the cloud operator credentials you provided during deployment.
-
-   b. Select **New**, then **Tenant Offers + Plans**, and select **Quota**.
-
-   c. Select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
-   In this example, we first create a quota for the Compute service. In the **Namespace** list, select the **Microsoft.Compute** namespace.
-   
-   > ![Creating a new Compute quota](./media/azure-stack-setting-quota/NewComputeQuota.PNG)
-   > 
-   > 
-
-   d. Choose the location where the quota is defined (for example, 'local').
-
-   e. On the **Quota Settings** item, it says **Set the
-   Capacity of Quota**. Click this item to configure the quota settings.
-
-   f. On the **Set Quotas** blade, you see all the Compute resources for which
-   you can configure limits. Each type has a default
-   value that's associated with it. You can change these values or you can select the **Ok** button at the bottom of the blade to accept
-   the defaults.
-   
-   > ![Setting a Compute quota](./media/azure-stack-setting-quota/SetQuotasBladeCompute.PNG)
-   > 
-   > 
-
-   g. After you have configured the values and clicked **OK**, the **Quota Settings** item appears as **Configured**. Click **Create** to create the **Quota** resource.
-   
-   You should see a notification indicating that the quota resource is
-   being created.
-
-   h. After the quota set has been successfully created, you receive a second notification. The Compute service quota is now ready to be associated with a plan. Repeat these steps with the Network and Storage services, and you are ready to create an IaaS plan!
-   
-   > ![Notification upon quota creation success](./media/azure-stack-setting-quota/QuotaSuccess.png)
-   > 
-   > 
-
-2. **Create a plan**
-
-    Plans are groupings of one or more services. As a provider, you can create plans to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include.
-
-   a. In an internet browser, navigate to https://adminportal.local.azurestack.external.
-
-   b. Sign in to the Azure Stack Portal as a cloud administrator.
-
-   Cloud administrators can create offers and plans, and manage users.
-
-   c. To create a plan and offer that users can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
-
-   ![](media/azure-stack-create-plan/image01.png)
-
-   d. In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
-
-   ![](media/azure-stack-create-plan/image02.png)
-
-   e. Create a new **Resource Group**, or select an existing one, as a container for the plan.
-
-   ![](media/azure-stack-create-plan/image02a.png)
-
-   f. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
-
-   ![](media/azure-stack-create-plan/image03.png)
-
-   g. Click **Quotas**, click **Microsoft.Storage (local)**, and then select the quota you created previously.
-
-   h. Click **Microsoft.Network (local)**, and then select the quota you created previously.
-
-   i. Click **Microsoft.Compute (local)**, and then select the quota you created previously.
-
-   j. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
-
-   ![](media/azure-stack-create-plan/image11.png)
-
-   k. To see your new plan, click **All resources**, then search for the plan and click its name.
-
-   ![](media/azure-stack-create-plan/image12.png)
+Now you can get things ready for your users. When you start the process, you are first prompted to create the offer, then a plan, and finally quotas.
 
 3. **Create an offer**
 
    Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
 
    a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
-   ![](media/azure-stack-create-offer/image01.png)
+   ![](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-   b. In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+   b. In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
-   ![](media/azure-stack-create-offer/image01a.png)
+   ![](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-   c. Click **Base plans** and, in the **Plan** blade, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
+   c. Click **Base plans**, and in the **Plan** blade, click **Add** to add a new plan to the offer.
 
-   ![](media/azure-stack-create-offer/image02.png)
+   ![](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-   d. Click **Offers** and then click the offer you just created.
+   d. In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
 
-    ![](media/azure-stack-create-offer/image03.png)
+   ![](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-   e. Click **Change State**, and then click **Public**.
 
-   ![](media/azure-stack-create-offer/image04.png)
 
+   e. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
+
+   ![](media/azure-stack-tutorial-tenant-vm/image05.png)
+
+   f. Click **Quotas**, and then select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
+   In this example, we first create a quota for the Compute service. In the namespace list, select the **Microsoft.Compute** namespace and then click **Create new quota**.
+   
+   ![](media/azure-stack-tutorial-tenant-vm/image06.png)
+
+   g. On the **Create quota** blade, type a name for the quota and set the desired parameters for the quota and click **OK** .
+
+   ![](media/azure-stack-tutorial-tenant-vm/image07.png)
+
+   h. Now, for **Microsoft.Compute**, select the quota that you just created.
+
+   ![](media/azure-stack-tutorial-tenant-vm/image08.png)
+
+   Repeat these steps for the Network and Storage services, and then click **OK** on the **Quotas** blade.
+
+   i. Click **OK** on the **New plan** blade.
+
+   j. On the **Plan** blade, select the new plan and click **Select**.
+
+   k. On the **New offer** blade, click **Create**. You will see a notification when the offer has been created.
+
+   l. On the dashboard menu, click **Offers** and then click the offer you just created.
+
+   m. Click **Change State**, and then click **Public**.
+
+   ![](media/azure-stack-tutorial-tenant-vm/image09.png)
 
 ## Add an image
 
