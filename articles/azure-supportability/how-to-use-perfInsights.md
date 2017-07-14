@@ -144,8 +144,9 @@ Runs a rule-based engine in the background to collect data and diagnose ongoing 
 - HighResolutionDiskMetric rule: Shows IOPS, throughput and IO latency metrics per 50 milliseconds for each physical disk. It helps to quickly identify disk throttling periods.
 - HighMemoryUsage rule: Detects high memory usage periods, and shows the top memory usage consumers during those periods.
 
-> [!NOTE] Currently, Windows versions that include the .NET Framework 3.5 or later versions are supported.
->
+> [!NOTE] 
+> Currently, Windows versions that include the .NET Framework 3.5 or later versions are supported.
+
 ### Performance Counter trace (**)
 
 Collects the following Performance Counters:
