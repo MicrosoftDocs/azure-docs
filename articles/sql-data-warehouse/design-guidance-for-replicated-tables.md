@@ -75,7 +75,7 @@ For example, this query has a complex predicate.  It runs faster when supplier i
 
 SELECT EnglishProductName 
 FROM DimProduct 
-WHERE EnglishDescription like '%frame%comfortable%'
+WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 ```
 
