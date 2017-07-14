@@ -24,7 +24,7 @@ Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With 
 
 ![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
 
-## Solutions that will benefit from Azure Cosmos DB
+## Solutions that benefit from Azure Cosmos DB
 
 [Web, mobile, gaming, and IoT applications](use-cases.md) that need low response times and need to handle massive amounts of reads and writes on a [global](distribute-data-globally.md) scale will benefit from Azure Cosmos DB's [guaranteed](https://azure.microsoft.com/support/legal/sla/cosmos-db/) availability, high throughput, low latency, and tunable consistency.
 
