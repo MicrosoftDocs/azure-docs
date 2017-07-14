@@ -18,17 +18,22 @@ ms.author: juluk
 ---
 
 # Persisting Files in Azure Cloud Shell
-On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you. Your subscription must have access to create a storage account in order to access Cloud Shell.
-
-![](media/storage-prompt.png)
+On initial start, Azure Cloud Shell asks for your subscription to create a locally redundant storage account and Azure file share for you. Your subscription must have permission to create a storage account in order to access Cloud Shell.
 
 ## How it works
-### Three resources will be created on your behalf in a supported region nearest to you:
+### Creating new storage
+![](media/basic-storage.png)
+
+When using basic settings and only selecting a subscription, three resources are created on your behalf in a supported region nearest to you:
 1. Resource Group named: `cloud-shell-storage-<region>`
 2. Storage Account named: `cs-uniqueGuid`
 3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
 This file share will mount as `clouddrive` under your $Home directory. This file share is also used to store a 5-GB image created for you that automatically updates and persists your $Home directory. This is a one-time action and automatically mounts for subsequent sessions.
+
+### Use existing resources
+![](media/advanced-storage.png)
+An advanced option is also provided allowing you to associate an existing resources. When presented with the storage setup prompt, select "Show advanced settings" to see additional options. Existing file shares will receive a 5-GB user image to persist your $Home directory. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally redundant storage accounts.
 
 ### Cloud Shell persists files with both methods below:
 1. Create a disk image of your $Home directory to persist files within $Home. 

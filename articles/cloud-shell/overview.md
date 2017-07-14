@@ -37,9 +37,10 @@ Cloud Shell securely authenticates automatically on each session for instant acc
 Cloud Shell machines are temporary and as a result require an Azure file share to be mounted as `clouddrive` to persist your $Home directory.
 On first launch Cloud Shell prompts to create a resource group, storage account, and file share on your behalf. This is a one-time step and will be automatically attached for all sessions. 
 
-![](media/storage-prompt.png)
+#### Create new storage
+![](media/basic-storage.png)
 
-An locally redundant storage (LRS) account can be created on your behalf with an Azure file share containing a default 5-GB disk image. The file share mounts as `clouddrive` for file share interaction with the disk image being used to sync and persist your $Home directory. Regular storage costs apply.
+A locally redundant storage (LRS) account can be created on your behalf with an Azure file share containing a default 5-GB disk image. The file share mounts as `clouddrive` for file share interaction with the disk image being used to sync and persist your $Home directory. Regular storage costs apply.
 
 Three resources will be created on your behalf:
 1. Resource Group named: `cloud-shell-storage-<region>`
@@ -48,6 +49,11 @@ Three resources will be created on your behalf:
 
 > [!Note]
 > All files in your $Home directory such as SSH keys are persisted in your user disk image stored in your mounted file share. Apply best practices when saving files in your $Home directory and mounted file share.
+
+#### Use existing resources
+![](media/advanced-storage.png)
+
+An advanced option is also provided allowing you to associate existing resources to Cloud Shell. When presented with the storage setup prompt, click "Advanced settings" to select additional options. Existing file shares will receive a 5-GB user image to persist your $Home directory. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally redundant storage accounts.
 
 [Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.] (persisting-shell-storage.md).
 
