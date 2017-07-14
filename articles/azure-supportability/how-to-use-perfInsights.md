@@ -168,7 +168,7 @@ Collects the following Performance Counters:
 #### For Azure Files
 \SMB Client Shares
 
-#### Diskspd Benchmark trace (***)
+### Diskspd Benchmark trace (***)
 Diskspd IO workload tests [OS Disk (write) and pool drives (read/write)]
 
 ## Run the PerfInsights on your VM
