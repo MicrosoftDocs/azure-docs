@@ -50,7 +50,7 @@ Perform the following steps to create a service.
 
 For each StorSimple Device Manager service, the following attributes exist:
 
-* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. **The service name cannot be changed after the service is created.**
+* **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. **The service name cannot be changed after the service is created. This is also true for other entities such as volumes, volume containers that cannot be renamed in the Azure portal.**
 * **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
 * **Location** – The geographical location in which the StorSimple device will be deployed.
 * **Subscription** – The billing subscription that is associated with your service.
