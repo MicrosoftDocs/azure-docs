@@ -43,7 +43,7 @@ To access the MFA Management Portal via an Azure Multi-Factor Auth Provider, sig
 
 ### Use the MFA Service Settings page 
 
-If you have an Azure MFA, Azure AD Premium, or Enterprise Mobility + Security license, use this method to access the MFA service settings page .
+If you have a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility + Security license, use this method to access the MFA service settings page .
 
 To access the MFA Management Portal via the MFA Service Settings page, sign into the Azure classic portal as an administrator and select the Active Directory option. Click on your directory and then click the **Configure** tab. Under the multi-factor authentication section, select **Manage service settings**. At the bottom of the MFA Service Settings page, click the **Go to the portal** link.
 
@@ -232,13 +232,13 @@ Azure AD supports federation (single sign-on) with on-premises Windows Server Ac
 * For federated (SSO) users, we never go to the Identity Provider (IdP) unlike the passive flow. The passwords are stored in the organizational id. If the user leaves the company, that info has to flow to organizational id using DirSync in real time. Account disable/deletion may take up to three hours to sync, delaying disable/deletion of App Password in Azure AD.
 * On-premises Client Access Control settings are not honored by App Password.
 * No on-premises authentication logging/auditing capability is available for App Password.
-* Certain advanced architectural designs may require a combination of organizational username and passwords and app passwords when using two-step verification with clients, depending on where they authenticate. For clients that authenticate against an on-premise infrastructure, you would use an organizational username and password. For clients that authenticate against Azure AD, you would use the app password.
+* Certain advanced architectural designs may require a combination of organizational username and passwords and app passwords when using two-step verification with clients, depending on where they authenticate. For clients that authenticate against an on-premises infrastructure, you would use an organizational username and password. For clients that authenticate against Azure AD, you would use the app password.
 
   For example, suppose you have an architecture that consists of the following:
 
-  * You are federating your on-premise instance of Active Directory with Azure AD
+  * You are federating your on-premises instance of Active Directory with Azure AD
   * You are using Exchange online
-  * You are using Lync that is specifically on-premise
+  * You are using Lync that is specifically on-premises
   * You are using Azure Multi-Factor Authentication
 
   ![Proofup](./media/multi-factor-authentication-whats-next/federated.png)
