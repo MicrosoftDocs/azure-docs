@@ -74,6 +74,8 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 4. On the **Storage** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage. Look at the table below for more information.
 
+    [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 	![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creating a new cluster in the Azure portal")
 
 	| Storage                                      | Description |
@@ -86,9 +88,6 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	> [!WARNING]
 	> Using an additional storage account in a different location than the HDInsight cluster is not supported.
-
-    [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
-
 
 5. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
