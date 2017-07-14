@@ -38,7 +38,7 @@ In this step, you make sure that Visual Studio is installed and you create a con
 NuGet packages are the easiest way to install the libraries that you need to finish these steps. To get the libraries that you need in Visual Studio, do these steps:
 
 1. Click **Tools** > **Nuget Package Manager**, and then click **Package Manager Console**.
-2. Type these command in the console:
+2. Type these commands in the console:
 
     ```
     Install-Package Microsoft.Azure.Management.Fluent
@@ -47,11 +47,11 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 ## Create the files
 
-In this step, you create a template file that deploys the resources, a parameters file that supplies parameter values to the template, and an authorization file used to perform Azure Resource Manager operations.
+In this step, you create a template file that deploys the resources and a parameters file that supplies parameter values to the template. You also create an authorization file that is used to perform Azure Resource Manager operations.
 
 ### Create the template file
 
-1. In Solution Explorer, right click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** under *Visual C# Items*. Name the file *CreateVMTemplate.json*, and then click **Add**.
+1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *CreateVMTemplate.json*, and then click **Add**.
 2. Add this JSON code to the file that you created:
 
     ```json
@@ -163,7 +163,7 @@ In this step, you create a template file that deploys the resources, a parameter
 
 To specify values for the resource parameters that are defined in the template, you create a parameters file that contains the values.
 
-1. In Solution Explorer, right click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** under *Visual C# Items*. Name the file *Parameters.json*, and then click **Add**.
+1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *Parameters.json*, and then click **Add**.
 2. Add this JSON code to the file that you created:
 
     ```json
@@ -183,7 +183,7 @@ To specify values for the resource parameters that are defined in the template, 
 
 Before you can deploy a template, make sure that you have access to an [Active Directory service principal](../../resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager. You should also record the application ID, the authentication key, and the tenant ID that you need in the authorization file.
 
-1. In Solution Explorer, right click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** under *Visual C# Items*. Name the file *azureauth.properties*, and then click **Add**.
+1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *azureauth.properties*, and then click **Add**.
 2. Add these authorization properties:
 
     ```
@@ -245,7 +245,7 @@ Before you can deploy a template, make sure that you have access to an [Active D
 2. To create the resource group, add this code to the Main method:
 
     ```
-    var resourceGroup = azure.ResourceGroups.Define(resourceGroupName)
+    var resourceGroup = azure.ResourceGroups.Define(groupName)
         .WithRegion(location)
         .Create();
     ```
@@ -300,7 +300,7 @@ To deploy the template, add this code to the Main method:
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
 var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
 var deployment = azure.Deployments.Define("myDeployment")
-    .WithExistingResourceGroup(resourceGroupName)
+    .WithExistingResourceGroup(groupName)
     .WithTemplateLink(templatePath, "1.0.0.0")
     .WithParametersLink(paramPath, "1.0.0.0")
     .WithMode(Microsoft.Azure.Management.ResourceManager.Fluent.Models.DeploymentMode.Incremental)
@@ -316,7 +316,7 @@ Because you are charged for resources used in Azure, it is always good practice 
 To delete the resource group, add this code to the Main method:
 
    ```
-   azure.ResourceGroups.DeleteByName(resourceGroupName);
+   azure.ResourceGroups.DeleteByName(groupName);
    ```
 
 ## Run the application
