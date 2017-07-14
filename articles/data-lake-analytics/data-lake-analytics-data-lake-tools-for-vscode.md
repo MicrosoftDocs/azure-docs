@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/30/2016
+ms.date: 07/14/2017
 ms.author: jejiang
 ---
 
@@ -154,6 +154,7 @@ You need open either a U-SQL file or a folder to work with U-SQL.
     - Optional settings:
         - Priority: The priority range is from 1 to 1000 with 1 the highest priority. The default value is 1000.
         - Parallelism: The parallelism range is from 1 to 150. The default value is maximum parallelism allowed in your ADLA account. 
+        
         > [!NOTE] 
         > If the settings are invalid, the default values are used.
 
@@ -444,34 +445,8 @@ You can open **Web Azure Storage Explorer** through command: **ADL: Open Web Azu
 
 ADL Tools open the Azure storage path in the portal. You can visit path and preview file from web.
 
-### Local Run
-U-SQL local run for windows has been implemented to allow you to perform local run to test your local data, validate your script locally before publishing you production ready code to ADLA. You can start your local run service, confirm the configurations, and submit your U-SQL job to the local run service.
-
-1. Press CTRL+SHIFT+P to open Command Palette and enter **Start Local Run Service**.
-2. The cmd console shows up. For first time users, you need to enter 3, then input a local folder path for your data input and output. For other options, you can simply use the default value. 
-
-   ![Data Lake Tools for Visual Studio Code local run cmd](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-local-run-cmd.png)
-3. Press CTRL+SHIFT+P to open Command Palette and enter **Submit Job**.
-4. Select **Local** to submit.
-  ![Data Lake Tools for Visual Studio Code select local](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-local.png)
-5. After submitting a U-SQL job to local, submission information is shown in output window in VSCode. You can view the submission details by clicking jobUrl. The job submission status can be viewed in the CMD console. And enter 7 can also be got running status in CMD console.
-
-   ![Data Lake Tools for Visual Studio Code local run output](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-local-run-result.png)
-   ![Data Lake Tools for Visual Studio Code local run cmd status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-localrun-cmd-status.png)
-
-### Local Debug
-
-Prerequisites: Before debugging, you need to install C# for Visual studio Code. Search it in **EXTENSIONS**.
-
-![Data Lake Tools for Visual Studio Code install vscodeCsharp](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-install-ms-vscodecsharp.png)
-
-1. Press CTRL+SHIFT+P to open Command Palette and enter **Start Local Run Service**.
-2. The cmd window shows up. Make sure the **DataRoot** is set.
-3. Set a breakpoint in code behind.
-4. Back to script editor, press CTRL+SHIFT+P to open Command Palette and enter **Local Debug**.
-
-When the program execution reaches the breaking point, you see a DEBUG CONSOLE in the bottom pane. You also see the view parameter and variable information, call stack in the left pane. Click the Step Over icon to proceed to the next line of code. Then you can further step through the code. 
-![Data Lake Tools for Visual Studio Code local debug result](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-local-debug-result.png)
+### Local Run and Local Debug
+U-SQL local run for windows has been implemented to allow you to perform local run to test your local data, validate your script locally before publishing you production ready code to ADLA. You can start your local run service, confirm the configurations, and submit your U-SQL job to the local run service and Debug U-SQL job on local service. The Instructions see [Use the Azure Data Lake Tools to local run and local debug for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug.md)
 
 ## Additional features
 
@@ -501,6 +476,7 @@ The Data Lake Tools for VSCode supports the following features:
 
 ## Next steps:
 
+- For Using the Azure Data Lake Tools to local run and local debug for Visual Studio Code, see [Use the Azure Data Lake Tools to local run and local debug for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug.md)
 - For the getting started information on Data Lake Analytics, see [Tutorial: get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 - For information on using Data Lake Tools for Visual Studio, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - For the information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
