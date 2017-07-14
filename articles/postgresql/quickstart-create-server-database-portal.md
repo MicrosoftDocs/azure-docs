@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/19/2017
+ms.date: 07/12/2017
 ---
 
 # Create an Azure Database for PostgreSQL in the Azure portal
@@ -32,12 +32,12 @@ Follow these steps to create an Azure Database for PostgreSQL server:
  ![Azure Database for PostgreSQL - Create the database](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.	Fill out the new server details form with the following information, as shown on the preceding image:
-    - Server name: **mypgserver-20170401** (name of a server maps to DNS name and is thus required to be globally unique) 
+    - Server name: **mypgserver-20170401** (choose a globally unique server name, since this name maps to the DNS name)
     - Subscription: If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for.
     - Resource group: **myresourcegroup**
     - Server admin login and password of your choice
-    - Location
-    - PostgreSQL Version
+    - Location: choose a location nearest you.
+    - PostgreSQL Version: choose the latest version.
 
   > [!IMPORTANT]
   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
