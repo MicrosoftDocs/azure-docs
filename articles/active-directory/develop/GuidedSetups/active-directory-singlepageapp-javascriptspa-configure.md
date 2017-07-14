@@ -24,7 +24,7 @@ Now you need to register your application in Microsoft Application Registration 
 
 <p/>
 
-> #### Python and Redirect URL
+> #### Setting Redirect URL for Python
 > For Python, you can set the web server port via command line. This guided setup will use the port 8080 for reference but feel free to use any other port available. In any case, follow the instructions below to setup a redirect URL in the application registration information:<br/>
 > - Switch back to the *Application Registration Portal* and set `http://localhost:8080/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
 
