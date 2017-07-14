@@ -104,6 +104,12 @@ sql-database-service-tiers.md
 > [!IMPORTANT]
 >\* Storage limits only refer to the data in the database. Pooled databases share pool storage, so data storage in an elastic pool is limited to the smaller of the remaining pool storage or max storage per database. Storage max sizes per pool greater than the storage included per pool are in preview.
 >
+> Storage included is the amount of storage that is provided a pool for no additional cost.  Storage max is the maximum amount of storage that a user can provision for a pool.  If the storage max size set exceeds the amount of storage included, then an additional cost for the extra storage applies.  This extra storage cost is an amount paid above the price paid based on eDTUs.
+>
+> The price of extra storage is based on the amount of extra storage provisioned and the service tier of the elastic pool.  It is determined by computing the product between the amount of extra storage for the pool and the unit price of extra storage for the service tier.  Note that the storage max size set for individual databases within a pool does not impact the total price of the pool; there is no extra cost for databases within the pool regardless of their storage max size set.     
+>
+> For example, suppose a 125 eDTU Premium pool has set its storage max to 1 TB.  The amount of storage included is 250 GB.  So, the extra storage amount is the storage max less the storage included which is 1 TB – 250 GB = 1024 GB – 250 GB = 774 GB.  The pool in this example is in the Premium tier, and the unit price for extra storage in this tier is approximately $0.17/GB/month during preview.  Therefore, the price of the extra storage is 774 GB * $0.17/GB/month = $131.58/month during the preview.  Note that the total price this Premium pool is the summation of its eDTU price and extra storage price.  The price of a 125 eDTU Premium pool without any extra storage is $697.13/month.  Therefore, the total price for a 125 eDTU Premium pool with 1 TB is $697.13/month + $131.58/month = $828.71/month.
+>
 >
 >\*\* Min/max eDTUs per database starting at 200 eDTUs and higher is in public preview.
 >
