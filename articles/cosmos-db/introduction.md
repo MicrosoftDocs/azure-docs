@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ---
@@ -26,15 +26,14 @@ Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With 
 
 ## Solutions that benefit from Azure Cosmos DB
 
-[Web, mobile, gaming, and IoT applications](use-cases.md) that need low response times and need to handle massive amounts of reads and writes on a [global](distribute-data-globally.md) scale will benefit from Azure Cosmos DB's [guaranteed](https://azure.microsoft.com/support/legal/sla/cosmos-db/) availability, high throughput, low latency, and tunable consistency.
+Any [web, mobile, gaming, and IoT applications](use-cases.md) that need to handle a variety of massive amounts of reads and writes on a [global](distribute-data-globally.md) scale, with low response times, will benefit from Azure Cosmos DB's [guaranteed](https://azure.microsoft.com/support/legal/sla/cosmos-db/) availability, high throughput, low latency, and tunable consistency.
 
 ## Key capabilities
 As a globally distributed database service, Azure Cosmos DB provides the following capabilities to help you build scalable, highly responsive applications:
 
 * **Turnkey global distribution**
-    * You can [distribute your data](distribute-data-globally.md) to any number of Azure regions, with the [click of a button](tutorial-global-distribution-documentdb.md). This enables you to put your data where your users are, ensuring the lowest possible latency to your customers. 
-    * Azure is constantly growing its geographical presence by bringing [new regions](https://azure.microsoft.com/en-us/regions/) online.
-
+    * You can [distribute your data](distribute-data-globally.md) to any number of [Azure regions](https://azure.microsoft.com/en-us/regions/), with the [click of a button](tutorial-global-distribution-documentdb.md). This enables you to put your data where your users are, ensuring the lowest possible latency to your customers. 
+    * Using Azure Cosmos DB's multi-homing APIs, the app always knows where the nearest region is and will send requests to the nearest data center. All of this is possible with no config changes, you set your write region and as many read regions as you want and the rest is handled for you.
 
 * **Multiple data models and popular APIs for accessing and querying data**
     * The atom-record-sequence (ARS) based data model that Azure Cosmos DB is built on natively supports multiple data models, including but not limited to document, graph, key-value, table, and columnar data models.
