@@ -43,7 +43,7 @@ az group create -l westus -n cseriesgroup
 Now, create a container in that group and give it a public IP address:
 
 ```azurecli-interactive
-az container create --name myContainer --image yangl/nginx-slim -g cseriesgroup --ip-address public 
+az container create --name myContainer --image seanmckenna/aci-helloworld -g cseriesgroup --ip-address public 
 ```
 
 Within a few seconds, you should get a response to your request. Initially,the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
