@@ -74,6 +74,10 @@ Only one public IP address is supported on an Application Gateway.
 
 Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
 
+**Q. How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?**
+
+New Application Gateway deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
+
 ## Configuration
 
 **Q. Is Application Gateway always deployed in a virtual network?**
@@ -144,7 +148,7 @@ This can be done using NSGs on Application Gateway subnet. The following restric
 
 **Q. How does Application Gateway support high availability and scalability?**
 
-Application Gateway supports high availability scenarios if you have more than 2 instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
+Application Gateway supports high availability scenarios if you have 2 or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
 
 **Q. How do I achieve DR scenario across data centers with Application Gateway?**
 

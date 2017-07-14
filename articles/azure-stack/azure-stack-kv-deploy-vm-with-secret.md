@@ -40,8 +40,7 @@ You reference the secret from within a parameters file, which passes values to y
 
 > [!NOTE]
 > The parameter that accepts the secret should be a *securestring*.
-> 
-> 
+
 
 ## Next Steps
 [Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)

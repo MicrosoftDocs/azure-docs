@@ -263,7 +263,7 @@ Azure networking in the context of SAP systems deployed in Azure is not complica
 - Azure Virtual Networks (VNets) need to be connected to the Azure ExpressRoute circuit that connects to on-premises network.
 - An ExpressRoute circuit usually should have a bandwidth of 1 Gbps or higher. This allows adequate bandwidth for transferring data between on-premises systems and systems running on Azure VMs (as well as connection to Azure systems from end users on-premises).
 - All SAP systems in Azure need to be set up in Azure VNets to communicate with each other.
-- Active Directory and DNS hosted on-premises are extended into Azure through ExpressRoute from on-premise.
+- Active Directory and DNS hosted on-premises are extended into Azure through ExpressRoute from on-premises.
 
 
 > [!NOTE] 
