@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/17/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with TargetProcess, you need the following ite
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here [Trial Offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -149,9 +149,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	b. In **Sign-on URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-	c. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Certificate** textbox.
+	c. Open your downloaded certificate in notepad, copy the content, and then paste it into the **Certificate** textbox.
     
 	d. click **Enable JIT Provisioning**.
+
+	e. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
