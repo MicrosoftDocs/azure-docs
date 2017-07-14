@@ -145,11 +145,10 @@ In this tutorial, you learned how to:
 > * Create a release definition
 > * Automatically deploy and upgrade an application
 
-Now that you have deployed an app, try the following:
-> [!div class="nextstepaction"]
-> [Upgrade an app](service-fabric-application-upgrade.md)
-> [Test an app](service-fabric-testability-overview.md) 
-> [Monitor and diagnose](service-fabric-diagnostics-overview.md)
+Now that you have deployed an application and configured continuous integration, try the following:
+- [Upgrade an app](service-fabric-application-upgrade.md)
+- [Test an app](service-fabric-testability-overview.md) 
+- [Monitor and diagnose](service-fabric-diagnostics-overview.md)
 
 
 <!-- Image References -->
