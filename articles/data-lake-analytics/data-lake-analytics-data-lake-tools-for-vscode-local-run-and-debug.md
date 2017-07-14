@@ -26,29 +26,28 @@ Install Azure Data Lake Tool and use the Azure Data Lake Tools for Visual Studio
 
 ## Set up USQL LocalRun Environment
 
-1. Download Localrun Dependency 
-- Open the command palette by pressing **CTRL+SHIFT+P**, and enter **ADL: Download LocalRun Dependency** to download the packages.  
+1. Open the command palette by pressing **CTRL+SHIFT+P**, and enter **ADL: Download LocalRun Dependency** to download the packages.  
 
-![DownloadLocalRun](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/DownloadLocalRun.png)
+   ![DownloadLocalRun](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/DownloadLocalRun.png)
 
 2. Install Dependency Packages
-locate the Dependency packages by checking the log outputs, eg:  
+- locate the Dependency packages by checking the log outputs, eg:  
 `C:\Users\xxx\.vscode\extensions\usqlextpublisher.usql-vscode-ext-x.x.x\LocalRunDependency
 `  
-![LocateDependency](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
+  ![LocateDependency](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
 - Install BuildTools  
 
-![InstallBuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
+  ![InstallBuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
 - Install Win10SDK 10240  
 
-![InstallWin10SDK](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
+  ![InstallWin10SDK](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 - Setup environment variable, Set the **SCOPE_CPP_SDK** environment variable to:  
 `C:\Users\xxx\.vscode\extensions\usqlextpublisher.usql-vscode-ext-x.x.x\LocalRunDependency\CppSDK_3rdparty
 `  
 Make sure to restart OS to make the environment variable settings take effect.  
 
-![ConfigSCOPE_CPP_SDK](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/ConfigScopeCppSDk.png)
+  ![ConfigSCOPE_CPP_SDK](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/ConfigScopeCppSDk.png)
 
 ## Start Local Run Server and Submit USQL job to local run Server
 If the first use local run, you need to set up Environment to **Download Localrun Dependency**.
@@ -71,7 +70,7 @@ If the first use local run, you need to set up Environment to **Download Localru
 - Before debugging, you need to install C# for Visual studio Code. Search it in **EXTENSIONS**.
 - If the first use local run, you need to set up Environment to **Download Localrun Dependency**.
 
-![Data Lake Tools for Visual Studio Code install vscodeCsharp](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-install-ms-vscodecsharp.png)
+  ![Data Lake Tools for Visual Studio Code install vscodeCsharp](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-install-ms-vscodecsharp.png)
 
 1. Press CTRL+SHIFT+P to open Command Palette and enter **Start Local Run Service**.
 2. The cmd window shows up. Make sure the **DataRoot** is set.
