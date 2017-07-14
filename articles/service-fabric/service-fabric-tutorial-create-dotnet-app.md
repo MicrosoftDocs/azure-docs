@@ -121,7 +121,7 @@ In this tutorial you create a service, which stores a counter value in a reliabl
 ### Deploy and debug the application locally
 With the new service added to the application, let us debug the full application and look at the default behavior of the new service.
 
-1. To debug the application, press F5 in Visual Studio.
+To debug the application, press F5 in Visual Studio.
 
 > [!NOTE]
 > If you choose to use **Refresh Application** as the Application Debug Mode, you are prompted to grant the local Service Fabric cluster access to the build output folder of your application.
@@ -245,23 +245,23 @@ With the `ICounter` interface implemented, the final step is to open the service
 
 In this case, we replace the existing `CreateServiceReplicaListeners` method and provide an instance of `ServiceRemotingListener`, which creates an RPC endpoint that is callable from clients through `ServiceProxy`.  
 
-1. Change the **CreateServiceReplicaListeners** method in the **MyStatefulService.cs** file, and add a using statement to the `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace.
+Change the **CreateServiceReplicaListeners** method in the **MyStatefulService.cs** file, and add a using statement to the `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace.
 
-    ```c#
-      using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+```c#
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
-      ...
+...
 
-      protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
-      {
-          return new List<ServiceReplicaListener>()
-          {
-              new ServiceReplicaListener(
-                  (context) =>
-                      this.CreateServiceRemotingListener(context))
-          };
-      }
-     ```
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new List<ServiceReplicaListener>()
+    {
+        new ServiceReplicaListener(
+            (context) =>
+                this.CreateServiceRemotingListener(context))
+    };
+}
+```
 
 Our stateful service is now ready to receive traffic from other services over RPC, using Service Remoting.
 
