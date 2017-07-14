@@ -55,7 +55,7 @@ Disaster recovery (DR) is the ability to recover from rare but major incidents: 
 
 The Azure platform’s built-in protection against localized failures may not fully protect the VMs/disks in the case of major disasters which can cause large-scale outages. This includes catastrophic events such as a data center being hit by a hurricane, earthquake, fire, or large scale hardware unit failures. In addition, you may encounter failures due to application or data issues.
 
-To help protect your IaaS workloads from outages, you should plan for redundancy and backups to enable recovery. For disaster recovery, you should plan redundancy and backup in a different geographic location away from the primary site. This helps ensure your backup is not affected by the same event that originally impacted the VM or disks. For more information, see [Disaster Recovery for Applications built on Azure](architecture-center/docs/resiliency/disaster-recovery-azure-applications.md).
+To help protect your IaaS workloads from outages, you should plan for redundancy and backups to enable recovery. For disaster recovery, you should plan redundancy and backup in a different geographic location away from the primary site. This helps ensure your backup is not affected by the same event that originally impacted the VM or disks. For more information, see [Disaster Recovery for Applications built on Azure](https://docs.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 Your DR considerations may include the following aspects:
 
@@ -94,9 +94,9 @@ You have an application that computes, maintains, and serves critical commercial
 
 ## Disaster Recovery Solution: Azure Backup Service
 
-[Azure Backup Service](https://azure.microsoft.com/en-us/services/backup/) is can be used for Backup and DR, and it works with [Managed Disks](storage-managed-disks-overview.md) as well as [Unmanaged Disks](storage-about-disks-and-vhds-windows#unmanaged-disks.md). You can create a backup job with time-based backups, easy VM restoration and backup retention policies. 
+[Azure Backup Service](https://azure.microsoft.com/en-us/services/backup/) is can be used for Backup and DR, and it works with [Managed Disks](storage-managed-disks-overview.md) as well as [Unmanaged Disks](storage-about-disks-and-vhds-windows.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration and backup retention policies. 
 
-If you use [Premium Storage disks](storage-premium-storage.md), [Managed Disks](storage-managed-disks-overview.md), or other disk types with the [locally redundant storage (LRS)](storage-redundancy#locally-redundant-storage.md) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
+If you use [Premium Storage disks](storage-premium-storage.md), [Managed Disks](storage-managed-disks-overview.md), or other disk types with the [locally redundant storage (LRS)](storage-redundancy.md#locally-redundant-storage) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
 
 For [Unmanaged Disks](storage-about-disks-and-vhds-windows.md#unmanaged-disks), you can use the LRS storage type for IaaS disks, but ensure that Azure Backup is enabled with the GRS option for the Recovery Services Vault.
 
@@ -130,7 +130,7 @@ Your choices for high availability, backup and DR at Application or Infrastructu
 When Azure Backup initiates a backup job at the scheduled time, it triggers the backup extension installed in the VM to take a point-in-time snapshot. A snapshot is taken in coordination with VSS to get a consistent snapshot of the disks in the virtual machine without having to shut it down. The backup extension in the VM flushes all writes before taking the consistent snapshot of all the disks. After the snapshot is taken, the data is transferred by Azure Backup to the backup vault. To make the backup process more efficient, the service identifies and transfers only the blocks of data that have changed since the last backup.
 
 
-To restore, you can view the available backups through Azure Backup and then initiate a restore. You can create and restore Azure backups through the [Azure portal](https://portal.azure.com/), [using PowerShell](../backup/backup-azure-vms-automation.md ), or using the [Azure CLI](azure-docs-cli-python/docs-ref-conceptual/install-azure-cli.md). For more information, see Azure Backup.
+To restore, you can view the available backups through Azure Backup and then initiate a restore. You can create and restore Azure backups through the [Azure portal](https://portal.azure.com/), [using PowerShell](../backup/backup-azure-vms-automation.md ), or using the [Azure CLI](https://docs.microsoft.com/en-us/azure/xplat-cli-install). For more information, see Azure Backup.
 
 ### Steps to Enable Backup
 
