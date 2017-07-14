@@ -51,58 +51,6 @@ b. Sign in to the development kit, or to the Windows-based external client if yo
 
 The following sections describe the steps required to install PowerShell for Azure Stack. PowerShell can be installed on Azure Stack that is operated in connected, partially connected, or in a disconnected scenario. 
 
-### Install PowerShell in a disconnected or in a partially connected scenario
-
-1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
-
-   ```powershell
-   $Path = "<Path that is used to save the packages>"
-
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.10
-
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.10 
-   ```
-
-2. Copy the downloaded packages over to a USB device.
-
-3. Sign in to the Azure Stack Development Kit and copy the packages from the USB device to a location on the development kit. 
-
-4. Use the following command to register this location as the default repository for the PowerShell modules:
-
-   ```powershell
-   $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
-   $RepoName = "MyNuGetSource"
-
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
-   ```
-
-5. Install the AzureRM and AzureStack modules
-
-   ```powershell
-   Install-Module AzureRM `
-     -RequiredVersion 1.2.10 `
-     -Repository $RepoName
-
-   Install-Module AzureStack `
-     -RequiredVersion 1.2.10 `
-     -Repository $RepoName 
-   ```
-
 ### Install PowerShell in a connected scenario 
 
 1. Azure Stack compatible AzureRM modules are installed through API version profiles.
@@ -139,6 +87,58 @@ AzureRM modules for Compute, Storage, Network, Key Vault etc.
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
   If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
+
+### Install PowerShell in a disconnected or in a partially connected scenario
+
+In a disconnected scenario, you must first download the PowerShell modules to a machine that has internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
+
+1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
+
+   ```powershell
+   $Path = "<Path that is used to save the packages>"
+
+   Save-Package `
+     -ProviderName NuGet `
+     -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureRM `
+     -Path $Path `
+     -Force `
+     -RequiredVersion 1.2.10
+
+   Save-Package `
+     -ProviderName NuGet `
+     -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureStack `
+     -Path $Path `
+     -Force `
+     -RequiredVersion 1.2.10 
+   ```
+
+2. Copy the downloaded packages over to a USB device.
+
+3. Sign in to the development kit and copy the packages from the USB device to a location on the development kit. 
+
+4. Now you must register this package location as the default repository to install modules. Use the following command to register this the default repository:
+
+   ```powershell
+   $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+   $RepoName = "MyNuGetSource"
+
+   Register-PSRepository `
+     -Name $RepoName `
+     -SourceLocation $SourceLocation `
+     -InstallationPolicy Trusted
+   ```
+
+5. Install the AzureRM and AzureStack modules from the repository registered in the previous step:
+
+   ```powershell
+   Install-Module AzureRM `
+     -Repository $RepoName
+
+   Install-Module AzureStack `
+     -Repository $RepoName 
+   ```
 
 ## Next steps
 
