@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/15/2017
 ms.author: jeedes
 
 ---
@@ -155,13 +155,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     ![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
      
-    d. Now go to the property page of **Cerner Central** and copy the **Application Id** using **Copy** button and paste it into notepad.
+    d. Now go to the property page of **Shmoop For Schools** and copy the **Application Id** using **Copy** button and paste it into notepad.
  
     ![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`	
 
-8. To configure single sign-on on **Shmoop For Schools** side, you need to send the downloaded **Metadata XML and Metadata URL** to [Shmoop For Schools support team](mailto:support@shmoop.com).
+8. To configure single sign-on on **Shmoop For Schools** side, you need to send the **Metadata URL** to [Shmoop For Schools support team](mailto:support@shmoop.com).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -202,7 +202,10 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Shmoop For Schools test user
 
-In this section, you create a user called Britta Simon in Shmoop For Schools. Work with [Shmoop For Schools support team](mailto:support@shmoop.com) to add the users in the Shmoop For Schools platform. Users must be created and activated before you use single sign-on.
+The objective of this section is to create a user called Britta Simon in Shmoop For Schools. Shmoop For Schools supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Shmoop For Schools if it doesn't exist yet.
+
+>[!Note]
+>If you need to create a user manually, Contact [Shmoop For Schools support team](mailto:support@shmoop.com).
 
 ### Assigning the Azure AD test user
 
