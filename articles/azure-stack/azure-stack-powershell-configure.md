@@ -46,7 +46,7 @@ To configure your Azure Stack environment, do the following:
    * **Cloud administrative environment**
 
        ```PowerShell
-       Add-AzureStackAzureRmEnvironment `
+       Add-AzureRMEnvironment `
          -Name "AzureStackAdmin" `
          -ArmEndpoint "https://adminmanagement.local.azurestack.external"
        ```
@@ -54,7 +54,7 @@ To configure your Azure Stack environment, do the following:
    * **User environment**
 
        ```PowerShell
-       Add-AzureStackAzureRmEnvironment `
+       Add-AzureRMEnvironment `
          -Name "AzureStackUser" `
          -ArmEndpoint "https://management.local.azurestack.external" 
        ```
@@ -106,7 +106,7 @@ Sign in to the Azure Stack environment by using one of the following two cmdlets
        ```PowerShell
        Login-AzureRmAccount `
          -EnvironmentName "AzureStackAdmin" `
-         -TenantId $TenantID `
+         -TenantId $TenantID 
        ```
 
    * To sign in to the **user portal**, use:
@@ -114,7 +114,7 @@ Sign in to the Azure Stack environment by using one of the following two cmdlets
        ```PowerShell
        Login-AzureRmAccount `
          -EnvironmentName "AzureStackUser" `
-         -TenantId $TenantID `
+         -TenantId $TenantID 
        ```
 
 ## Register resource providers

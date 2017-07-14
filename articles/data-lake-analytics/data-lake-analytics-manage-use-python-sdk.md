@@ -3,8 +3,8 @@ title: Manage Azure Data Lake Analytics using Python | Microsoft Docs
 description: 'Learn how to use Python to create a Data Lake Store account, and submit jobs. '
 services: data-lake-analytics
 documentationcenter: ''
-author: saveenr
-manager: saveenr
+author: matt1883
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731

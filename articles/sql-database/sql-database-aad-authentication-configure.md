@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/10/2017
 ms.author: rickbyh
 
 ---
@@ -157,7 +157,6 @@ You can also provision an Azure AD admin by calling the following CLI commands:
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#delete) |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
 |[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#list) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
 |[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#update) |Updates the Active Directory administrator for an Azure SQL server or Azure SQL Data Warehouse. |
-
 
 For more information about CLI commands, see [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 
