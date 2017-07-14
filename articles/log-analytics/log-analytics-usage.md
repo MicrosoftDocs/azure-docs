@@ -125,7 +125,7 @@ Use the following steps to reduce the volume of logs collected:
 
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
-| Security events            | Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Change the security audit policy. For example, turn off [audit filtering platform](https://technet.microsoft.com/en-us/library/dd772749(WS.10).aspx) events. |
+| Security events            | Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Change the security audit policy. For example, turn off [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) events. |
 | Performance counters       | Change [performance counter configuration](log-analytics-data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
 | Event logs                 | Change [event log configuration](log-analytics-data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
 | Syslog                     | Change [syslog configuration](log-analytics-data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
