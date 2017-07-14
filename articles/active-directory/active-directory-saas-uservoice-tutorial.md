@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/17/2017
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with UserVoice, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial here [trail offer](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial here: [trail offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Sign-On URL. Contact [UserVoice Client support team](https://www.uservoice.com/) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the certificate file on your computer.
+4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_certificate.png) 
 
@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Settings](./media/active-directory-saas-uservoice-tutorial/ic777519.png "Settings")
 
-9. On the **Web portal** tab, in the **User authentication** section, click **Edit** to open the **Edit User Authentication** dialog page
+9. On the **Web portal** tab, in the **User authentication** section, click **Edit** to open the **Edit User Authentication** dialog page.
    
     ![Web portal](./media/active-directory-saas-uservoice-tutorial/ic777520.png "Web portal")
 
@@ -147,12 +147,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     c. Paste the **Sign-Out URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-Out textbox**.
  
-    d. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Current certificate SHA1 fingerprint** textbox.  
-      
-    > [!TIP]
-    > For more information, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
- 
-    e. Click **Save authentication settings**.
+    d. Paste the **Thumbprint** value , which you have copied from Azure portal  into the **Current certificate SHA1 fingerprint** textbox.
+	
+	e. Click **Save authentication settings**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -253,7 +250,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the UserVoice tile in the Access Panel, you should get automatically signed-on to your UserVoice application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
