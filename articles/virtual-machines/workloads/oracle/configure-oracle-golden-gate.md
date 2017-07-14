@@ -18,7 +18,7 @@ ms.date: 05/19/2017
 ms.author: rclaus
 ---
 
-# Implement Oracle Golden Gate on an Azure Linux VM
+# Implement Oracle Golden Gate on an Azure Linux VM 
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details how to use the Azure CLI to deploy an Oracle 12c database from the Azure Marketplace gallery image. 
 

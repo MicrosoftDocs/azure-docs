@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (.NET) | Microsoft Docs
-description: How to send device-to-cloud messages from a device to an Azure IoT hub using the Azure IoT SDKs for .NET. You create a simulated device app to send messages, a service app to register your device in the identity registry, and a service app to read the device-to-cloud messages from the IoT hub.
+description: Learn how to send device-to-cloud messages to Azure IoT Hub using IoT SDKs for .NET. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -187,7 +187,7 @@ In this section, you create a .NET console app that simulates a device that send
    Console.ReadLine();
    ```
    
-   By default, the **Create** method creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub. To use the MQTT or HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
+   By default, the **Create** method in a .NET Framework app creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub (UWP and PCL clients use HTTP by default.) To use the MQTT or HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
 
 This tutorial takes you through the steps to create an IoT Hub simulated device app. You can also use the [Connected Service for Azure IoT Hub][lnk-connected-service] Visual Studio extension to add the necessary code to your device app.
 

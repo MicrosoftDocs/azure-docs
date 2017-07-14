@@ -9,11 +9,11 @@ editor: tysonn
 
 ms.assetid: 8e7d868e-00f3-4e8b-9a9e-f23365abf6ac
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 06/14/2017
 ms.author: raynew
 
 ---
@@ -37,7 +37,7 @@ If you want to migrate machines to Azure (without failback), learn more in [this
 Follow the article to complete these deployment steps:
 
 
-1. [Learn more](site-recovery-components.md#hyper-v-to-azure) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
+1. [Learn more](site-recovery-components.md) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
 2. Verify prerequisites and limitations.
 3. Set up Azure network and storage accounts.
 4. Prepare the on-premises VMM server and Hyper-V hosts.

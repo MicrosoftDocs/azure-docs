@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Network Watcher?](network-watcher-monitoring-overview.md)
 ## [Topology](network-watcher-topology-overview.md)
 ## [Variable Packet capture](network-watcher-packet-capture-overview.md)
@@ -7,6 +7,7 @@
 ## [Security group view](network-watcher-security-group-view-overview.md)
 ## [Next hop](network-watcher-next-hop-overview.md)
 ## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
+## [Connectivity check](network-watcher-connectivity-overview.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Get Started
 ## [Configure Network Watcher](network-watcher-create.md)
@@ -34,6 +35,7 @@
 ### [CLI 2.0](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Troubleshoot VPN Gateway and connections
+### [Portal](network-watcher-troubleshoot-manage-portal.md)
 ### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
@@ -43,6 +45,10 @@
 ### [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [CLI 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
+## Test connectivity
+### [PowerShell](network-watcher-connectivity-powershell.md)
+### [CLI 2.0](network-watcher-connectivity-cli.md)
+### [REST](network-watcher-connectivity-rest.md)
 ## Configure NSG flow logs
 ### [Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
@@ -69,8 +75,9 @@
 ## [Virtual machines](/azure/virtual-machines/)
 ## [VPN gateway](/azure/vpn-gateway/)
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/network-watcher/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
+## [Pricing](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=network-watcher)
+## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)

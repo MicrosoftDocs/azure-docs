@@ -2,7 +2,7 @@ Please ensure that you have already created a Service Bus namespace, as shown [h
 
 1. Log on to the [Azure portal][azure-portal].
 2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
-3. Select the namespace that you would like to create the queue in. In this case, it is **nstest1**.
+3. Click the namespace in which you would like to create the queue. In this case, it is **nstest1**.
    
     ![Create a queue][createqueue1]
 4. In the **Service Bus namespace** blade, select **Queues**, then click **Add queue**.

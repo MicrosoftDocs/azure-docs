@@ -6,7 +6,6 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/13/2017
