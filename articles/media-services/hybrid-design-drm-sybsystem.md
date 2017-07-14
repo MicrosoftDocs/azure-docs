@@ -52,17 +52,17 @@ As part of a comprehensive cloud video platform, Azure Media Services DRM has a 
 |AMS|Third-party|Third-party|
 |Third-party|Third-party|AMS|
 
-**Content hosting & origin**
+### Content hosting & origin
 
 * AMS: video asset is hosted in AMS and streaming is through AMS streaming endpoints (but not necessarily dynamic packaging).
 * Third-party: video is hosted and delivered on a third-party streaming platform outside of AMS.
 
-**Content encryption**
+### Content encryption
 
 * AMS: content encryption is performed dynamically/on-demand by AMS dynamic encryption.
 * Third-party: content encryption is performed outside of AMS using a pre-processing workflow.
 
-**DRM license delivery**
+### DRM license delivery
 
 * AMS: DRM license is delivered by AMS license delivery service.
 * Third-party: DRM license is delivered by a third-party DRM license server outside of AMS.
@@ -86,7 +86,9 @@ Through configuration of an asset delivery policy, you can control the following
 * The default/embedded license delivery URLs for each of the involved DRMs.
 * Whether license acquisition URLs (LA_URLs) in DASH MPD or HLS playlist contain query string of key ID (KID) for Widevine and FairPlay, respectively.
 
-Based on the above, for the following five hybrid scenarios, we use respective **Content key**-**Asset delivery policy** configuration combinations (the samples mentioned in the last column follow the table):
+## Scenarios and samples
+
+Based on the explanations in the previous section, the following five hybrid scenarios use respective **Content key**-**Asset delivery policy** configuration combinations (the samples mentioned in the last column follow the table):
 
 |**Content hosting & origin**|**DRM encryption**|**DRM license delivery**|**Configure content key**|**Configure asset delivery policy**|**Sample**|
 |---|---|---|---|---|---|
@@ -94,7 +96,7 @@ Based on the above, for the following five hybrid scenarios, we use respective *
 |AMS|AMS|Third-party|Yes|Yes|Sample 2|
 |AMS|Third-party|AMS|Yes|No|Sample 3|
 |AMS|Third-party|Outside|No|No|Sample 4|
-|Outside|Third-party|AMS|Yes|No|	
+|Third-party|Third-party|AMS|Yes|No|	
 
 In the samples, PlayReady protection works for both DASH and smooth streaming. The video URLs below are smooth streaming URLs. To get the corresponding DASH URLs, just append "(format=mpd-time-csf)". You could use the [this browser player to test)[http://aka.ms/amtest]. It allows you to configure which streaming protocol to use, under which tech. IE11 and MS Edge on Windows 10 support PlayReady through EME. For more information, see [details about the test tool](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
