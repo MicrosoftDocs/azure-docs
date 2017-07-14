@@ -51,13 +51,13 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardFTitle
+    className: cardsFTitle
     items:
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7">Developing with .NET</a></p>
+    - title: Developing with .NET
       image: 
         src: https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
-    - html: <p><a href="https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7">Cloud Patterns and Architecture</a></p>
+    - title: Cloud Patterns and Architecture
       image: 
         src: https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
