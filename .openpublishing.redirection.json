@@ -8189,6 +8189,16 @@
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md",
             "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/media-services/media-services-rest-connect-programmatically.md",
+            "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/media-services/media-services-dotnet-connect-programmatically.md",
+            "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
+            "redirect_document_id": false
         }
     ]
 }
