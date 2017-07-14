@@ -236,13 +236,12 @@ Another convenient way to trigger **ADL: Register Assembly** command is right cl
 1.	Press **CTRL+SHIFT+P** to open Command Palette.
 2.	Enter **ADL: Register Assembly through Configuration**. 
 3.	Specify the local assembly path. 
-4.  Open and configure the json file with the following properties:
+4.  The json file is displayed. Review and edit the assembly dependencies and resources parameters if needed. Instructions are displayed in the output window. Save (**CTRL+S**) the Json file to proceed for assembly registration.
 
 ![Data Lake Tools for Visual Studio Code code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
-The output show you how to set these parameters.
-- Assembly Dependencies: Azure Data Lake Tool can auto detect whether refer other dependencies. Once detected, they were displayed here.
-- Resources: You can register any type of resources according the description in output panel.
-After setting up, save the config file (Ctrl + S) to proceed your registering assembly.  
+>[!NOTE]
+>- Assembly Dependencies: Azure Data Lake Tools auto detect whether the DLL has any dependencies. The dependencies are displayed in the Json file once detected. 
+>- Resources: You can upload your DLL resources (e.g. txt, png, csv, etc.) as part of the assembly registration. 
 
 Another more convenient way to trigger **ADL: Register Assembly through Configuration** command is right click dll file in the EXPLORER. 
 
@@ -390,7 +389,7 @@ Another more convenient way to preview a file is through the right click context
 
        ![Data Lake Tools for Visual Studio Code preview file result](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
 
-### Upload file 
+### Upload File 
 
 You can upload file through command **ADL: Upload File** or **ADL: Upload File through Configuration**.
 
@@ -426,10 +425,10 @@ You can upload file through command **ADL: Upload File** or **ADL: Upload File t
 
 **ADL: Upload File through Configuration**
 1.  Press CTRL+SHIFT+P to open Command Palette or right click on script editor, and then enter **Upload File through Configuration**.
-2.  VSCode displays a json configurations file, you can make any further updates if needed.
+2.  VSCode displays a json file. You can enter file paths and upload multiple files at the same time. Instructions are displayed in the output window. Save (**CTRL+S**) the Json file to proceed for file upload.
 
        ![Data Lake Tools for Visual Studio Code Input File](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
-You can set configuration file according example that show in output panel. After setting up, save (CTRL+S) file to proceed the file upload.
+
 3.  Results: The output window displays the file upload status.
 
        ![Data Lake Tools for Visual Studio Code Upload Status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
@@ -445,8 +444,8 @@ You can open **Web Azure Storage Explorer** through command: **ADL: Open Web Azu
 
 ADL Tools open the Azure storage path in the portal. You can visit path and preview file from web.
 
-### Local Run and Local Debug
-U-SQL local run for windows has been implemented to allow you to perform local run to test your local data, validate your script locally before publishing you production ready code to ADLA. You can start your local run service, confirm the configurations, and submit your U-SQL job to the local run service and Debug U-SQL job on local service. The Instructions see [Use the Azure Data Lake Tools to local run and local debug for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug.md)
+### Local Run and Local Debug Windows Users
+U-SQL local run has been implemented to test your local data, validate your script locally before publishing your code to ADLA. The local debug feature enables you to debug your C# code behind, step through the code, validate your script locally before submitting to ADLA. See instructions: [U-SQL Local Run and Local Debug with Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug.md)
 
 ## Additional features
 
@@ -476,7 +475,7 @@ The Data Lake Tools for VSCode supports the following features:
 
 ## Next steps:
 
-- For Using the Azure Data Lake Tools to local run and local debug for Visual Studio Code, see [Use the Azure Data Lake Tools to local run and local debug for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug.md)
+- For U-SQL Local Run and Local Debug with Visual Studio Code, see [U-SQL Local Run and Local Debug with Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug.md)
 - For the getting started information on Data Lake Analytics, see [Tutorial: get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 - For information on using Data Lake Tools for Visual Studio, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - For the information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
