@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/15/2017
 ms.author: jeedes
 
 ---
@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.frontapp.com`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Front Client support team](mailto:support@frontapp.com) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Which are explained later in tutorial or contact [Front Client support team](mailto:support@frontapp.com) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -155,9 +155,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     ![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Confirm these URls match with the urls in **Front Configuration** section in Azure portal.
-    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
+14. On the **Service provider settings** section, perform the following steps:
+
+	![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
+
+	a.  In the **Entity ID** textbox, paste the value of **SAML Entity ID** copied from Azure portal.
+
+	b.  In the **ACS URL** textbox, paste the value of **SAML Single Sign-On Service URL** copied from Azure portal.
 
 15. Click **Save** button.
 
