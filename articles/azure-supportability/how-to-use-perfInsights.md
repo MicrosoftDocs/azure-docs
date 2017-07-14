@@ -175,7 +175,7 @@ Diskspd IO workload tests [OS Disk (write) and pool drives (read/write)]
 
 2.  The following OSes are supported: Windows Server 2008 R2, 2012, 2012 R2, 2016; Windows 8.1 and Windows 10.
 
-**Possible issues when you rung the script on production VMs:**
+**Possible issues when you run the script on production VMs:**
 
 1.  The script might adversely affect the performance of the VM when it is used together with the "Benchmark" or "Custom" scenario that is configured by using XPerf or DiskSpd. Be careful when you run the script in a production environment.
 
@@ -212,7 +212,7 @@ To run the script, follow these steps:
 
     ![enter drive](media/how-to-use-perfInsights/enter-drive.png)
 
-5.  Select a troubleshooting scenarios from the provided list.
+5.  Select a troubleshooting scenario from the provided list.
 
        ![Select support scenarios](media/how-to-use-perfInsights/select-scenarios.png)
 
@@ -323,7 +323,7 @@ DISKSPD is a storage load generator and performance test tool from the Windows a
 
 ### XPerf
 
-Xperf is a command line tool to capture traces from the Windows Performance Tools Kit.
+Xperf is a command-line tool to capture traces from the Windows Performance Tools Kit.
 
 For more information, see [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
