@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/15/2017
 ms.author: jeedes
 
 ---
@@ -174,7 +174,7 @@ The objective of this section is to create a user called Britta Simon in Workrit
    
     ![Assign User][400]
 
-3. Go to Quick Links, and then click **Create User**. 
+3. Go to Quick Links, and then click **Create a User**.
    
     ![Assign User][401]
 
