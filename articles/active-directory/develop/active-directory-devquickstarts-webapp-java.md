@@ -3,7 +3,7 @@ title: Azure AD Java web app Getting Started | Microsoft Docs
 description: Build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 
 ---
@@ -181,7 +181,7 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.windows.net/</param-value>
+            <param-value>https://login.microsoftonline.com/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>

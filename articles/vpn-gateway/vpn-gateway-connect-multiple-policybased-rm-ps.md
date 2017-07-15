@@ -43,7 +43,7 @@ Currently, Azure supports both modes of VPN gateways: route-based VPN gateways a
 |                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**               |
 | ---                      | ---                         | ---                                      |
 | **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance         |
-| **IKE vserion**          | IKEv1                       | IKEv2                                    |
+| **IKE version**          | IKEv1                       | IKEv2                                    |
 | **Max. S2S connections** | **1**                       | Basic/Standard:10<br> HighPerformance:30 |
 |                          |                             |                                          |
 

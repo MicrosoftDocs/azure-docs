@@ -30,11 +30,15 @@
 ### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
 ### [User sign-on options](active-directory-aadconnect-user-signin.md)
 #### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
+##### [Quick start](active-directory-aadconnect-sso-quick-start.md)
+##### [How does it work?](active-directory-aadconnect-sso-how-it-works.md)
+##### [Frequently asked questions](active-directory-aadconnect-sso-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
 #### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [How does it work?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
@@ -102,5 +106,6 @@
 
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync Deprecation](active-directory-aadconnect-dirsync-deprecated.md)

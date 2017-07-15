@@ -39,7 +39,7 @@ Azure Operational Security refers to the services, controls,and features availab
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
 1.	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
-2.	[Azure Security Canter](https://docs.microsoft.com/azure/security-center/security-center-intro)
+2.	[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 3.	[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
@@ -51,7 +51,6 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 
 
 ## Microsoft Operations Management Suite
-
 
 Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
@@ -75,7 +74,7 @@ The core functionality of OMS is provided by a set of services that run in Azure
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 
-This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premise environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
+This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
 
 ![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
@@ -87,7 +86,6 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 -	incident management
 -	compliance
 -	security standards certifications
-
 
 ### Azure Backup
 

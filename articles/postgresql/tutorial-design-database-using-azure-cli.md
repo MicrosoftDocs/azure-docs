@@ -6,14 +6,11 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: postgresql-database
 ms.custom: mvc
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 05/31/2017
-
+ms.date: 06/13/2017
 ---
 # Design your first Azure Database for PostgreSQL using Azure CLI 
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
@@ -30,11 +27,7 @@ You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /c
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-## Log in to Azure
-If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli-interactive
-az login
-```
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
 ```azurecli-interactive
@@ -71,7 +64,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 
 > [!NOTE]
-> Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
+> Azure PostgreSQL server communicates over port 5432. When connecting from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. Have your IT department open port 5432 to connect to your Azure SQL Database server.
 >
 
 ## Get the connection information
@@ -175,18 +168,22 @@ SELECT * FROM inventory;
 ## Restore a database to a previous point in time
 Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-For the Restore, the [az postgres server restore](/cli/azure/postgres/server#restore) command needs the following information:
-- **Restore point:** Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source database's Oldest backup value.
-- **Target server:** Provide a new server name you want to restore to
-- **Source server:** Provide the name of the server you want to restore from
-- **Location:** You cannot select the region, by default it is same as the source server
-- **Pricing tier:** You cannot change this value when restoring a server. It is same as the source server. 
-
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-20170401-restored --restore-point-in-time "2017-04-13 03:10" --source-server-name mypgserver-20170401
+az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
 
-To restore the server to [restore to a point-in-time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
+The `az postgres server restore` command needs the following parameters:
+| Setting | Suggested value | Description  |
+| --- | --- | --- |
+| --resource-group |  myResourceGroup |  The resource group in which the source server exists.  |
+| --name | mypgserver-restored | The name of the new server that is created by the restore command. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Select a point-in-time to restore to. This date and time must be within the source server's backup retention period. Use ISO8601 date and time format. For example, you may use your own local timezone, such as `2017-04-13T05:59:00-08:00`, or use UTC Zulu format `2017-04-13T13:59:00Z`. |
+| --source-server | mypgserver-20170401 | The name or ID of the source server to restore from. |
+
+Restoring a server to a point-in-time creates a new server, copying as the original server as of the point in time you specify. The location and pricing tier values for the restored server are the same as the source server.
+
+The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
+
 
 ## Next steps
 In this tutorial, you learned how to use Azure CLI (command-line interface) and other utilities to:

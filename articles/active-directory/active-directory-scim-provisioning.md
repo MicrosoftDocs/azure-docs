@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: asmalser
+ms.custom: aaddev
 
 ---
 # Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications

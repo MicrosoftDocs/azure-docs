@@ -5,14 +5,11 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.custom: quick start create, mvc
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 07/12/2017
 ---
 
 # Create an Azure Database for PostgreSQL in the Azure portal
@@ -35,12 +32,12 @@ Follow these steps to create an Azure Database for PostgreSQL server:
  ![Azure Database for PostgreSQL - Create the database](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.	Fill out the new server details form with the following information, as shown on the preceding image:
-    - Server name: **mypgserver-20170401** (name of a server maps to DNS name and is thus required to be globally unique) 
+    - Server name: **mypgserver-20170401** (choose a globally unique server name, since this name maps to the DNS name)
     - Subscription: If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for.
     - Resource group: **myresourcegroup**
     - Server admin login and password of your choice
-    - Location
-    - PostgreSQL Version
+    - Location: choose a location nearest you.
+    - PostgreSQL Version: choose the latest version.
 
   > [!IMPORTANT]
   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
@@ -101,12 +98,12 @@ Let's now use the psql command-line utility to connect to the Azure Database for
 
    ![Azure Database for PostgreSQL - Azure Shell Bash Prompt](./media/quickstart-create-database-portal/8-bash.png)
 
-3. At the Cloud Shell prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
+3. At the Cloud Shell prompt, connect to your Azure Database for PostgreSQL server by typing the psql command line at the prompt. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials. Always use port **5432** when connecting. Enter your server admin password when prompted. Please use spaces between the --switches in the command as shown, but do not use spaces between the equal signs and the parameter values.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
@@ -167,6 +164,5 @@ If you just would like to delete the newly created server:
 3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **mypgserver-20170401** in the text box, and then click Delete.
 
 ## Next steps
-- Migrate your database using [Export and Import](./howto-migrate-using-export-and-import.md) or [Dump and Restore](./howto-migrate-using-dump-and-restore.md).
-- To create Azure Database for PostgreSQL server using Azure CLI, see [Create PostgreSQL server - CLI](./quickstart-create-server-database-azure-cli.md).
-- For a technical overview, see [About the Azure Database for PostgreSQL service](./overview.md).
+> [!div class="nextstepaction"]
+> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)

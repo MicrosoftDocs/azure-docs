@@ -21,6 +21,7 @@ ms.author: tomfitz
 
 When deploying resources, you frequently need to retrieve information about the resource providers and types. In this article, you learn to:
 
+* View all resource providers in Azure
 * Check registration status of a resource provider
 * Register a resource provider
 * View resource types for a resource provider

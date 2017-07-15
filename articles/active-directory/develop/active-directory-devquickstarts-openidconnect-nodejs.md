@@ -3,7 +3,7 @@ title: Getting started with Azure AD sign-in and sign-out using Node.js | Micros
 description: Learn how to build a Node.js Express MVC web app that integrates with Azure AD for sign-in.
 services: active-directory
 documentationcenter: nodejs
-author: xerners
+author: navyasric
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
+ms.author: nacanuma
 ms.custom: aaddev
 
 ---
@@ -139,7 +139,7 @@ Here, we configure Express to use the OpenID Connect authentication protocol.  P
     ```
 Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to. Looking at the strategy, you see that we pass it a function that has a token and a done as the parameters. The strategy comes back to us after it does its work. Then we want to store the user and stash the token so we don't need to ask for it again.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. We    recommend that you don't let anyone authenticate to a production server without first having them register via a process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to provide additional information. If this weren't a sample application, we could have extracted the user's email address from the token object that is returned and then asked the user to fill out additional information. Because this is a test server, we add them to the in-memory database.
 
 
@@ -205,9 +205,9 @@ The previous code takes any user that happens to authenticate to our server. Thi
 
 6. Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
 
-       
+
        ```JavaScript
- 
+
         // Our Auth routes (section 3)
 
         // GET /auth/openid

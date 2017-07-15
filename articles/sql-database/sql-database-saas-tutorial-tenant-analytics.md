@@ -1,6 +1,6 @@
 ---
-title: Run analytics queries against multiple Azure SQL databases | Microsoft Docs 
-description: "Run distributed queries across multiple Azure SQL databases"
+title: Run analytics queries against multiple Azure SQL databases | Microsoft Docs
+description: "Extract data from tenant databases into an analytics database for offline analysis"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -8,20 +8,20 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/16/2017
 ms.author: billgib; sstein
 
 ---
-# Run distributed queries across multiple Azure SQL databases
+# Extract data from tenant databases into an analytics database for offline analysis
 
-In this tutorial, you run analytics queries against each tenant in the catalog. An elastic job is created that runs the queries. The job retrieves data and loads it into a separate analytics database created on the catalog server. This database can be queried to extract insights that are buried in the day-to-day operational data of all tenants. As an output of the job, a table is created from the result-returning queries inside the tenant analytics database.
+In this tutorial, you use an elastic job to run queries against each tenant database. The job extracts ticket sales data and loads it into an analytics database (or data warehouse) for analysis. The analytics database is then queried to extract insights from this day-to-day operational data of all tenants.
 
 
 In this tutorial you learn how to:
@@ -42,7 +42,7 @@ One of the great opportunities with SaaS applications is to use the rich tenant 
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Deploy a database for tenant analytics results
 
