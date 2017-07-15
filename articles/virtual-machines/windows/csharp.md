@@ -114,6 +114,7 @@ To specify values for the application, add this code to the Main method:
 
 ```
 var groupName = "myResourceGroup";
+var vmName = "myVM";
 var location = Region.USWest;
     
 Console.WriteLine("Creating resource group...");
@@ -178,7 +179,7 @@ To create a network interface, add this code to the Main method:
 Console.WriteLine("Creating network interface...");
 var networkInterface = azure.NetworkInterfaces.Define("myNIC")
     .WithRegion(location)
-    .WithExistingResourceGroup(resourceGroupName)
+    .WithExistingResourceGroup(groupName)
     .WithExistingPrimaryNetwork(network)
     .WithSubnet("mySubnet")
     .WithPrimaryPrivateIPAddressDynamic()
@@ -194,14 +195,14 @@ To create the virtual machine, add this code to the Main method:
 
 ```
 Console.WriteLine("Creating virtual machine...");
-var virtualMachine = azure.VirtualMachines.Define("myVM")
+var virtualMachine = azure.VirtualMachines.Define(vmName)
     .WithRegion(location)
     .WithExistingResourceGroup(groupName)
     .WithExistingPrimaryNetworkInterface(networkInterface)
     .WithLatestWindowsImage("MicrosoftWindowsServer", "WindowsServer", "2012-R2-Datacenter")
     .WithAdminUsername("azureuser")
     .WithAdminPassword("Azure12345678")
-    .WithComputerName("myVM")
+    .WithComputerName(vmName)
     .WithExistingAvailabilitySet(availabilitySet)
     .WithSize(VirtualMachineSizeTypes.StandardDS1)
     .Create();
@@ -216,12 +217,17 @@ var virtualMachine = azure.VirtualMachines.Define("myVM")
 
 During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create code to automate repetitive or complex tasks.
 
+When you need to do anything with the VM, you need to get an instance of it:
+
+```
+var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
+```
+
 ### Get information about the VM
 
 To get information about the virtual machine, add this code to the Main method:
 
 ```
-var vm = azure.VirtualMachines.GetByResourceGroup(resourceGroupName, "myVM");
 Console.WriteLine("Getting information about the virtual machine...");
 Console.WriteLine("hardwareProfile");
 Console.WriteLine("   vmSize: " + vm.Size);
@@ -260,14 +266,14 @@ foreach (InstanceViewStatus stat in vm.InstanceView.VmAgent.Statuses)
 Console.WriteLine("disks");
 foreach (DiskInstanceView disk in vm.InstanceView.Disks)
 {
-    Console.WriteLine("  name: " + idisk.Name);
+    Console.WriteLine("  name: " + disk.Name);
     Console.WriteLine("  statuses");
-    foreach (InstanceViewStatus stat in idisk.Statuses)
+    foreach (InstanceViewStatus stat in disk.Statuses)
     {
-        Console.WriteLine("    code: " + istat.Code);
-        Console.WriteLine("    level: " + istat.Level);
-        Console.WriteLine("    displayStatus: " + istat.DisplayStatus);
-        Console.WriteLine("    time: " + istat.Time);
+        Console.WriteLine("    code: " + stat.Code);
+        Console.WriteLine("    level: " + stat.Level);
+        Console.WriteLine("    displayStatus: " + stat.DisplayStatus);
+        Console.WriteLine("    time: " + stat.Time);
     }
 }
 Console.WriteLine("VM general status");
@@ -279,9 +285,9 @@ Console.WriteLine("  location: " + vm.Region);
 Console.WriteLine("VM instance status");
 foreach (InstanceViewStatus stat in vm.InstanceView.Statuses)
 {
-    Console.WriteLine("  code: " + istat.Code);
-    Console.WriteLine("  level: " + istat.Level);
-    Console.WriteLine("  displayStatus: " + istat.DisplayStatus);
+    Console.WriteLine("  code: " + stat.Code);
+    Console.WriteLine("  level: " + stat.Level);
+    Console.WriteLine("  displayStatus: " + stat.DisplayStatus);
 }
 Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
@@ -294,8 +300,7 @@ You can stop a virtual machine and keep all its settings, but continue to be cha
 To stop the virtual machine without deallocating it, add this code to the Main method:
 
 ```
-Console.WriteLine("Stopping vm...);
-var vm = azure.VirtualMachines.GetByResourceGroup(resourceGroupName, "myVM");
+Console.WriteLine("Stopping vm...");
 vm.PowerOff();
 Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
@@ -313,7 +318,6 @@ To start the virtual machine, add this code to the Main method:
 
 ```
 Console.WriteLine("Starting vm...");
-var vm = azure.VirtualMachines.GetByResourceGroup(resourceGroupName, "myVM");
 vm.Start();
 Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
@@ -327,7 +331,6 @@ To change size of the virtual machine, add this code to the Main method:
 
 ```
 Console.WriteLine("Resizing vm...");
-var vm = azure.VirtualMachines.GetByResourceGroup(resourceGroupName, "myVM");
 vm.Update()
     .WithSize(VirtualMachineSizeTypes.StandardDS2) 
     .Apply();
@@ -340,8 +343,7 @@ Console.ReadLine();
 To add a data disk to the virtual machine, add this code to the Main method to add a data disk that is 2 GB in size, han a LUN of 0 and a caching type of ReadWrite:
 
 ```
-Console.WriteLine("Resizing vm...");
-var vm = azure.VirtualMachines.GetByResourceGroup(resourceGroupName, "myVM");
+Console.WriteLine("Adding data disk to vm...");
 vm.Update()
     .WithNewDataDisk(2, 0, CachingTypes.ReadWrite) 
     .Apply();
