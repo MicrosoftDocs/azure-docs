@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
+ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory Reporting Notifications
