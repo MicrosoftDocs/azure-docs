@@ -4,7 +4,7 @@ title: Find activity reports in the Azure portal | Microsoft Docs
 description: Learn how to find Azure Active Directory activity reports in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
