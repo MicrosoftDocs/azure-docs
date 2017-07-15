@@ -42,4 +42,5 @@ For more information about multi-tenancy, see: [How to sign in any Azure Active 
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
 [AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
 
-​
+
+<!--Image references-->
