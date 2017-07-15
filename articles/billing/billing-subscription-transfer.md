@@ -21,73 +21,94 @@ ms.custom: H1Hack27Feb2017
 ---
 # Transfer ownership of an Azure subscription to another account
 
-You can transfer your subscription to another user for Pay-As-You-Go, Visual Studio, Action Pack, or BizSpark subscriptions in the Account Center. We support the transfer of Azure external services for these subscription types as well. 
+You can transfer your subscription to another user for Pay-As-You-Go, Visual Studio, Action Pack, or BizSpark subscriptions in the Account Center. We support the transfer of Azure external services for these subscription types as well.
 
 You might want to transfer ownership of an Azure subscription if you:
 
 * Need to hand over billing ownership of your Azure subscription to someone else.
-* Want to change the account used to sign up for Azure. Perhaps you used your Microsoft Account but meant to use your work or school account instead.
 * Want to move your Azure subscription from one directory to another.
+* Want to change the account used to sign up for Azure. Perhaps you used your Microsoft Account but meant to use your work or school account instead.
 * Have Azure and Office 365 in different tenants and want to consolidate.
 
-To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). 
+To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
+
+## Supported offers
+
+| Offer ID     | Offer Name                                                                             |
+|--------------|----------------------------------------------------------------------------------------|
+| MS-AZR-0003P | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      |
+| MS-AZR-0023P | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             |
+| MS-AZR-0025P | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          |
+| MS-AZR-0059P | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         |
+| MS-AZR-0060P | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    |
+| MS-AZR-0062P | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     |
+| MS-AZR-0063P | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           |
+| MS-AZR-0064P | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) |
+
+> [!IMPORTANT]
+> To transfer subscription ownership for other offers, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+>
+> Currently we don't support subscription transfers for [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ## Transfer ownership of an Azure subscription
+
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 >
 >
 
 1. Sign in at <https://account.windowsazure.com/Subscriptions>. You have to be the Account Administrator to perform an ownership transfer. To find out who is the Account Administrator of the subscription, see the [Frequently asked questions](#faq).
 
-2. Select the subscription to transfer.
+1. Select the subscription to transfer.
 
-3. Click the **Transfer Subscription** option. See [FAQ](#no-button) if you do not see the button.
+1. Click the **Transfer Subscription** option. See [FAQ](#no-button) if you do not see the button.
 
    ![Azure account subscriptions tab](./media/billing-subscription-transfer/image1.png)
-4. Specify the recipient.
+1. Specify the recipient.
 
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
-5. The recipient automatically gets an email with an acceptance link.
+1. The recipient automatically gets an email with an acceptance link.
 
    ![Subscription transfer email to recipient](./media/billing-subscription-transfer/image3.png)
-6. The recipient clicks the link and follows the instructions, including entering their payment information.
+1. The recipient clicks the link and follows the instructions, including entering their payment information.
 
    ![First subscription transfer web page](./media/billing-subscription-transfer/image4.png)
 
    ![Second subscription transfer web page](./media/billing-subscription-transfer/image5.png)
-7. Success! The subscription is now transferred.
+1. Success! The subscription is now transferred.
 
 ## Transfer subscription ownership for Enterprise Agreement (EA) customers
+
 The Enterprise Administrator can transfer ownership of subscriptions within an enrollment. To get started, see [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in the EA portal.
 
 ## Next steps after accepting ownership of a subscription
+
 1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more about administrator roles](billing-add-change-azure-subscription-administrator.md).
 
-2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com). [Learn more about RBAC](../active-directory/role-based-access-control-configure.md)
+1. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com). [Learn more about RBAC](../active-directory/role-based-access-control-configure.md)
 
-3. Update credentials associated with this subscription's services including:
-   
+1. Update credentials associated with this subscription's services including:
+
    * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
-   
+
    * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md)
-   
+
    * Remote Access credentials for services like Azure Virtual Machines. 
 
-4. [Update billing alerts for this subscription](billing-set-up-alerts.md) at the [Azure Account Center](https://account.windowsazure.com/Subscriptions). 
+1. [Update billing alerts for this subscription](billing-set-up-alerts.md) at the [Azure Account Center](https://account.windowsazure.com/Subscriptions). 
 
-5. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
+1. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 
 <a id="faq"></a>
 
 ## Frequently asked questions (FAQ)
+
 * <a name="whoisaa"></a> **Who is the account administrator of the subscription?**
 
   The account administrator is the person who signed up for or bought the Azure subscription. They're authorized to access the [Account Center](https://account.windowsazure.com/Home/Index) and perform various management tasks like create subscriptions, cancel subscriptions, change the billing for a subscription, or change the Service Administrator. If you're not sure who the account administrator is for a subscription, use the following steps to find out.
 
-  1. Sign in to the [Azure portal](https://portal.azure.com).
-  2. On the Hub menu, select **Subscription**.
-  3. Select the subscription you want to check, and then look under **Settings**.
-  4. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
+  1. Visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+  1. Select the subscription you want to check, and then look under **Settings**.
+  1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
 
 * **Does everything transfer? Including resource groups, VMs, disks, and other running services?**
 
@@ -95,7 +116,10 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 * <a id="no-button"></a> **Why don't I see the Transfer Subscription button?**
 
-  If you don't see the **Transfer Subscription** button, then we don't support subscription transfer for your offer. [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+  The **Transfer Subscription** button isn't visible if:
+
+  * You're still on your first billing period; you must wait for your first billing period to end before you can transfer your subscription.
+  * We don't support subscription transfer for your offer. [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 * **Does a subscription transfer result in any service downtime?**
 
@@ -117,7 +141,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
     1. Go to the [Azure portal](https://portal.azure.com).
     2. On the Hub menu, select **All resources**.
-    3. Select the resource. 
+    3. Select the resource.
     4. In the resource blade, click **Settings**. Here you can view and update existing secrets.
 
 * **If I transfer the subscription in the middle of the billing cycle, does the recipient pay for the entire billing cycle?**
@@ -148,9 +172,5 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
   If you can't transfer subscription ownership, you can manually migrate your resources. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
-
-
 ## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
-
-
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
