@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2017
 ms.author: femila;markvi
+ms.custom: oldportal
 
 ---
 # Azure Active Directory Reporting Guide
