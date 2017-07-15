@@ -34,12 +34,10 @@
        1. Supply a **Name** for your ACR.
        2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
 
-    8. Select the **Configure default backup** check box. The default backup creates a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
-      
-        > [!NOTE]
-        > After the backup is enabled here, it cannot be reverted. You must edit the volume to modify this setting.
-
     9. Click **Create**. A volume is created with the specified settings.
 
         ![Click Create](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+
+        > [!NOTE]
+        > Be aware that the volume you have created here is not protected. You will need to create and associate backup policies with this volume to take scheduled backups. 
 

@@ -1,6 +1,6 @@
 ---
-title: StorSimple Cloud Appliance Update 2| Microsoft Docs
-description: Learn how to create, deploy, and manage a StorSimple Cloud Appliance in a Microsoft Azure virtual network. (Applies to StorSimple Update 2).
+title: StorSimple Cloud Appliance Update 3| Microsoft Docs
+description: Learn how to create, deploy, and manage a StorSimple Cloud Appliance in a Microsoft Azure virtual network. (Applies to StorSimple Update 3 and later).
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -13,24 +13,24 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2017
+ms.date: 07/10/2017
 ms.author: alkohli
 
 ---
-# Deploy and manage a StorSimple Cloud Appliance in Azure
+# Deploy and manage a StorSimple Cloud Appliance in Azure (Update 3 and later)
 
 ## Overview
 
 The StorSimple 8000 Series Cloud Appliance is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple Cloud Appliance runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts.
 
-This article describes the step-by-step process of deploying a StorSimple Cloud Appliance in Azure. After reading this article, you will:
+This article describes the step-by-step process to deploy and manage a StorSimple Cloud Appliance in Azure. After reading this article, you will:
 
 * Understand how the cloud appliance differs from the physical device.
 * Be able to create and configure the cloud appliance.
 * Connect to the cloud appliance.
 * Learn how to work with the cloud appliance.
 
-This tutorial applies to all the StorSimple Cloud Appliances running Update 2 and higher.
+This tutorial applies to all the StorSimple Cloud Appliances running Update 3 and later.
 
 #### Cloud appliance model comparison
 
@@ -40,8 +40,7 @@ The StorSimple Cloud Appliance is available in two models, a standard 8010 (form
 | --- | --- | --- |
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory)| Standard_DS3 (4 cores, 14 GB memory)|
-| **Version compatibility** |Versions running pre-Update 2 or later |Versions running Update 2 or later |
-| **Region availability** |All Azure regions |Azure regions that support Premium Storage<br></br>The Premium Storage regions are regions that correspond to the row for Disk storage in the [list of Azure Services by Region](https://azure.microsoft.com/regions/services/). |
+| **Region availability** |All Azure regions |Azure regions that support Premium Storage and DS3 Azure VMs<br></br>Use [this list](https://azure.microsoft.com/regions/services/) to see if both **Virtual Machines > DS-series** and **Storage > Disk storage** are available in your region. |
 | **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios <br></br>Low latency and higher performance workloads<br></br>Secondary device for disaster recovery |
 
@@ -51,7 +50,7 @@ The StorSimple Cloud Appliance is available in two models, a standard 8010 (form
 
 ## How the cloud appliance differs from the physical device
 
-The StorSimple Cloud Appliance is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The cloud appliance supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in item-level retrieval from backups, on-premises disaster recovery, and cloud dev and test scenarios.
+The StorSimple Cloud Appliance is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The cloud appliance supports disaster recovery scenarios in which your physical device is not available. The cloud appliance is appropriate for use in item-level retrieval from backups, on-premises disaster recovery, and cloud dev and test scenarios.
 
 #### Differences from the physical device
 
@@ -63,6 +62,7 @@ The following table shows some key differences between the StorSimple Cloud Appl
 | **Network interfaces** |Has six network interfaces: DATA 0 through DATA 5. |Has only one network interface: DATA 0. |
 | **Registration** |Registered during the initial configuration step. |Registration is a separate task. |
 | **Service data encryption key** |Regenerate on the physical device and then update the cloud appliance with the new key. |Cannot regenerate from the cloud appliance. |
+| **Supported volume types** |Supports both locally pinned and tiered volumes. |Supports only tiered volumes. |
 
 ## Prerequisites for the cloud appliance
 
@@ -74,6 +74,7 @@ The following sections explain the configuration prerequisites for your StorSimp
 
 Before you provision the cloud appliance, you need to make the following preparations in your Azure environment:
 
+* Ensure that you have a StorSimple 8000 series physical device (model 8100 or 8600) deployed and running in your datacenter. Register this device with the same StorSimple Device Manager service that you intend to create a StorSimple Cloud Appliance for.
 * For the cloud appliance, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. The Premium Storage regions are regions that correspond to the row for Disk storage in the [list of Azure Services by Region](https://azure.microsoft.com/regions/services/).
 * We recommend that you use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the cloud appliance fails.
 * Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
@@ -125,7 +126,7 @@ The following section describes the device configuration settings needed for the
 
 #### Configure the CHAP initiator
 
-This parameter contains the credentials that your cloud appliance (target) expects from the initiators (servers) that are attempting to access the volumes. The initiators provide a CHAP user name and a CHAP password to identify themselves to your device during this authentication. For detailed steps, go to [Configure CHAP for your device](storsimple-configure-chap.md#unidirectional-or-one-way-authentication).
+This parameter contains the credentials that your cloud appliance (target) expects from the initiators (servers) that are attempting to access the volumes. The initiators provide a CHAP user name and a CHAP password to identify themselves to your device during this authentication. For detailed steps, go to [Configure CHAP for your device](storsimple-8000-configure-chap.md#unidirectional-or-one-way-authentication).
 
 #### Configure the CHAP target
 
@@ -134,7 +135,7 @@ This parameter contains the credentials that your cloud appliance uses when a CH
 > [!NOTE]
 > CHAP target settings are global settings. When these settings are applied, all the volumes connected to the cloud appliance use CHAP authentication.
 
-For detailed steps, go to [Configure CHAP for your device](storsimple-configure-chap.md#bidirectional-or-mutual-authentication).
+For detailed steps, go to [Configure CHAP for your device](storsimple-8000-configure-chap.md#bidirectional-or-mutual-authentication).
 
 #### Configure the StorSimple Snapshot Manager password
 
@@ -143,7 +144,7 @@ StorSimple Snapshot Manager software resides on your Windows host and allows adm
 > [!NOTE]
 > For the cloud appliance, your Windows host is an Azure virtual machine.
 
-When configuring a device in the StorSimple Snapshot Manager, you are prompted to provide the StorSimple device IP address and password to authenticate your storage device. For detailed steps, go to [Configure StorSimple Snapshot Manager password](storsimple-8000-change-passwords.md#change-the-storsimple-snapshot-manager-password).
+When configuring a device in the StorSimple Snapshot Manager, you are prompted to provide the StorSimple device IP address and password to authenticate your storage device. For detailed steps, go to [Configure StorSimple Snapshot Manager password](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password).
 
 #### Change the device administrator password
 
@@ -168,7 +169,7 @@ After you enable remote management on the cloud appliance, use Windows PowerShel
 > [!WARNING]
 > **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
 
-You must follow the procedures in [Connecting remotely to your StorSimple device](storsimple-remote-connect.md) to set up remoting for your cloud appliance.
+You must follow the procedures in [Connecting remotely to your StorSimple device](storsimple-8000-remote-connect.md) to set up remoting for your cloud appliance.
 
 ## Connect directly to the cloud appliance
 
@@ -188,10 +189,10 @@ The following sections discuss some of the differences you encounter when workin
 
 ### Maintain a StorSimple Cloud Appliance
 
-Because it is a software-only device, maintenance for the cloud appliance is minimal when compared to maintenance for the physical device. You have the following options:
+Because it is a software-only device, maintenance for the cloud appliance is minimal when compared to maintenance for the physical device.
 
-* **Software updates** – You cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance.
-* **Support package** – You can create and upload a support package to help Microsoft Support troubleshoot issues with your cloud appliance. For a step-by-step procedure, go to [create and manage a support package](storsimple-create-manage-support-package.md).
+You cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance.
+
 
 ### Storage accounts for a cloud appliance
 
@@ -212,12 +213,12 @@ Deactivating a cloud appliance results in the following actions:
 
 For a step-by-step procedure, go to [Deactivate and delete your StorSimple device](storsimple-8000-deactivate-and-delete-device.md).
 
-As soon as the cloud appliance is shown as deactivated on the StorSimple Device Manager service page, you can delete the cloud appliance from device list on the **Devices** page.
+As soon as the cloud appliance is shown as deactivated on the StorSimple Device Manager service blade, you can delete the cloud appliance from device list on the **Devices** blade.
 
 ### Start, stop, and restart a cloud appliance
-Unlike the StorSimple physical device, there is no power on or power off button to push on a StorSimple Cloud Appliance. However, there may be occasions where you need to stop and restart the cloud appliance. 
+Unlike the StorSimple physical device, there is no power on or power off button to push on a StorSimple Cloud Appliance. However, there may be occasions where you need to stop and restart the cloud appliance.
 
-The easiest way for you to start, stop, and restart a cloud appliance is to via the Virtual Machines service blade. Go the Virtual machine service. From the list of VMs, identify the VM corresponding to your cloud appliance (same name), and click the VM name. When you look at your virtual machine blade, the cloud appliance status is **Running** because it is started by default after it is created. You can start, stop, and restart a virtual machine at any time.
+The easiest way for you to start, stop, and restart a cloud appliance is via the Virtual Machines service blade. Go the Virtual machine service. From the list of VMs, identify the VM corresponding to your cloud appliance (same name), and click the VM name. When you look at your virtual machine blade, the cloud appliance status is **Running** because it is started by default after it is created. You can start, stop, and restart a virtual machine at any time.
 
 [!INCLUDE [Stop and restart cloud appliance](../../includes/storsimple-8000-stop-restart-cloud-appliance.md)]
 
@@ -225,31 +226,31 @@ The easiest way for you to start, stop, and restart a cloud appliance is to via 
 If you decide that you want to start over with your cloud appliance, deactivate and delete it and then create a new one.
 
 ## Fail over to the cloud appliance
-Disaster recovery (DR) is one of the key scenarios that the StorSimple Cloud Appliance was designed for. In this scenario, the physical StorSimple device or entire datacenter might not be available. Fortunately, you can use a cloud appliance to restore operations in an alternate location. During DR, the volume containers from the source device change ownership and are transferred to the cloud appliance. 
+Disaster recovery (DR) is one of the key scenarios that the StorSimple Cloud Appliance was designed for. In this scenario, the physical StorSimple device or entire datacenter may not be available. Fortunately, you can use a cloud appliance to restore operations in an alternate location. During DR, the volume containers from the source device change ownership and are transferred to the cloud appliance.
 
 The prerequisites for DR are:
 
-* The cloud appliance is created and configured. 
-* All the volumes within the volume container are offline. 
+* The cloud appliance is created and configured.
+* All the volumes within the volume container are offline.
 * The volume container that you fail over, has an associated cloud snapshot.
 
 > [!NOTE]
 > * When using a cloud appliance as the secondary device for DR, keep in mind that the 8010 has 30 TB of Standard Storage and 8020 has 64 TB of Premium Storage. The higher capacity 8020 cloud appliance may be more suited for a DR scenario.
 
-For a step-by-step procedure, go to [fail over to a cloud appliance](storsimple-8000-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
+For a step-by-step procedure, go to [fail over to a cloud appliance](storsimple-8000-device-failover-cloud-appliance.md).
 
 ## Delete the cloud appliance
 If you previously configured and used a StorSimple Cloud Appliance but now want to stop accruing compute charges for its use, you must stop the cloud appliance. Stopping the cloud appliance deallocates the VM. This action will stop from charges accruing on your subscription. The storage charges for the OS and data disks will however continue.
 
-To stop all the charges, you must delete the cloud appliance. A deleted cloud appliance appears as **Offline** on the **Devices** blade of the StorSimple Device Manager service. To delete the backups created by the cloud appliance, you can deactivate or delete the device. For more information, see [Deactivate and delete a StorSimple device](storsimple-deactivate-and-delete-device.md).
+To stop all the charges, you must delete the cloud appliance. To delete the backups created by the cloud appliance, you can deactivate or delete the device. For more information, see [Deactivate and delete a StorSimple device](storsimple-8000-deactivate-and-delete-device.md).
 
 [!INCLUDE [Delete a cloud appliance](../../includes/storsimple-8000-delete-cloud-appliance.md)]
 
 ## Troubleshoot Internet connectivity errors
-During the creation of a cloud appliance, if there is no connectivity to the Internet, the creation step fails. To troubleshoot if the failure is because of Internet connectivity, perform the following steps in the Azure classic portal:
+During the creation of a cloud appliance, if there is no connectivity to the Internet, the creation step fails. To troubleshoot Internet connectivity failures, perform the following steps in the Azure portal:
 
-1. Create a Windows server 2012 virtual machine in Azure. This virtual machine should use the same storage account, VNet, and subnet as used by your cloud appliance. If there is an existing Windows Server host in Azure using the same storage account, VNet, and subnet, you can also use it to troubleshoot the Internet connectivity.
-2. Remote log in to the virtual machine created in the preceding step.
+1. [Create a Windows server 2012 virtual machine in Azure](/articles/virtual-machines/windows/quick-create-portal.md). This virtual machine should use the same storage account, VNet, and subnet as used by your cloud appliance. If there is an existing Windows Server host in Azure using the same storage account, VNet, and subnet, you can also use it to troubleshoot the Internet connectivity.
+2. Remote log into the virtual machine created in the preceding step.
 3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
 4. Run the following cmd at the prompt.
 

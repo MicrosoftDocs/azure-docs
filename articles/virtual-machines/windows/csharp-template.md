@@ -64,7 +64,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
       var cc = new ClientCredential("client-id", "client-secret");
-      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
+      var context = new AuthenticationContext("https://login.microsoftonline.com/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -259,4 +259,3 @@ It should take about five minutes for this console application to run completely
 ## Next Steps
 * If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).
-* Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -4,7 +4,7 @@ description: Analytics queries can be displayed in Power BI.
 services: application-insights
 documentationcenter: ''
 author: noamben
-manager: douge
+manager: carmonm
 
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Feed Power BI from Application Insights
@@ -79,8 +79,38 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Select visualization](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Refresh the report manually at intervals, or set up a scheduled refresh on the options page.
 
+## Troubleshooting
+
+### 401 or 403 Unauthorized 
+This can happen if your refesh token has not been updated. Try these steps to ensure you still have access. If you do have access and refershing the credentials does not work, please open a support ticket.
+
+1. Log into the Azure Portal and make sure you can access the resource
+2. Try to refresh the credentials for the Dashboard
+
+### 502 Bad Gateway
+This is usually caused by an Analytics query that returns too much data. You should try using a smaller time range or by using the [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) or [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) functions only [project](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) the fields you need.
+
+If reducing the dataset coming from the Analytics query doesn't meet your requirements you should consider using the [API](https://dev.applicationinsights.io/documentation/overview) to pull a larger dataset. Here are instructions on how to convert the M-Query export to use the API.
+
+1. Create an [API Key](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)
+2. Update the Power BI M script that you exported from Analytics by replacing the ARM URL with AI API (see example below)
+   * Replace **https://management.azure.com/subscriptions/...**
+   * with, **https://api.applicationinsights.io/beta/apps/...**
+3. Finally, update credentials to basic, and use your API Key
+  
+
+**Existing Script**
+ ```
+ Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+**Updated Script**
+ ```
+ Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+
 ## About sampling
 If your application sends a lot of data, the adaptive sampling feature may operate and send only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling.](app-insights-sampling.md)
+
 
 ## Next steps
 * [Power BI - Learn](http://www.powerbi.com/learning/)

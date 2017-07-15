@@ -1,9 +1,9 @@
 ---
 title: Get started with Azure Relay Hybrid Connections in Node | Microsoft Docs
-description: How to write a Node console application for Hybrid Connections
+description: Write a Node.js console application for Azure Relay Hybrid Connections.
 services: service-bus-relay
 documentationcenter: node
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,57 +13,68 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 02/13/2017
-ms.author: jotaub;sethm
+ms.date: 07/07/2017
+ms.author: sethm
 
 ---
 # Get started with Relay Hybrid Connections
+
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections), and shows how to use Node.js to create a client application that sends messages to a corresponding listener application. 
+
 ## What will be accomplished
-Since Hybrid Connections requires both a client and a server component, we will create two console applications in this tutorial. Here are the steps:
+
+Because Hybrid Connections requires both a client and a server component, we will create two console applications in this tutorial. Here are the steps:
 
 1. Create a Relay namespace, using the Azure portal.
-2. Create a Hybrid Connection, using the Azure portal.
+2. Create a hybrid connection, using the Azure portal.
 3. Write a server console application to receive messages.
 4. Write a client console application to send messages.
 
 ## Prerequisites
-1. [Node.js](https://nodejs.org/en/) (This sample uses Node 7.0).
+
+1. [Node.js](https://nodejs.org/en/).
 2. An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## 1. Create a namespace using the Azure portal
-If you already have a Relay namespace created, jump to the [Create a Hybrid Connection using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal) section.
+
+If you already have a Relay namespace created, jump to the [Create a hybrid connection using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal) section.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## 2. Create a Hybrid Connection using the Azure portal
-If you already have a Hybrid Connection created, jump to the [Create a server application](#3-create-a-server-application-listener) section.
+## 2. Create a hybrid connection using the Azure portal
+
+If you already have a hybrid connection created, jump to the [Create a server application](#3-create-a-server-application-listener) section.
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## 3. Create a server application (listener)
+
 To listen and receive messages from the Relay, we will write a Node.js console application.
 
-[!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
+[!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## 4. Create a client application (sender)
+
 To send messages to the Relay, we will write a Node.js console application.
 
-[!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
+[!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
 ## 5. Run the applications
-1. Run the server application.
-2. Run the client application and enter some text.
+
+1. Run the server application: from a Node.js command prompt type `node listener.js`.
+2. Run the client application: from a Node.js command prompt type `node sender.js`, and enter some text.
 3. Ensure that the server application console outputs the text that was entered in the client application.
 
 ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
-Congratulations, you have created an end-to-end Hybrid Connections application.
+Congratulations, you have created an end-to-end Hybrid Connections application using Node.js!
 
 ## Next steps:
+
 * [Relay FAQ](relay-faq.md)
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/29/2017
 ms.author: alkohli
 
 ---
@@ -60,23 +60,23 @@ Perform the following steps to create a new bandwidth template.
     1. Specify a unique name for your bandwidth template.
     2. Define a bandwidth schedule. To create a schedule:
    
-        1. From the drop-down list, choose the **Days** of the week the schedule is configured for. You can select multiple days by selecting the check boxes located before the respective days in the list.
+        1. From the drop-down list, choose the **Days** of the week the schedule is configured for. You can select multiple days.        
+        
         2. Enter a **Start Time** in _hh:mm_ format. This is when the schedule will begin.
+
         3. Enter an **End Time** in _hh:mm_ format. This is when the schedule will stop.
       
-          > [!NOTE]
-          > Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
+           > [!NOTE]
+           > Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
         4. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field.
 
-        ![Define bandwidth schedule](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp1.png)
+            ![Define bandwidth schedule](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
          
-      Repeat the above steps to define multiple schedules for your template until you are done.
+            Repeat the above steps to define multiple schedules for your template until you are done.
 
-   6. Click **Add** to start creating a bandwidth template. The created template is added to the list of bandwidth templates.
+        5. Click **Add** to start creating a bandwidth template. The created template is added to the list of bandwidth templates.
       
-      ![Create new bandwidth template](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
-
 
 ## Edit a bandwidth template
 
@@ -84,13 +84,10 @@ Perform the following steps to edit a bandwidth template.
 
 ### To edit a bandwidth template
 
-1. Click **add/edit bandwidth template**.
-2. In the **Add/Edit Bandwidth Template** dialog box:
-   
-   1. From the **Template** drop-down list, choose an existing bandwidth template that you want to modify.
-   2. Complete your changes. (You can modify any of the existing settings.)
-   3. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). You will see the modified template in the list of bandwidth templates on the service Configure page.
-3. To save your changes, click **Save** at the bottom of the page. Click **Yes** when prompted for confirmation.
+1. Go to your StorSimple Device Manager service and click **Bandwidth templates**.
+2. In the list of bandwidth templates, select the template you wish to delete. Right-click and from the context menu, select **Delete**.
+3. When prompted for confirmation, click **OK**. This should delete the bandwidth template. 
+4. The list of bandwidth templates updates to reflect the deletion.
 
 > [!NOTE]
 > You cannot save your changes if the edited schedule overlaps with an existing schedule in the bandwidth template that you are modifying.
@@ -101,8 +98,10 @@ Perform the following steps to delete a bandwidth template.
 
 #### To delete a bandwidth template
 
-1. In the tabular list of the bandwidth templates for your service, select the template that you wish to delete. A delete icon (**x**) will appear to the extreme right of the selected template. Click the **x** icon to delete the template.
-2. You will be prompted for confirmation. Click **OK** to proceed.
+1. Go to your StorSimple Device Manager service and click **Bandwidth templates**.
+2. In the list of bandwidth templates, select the template you wish to delete. Right-click and from the context menu, select Delete.
+3. When prompted for confirmation, click **OK**. This should delete the bandwidth template.
+4. The list of bandwidth templates updates to reflect the deletion.
 
 If the template is in use by any volume(s), you will not be allowed to delete it. You will see an error message indicating that the template is in use. An error message dialog box will appear advising you that all the references to the template should be removed.
 
@@ -157,7 +156,7 @@ After the modified templates are in use, you will need to monitor the network ag
 
 **Q**. What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?
 
-**A**. Let's assume that you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
+**A**. Let's assume that you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/O are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
 
 ## Best practices for bandwidth templates
 
@@ -168,5 +167,5 @@ Follow these best practices for your StorSimple device:
 
 ## Next steps
 
-Learn more about [using the StorSimple Device Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+Learn more about [using the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 

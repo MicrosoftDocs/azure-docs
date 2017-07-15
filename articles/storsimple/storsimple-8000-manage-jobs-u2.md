@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2017
+ms.date: 06/29/2017
 ms.author: alkohli
 
 ---
-# Use the StorSimple Device Manager service to view and manage jobs (Update 2 and later)
+# Use the StorSimple Device Manager service to view and manage jobs (Update 3 and later)
 
 ## Overview
-The **Jobs** blade provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Device Manager service. You can view scheduled, running, completed, canceled, and failed jobs for multiple devices. Results are presented in a tabular format. 
+The **Jobs** blade provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Device Manager service. You can view scheduled, running, completed, canceled, and failed jobs for multiple devices. Results are presented in a tabular format.
 
 ![Jobs blade](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
@@ -70,7 +70,7 @@ Perform the following steps to cancel a running job.
 
 > [!NOTE]
 > Some jobs, such as modifying a volume to change the volume type or expanding a volume, cannot be canceled.
- 
+
 
 ### To cancel a job
 1. On the **Jobs** page, display the running job(s) that you want to cancel by running a query with appropriate filters. Select the job.

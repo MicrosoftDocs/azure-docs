@@ -6,6 +6,8 @@
   items:
   - name: C#(REST API)  
     href: GetStarted/GetStartedREST.md
+  - name: cURL(REST API)
+    href: GetStarted/GetStarted-cURL.md
   - name: JavaScript(Websocket API)    
     href: GetStarted/GetStartedJSWebsockets.md
   - name: C#(Client Library)
@@ -28,3 +30,7 @@
     items:
     - name: JavaScript
       href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

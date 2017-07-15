@@ -38,7 +38,7 @@ A VM named *VM1* is part of a subnet named *Subnet1* within a VNet named *WestUS
 
 While this example uses TCP port 3389, the following steps can be used to determine inbound and outbound connection failures over any port.
 
-### View effective security rules for a virtual machine
+### <a name="vm"></a>View effective security rules for a virtual machine
 Complete the following steps to troubleshoot NSGs for a VM:
 
 You can view full list of the effective security rules on a NIC, from the VM itself. You can also add, modify, and delete both NIC and subnet NSG rules from the effective rules blade, if you have permissions to perform these operations.
@@ -89,7 +89,7 @@ You can view full list of the effective security rules on a NIC, from the VM its
    
     Confirm that TCP port 3389 is open by opening an RDP connection to the VM or using the PsPing tool. You can learn more about PsPing by reading the [PsPing download page](https://technet.microsoft.com/sysinternals/psping.aspx).
 
-### View effective security rules for a network interface
+### <a name="nic"></a>View effective security rules for a network interface
 If your VM traffic flow is impacted for a specific NIC, you can view a full list of the effective rules for the NIC from the network interfaces context by completing the following steps:
 
 1. Login to the Azure portal at https://portal.azure.com.
@@ -106,7 +106,7 @@ If your VM traffic flow is impacted for a specific NIC, you can view a full list
    > 
 4. You can directly edit rules for NSGs associated with a NIC and a subnet. To learn how, read step 8 of the **View effective security rules for a virtual machine** section of this article.
 
-## View effective security rules for a network security group (NSG)
+## <a name="nsg"></a>View effective security rules for a network security group (NSG)
 When modifying NSG rules, you may want to review the impact of the rules being added on a particular VM. You can view a full list of the effective security rules for all the NICs that a given NSG is applied to, without having to switch context from the given NSG blade. 
 To troubleshoot effective rules within an NSG, complete the following steps:
 

@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 07/10/2017
 ms.author: helaw
-
+ms.custom: mvc
 ---
 
 # Deploy apps to Azure and Azure Stack

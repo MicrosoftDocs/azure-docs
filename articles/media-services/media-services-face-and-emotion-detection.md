@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/11/2017
 ms.author: milanga;juliako;
 
 ---
@@ -45,26 +45,9 @@ The face detection and tracking API provides high precision face location detect
 
 The detected and tracked faces are returned with coordinates (left, top, width, and height) indicating the location of faces in the image in pixels, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
 
-### <a id="output_elements"></a>Elements of the output JSON file
-For the face detection and tracking operation, the output result contains the metadata from the faces within the given file in JSON format.
+## <a id="output_elements"></a>Elements of the output JSON file
 
-The face detection and tracking JSON includes the following attributes:
-
-| Element | Description |
-| --- | --- |
-| Version |This refers to the version of the Video API. |
-| Timescale |"Ticks" per second of the video. |
-| Offset |This is the time offset for timestamps. In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
-| Framerate |Frames per second of the video. |
-| Fragments |The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). |
-| Start |The start time of the first event in ‘ticks’. |
-| Duration |The length of the fragment, in “ticks”. |
-| Interval |The interval of each event entry within the fragment, in “ticks”. |
-| Events |Each event contains the faces detected and tracked within that time duration. It is an array of array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time. An empty bracket [] means no faces were detected. |
-| ID |The ID of the face that is being tracked. This number may inadvertently change if a face becomes undetected. A given individual should have the same ID throughout the overall video, but this cannot be guaranteed due to limitations in the detection algorithm (occlusion, etc.) |
-| X, Y |The upper left X and Y coordinates of the face bounding box in a normalized scale of 0.0 to 1.0. <br/>-X and Y coordinates are relative to landscape always, so if you have a portrait video (or upside-down, in the case of iOS), you'll have to transpose the coordinates accordingly. |
-| Width, Height |The width and height of the face bounding box in a normalized scale of 0.0 to 1.0. |
-| facesDetected |This is found at the end of the JSON results and summarizes the number of faces that the algorithm detected during the video. Because the IDs can be reset inadvertently if a face becomes undetected (e.g. face goes off screen, looks away), this number may not always equal the true number of faces in the video. |
+[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
 Face Detector uses techniques of fragmentation (where the metadata can be broken up in time-based chunks and you can download only what you need), and segmentation (where the events are broken up in case they get too large). Some simple calculations can help you transform the data. For example, if an event started at 6300 (ticks), with a timescale of 2997 (ticks/sec) and framerate of 29.97 (frames/sec), then:
 
@@ -517,5 +500,5 @@ The following program shows how to:
 ## Related links
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)
 

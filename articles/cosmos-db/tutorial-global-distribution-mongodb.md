@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB global distribution tutorial for MongoDB API | Microsoft Docs
 description: Learn how to setup Azure Cosmos DB global distribution using the MongoDB API.
-services: cosmosdb
+services: cosmos-db
 keywords: global distribution, MongoDB
 documentationcenter: ''
 author: mimig1
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,9 +26,9 @@ This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [MongoDB API](../documentdb/documentdb-protocol-mongodb.md)
+> * Configure global distribution using the [MongoDB API](mongodb-introduction.md)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## Verifying your regional setup using the MongoDB API
 The simplest way of double checking your global configuration within API for MongoDB is to run the *isMaster()* command from the Mongo Shell.
@@ -89,7 +89,7 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
 
 ## Next steps
 
@@ -102,4 +102,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
 > [!div class="nextstepaction"]
-> [Develop locally with the emulator](../documentdb/documentdb-nosql-local-emulator.md)
+> [Develop locally with the emulator](local-emulator.md)

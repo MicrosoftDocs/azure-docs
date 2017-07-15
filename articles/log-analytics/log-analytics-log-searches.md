@@ -3,7 +3,7 @@ title: Find data with log searches in Azure Log Analytics | Microsoft Docs
 description: Log searches allow you to combine and correlate any machine data from multiple sources within your environment.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
+ms.date: 07/07/2017
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -131,6 +131,24 @@ Similarly, this the following query return **% CPU Time** for the selected two c
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
 ```
 
+### Field types
+When creating filters, you should understand the differences in working with different types of fields returned by log searches.
+
+**Searchable fields** show in blue in search results.  You can use searchable fields in search conditions specific to the field such as the following:
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+**Free text searchable fields** are shown in grey in search results.  They cannot be used with search conditions specific to the field like searchable fields.  They are only searched when performing a query across all fields such as the following.
+
+```
+"Error"
+Type: Event "Exception"
+```
+
 
 ### Boolean operators
 With datetime and numeric fields, you can search for values using *greater than*, *lesser than*, and *lesser than or equal*. You can use simple operators such as >, < , >=, <= , != in the query search bar.
@@ -143,7 +161,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### To search using a boolean operator
-* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![search with boolean](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Although you can control the time interval graphically, and most times you might want to do that, there are advantages to including a time filter directly into the query. For example, this works great with dashboards where you can override the time for each tile, regardless of the *global* time selector on the dashboard page. For more information, see [Time Matters in Dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).

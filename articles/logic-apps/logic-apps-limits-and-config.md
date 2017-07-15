@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Logic App limits and configuration
@@ -96,6 +96,8 @@ These are limits for a single logic app definition.
 |Allowed action nesting depth|5|You can add nested workflows to extend this as needed|
 |Workflows per region per subscription|1000||
 |Triggers per workflow|10||
+|Switch scope cases limit|25||
+|Number of variables per workflow|250||
 |Max characters per expression|8,192||
 |Max `trackedProperties` size in characters|16,000|
 |`action`/`trigger` name limit|80||
@@ -112,7 +114,8 @@ These are limits for artifacts added to integration Account
 |Schema|8MB|You can use [blob URI](logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB |
 |Map (XSLT file)|2MB| |
 |Runtime endpoint read calls per 5 minutes |60,000|Can distribute workload across multiple accounts as needed|
-|Runtime endpoint invoke calls per 5 minutes |90,000|Can distribute workload across multiple accounts as needed|
+|Runtime endpoint invoke calls per 5 minutes |45,000|Can distribute workload across multiple accounts as needed|
+|Runtime endpoint tracking calls per 5 minutes |45,000|Can distribute workload across multiple accounts as needed|
 |Runtime endpoint blocking concurrent calls |~1,000|Decrease number of concurrent requests or reduce the duration as needed|
 
 ### B2B protocols (AS2, X12, EDIFACT) message size

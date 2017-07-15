@@ -1,9 +1,9 @@
 ---
-title: Automated SaaS App User Provisioning in Azure AD | Microsoft Docs
+title: Automated SaaS app user provisioning in Azure AD | Microsoft Docs
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
-ms.author: asmalser
+ms.date: 07/13/2017
+ms.author: curtand
 
 ---
-# Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory
-## What is Automated User Provisioning for SaaS Apps?
+# Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
+## What is automated user provisioning for SaaS apps?
 Azure Active Directory (Azure AD) allows you to automate the creation, maintenance, and removal of user identities in cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications such as Dropbox, Salesforce, ServiceNow, and more.
 
 **Below are some examples of what this feature allows you to do:**

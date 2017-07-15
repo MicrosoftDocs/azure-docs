@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -15,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Deploy password reset without requiring end-user registration

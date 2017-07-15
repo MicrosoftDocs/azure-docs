@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 07/07/2017
 ms.author: rajram
 
 ---
@@ -21,8 +21,6 @@ ms.author: rajram
 This article describes how to setup your auto scale setting for your resource in Azure portal.
 
 Azure Monitor auto scale applies only to Virtual Machine Scale Sets (VMSS), cloud services, app service plans and app service environments. 
-
-# Lets get started
 
 ## Discover the auto scale settings in your subscription(s)
 You can discover all the resources for which auto scale is applicable in Azure Monitor. Follow the steps listed below for a step-by-step walkthrough.
@@ -35,7 +33,7 @@ You can discover all the resources for which auto scale is applicable in Azure M
 
 You can use the filter pane at the top to scope down the list to select resources in a specific resource group, select specific resource types or select a specific resource.
 
-For each resource, you find find the current instance count as well as its autoscale status. The auto scale status can be
+For each resource, you will find the current instance count as well as its autoscale status. The auto scale status can be
 
 - Not configured: You have not enabled auto scale setting yet for this resource
 - Enabled: You have enabled auto scale setting for this resource
@@ -48,7 +46,7 @@ Lets now go through a simple step-by-step walkthrough to create your first autos
 - Open 'Autoscale' blade in Azure Monitor and select a resource you want to scale. (the steps below use an app service plan associated with a web app. You can [create your first ASP.NET web app in Azure in five minutes][4])
 - In the scale setting blade for the resource, notice that the current instance count is 1. Click on 'Enable autoscale'.
   ![Scale setting for new web app][5]
-- Provide a name for the scale setting, and the click on "Add a rule". Notice the scale rule options that opens as a context pane in the right hand side. By default, it sets the option to scale your instance count by 1 if the CPU percetage of the resource exceeds 70%. Leave it to its default values and click on Add.
+- Provide a name for the scale setting, and the click on "Add a rule". Notice the scale rule options that opens as a context pane in the right hand side. By default, it sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70%. Leave it to its default values and click on Add.
   ![Create scale setting for a web app][6]
 - You now created your first scale rule. Notice that the UX recommends best practices and states that 'It is recommended to have at least one scale in rule'. To do so, click on 'Add a rule' and set the 'Operator' to 'Less than', 'Threshold' to '20' and 'Operation' to 'Decrease count by'. You should now have a scale setting that scales out/scales in based on CPU usage.
   ![Scale based on cpu][8]
@@ -58,44 +56,44 @@ Congratulations. You now now succesfully created your first scale setting to aut
 
 > Note: The same steps are applicable to get started with a VMSS or cloud service role.
 
-# Other considerations
-## Scale based on a schedule
+## Other considerations
+### Scale based on a schedule
 In addition to scale based on CPU always, you can also set your scale differently on specific days of the week.
 
 - Click on 'Add a scale condition'
 - Setting the scale mode and the rules is the same as the default condition
 - Select 'Repeat specific days' for the schedule
-- Select the days, and the start/end time when the scale condition should be applied for the selected days.
+- Select the days, and the start/end time when the scale condition should be applied for the selected days
 
 ![Scale condition based on schedule][9]
-## Scale differently on specific dates
+### Scale differently on specific dates
 In addition to scale based on CPU always, you can also set your scale differently on specific dates.
 
 - Click on 'Add a scale condition'
 - Setting the scale mode and the rules is the same as the default condition
 - Select 'Specify start/end dates' for the schedule
-- Select the start/end dates, as well as the start/end time when the scale condition should be applied for the selected dates.
+- Select the start/end dates, as well as the start/end time when the scale condition should be applied for the selected dates
 
 ![Scale condition based on dates][10]
 
-## View the scale history of your resource
+### View the scale history of your resource
 Whenever your resource is scaled up/down, there is an event logged in activity log. You can view the scale history of your resource for the last 24 hours by switching to the 'Run history' tab.
 
 ![Run history][11]
 
 If you want to view the complete scale history (for upto 90 days), you can click on 'Click here to see more details'. This will launch the activity log with your resource and category as 'autoscale' pre-selected.
 
-## View the scale definition of the resource
+### View the scale definition of the resource
 Auto scale setting is an ARM resource. You can view the scale definition in JSON by switching to the 'JSON' tab.
 
 ![Scale definition][12]
 
 You can make changes in JSON directly, if required. These changes will get reflected on save.
 
-## Disable autoscale and manually scale your instances
+### Disable autoscale and manually scale your instances
 There might be times when you want to disbable your current scale setting and manually scale your resource.
 
-Click on the 'Disable autocale' button at the top.
+Click on the 'Disable autoscale' button at the top.
 ![Disable autoscale][13]
 
 Note that this option disables your configuration, and you can still get back to it once you enable auto scale again. You can now set the number of instances you want to scale to manually.
@@ -103,6 +101,10 @@ Note that this option disables your configuration, and you can still get back to
 ![Set manual scale][14]
 
 You can always get back to autscale by clicking on 'Enable autoscale' and then 'save'.
+
+## Next Steps
+- [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 <!--Reference-->
 [1]:https://portal.azure.com

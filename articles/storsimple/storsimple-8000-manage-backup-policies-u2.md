@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2017
+ms.date: 07/05/2017
 ms.author: alkohli
 
 ---
-# Use the StorSimple Device Manager service to manage backup policies (Update 2 or later)
+# Use the StorSimple Device Manager service in Azure portal to manage backup policies
 
 
 ## Overview
@@ -94,5 +94,5 @@ Perform the following steps in the Azure portal to create an on-demand (manual) 
 
 ## Next steps
 
-Learn more about [using the StorSimple Device Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+Learn more about [using the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 

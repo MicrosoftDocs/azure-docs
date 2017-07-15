@@ -13,46 +13,53 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 07/13/2017
 ms.author: eugenesh
 ---
 
 # Connecting Azure SQL Database to Azure Search using indexers
-Azure Search service is a hosted cloud search service that makes it easy to provide a great search experience. Before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) can automate the indexing process. This means you have less code to write and less infrastructure to care about.
 
-This article covers the mechanics of using indexers, but it also describes the features that are only available with Azure SQL databases (for example, integrated change tracking). Azure Search also supports other data sources, such as Azure Cosmos DB, blob storage, and table storage. If you would like to see support for additional data sources, provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
+Before you can query an [Azure Search index](search-what-is-an-index.md), you must populate it with your data. If the data lives in an Azure SQL database, an **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) can automate the indexing process, which means less code to write and less infrastructure to care about.
+
+This article covers the mechanics of using [indexers](search-indexer-overview.md), but also describes features only available with Azure SQL databases (for example, integrated change tracking). 
+
+In addition to Azure SQL databases, Azure Search provides indexers for [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), and [Azure table storage](search-howto-indexing-azure-tables.md). To request support for other data sources, provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## Indexers and data sources
-You can set up and configure an Azure SQL indexer using:
 
-* Import Data wizard in the [Azure portal](https://portal.azure.com)
-* Azure Search [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)
-* Azure Search [REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173)
+A **data source** specifies which data to index, credentials for data access, and policies that efficiently identify changes in the data (new, modified, or deleted rows). It's defined as an independent resource so that it can be used by multiple indexers.
 
-In this article, we'll use the REST API to show you how to create and manage **indexers** and **data sources**.
-
-A **data source** specifies which data to index, credentials needed to access the data, and policies that efficiently identify changes in the data (new, modified, or deleted rows). It's defined as an independent resource so that it can be used by multiple indexers.
-
-An **indexer** is a resource that connects data sources with target search indexes. An indexer is used in the following ways:
+An **indexer** is a resource that connects a single data source with a targeted search index. An indexer is used in the following ways:
 
 * Perform a one-time copy of the data to populate an index.
 * Update an index with changes in the data source on a schedule.
 * Run on-demand to update an index as needed.
 
-## When to Use Azure SQL Indexer
-Depending on several factors relating to your data, the use of Azure SQL indexer may or may not be appropriate. If your data fits the following requirements, you can use Azure SQL indexer:
+A single indexer can only consume one table or view, but you can create multiple indexers if you want to populate multiple search indexes. For more information on concepts, see [Indexer Operations: Typical workflow](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
 
-* All the data comes from a single table or view
-  * If the data is scattered across multiple tables, you can create a view and use that view with the indexer. However, if you use a view, you won’t be able to use SQL Server integrated change detection. For more information, see [this section](#CaptureChangedRows).
-* The data types used in the data source are supported by the indexer. Most but not all the SQL types are supported. For details, see [Mapping data types in Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105).
-* You don’t need near real-time updates to the index when a row changes.
-  * The indexer can re-index your table at most every 5 minutes. If your data changes frequently and the changes need to be reflected in the index within seconds or single minutes, we recommend using [Azure Search Index API](https://msdn.microsoft.com/library/azure/dn798930.aspx) directly.
-* If you have a large data set and plan to run the indexer on a schedule, your schema allows us to efficiently identify changed (and deleted, if applicable) rows. For more details, see "Capturing Changed and Deleted Rows" below.
-* The size of the indexed fields in a row doesn’t exceed the maximum size of an Azure Search indexing request, which is 16 MB.
+You can set up and configure an Azure SQL indexer using:
 
-## Create and Use an Azure SQL Indexer
-First, create the data source:
+* Import Data wizard in the [Azure portal](https://portal.azure.com)
+* Azure Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Search [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
 
+In this article, we'll use the REST API to create **indexers** and **data sources**.
+
+## When to use Azure SQL Indexer
+Depending on several factors relating to your data, the use of Azure SQL indexer may or may not be appropriate. If your data fits the following requirements, you can use Azure SQL indexer.
+
+| Criteria | Details |
+|----------|---------|
+| Data originates from a single table or view | If the data is scattered across multiple tables, you can create a single view of the data. However, if you use a view, you won’t be able to use SQL Server integrated change detection to refresh an index with incremental changes. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. |
+| Data types are compatible | Most but not all the SQL types are supported in an Azure Search index. For a list, see [Mapping data types](#TypeMapping). |
+| Real-time data synchronization is not required | An indexer can re-index your table at most every five minutes. If your data changes frequently, and the changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-import-data-dotnet.md) to push updated rows directly. |
+| Incremental indexing is possible | If you have a large data set and plan to run the indexer on a schedule, Azure Search must be able to efficiently identify new, changed, or deleted rows. Non-incremental indexing is only allowed if you're indexing on demand (not on schedule), or indexing fewer than 100,000 rows. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. |
+
+## Create an Azure SQL Indexer
+
+1. Create the data source:
+
+   ```
     POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -63,14 +70,15 @@ First, create the data source:
         "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
         "container" : { "name" : "name of the table or view that you want to index" }
     }
+   ```
 
+   You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
 
-You can get the connection string from the [Azure Classic Portal](https://portal.azure.com); use the `ADO.NET connection string` option.
+2. Create the target Azure Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure search data types](#TypeMapping).
 
-Then, create the target Azure Search index if you don’t have one already. You can create an index using the [portal UI](https://portal.azure.com) or the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure search data types](#TypeMapping).
+3. Create the indexer by giving it a name and referencing the data source and target index:
 
-Finally, create the indexer by giving it a name and referencing the data source and target index:
-
+    ```
     POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -80,15 +88,16 @@ Finally, create the indexer by giving it a name and referencing the data source 
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
+    ```
 
 An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
 
     POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
     api-key: admin-key
 
-You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
-You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) for instructions on how to do that.
+You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for instructions on how to do that.
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
 
@@ -166,20 +175,23 @@ You can add, change, or delete a schedule for an existing indexer by using a **P
 
 <a name="CaptureChangedRows"></a>
 
-## Capturing new, changed, and deleted rows
-If your table has many rows, you should use a data change detection policy. Change detection enables an efficient retrieval of only the new or changed rows without having to re-index the entire table.
+## Capture new, changed, and deleted rows
+
+Azure Search uses **incremental indexing** to avoid having to re-index the entire table or view every time an indexer runs. Azure Search provides two change detection policies to support incremental indexing. 
 
 ### SQL Integrated Change Tracking Policy
-If your SQL database supports [change tracking](https://msdn.microsoft.com/library/bb933875.aspx), we recommend using **SQL Integrated Change Tracking Policy**. This is the most efficient policy. In addition, it allows Azure Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.
+If your SQL database supports [change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), we recommend using **SQL Integrated Change Tracking Policy**. This is the most efficient policy. In addition, it allows Azure Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.
 
-Integrated change tracking is supported starting with the following SQL Server database versions:
+#### Requirements 
 
-* SQL Server 2008 R2 and later, if you're using SQL Server on Azure VMs.
-* Azure SQL Database V12, if you're using Azure SQL Database.
++ Database version requirements:
+  * SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs.
+  * Azure SQL Database V12, if you're using Azure SQL Database.
++ Tables only (no views). 
++ On the database, [enable change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table. 
++ No composite primary key (a primary key containing more than one column) on the table.  
 
-When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows.
-
-This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy. See [Enable and disable change tracking](https://msdn.microsoft.com/library/bb964713.aspx) for instructions.
+#### Usage
 
 To use this policy, create or update your data source like this:
 
@@ -193,18 +205,25 @@ To use this policy, create or update your data source like this:
       }
     }
 
+When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the SQL table. 
+
 <a name="HighWaterMarkPolicy"></a>
 
 ### High Water Mark Change Detection policy
-While the SQL Integrated Change Tracking policy is recommended, it can only be used with tables, not views. If you're using a view, consider using the high water mark policy. This policy can be used if your table or view contains a column that meets the following criteria:
+
+This change detection policy relies on a "high water mark" column capturing the version or time when a row was last updated. If you're using a view, you must use a high water mark policy. The high water mark column must meet the following requirements.
+
+#### Requirements 
 
 * All inserts specify a value for the column.
 * All updates to an item also change the value of the column.
 * The value of this column increases with each insert or update.
-* Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
+* Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
-> We strongly recommend using a **rowversion** column for change tracking. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query.
+> We strongly recommend using the [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query. When using **rowversion** in a configuration with read-only replicas, you must point the indexer at the primary replica. Only a primary replica can be used for data sync scenarios.
+
+#### Usage
 
 To use a high water mark policy, create or update your data source like this:
 
@@ -260,7 +279,7 @@ The **softDeleteMarkerValue** must be a string – use the string representation
 
 <a name="TypeMapping"></a>
 
-## Mapping between SQL Data Types and Azure Search data types
+## Mapping between SQL and Azure Search data types
 | SQL data type | Allowed target index field types | Notes |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
@@ -291,23 +310,46 @@ These settings are used in the `parameters.configuration` object in the indexer 
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## Frequently asked questions
-**Q:** Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?
+## FAQ
 
-A: Yes. However, you need to allow your search service to connect to your database. For more information, see [Configure a connection from an Azure Search indexer to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+**Q: Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?**
 
-**Q:** Can I use Azure SQL indexer with SQL databases running on-premises?
+Yes. However, you need to allow your search service to connect to your database. For more information, see [Configure a connection from an Azure Search indexer to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-A: We do not recommend or support this, as doing this would require you to open your databases to Internet traffic.
+**Q: Can I use Azure SQL indexer with SQL databases running on-premises?**
 
-**Q:** Can I use Azure SQL indexer with databases other than SQL Server running in IaaS on Azure?
+Not directly. We do not recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Search index using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-A: We don’t support this scenario, because we haven’t tested the indexer with any databases other than SQL Server.  
+**Q: Can I use Azure SQL indexer with databases other than SQL Server running in IaaS on Azure?**
 
-**Q:** Can I create multiple indexers running on a schedule?
+No. We don’t support this scenario, because we haven’t tested the indexer with any databases other than SQL Server.  
 
-A: Yes. However, only one indexer can be running on one node at one time. If you need multiple indexers running concurrently, consider scaling up your search service to more than one search unit.
+**Q: Can I create multiple indexers running on a schedule?**
 
-**Q:** Does running an indexer affect my query workload?
+Yes. However, only one indexer can be running on one node at one time. If you need multiple indexers running concurrently, consider scaling up your search service to more than one search unit.
 
-A: Yes. Indexer runs on one of the nodes in your search service, and that node’s resources are shared between indexing and serving query traffic and other API requests. If you run intensive indexing and query workloads and encounter a high rate of 503 errors or increasing response times, consider scaling up your search service.
+**Q: Does running an indexer affect my query workload?**
+
+Yes. Indexer runs on one of the nodes in your search service, and that node’s resources are shared between indexing and serving query traffic and other API requests. If you run intensive indexing and query workloads and encounter a high rate of 503 errors or increasing response times, consider [scaling up your search service](search-capacity-planning.md).
+
+**Q: Can I use a secondary replica in a [failover cluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) as a data source?**
+
+It depends. For full indexing of a table or view, you can use a secondary replica. 
+
+For incremental indexing, Azure Search supports two change detection policies: SQL integrated change tracking and High Water Mark.
+
+On read-only replicas, SQL database does not support integrated change tracking. Therefore, you must use High Water Mark policy. 
+
+Our standard recommendation is to use the rowversion data type for the high water mark column. However, using rowversion relies on SQL Database's `MIN_ACTIVE_ROWVERSION` function, which is not supported on read-only replicas. Therefore, you must point the indexer to a primary replica if you are using rowversion.
+
+If you attempt to use rowversion on a read-only replica, you will see the following error: 
+
+    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+
+**Q: Can I use an alternative, non-rowversion column for high water mark change tracking?**
+
+It's not recommended. Only **rowversion** allows for reliable data synchronization. However, depending on your application logic, it may be safe if:
+
++ You can ensure that when the indexer runs, there are no outstanding transactions on the table that’s being indexed (for example, all table updates happen as a batch on a schedule, and the Azure Search indexer schedule is set to avoid overlapping with the table update schedule).  
+
++ You periodically do a full reindex to pick up any missed rows. 

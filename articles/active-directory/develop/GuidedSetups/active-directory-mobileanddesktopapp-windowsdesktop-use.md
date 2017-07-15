@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 
 ---
 
@@ -58,10 +59,7 @@ public partial class MainWindow : Window
 
         try
         {
-            if (authResult == null)
-            {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
-            }
+            authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
         }
         catch (MsalUiRequiredException ex)
         {

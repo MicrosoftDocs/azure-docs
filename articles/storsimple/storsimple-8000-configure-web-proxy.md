@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 04/19/2017
 ms.author: alkohli
 
 ---
@@ -23,19 +23,22 @@ ms.author: alkohli
 
 This tutorial describes how to use Windows PowerShell for StorSimple to configure and view web proxy settings for your StorSimple device. The web proxy settings are used by the StorSimple device when communicating with the cloud. A web proxy server is used to add another layer of security, filter content, cache to ease bandwidth requirements or even help with analytics.
 
-Web proxy is an optional configuration for your StorSimple device. You can configure web proxy only via Windows PowerShell for StorSimple. The configuration is a two-step process as follows:
+The guidance in this tutorial applies only to StorSimple 8000 series physical devices. Web proxy configuration is not supported on the StorSimple Cloud Appliance (8010 and 8020).
+
+Web proxy is an _optional_ configuration for your StorSimple device. You can configure web proxy only via Windows PowerShell for StorSimple. The configuration is a two-step process as follows:
 
 1. You first configure web proxy settings through the setup wizard or Windows PowerShell for StorSimple cmdlets.
 2. You then enable the configured web proxy settings via Windows PowerShell for StorSimple cmdlets.
 
-After the web proxy configuration is complete, you can view the configured web proxy settings in both the Microsoft Azure StorSimple Device Manager service and the Windows PowerShell for StorSimple. 
+After the web proxy configuration is complete, you can view the configured web proxy settings in both the Microsoft Azure StorSimple Device Manager service and the Windows PowerShell for StorSimple.
 
 After reading this tutorial, you will be able to:
 
-* Configure web proxy by using setup wizard and cmdlets
-* Enable web proxy by using cmdlets
-* View web proxy settings in the Azure portal
-* Troubleshoot errors during web proxy configuration
+* Configure web proxy by using setup wizard and cmdlets.
+* Enable web proxy by using cmdlets.
+* View web proxy settings in the Azure portal.
+* Troubleshoot errors during web proxy configuration.
+
 
 ## Configure web proxy via Windows PowerShell for StorSimple
 
@@ -135,7 +138,7 @@ If the web proxy settings are configured incorrectly, error messages are display
 | Serial no. | HRESULT error Code | Possible root cause | Recommended action |
 |:--- |:--- |:--- |:--- |
 | 1. |0x80070001 |Command is run from the passive controller and it is not able to communicate with the active controller. |Run the command on the active controller. To run the command from the passive controller, you must fix the connectivity from passive to active controller. You must engage Microsoft Support if this connectivity is broken. |
-| 2. |0x800710dd - The operation identifier is not valid |Proxy settings are not supported on StorSimple virtual device. |Proxy settings are not supported on StorSimple virtual device. These can only be configured on a StorSimple physical device. |
+| 2. |0x800710dd - The operation identifier is not valid |Proxy settings are not supported on StorSimple Cloud Appliance. |Proxy settings are not supported on StorSimple Cloud Appliance. These can only be configured on a StorSimple physical device. |
 | 3. |0x80070057 - Invalid parameter |One of the parameters provided for the proxy settings is not valid. |The URI is not provided in correct format. Use the following format: `http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
 | 4. |0x800706ba - RPC server not available |The root cause is one of the following:</br></br>Cluster is not up. </br></br>Datapath service is not running.</br></br>The command is run from passive controller and it is not able to communicate with the active controller. |Engage Microsoft Support to ensure that the cluster is up and datapath service is running.</br></br>Run the command from the active controller. If you want to run the command from the passive controller, you must ensure that the passive controller can communicate with the active controller. You must engage Microsoft Support if this connectivity is broken. |
 | 5. |0x800706be - RPC call failed |Cluster is down. |Engage Microsoft Support to ensure that the cluster is up. |
@@ -143,7 +146,7 @@ If the web proxy settings are configured incorrectly, error messages are display
 | 7. |0x8007138c - Cluster resource not online |Platform or datapath cluster resources are not online. |Contact Microsoft Support to help ensure that the datapath and platform service resource are online. |
 
 > [!NOTE]
-> * The above list of error messages is not exhaustive. 
+> * The above list of error messages is not exhaustive.
 > * Errors related to web proxy settings will not be displayed in the Azure portal in your StorSimple Device Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the classic portal.|
 
 ## Next Steps

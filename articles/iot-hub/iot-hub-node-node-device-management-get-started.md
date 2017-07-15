@@ -18,24 +18,14 @@ ms.author: juanpere
 
 ---
 # Get started with device management (Node)
-## Introduction
-IoT cloud applications can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices. This article provides guidance and code for how an IoT cloud application and a device work together to initiate and monitor a remote device reboot using IoT Hub.
 
-To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use Azure IoT Hub primitives such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you to initiate and monitor a remote device reboot from IoT Hub.
-
-You use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
-
-* Handling the method request sent from IoT Hub.
-* Initiating the corresponding device-specific action on the device.
-* Providing status updates through the reported properties to IoT Hub.
-
-You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
+[!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
 * Create a simulated device app that contains a direct method that reboots that device. Direct methods are invoked from the cloud.
-* Create a .NET console app that calls the reboot direct method in the simulated device app through your IoT hub.
+* Create a Node.js console app that calls the reboot direct method in the simulated device app through your IoT hub.
 
 At the end of this tutorial, you have two Node.js console apps:
 
@@ -143,7 +133,7 @@ In this section, you will
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
 
 ## Trigger a remote reboot on the device using a direct method
-In this section, you create a .NET console app (using C#) that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+In this section, you create a Node.js console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
 1. Create an empty folder called **triggerrebootondevice**.  In the **triggerrebootondevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
    
@@ -237,22 +227,7 @@ You are now ready to run the apps.
     ```
 3. You see the device response to the direct method in the console.
 
-## Customize and extend the device management actions
-Your IoT solutions can expand the defined set of device management patterns or enable custom patterns by using the device twin and cloud-to-device method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
-
-## Device maintenance windows
-Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime.  Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
-
-## Next steps
-In this tutorial, you used a direct method to trigger a remote reboot on a device. You used the reported properties to report the last reboot time from the device, and queried the device twin to discover the last reboot time of the device from the cloud.
-
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
-
-[Tutorial: How to do a firmware update][lnk-fwupdate]
-
-To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
-
-To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge][lnk-gateway-SDK].
+[!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
@@ -261,12 +236,9 @@ To continue getting started with IoT Hub, see [Getting started with Azure IoT Ed
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

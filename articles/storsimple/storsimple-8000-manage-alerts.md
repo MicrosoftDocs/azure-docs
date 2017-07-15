@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2017
+ms.date: 05/31/2017
 ms.author: alkohli
 
 ---
@@ -57,37 +57,41 @@ After you enable email notification for a device, members of the notification li
 #### To enable email notification of alerts for a device
 1. Go to your StorSimple Device Manager service. From the list of devices, select and click the device that you wish to configure.
 2. Go to **Settings** > **General** for the device.
+
+   ![Alerts blade](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
+   
 2. In the **General settings** blade, go to **Alert settings** and set the following:
    
    1. In the **Send email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** to have the service administrator and all co-administrators receive the alert notifications.
    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
       
-       ![Alerts notification configuration](./media/storsimple-manage-alerts/AlertNotify.png)
+3. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
 
-3. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification. 
-4. When the following message appears, click **OK**. 
+    ![Alert settings](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+
+4. You see a notification when the test email is sent. 
    
-    ![Alerts test notification email sent](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
+    ![Alerts test notification email sent](./media/storsimple-8000-manage-alerts/configure-alerts-email4.png)
    
    > [!NOTE]
-   > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
+   > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate error message. Wait a few minutes,and then try to send your test notification message again. 
 
 5. Once you have completed the configuration, click **Save**. When prompted for confirmation, click **Yes**.
+
+     ![Alerts test notification email sent](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## View and track alerts
 
 The StorSimple Device Manager service summary blade provides you with a quick glance at the number of alerts on your devices, arranged by severity level.
 
-![Alerts dashboard](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
+![Alerts dashboard](./media/storsimple-8000-manage-alerts/device-summary4.png)
 
 Clicking the severity level opens the **Alerts** blade. The results include only the alerts that match that severity level.
 
-![Alerts report scoped to alert type](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
-
 Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert. If it is a hardware alert, it will also identify the hardware component.
 
-![Hardware alert example](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
+![Hardware alert example](./media/storsimple-8000-manage-alerts/configure-alerts-email14.png)
 
 You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** blade and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 

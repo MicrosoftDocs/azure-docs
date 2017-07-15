@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 04/04/2017
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to monitor hardware components and status
 ## Overview
-This article describes the various physical and logical components in your on-premises StorSimple 8000 series device. It also explains how to monitor the device component status by using the **Status and hardware health** blade in the StorSimple Device Manager service. 
+This article describes the various physical and logical components in your on-premises StorSimple 8000 series device. It also explains how to monitor the device component status by using the **Status and hardware health** blade in the StorSimple Device Manager service.
 
-The **Status and hardware health** blade shows the hardware status of all the StorSimple device components. 
+The **Status and hardware health** blade shows the hardware status of all the StorSimple device components.
 
 Under the list of components for 8100, there are three sections that describe:
 
@@ -31,9 +31,9 @@ Under the list of components for 8100, there are three sections that describe:
 
 An 8600 device has additional components that correspond to the Extended Bunch of Disks (EBOD) enclosure. Under the list of components, there are five sections. Of these, there are three sections that contain the components in the primary enclosure and are identical to the ones described for 8100. There are two additional sections for the EBOD enclosure that describe:
 
-* **EBOD enclosure Shared Components** – The components present in the EBOD enclosure and PCM that are not part of the EBOD controller.
 * **EBOD Controller 0 Components** – The components that reside on EBOD enclosure 0, such as the EBOD controller, SAS expander and connector, and controller temperature sensors.
 * **EBOD Controller 1 Components** – The components that constitute EBOD enclosure 1, similar to those detailed for EBOD enclosure 0.
+* **EBOD enclosure Shared Components** – The components present in the EBOD enclosure and PCM that are not part of the EBOD controller.
 
 > [!NOTE]
 > **The hardware status is not available for a StorSimple Cloud Appliance (8010/8020).**
@@ -42,7 +42,7 @@ An 8600 device has additional components that correspond to the Extended Bunch o
 ## Monitor the hardware status
 Perform the following steps to view the hardware status of a device component:
 
-1. Navigate to **Devices**, select a specific StorSimple device. Go to **Monitor > Hardware health**. 
+1. Navigate to **Devices**, select a specific StorSimple device. Go to **Monitor > Hardware health**.
 
     ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
@@ -140,8 +140,7 @@ The following table outlines the physical and logical components contained in th
 
 ## Next steps
 * To use the StorSimple Device Manager service to administer your device, go to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
-* If you need to troubleshoot a device component that has a degraded or failed status, refer to 
-  [StorSimple monitoring indicators](storsimple-monitoring-indicators.md). 
+* If you need to troubleshoot a device component that has a degraded or failed status, refer to [StorSimple monitoring indicators](storsimple-monitoring-indicators.md).
 * To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 * If you continue to experience device issues, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 

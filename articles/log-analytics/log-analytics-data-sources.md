@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
 
 ---
@@ -41,10 +41,13 @@ You configure data sources from the **Data** menu in Log Analytics **Settings**.
 
 ![Configure Windows events](./media/log-analytics-data-sources/configure-events.png)
 
-1. In the OMS console select the **Settings** tile.
+1. In the OMS console click the **Settings** tile or the **Settings** button at the top of the screen.
 2. Select **Data**.
 3. Click on the data source to configure.
 4. Follow the link to the documentation for each data source in the above table for details on their configuration.
+
+> [!NOTE]
+> You cannot currently configure Log Analytics data sources in the Azure portal.
 
 ## Data collection
 Data source configurations are delivered to agents that are directly connected to Log Analytics within a few minutes.  The specified data is collected from the agent and delivered directly to Log Analytics at intervals specific to each data source.  See the documentation for each data source for these specifics.

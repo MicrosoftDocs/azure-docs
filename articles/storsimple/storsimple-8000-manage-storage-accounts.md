@@ -4,7 +4,7 @@ description: Explains how you can use the StorSimple Device Manager Configure pa
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager:timlt
+manager: timlt
 editor: ''
 
 ms.assetid: 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2017
+ms.date: 06/29/2017
 ms.author: alkohli
+
 ---
 
 # Use the StorSimple Device Manager service to manage your storage account credentials
@@ -50,7 +51,7 @@ The most common tasks related to storage accounts that can be performed are:
 
 There are three types of storage accounts that can be used with your StorSimple device.
 
-* **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Step 1: Create a new service](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
+* **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Step 1: Create a new service](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [Deploy your on-premises StorSimple device](storsimple-8000-deployment-walkthrough-u2.md). 
 * **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md). 
 * **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
 
@@ -173,6 +174,6 @@ You will be notified after the key is successfully sycnhronized.
    3. Save your changes. Your storage account access key should now be updated.
 
 ## Next steps
-* Learn more about [StorSimple security](storsimple-security.md).
-* Learn more about [using the StorSimple Device Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+* Learn more about [StorSimple security](storsimple-8000-security.md).
+* Learn more about [using the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 

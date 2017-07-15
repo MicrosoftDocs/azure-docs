@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2017
+ms.date: 07/07/2017
 ms.author: alkohli
 
 ---
@@ -23,7 +23,7 @@ ms.author: alkohli
 
 This tutorial explains how to install Update 4 on a StorSimple device running an earlier software version via the Azure portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 4 includes device software, USM firmware, LSI driver and firmware, Storport and Spaceport, OS security updates, and a host of other OS updates.  The device software, USM firmware, Spaceport, Storport, and other OS updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure portal or via the hotfix method. The disk firmware updates are disruptive updates and can only be applied via the hotfix method using the Windows PowerShell interface of the device. 
+Update 4 includes device software, USM firmware, LSI driver and firmware, Storport and Spaceport, OS security updates, and a host of other OS updates.  The device software, USM firmware, Spaceport, Storport, and other OS updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure portal or via the hotfix method. The disk firmware updates are disruptive updates and can only be applied via the hotfix method using the Windows PowerShell interface of the device.
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure  portal.
@@ -37,15 +37,15 @@ Update 4 includes device software, USM firmware, LSI driver and firmware, Storpo
 Perform the following steps to update your device to [Update 4](storsimple-update4-release-notes.md).
 
 > [!NOTE]
-> If you are applying Update 2 or later (including Update 2.1), Microsoft will be able to pull additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. By accepting Update 2 or later, you allow us to provide this proactive support. 
+> Microsoft pulls additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. 
 
-[!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
+[!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Verify that your device is running **StorSimple 8000 Series Update 4 (6.3.9600.17820)**. The **Last updated date** should also be modified. 
+Verify that your device is running **StorSimple 8000 Series Update 4 (6.3.9600.17820)**. The **Last updated date** should also be modified.
 
-* You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. 
- 
-* Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB4011837, which installs disk firmware updates (the other updates should already be installed by now). Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates. 
+* You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
+
+* Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB4011837, which installs disk firmware updates (the other updates should already be installed by now). Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
 
 ## Install Update 4 as a hotfix
 The recommended method to install Update 4 is via the Azure portal.
@@ -57,7 +57,7 @@ The software versions that can be upgraded using the hotfix method are:
 * Update 0.1, 0.2, 0.3
 * Update 1, 1.1, 1.2
 * Update 2, 2.1, 2.2
-* Update 3, 3.1 
+* Update 3, 3.1
 
 
 The hotfix method involves the following three steps:

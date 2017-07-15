@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: cynthn
-
+ms.custom: mvc
 ---
 
 # How to use availability sets

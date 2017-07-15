@@ -1,5 +1,5 @@
 ---
-title: Manage StorSimple volumes (Update 2) | Microsoft Docs
+title: Manage StorSimple volumes (Update 3) | Microsoft Docs
 description: Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary.
 services: storsimple
 documentationcenter: NA
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2017
+ms.date: 07/04/2017
 ms.author: alkohli
 
 ---
-# Use the StorSimple Device Manager service to manage volumes (Update 2 or later)
+# Use the StorSimple Device Manager service to manage volumes (Update 3 or later)
 
 ## Overview
 
-This tutorial explains how to use the StorSimple Device Manager service to create and manage volumes on the StorSimple 8000 series devices running Update 2 and later.
+This tutorial explains how to use the StorSimple Device Manager service to create and manage volumes on the StorSimple 8000 series devices running Update 3 and later.
 
 The StorSimple Device Manager service is an extension in the Azure portal that lets you manage your StorSimple solution from a single web interface. Use the Azure portal to manage volumes on all your devices. You can also create and manage StorSimple services, manage devices, backup policies, and backup catalog, and view alerts.
 
@@ -32,7 +32,7 @@ StorSimple volumes can be:
 * **Locally pinned volumes**: Data in these volumes remains on the local StorSimple device at all times.
 * **Tiered volumes**: Data in these volumes can spill to the cloud.
 
-An archival volume is a type of tiered volume. The larger deduplication chunk size used for archival volumes allows the device to transfer larger segments of data to the cloud. 
+An archival volume is a type of tiered volume. The larger deduplication chunk size used for archival volumes allows the device to transfer larger segments of data to the cloud.
 
 If necessary, you can change the volume type from local to tiered or from tiered to local. For more information, go to [Change the volume type](#change-the-volume-type).
 
@@ -42,16 +42,13 @@ Locally pinned volumes are fully provisioned volumes that do not tier data to th
 
 Locally pinned volumes are fully provisioned; therefore, you must have sufficient space on your device when you create them. You can provision locally pinned volumes up to a maximum size of 8 TB on the StorSimple 8100 device and 20 TB on the 8600 device. StorSimple reserves the remaining local space on the device for snapshots, metadata, and data processing. You can increase the size of a locally pinned volume to the maximum space available, but you cannot decrease the size of a volume once created.
 
-When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above. For more information on local volumes, refer to the [frequently asked questions on locally pinned volumes](storsimple-local-volume-faq.md).   
+When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above. For more information on local volumes, refer to the [frequently asked questions on locally pinned volumes](storsimple-8000-local-volume-faq.md).
 
 ### Tiered volumes
 
 Tiered volumes are thinly provisioned volumes in which the frequently accessed data stays local on the device and less frequently used data is automatically tiered to the cloud. Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because StorSimple can increase or decrease cloud storage to meet changing demands.
 
 If you are using the tiered volume for archival data, select the **Use this volume for less frequently accessed archival data** check box to change the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
-
-> [!NOTE]
-> Archival volumes created with a pre-Update 2 version of StorSimple will be imported as tiered with the archival check box selected.
 
 
 ### Provisioned capacity
@@ -101,19 +98,19 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
 
 2. In the **Add a volume** blade:
    
-   1. The **Select device** field is automatically populated with your current device.
+    1. The **Select device** field is automatically populated with your current device.
 
-   2. From the drop-down list, select the volume container where you need to add a volume. 
+    2. From the drop-down list, select the volume container where you need to add a volume.
 
-   3.  Type a **Name** for your volume.
+    3.  Type a **Name** for your volume.
 
-   4. On the drop-down list, select the **Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**.
+    4. On the drop-down list, select the **Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**.
       
        A tiered volume is thinly provisioned and can be created quickly. Selecting **Use this volume for less frequently accessed archival data** for tiered volume targeted for archival data changes the deduplication chunk size for your volume to 512 KB. If this field is not checked, the corresponding tiered volume uses a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
        
        A locally pinned volume is thickly provisioned and ensures that the primary data on the volume stays local to the device and does not spill to the cloud.  If you create a locally pinned volume, the device checks for available space on the local tiers to provision the volume of the requested size. The operation of creating a locally pinned volume may involve spilling existing data from the device to the cloud and the time taken to create the volume may be long. The total time depends on the size of the provisioned volume, available network bandwidth, and the data on your device.
 
-   5. Specify the **Provisioned Capacity** for your volume. Make a note of the capacity that is available based on the volume type selected. The specified volume size must not exceed the available space.
+    5. Specify the **Provisioned Capacity** for your volume. Make a note of the capacity that is available based on the volume type selected. The specified volume size must not exceed the available space.
       
        You can provision locally pinned volumes up to 8.5 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 22.5 TB or tiered volumes up to 500 TB. As local space on the device is required to host the working set of tiered volumes, creation of locally pinned volumes impacts the space available for provisioning tiered volumes. Therefore, if you create a locally pinned volume, space available for creation of tiered volumes is reduced. Similarly, if a tiered volume is created, the available space for creation of locally pinned volumes is reduced.
       
@@ -123,13 +120,7 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
 
         ![Connected hosts](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
 
-    7. In the **Connected hosts** blade, choose an existing ACR or add a new ACR by performing the following steps:
-
-       1. Supply a **Name** for your ACR.
-       2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-
-
-    8. Click **Create**. A volume is created with the specified settings.
+    7. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host). Click **Create**. A volume is created with the specified settings.
 
         ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
@@ -143,9 +134,8 @@ Your new volume is now ready to use.
 Modify a volume when you need to expand it or change the hosts that access the volume.
 
 > [!IMPORTANT]
-> * If you modify the volume size on the device, the volume size needs to be changed on the host as well. 
-> * The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
- 
+> * If you modify the volume size on the device, the volume size needs to be changed on the host as well.
+> * The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system.
 
 #### To modify a volume
 
@@ -157,7 +147,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
     ![Select and take volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol4.png)
 
-3. In the **Take offline** blade, review the impact of taking the volume offline and select the corresponding checkbox. Ensure that the corresponding volume on the host is offline first. For information on how to take a volume offline on your host server connected to StorSimple, refer to operating system specific instructions. Click **Take offline**. 
+3. In the **Take offline** blade, review the impact of taking the volume offline and select the corresponding checkbox. Ensure that the corresponding volume on the host is offline first. For information on how to take a volume offline on your host server connected to StorSimple, refer to operating system specific instructions. Click **Take offline**.
 
     ![Review impact of taking volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 
@@ -192,7 +182,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
 ## Change the volume type
 
-You can change the volume type from tiered to locally pinned or from locally pinned to tiered. However, this conversion should not be a frequent occurrence. 
+You can change the volume type from tiered to locally pinned or from locally pinned to tiered. However, this conversion should not be a frequent occurrence.
 
 ### Tiered to local volume conversion considerations
 
@@ -226,7 +216,7 @@ If you are converting multiple volumes (supporting different workloads), then yo
 You may want to change a locally pinned volume to a tiered volume if you need additional space to provision other volumes. When you convert the locally pinned volume to tiered, the available capacity on the device increases by the size of the released capacity. If connectivity issues prevent the conversion of a volume from the local type to the tiered type, the local volume will exhibit properties of a tiered volume until the conversion is complete. This is because some data might have spilled to the cloud. This spilled data continues to occupy local space on the device that cannot be freed until the operation is restarted and completed.
 
 > [!NOTE]
-> Converting a volume can take some time and you cannot cancel a conversion after it starts. The volume remains online during the conversion, and you can take backups, but you cannot expand or restore the volume while the conversion is taking place.  
+> Converting a volume can take some time and you cannot cancel a conversion after it starts. The volume remains online during the conversion, and you can take backups, but you cannot expand or restore the volume while the conversion is taking place.
 
 
 #### To change the volume type
@@ -257,7 +247,7 @@ You may want to change a locally pinned volume to a tiered volume if you need ad
 
 ## Take a volume offline
 
-You may need to take a volume offline when you are planning to modify or delete the volume. When a volume is offline, it is not available for read-write access. You must take the volume offline on the host and the device. 
+You may need to take a volume offline when you are planning to modify or delete the volume. When a volume is offline, it is not available for read-write access. You must take the volume offline on the host and the device.
 
 #### To take a volume offline
 
@@ -282,7 +272,7 @@ You may need to take a volume offline when you are planning to modify or delete 
 4. After a volume is offline, if you select the volume and right-click, **Bring Online** option becomes available in the context menu.
 
 > [!NOTE]
-> The **Take Offline** command sends a request to the device to take the volume offline. If hosts are still using the volume, this results in broken connections, but taking the volume offline will not fail. 
+> The **Take Offline** command sends a request to the device to take the volume offline. If hosts are still using the volume, this results in broken connections, but taking the volume offline will not fail.
 
 ## Delete a volume
 
@@ -295,7 +285,7 @@ Complete the following steps to delete a volume.
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-        ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first. Follow the steps in [Take a volume offline](#take-a-volume-offline).
 4. After the volume is offline, select the volume, right-click to invoke the context menu and then select **Delete**.
@@ -338,5 +328,5 @@ Perform the following steps to enable or disable monitoring for a volume.
 ## Next steps
 
 * Learn how to [clone a StorSimple volume](storsimple-8000-clone-volume-u2.md).
-* Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+* Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 

@@ -3,8 +3,8 @@ title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # System performance counters in Application Insights
@@ -24,15 +24,6 @@ Performance counters appear in the Servers blade, which includes a table that se
 ![Performance counters reported in Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
 (Performance counters aren't available for Azure Web Apps. But you can [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
-
-## Configure
-If Application Insights Status Monitor isn't yet installed on your server machines, you need to install it to see performance counters.
-
-Download and run [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648) on each server instance. If it's already installed, you don't need to install it again.
-
-* *I [installed the Application Insights SDK in my app](app-insights-asp-net.md) during development. Do I still need Status Monitor?*
-  
-    Yes, Status Monitor is required to collect performance counters for ASP.NET web apps. As you might already know, Status Monitor can also be used to [monitor web apps that are already live](app-insights-monitor-performance-live-website-now.md), without installing the SDK during development.
 
 ## View counters
 The Servers blade shows a default set of performance counters. 

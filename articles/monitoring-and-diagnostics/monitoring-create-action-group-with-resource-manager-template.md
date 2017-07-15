@@ -53,7 +53,7 @@ To create an action group using a Resource Manager template, you create a resour
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-03-01-preview",
+      "apiVersion": "2017-04-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -136,7 +136,7 @@ To create an action group using a Resource Manager template, you create a resour
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-03-01-preview",
+      "apiVersion": "2017-04-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

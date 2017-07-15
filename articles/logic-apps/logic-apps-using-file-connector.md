@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2017
-ms.author: deli; LADocs
+ms.author: LADocs; deli
 ---
 
 # Connect to on-premises file systems from logic apps with the File System connector

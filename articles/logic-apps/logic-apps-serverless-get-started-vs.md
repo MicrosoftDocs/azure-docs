@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 ---
 # Build a serverless app in Visual Studio with Logic Apps and Functions
 
@@ -29,7 +29,7 @@ Here are the prerequisites needed to build a serverless application from Visual 
 * [Logic Apps Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
 * [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
-* [Azure Functions CLI](https://www.npmjs.com/package/azure-functions-cli) to debug Functions locally
+* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) to debug Functions locally
 * Access to the web when using the embedded Logic App designer
 
 ## Getting started with a deployment template

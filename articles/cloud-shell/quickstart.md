@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/10/2017
 ms.author: juluk
 ---
 
-# Quickstart
+# Quickstart for using the Azure Cloud Shell
+
 This document details how to use the Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
 ## Start Cloud Shell
@@ -37,7 +38,7 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 `az account set --subscription my-subscription-name`
 
 > [!TIP]
-> Your subscription will be remembered for future sessions using `azureProfile.json` held in your $Home directory.
+> Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
 
 ### Create a resource group
 Create a new resouce group in WestUS named "MyRG": <br>
@@ -66,6 +67,6 @@ Delete your resource group and any resources within it: <br>
 Run `az group delete -n MyRG`
 
 ## Next Steps
-[Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) 
-[Learn about Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/) 
-[Learn about Azure File Storage] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
+[Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) <br>
+[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure File storage](../storage/storage-files-introduction.md) <br>
