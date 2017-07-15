@@ -32,7 +32,7 @@ Adding your content to the [Azure Stack Marketplace](azure-stack-marketplace.md)
  - Publishing to the marketplace requires icons and a thumbnail file.  You can use your own, or save the [sample](azure-stack-marketplace-publisher.md#support-files) files locally for this example.
 
 ## Download the tool
-The Marketplace Toolkit can be [downloaded from the the Azure Stack Tools repo](azure-stack-powershell-download.md).
+The Marketplace Toolkit can be [downloaded from the Azure Stack Tools repo](azure-stack-powershell-download.md).
 
 
 ##  Create marketplace items
