@@ -200,7 +200,7 @@ Before you can deploy a template, make sure that you have access to an [Active D
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
 
 3. Save the azureauth.properties file.
-4. Use PowerShell to set an environment variable named AZURE_AUTH_LOCATION with the full path to the file, for example:
+4. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created, for example the following PowerShell command can be used:
 
     ```
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -235,20 +235,16 @@ Before you can deploy a template, make sure that you have access to an [Active D
 
 ## Create a resource group
 
-1. To specify values for the application, add variables to the Main method:
+To specify values for the application, add code to the Main method:
 
-    ```
-    var groupName = "myResourceGroup";
-    var location = Region.USWest;
-    ```
+```
+var groupName = "myResourceGroup";
+var location = Region.USWest;
 
-2. To create the resource group, add this code to the Main method:
-
-    ```
-    var resourceGroup = azure.ResourceGroups.Define(groupName)
-        .WithRegion(location)
-        .Create();
-    ```
+var resourceGroup = azure.ResourceGroups.Define(groupName)
+    .WithRegion(location)
+    .Create();
+```
 
 ## Create a storage account
 
@@ -315,9 +311,9 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 To delete the resource group, add this code to the Main method:
 
-   ```
-   azure.ResourceGroups.DeleteByName(groupName);
-   ```
+```
+azure.ResourceGroups.DeleteByName(groupName);
+```
 
 ## Run the application
 

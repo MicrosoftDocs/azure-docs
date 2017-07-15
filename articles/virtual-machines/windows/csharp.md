@@ -54,14 +54,10 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
-1. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to the file, for example the following PowerShell command can be used:
+### Create the authorization file
 
-    ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
-    ```
-
-2. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *azureauth.properties*, and then click **Add**.
-3. Add these authorization properties:
+1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *azureauth.properties*, and then click **Add**.
+2. Add these authorization properties:
 
     ```
     subscription=<subscription-id>
@@ -76,9 +72,16 @@ Before you start this step, make sure that you have access to an [Active Directo
 
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
 
-4. Save the azureauth.properties file. 
+3. Save the azureauth.properties file. 
+4. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created. For example, the following PowerShell command can be used:
 
-5. Open the Program.cs file for the project that you created, and then add these using statements to the existing statements at top of the file:
+    ```
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    ```
+
+### Create the management client
+
+1. Open the Program.cs file for the project that you created, and then add these using statements to the existing statements at top of the file:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -103,7 +106,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 ## Create resources
 
-### Create the VM and supporting resources
+### Create the resource group
 
 All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
 
@@ -119,6 +122,8 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
+### Create the availability set
+
 [Availability sets](tutorial-availability-sets.md) make it easier for you to maintain the virtual machines used by your application.
 
 To create the availability set, add this code to the Main method:
@@ -131,6 +136,8 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
     .WithSku(AvailabilitySetSkuTypes.Managed)
     .Create();
 ```
+
+### Create the public IP address
 
 A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
 
@@ -145,6 +152,8 @@ var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
     .Create();
 ```
 
+### Create the virtual network
+
 A virtual machine must be in a subnet of a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
 To create a subnet and a virtual network, add this code to the Main method:
@@ -158,6 +167,8 @@ var network = azure.Networks.Define("myVNet")
     .WithSubnet("mySubnet", "10.0.0.0/24")
     .Create();
 ```
+
+### Create the network interface
 
 A virtual machine needs a network interface to communicate on the virtual network.
 
@@ -174,6 +185,8 @@ var networkInterface = azure.NetworkInterfaces.Define("myNIC")
     .WithExistingPrimaryPublicIPAddress(publicIPAddress)
     .Create();
  ```
+
+### Create the virtual machine
 
 Now that you created all the supporting resources, you can create a virtual machine.
 
@@ -245,11 +258,11 @@ foreach (InstanceViewStatus stat in vm.InstanceView.VmAgent.Statuses)
     Console.WriteLine("    time: " + stat.Time);
 }
 Console.WriteLine("disks");
-foreach (DiskInstanceView idisk in vm.InstanceView.Disks)
+foreach (DiskInstanceView disk in vm.InstanceView.Disks)
 {
     Console.WriteLine("  name: " + idisk.Name);
     Console.WriteLine("  statuses");
-    foreach (InstanceViewStatus istat in idisk.Statuses)
+    foreach (InstanceViewStatus stat in idisk.Statuses)
     {
         Console.WriteLine("    code: " + istat.Code);
         Console.WriteLine("    level: " + istat.Level);
@@ -257,16 +270,16 @@ foreach (DiskInstanceView idisk in vm.InstanceView.Disks)
         Console.WriteLine("    time: " + istat.Time);
     }
 }
-Console.WriteLine("\nVM general status");
+Console.WriteLine("VM general status");
 Console.WriteLine("  provisioningStatus: " + vm.ProvisioningState);
 Console.WriteLine("  id: " + vm.Id);
 Console.WriteLine("  name: " + vm.Name);
 Console.WriteLine("  type: " + vm.Type);
 Console.WriteLine("  location: " + vm.Region);
-Console.WriteLine("\nVM instance status");
-foreach (InstanceViewStatus istat in vm.InstanceView.Statuses)
+Console.WriteLine("VM instance status");
+foreach (InstanceViewStatus stat in vm.InstanceView.Statuses)
 {
-    Console.WriteLine("\n  code: " + istat.Code);
+    Console.WriteLine("  code: " + istat.Code);
     Console.WriteLine("  level: " + istat.Level);
     Console.WriteLine("  displayStatus: " + istat.DisplayStatus);
 }
@@ -330,7 +343,7 @@ To add a data disk to the virtual machine, add this code to the Main method to a
 Console.WriteLine("Resizing vm...");
 var vm = azure.VirtualMachines.GetByResourceGroup(resourceGroupName, "myVM");
 vm.Update()
-    .WithNewDataDisk(2,0,CachingTypes.ReadWrite) 
+    .WithNewDataDisk(2, 0, CachingTypes.ReadWrite) 
     .Apply();
 Console.WriteLine("Press enter to delete resources...");
 Console.ReadLine();
