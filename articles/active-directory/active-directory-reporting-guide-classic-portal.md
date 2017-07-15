@@ -15,6 +15,7 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: femila;markvi
 ms.custom: oldportal
+ms.reviewer: dhanyahk 
 
 ---
 # Azure Active Directory classic portal reporting guide

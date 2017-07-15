@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk 
 
 ---
 # Find activity reports in the Azure portal
