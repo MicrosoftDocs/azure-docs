@@ -35,6 +35,7 @@ In these steps, you validate templates by using the AzureRM.TemplateValidator Po
 1.  Import the AzureRM.TemplateValidator.psm1 PowerShell module:
     
     ```PowerShell
+    cd "c:\AzureStack-Tools-master\TemplateValidator"
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
