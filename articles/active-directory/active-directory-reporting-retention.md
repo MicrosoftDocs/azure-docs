@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory report retention policies
