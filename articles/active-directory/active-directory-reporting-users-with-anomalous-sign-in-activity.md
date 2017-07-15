@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: markvi
+ms.custom: oldportal
+ms.reviewer: dhanyahk 
 
 ---
 # Users with anomalous sign in activity
