@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/18/2017
 ms.author: dhanyahk;markvi
+ms.custom: oldportal
 
 ---
 # Getting started with the Azure Active Directory reporting API on the Azure AD classic portal
