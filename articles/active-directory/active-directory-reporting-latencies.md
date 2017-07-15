@@ -3,7 +3,7 @@ title: Azure Active Directory Reporting Latencies | Microsoft Docs
 description: Amount of time it takes for reporting events to show up in your Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
