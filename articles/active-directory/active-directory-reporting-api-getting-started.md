@@ -4,7 +4,7 @@ title: Getting started with the Azure AD reporting API on the Azure AD classic p
 description: How to get started with the Azure Active Directory reporting API
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
