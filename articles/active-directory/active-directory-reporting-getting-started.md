@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
+ms.reviewer: dhanyahk 
 
 ---
 # Getting started with Azure Active Directory Reporting
