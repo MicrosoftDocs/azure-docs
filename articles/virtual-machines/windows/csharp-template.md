@@ -305,7 +305,7 @@ var deployment = azure.Deployments.Define("myDeployment")
     .WithParametersLink(paramPath, "1.0.0.0")
     .WithMode(Microsoft.Azure.Management.ResourceManager.Fluent.Models.DeploymentMode.Incremental)
     .Create();
-Console.WriteLine("Press enter to delete te resource group...");
+Console.WriteLine("Press enter to delete the resource group...");
 Console.ReadLine();
 ```
 
