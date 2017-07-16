@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: get-started
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/07/2017
+ms.date: 07/15/2017
 ms.author: mikhegn
 
 ---
@@ -21,14 +21,14 @@ ms.author: mikhegn
 # Create a .NET Service Fabric application in Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
-This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
+This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster.
 
 ![Application Screenshot](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Using this application you learn how to:
 > [!div class="checklist"]
 > * Create an application using .NET and Service Fabric
-> * Use ASP.NET core as a web-front end
+> * Use ASP.NET core as a web front-end
 > * Store application data in a stateful service
 > * Debug your application locally
 > * Deploy the application to a cluster in Azure
@@ -59,9 +59,9 @@ To deploy the application, press **F5**.
 > [!NOTE]
 > The first time you run and deploy the application, Visual Studio creates a local cluster for debugging. This operation may take some time. The cluster creation status is displayed in the Visual Studio output window.
 
-When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front end of the application.
+When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front-end of the application.
 
-![Application Front End](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
+![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
 You can now add a set of voting options, and start taking votes. The application runs and stores all data in your Service Fabric cluster, without the need for a separate database.
 
@@ -87,7 +87,7 @@ To look at what happens in the code, complete the following steps:
 
 2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
 
-3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front end's api controller.
+3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service. The controller in the front-end service then uses the ReverseProxy to send a PUT request to the back-end service.
 
 4. Press **F5** to continue
@@ -120,7 +120,7 @@ The front-end web API service needs to bind to a well-know port to accept HTTP r
 ### Deploy the application using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
-1. Right-click **MyApplication** in the Solution Explorer and choose **Publish**. The Publish dialog will appear.
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog will appear.
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -128,7 +128,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 3. Open a browser and type in the cluster address - for example, `http://winh1x87d1d.westus.cloudapp.azure.com`. You should now see the application running in the cluster in Azure.
 
-![Application Front End](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Azure CLI 2.0. In this example, we are using Service Fabric Explorer.
@@ -169,8 +169,10 @@ To upgrade the application, do the following:
 4. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 5. Click the **Manifest Version** button to change the version of the service and application.
 6. Change the version of the **Code** element under **VotingWebPkg** to for example, 2.0.0 and click **Save**.
+
     ![Change Version Dialog](./media/service-fabric-quickstart-dotnet/change-version.png)
 7. In the **Publish Service Fabric Application** dialog, check the Upgrade the Application checkbox, and click **Publish**.
+
     ![Publish Dialog Upgrade Setting](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 8. Open your browser and browse to the cluster address on port 19080 - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 9. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next.
