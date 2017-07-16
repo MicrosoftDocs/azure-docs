@@ -1,7 +1,7 @@
 ---
 title: Create a multi-container group with Azure Container Instances | Azure Docs
 description: Create a multi-container group and deploy it to Azure Container Instances from the Azure Container Registry
-services: container-service
+services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
