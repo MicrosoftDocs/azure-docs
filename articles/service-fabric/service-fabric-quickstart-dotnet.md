@@ -10,15 +10,15 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: get-started
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/07/2017
+ms.date: 07/15/2017
 ms.author: mikhegn
 
 ---
 
-# Create a .NET Service Fabric application in Azure
+# Deploy a .NET Service Fabric application in Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
@@ -120,7 +120,7 @@ The front-end web API service needs to bind to a well-know port to accept HTTP r
 ### Deploy the application using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
-1. Right-click **MyApplication** in the Solution Explorer and choose **Publish**. The Publish dialog will appear.
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog will appear.
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -169,8 +169,10 @@ To upgrade the application, do the following:
 4. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 5. Click the **Manifest Version** button to change the version of the service and application.
 6. Change the version of the **Code** element under **VotingWebPkg** to for example, 2.0.0 and click **Save**.
+
     ![Change Version Dialog](./media/service-fabric-quickstart-dotnet/change-version.png)
 7. In the **Publish Service Fabric Application** dialog, check the Upgrade the Application checkbox, and click **Publish**.
+
     ![Publish Dialog Upgrade Setting](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 8. Open your browser and browse to the cluster address on port 19080 - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 9. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next.
