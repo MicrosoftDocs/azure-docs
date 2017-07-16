@@ -33,7 +33,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Compute** and select **Windows Server 2016 Datacenter**. 
+2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
 
 3. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. When complete, click **OK**.
 
