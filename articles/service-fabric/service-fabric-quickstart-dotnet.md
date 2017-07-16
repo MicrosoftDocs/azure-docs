@@ -18,7 +18,7 @@ ms.author: mikhegn
 
 ---
 
-# Deploy a .NET Service Fabric application in Azure
+# Create a .NET Service Fabric application in Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
