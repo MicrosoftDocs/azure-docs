@@ -28,7 +28,7 @@ This quickstart shows how to deploy your first .NET application to Service Fabri
 Using this application you learn how to:
 > [!div class="checklist"]
 > * Create an application using .NET and Service Fabric
-> * Use ASP.NET core as a web-front end
+> * Use ASP.NET core as a web front-end
 > * Store application data in a stateful service
 > * Debug your application locally
 > * Deploy the application to a cluster in Azure
@@ -59,9 +59,9 @@ To deploy the application, press **F5**.
 > [!NOTE]
 > The first time you run and deploy the application, Visual Studio creates a local cluster for debugging. This operation may take some time. The cluster creation status is displayed in the Visual Studio output window.
 
-When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front end of the application.
+When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front-end of the application.
 
-![Application Front End](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
+![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
 You can now add a set of voting options, and start taking votes. The application runs and stores all data in your Service Fabric cluster, without the need for a separate database.
 
@@ -87,7 +87,7 @@ To look at what happens in the code, complete the following steps:
 
 2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
 
-3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front end's api controller.
+3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service. The controller in the front-end service then uses the ReverseProxy to send a PUT request to the back-end service.
 
 4. Press **F5** to continue
@@ -128,7 +128,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 3. Open a browser and type in the cluster address - for example, `http://winh1x87d1d.westus.cloudapp.azure.com`. You should now see the application running in the cluster in Azure.
 
-![Application Front End](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Azure CLI 2.0. In this example, we are using Service Fabric Explorer.
