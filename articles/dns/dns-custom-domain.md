@@ -135,6 +135,8 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 
 ![figure 1](./media/dns-custom-domain/finalnslookup.png)
 
+To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+
 ## Blob storage
 
 The following steps take you through configuring a CNAME record for a blob storage account using the asverify method. This method ensures there is no downtime.
@@ -160,6 +162,8 @@ Navigate back to your storage account by clicking **Storage** > **Storage Accoun
 
 Validate DNS resolution by running `nslookup`
 
+To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
+
 ## Azure CDN
 
 The following steps take you through configuring a CNAME record for a CDN endpoint using the cdnverify method. This method ensures there is no downtime.
@@ -182,7 +186,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 Navigate back to your CDN endpoint by clicking **Networking** > **CDN Profiles**, and select your CDN profile. Click **+ Custom domain** and enter your CNAME record alias without the cdnverify prefix and click **Add**.
 
-Once this step is complete, return to your DNS zone and create a CNAME record without the cdnverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
+Once this step is complete, return to your DNS zone and create a CNAME record without the cdnverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix. For more information on CDN and how to configure a custom domain without the intermediate registration step visit [Map Azure CDN content to a custom domain](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 
 ## Next steps
 
