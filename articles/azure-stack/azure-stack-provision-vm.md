@@ -36,5 +36,6 @@ As a cloud operator, you can create a test virtual machine to validate your Azur
 
     ![](media/azure-stack-provision-vm/image06.png)
 
+
 ## Next steps
 [Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
