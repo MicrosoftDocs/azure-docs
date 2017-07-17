@@ -24,7 +24,7 @@ ms.custom: aaddev
 To receive AppSource certification for Azure Active Directory, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the OpenID Connect or OAuth 2.0 protocols.
 
 ## Guides and code samples
-For code samples and guides for your platform, see [the developers guide](./active-directory-developers-guide.md#get-started "Get Started with Azure AD for developers")
+For code samples and guides for your platform, see the [Azure Active Directory developer's guide](./active-directory-developers-guide.md#get-started "Get Started with Azure AD for developers")
 
 ## Multi-tenant applications
 An application that accepts sign-ins from users from any company or organization that have Azure Active Directory without requiring a separate instance, configuration, or deployment is known as a multi-tenant application. AppSource recommends that applications implement multi-tenancy to enable the single-click customer-led trial experience.
