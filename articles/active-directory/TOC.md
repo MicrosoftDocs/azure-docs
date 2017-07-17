@@ -1,6 +1,5 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
-## [Choose an edition](active-directory-editions.md)
 ## [About Azure identity management](identity-fundamentals.md)
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
