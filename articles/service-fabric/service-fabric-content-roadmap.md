@@ -97,7 +97,7 @@ A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbi
 ## Application lifecycle
 As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrade, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle. 
 
-The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/system.fabric._application_management_client), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/system.fabric._application_management_client), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
 
 The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
@@ -105,7 +105,7 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 </a></center>
 
 ## Test applications and services
-To create truly cloud-scale services, it is critical to verify that your applications and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the Fault Analysis Service,](service-fabric-testability-overview.md) you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
+To create truly cloud-scale services, it is critical to verify that your applications and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the [Fault Analysis Service](service-fabric-testability-overview.md), you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
 
 [Actions](service-fabric-testability-actions.md) target a service for testing using individual faults. A service developer can use these as building blocks to write complicated scenarios. Examples of simulated faults are:
 
@@ -172,14 +172,14 @@ The Service Fabric reporters monitor identified conditions of interest. They rep
 
 Reporting can be done from:
 * The monitored Service Fabric service replica or instance.
-* Internal watchdogs deployed as a Service Fabric service (for example, a Service Fabric stateless service that monitors conditions and issues reports). The watchdogs can be deployed an all nodes or can be affinitized to the monitored service.
+* Internal watchdogs deployed as a Service Fabric service (for example, a Service Fabric stateless service that monitors conditions and issues reports). The watchdogs can be deployed on all nodes or can be affinitized to the monitored service.
 * Internal watchdogs that run on the Service Fabric nodes but are not implemented as Service Fabric services.
 * External watchdogs that probe the resource from outside the Service Fabric cluster (for example, monitoring service like Gomez).
 
 Out of the box, Service Fabric components report health on all entities in the cluster. [System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) provide visibility into cluster and application functionality and flag issues through health. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the perspective of the Service Fabric runtime. The reports do not provide any health monitoring of the business logic of the service or detect hung processes. To add health information specific to your service's logic, [implement custom health reporting](service-fabric-report-health.md) in your services.
 
 Service Fabric provides multiple ways to [view health reports](service-fabric-view-entities-aggregated-health.md) aggregated in the health store:
-* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools/
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools.
 * Health queries (through [PowerShell](/powershell/module/ServiceFabric/), the [C# FabricClient APIs](/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric._health_client), or [REST APIs](/rest/api/servicefabric)).
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, the API, or REST).
 

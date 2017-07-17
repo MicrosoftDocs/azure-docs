@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ---
 # Azure Database for PostgreSQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
@@ -32,11 +32,6 @@ pip install psycopg2
 ```
 Make sure to use an up-to-date version of pip (you can upgrade it using something like `pip install -U pip`)
 
-## Run Python code
-- Paste the code into a text editor, and save the file into a project folder, such as `C:\postgres\read.py` or `/home/username/postgres/read.py`.  Make sure to select UTF-8 encoding when saving the file in the Windows OS, and use file extension **.py**. 
-- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgres`. Then type the command `python read.py` to run the application.
-
-
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
@@ -46,7 +41,14 @@ Get the connection information needed to connect to the Azure Database for Postg
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-python/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
-   
+
+## How to run Python code
+- Using your favorite text editor, create a new file called postgres.py, and save it into a project folder. Copy and paste a code sample shown below into the text file and save it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
+- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then, type the python command followed by the file name, such as `python postgresql.py`.
+
+> [!NOTE]
+> Starting in Python version 3, you may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the code blocks below. If that happens, replace each call to the command `print "string"` with a function call using parenthesis, such as `print("string")`.
+
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function with **INSERT** SQL statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function is used to execute the SQL query against PostgreSQL database. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
@@ -81,7 +83,10 @@ cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("oran
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
 print "Inserted 3 rows of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## Read data
@@ -112,7 +117,10 @@ rows = cursor.fetchall()
 for row in rows:
 	print "Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2]))
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## Update data
@@ -139,7 +147,10 @@ cursor = conn.cursor()
 cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
 print "Updated 1 row of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## Delete data
@@ -164,9 +175,12 @@ cursor = conn.cursor()
 
 # Delete data row from table
 cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
-print ("Deleted 1 row of data")
+print "Deleted 1 row of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## Next steps

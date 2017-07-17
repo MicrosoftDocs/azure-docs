@@ -28,7 +28,7 @@ This article describes how to set up replication of virtual machines running on 
 
 The article assumes that you have already
 
-1.  [Setup on-premise source environment](site-recovery-set-up-vmware-to-azure.md)
+1.  [Setup on-premises source environment](site-recovery-set-up-vmware-to-azure.md)
 2.  [Setup target environment in Azure](site-recovery-prepare-target-vmware-to-azure.md)
 
 

@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2017
+ms.date: 07/06/2017
 ms.author: nepeters
 ---
 
@@ -108,7 +108,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image, making sure to update the command with your Azure Container Registry login server or public registry hostname.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag azure-vote-front:v2 <acrLoginServer>/azure-vote-front:v2
 ```
 
 Push the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name or public registry hostname.
