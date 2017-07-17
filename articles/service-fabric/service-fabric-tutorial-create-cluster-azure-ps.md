@@ -41,12 +41,9 @@ To calculate cost incurred by running a Service Fabric cluster in Azure use the 
 For more information on creating Service Fabric clusters, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
 
 ## Create the cluster using Azure PowerShell
-1. Download a local copy of the Azure Resource Manager template and the parameter file from this GitHub repository:
-    * [Azure Resource Manager template for Service Fabric][link-sf-clustertemplate]
-       - **azuredeploy.json** - The Azure Resource Manager template that defines a Service Fabric Cluster.
-       - **azuredeploy.parameters.json** - A parameters file for you to customize the cluster deployment.
+1. Download a local copy of the Azure Resource Manager template and the parameter file from the [Azure Resource Manager template for Service Fabric][link-sf-clustertemplate] GitHub repository.  *azuredeploy.json* is the Azure Resource Manager template that defines a Service Fabric cluster. *azuredeploy.parameters.json* is a parameters file for you to customize the cluster deployment.
 
-2. Customize the following parameters in the parameters file:
+2. Customize the following parameters in the *azuredeploy.parameters.json* parameters file:
   
    | Parameter       | Description | Suggested Value |
    | --------------- | ----------- | --------------- |
@@ -63,12 +60,12 @@ For more information on creating Service Fabric clusters, see the [Create a Serv
    Login-AzureRmAccount
    Select-AzureRmSubscription -SubscriptionId <subscription-id>
    ```
-4. Create and **encrypt a password** for the certificate used by Service Fabric.
+4. Create and encrypt a password for the certificate used by Service Fabric.
 
    ```powershell
    $pwd = "<your password>" | ConvertTo-SecureString -AsPlainText -Force
    ```
-5. **Create the cluster**, by running the following command:
+5. Create the cluster, by running the following command:
 
    ```powershell
       New-AzureRmServiceFabricCluster
@@ -85,7 +82,7 @@ For more information on creating Service Fabric clusters, see the [Create a Serv
    
     Once the configuration finishes, it will output information about the cluster created in Azure, as well as copy the certificate to the -CertificateOutputFolder directory.
 
-6. **Double-click** the certificate to open the Certificate Import Wizard.
+6. Double-click the certificate to open the Certificate Import Wizard.
 
 7. Use default settings, but make sure to check the **Mark this key as exportable.** check box, in the **private key protection** step. Visual Studio needs to export the certificate when configuring Azure Container Registry to Service Fabric Cluster authentication later in this tutorial.
 
