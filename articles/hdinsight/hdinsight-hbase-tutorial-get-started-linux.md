@@ -1,6 +1,6 @@
 ---
 title: Get started with an HBase example on HDInsight - Azure | Microsoft Docs
-description: Follow this Apache HBase example to start using on HDInsight. Create tables from the HBase shell and query them using Hive.
+description: Follow this Apache HBase example to start using hadoop on HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: hbasecommand,hbase example 
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/09/2017
+ms.date: 07/17/2017
 ms.author: jgao
 
 ---
