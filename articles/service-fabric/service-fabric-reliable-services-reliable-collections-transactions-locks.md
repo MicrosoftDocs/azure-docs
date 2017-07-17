@@ -80,11 +80,55 @@ The lock compatibility matrix can be found in the following table:
 | Exclusive |No conflict |Conflict |Conflict |Conflict |
 
 Time-out argument in the Reliable Collections APIs is used for deadlock detection.
-For example, two transactions (T1 and T2) are trying to read and update K1.
-It is possible for them to deadlock, because they both end up having the Shared lock.
-In this case, one or both of the operations will time out.
 
-This deadlock scenario is a great example of how an Update lock can prevent deadlocks.
+### Using the Update lock
+In the following example, the same code is written without and then with use of the Update lock. This demonstrates how its use avoids a common form of deadlock.
+
+**Reading and then writing without using an Update lock:**
+```csharp
+ using (ITransaction tx = this.stateManager.CreateTransaction())
+ {
+    ConditionalValue<int> counter_option = await dict.TryGetValueAsync(tx, counter_id);
+    if (counter_option.HasValue)
+    {
+       await dict.SetAsync(tx, counter_id, counter_option.Value + 1);
+    }
+    await tx.CommitAsync();
+ }
+```
+With the above code, this is a possible event sequence:
+
+| Event Order | Transaction    | Action 
+| ----------- | -------------- |:------ 
+| 1           | tx<sub>1</sub> | Takes read lock on counter_id 
+| 2           | tx<sub>2</sub> | Takes shared read lock on counter_id 
+| 3           | tx<sub>1</sub> | Tries to upgrade read lock to write lock 
+| 4           | tx<sub>2</sub> | Tries to upgrade read lock to write lock 
+
+In events *3* and *4*, both transactions tried to upgrade their read lock to a write lock on `counter_id`, but could not do so because the other had not yet released its read lock. This is a form of deadlock that would eventually lead to a timeout.
+
+**Reading and then writing while using an Update lock:**
+```csharp
+ using (ITransaction tx = this.stateManager.CreateTransaction())
+ {
+    ConditionalValue<int> counter_option = await dict.TryGetValueAsync(tx, counter_id, LockMode.Update);
+    if (counter_option.HasValue)
+    {
+       await dict.SetAsync(tx, counter_id, counter_option.Value + 1);
+    }
+    await tx.CommitAsync();
+ }
+```
+
+| Event Order | Transaction    | Action 
+| ----------- | -------------- |:------ 
+| 1           | tx<sub>1</sub> | Takes upgrade lock on counterid 
+| 2           | tx<sub>2</sub> | Tries to take upgrade lock, but has to wait for tx<sub>1</sub> to release lock
+| 3           | tx<sub>1</sub> | Upgrades lock to write lock, writes, and releases lock
+| 4           | tx<sub>2</sub> | Successfully takes upgrade lock, reads, upgrades lock to write lock, writes, releases lock
+
+In event *2*, because tx<sub>1</sub> had taken an update lock instead of a read lock, tx<sub>2</sub> cannot take a read lock. So when tx<sub>1</sub> tries to upgrade its lock, it does not have to wait for any other lock to be released. This avoids the above form of deadlock.
+
 
 ## Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
