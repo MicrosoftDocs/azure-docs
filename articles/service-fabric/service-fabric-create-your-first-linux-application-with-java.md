@@ -1,6 +1,6 @@
 ---
-title: Create your first Azure microservices app on Linux using Java | Microsoft Docs
-description: Create and deploy a Service Fabric application using Java
+title: Create a Azure Service Fabric reliable actors Java application on Linux | Microsoft Docs
+description: Learn how to create and deploy a Java Service Fabric reliable actors application in five minutes.
 services: service-fabric
 documentationcenter: java
 author: rwike77
@@ -13,19 +13,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/02/2017
+ms.date: 06/29/2017
 ms.author: ryanwi
 
 ---
-# Create your first Service Fabric Java application on Linux
-> [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
->
->
+# Create your first Java Service Fabric reliable actors application on Linux
 
-This quick start helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service app running on the local development cluster.  
+This quickstart helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service application running on the local development cluster.  
 
 ## Prerequisites
 Before you get started, install the Service Fabric SDK, the Azure CLI, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
@@ -42,7 +36,7 @@ A Service Fabric application contains one or more services, each with a specific
    ![Service Fabric Yeoman generator for Java][sf-yeoman]
 
 ## Build the application
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the app from the terminal. To build and package the app, run the following:
+The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. To build and package the application, run the following:
 
   ```bash
   cd myapp
@@ -94,14 +88,8 @@ Actors do not do anything on their own, they require another service or client t
 
 3. In **Nodes**, click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This action restarts the node running the primary service replica and forces a failover to one of the secondary replicas running on another node.  That secondary replica is promoted to primary, another secondary replica is created on a different node, and the primary replica begins to take read/write operations. As the node restarts, watch the output from the test client and note that the counter continues to increment despite the failover.
 
-## Add another service to the application
-To add another service to an existing application using `yo`, perform the following steps:
-1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
-2. Run `yo azuresfjava:AddService`
-3. Build and deploy the app, as in the preceding steps.
-
 ## Remove the application
-Use the uninstall script provided in the template to delete the app instance, unregister the application package, and remove the application package from the cluster's image store.
+Use the uninstall script provided in the template to delete the application instance, unregister the application package, and remove the application package from the cluster's image store.
 
 ```bash
 ./uninstall.sh

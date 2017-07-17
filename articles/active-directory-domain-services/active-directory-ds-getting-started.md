@@ -13,16 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/15/2017
 ms.author: maheshu
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure portal (Preview)
-This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) for your Azure Active Directory (Azure AD) directory using the Azure portal.
-
-> [!div class="op_single_selector"]
-> * [PREVIEW - Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started.md)
-> * [Enable Azure AD Domain Services using the Azure classic portal](active-directory-ds-getting-started-create-group.md)
+This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) using the Azure portal.
 
 
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
@@ -47,9 +43,7 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
 1. Choose the **DNS domain name** for your managed domain.
 
-   * The default domain name of the directory (with a **.onmicrosoft.com** suffix) is selected by default.
-
-   * The list contains all domains that have been configured for your Azure AD directory, including both verified and unverified domains that you configure on the **Domains** tab.
+   * The default domain name of the directory (with a **.onmicrosoft.com** suffix) is specified by default.
 
    * You can also type in a custom domain name. In this example, the custom domain name is *contoso100.com*.
 

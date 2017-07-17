@@ -3,7 +3,7 @@ title: 'Azure Active Directory Reporting: Getting started | Microsoft Docs'
 description: Lists the various available reports in Azure Active Directory reporting
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,8 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
+ms.custom: oldportal
+ms.reviewer: dhanyahk 
 
 ---
 # Getting started with Azure Active Directory Reporting

@@ -29,8 +29,8 @@ This tutorial builds on the [Get started with IoT Hub] tutorial, and shows you h
 At the end of this tutorial, you run three .NET console apps:
 
 * **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
-* **ReadDeviceToCloudMessages** that displays the non-critical telemetry sent by your simulated device app.
-* **ReadCriticalQueue** de-queues the critical messages sent by your simulated device app from the Service Bus queue attached to the IoT hub.
+* **ReadDeviceToCloudMessages** that displays the non-critical telemetry sent by your device app.
+* **ReadCriticalQueue** de-queues the critical messages sent by your device app from the Service Bus queue attached to the IoT hub.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. To learn how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
@@ -44,8 +44,8 @@ To complete this tutorial, you need the following:
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
-## Send interactive messages from a simulated device app
-In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
+## Send interactive messages from a device app
+In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
 In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code:
 
