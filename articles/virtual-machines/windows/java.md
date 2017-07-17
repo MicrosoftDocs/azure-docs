@@ -98,7 +98,7 @@ To set the dependencies that you need in Maven, do these steps:
 
 Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
-### create the authorization file
+### Create the authorization file
 
 1. Create a file named *azureauth.properties* and add these properties to it:
 
@@ -118,7 +118,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 2. Save the azureauth.properties file.
 3. Set an environment variable AZURE_AUTH_LOCATION with the full path to the authentication file in your shell.
 
-### create the management client
+### Create the management client
 
 1. Open the App.java file that was created in the project, and then add these import statements to the top of the file:
    
