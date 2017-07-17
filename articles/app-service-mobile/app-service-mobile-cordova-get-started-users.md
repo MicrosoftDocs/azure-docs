@@ -48,7 +48,7 @@ Next, update the app to authenticate users before requesting resources from the 
 
    | Provider | SDK Provider Name | OAuth Host |
    |:--- |:--- |:--- |
-   | Azure Active Directory | aad | https://login.windows.net |
+   | Azure Active Directory | aad | https://login.microsoftonline.com |
    | Facebook | facebook | https://www.facebook.com |
    | Google | google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
@@ -57,9 +57,9 @@ Next, update the app to authenticate users before requesting resources from the 
     An example Content-Security-Policy (implemented for Azure Active Directory) is as follows:
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-            data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+            data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Replace `https://login.windows.net` with the OAuth host from the preceding table.  For more information
+    Replace `https://login.microsoftonline.com` with the OAuth host from the preceding table.  For more information
     about the content-security-policy meta tag, see the [Content-Security-Policy documentation].
 
     Some authentication providers do not require Content-Security-Policy changes when used on appropriate

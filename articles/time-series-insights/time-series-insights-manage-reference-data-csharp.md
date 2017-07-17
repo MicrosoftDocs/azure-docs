@@ -152,7 +152,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             }
 
             var authenticationContext = new AuthenticationContext(
-                "https://login.windows.net/common",
+                "https://login.microsoftonline.com/common",
                 TokenCache.DefaultShared);
 
             AuthenticationResult token = await authenticationContext.AcquireTokenAsync(

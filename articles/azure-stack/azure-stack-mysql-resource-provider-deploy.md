@@ -22,7 +22,7 @@ ms.author: JeffGo
 
 You can deploy a MySQL resource provider on Azure Stack. After you deploy the resource provider, you can create MySQL servers and databases through Azure Resource Manager deployment templates and provide MySQL databases as a service. MySQL databases, which are common on web sites, support many website platforms. As an example, after you deploy the resource provider, you can create WordPress websites from the Azure Web Apps platform as a service (PaaS) add-on for Azure Stack.
 
-To deploy the MySQL provider on a system that does not have internet access, you can copy the file [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) to a local share and provide that share name when prompted (see below). You will also need to install the Azure and Azure Stack PowerShell modules.
+To deploy the MySQL provider on a system that does not have internet access, you can copy the file [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) to a local share and provide that share name when prompted (see below). You must also install the Azure and Azure Stack PowerShell modules.
 
 
 ## MySQL Server Resource Provider Adapter architecture
@@ -33,23 +33,23 @@ The resource provider is made up of three components:
 - **The resource provider itself**, which processes provisioning requests and exposes database resources.
 - **Servers that host MySQL Server**, which provide capacity for databases, called Hosting Servers. 
 
-This release no longer creates a MySQL instance. You will need to create them and/or provide access to external SQL instances. You can visit the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) for an example template that can create a MySQL server for you or download and deploy a MySQL Server from the Marketplace.
+This release no longer creates a MySQL instance. You must create them and/or provide access to external SQL instances. You can visit the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) for an example template that can create a MySQL server for you or download and deploy a MySQL Server from the Marketplace.
 
 ## Deploy the resource provider
 
-1. If you have not already done so, register your POC and download the Windows Server 2016 Datacenter - Eval image downloadable through Marketplace Management. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image).
+1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter - Eval image downloadable through Marketplace Management. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image).
 
-2. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it on the Console VM in your Azure Stack.
+2. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it on the development kit host.
 
-3. Sign in to the POC host, and extract the MySQL RP installer file to a temporary directory.
+3. Sign in to the development kit host, and extract the MySQL RP installer file to a temporary directory.
 
-4. The Azure Stack root certificate will be retrieved and a self-signed certificate will be created as part of this process. 
+4. The Azure Stack root certificate is retrieved and a self-signed certificate is created as part of this process. 
 
-__Optional:__ If you need to provide your own, prepare the certificates and copy to a local directory if you wish to customize the certificates (passed to the installation script). You will need the following:
+    __Optional:__ If you need to provide your own, prepare the certificates and copy to a local directory if you wish to customize the certificates (passed to the installation script). You need the following:
 
-a. A wildcard certificate for *.dbadapter.\<region\>.\<external fqdn\>. This must be a trusted certificate, such as would be issued by a certificate authority (i.e., the chain of trust must exist without requiring intermediate certificates.) (A single site certificate can be used with the explicit VM name you provide during install.)
+    a. A wildcard certificate for *.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority (that is, the chain of trust must exist without requiring intermediate certificates.) (A single site certificate can be used with the explicit VM name you provide during install.)
 
-b. The root certificate used by the Azure Resource Manager for your instance of Azure Stack. If it is not found, the root certificate will be retrieved.
+    b. The root certificate used by the Azure Resource Manager for your instance of Azure Stack. If it is not found, the root certificate will be retrieved.
 
 5. Open a **new** elevated PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
 
@@ -131,7 +131,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
 
-Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. You will need to refresh the admin portal if the MySQLAdapter blade is not available.
+Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. You must refresh the admin portal if the MySQLAdapter blade is not available.
 
 > [!NOTE]
 > If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the MySQL RP.
@@ -139,7 +139,7 @@ Depending on the system performance and download speeds, installation may take a
 
 ## Provide capacity by connecting to a MySQL hosting server
 
-1. Sign in to the Azure Stack POC portal as a service admin
+1. Sign in to the Azure Stack portal as a service admin.
 
 2. Click **Resource Providers** &gt; **MySQLAdapter** &gt; **Hosting Servers** &gt; **+Add**.
 
@@ -150,21 +150,21 @@ Depending on the system performance and download speeds, installation may take a
 3. Fill the form with the connection details of your MySQL Server instance. Provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. This installation no longer provides a default MySQL instance. The size provided helps the resource provider manage the database capacity. It should be close to the physical capacity of the database server.
 
     > [!NOTE]
-    > As long as the MySQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the the resource provider. The MySQL instance __must__ be allocated exclusively to the RP.
+    > As long as the MySQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The MySQL instance __must__ be allocated exclusively to the RP.
 
-4. As you add servers, you will need to assign them to a new or existing SKU. This allows differentiation of service offerings. For example, you could have an enterprise instance providing database capacity and automatic backup, reserve high performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
+4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings. For example, you could have an enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
 
     ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-SKUs can take up to an hour to be visible in the portal. You cannot create a database until this completes.
+SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
 
 
 ## Create your first MySQL database to test your deployment
 
 
-1. Sign in to the Azure Stack POC portal as service admin.
+1. Sign in to the Azure Stack portal as service admin.
 
 2. Click the **+ New** button &gt; **Data + Storage** &gt; **MySQL Database (preview)**.
 

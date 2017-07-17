@@ -94,11 +94,11 @@
       href: sizes-storage.md
     - name: GPU optimized
       href: sizes-gpu.md
+      items:
+      - name: GPU drivers
+        href: n-series-driver-setup.md
     - name: High performance compute
       href: sizes-hpc.md
-      items:
-      - name: Compute-intensive sizes
-        href: a8-a9-a10-a11-specs.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Compute benchmark scores
@@ -391,6 +391,8 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Use PerfInsights to troubleshoot performance problems
+      href: how-to-use-perfInsights.md
 - name: Reference
   items:
   - name: Azure CLI

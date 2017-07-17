@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 
 ---
@@ -30,7 +30,7 @@ To troubleshoot your problem, you need to verify the application configuration i
 
 ## Application not found in directory
 
-*Error: Application with Identifier ‘https://contoso.com’ was not found in the directory*.
+*Error AADSTS70001: Application with Identifier ‘https://contoso.com’ was not found in the directory*.
 
 **Possible cause**
 
@@ -62,7 +62,7 @@ After you have updated the Identifier value in Azure AD and it’s matching the 
 
 ## User not assigned a role
 
-*Error: The signed in user 'brian@contoso.com' is not assigned to a role for the application*
+*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application*
 
 **Possible cause**
 
@@ -108,7 +108,7 @@ After a short period of time, the users you have selected be able to launch thes
 
 ## Not a valid SAML Request
 
-*Error: The request is not a valid Saml2 protocol message.*
+*Error AADSTS75005: The request is not a valid Saml2 protocol message.*
 
 **Possible cause**
 
@@ -132,7 +132,7 @@ They should validate they support the Azure AD SAML implementation for Single Si
 
 ## No resource in requiredResourceAccess list
 
-*Error: The client application has requested access to resource '00000002-0000-0000-c000-000000000000'. This request has failed because the client has not specified this resource in its requiredResourceAccess list*.
+*Error AADSTS65005: The client application has requested access to resource '00000002-0000-0000-c000-000000000000'. This request has failed because the client has not specified this resource in its requiredResourceAccess list*.
 
 **Possible cause**
 
@@ -164,7 +164,7 @@ After reconfiguring the application, you should be able to sign in to the applic
 
 ## Certificate or key not configured
 
-Error: No signing key configured.
+Error AADSTS50003: No signing key configured.
 
 **Possible cause**
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal | Microsoft Docs'
 description: Learn how to create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and the portal
 services: vpn-gateway
@@ -80,7 +80,16 @@ The following table shows an example of how the example VNets and local sites ar
 
 ## <a name="classicvnet"></a>1. Configure the classic VNet settings
 
-In this section, you create the local network (local site) and the virtual network gateway for your classic VNet. If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above. If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway, then proceed.
+In this section, you create the local network (local site) and the virtual network gateway for your classic VNet. If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above.
+
+When using the portal to create a classic virtual network, you must navigate to the virtual network blade by using the following steps, otherwise the option to create a classic virtual network does not appear:
+
+1. Click the '+' to open the 'New' blade.
+2. In the 'Search the marketplace' field, type 'Virtual Network'. If you instead, select Networking -> Virtual Network, you will not get the option to create a classic VNet.
+3. Locate 'Virtual Network' from the returned list and click it to open the Virtual Network blade. 
+4. On the virtual network blade, select 'Classic' to create a classic VNet. 
+
+If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway, then proceed.
 
 Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
 

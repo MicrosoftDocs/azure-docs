@@ -55,7 +55,6 @@
 ## Plan
 ### [About images](about-images.md)
 ### [Sizes for VMs](../../virtual-machines-windows-sizes.md)
-#### [About H-series and compute-intensive A-series VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Planned maintenance for Azure VMs](../../virtual-machines-windows-planned-maintenance.md)
 ### [Azure infrastructure services implementation guidelines](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
