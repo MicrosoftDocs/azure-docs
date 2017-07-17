@@ -39,7 +39,7 @@ To complete this tutorial, you need a Docker development environment. Docker pro
 
 ## Get application code
 
-The sample in this tutorial includes a simple web application built in [Go](golang.org) and a [sidecar][sidecar-pattern] shell script that periodically makes a request to the main app using curl.
+The sample in this tutorial includes a simple web application built in [Go](http://golang.org) and a [sidecar][sidecar-pattern] shell script that periodically makes a request to the main app using curl.
 
 Use git to download the sample:
 

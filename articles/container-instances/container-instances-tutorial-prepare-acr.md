@@ -32,7 +32,7 @@ In subsequent tutorials, you will deploy containers from your private registry a
 
 ## Before you begin
 
-In the [previous tutorial](./container-service-instances-prepare-app.md), container images were created for a simple web application and accompanying sidecar. In this tutorial, these images are pushed to an Azure Container Registry. If you have not created the container images, return to [Tutorial 1 – Create container images](./container-instances-tutorial-prepare-app.md). Alternatively, the steps detailed here work with any container image.
+In the [previous tutorial](./container-instances-prepare-app.md), container images were created for a simple web application and accompanying sidecar. In this tutorial, these images are pushed to an Azure Container Registry. If you have not created the container images, return to [Tutorial 1 – Create container images](./container-instances-tutorial-prepare-app.md). Alternatively, the steps detailed here work with any container image.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
