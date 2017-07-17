@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/17/2017
 ms.author: magoedte
 
 ---
@@ -100,7 +100,7 @@ A. The different types of ExpressRoute traffic are described in the [ExpressRout
 
 Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 
-### Q. Is there a simple and easy way to move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription
+### Q. Is there a simple and easy way to move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription?
 
 A. The `Move-AzureRmResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
 
@@ -112,7 +112,7 @@ You can’t move data from one Log Analytics workspace to another, or change the
 
 A:  Updating to the latest update rollup and importing management packs enables you to connect Operations Manager to Log Analytics.
 
->[Note] The Operations Manager connection to Log Analytics is only available for System Center Operations Manager 2012 SP1 and later.
+>[!NOTE] The Operations Manager connection to Log Analytics is only available for System Center Operations Manager 2012 SP1 and later.
 
 ### Q: How can I confirm that an agent is able to communicate with Log Analytics?
 
@@ -149,9 +149,9 @@ A. Bandwidth is a function on the amount of data sent. Data is compressed as it 
 
 A. The amount of data sent per agent depends on:
 
-* the solutions you have enabled
-* the number of logs and performance counters being collected
-* the volume of data in the logs
+* The solutions you have enabled
+* The number of logs and performance counters being collected
+* The volume of data in the logs
 
 The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](log-analytics-usage.md) page.
 
