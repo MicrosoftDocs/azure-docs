@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/17/2017
 ms.author: davidmu
 
 ---
@@ -195,7 +195,7 @@ To create the virtual machine, add this code to the Main method:
 
 ```
 Console.WriteLine("Creating virtual machine...");
-var virtualMachine = azure.VirtualMachines.Define(vmName)
+azure.VirtualMachines.Define(vmName)
     .WithRegion(location)
     .WithExistingResourceGroup(groupName)
     .WithExistingPrimaryNetworkInterface(networkInterface)
@@ -212,6 +212,27 @@ var virtualMachine = azure.VirtualMachines.Define(vmName)
 > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 >
+
+If you want to use a existing disk instead of a marketplace image, use this code:
+
+```
+var managedDisk = azure.Disks.Define("myosdisk")
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd")
+    .WithSizeInGB(128)
+    .WithSku(DiskSkuTypes.PremiumLRS)
+    .Create();
+
+azure.VirtualMachines.Define("myVM")
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithExistingPrimaryNetworkInterface(networkInterface)
+    .WithSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows)
+    .WithExistingAvailabilitySet(availabilitySet)
+    .WithSize(VirtualMachineSizeTypes.StandardDS1)
+    .Create();
+```
 
 ## Perform management tasks
 
@@ -369,7 +390,7 @@ It should take about five minutes for this console application to run completely
 
 2. Before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal. Click the deployment status to see information about the deployment.
 
-## Next Steps
+## Next steps
 * Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Learn more about using the [Azure libraries for .NET](https://docs.microsoft.com/dotnet/azure/index?view=azure-dotnet).
+* Learn more about using the [Azure libraries for .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
 
