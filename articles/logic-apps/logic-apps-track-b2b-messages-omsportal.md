@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: LADocs; padmavc
 ---
 
@@ -104,34 +104,36 @@ Choose the tile for **AS2**, **X12**, or **EDIFACT**.
    ![View message status](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
    A list of messages appears for your chosen tile. For example, 
-   this list shows AS2 messages:
+   this list just shows AS2 messages:
 
-   ![View messages](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+   ![View AS2 messages](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
    To learn more about the properties for each message type, 
-   see [Property descriptions for messages](#message-list-property-descriptions).
+   see these message property descriptions:
+
+   * [AS2 message properties](#as2-message-properties)
+   * [X12 message properties](#x12-message-properties)
+   * [EDIFACT message properties](#EDIFACT-message-properties)
 
 3. To view or export the inputs and outputs for specific messages, 
 select those messages, and choose **Download**. When you're prompted, 
 save the .zip file to your local computer, and then extract that file. 
-For example:
 
-   ![Download message files](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
-
-   The extracted folder has a folder for each selected message. 
+   The extracted folder includes a folder for each selected message. 
+   If you set up acknowledgements, 
+   the message folder also includes files with acknowledgement details. 
    Each message folder has at least these files: 
    
    * Human-readable files with the input payload and output payload details
    * Encoded files with the inputs and outputs
 
-   If acknowledgements are set up, 
-   the message folder also includes files with acknowledgement details.
-   
-   For each message type, the folder and file names follow these formats:
+   For each message type, you can find the formats for the folder and file names here:
 
-   * [AS2](#as2-folder-file-names)
-   * [X12](#x12-folder-file-names)
-   * [EDIFACT](#edifact-folder-file-names)
+   * [AS2 folder and file name formats](#as2-folder-file-names)
+   * [X12 folder and file name formats](#x12-folder-file-names)
+   * [EDIFACT folder and file name formats](#edifact-folder-file-names)
+
+   ![Download message files](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
 
 4. To view all actions that have the same run ID, 
 on the **Log Search** page, choose a message from the message list.
