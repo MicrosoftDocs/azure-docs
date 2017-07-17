@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.reviewer: jsnow
 ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.date: 7/17/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -90,12 +90,12 @@ Finally, **Azure AD Domain Services** provides a cloud-based option to use AD DS
 
 Here are some common identity and access scenarios with recommendations as to which Azure identity option might be most appropriate for each.
 
-  |Identity scenario| Recommendation|
-  |-----|-----|
-  |I need to support a few virtual machines in Azure, but my company is still heavily invested in on-premises Active Directory (AD DS).|Use [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) to use Azure VMs when you need to support a few virtual machines and have large AD DS investments on-premises. |
-  |My business was born in the cloud and we have no investments in on-premises identity solutions.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is the best choice for cloud-only businesses with no on-premises investments.|
-  |My organization has made large investments in on-premises Windows Server Active Directory, but we want to extend identity to the cloud.| The most widely used Azure identity solution is [hybrid identity](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). If you’ve already made investments in on-premises AD DS, you can easily extend identity to the cloud using Azure AD Connect.|
-  |I need lightweight Azure VM configuration and control to meet on-premises identity requirements for app development and testing.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is a good choice if you need to use AD DS for lightweight Azure VM configuration control or are looking to develop or migrate legacy, directory-aware on-premises applications to the cloud.|
+|Identity scenario| Recommendation|
+|-----|-----|
+|My organization has made large investments in on-premises Windows Server Active Directory, but we want to extend identity to the cloud.| The most widely used Azure identity solution is [hybrid identity](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). If you’ve already made investments in on-premises AD DS, you can easily extend identity to the cloud using Azure AD Connect.|
+|My business was born in the cloud and we have no investments in on-premises identity solutions.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is the best choice for cloud-only businesses with no on-premises investments.|
+|I need lightweight Azure VM configuration and control to meet on-premises identity requirements for app development and testing.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is a good choice if you need to use AD DS for lightweight Azure VM configuration control or are looking to develop or migrate legacy, directory-aware on-premises applications to the cloud.|  
+|I need to support a few virtual machines in Azure, but my company is still heavily invested in on-premises Active Directory (AD DS).|Use [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) to use Azure VMs when you need to support a few virtual machines and have large AD DS investments on-premises. |
 
 ## Next steps
 
