@@ -108,11 +108,12 @@ This change can also be made in the Azure portal.
 
 You can’t move data from one Log Analytics workspace to another, or change the region that Log Analytics data is stored in.
 
-### Q: How do I add OMS to System Center Operations Manager?
+### Q: How do I add Log Analytics to System Center Operations Manager?
 
 A:  Updating to the latest update rollup and importing management packs enables you to connect Operations Manager to Log Analytics.
 
->[!NOTE] The Operations Manager connection to Log Analytics is only available for System Center Operations Manager 2012 SP1 and later.
+>[!NOTE]
+>The Operations Manager connection to Log Analytics is only available for System Center Operations Manager 2012 SP1 and later.
 
 ### Q: How can I confirm that an agent is able to communicate with Log Analytics?
 
