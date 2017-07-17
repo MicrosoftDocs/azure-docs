@@ -110,7 +110,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
 
-To specify values for the application, add this code to the Main method:
+To specify values for the application and create the resource group, add this code to the Main method:
 
 ```
 var groupName = "myResourceGroup";
