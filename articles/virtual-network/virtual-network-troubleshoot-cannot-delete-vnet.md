@@ -13,24 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/03/2017
+ms.date: 07/17/2017
 ms.author: genli
 
 ---
 
 # Troubleshooting: Failed to delete a virtual network in Azure
 
-You might receive errors when you try to delete a virtual network in Microsoft Azure. This article provides troubleshoot steps to help you resolve this problem. 
+You might receive errors when you try to delete a virtual network in Microsoft Azure. This article provides troubleshooting steps to help you resolve this problem. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## Troubleshooting guidance 
+
+1. [Check whether a virtual network gateway is running in the virtual network](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
+2. [Check whether an application gateway is running in the virtual network](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
+3. [Check whether Azure Active Directory Domain Service is enabled in the virtual network](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+4. [Check whether the virtual network is connected to other resource](#check-whether-the-virtual-network-is-connected-to-other-resource).
+5. [Check whether a VM is still running in the virtual network](#check-whether-a-vm-is-still-running-in-the-virtual-network).
+6. [Check whether the virtual network is stuck in a migration state](#check-whether-the-virtual-network-is-stuck-in-a-migration-state).
 
 ## Troubleshooting steps
 
 ### Check whether a virtual network gateway is running in the virtual network
 
-To remove the virtual network, you must first remove the virtual network gateway in this virtual network.
+To remove the virtual network, you must first remove the virtual network gateway.
 
-For classic virtual networks, go to the **Overview** page of the virtual network. If the gateway is running in the virtual network, you will see the IP address of the gateway. 
+For classic virtual networks, go to the **Overview** page of the Virtual Networks (classic) in the Azure portal. If the gateway is running in the virtual network, you will see the IP address of the gateway. 
 
 ![Check whether gateway is running](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
@@ -38,7 +47,7 @@ For virtual networks, go to the **Overview** page of the virtual network. Check 
 
 ![Check the connected device for ](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
-Before you can remove the gateway, any **Connection** objects in the gateway must be removed.
+Before you can remove the gateway, first remove any **Connection** objects in the gateway.
 
 ### Check whether an application gateway is running in the virtual network
 
@@ -62,21 +71,21 @@ To disable the service, follow these steps:
 4. click the **Configure** tab.
 5. Under **domain services**, change the **Enable domain services for this directory** option to **No**.  
 
-### Check whether the virtual network is connected to another resource
+### Check whether the virtual network is connected to other resource
 
-Use get-sub to check for Circuit Links, connections, or even peerings. Any of these can cause a virtual network deletion to fail. 
+check for Circuit Links, connections, and virtual network peerings. Any of these can cause a virtual network deletion to fail. 
 
 The recommended deletion order should be:
 
-1. Connections
+1. Gateway connections
 2. Gateways
 3. IPs
-4. Virtual networks
+4. Virtual network peerings
 5. App Service Environment (ASE)
 
 ### Check whether a VM is still running in the virtual network
 
-Make sure tha no VM is running in the virtual network.
+Make sure that no VM is in the virtual network.
 
 ### Check whether the virtual network is stuck in a migration state
 
