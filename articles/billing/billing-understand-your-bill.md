@@ -61,7 +61,7 @@ The **Statement** section of your detailed usage CSV shows the same charge. Both
 
 ![CSV usage charges](./media/billing-understand-your-bill/2.png)
 
-Go to the **Daily Usage** section of the CSV to see breakdown of this charge on a daily basis. Filter for "Scheduler" under *Meter Category* and you can see which days it's consumed, how much is consumed each day, and the *Resource Group* that's consuming the meter. The *Consumed* values should add up to what's shown on the invoice.
+To see breakdown of this charge on a daily basis, go to the **Daily Usage** section of the CSV. Filter for "Scheduler" under *Meter Category* and you can see which days the meter was used and how much was consumed. The *resource* information and *resource group* infomration is also listed for comparison. The *Consumed* values should add up to what's shown on the invoice.
 
 ![Daily Usage section in the CSV](./media/billing-understand-your-bill/3.png)
 
@@ -93,7 +93,7 @@ External services (also known as Marketplace orders) are provided by independent
 
 ## <a name="payment"></a>How do I make a payment?
 
-If you set up a credit card or a debit card as your payment method, the payment is charged automatically about a week to ten days after the billing period ends. On your credit card statement, the line item would say **MSFT Azure**.
+If you set up a credit card or a debit card as your payment method, the payment is charged automatically within 10 days after the billing period ends. On your credit card statement, the line item would say **MSFT Azure**.
 
 If you [pay by invoicing](billing-how-to-pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
