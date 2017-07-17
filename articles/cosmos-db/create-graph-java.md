@@ -3,7 +3,7 @@ title: Build an Azure Cosmos DB Java application using the Graph API | Microsoft
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/27/2017
-ms.author: arramac
+ms.date: 07/14/2017
+ms.author: denlee
 
 ---
 # Azure Cosmos DB: Build a Java application using the Graph API
@@ -78,24 +78,24 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
     ```
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app.
+1. Open the src/remote.yaml file. 
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `Program.java` file in the next step.
-
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-java/keys.png)
-
-2. Open the `src/remote.yaml` file. 
-
-3. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the `src/remote.yaml` file:
+3. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the src/remote.yaml file:
 
     Setting|Suggested value|Description
     ---|---|---
-    Hosts|***.graphs.azure.com|Your graph service URI, which you can retrieve from the Azure portal
-    Port|443|Set to 443
-    Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>`.
-    Password|*Your primary master key*|Your primary master key for the Azure Cosmos DB
-    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL
-    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value
+    Hosts|[***.graphs.azure.com]|See screenshot below. This is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.<br><br>This value can also be retrieved from the Keys tab, using the URI value by removing https://, changing documents to graphs, and removing the trailing :443/.
+    Port|443|Set to 443.
+    Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
+    Password|*Your primary master key*|See second screenshot below. This is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
+    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL.
+    Serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
+
+    For the Hosts value, copy the **Gremlin URI** value from the **Overview** page:
+![View and copy the Gremlin URI value on the Overview page in the Azure portal](./media/create-graph-java/gremlin-uri.png)
+
+    For the Password value, copy the **Primary key** from the **Keys** page:
+![View and copy your primary key in the Azure portal, Keys page](./media/create-graph-java/keys.png)
 
 ## Run the console app
 
