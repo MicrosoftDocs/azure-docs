@@ -1,4 +1,4 @@
-Azure virtual machines (VMs) might sometimes reboot for no apparent reason, without evidence of your having initiated the reboot operation. This article lists the actions and events that can cause VMs to reboot and provides insight into how to avoid unexpected reboot issues or reduce the impact of such issues.
+﻿Azure virtual machines (VMs) might sometimes reboot for no apparent reason, without evidence of your having initiated the reboot operation. This article lists the actions and events that can cause VMs to reboot and provides insight into how to avoid unexpected reboot issues or reduce the impact of such issues.
 
 ## Configure the VMs for high availability
 The best way to protect an application that's running on Azure against VM reboots and downtime is to configure the VMs for high availability.
@@ -23,7 +23,7 @@ However, some updates do require a reboot. In such cases, the VMs are shut down 
 To understand what Azure planned maintenance is and how it can affect the availability of your Linux VMs, see the articles listed here. The articles provide background about the Azure planned maintenance process and how to schedule planned maintenance to further reduce the impact.
 
 - [Planned maintenance for VMs in Azure](../articles/virtual-machines/windows/planned-maintenance.md)
-- [How to schedule planned maintenance on Azure VMs](../articles/virtual-machines/windows/planned-maintenance-schedule.md)
+- [How to schedule planned maintenance on Azure VMs](../articles/virtual-machines/windows/classic/planned-maintenance-schedule.md)
 
 ### Memory-preserving updates   
 For this class of updates in Microsoft Azure, users experience no impact on their running VMs. Many of these updates are to components or services that can be updated without interfering with the running instance. Some are platform infrastructure updates on the host operating system that can be applied without a reboot of the VMs.
