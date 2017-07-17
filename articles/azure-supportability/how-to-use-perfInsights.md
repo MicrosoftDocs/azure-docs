@@ -3,7 +3,7 @@ title: How to use PerfInsights in Microsoft Azure| Microsoft Docs
 description: Learns how to use PerfInsights in Microsoft Azure.
 services: ''
 documentationcenter: ''
-author: genlin,Deland Han
+author: genlin
 manager: cshepard
 editor: na
 tags: ''
