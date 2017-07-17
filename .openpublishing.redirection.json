@@ -8199,12 +8199,12 @@
             "source_path": "articles/media-services/media-services-dotnet-connect-programmatically.md",
             "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
             "redirect_document_id": false
-        }
+        },
         {
             "source_path": "articles/active-directory/fundamentals-identity.md",
             "redirect_url": "/azure/active-directory/identity-fundamentals",
             "redirect_document_id": false
-        }
+        },
         {
             "source_path": "articles/active-directory/active-directory-editions.md",
             "redirect_url": "/azure/active-directory/active-directory-whatis",
