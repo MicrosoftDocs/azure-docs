@@ -37,9 +37,7 @@ A StorSimple device that is connected to the StorSimple Manager service is assig
 * **0991003** - Indicates a specific product.
 * **G44HT**- The last 5 digits are incremented to create unique serial numbers. This might not be a sequential set.
 
-You can use the Azure classic portal to change the device name and assign it a unique friendly name of your choice. The friendly name can contain any characters and can be a maximum of 64 characters long.
-
-You can also specify a device description. A device description usually helps identify the owner and the physical location of the device. The description field must contain fewer than 256 characters.
+You can specify a device description. A device description usually helps identify the owner and the physical location of the device. The description field must contain fewer than 256 characters.
 
 ## Modify time settings
 Your device must synchronize time in order to authenticate with your cloud storage service provider. Select your time zone from the drop-down list, and specify up to two Network Time Protocol (NTP) servers. The primary NTP server is required and is specified when you use Windows PowerShell for StorSimple to configure your device. You can specify the default Windows Server **time.windows.com** as your NTP server. You can view the primary NTP server configuration through the Azure classic portal, but you must use the Windows PowerShell interface to change it.
