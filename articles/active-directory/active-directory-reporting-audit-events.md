@@ -3,7 +3,7 @@ title: Azure Active Directory audit report events | Microsoft Docs
 description: Audited events that are available for viewing and downloading from your Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/16/2017
 ms.author: dhanyahk;markvi
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory audit report events

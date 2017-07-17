@@ -55,6 +55,9 @@ Status: To be released
   * The AD Connector account is not the default MSOL_ account anymore.
   * The server is set to be in staging mode.
   * You have enabled the user writeback feature.
+  
+  >[!NOTE]
+  >The scope expansion of the Automatic Upgrade feature affects customers with Azure AD Connect build 1.1.105.0 and after. If you do not want your Azure AD Connect server to be automatically upgraded, you must run following cmdlet on your Azure AD Connect server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. For more information about enabling/disabling Automatic Upgrade, refer to article [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md).
 
 ## 1.1.557.0
 Status: July 2017
