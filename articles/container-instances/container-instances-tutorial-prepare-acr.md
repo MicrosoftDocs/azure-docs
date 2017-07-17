@@ -173,7 +173,23 @@ Result
 v1
 ```
 
-At tutorial completion, the two container images have been stored in a private Azure Container Registry instance. These images are deployed from ACR to a Kubernetes cluster in subsequent tutorials.
+## Create an Azure Key Vault and store ACR credentials
+
+To protect access to your Azure Container Registry credentials, we recommend that you store them in an Azure Key Vault. You can reference your key vault as part of an Azure Resource Manager (ARM) template when deploying your containers to Azure Container Instances.
+
+Create the key vault with the Azure CLI:
+
+```bash
+az keyvault create -n aci-keyvault --enabled-for-template-deployment -g myResourceGroup
+```
+
+The `enabled-for-template-deployment` switch allows Azure Resource Manager to pull secrets from your key vault at deployment time.
+
+Store the password for your registry as a new secret in the key vault:
+
+```
+az keyvault secret set --vault-name aci-keyvault --name acrpassword --value <acrPassword>
+```
 
 ## Next steps
 
