@@ -22,7 +22,7 @@ However, some updates do require a reboot. In such cases, the VMs are shut down 
 
 To understand what Azure planned maintenance is and how it can affect the availability of your Linux VMs, see the articles listed here. The articles provide background about the Azure planned maintenance process and how to schedule planned maintenance to further reduce the impact.
 
-- [Planned maintenance for VMs in Azure](../articles/virtual-machines/windows/classic/planned-maintenance.md)
+- [Planned maintenance for VMs in Azure](../articles/virtual-machines/windows/planned-maintenance.md)
 - [How to schedule planned maintenance on Azure VMs](../articles/virtual-machines/windows/classic/planned-maintenance-schedule.md)
 
 ### Memory-preserving updates   
