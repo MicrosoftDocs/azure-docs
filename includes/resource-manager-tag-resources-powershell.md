@@ -12,35 +12,74 @@ Version
 3.5.0
 ```
 
-Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags that you want to preserve. To add tags to a:
+To see the existing tags for a **resource group**, use:
 
-* resource group without existing tags.
+```powershell
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```
 
-  ```powershell
-  Set-AzureRmResourceGroup -Name TagTestGroup -Tag @{ Dept="IT"; Environment="Test" }
-  ```
+Which returns the following format:
 
-* resource group with existing tags.
+```powershell
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResourceGroup -Name TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResourceGroup -Tag $tags -Name TagTestGroup
-  ```
+To see the existing tags for a **resource with a specified resource ID**, use:
 
-* resource without existing tags.
+```powershell
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
+```
 
-  ```powershell
-  Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+Or, to see the existing tags for a **resource with a specified name, and resource group**, use:
 
-* resource with existing tags.
+```powershell
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResource -ResourceName storageexample -ResourceGroupName TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+To get **resource groups with a specific tag**, use:
+
+```powershell
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+```
+
+To get **resources with a specific tag**, use:
+
+```powershell
+(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+```
+
+Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags. 
+
+To add tags to a **resource group without existing tags**, use:
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+To add tags to a **resource group with existing tags**, retrieve the existing tags, add the new tag, and reapply the tags:
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+To add tags to a **resource without existing tags**, use:
+
+```powershell
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName exampleroup
+```
+
+To add tags to a **resource with existing tags**.
+
+```powershell
+$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+```
 
 To apply all tags from a resource group to its resources, and **not retain existing tags on the resources**, use the following script:
 
@@ -77,18 +116,8 @@ foreach ($g in $groups)
 To remove all tags, pass an empty hash table.
 
 ```powershell
-Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
-To get resource groups with a specific tag, use `Find-AzureRmResourceGroup` cmdlet.
 
-```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
-```
-
-To get all the resources with a particular tag and value, use the `Find-AzureRmResource` cmdlet.
-
-```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
-```
 
