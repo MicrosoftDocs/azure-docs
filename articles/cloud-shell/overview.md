@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/10/2017
 ms.author: juluk
 ---
 # Overview of Azure Cloud Shell (Preview)
@@ -39,7 +39,7 @@ On first launch Cloud Shell prompts to create a resource group, storage account,
 
 ![](media/storage-prompt.png)
 
-An LRS storage account is created on your behalf with an Azure file share containing a default 5-GB disk image. The file share mounts as `clouddrive` for file share interaction with the disk image being used to sync and persist your $Home directory. Regular storage costs apply.
+An locally redundant storage (LRS) account can be created on your behalf with an Azure file share containing a default 5-GB disk image. The file share mounts as `clouddrive` for file share interaction with the disk image being used to sync and persist your $Home directory. Regular storage costs apply.
 
 Three resources will be created on your behalf:
 1. Resource Group named: `cloud-shell-storage-<region>`
@@ -61,7 +61,7 @@ Three resources will be created on your behalf:
 [Learn more about all Cloud Shell features.](features.md)
 
 ## Examples
-* Create or edit scripts to manage Azure resources from any browser
+* Create or edit scripts to automate Azure management
 * Simultaneously manage resources via Azure portal and Azure CLI 2.0
 * Test-drive Azure CLI 2.0
 
@@ -76,8 +76,6 @@ Cloud Shell is recommended for Chrome, Edge, and Safari.
 While Cloud Shell is supported for Chrome, Firefox, Safari, IE, and Edge, Cloud Shell is subject to specific browser settings.
 
 ## Troubleshooting
-* When creating storage, I receive Error: 409 MissingSubscriptionRegistration.
-  * This error signifies your subscription has not registered for the storage namespace. Follow [these step-by-step details](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound) and try again when completed.
 * When using an Azure Active Directory subscription, I cannot create storage due to Error: 400 DisallowedOperation.
   * AD subscriptions are not granted access to create Azure resources, please use an Azure subscription capable of creating storage resources.
 
