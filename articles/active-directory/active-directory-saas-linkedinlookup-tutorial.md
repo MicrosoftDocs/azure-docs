@@ -3,7 +3,7 @@ title: 'Tutorial: Azure Active Directory integration with LinkedIn Lookup | Micr
 description: Learn how to configure single sign-on between Azure Active Directory and LinkedIn Lookup.
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid: a2757a39-1ead-4a3e-91e4-270be3055683
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
-ms.author: jeedes
+ms.author: joflore
 
 ---
 # Tutorial: Azure Active Directory integration with LinkedIn Lookup

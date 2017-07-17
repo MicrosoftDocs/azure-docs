@@ -160,7 +160,7 @@ Encrypted disk | No | No
 NFS | No | N/A
 SMB 3.0 | No | No
 RDM | Yes<br/><br/> N/A for physical servers | N/A
-Disk > 1 TB | No | No
+Disk > 1 TB | Yes<br/><br/>Upto 4095 GB | Yes<br/><br/>Upto 4095 GB
 Disk with 4K sector size | No | No
 Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes
 Storage Spaces | No | Yes
@@ -183,9 +183,10 @@ Import/export service | No | No
 ## Support for Azure compute configuration
 
 **Compute feature** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
---- | --- | --- | ---
+--- | --- | --- 
 Availability sets | Yes | Yes
 HUB | Yes | Yes  
+Managed disks | Yes | Yes<br/><br/>Failback to on-premises from Azure VM with managed disks is not currently supported.
 
 ## Failed-over Azure VM requirements
 
@@ -198,7 +199,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 **Operating system disk size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Operating system disk count** | 1 | Prerequisites check will fail if unsupported.
 **Data disk count** | 64 or less if you are replicating **VMware VMs to Azure**; 16 or less if you are replicating **Hyper-V VMs to Azure** | Prerequisites check will fail if unsupported
-**Data disk VHD size** | Up to 1023 GB | Prerequisites check will fail if unsupported
+**Data disk VHD size** | Up to 4095 GB | Prerequisites check will fail if unsupported
 **Network adapters** | Multiple adapters are supported |
 **Shared VHD** | Not supported | Prerequisites check will fail if unsupported
 **FC disk** | Not supported | Prerequisites check will fail if unsupported

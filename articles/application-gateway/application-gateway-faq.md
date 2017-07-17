@@ -130,6 +130,10 @@ Micro service architecture is supported. You would need multiple http settings c
 
 Custom probes do not support wildcard or regex on response data.
 
+**Q. How are rules processed?**
+
+Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
+
 **Q. What does the Host field for custom probes signify?**
 
 Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>.
