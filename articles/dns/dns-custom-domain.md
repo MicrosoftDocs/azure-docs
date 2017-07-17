@@ -172,7 +172,6 @@ Select the endpoint you are working with and click **+ Custom domain**. Note the
 
 Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
 
-
 |Property  |Value  |Description  |
 |---------|---------|---------|
 |Name     | cdnverify.mycdnendpoint        | This along with the domain name label is the FQDN for the custom domain name.        |
@@ -183,7 +182,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 Navigate back to your CDN endpoint by clicking **Networking** > **CDN Profiles**, and select your CDN profile. Click **+ Custom domain** and enter your CNAME record alias without the cdnverify prefix and click **Add**.
 
-Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
+Once this step is complete, return to your DNS zone and create a CNAME record without the cdnverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
 
 ## Next steps
 
