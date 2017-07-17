@@ -114,8 +114,9 @@ When you run a custom configuration, you are running all traces (performance dia
 
 Information about Windows VM, disks or storage pools configuration, performance counters, logs and various traces are collected depending on the performance scenario used:
 
-|                              | Collect disk Configuration | Benchmark/Storage Performance test | General VM Slow analysis | VM Slow analysis and benchmark | Azure Files analysis | Custom configuration |
+|Data collected                              |  |  | Performance Scenarios |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
+|                              | Collect disk Configuration | Benchmark/Storage Performance test | General VM Slow analysis | VM Slow analysis and benchmark | Azure Files analysis | Custom configuration |
 | Information from Event logs      | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | System information               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | Volume Map                       | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
