@@ -11,6 +11,8 @@
 
 ## Dsv3-series
 
+ACU: 160-190
+
 Dsv3-series sizes are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. The Dsv3-series sizes offer a combination of CPU, memory, and local disk for most production workloads.
 
 
@@ -23,6 +25,8 @@ Dsv3-series sizes are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 
 
 
 ## Dv3-series
+
+ACU: 160-190
 
 Dv3-series sizes are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. The Dv3-series sizes offer a combination of CPU, memory, and local disk for most production workloads.
 
