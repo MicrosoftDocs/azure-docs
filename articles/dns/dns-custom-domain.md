@@ -32,13 +32,7 @@ The following are resources that you can configure a vanity or custom domain for
 |[Public IP address](#public-ip-address)    | An A record to public IP address        |
 |[App Service (Web Apps)](#app-service-web-apps)     | A CNAME record added as a hostname for the custom domain          |
 |[Blob storage](#blob-storage)    | Use indirect validation with CNAME records.         |
-|[Azure CDN](#azure-cdn)    | Use indirect validation with CNAME records.         |
-|Row7     |         |
-|Row8     |         |
-|Row9     |         |
-|Row10     |         |
-
-* Azure Active Directory
+|[Azure CDN](#azure-cdn)    | Use indirect validation with CNAME records. 
 
 ## Azure Function App
 
