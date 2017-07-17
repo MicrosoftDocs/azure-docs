@@ -525,6 +525,19 @@ b) Update the jobs with a tracking number suffixed with -1, -2 etc.
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
 Max Page Blob size is 1TB.
+
+**Does Disk Import/Export support AES 256 encryption?**
+Azure Import/Export service by default encrypts with AES 128 bitlocker encryption but this can be increased to AES 256 by manually encrypting with bitlocker before data is copied. 
+
+If using [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+If using [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
 ## Next steps
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)
