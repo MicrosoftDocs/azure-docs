@@ -4,7 +4,7 @@
 2. You see the existing tags for the resource. If you have not previously applied tags, the list is empty. 
 
      ![Show existing tags on resource and resource group blades](./media/resource-manager-tag-resources/existing-tags.png)
-3. To add a tag, type a key and value, or select an existing one from the dropdown menu. Select **Save**.
+3. To add a tag, type a name and value, or select an existing one from the dropdown menu. Select **Save**.
 
      ![Add new tag](./media/resource-manager-tag-resources/tag-resources.png)
 3. To view all the resources with a tag value, select **>** (More services), and enter the word **Tags** into the filter text box. Select **Tags** from the available options.

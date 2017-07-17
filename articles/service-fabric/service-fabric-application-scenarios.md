@@ -34,7 +34,7 @@ We have seen several customers who have built IoT systems using Service Fabric i
 
 ## Application design case studies
 A number of case studies showing how Service Fabric is used to design applications are published on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) and 
-the [microservices solutions site](https://azure.microsoft.com/solutions/microservice-applications/)
+the [microservices solutions site](https://azure.microsoft.com/solutions/microservice-applications/).
 
 ## Design applications composed of stateless and stateful microservices
 Building applications with Azure Cloud Service worker roles is an example of a stateless service. In contrast, stateful microservices maintain their authoritative state beyond the request and its response. This provides high availability and consistency of the state through simple APIs that provide transactional guarantees backed by replication. Service Fabric's stateful services democratize high availability, bringing it to all types of applications, not just databases and other data stores. This is a natural progression. Applications have already moved from using purely relational databases for high availability to NoSQL databases. Now the applications themselves can have their "hot" state and data managed within them for additional performance gains without sacrificing reliability, consistency, or availability.

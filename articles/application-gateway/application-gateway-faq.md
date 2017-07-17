@@ -54,6 +54,10 @@ Application Gateway is a dedicated deployment in your virtual network.
 
 This is currently not supported.
 
+**Q. In what order are listeners processed?**
+
+Listeners are processed in the order they are shown. For that reason if a basic listener matches an incoming request it will process it first.  Multi-site listeners should be configured before a basic listener to ensure traffic is routed to the correct back-end.
+
 **Q. Where do I find Application Gateway’s IP and DNS?**
 
 When using a public IP address as an endpoint, this information can be found on the public IP address resource or on the Overview page for the Application Gateway in the portal. For internal IP addresses, this can be found on the Overview page.
@@ -148,7 +152,7 @@ This can be done using NSGs on Application Gateway subnet. The following restric
 
 **Q. How does Application Gateway support high availability and scalability?**
 
-Application Gateway supports high availability scenarios if you have more than 2 instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
+Application Gateway supports high availability scenarios if you have 2 or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
 
 **Q. How do I achieve DR scenario across data centers with Application Gateway?**
 

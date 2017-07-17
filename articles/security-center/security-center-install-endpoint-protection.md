@@ -21,7 +21,7 @@ ms.author: terrylan
 Azure Security Center recommends that you install endpoint protection on your Azure virtual machines (VMs) if endpoint protection is not already enabled. This recommendation applies to Windows VMs only.
 
 > [!NOTE]
-> This example deployment uses Microsoft Antimalware. See [Partner Integration in Azure Security Center](security-center-partner-integration.md#what-partners-are-integrated-with-security-center) for a list of partners integrated with Security Center.  
+> This example deployment uses Microsoft Antimalware. See [Partner Integration in Azure Security Center](security-center-partner-integration.md#partners-that-integrate-with-security-center) for a list of partners integrated with Security Center.  
 >
 >
 
