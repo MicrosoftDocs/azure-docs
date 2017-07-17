@@ -111,16 +111,10 @@ For information about creating your own cluster, see [Create your first Service 
 > The web front-end service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
 >
 
-### Configure the application to run in a Party Cluster
-The front-end web API service needs to bind to a well-know port to accept HTTP requests in a Party Cluster. You specify the port in the service's **ServiceManifest.xml** file.
-
-1. In Solution Explorer in Visual Studio, open up **VotingWeb->PackageRoot->ServiceManifest.xml**.
-2. Change the **Port** attribute of the existing **Endpoint** element to **80** and save your changes.
-
 ### Deploy the application using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
-1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog will appear.
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -145,7 +139,7 @@ To scale the web front-end service, do the following steps:
     You can now choose to scale the number of instances of the web front-end service.
 
 3. Change the number to **2** and click **Scale Service**.
-4. Click on the **fabric:/Voting/VotingWeb** node in the treeview and expand the partition node below (represented by a GUID).
+4. Click on the **fabric:/Voting/VotingWeb** node in the tree-view and expand the partition node (represented by a GUID).
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
 
@@ -168,7 +162,7 @@ To upgrade the application, do the following:
 3. Save the file.
 4. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 5. Click the **Manifest Version** button to change the version of the service and application.
-6. Change the version of the **Code** element under **VotingWebPkg** to for example, 2.0.0 and click **Save**.
+6. Change the version of the **Code** element under **VotingWebPkg** to "2.0.0", for example, and click **Save**.
 
     ![Change Version Dialog](./media/service-fabric-quickstart-dotnet/change-version.png)
 7. In the **Publish Service Fabric Application** dialog, check the Upgrade the Application checkbox, and click **Publish**.
@@ -181,8 +175,6 @@ To upgrade the application, do the following:
     Service Fabric makes upgrades safe by waiting two minutes after upgrading the service on each node in the cluster. Expect the entire update to take approximately eight minutes.
 
 10. While the upgrade is running, you can still use the application. Because you have two instances of the service running in the cluster, some of your requests may get an upgraded version of the application, while others may still get the old version.
-
-This concludes the quickstart.
 
 ## Next steps
 In this quickstart, you learned how to:
