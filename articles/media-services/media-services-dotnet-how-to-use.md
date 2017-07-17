@@ -75,13 +75,13 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
 
 10. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
 		   
-	using System;
-	using System.Configuration;
-	using System.IO;
-	using Microsoft.WindowsAzure.MediaServices.Client;
-	using System.Threading;
-	using System.Collections.Generic;
-	using System.Linq;
+		using System;
+		using System.Configuration;
+		using System.IO;
+		using Microsoft.WindowsAzure.MediaServices.Client;
+		using System.Threading;
+		using System.Collections.Generic;
+		using System.Linq;
 
 At this point, you are ready to start developing a Media Services application.    
 
