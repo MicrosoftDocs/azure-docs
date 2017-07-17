@@ -56,7 +56,7 @@ To set the dependencies that you need in Maven, do these steps:
 
 1. Change the directory to *createVM*.
 
-2. Open the pom.xml file and add the build coonfiguration to <project> to enable the bulding of your application:
+2. Open the pom.xml file and add the build configuration to &lt;project&gt; to enable the building of your application:
 
     ```xml
     <build>
@@ -65,7 +65,7 @@ To set the dependencies that you need in Maven, do these steps:
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
             <configuration>
-                <mainClass>com.fabrikam.testAzureApp.AzureApp</mainClass>
+                <mainClass>createVM.App</mainClass>
             </configuration>
         </plugin>
       </plugins>
@@ -116,11 +116,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
 
 2. Save the azureauth.properties file.
-3. Set an environment variable AZURE_AUTH_LOCATION with the full path to the authentication file in your shell. 
-
-    ```
-    export AZURE_AUTH_LOCATION=/Users/raisa/azureauth.properties
-    ```
+3. Set an environment variable AZURE_AUTH_LOCATION with the full path to the authentication file in your shell.
 
 ### create the management client
 
@@ -401,7 +397,7 @@ input.nextLine();
 
 ### Add a data disk to the VM
 
-To add a data disk to the virtual machine, add this code to the Main method to add a data disk that is 2 GB in size, han a LUN of 0 and a caching type of ReadWrite:
+To add a data disk to the virtual machine that is 2 GB in size, has a LUN of 0, and a caching type of ReadWrite, add this code to the main method:
 
 ```java
 System.out.println("Adding data disk...");
