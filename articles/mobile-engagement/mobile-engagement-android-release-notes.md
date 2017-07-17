@@ -19,7 +19,7 @@ ms.author: piyushjo
 ---
 # Release notes
 
-### 4.3.1 (07/17/2017)
+## 4.3.1 (07/17/2017)
 * Fix a crash that could rarely happen when calling `EngagementAgentUtils.isInDedicatedEngagementProcess`, which is also used by the `EngagementApplication` class.
 
 ## 4.3.0 (06/27/2017)
