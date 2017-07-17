@@ -1,6 +1,6 @@
 ---
-title: C-Series API Overview | Azure Docs
-description: Understand the C-Series API
+title: Azure Container Instances Overview | Azure Docs
+description: Understand Azure Container Instances
 services: container-service
 documentationcenter: ''
 author: seanmck
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 07/17/2017
 ms.author: seanmck
 ms.custom: 
 ---
 
-# C-Series API Overview
+# Azure Container Instances Overview
 
-The C-Series API is designed to support the scheduling of one or more containers in a group on a single host machine in the Azure infrastructure. It is designed with two core scenarios in mind:
+The Azure Container Instances API is designed to support the scheduling of one or more containers in a group on a single host machine in the Azure infrastructure. It is designed with two core scenarios in mind:
 
 - **Direct invocation** for the creation of simple container-based applications or compute tasks.
 
@@ -30,7 +30,7 @@ The C-Series API is designed to support the scheduling of one or more containers
 
 ## API Primitives 
 
-The C-Series API includes two main primitives: container groups and containers.
+The Azure Container Instances API includes two main primitives: container groups and containers.
 
 ### Container Groups
 
@@ -43,7 +43,7 @@ Typically, a container group will be made up of a primary container performing t
 
 By separating these operations into different containers, they can be built by different teams at different paces and receive different resource allocations. Scheduling them on the same host simplifies development and maximizes performance.
 
-The C-Series resource provider operates exclusively on container groups. However, because single container groups are very common, the C-Series CLI operations are optimized for dealing with individual containers, with groups implicitly created to wrap them.
+The Azure Container Instances resource provider operates exclusively on container groups. However, because single container groups are very common, the Azure Container Instances CLI operations are optimized for dealing with individual containers, with groups implicitly created to wrap them.
 
 Because they are scheduled on the same host, all containers in a group must share a base OS type (Linux or Windows). 
 
@@ -55,7 +55,7 @@ Container images can be pulled from any Docker compatible registry, including Do
 
 ## Resource management
 
-Part of the value of C-Series is that you pay only for the resources that your containers need. 
+Part of the value of Azure Container Instances is that you pay only for the resources that your containers need. 
 
 Resources are requested at the container level. Hard resource constraints are applied at the group level, by summing the resource requests of the containers within the group. Because container groups are run within an Hyper-V isolation environment, which does not support fractional CPU cores, the group's CPU core request will be rounded up to the next integer.
 
@@ -70,7 +70,7 @@ In this case, the group will be allocated 2 CPU (ceiling(0.75+0.5)) and 2GB of R
 
 ## Networking
 
-You can expose your C-Series to the internet by requesting a public IP address. The IP is allocated to the container group and any ports specified on that IP will be forwarded on to the corresponding port of the container. Note that since containers within a group share a local network, they must listen on distinct ports. Port mapping is not supported.
+You can expose your Azure Container Instances to the internet by requesting a public IP address. The IP is allocated to the container group and any ports specified on that IP will be forwarded on to the corresponding port of the container. Note that since containers within a group share a local network, they must listen on distinct ports. Port mapping is not supported.
 
 We intend to add support for putting a container group into a virtual network and for fronting container groups with a load balancer, but neither of these capabilities exist yet.
 
