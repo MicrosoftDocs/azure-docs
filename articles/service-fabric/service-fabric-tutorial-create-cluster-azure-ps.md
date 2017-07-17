@@ -35,11 +35,10 @@ Before you begin this tutorial:
 - Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md)
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 
 
->[!NOTE]
->The following procedure creates a Single node (single Virtual Machine) Preview Service Fabric cluster, secured by a self-signed certificate, that is placed in KeyVault.
->Single node clusters cannot be scaled beyond one virtual machine and preview clusters cannot be upgraded to newer versions.
->To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator][link-azure-pricing-calculator].
->For more information on creating Service Fabric clusters, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
+The following procedure creates a single-node (single virtual machine) preview Service Fabric cluster, secured by a self-signed certificate that is placed in a key vault. Single-node clusters cannot be scaled beyond one virtual machine and preview clusters cannot be upgraded to newer versions. 
+
+To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator][link-azure-pricing-calculator].
+For more information on creating Service Fabric clusters, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
 
 ## Create the cluster using Azure PowerShell
 1. Download a local copy of the Azure Resource Manager template and the parameter file from this GitHub repository:
@@ -58,23 +57,18 @@ Before you begin this tutorial:
    | clusterCodeVersion | The Service Fabric version to run. (255.255.X.255 are preview versions). | **255.255.5718.255** |
    | vmInstanceCount | The number of virtual machines in your cluster (can be 1 or 3-99). | **1** |
 
-3. Open **PowerShell**.
-4. **Log in** to Azure.
+3. Open a PowerShell console, login to Azure, and select the subscription you want to deploy the cluster in:
 
    ```powershell
    Login-AzureRmAccount
-   ```
-5. Select the **subscription** you want to deploy the cluster in.
-
-   ```powershell
    Select-AzureRmSubscription -SubscriptionId <subscription-id>
    ```
-6. Create and **encrypt a password** for the certificate used by Service Fabric.
+4. Create and **encrypt a password** for the certificate used by Service Fabric.
 
    ```powershell
    $pwd = "<your password>" | ConvertTo-SecureString -AsPlainText -Force
    ```
-7. **Create the cluster**, by running the following command:
+5. **Create the cluster**, by running the following command:
 
    ```powershell
       New-AzureRmServiceFabricCluster
@@ -91,11 +85,11 @@ Before you begin this tutorial:
    
     Once the configuration finishes, it will output information about the cluster created in Azure, as well as copy the certificate to the -CertificateOutputFolder directory.
 
-8. **Double-click** the certificate to open the Certificate Import Wizard.
+6. **Double-click** the certificate to open the Certificate Import Wizard.
 
-9. Use default settings, but make sure to check the **Mark this key as exportable.** check box, in the **private key protection** step. Visual Studio needs to export the certificate when configuring Azure Container Registry to Service Fabric Cluster authentication later in this tutorial.
+7. Use default settings, but make sure to check the **Mark this key as exportable.** check box, in the **private key protection** step. Visual Studio needs to export the certificate when configuring Azure Container Registry to Service Fabric Cluster authentication later in this tutorial.
 
-10. You can now open Service Fabric Explorer in a browser. The URL is the **ManagementEndpoint** in the output from the PowerShell CmdLet, for example, *https://mycluster.westeurope.cloudapp.azure.com:19080* 
+8. You can now open Service Fabric Explorer in a browser. The URL is the **ManagementEndpoint** in the output from the PowerShell CmdLet, for example, *https://mycluster.westeurope.cloudapp.azure.com:19080* 
 
 >[!NOTE]
 >When opening Service Fabric Explorer, you see a certificate error, as you are using a self-signed certificate. In Edge, you have to click *Details* and then the *Go on to the webpage* link. In Chrome, you have to click *Advanced* and then the *proceed* link.
