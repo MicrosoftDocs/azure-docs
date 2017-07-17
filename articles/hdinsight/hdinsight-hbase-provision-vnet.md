@@ -41,7 +41,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 > Some properties are hard-coded into the template. For example:
 >
 > * **Location**: East US 2
-> * **Cluster version: 3.5
+> * **Cluster version**: 3.5
 > * **Cluster worker node count**: 2
 > * **Default storage account**: a unique string
 > * **Virtual network name**: &lt;Cluster Name>-vnet
