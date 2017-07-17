@@ -41,7 +41,7 @@ To calculate cost incurred by running a Service Fabric cluster in Azure use the 
 For more information on creating Service Fabric clusters, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
 
 ## Create the cluster using Azure PowerShell
-1. Download a local copy of the Azure Resource Manager template and the parameter file from the [Azure Resource Manager template for Service Fabric][link-sf-clustertemplate] GitHub repository.  *azuredeploy.json* is the Azure Resource Manager template that defines a Service Fabric cluster. *azuredeploy.parameters.json* is a parameters file for you to customize the cluster deployment.
+1. Download a local copy of the Azure Resource Manager template and the parameter file from the [Azure Resource Manager template for Service Fabric](https://aka.ms/securepreviewonelineclustertemplate) GitHub repository.  *azuredeploy.json* is the Azure Resource Manager template that defines a Service Fabric cluster. *azuredeploy.parameters.json* is a parameters file for you to customize the cluster deployment.
 
 2. Customize the following parameters in the *azuredeploy.parameters.json* parameters file:
   
