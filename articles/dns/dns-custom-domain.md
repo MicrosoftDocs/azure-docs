@@ -48,22 +48,22 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 |Property  |Value  |Description  |
 |---------|---------|---------|
-|Name     | myfunctionapp        | This along with the domain name label is the FQDN for the custom domain name.        |
+|Name     | myfunctionapp        | This value along with the domain name label is the FQDN for the custom domain name.        |
 |Type     | CNAME        | Use a CNAME record is using an alias.        |
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
 |Alias     | adatumfunction.azurewebsites.net        | The DNS name you are creating the alias for, in this example it is the adatumfunction.azurewebsites.net DNS name provided by default to the function app.        |
 
-Navigate back to your function app, click **Platform features** and under **NETWORKING** click **Custom domains**, then under **Hostnames** click **+ Add hostname**.
+Navigate back to your function app, click **Platform features**, and under **NETWORKING** click **Custom domains**, then under **Hostnames** click **+ Add hostname**.
 
 On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record was able to be found the **Add hostname** button appears. Click **Add hostname** to add the alias.
 
-![function app add host name blade](./media/dns-custom-domain/functionaddhostname.png)
+![function apps add host name blade](./media/dns-custom-domain/functionaddhostname.png)
 
 
 ## Azure IoT
 
-Navigate to **Internet of Things** > **IoT Hub** and select your IoT hub. On the **Overview** blade note the FQDN of the IoT hub.
+Navigate to **Internet of Things** > **IoT Hub** and select your IoT hub. On the **Overview** blade, note the FQDN of the IoT hub.
 
 ![iot hub blade](./media/dns-custom-domain/iot.png)
 
@@ -127,7 +127,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 ![create cname record](./media/dns-custom-domain/createcnamerecord.png)
 
-Navigate back to your app service that is configured for the custom domain name and click **Custom domains**, then click **Hostnames**. To add the CNAME record you just created, click **+ Add hostname**.
+Navigate back to your app service that is configured for the custom domain name and click **Custom domains**, then click **Hostnames**. To add the CNAME record you created, click **+ Add hostname**.
 
 ![figure 1](./media/dns-custom-domain/figure1.png)
 
@@ -139,7 +139,7 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 
 The following steps take you through configuring a CNAME record for a blob storage account using the asverify method. This method ensures there is no downtime.
 
-Navigate to **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Notate the FQDN under step 2, this is used to create the first CNAME record
+Navigate to **Storage** > **Storage Accounts**, select your storage account, and click **Custom domain**. Notate the FQDN under step 2, this is used to create the first CNAME record
 
 ![blob storage custom domain](./media/dns-custom-domain/blobcustomdomain.png)
 
@@ -166,7 +166,7 @@ The following steps take you through configuring a CNAME record for a CDN endpoi
 
 Navigate to **Networking** > **CDN Profiles**, select your CDN profile, and click **Endpoints** under **General**.
 
-Select the endpoint you are working with and click **+ Custom domain**. Note the **Endpoint hostname** as this will be the record to point the CNAME record to.
+Select the endpoint you are working with and click **+ Custom domain**. Note the **Endpoint hostname** as this is the record to point the CNAME record to.
 
 ![CDN custom domain](./media/dns-custom-domain/endpointcustomdomain.png)
 
@@ -183,7 +183,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 Navigate back to your CDN endpoint by clicking **Networking** > **CDN Profiles**, and select your CDN profile. Click **+ Custom domain** and enter your CNAME record alias without the cdnverify prefix and click **Add**.
 
-Once this step is complete return to your DNS zone and create a CNAME record without the asverify prefix.  After that point you are safe to delete the CNAME record with the cdnverify prefix.
+Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
 
 ## Next steps
 
