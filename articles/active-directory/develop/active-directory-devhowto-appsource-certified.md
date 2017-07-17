@@ -39,13 +39,13 @@ The *customer-led trial* is the experience that AppSource recommends as it offer
 
 <table >
 <tr>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png"><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Free trial’ option</li></ul></td>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png"><ul><li>AppSource redirects user to a URL in your Web Site.</li><li>Your web site starts the single-sign-on process</li></ul></td>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png"><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provided credentials to sign in</li></ul></td>
+    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="55%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Free trial’ option</li></ul></td>
+    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="55%" /><ul><li>AppSource redirects user to a URL in your Web Site.</li><li>Your web site starts the single-sign-on process</li></ul></td>
+    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="55%"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provided credentials to sign in</li></ul></td>
 </tr>
 <tr>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png"><ul><li>User gives consent for your application</li></ul></td>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png"><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the free trial</li></ul></td>
+    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="55%"/><ul><li>User gives consent for your application</li></ul></td>
+    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="55%"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the free trial</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -55,25 +55,25 @@ The partner trial experience can be used when some manual or long-term operation
 
 <table valign="top">
 <tr>
-    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png"><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Request trial’ option</li></ul></td>
-    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png"><ul><li>AppSource redirects user to a URL in your Web Site.</li><li>Your web site starts the single-sign-on process</li></ul></td>
-    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png"><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provided credentials to sign in</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="55%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Request trial’ option</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="55%"/><ul><li>AppSource redirects user to a URL in your Web Site.</li><li>Your web site starts the single-sign-on process</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="55%"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provided credentials to sign in</li></ul></td>
 </tr>
 <tr>
-    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png"><ul><li>User gives consent for your application</li></ul></td>
-    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step5.png"><ul><li>Sign-in completes and user is redirected back to your web site</li><li>Your application start provision user</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="55%"/><ul><li>User gives consent for your application</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step5.png" width="55%"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>Your application start provision user</li></ul></td>
     <td valign="top">Then:<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png"></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
             <td>Receive User Information</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png"></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
             <td>Setup Environment</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png"></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
             <td>Contact user with trial info</td>
         </tr>
         </table><br/><br/>
