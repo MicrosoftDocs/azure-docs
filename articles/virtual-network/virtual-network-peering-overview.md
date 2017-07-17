@@ -83,8 +83,7 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 ## <a name="next-steps"></a>Next steps
 
 * Complete a virtual network peering tutorial. A virtual network peering is created between virtual networks created through the same, or different deployment models that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
-
-    
+ 
     |Azure deployment model  | Subscription  |
     |---------|---------|
     |Both Resource Manager |[Same](virtual-network-create-peering.md)|

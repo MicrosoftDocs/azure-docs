@@ -141,8 +141,7 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 ## <a name="next-steps"></a>Next steps
 
 * Complete a virtual network peering tutorial. A virtual network peering is created between virtual networks created through the same, or different deployment models that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
-
-    
+ 
     |Azure deployment model  | Subscription  |
     |---------|---------|
     |Both Resource Manager |[Same](virtual-network-create-peering.md)|
@@ -152,6 +151,5 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 * Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 
 * Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md).
-
 
 
