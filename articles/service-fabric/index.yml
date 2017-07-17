@@ -47,6 +47,22 @@ sections:
     items:
     - html: <a href="service-fabric-tutorial-create-dotnet-app">Deploy a .NET application</a>
     - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Lift and shift an existing .NET application</a>
+- title: Free PluralSight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Developing with .NET
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+      image: 
+        src: https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+    - title: Cloud Patterns and Architecture
+      href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+      image: 
+        src: https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
 - title: Samples
   items:
   - type: list
