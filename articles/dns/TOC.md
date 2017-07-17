@@ -40,6 +40,7 @@
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
+## [Integrate Azure DNS with Azure resources](dns-custom-domain.md)
 ## Troubleshoot
 ### [Troubleshooting guide](dns-troubleshoot.md)
 
