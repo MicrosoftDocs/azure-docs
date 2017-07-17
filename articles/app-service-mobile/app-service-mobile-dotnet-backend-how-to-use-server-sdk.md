@@ -4,7 +4,7 @@ description: Learn how to work with the .NET backend server SDK for Azure App Se
 keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
 services: app-service\mobile
 documentationcenter: ''
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: ''
 
@@ -539,4 +539,3 @@ tokens when running locally, which the client obtains the token from the cloud-b
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
-

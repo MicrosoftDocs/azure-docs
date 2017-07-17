@@ -3,7 +3,7 @@ title: How to Use the JavaScript SDK for Azure Mobile Apps
 description: How to Use v for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: ''
 
@@ -116,4 +116,3 @@ After the backend updates, you will be able to use the new loopback URLs in your
 [Azure portal]: https://portal.azure.com/
 [JavaScript SDK for Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-

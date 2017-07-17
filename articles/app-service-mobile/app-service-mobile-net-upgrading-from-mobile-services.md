@@ -3,7 +3,7 @@ title: Upgrade from Mobile Services to Azure App Service
 description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
 documentationcenter: ''
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: ''
 

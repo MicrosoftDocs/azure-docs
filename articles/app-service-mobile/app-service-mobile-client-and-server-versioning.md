@@ -3,7 +3,7 @@ title: Client and server SDK versioning in Mobile Apps and Mobile Services | Mic
 description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ''
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: ''
 
@@ -44,8 +44,8 @@ You can opt out of version checking by setting a value of **true** for the app s
 
 > [!NOTE]
 > There are a number of behavior changes between Mobile Services and Mobile Apps, particularly in the areas of offline sync, authentication, and push notifications. You should only opt out of version checking after complete testing to ensure that these behavioral changes do not break your app's functionality.
-> 
-> 
+>
+>
 
 ## Summary of compatibility for all versions
 The chart below shows the compatibility between all client and server types. A backend is classified as either Mobile **Services** or Mobile **Apps** based on the server SDK that it uses.
@@ -127,4 +127,3 @@ Version checking is included in following server SDK versions:
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrate a Mobile Service to Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
-

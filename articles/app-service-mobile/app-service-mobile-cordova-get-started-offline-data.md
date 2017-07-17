@@ -2,7 +2,7 @@
 title: Enable offline sync for your Azure Mobile App (Cordova) | Microsoft Docs
 description: Learn how to use App Service Mobile App to cache and sync offline data in your Cordova application
 documentationcenter: cordova
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: ''
 services: app-service\mobile
@@ -74,7 +74,7 @@ project includes both of these plugins.
     used in your Azure back end. (You don't need to include all column values in this code.)  The `version` field
     is maintained by the mobile backend and is used for conflict resolution.
 
-    You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table 
+    You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table
     relationships by tracking and pushing changes in all tables a client app has modified when `.push()` is called.
 
 3. Update the application URL to your Mobile App application URL.
