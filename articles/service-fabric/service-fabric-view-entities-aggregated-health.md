@@ -63,7 +63,7 @@ View of the cluster with Service Fabric Explorer:
 Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API, using methods on [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell cmdlets, and REST. These queries return complete health information about the entity: the aggregated health state, entity health events, child health states (when applicable), unhealthy evaluations (when the entity is not healthy), and children health statistics (when applicable).
 
 > [!NOTE]
-> A health entity is returned when it is fully populated in the health store. The entity must be active (not deleted) and have a system report. Its parent entities on the hierarchy chain must also have system reports. If any of these conditions is not satisfied, the health queries return a [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) with [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` that shows why the entity is not returned.
+> A health entity is returned when it is fully populated in the health store. The entity must be active (not deleted) and have a system report. Its parent entities on the hierarchy chain must also have system reports. If any of these conditions are not satisfied, the health queries return a [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) with [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` that shows why the entity is not returned.
 >
 >
 
@@ -79,7 +79,7 @@ An entity's health contains:
 * The aggregated health state of the entity. Computed by the health store based on entity health reports, child health states (when applicable), and health policies. Read more about [entity health evaluation](service-fabric-health-introduction.md#health-evaluation).  
 * The health events on the entity.
 * The collection of health states of all children for the entities that can have children. The health states contain entity identifiers and the aggregated health state. To get complete health for a child, call the query health for the child entity type and pass in the child identifier.
-* The unhealthy evaluations that point to the report that triggered the state of the entity, if the entity is not healthy. The evaluations are recursive, containing the children health evaluation that triggered current health state. For example, an Error health report is reported against a replica. The application health shows unhealthy evaluation due to unhealthy service; the service in unhealthy due to partition in Error; the partition is unhealthy due to replica in Error; replica is unhealthy due to the error health event.
+* The unhealthy evaluations that point to the report that triggered the state of the entity, if the entity is not healthy. The evaluations are recursive, containing the children health evaluations that triggered current health state. For example, a watchdog reported an error against a replica. The application health shows an unhealthy evaluation due to an unhealthy service; the service is unhealthy due to a partition in error; the partition is unhealthy due to a replica in error; the replica is unhealthy due to the watchdog error health report.
 * The health statistics for all children types of the entities that have children. For example, cluster health shows the total number of applications, services, partitions, replicas, and deployed entities in the cluster. Service health shows the total number of partitions and replicas under the specified service.
 
 ## Get cluster health
@@ -100,7 +100,7 @@ The following call gets the cluster health:
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-The following code gets the cluster health by using a custom cluster health policy and filters for nodes and applications. It requires that the health statistics include the fabric:/System statistics. It creates [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), which contains the input information.
+The following code gets the cluster health by using a custom cluster health policy and filters for nodes and applications. It specifies that the health statistics include the fabric:/System statistics. It creates [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), which contains the input information.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -193,7 +193,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 1 Warning, 0 Error
 ```
 
-The following PowerShell cmdlet gets the health of the cluster by using a custom application policy. It filters results to get only error or warning applications and nodes. As a result, no nodes are returned, as they are all healthy. Only the fabric:/WordCount application respects the applications filter. Because the custom policy specifies to consider warnings as errors for the fabric:/WordCount application, the application is evaluated as in error, and so is the cluster.
+The following PowerShell cmdlet gets the health of the cluster by using a custom application policy. It filters results to get only applications and nodes in error or warning. As a result, no nodes are returned, as they are all healthy. Only the fabric:/WordCount application respects the applications filter. Because the custom policy specifies to consider warnings as errors for the fabric:/WordCount application, the application is evaluated as in error, and so is the cluster.
 
 ```powershell
 PS D:\ServiceFabric> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -542,7 +542,6 @@ The following cmdlet gets the health for all partitions of the **fabric:/WordCou
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
 
-
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
@@ -785,17 +784,17 @@ HealthEvents               :
 You can get deployed service package health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Health chunk queries
-The health chunk queries can return multi-level cluster children (recursively), per input filters. It supports advanced filters that allow a lot of flexibility in choosing the children to be returned. The filters can specify children by the unique identifier or by other group identifier and/or health state. By default, no children are included, as opposed to health commands that always include first-level children.
+The health chunk queries can return multi-level cluster children (recursively), per input filters. It supports advanced filters that allow a lot of flexibility in choosing the children to be returned. The filters can specify children by the unique identifier or by other group identifiers and/or health states. By default, no children are included, as opposed to health commands that always include first-level children.
 
 The [health queries](service-fabric-view-entities-aggregated-health.md#health-queries) return only first-level children of the specified entity per required filters. To get the children of the children, you must call additional health APIs for each entity of interest. Similarly, to get the health of specific entities, you must call one health API for each desired entity. The chunk query advanced filtering allows you to request multiple items of interest in one query, minimizing the message size and the number of messages.
 
 The value of the chunk query is that you can get health state for more cluster entities (potentially all cluster entities starting at required root) in one call. You can express complex health query such as:
 
-* Return only applications at error, and for those applications include all services at warning|error. For returned services, include all partitions.
+* Return only applications in error, and for those applications include all services in warning or error. For returned services, include all partitions.
 * Return only the health of four applications, specified by their names.
 * Return only the health of applications of a desired application type.
 * Return all deployed entities on a node. Returns all applications, all deployed applications on the specified node and all the deployed service packages on that node.
-* Return all replicas at error. Returns all applications, services, partitions, and only replicas at error.
+* Return all replicas in error. Returns all applications, services, partitions, and only replicas in error.
 * Return all applications. For a specified service, include all partitions.
 
 Currently, the health chunk query is exposed only for the cluster entity. It returns a cluster health chunk, which contains:
@@ -1114,8 +1113,8 @@ ApplicationName               : fabric:/WordCount
 ApplicationTypeName           : WordCount
 TargetApplicationTypeVersion  : 1.0.0.0
 ApplicationParameters         : {}
-StartTimestampUtc             : 4/21/2015 5:23:26 PM
-FailureTimestampUtc           : 4/21/2015 5:23:37 PM
+StartTimestampUtc             : 4/21/2017 5:23:26 PM
+FailureTimestampUtc           : 4/21/2017 5:23:37 PM
 FailureReason                 : HealthCheck
 UpgradeState                  : RollingBackInProgress
 UpgradeDuration               : 00:00:23

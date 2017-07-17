@@ -25,15 +25,15 @@ There are three ways that you can report health from the service:
 * Use [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) or [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) objects.  
   You can use the `Partition` and `CodePackageActivationContext` objects to report the health of elements that are part of the current context. For example, code that runs as part of a replica can report health only on that replica, the partition that it belongs to, and the application that it is a part of.
 * Use `FabricClient`.   
-  You can use `FabricClient` to report health from the service code if the cluster is not [secure](service-fabric-cluster-security.md) or if the service is running with admin privileges. This isn't true in most real-world scenarios. With `FabricClient`, you can report health on any entity that is a part of the cluster. Ideally, however, service code should only send reports that are related to its own health.
+  You can use `FabricClient` to report health from the service code if the cluster is not [secure](service-fabric-cluster-security.md) or if the service is running with admin privileges. Most real-world scenarios do not use unsecured clusters, or provide admin privileges. With `FabricClient`, you can report health on any entity that is a part of the cluster. Ideally, however, service code should only send reports that are related to its own health.
 * Use the REST APIs at the cluster, application, deployed application, service, service package, partition, replica, or node levels. This can be used to report health from within a container.
 
-This article walks you through an example that reports health from the service code. The example also shows how the tools that Service Fabric provides can be used to check the health status. This article is intended to be a quick introduction to the health monitoring capabilities of Service Fabric. For more detailed information, you can read the series of in-depth articles about health that start with the link at the end of this article.
+This article walks you through an example that reports health from the service code. The example also shows how the tools provided by Service Fabric can be used to check the health status. This article is intended to be a quick introduction to the health monitoring capabilities of Service Fabric. For more detailed information, you can read the series of in-depth articles about health that start with the link at the end of this article.
 
 ## Prerequisites
 You must have the following installed:
 
-* Visual Studio 2015
+* Visual Studio 2015 / 2017
 * Service Fabric SDK
 
 ## To create a local secure dev cluster
@@ -119,7 +119,7 @@ The Service Fabric project templates in Visual Studio contain sample code. The f
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-   This code will now fire this health report each time `RunAsync` executes. After you make the change, press **F5** to run the application.
+   This code fires the health report each time `RunAsync` executes. After you make the change, press **F5** to run the application.
 6. After the application is running, open Service Fabric Explorer to check the health of the application. This time, Service Fabric Explorer shows that the application is unhealthy. This is because of the error that was reported from the code that we added previously.
    
     ![Unhealthy application in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
