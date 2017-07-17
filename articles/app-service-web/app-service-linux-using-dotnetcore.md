@@ -72,17 +72,11 @@ Since this app is a web application, a reference to an ASP.NET Core package was 
 
 Test your application locally before deploying it to cloud. So, let's build it on your local machine.
 
-Build your .NET Core app by resolving depending on packages followed by building it, as shown here: 
+Build and run your .NET Core app by resolving depending on packages followed by building it, as shown here: 
 
 ```
-dotnet restore && dotnet build
+dotnet run bin/Debug/netcoreapp1.1/hellodotnetcore.dll
 ``` 
-
-Once built, run it on your local machine to confirm it works. In the previous case, you can do it by typing `dotnet bin/Debug/netcoreapp1.1/hellodotnetcore.dll` because the DLL was built under *bin/Debug/netcoreapp1.1/*. This directory structure is consistent across operating systems.
-
-```bash
-dotnet bin/Debug/netcoreapp1.1/hellodotnetcore.dll
-```
 
 When the application starts, it displays a message indicating the app is listening to incoming requests at a port. 
 
@@ -122,6 +116,8 @@ Use the following table as a guide to fill out the Create page, then select **OK
 ## Deploy your application via Git ##
 
 Use Git to deploy the .NET Core application to Azure App Service Web App on Linux.
+
+
 
 The new Azure website already has a Git deployment configured. You will find the Git deployment URL by navigating to the following URL after inserting your web app name:
 
