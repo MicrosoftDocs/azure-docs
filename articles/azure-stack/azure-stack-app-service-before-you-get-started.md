@@ -1,6 +1,6 @@
 ---
-title: Before you deploy App Services on Azure Stack | Microsoft Docs
-description: Steps to complete before deploying App Service on Azure Stack
+title: Before you deploy App Service on Azure Stack | Microsoft Docs
+description: Steps to complete before you deploy App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -22,7 +22,6 @@ ms.author: anwestg
 You need a few items to install Azure App Service on Azure Stack:
 
 - A completed deployment of the [Azure Stack development kit](azure-stack-run-powershell-script.md).
-
 - Enough space in your Azure Stack system for a small deployment of App Service on Azure Stack.  The required space is roughly 20 GB of disk space.
 - A Windows Server VM image for use when you create virtual machines for App Service on Azure Stack.
 - [A server that's running SQL Server](#SQL-Server).
@@ -39,7 +38,9 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 1.	Sign in to the Azure Stack development kit machine as **AzureStack/administrator**, and then open **Server Manager**.
 
 2.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
+
 3.	Sign in to the Azure Stack development kit machine as an administrator, and then open **Server Manager**.
+
 4.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
 
 ## Enable cookies
@@ -47,8 +48,11 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 1.	Select **Start** > **All apps** > **Windows accessories**. Right-click **Internet Explorer** > **More** > **Run as an administrator**.
 
 2.	If you're prompted, select **Use recommended security**, and then select **OK**.
+
 3.	In Internet Explorer, select **Tools** (the gear icon) > **Internet Options** > **Privacy** > **Advanced**.
-4.	Select **Advanced**. Make sure that both of the **Accept** check boxes are selected. Select **OK**, and then select **OK** again.
+
+4.	Select **Advanced**. Make sure that both of the **Accept** check boxes are selected. Select **OK** twice.
+
 5.	Close Internet Explorer, and restart the PowerShell ISE as an administrator.
 
 ## Install PowerShell for Azure Stack
@@ -69,7 +73,7 @@ App Service on Azure Stack requires access to a SQL Server instance to create an
 
 ## Next steps
 
-- [Install the App Service resource provider](azure-stack-app-service-deploy.md)
+- [Install the App Service resource provider](azure-stack-app-service-deploy.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-before-you-get-started/PSGallery.png

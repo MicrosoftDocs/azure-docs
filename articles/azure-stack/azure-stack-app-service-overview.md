@@ -23,23 +23,20 @@ ms.author: anwestg
 Azure App Service on Azure Stack is the Azure offering brought to Azure Stack. The App Service on Azure Stack installer creates the following set of role instances:
 
 *  Controller
-
 *  Management (two instances are created)
-*  Front end
+*  FrontEnd
 *  Publisher
 *  Worker (in Shared mode)
 
 In addition, the App Service on Azure Stack installer creates a file server.
 	
-## What's new in release candidate 1 of App Service on Azure Stack?
+## What's new in the first release candidate of App Service on Azure Stack?
 ![App Service in the Azure Stack portal][1]
 
-Release candidate 1 of App Service on Azure Stack builds on top of the third preview and brings new capabilities and improvements:
+The first release candidate of App Service on Azure Stack builds on top of the third preview and brings new capabilities and improvements:
 
 * Azure Functions in Azure Stack environments based on Active Directory Federation Services 
-
-* Single sign-on support for the Functions portal and the Advanced Developer tools (Kudu)
-
+* Single sign-on support for the Functions portal and the advanced developer tools (Kudu)
 * Java support for web, mobile, and API applications
 * Management of worker tiers by virtual machine scale sets to improve scale-out capabilities for service administrators
 * Localization of the admin experience
@@ -48,7 +45,7 @@ Release candidate 1 of App Service on Azure Stack builds on top of the third pre
 
 ## Limitations of the technical preview
 
-There is no support for the App Service on Azure Stack preview releases, although we do monitor the Azure Stack MSDN Forum. Don't put production workloads on this preview release. There is also no upgrade between App Service on Azure Stack preview releases. The primary purposes of these preview releases are to show what we are providing and to obtain feedback. 
+There is no support for the App Service on Azure Stack preview releases, although we do monitor the Azure Stack MSDN Forum. Do not put production workloads on this preview release. There is also no upgrade between App Service on Azure Stack preview releases. The primary purposes of these preview releases are to show what we're providing and to obtain feedback. 
 
 ## What is an App Service plan?
 
