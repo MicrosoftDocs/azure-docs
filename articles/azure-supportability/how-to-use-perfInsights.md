@@ -21,10 +21,9 @@ ms.author: genli
 
 ## Overview
 
-PerfInsights is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows IaaS performance scenarios in Microsoft Azure.
+[PerfInsights](http://aka.ms/perfinsights) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows IaaS performance scenarios in Microsoft Azure. 
 
 We recommend that you run this script before you open a Support ticket with Microsoft for IaaS performance issues.
-
 
 ## Supported troubleshooting scenarios
 
@@ -193,11 +192,13 @@ Diskspd IO workload tests [OS Disk (write) and pool drives (read/write)]
 
 To run the script, follow these steps:
 
-1.  Expand the compressed .zip file into your temporary drive (by default, usually the D drive). The compressed file should contain the following files and folders:
+1. Download [PerfInsights.zip](http://aka.ms/perfinsights).
+
+2.  Expand the compressed .zip file into your temporary drive (by default, usually the D drive). The compressed file should contain the following files and folders:
 
     ![files in the zip folder](media/how-to-use-perfInsights/file-folder.png)
 
-2.  Open Windows PowerShell as an administrator, and then run the PerfInsights.ps1 script.
+3.  Open Windows PowerShell as an administrator, and then run the PerfInsights.ps1 script.
 
     ```
     cd <the path of PerfInsights folder >
@@ -210,19 +211,19 @@ To run the script, follow these steps:
 
     ![Disclaimer box](media/how-to-use-perfInsights/disclaimer.png)
 
-3.  Submit the case number, if it is available, when you run the script (This is for our statistics). Then, click **OK**.
+4.  Submit the case number, if it is available, when you run the script (This is for our statistics). Then, click **OK**.
     
     ![enter support ID](media/how-to-use-perfInsights/enter-support-number.png)
 
-4.  Select your temporary storage drive. The Script can auto-detect the drive letter of the drive. If any problems occur in this stage, you might be prompted to select the drive (the default drive is D). Generated logs are stored here in the log\_collection folder. After you enter or accept the drive letter, click **OK**.
+5.  Select your temporary storage drive. The Script can auto-detect the drive letter of the drive. If any problems occur in this stage, you might be prompted to select the drive (the default drive is D). Generated logs are stored here in the log\_collection folder. After you enter or accept the drive letter, click **OK**.
 
     ![enter drive](media/how-to-use-perfInsights/enter-drive.png)
 
-5.  Select a troubleshooting scenario from the provided list.
+6.  Select a troubleshooting scenario from the provided list.
 
        ![Select support scenarios](media/how-to-use-perfInsights/select-scenarios.png)
 
-6.  You can also run PerfInsights without UI.
+7.  You can also run PerfInsights without UI.
 
     The following command runs the “General VM Slow analysis” troubleshooting scenario without a UI prompt or capture data for 30 seconds. It prompts you to consent to the same disclaimer and EULA that  are mentioned in step 4.
 
