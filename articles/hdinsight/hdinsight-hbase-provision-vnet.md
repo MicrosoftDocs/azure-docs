@@ -97,7 +97,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
          curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-     In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. This contains the FQDN for the nodes in the cluster. For example:
+     In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. It contains the FQDN for the nodes in the cluster. For example:
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -202,7 +202,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
          Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
 
-     This returns the DNS suffix. For example, **yourclustername.b4.internal.cloudapp.net**.
+     This command returns the DNS suffix. For example, **yourclustername.b4.internal.cloudapp.net**.
 
 
 <!--
@@ -230,12 +230,12 @@ To use this information in a Java application, you can follow the steps in [Use 
     </property>
 
 > [!NOTE]
-> For more information on name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+> For more information about name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 >
 >
 
 ## Next steps
-In this tutorial you learned how to create an HBase cluster. To learn more, see:
+In this tutorial, you learned how to create an HBase cluster. To learn more, see:
 
 * [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md)
