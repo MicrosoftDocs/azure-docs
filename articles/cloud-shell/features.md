@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/13/2017
 ms.author: juluk
 ---
 
@@ -30,13 +30,13 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Category   |Name   |
 |---|---|
 |Linux shell interpreter|Bash<br> sh               |
-|Azure tools            |Azure CLI 2.0 and 1.0<br> AzCopy     |
+|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)     |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
-|Containers             |Docker CLI/Docker Machine<br> Kubectl<br> DC/OS CLI         |
-|Databases              |MySQL client<br> PostgreSql client<br> sqlcmd Utility      |
-|Other                  |iPython Client<br> Cloud Foundry CLI<br> |
+|Containers             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Draft](https://github.com/Azure/draft)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|Databases              |MySQL client<br> PostgreSql client<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)      |
+|Other                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> |
 
 ### Language support
 |Language   |Version   |
@@ -51,7 +51,7 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
 
 ## Azure Files persistence
-Since Cloud Shell is allocated on a per-request basis using a temporary machine, local files outside of $Home and machine state are not persisted across sessions.
+Since Cloud Shell is allocated on a per-request basis using a temporary machine, files outside of your $Home and machine state are not persisted across sessions.
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
 Once completed Cloud Shell will automatically attach your storage for all future sessions.
 

@@ -133,14 +133,13 @@
 ### [Using partners to deliver Widevine licenses to Media Services](media-services-licenses-partner-integration.md)
 ### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
 ### [Stream your HLS content protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
+### [Hybrid design of DRM subsystem](hybrid-design-drm-sybsystem.md)
 ### [CENC with Multi-DRM and Access Control](media-services-cenc-with-multidrm-access-control.md)
 ### [Using Axinom to deliver Widevine licenses to Media Services  ](media-services-axinom-integration.md)
 ### [Using castLabs to deliver Widevine licenses to Media Services](media-services-castlabs-integration.md)
-
-### Asset delivery
-#### Configure asset delivery policies
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Configure asset delivery policies
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Create ContentKeys
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
