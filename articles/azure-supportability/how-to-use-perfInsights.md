@@ -204,7 +204,7 @@ To run the script, follow these steps:
     Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
     ```
 
-    You might have to enter “y” to if you are asked to confirm that you want to change the execution policy.
+    You might have to enter "y" to if you are asked to confirm that you want to change the execution policy.
 
     In the Disclaimer dialog box, you are given the option to share diagnostic information with Microsoft Support. You must also consent to the license agreement to continue. Make your selections, and then click **Run Script**.
 
@@ -224,14 +224,14 @@ To run the script, follow these steps:
 
 7.  You can also run PerfInsights without UI.
 
-    The following command runs the “General VM Slow analysis” troubleshooting scenario without a UI prompt or capture data for 30 seconds. It prompts you to consent to the same disclaimer and EULA that  are mentioned in step 4.
+    The following command runs the "General VM Slow analysis" troubleshooting scenario without a UI prompt or capture data for 30 seconds. It prompts you to consent to the same disclaimer and EULA that  are mentioned in step 4.
 
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command “.\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30”
+        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
     If you want PerfInsights to run in silent mode, use the
     **-AcceptDisclaimerAndShareDiagnostics** parameter. For example, use the following command:
 
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command “.\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics”
+        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
 
 ### How do I troubleshoot issues while running the script?
 
@@ -311,9 +311,9 @@ If the target VM hosts any SQL Server instances, you will see an additional tab 
 
 ![sal tab](media/how-to-use-perfInsights/sqltab.png)
 
-This section contains an “Overview” and additional sub tabs for each of the SQL Server instances hosted on the VM.
+This section contains an "Overview" and additional sub tabs for each of the SQL Server instances hosted on the VM.
 
-The “Overview” section contains a helpful table that summarizes all the physical disks (system and data disks) that are running and that contain a mixture of data files and transaction log files.
+The "Overview" section contains a helpful table that summarizes all the physical disks (system and data disks) that are running and that contain a mixture of data files and transaction log files.
 
 In the following example, *PhysicalDrive0* (running the C drive) is displayed because both the *modeldev* and *modellog* files are located on the C drive, and they are of different types (such as Data File and Transaction Log, respectively):
 
