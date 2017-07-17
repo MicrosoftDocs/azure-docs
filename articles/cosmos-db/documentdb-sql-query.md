@@ -1555,7 +1555,7 @@ The following scalar functions perform an operation on a string input value and 
 | [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Returns a string expression after converting uppercase character data to lowercase. |
 | [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Returns a string expression after converting lowercase character data to uppercase. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Replaces all occurrences of a specified string value with another string value. |
-| [REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |Repeats a string value a specified number of times. |
+| [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Repeats a string value a specified number of times. |
 | [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Returns the reverse order of a string value. |
 
 Using these functions, you can now run queries like the following. For example, you can return the family name in uppercase as follows:

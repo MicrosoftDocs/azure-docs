@@ -4606,6 +4606,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices-mbed.md",
+            "redirect_url": "/azure/iot-suite",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md",
             "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
             "redirect_document_id": false
@@ -8183,6 +8188,16 @@
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md",
             "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/media-services/media-services-rest-connect-programmatically.md",
+            "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/media-services/media-services-dotnet-connect-programmatically.md",
+            "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
             "redirect_document_id": false
         }
     ]
