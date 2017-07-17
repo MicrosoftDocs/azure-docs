@@ -100,3 +100,6 @@ Use the following comments section to provide feedback and help us refine and sh
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
 [AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
+
+
+<!--Image references-->
