@@ -33,12 +33,7 @@ For more information about multi-tenancy, see: [How to sign in any Azure Active 
 
 ### Customer-led trial experience
 The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:
-<!--Reference style links -->
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
+
 <table >
 <tr>
     <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="55%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Free trial’ option</li></ul></td>
@@ -98,3 +93,10 @@ For Azure Active Directory integration, we use [Stack Overflow](http://stackover
 We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with `[azure-active-directory]`.
 
 Use the following comments section to provide feedback and help us refine and shape our content.
+
+<!--Reference style links -->
+[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
+[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-starteds
