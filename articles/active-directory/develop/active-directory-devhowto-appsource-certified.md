@@ -33,7 +33,12 @@ For more information about multi-tenancy, see: [How to sign in any Azure Active 
 
 ### Customer-led trial experience
 The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:
-
+<!--Reference style links -->
+[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
+[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
 <table >
 <tr>
     <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="55%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Free trial’ option</li></ul></td>
