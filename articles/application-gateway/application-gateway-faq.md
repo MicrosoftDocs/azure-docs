@@ -54,6 +54,10 @@ Application Gateway is a dedicated deployment in your virtual network.
 
 This is currently not supported.
 
+**Q. In what order are listeners processed?**
+
+Listeners are processed in the order they are shown. For that reason if a basic listener matches an incoming request it will process it first.  Multi-site listeners should be configured before a basic listener to ensure traffic is routed to the correct back-end.
+
 **Q. Where do I find Application Gateway’s IP and DNS?**
 
 When using a public IP address as an endpoint, this information can be found on the public IP address resource or on the Overview page for the Application Gateway in the portal. For internal IP addresses, this can be found on the Overview page.
