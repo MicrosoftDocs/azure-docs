@@ -147,5 +147,7 @@ You can use any query that you want to create an alert.
 
 6. From the **Settings** page, click **Alerts** to see the alerts you have created. You can also enable or disable an alert, edit it, or delete it. For more information, see [Working with alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
 
-## Next steps
-* [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
+## See also
+
+* [Working with OMS Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Create alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)
