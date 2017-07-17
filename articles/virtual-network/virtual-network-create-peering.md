@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 
 ---
@@ -110,7 +110,6 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
       --resource-group $rgName \
       --location $location \
       --address-prefix 10.1.0.0/16
-    #
     ```
 
 2. Create a virtual network peering between the two virtual networks.
@@ -144,7 +143,6 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
       --vnet-name myVnet2 \
       --remote-vnet-id $vnet1Id \
       --allow-vnet-access
-    #
     ```
 
 3. After the script executes, review the peerings for each virtual network. 
@@ -154,8 +152,8 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
       --resource-group myResourceGroup \
       --vnet-name myVnet1 \
       --output table
-    #
     ```
+    
     Run the previous command again, replacing *myVnet1* with *myVnet2*. The output of both commands shows **Connected** in the **PeeringState** column.
 
      Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
@@ -169,7 +167,7 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
 1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
 3. In PowerShell, log in to Azure by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
-4. Create a resource group and two virtual networks. To execute the script, copy the following script, then paste it into PowerShell:
+4. Create a resource group and two virtual networks. To execute the script, copy the following script, paste it into PowerShell, and then press `Enter` after the last line appears on the screen:
 
     ```powershell
     # Variables for common values used throughout the script.
@@ -194,10 +192,9 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
       -Name 'myVnet2' `
       -AddressPrefix '10.1.0.0/16' `
       -Location $location
-    #
     ```
 
-5. Create a virtual network peering between the two virtual networks. Copy the following script, then paste in to PowerShell:
+5. Create a virtual network peering between the two virtual networks. Copy the following script, paste in to PowerShell, and then press `Enter` after the last line appears on the screen:
     ```powershell
     # Peer VNet1 to VNet2.
     Add-AzureRmVirtualNetworkPeering `
@@ -210,16 +207,14 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
       -Name 'myVnet2ToMyVnet1' `
       -VirtualNetwork $vnet2 `
       -RemoteVirtualNetworkId $vnet1.Id
-    #
     ```
-6. To review the subnets for the virtual network, copy the following command, then paste in to PowerShell:
+6. To review the subnets for the virtual network, copy the following command, paste in to PowerShell, and then press `Enter`:
 
     ```powershell
     Get-AzureRmVirtualNetworkPeering `
       -ResourceGroupName myResourceGroup `
       -VirtualNetworkName myVnet1 `
       | Format-Table VirtualNetworkName, PeeringState
-    #
     ```
 
     Run the previous command again, replacing *myVnet1* with *myVnet2*. The output of both commands shows **Connected** in the **PeeringState** column.
@@ -267,7 +262,7 @@ az group delete --name myResourceGroup --yes
 Enter the following command:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name myResourceGroup -force
 ```
 
 ## Next steps

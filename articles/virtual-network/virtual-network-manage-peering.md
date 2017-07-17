@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2017
+ms.date: 07/17/2017
 ms.author: jdial
 
 ---
@@ -78,7 +78,7 @@ Consider the following constraints before peering virtual networks:
 	- **Name:** The name for the peering must be unique within the virtual network.
 	- **Virtual network deployment model:** Select which deployment model the virtual network you want to peer with was deployed through.
 	- **I know my resource ID:** If you have read access to the virtual network you want to peer with, leave this checkbox unchecked. If you don't have read access to the virtual network or subscription you want to peer with, check this box. Enter the full resource ID of the virtual network you want to peer with in the **Resource ID** box that appeared when you checked the box. The resource ID you enter must be for a virtual network that exists in the same Azure [location](https://azure.microsoft.com/regions) as this virtual network. The full resource ID looks similar to /subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>. You can get the resource ID  for a virtual network by viewing the properties for a virtual network. To learn how to view the properties for a virtual network, read the [Create, change, or delete virtual networks](virtual-network-manage-network.md#view-vnet) article.
-	- **Subscription:** Select the [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) of the virtual network you want to peer with. One or more subscriptions are listed, depending on how many subscriptions your account has read access to. If you checked the **Resource ID** checkbox, this setting isn't available. You can peer virtual networks in different subscriptions as long as both virtual networks were created through Resource Manager. The ability to peer across subscriptions created through different deployment models is in preview release. Register for the preview before creating a peering between virtual networks deployed through different deployment models that exist in different subscriptions. Learn more about how to register for the preview and [peer virtual networks created through different deployment models in different subscriptions](virtual-network-create-peering.md#different-subscriptions-different-deployment-models).
+	- **Subscription:** Select the [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) of the virtual network you want to peer with. One or more subscriptions are listed, depending on how many subscriptions your account has read access to. If you checked the **Resource ID** checkbox, this setting isn't available. You can peer virtual networks in different subscriptions as long as both virtual networks were created through Resource Manager. The ability to peer across subscriptions created through different deployment models is in preview release. Register for the preview before creating a peering between virtual networks deployed through different deployment models that exist in different subscriptions. Learn more about how to register for the preview and [peer virtual networks created through different deployment models in different subscriptions](create-peering-different-deployment-models-subscriptions.md).
 	- **Virtual network:** Select the virtual network you want to peer with. You can select a virtual network created through either Azure deployment model, but the virtual network must be in the same location as the virtual network you're initiating the peering from. You must have read access to the virtual network for it to be visible in the list. If a virtual network is listed, but grayed out, it may be because the address space for the virtual network overlaps with the address space for this virtual network. If virtual network address spaces overlap, they cannot be peered. If you checked the **Resource ID** checkbox, this setting isn't available.
 	- **Allow virtual network access:** Select **Enabled** (default) if you want to enable communication between the two virtual networks. Enabling communication between virtual networks allows resources connected to either virtual network to communicate with each other with the same bandwidth and latency as if they were connected to the same virtual network. All communication between resources in the two virtual networks is over the Azure private network. The **VirtualNetwork** default tag for network security groups encompasses the virtual network and peered virtual network. To learn more about network security group default tags, read the [Network security groups overview](virtual-networks-nsg.md#default-tags) article.  Select **Disabled** if you don't want traffic to flow to the peered virtual network. You might select **Disabled** if you've peered a virtual network with another virtual network, but occasionally want to disable traffic flow between the two virtual networks. You may find enabling/disabling is more convenient than deleting and re-creating peerings. When this setting is disabled, traffic doesn't flow between the peered virtual networks.
 	- **Allow forwarded traffic:** Check this box to allow traffic forwarded to the peered virtual network (traffic not originating in the peered virtual network) to flow to this virtual network. Traffic forwarding is common when you've deployed a network virtual appliance in the virtual network you're peering with and created user-defined routes to forward traffic through the network virtual appliance. If you leave this box unchecked (default), traffic forwarded from the peered virtual network cannot flow to this virtual network. While enabling this capability allows the forwarded traffic through the peering, it does not create any user-defined routes or network virtual appliances. User-defined routes and network virtual appliances are created separately. Learn about [user-defined routes](virtual-networks-udr-overview.md).
@@ -140,8 +140,18 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 ## <a name="next-steps"></a>Next steps
 
-- Complete the [virtual network peering tutorial](virtual-network-create-peering.md)
-- Create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)
+* Complete a virtual network peering tutorial. A virtual network peering is created between virtual networks created through the same, or different deployment models that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
+
+    
+    |Azure deployment model  | Subscription  |
+    |---------|---------|
+    |Both Resource Manager |[Same](virtual-network-create-peering.md)|
+    | |[Different](create-peering-different-subscriptions.md)|
+    |One Resource Manager, one classic     |[Same](create-peering-different-deployment-models.md)|
+    | |[Different](create-peering-different-deployment-models-subscriptions.md)|
+
+* Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 
+* Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md).
 
 
 
