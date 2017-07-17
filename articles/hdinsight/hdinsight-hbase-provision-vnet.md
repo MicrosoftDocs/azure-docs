@@ -29,7 +29,7 @@ With virtual network integration, HBase clusters can be deployed to the same vir
 * The ability to process sensitive information in a more secure manner without exposing a public endpoint.
 
 ### Prerequisites
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
@@ -56,7 +56,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. From the **Custom deployment** blade, enter the following:
+2. From the **Custom deployment** blade, enter the following properties:
 
    * **Subscription**: Select an Azure subscription used to create the HDInsight cluster, the dependent Storage account and the Azure virtual network.
    * **Resource group**: Select **Create new**, and specify a new resource group name.
@@ -72,7 +72,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ## Connect to the HBase cluster using HBase Java RPC APIs
-1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following for the Network configuration:
+1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following values for the Network configuration:
 
    * **Virtual network**: &lt;Cluster name>-vnet
    * **Subnet**: subnet1
@@ -202,12 +202,8 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
          Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
 
-     This will return the DNS suffix. For example, **yourclustername.b4.internal.cloudapp.net**.
-   * Use RDP
+     This returns the DNS suffix. For example, **yourclustername.b4.internal.cloudapp.net**.
 
-     You can also use Remote Desktop to connect to the HBase cluster (you will be connected to the head node) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling Remote Desktop Protocol (RDP) and connecting to the cluster by using RDP, see [Manage Hadoop clusters in HDInsight using the Azure portal][hdinsight-admin-portal].
-
-     ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
 <!--
 3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
