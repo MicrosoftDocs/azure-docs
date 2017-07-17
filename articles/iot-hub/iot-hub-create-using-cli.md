@@ -80,7 +80,7 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
-    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 > [!NOTE]
 > The previous command creates an IoT hub in the S1 pricing tier for which you are billed. For more information, see [Azure IoT Hub pricing][lnk-iot-pricing].
