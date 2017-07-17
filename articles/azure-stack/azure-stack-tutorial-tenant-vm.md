@@ -34,7 +34,7 @@ What you will learn:
 
 In Azure Stack, services are delivered to users using subscriptions, offers, and plans. Users can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
 
-![](media/azure-stack-key-features/image4.png)
+![Subscritions, offers, and plans](media/azure-stack-key-features/image4.png)
 
 To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-features.md).
 
@@ -47,38 +47,37 @@ Now you can get things ready for your users. When you start the process, you are
    Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
 
    a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
-   ![](media/azure-stack-tutorial-tenant-vm/image01.png)
+   ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
 
    b. In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
-   ![](media/azure-stack-tutorial-tenant-vm/image02.png)
+   ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
    c. Click **Base plans**, and in the **Plan** blade, click **Add** to add a new plan to the offer.
 
-   ![](media/azure-stack-tutorial-tenant-vm/image03.png)
+   ![Add a plan](media/azure-stack-tutorial-tenant-vm/image03.png)
 
    d. In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
 
-   ![](media/azure-stack-tutorial-tenant-vm/image04.png)
-
-
+   ![Plan display name](media/azure-stack-tutorial-tenant-vm/image04.png)
 
    e. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
 
-   ![](media/azure-stack-tutorial-tenant-vm/image05.png)
+   ![Plan services](media/azure-stack-tutorial-tenant-vm/image05.png)
 
    f. Click **Quotas**, and then select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
+
    In this example, we first create a quota for the Compute service. In the namespace list, select the **Microsoft.Compute** namespace and then click **Create new quota**.
    
-   ![](media/azure-stack-tutorial-tenant-vm/image06.png)
+   ![Create new quota](media/azure-stack-tutorial-tenant-vm/image06.png)
 
    g. On the **Create quota** blade, type a name for the quota and set the desired parameters for the quota and click **OK** .
 
-   ![](media/azure-stack-tutorial-tenant-vm/image07.png)
+   ![Quota name](media/azure-stack-tutorial-tenant-vm/image07.png)
 
    h. Now, for **Microsoft.Compute**, select the quota that you just created.
 
-   ![](media/azure-stack-tutorial-tenant-vm/image08.png)
+   ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
 
    Repeat these steps for the Network and Storage services, and then click **OK** on the **Quotas** blade.
 
@@ -92,7 +91,7 @@ Now you can get things ready for your users. When you start the process, you are
 
    m. Click **Change State**, and then click **Public**.
 
-   ![](media/azure-stack-tutorial-tenant-vm/image09.png)
+   ![Public state](media/azure-stack-tutorial-tenant-vm/image09.png)
 
 ## Add an image
 
@@ -112,11 +111,11 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user and click **Get a Subscription**.
 
-   ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Get a subscription](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
    b. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
 
-   ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Create an offer](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
    c. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
 
@@ -134,13 +133,13 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    d. In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults, and click **OK**. In the **Settings** blade, click **OK**.
 
-   ![](media/azure-stack-provision-vm/image04.png)
+   ![Create virtual network](media/azure-stack-provision-vm/image04.png)
 
    e. In the **Summary** blade, click **OK** to create the virtual machine.  
 
    f. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
 
-    ![](media/azure-stack-provision-vm/image06.png)
+    ![All resources](media/azure-stack-provision-vm/image06.png)
 
 What you learned in this tutorial:
 
