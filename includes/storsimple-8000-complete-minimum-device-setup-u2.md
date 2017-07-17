@@ -3,7 +3,7 @@
 #### To complete the minimum StorSimple device setup
 
    > [!NOTE]
-   > You cannot modify all the device name once the minimum device setup is completed.
+   > You cannot modify the device name once the minimum device setup is completed.
    
 1. From the tabular listing of devices in the **Devices** blade, select and click your device. The device is in a **Ready to set up** state. The **Configure device** blade opens up.
 
