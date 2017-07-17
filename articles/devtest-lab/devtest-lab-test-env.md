@@ -19,7 +19,7 @@ ms.author: tarcher
 ---
 # Use Azure DevTest Labs for VM and PaaS test environments
 
-Azure DevTest Labs can be used to implement many key scenarios, but a primary scenario involves using DevTest Labs to host machines for testers. 
+You can use Azure DevTest Labs to implement many key scenarios, but a primary scenario involves using DevTest Labs to host machines for testers. 
 
 In this scenario, DevTest Labs provides these benefits:
 
@@ -31,7 +31,7 @@ In this scenario, DevTest Labs provides these benefits:
 
 ![Use DevTest Labs for training](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
 
-In this article, you learn about various Azure DevTest Labs features that can be used to meet tester  requirements and the detailed steps that you can follow to set up a lab.
+In this article, you learn about various Azure DevTest Labs features used to meet tester requirements and the detailed steps to follow to set up a lab.
 
 ## Implementing test environments with Azure DevTest Labs
 1. **Create the lab** 
@@ -71,7 +71,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
     You can use Azure Resource Manager templates to define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple test VMs in a consistent state.
 
-    Azure PaaS resources can be provisioned in an environment from a Resource Manager template and will appear in cost tracking; however, VM auto shutdown does not apply to PaaS resources.
+    Azure PaaS resources can be provisioned in an environment from a Resource Manager template and appear in cost tracking. However, VM auto shutdown does not apply to PaaS resources.
 
     Learn more by clicking on the links in the following table:
    
@@ -87,7 +87,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    - Actions that you want to run on the VM - such as cloning a repo.
    - Applications that you want to test.
 
-   Many artifacts are already available out-of-the-box. You can create your own custom artifacts if you want more customization for your specific needs.
+   Many artifacts are already available out-of-the-box. But if you want more customization for your specific needs, you can create your own custom artifacts.
 
    Learn more by clicking on the links in the following table:
    
@@ -115,7 +115,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
     DevTest Labs creates a new virtual network (VNET) whenever a lab is created. If you have configured your own VNET – for example, by using ExpressRoute or site-to-site VPN – you can add this VNET to your lab's virtual network settings so that it is available when creating VMs.
 
-    In addition, there is an Azure Active Directory domain join artifact available that will join a VM to a domain when the VM is being created. 
+    In addition, there is an Azure Active Directory domain join artifact available that joins a VM to a domain when the VM is being created. 
    
     Learn more by clicking on the links in the following table:
    
