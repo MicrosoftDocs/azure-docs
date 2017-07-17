@@ -24,7 +24,7 @@ ms.custom: aaddev
 To receive AppSource certification for Azure Active Directory, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the OpenID Connect or OAuth 2.0 protocols.
 
 ## Guides and code samples
-Gor code samples and guides for your platform, see [this document](active-directory-developers-guide#get-started "Get Started with Azure AD for developers")
+For code samples and guides for your platform, see [the developers guide](active-directory-developers-guide#get-started "Get Started with Azure AD for developers")
 
 ## Multi-tenant applications
 An application that accepts sign-ins from users from any company or organization that have Azure Active Directory without requiring a separate instance, configuration, or deployment is known as a multi-tenant application. AppSource recommends that applications implement multi-tenancy to enable the single-click customer-led trial experience.
@@ -36,13 +36,13 @@ The *customer-led trial* is the experience that AppSource recommends as it offer
 
 <table >
 <tr>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="55%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Free trial’ option</li></ul></td>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="55%" /><ul><li>AppSource redirects user to a URL in your Web Site.</li><li>Your web site starts the single-sign-on process</li></ul></td>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="55%"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provided credentials to sign in</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="55%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Free trial’ option</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="55%" /><ul><li>AppSource redirects user to a URL in your Web Site.</li><li>Your web site starts the single-sign-on process</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="55%"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provided credentials to sign in</li></ul></td>
 </tr>
 <tr>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="55%"/><ul><li>User gives consent for your application</li></ul></td>
-    <td><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="55%"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the free trial</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="55%"/><ul><li>User gives consent for your application</li></ul></td>
+    <td valign="top"><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="55%"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the free trial</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -63,18 +63,18 @@ The partner trial experience can be used when some manual or long-term operation
         <table bgcolor="#f7f7f7">
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
-            <td>Receive User Information</td>
+            <td>You receive user information</td>
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
-            <td>Setup Environment</td>
+            <td>Setup environment</td>
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
             <td>Contact user with trial info</td>
         </tr>
         </table><br/><br/>
-        <ul><li>Setup Trial and contact user</li></ul>
+        <ul><li>Setup trial and contact user</li></ul>
     </td>
 </tr>
 </table>
