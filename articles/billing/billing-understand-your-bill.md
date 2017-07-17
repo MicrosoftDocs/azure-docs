@@ -44,7 +44,7 @@ Your usage charges are displayed at the meter level. The following list of terms
 
  | Invoice (PDF) | Detailed usage (CSV)|
  | --- | --- |
- |Billing cycle | Billing Period |
+|Billing cycle | Billing Period |
  |Name |Meter Category |
  |Type |Meter Sub-category |
  |Resource |Meter Name |
@@ -61,7 +61,7 @@ The **Statement** section of your detailed usage CSV shows the same charge. Both
 
 ![CSV usage charges](./media/billing-understand-your-bill/2.png)
 
-To see breakdown of this charge on a daily basis, go to the **Daily Usage** section of the CSV. Filter for "Scheduler" under *Meter Category* and you can see which days the meter was used and how much was consumed. The *resource* information and *resource group* infomration is also listed for comparison. The *Consumed* values should add up to what's shown on the invoice.
+To see breakdown of this charge on a daily basis, go to the **Daily Usage** section of the CSV. Filter for "Scheduler" under *Meter Category* and you can see which days the meter was used and how much was consumed. The *Resource* and *Resource group* information is also listed for comparison. The *Consumed* values should add up to what's shown on the invoice.
 
 ![Daily Usage section in the CSV](./media/billing-understand-your-bill/3.png)
 
