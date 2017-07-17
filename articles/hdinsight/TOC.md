@@ -137,6 +137,7 @@
 ## Extend clusters
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
+### [Connect HDInsight to your on-premises network](connect-on-premises-network.md)
 ### [Develop script actions](hdinsight-hadoop-script-actions-linux.md)
 ### [Install and use Presto](hdinsight-hadoop-install-presto.md)
 ### [Install or update Mono](hdinsight-hadoop-install-mono.md)
