@@ -288,7 +288,8 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 You can use PowerShell to upload the files to the HDInsight server. Use the following script to upload the Python files:
 
-> [!IMPORTANT] The steps in this section use Azure PowerShell. For more information on using Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+> [!IMPORTANT] 
+> The steps in this section use Azure PowerShell. For more information on using Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ```powershell
 # Login to your Azure subscription
