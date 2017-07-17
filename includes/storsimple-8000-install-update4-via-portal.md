@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 03/09/17-->
+<!--author=alkohli last changed: 07/07/17-->
 
 #### To install an update from the Azure portal
 
@@ -24,13 +24,7 @@
    * **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
    * **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you must enable it and then retry.
 
-     The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress.
-     
-     ![Pre-check notification](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
-     
-     The following is an example in which the checks failed. You must verify that both the device controllers are healthy and online. You also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
-     
-     ![Checks failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
+    The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress. If the prechecks fail, then you will be provided with the reasons for failure. Address those issues and then retry the operation. You may need to contact Microsoft Support if you cannot address these issues by yourself.
 
 7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
    
