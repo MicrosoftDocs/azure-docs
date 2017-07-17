@@ -1,6 +1,6 @@
 ---
-title: How to use PerfInsights | Microsoft Docs
-description: Learns how to use PerfInsights.
+title: How to use PerfInsights in Microsoft Azure| Microsoft Docs
+description: Learns how to use PerfInsights in Microsoft Azure.
 services: ''
 documentationcenter: ''
 author: genlin
@@ -18,8 +18,6 @@ ms.author: genli
 
 ---
 # How to use PerfInsights
-
-## Overview
 
 [PerfInsights](http://aka.ms/perfinsights) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows IaaS performance scenarios in Microsoft Azure. 
 
@@ -68,11 +66,11 @@ This scenario runs the [diskspd](https://github.com/Microsoft/diskspd) benchmark
 
 ### General VM Slow analysis 
 
-This scenario runs a [performance counter](https://msdn.microsoft.com/en-us/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the Generalcounters.txt file. If the VM is identified as a server that is running SQL Server, it runs a performance counter trace by using the counters that are found in the Sqlcounters.txt file. It also includes Performance Diagnostics data.
+This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the Generalcounters.txt file. If the VM is identified as a server that is running SQL Server, it runs a performance counter trace by using the counters that are found in the Sqlcounters.txt file. It also includes Performance Diagnostics data.
 
 ### VM Slow analysis and benchmark
 
-This scenario runs a [performance counter](https://msdn.microsoft.com/en-us/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
+This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
 
 > [!Note]
 > This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
