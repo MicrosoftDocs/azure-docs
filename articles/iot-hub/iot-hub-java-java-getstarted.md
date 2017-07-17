@@ -89,6 +89,7 @@ In this section, you create a Java console app that creates a device identity in
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
     ```
+[!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 8. Modify the signature of the **main** method to include the exceptions as follows:
 
