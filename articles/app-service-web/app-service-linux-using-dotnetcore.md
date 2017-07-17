@@ -70,9 +70,7 @@ Since this app is a web application, a reference to an ASP.NET Core package was 
 
 ## Build and test the application locally ##
 
-Test your application locally before deploying it to cloud. So, let's build it on your local machine.
-
-Build and run your .NET Core app by resolving depending on packages followed by building it, as shown here: 
+Test your application locally before deploying it to cloud. You can build and run your .NET Core app with the `dotnet run` command, as shown here: 
 
 ```
 dotnet run bin/Debug/netcoreapp1.1/hellodotnetcore.dll
