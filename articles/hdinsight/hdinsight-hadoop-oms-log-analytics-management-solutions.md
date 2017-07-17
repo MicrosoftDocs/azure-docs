@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2017
+ms.date: 07/31/2017
 ms.author: nitinme
 
 ---
@@ -51,6 +51,10 @@ In this section you add an HBase cluster management solution to an existing OMS 
 4. You should now see a tile on OMS dashboard for the HBase management solution. If the cluster you associated with OMS (as part of the prerequiste for this article) is an HBase cluster, the tile shows the name of the cluster and the number of nodes in the cluster.
 
     ![HBase management solution added](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "HBase management solution added")
+
+## Next steps
+
+* [Query Azure Log Analytics to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
 ## See also
 
