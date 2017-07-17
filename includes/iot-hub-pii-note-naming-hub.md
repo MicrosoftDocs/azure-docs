@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> We recommend avoiding sensitive or personally identifiable information while naming the IoT hub, since it will be publicly discoverable as a DNS endpoint.
+> The IoT hub will be publicly discoverable as a DNS endpoint, so make sure to avoid any sensitive information while naming it.
 >

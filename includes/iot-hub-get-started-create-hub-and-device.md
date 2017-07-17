@@ -17,6 +17,8 @@
 
     ![Enter information to create your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
 
+[!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+
 3. Click **Create**. Your IoT hub might take a few minutes to create. You can see progress in the **Notifications** pane.
 
    ![See progress notifications for your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/3_notification-azure-iot-hub-creation-progress-portal.png)
@@ -45,6 +47,8 @@
    **Connect device to IoT Hub**: Click **Enable**.
 
    ![Add a device in the Device Explorer of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+
+[!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Click **Save**.
 5. After the device is created, open the device in the **Device Explorer** pane.
