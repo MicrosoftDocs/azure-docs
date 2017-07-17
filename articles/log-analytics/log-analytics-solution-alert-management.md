@@ -21,13 +21,13 @@ ms.author: bwren
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md#linux-alerts).  The solution also imports alerts from any [connected System Center Operations Manager (SCOM) management groups](log-analytics-om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md).  The solution also imports alerts from any [connected System Center Operations Manager (SCOM) management groups](log-analytics-om-agents.md).
 
 ## Prerequisites
 The solution will work with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
 
 - For Log Analytics alerts, [create alert rules](log-analytics-alerts.md) to create alert records directly in the repository.
-- For Nagios and Zabbix alerts, [configure those servers](log-analytics-linux-agents.md#linux-alerts) to send alerts to Log Analytics.
+- For Nagios and Zabbix alerts, [configure those servers](log-analytics-linux-agents.md) to send alerts to Log Analytics.
 - For SCOM alerts,[connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in SCOM will be imported into Log Analytics.  
 
 ## Configuration

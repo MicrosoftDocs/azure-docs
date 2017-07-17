@@ -1,6 +1,6 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (.NET) | Microsoft Docs
-description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for .NET. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
+description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for .NET. You modify a device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,11 +17,11 @@ ms.date: 03/08/2017
 ms.author: elioda
 
 ---
-# Send messages from the cloud to your simulated device with IoT Hub (.NET)
+# Send messages from the cloud to your device with IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a device app that sends device-to-cloud messages.
 
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
@@ -34,7 +34,7 @@ You can find more information on cloud-to-device messages in the [IoT Hub develo
 At the end of this tutorial, you run two .NET console apps:
 
 * **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
-* **SendCloudToDevice**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
+* **SendCloudToDevice**, which sends a cloud-to-device message to the device app through IoT Hub, and then receives its delivery acknowledgement.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through [Azure IoT device SDKs]. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [IoT Hub developer guide].
@@ -46,8 +46,8 @@ To complete this tutorial, you need the following:
 * Visual Studio 2015 or Visual Studio 2017
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-## Receive messages in the simulated device app
-In this section, you'll modify the simulated device app you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+## Receive messages in the device app
+In this section, you'll modify the device app you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
 1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **Program** class.
    
@@ -85,7 +85,7 @@ In this section, you'll modify the simulated device app you created in [Get star
 > 
 
 ## Send a cloud-to-device message
-In this section, you write a .NET console app that sends cloud-to-device messages to the simulated device app.
+In this section, you write a .NET console app that sends cloud-to-device messages to the device app.
 
 1. In the current Visual Studio solution, create a Visual C# Desktop App project by using the **Console Application** project template. Name the project **SendCloudToDevice**.
    
@@ -123,7 +123,7 @@ In this section, you write a .NET console app that sends cloud-to-device message
         SendCloudToDeviceMessageAsync().Wait();
         Console.ReadLine();
 8. From within Visual Studio, right-click your solution, and select **Set StartUp projects...**. Select **Multiple startup projects**, then select the **Start** action for **ReadDeviceToCloudMessages**, **SimulatedDevice**, and **SendCloudToDevice**.
-9. Press **F5**. All three applications should start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the simulated device app.
+9. Press **F5**. All three applications should start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the device app.
    
    ![App receiving message][21]
 
@@ -159,7 +159,7 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
 3. To request feedback for the delivery of your cloud-to-device message, you have to specify a property in the **SendCloudToDeviceMessageAsync** method. Add the following line, right after the `var commandMessage = new Message(...);` line:
    
         commandMessage.Ack = DeliveryAcknowledgement.Full;
-4. Run the apps by pressing **F5**. You should see all three applications start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the simulated device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
+4. Run the apps by pressing **F5**. You should see all three applications start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
    
    ![App receiving message][22]
 

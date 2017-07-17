@@ -14,6 +14,7 @@
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
 ### [Use an existing virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Use a custom image](virtual-machine-scale-sets-mvss-custom-image.md)
+### [Use guest-based autoscaling with a Linux scale set template](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Deploy
 ### [Create with the portal](virtual-machine-scale-sets-portal-create.md)

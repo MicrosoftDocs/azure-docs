@@ -98,7 +98,7 @@ To deploy as a Classic Web Service and create an application to consume it:
 2. When the run has completed, click **Deploy Web Service** and select **Deploy Web Service [Classic]**.
 3. On the web service dashboard, locate your API key. Copy and save it to use later.
 4. In the **Default Endpoint** table, click the **Batch Execution** link to open the API Help Page.
-5. In Visual Studio, create a C# console application.
+5. In Visual Studio, create a C# console application: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
 6. On the API Help Page, find the **Sample Code** section at the bottom of the page.
 7. Copy and paste the C# sample code into your Program.cs file, and remove all references to the blob storage.
 8. Update the value of the *apiKey* variable with the API key saved earlier.
@@ -127,7 +127,7 @@ To deploy as a New Web Service and create an application to consume it:
 3. On the Deploy Experiment page, enter a name for your web service, and select a pricing plan, then click **Deploy**.
 4. On the **Quickstart** page, click **Consume**.
 5. In the **Sample Code** section, click **Batch**.
-6. In Visual Studio, create a C# console application.
+6. In Visual Studio, create a C# console application: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
 7. Copy and paste the C# sample code into your Program.cs file.
 8. Update the value of the *apiKey* variable with the **Primary Key** located in the **Basic consumption info** section.
 9. Locate the *scoreRequest* declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you use the original query, but define a new table name.
