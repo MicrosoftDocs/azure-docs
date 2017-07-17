@@ -225,7 +225,7 @@ To stream or download an asset, you first need to "publish" it by creating a loc
 
 ### Some details about URL formats
 
-After you create the locators, you can build the URLs that would be used to stream or download your files. The sample in this tutorial will output URLs that you can paste in appropriate browsers. This secion just gives short examples of what different formats look like.
+After you create the locators, you can build the URLs that would be used to stream or download your files. The sample in this tutorial will output URLs that you can paste in appropriate browsers. This section just gives short examples of what different formats look like.
 
 #### A streaming URL for MPEG DASH has the following format:
 
