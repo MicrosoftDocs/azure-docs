@@ -11,8 +11,6 @@
     href: container-service-kubernetes-walkthrough.md
   - name: Kubernetes Windows
     href: container-service-kubernetes-windows-walkthrough.md
-  - name: DC/OS Linux
-    href: container-service-dcos-quickstart.md
 - name: Tutorials
   items:
   - name: Kubernetes
@@ -61,6 +59,8 @@
     href: container-service-draft-up.md
   - name: Manage with DC/OS
     items:
+    - name: DC/OS Linux
+      href: container-service-dcos-quickstart.md
     - name: Container management - DC/OS UI
       href: container-service-mesos-marathon-ui.md
     - name: Container management - DC/OS REST API
