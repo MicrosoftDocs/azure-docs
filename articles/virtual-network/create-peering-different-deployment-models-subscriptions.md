@@ -177,7 +177,7 @@ Before completing any of the following steps, you must register for the preview.
       --scope $vNetAId
     ```
 
-9. Create a virtual network peering between the two virtual networks created through the different deployment models. Copy the following script to a text editor on your PC. Replace `<SubscriptionB-id>` with your subscription Id. If you don't know your subscription Id, enter the 'az account show` command. The value for **id** in the output is your subscription Id. Azure created the virtual network (classic) you created in step 4 in a resource group named *Default-Networking*. Paste the modified script in your CLI session, and then press `Enter`.
+9. Create a virtual network peering between the two virtual networks created through the different deployment models. Copy the following script to a text editor on your PC. Replace `<SubscriptionB-id>` with your subscription Id. If you don't know your subscription Id, enter the `az account show` command. The value for **id** in the output is your subscription Id. Azure created the virtual network (classic) you created in step 4 in a resource group named *Default-Networking*. Paste the modified script in your CLI session, and then press `Enter`.
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.
@@ -196,7 +196,6 @@ Before completing any of the following steps, you must register for the preview.
       --resource-group $rgName \
       --vnet-name myVnetA \
       --output table
-    #
     ```
     The output shows **Connected** in the **PeeringState** column.
 
@@ -288,7 +287,6 @@ Before completing any of the following steps, you must register for the preview.
       -ResourceGroupName $rgName `
       -VirtualNetworkName myVnetA `
       | Format-Table VirtualNetworkName, PeeringState
-    #
     ```
 
     The state is **Connected**. It changes to **Connected** once you setup the peering to myVnetA from myVnetB.

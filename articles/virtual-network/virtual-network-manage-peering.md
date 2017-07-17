@@ -151,5 +151,3 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 * Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 
 * Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md).
-
-

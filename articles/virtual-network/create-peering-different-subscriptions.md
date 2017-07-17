@@ -104,7 +104,7 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
 1. Open a CLI session and log in to Azure as UserA using the `azure login` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 2. Copy the following script to a text editor on your PC, replace `<SubscriptionA-Id>` with the ID of SubscriptionA, then copy the modified script, paste it in your CLI session, and press `Enter`. If you don't know your subscription Id, enter the 'az account show` command. The value for **id** in the output is your subscription Id.
 
-    ```cli-interactive
+    ```azurecli-interactive
     # Create a resource group.
     az group create \
       --name myResourceGroupA \
