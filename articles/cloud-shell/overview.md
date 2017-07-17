@@ -19,7 +19,7 @@ ms.author: juluk
 # Overview of Azure Cloud Shell (Preview)
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
 
-![](media/startup.gif)
+![](media/overview-pic.png)
 
 ## Features
 ### Browser-based shell experience
