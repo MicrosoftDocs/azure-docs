@@ -135,7 +135,7 @@ After you have linked the IntelliJ IDEA to the emulator, you can submit your pro
     - **Main class name**: Choose or enter the main class name.  For this tutorial, it is **GroupByTest**.
 3. Click **Submit**. The job submission logs are shown in the Spark submission tool window.
 
-##Next steps:
+## Next steps:
 
 - To learn how to create Spark applications for HDInsight using HDInsight Tools for IntelliJ, see [Use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin.md).
 - To watch a video of HDInsight Tools for IntelliJ, see [Introduce HDInsight Tools for IntelliJ for Spark Development](https://www.youtube.com/watch?v=YTZzYVgut6c).
