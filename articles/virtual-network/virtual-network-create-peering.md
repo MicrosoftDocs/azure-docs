@@ -81,9 +81,10 @@ The following script:
 - Requires the Azure CLI version 2.0.4 or later. To find the version, run the `az --version` command. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
-Instead of installing the CLI and its dependencies, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Try it** button in the script that follows, which invokes a Cloud Shell that logs you can log in to your Azure account with. Then just click the **Copy** button on any of the script blocks and paste the contents in to your Cloud Shell to execute them.
+Instead of installing the CLI and its dependencies, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Try it** button in the script that follows, which invokes a Cloud Shell that logs you can log in to your Azure account with. To execute the script, click the **Copy** button and paste the contents into your Cloud Shell.
 
 1. Create a resource group and two virtual networks.
+
     ```azurecli-interactive
     #!/bin/bash
 
@@ -111,6 +112,7 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
       --address-prefix 10.1.0.0/16
     #
     ```
+
 2. Create a virtual network peering between the two virtual networks.
  
     ```azurecli-interactive
@@ -167,7 +169,7 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
 1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
 3. In PowerShell, log in to Azure by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
-4. Create a resource group and two virtual networks. Copy the following script, then paste into PowerShell to execute it:
+4. Create a resource group and two virtual networks. To execute the script, copy the following script, then paste it into PowerShell:
 
     ```powershell
     # Variables for common values used throughout the script.

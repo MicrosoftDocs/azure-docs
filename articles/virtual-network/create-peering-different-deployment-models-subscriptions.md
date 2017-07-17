@@ -30,16 +30,41 @@ The steps to create a virtual network peering are different, depending on whethe
 |[Both Resource Manager](create-peering-different-subscriptions.md) |Different|
 |[One Resource Manager, one classic](create-peering-different-deployment-models.md) |Same|
 
-A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. A virtual network peering can only be created between two virtual networks that exist in the same Azure region. When creating a virtual network peering between virtual networks that exist in different subscriptions, the subscriptions must both be associated to the same Azure Active Directory tenant. If you don't already have an Azure Active Directory tenant, you can quickly [create one](../active-directory/develop/active-directory-howto-tenant?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). If you need to connect virtual networks that were both created through the classic deployment model, or that exist in different Azure regions, or that exist in subscriptions associated to different Azure Active Directory tenants, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
+A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. A virtual network peering can only be created between two virtual networks that exist in the same Azure region. When creating a virtual network peering between virtual networks that exist in different subscriptions, the subscriptions must both be associated to the same Azure Active Directory tenant. If you don't already have an Azure Active Directory tenant, you can quickly [create one](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). If you need to connect virtual networks that were both created through the classic deployment model, or that exist in different Azure regions, or that exist in subscriptions associated to different Azure Active Directory tenants, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
 
 > [!WARNING]
 > Creating a virtual network peering between virtual networks in created through different Azure deployment models that exist in different subscriptions is currently in preview. Virtual network peerings created in this scenario may not have the same level of availability and reliability as creating a virtual network peering in scenarios in general availability release. Virtual network peerings created in this scenario are not supported, may have constrained capabilities, and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
 You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), or Azure [PowerShell](#powershell) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
+## <a name="register"></a>Register for the preview
+
+To register for the preview, complete the steps that follow for both subscriptions that contain the virtual networks you want to peer. The only tool you can use to register for the preview is PowerShell.
+
+1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Start a PowerShell session and log in to Azure using the `login-azurermaccount` command.
+3. Register your subscription for the preview by entering the following commands:
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
+      -ProviderNamespace Microsoft.Network
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    #
+    ```
+    Do not complete the steps in the Portal, Azure CLI, or PowerShell sections of this article until the **RegistrationState** output you receive after entering the following command is **Registered** for both subscriptions:
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
+      -ProviderNamespace Microsoft.Network
+    #
+    ```
+
 ## <a name="portal"></a>Create peering - Azure portal
 
-This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of the portal, and skip the steps for assigning another user permissions to the virtual networks. Before completing any of the following steps, you must register for the preview. To register, complete steps 1 and 2 of the [PowerShell](#powershell) section of this article. Log in to PowerShell as UserA (Subscription A) and complete step 7 in the [PowerShell](#powershell) section of this article. Log in to PowerShell as UserB (Subscription B) and register User B's subscription. You can only register for the preview using PowerShell. Do not continue with the remaining steps until the **RegistrationState** output you receive after entering the **Get-AzureRmProviderFeature** command is **Registered** for both subscriptions in PowerShell.
+This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of the portal, and skip the steps for assigning another user permissions to the virtual networks. Before completing any of the following steps, you must register for the preview. To register, complete the steps in the [Register for the preview](#register) section of this article. Do not continue with the remaining steps until both subscriptions are registered for the preview.
  
 1. Log in to the [Azure portal](https://portal.azure.com) as UserA. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 2. Click **+ New**, click **Networking**, then click **Virtual network**.
@@ -95,7 +120,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
 
 ## <a name="cli"></a>Create peering - Azure CLI
 
-This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Before completing any of the following steps, you must register for the preview. To register, complete steps 1 and 2 of the [PowerShell](#powershell) section of this article. Complete step 7 of the [PowerShell](#powershell) section of this article. You must complete the step while logged in as UserA and UserB. You can only register for the preview using PowerShell. Do not continue with the remaining steps until the **RegistrationState** output you receive after entering the **Get-AzureRmProviderFeature** command is **Registered** for both subscriptions in PowerShell.
+This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Before completing any of the following steps, you must register for the preview. To register, complete the steps in the [Register for the preview](#register) section of this article. Do not continue with the remaining steps until both subscriptions are registered for the preview.
 
 1. [Install](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) the Azure CLI 1.0 to create the virtual network (classic).
 2. Open a CLI session and log in to Azure as UserB using the `azure login` command.
@@ -189,12 +214,12 @@ This tutorial uses different accounts for each subscription. If you're using an 
 
 ## <a name="powershell"></a>Create peering - PowerShell
 
-This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments.
+This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Before completing any of the following steps, you must register for the preview. To register, complete the steps in the [Register for the preview](#register) section of this article. Do not continue with the remaining steps until both subscriptions are registered for the preview.
 
 1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
 3. In PowerShell, log in to UserB's subscription as UserB by entering the `Add-AzureAccount` command.
-4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
+4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
 
         ```xml
         <VirtualNetworkSite name="myVnetB" Location="East US">
@@ -213,7 +238,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
     > Importing a changed network configuration file can cause changes to existing virtual networks (classic) in your subscription. Ensure you only add the previous virtual network and that you don't change or remove any existing virtual networks from your subscription. 
 
 5. Log in to UserB's subscription as UserB to use Resource Manager commands by entering the `login-azurermaccount` command.
-6. Assign UserA permissions to virtual network B. Copy the following script to a text editor on your PC and replace `<SubscriptionB-id>` with the ID of subscription B. If you don't know the subscription Id, enter the `Get-AzureRmSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. Azure created the virtual network (classic) you created in step 4 in a resource group named *Default-Networking*. Copy the modified script and right-click in PowerShell to execute it.
+6. Assign UserA permissions to virtual network B. Copy the following script to a text editor on your PC and replace `<SubscriptionB-id>` with the ID of subscription B. If you don't know the subscription Id, enter the `Get-AzureRmSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. Azure created the virtual network (classic) you created in step 4 in a resource group named *Default-Networking*. To execute the script, copy the modified script, and paste it in to PowerShell.
     
     ```powershell 
     New-AzureRmRoleAssignment `
@@ -223,27 +248,8 @@ This tutorial uses different accounts for each subscription. If you're using an 
     #
     ```
 
-7. Register UserB's subscription for the preview by entering the following commands:
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    #
-    ```
-
-    Do not continue with the remaining steps until the **RegistrationState** output you receive after entering the following command is **Registered**.
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-    #
-    ```
-8. Log out of Azure as UserB and log in to UserA's subscription as UserA by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details. Complete step 7 for User A's subscription. Do not continue with the remaining steps until the **RegistrationState** output you receive after entering the **Get-AzureRmProviderFeature** command is **Registered** for both subscriptions.
-9. Create the virtual network (Resource Manager) by copying the following script and pasting it in to PowerShell:
+7. Log out of Azure as UserB and log in to UserA's subscription as UserA by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
+8. Create the virtual network (Resource Manager) by copying the following script and pasting it in to PowerShell:
 
     ```powershell
     # Create a resource group.
@@ -260,7 +266,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
     #
     ```
 
-10. Assign UserB permissions to myVnetA. Copy the following script to a text editor on your PC and replace `<SubscriptionA-Id>` with the ID of subscription A. If you don't know the subscription Id, enter the `Get-AzureRmSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. Paste the modified version of the script in PowerShell to execute it.
+9. Assign UserB permissions to myVnetA. Copy the following script to a text editor on your PC and replace `<SubscriptionA-Id>` with the ID of subscription A. If you don't know the subscription Id, enter the `Get-AzureRmSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. Paste the modified version of the script in PowerShell to execute it.
 
     ```powershell
     New-AzureRmRoleAssignment `
@@ -270,7 +276,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
     #
     ```
 
-11. Copy the following script to a text editor on your PC, and replace `<SubscriptionB-id>` with the ID of subscription B. To peer myVnetA to myVNetB, copy the modified script and paste it in to PowerShell.
+10. Copy the following script to a text editor on your PC, and replace `<SubscriptionB-id>` with the ID of subscription B. To peer myVnetA to myVNetB, copy the modified script and paste it in to PowerShell.
 
     ```powershell
     Add-AzureRmVirtualNetworkPeering `
@@ -279,7 +285,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
       -RemoteVirtualNetworkId /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     #
     ```
-12. View the peering state of myVnetA.
+11. View the peering state of myVnetA.
 
     ```powershell
     Get-AzureRmVirtualNetworkPeering `
@@ -293,8 +299,8 @@ This tutorial uses different accounts for each subscription. If you're using an 
 
     Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
-13. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
-14. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-powershell) in this article.
+12. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
+13. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-powershell) in this article.
 
 ## <a name="permissions"></a>Permissions
 
@@ -344,7 +350,7 @@ When you've finished this tutorial, you might want to delete the resources you c
     Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
     ```
 
-2. To delete the virtual network (classic) with PowerShell, you must modify an existing network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file). Remove the following VirtualNetworkSite element for the virtual network used in this tutorial:
+2. To delete the virtual network (classic) with PowerShell, you must modify an existing network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). Remove the following VirtualNetworkSite element for the virtual network used in this tutorial:
 
         ```xml
         <VirtualNetworkSite name="myVnetB" Location="East US">
