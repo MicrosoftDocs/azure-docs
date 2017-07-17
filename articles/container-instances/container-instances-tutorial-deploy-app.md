@@ -21,16 +21,16 @@ ms.author: seanmck
 
 # Deploy a container group
 
-Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This tutorial walks through the creation of an Azure Resource Manager (ARM) template defining a multi-container group and deploying it to Azure Container Instances. Steps completed include:
+Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This tutorial walks through the creation of an Azure Resource Manager template defining a multi-container group and deploying it to Azure Container Instances. Steps completed include:
 
 > [!div class="checklist"]
-> * Defining a container group using an ARM template
+> * Defining a container group using an Azure Resource Manager template
 > * Deploying the container group using the Azure CLI
 > * Viewing container logs
 
-## Configure the ARM template
+## Configure the Azure Resource Manager template
 
-The sample git repo that you cloned in [the first section][prepare-app] of this tutorial includes an ARM template and parameters file that you will use to deploy your container group to Azure Container Instances.
+The sample git repo that you cloned in [the first section][prepare-app] of this tutorial includes an Azure Resource Manager template and parameters file that you will use to deploy your container group to Azure Container Instances.
 
 Open `azuredeploy.json` to view the layout of the template. Pay particular attention to the `resources` section, which defines the container group, requests a public IP address for it, and provides a reference to the private Azure Container Registry where the container images are stored.
 
@@ -89,7 +89,7 @@ The properties of the container registry are defined as template parameters in t
 |Value|How to find|
 |-----|-----------|
 |Image registry login server URI|`az acr show --name <acrName>`|
-|ARM ID of your Azure Key Vault|`az keyvault show --name <keyvaultName>`|
+|Azure Resource Manager ID of your Azure Key Vault|`az keyvault show --name <keyvaultName>`|
 
 
 An updated parameters file should look something like this:
@@ -129,7 +129,7 @@ az group deployment create \
   --parameters @azuredeploy.parameters.json
 ```
 
-Within a few seconds, you will receive an initial response from ARM. To view the state of the deployment, use:
+Within a few seconds, you will receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
 
 ```bash
 az group deployment show -n AciDeployment -g myResourceGroup
