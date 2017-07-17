@@ -52,7 +52,9 @@ Within a few seconds, you should get a response to your request. Initially,the c
 az container show myContainer -g acidemogroup
 ```
 
-Once the container moves to the **Succeeded** state, you will be able to reach it using the IP address shown in the output. 
+Once the container moves to the **Succeeded** state, you will be able to reach it in the browser using the IP address shown in the output. 
+
+![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
 ## Pull the container logs
 
@@ -76,3 +78,8 @@ In this quick start, you’ve created a simple container instance. To learn more
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](./container-instances-overview.md)
+
+
+<!-- IMAGES -->
+
+[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
