@@ -213,7 +213,7 @@ azure.VirtualMachines.Define(vmName)
 > 
 >
 
-If you want to use a existing disk instead of a marketplace image, use this code:
+If you want to use an existing disk instead of a marketplace image, use this code:
 
 ```
 var managedDisk = azure.Disks.Define("myosdisk")
