@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 07/05/2017
 ms.author: thmullan;jackr
 
 ---
@@ -39,7 +39,7 @@ For other ways to encrypt your data, consider:
 SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking. For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal](../active-directory/role-based-access-control-configure.md).
+> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal](../active-directory/role-based-access-control-what-is.md).
 >
 
 ### Firewall and firewall rules

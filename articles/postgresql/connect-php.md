@@ -10,10 +10,10 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: php
 ms.topic: hero-article
-ms.date: 06/26/2017
+ms.date: 06/29/2017
 ---
 
-# Azure Database for MySQL: Use PHP to connect and query data
+# Azure Database for PostgreSQL: Use PHP to connect and query data
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a [PHP](http://php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using PHP, but that you are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
@@ -24,9 +24,11 @@ This quickstart uses the resources created in either of these guides as a starti
 ## Install PHP
 Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) that includes PHP.
 
-### MacOS
-- Download [PHP 7.1.4 version](http://php.net/downloads.php)
-- Install PHP and refer to the [PHP manual](http://php.net/manual/install.macosx.php) for further configuration
+### Windows
+- Download [PHP 7.1.4 non-thread safe (x64) version](http://windows.php.net/download#php-7.1)
+- Install PHP and refer to the [PHP manual](http://php.net/manual/install.windows.php) for further configuration
+- The code uses the **pgsql** class (ext/php_pgsql.dll)  that is included in the PHP installation. 
+- Enabled the **pgsql** extension by editing the php.ini configuration file, typically located at `C:\Program Files\PHP\v7.1\php.ini`. The configuration file should contain a line with the text `extension=php_pgsql.so`. If it is not shown, add the text and save the file. If the text is present, but commented with a semicolon prefix, uncomment the text by removing the semicolon.
 
 ### Linux (Ubuntu)
 - Download [PHP 7.1.4 non-thread safe (x64) version](http://php.net/downloads.php) 
@@ -34,11 +36,9 @@ Install PHP on your own server, or create an Azure [web app](https://docs.micros
 - The code uses the **pgsql** class (php_pgsql.so). Install it by running `sudo apt-get install php-pgsql`.
 - Enabled the **pgsql** extension by editing the `/etc/php/7.0/mods-available/pgsql.ini` configuration file. The configuration file should contain a line with the text `extension=php_pgsql.so`. If it is not shown, add the text and save the file. If the text is present, but commented with a semicolon prefix, uncomment the text by removing the semicolon.
 
-### Windows
-- Download [PHP 7.1.4 non-thread safe (x64) version](http://windows.php.net/download#php-7.1)
-- Install PHP and refer to the [PHP manual](http://php.net/manual/install.windows.php) for further configuration
-- The code uses the **pgsql** class (ext/php_pgsql.dll)  that is included in the PHP installation. 
-- Enabled the **pgsql** extension by editing the php.ini configuration file, typically located at `C:\Program Files\PHP\v7.1\php.ini`. The configuration file should contain a line with the text `extension=php_pgsql.so`. If it is not shown, add the text and save the file. If the text is present, but commented with a semicolon prefix, uncomment the text by removing the semicolon.
+### MacOS
+- Download [PHP 7.1.4 version](http://php.net/downloads.php)
+- Install PHP and refer to the [PHP manual](http://php.net/manual/install.macosx.php) for further configuration
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.

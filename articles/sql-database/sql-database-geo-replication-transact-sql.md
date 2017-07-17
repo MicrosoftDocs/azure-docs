@@ -98,7 +98,7 @@ Use the following steps to monitor an active geo-replication partnership.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 3. Use the following statement to show all databases with geo-replication links.
    
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].dm_geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM sys.geo_replication_links;
 4. Click **Execute** to run the query.
 5. Open the Databases folder, expand the **System Databases** folder, right-click on **MyDB**, and then click **New Query**.
 6. Use the following statement to show the replication lags and last replication time of my secondary databases of MyDB.
@@ -112,6 +112,6 @@ Use the following steps to monitor an active geo-replication partnership.
 9. Click **Execute** to run the query.
 
 ## Next steps
-* To learn more about active geo-replication, see - [active geo-replication](sql-database-geo-replication-overview.md)
+* To learn more about failover groups and active geo-replication, see - [Failover groups](sql-database-geo-replication-overview.md)
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 

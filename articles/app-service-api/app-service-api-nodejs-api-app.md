@@ -209,18 +209,24 @@ In this section, you use the Azure CLI 2.0 to create the resources to host the A
     az login
     ```
 
-2. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+2. If you have multiple Azure subscriptions, change the default subscription to the desired one.
 
-3. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+    ````azurecli-interactive
+    az account set --subscription <name or id>
+    ````
 
-4. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+
+4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+
+5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
 ## Deploy the API with Git
 
 Deploy your code to the API app by pushing commits from your local Git repository to Azure App Service.
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/app-service-api-configure-local-git.md)] 
+1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
 
 2. Initialize a new repo in the *ContactList* directory. 
 

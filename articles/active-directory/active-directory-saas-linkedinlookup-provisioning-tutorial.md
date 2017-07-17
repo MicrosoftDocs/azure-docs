@@ -3,7 +3,7 @@ title: 'Tutorial: Configuring LinkedIn Lookup for automatic user provisioning wi
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LinkedIn Lookup.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: MicrosoftGuyJFlo
 writer: asmalser-msft
 manager: stevenpo
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
-ms.author: asmalser-msft
+ms.author: joflore
 ---
 
 # Tutorial: Configuring LinkedIn Lookup for Automatic User Provisioning

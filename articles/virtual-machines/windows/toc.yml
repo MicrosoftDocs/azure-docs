@@ -79,8 +79,6 @@
       href: preserving-maintenance.md
     - name: Restarting maintenance
       href: impactful-maintenance.md
-    - name: Schedule
-      href: planned-maintenance-schedule.md
   - name: VM sizes
     href: sizes.md
     items:
@@ -94,11 +92,11 @@
       href: sizes-storage.md
     - name: GPU optimized
       href: sizes-gpu.md
+      items:
+      - name: GPU drivers
+        href: n-series-driver-setup.md
     - name: High performance compute
       href: sizes-hpc.md
-      items:
-      - name: Compute-intensive sizes
-        href: a8-a9-a10-a11-specs.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Compute benchmark scores
@@ -184,6 +182,8 @@
       href: hybrid-use-benefit-licensing.md
     - name: Use Windows client images
       href: client-images.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Prepare a VHD for upload
       href: prepare-for-upload-vhd-image.md
     - name: Create a Managed Disk image
@@ -363,10 +363,14 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Reset NIC
+      href: reset-network-interface.md
     - name: Boot diagnostics 
       href: boot-diagnostics.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Deployment issues 
+      href: troubleshoot-deploy-vm.md
     - name: Restarting or resizing a VM
       href: restart-resize-error-troubleshooting.md
     - name: Application access
@@ -385,6 +389,8 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Use PerfInsights to troubleshoot performance problems
+      href: how-to-use-perfInsights.md
 - name: Reference
   items:
   - name: Azure CLI

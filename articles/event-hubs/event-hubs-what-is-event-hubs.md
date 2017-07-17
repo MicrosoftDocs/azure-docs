@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 06/28/2017
 ms.author: sethm; babanisa
 
 ---
@@ -44,11 +44,12 @@ Event Hubs provides message stream handling capability but has characteristics t
 Event Hubs contains the following key elements:
 
 - [**Event producers/publishers**](event-hubs-features.md#event-publishers): An entity that sends data to an event hub. An event is published via AMQP 1.0 or HTTPS.
+- [**Capture**](event-hubs-features.md#capture): Enables you to capture Event Hubs streaming data and store it in an Azure Blob storage account.
 - [**Partitions**](event-hubs-features.md#partitions): Enables each consumer to only read a specific subset, or partition, of the event stream.
-- [**SAS tokens**](event-hubs-features.md#sas-tokens): used to identify and authenticate the event publisher.
+- [**SAS tokens**](event-hubs-features.md#sas-tokens): Identifies and authenticates the event publisher.
 - [**Event consumers**](event-hubs-features.md#event-consumers): An entity that reads event data from an event hub. Event consumers connect via AMQP 1.0. 
 - [**Consumer groups**](event-hubs-features.md#consumer-groups): Provides each multiple consuming application with a separate view of the event stream, enabling those consumers to act independently.
-- [**Throughput units**](event-hubs-features.md#capacity): Pre-purchased units of capacity. A single partition has a maximum scale of one throughput unit.
+- [**Throughput units**](event-hubs-features.md#capacity): Pre-purchased units of capacity. A single partition has a maximum scale of 1 throughput unit.
 
 For technical details about these and other Event Hubs features, see the [Event Hubs features overview](event-hubs-features.md). 
 

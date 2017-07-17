@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 06/30/2017
 ms.author: cherylmc
 
 ---
@@ -52,6 +52,7 @@ If you plan to enable Office 365 on ExpressRoute, review the following documents
 ## Dynamics 365
 If you plan to enable Dynamics 365 on ExpressRoute, review the following documents for more information about Dynamics 365
 
+* [Dynamics 365 and ExpressRoute whitepaper](http://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
 * [Dynamics 365 URLs](https://support.microsoft.com/kb/2655102) and [IP address ranges](https://support.microsoft.com/kb/2728473)
 
 ## Next steps

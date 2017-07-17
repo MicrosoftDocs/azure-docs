@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 07/06/2017
 ms.author: nepeters
 ---
 
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. Using the following example, update the name with some random characters.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Managed_Standard --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
 ```
 
 ## Get ACR information 
@@ -151,7 +151,7 @@ docker push <acrLoginServer>/azure-vote-back:v1
 To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the ACR instance name.
 
 ```azurecli-interactive
-az acr repository list --name <acrName> --output table
+az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
 ```
 
 Output:
@@ -166,7 +166,7 @@ azure-vote-front
 And then to see the tags for a specific image, use the [az acr repository show-tags](/cli/azure/acr/repository#show-tags) command.
 
 ```azurecli-interactive
-az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
+az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository azure-vote-front --output table
 ```
 
 Output:

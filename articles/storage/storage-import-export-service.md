@@ -63,7 +63,7 @@ The journal files store basic information about your job and drive such as drive
 
 The WAImportExport tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
-Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
+Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
@@ -433,9 +433,9 @@ Please go through the FAQ section below as it covers the most common questions c
 
 ## Frequently asked questions
 
-**Can I copy Azure Files using the Azure Import/Export service?**
+**Can I copy Azure File storage using the Azure Import/Export service?**
 
-No, the Azure Import/Export service only supports Block Blobs and Page Blobs. All other storage types including Azure Files, Tables, and Queues are not supported.
+No, the Azure Import/Export service only supports Block Blobs and Page Blobs. All other storage types including Azure File storage, Table Storage, and Queue Storage are not supported.
 
 **Is the Azure Import/Export service available for CSP subscriptions?**
 
@@ -525,6 +525,20 @@ b) Update the jobs with a tracking number suffixed with -1, -2 etc.
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
 Max Page Blob size is 1TB.
+
+**Does Disk Import/Export support AES 256 encryption?**
+
+Azure Import/Export service by default encrypts with AES 128 bitlocker encryption but this can be increased to AES 256 by manually encrypting with bitlocker before data is copied. 
+
+If using [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+If using [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
 ## Next steps
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)
