@@ -43,6 +43,7 @@
 ### [Install and configure Trend Micro Deep Security as a Service](install-trend.md)
 ### [Configure an availability set](configure-availability.md)
 ### [Resize a Windows VM created in the classic deployment model](resize-vm.md)
+### [Maintenance](planned-maintenance-schedule.md)
 
 ## Manage
 ### [Migrate from Classic to Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)

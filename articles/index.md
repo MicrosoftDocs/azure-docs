@@ -11,7 +11,7 @@ description: Learn how to build and manage powerful applications using Microsoft
         <h1 class="screenReader">Microsoft Azure Documentation</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="http://aka.ms/azuredevgetstarted/">
+                <a href="/azure/guides/developer/azure-developer-guide">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
