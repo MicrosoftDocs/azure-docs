@@ -35,7 +35,7 @@
 ### [Debug C# code in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Use Job Browser and Job View](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-### [Local Run and Local debug in VSCode](data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug.md)
+### [Local run and local debug in VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
