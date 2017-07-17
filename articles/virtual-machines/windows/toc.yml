@@ -391,6 +391,8 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Use PerfInsights to troubleshoot performance problems
+      href: how-to-use-perfInsights.md
 - name: Reference
   items:
   - name: Azure CLI
