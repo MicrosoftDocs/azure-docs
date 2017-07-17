@@ -74,7 +74,7 @@ Azure Files must reside in the same region as the machine being mounted to. Clou
 > [!NOTE]
 > If mounting a new file share, a new user image will be created for your $Home directory as your previous $Home image is held in the previous file share.
 
-1. Run `clouddrive mount` with the following parameters <br>
+Run `clouddrive mount` with the following parameters <br>
 
 ```
 clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareName
@@ -100,7 +100,8 @@ To see more details run `clouddrive mount -h`: <br>
 
 ## List clouddrive
 To discover which file share is mounted as `clouddrive`:
-1. Run `df` 
+
+Run `df` 
 
 The filepath to clouddrive will show your storage account name and file share in the url.
 

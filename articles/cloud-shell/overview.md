@@ -55,7 +55,7 @@ Three resources will be created on your behalf:
 
 An advanced option is also provided allowing you to associate existing resources to Cloud Shell. When presented with the storage setup prompt, click "Show advanced settings" to select additional options. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally redundant storage accounts.
 
-[Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.] (persisting-shell-storage.md).
+[Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.] (persisting-shell-storage.md)
 
 ## Concepts
 * Cloud Shell runs on a temporary machine provided on a per-session, per-user basis
@@ -82,7 +82,6 @@ Cloud Shell is recommended for Chrome, Edge, and Safari.
 While Cloud Shell is supported for Chrome, Firefox, Safari, IE, and Edge, Cloud Shell is subject to specific browser settings.
 
 ## Troubleshooting
-* When using an Azure Active Directory subscription, I cannot create storage due to Error: 400 DisallowedOperation.
-  * AD subscriptions are not granted access to create Azure resources, please use an Azure subscription capable of creating storage resources.
+1. When using an Azure Active Directory subscription, I cannot create storage due to Error: 400 DisallowedOperation. To resolve this, please use an Azure subscription capable of creating storage resources. AD subscriptions are not able to create Azure resources.
 
 For specific known limitations, visit [limitations of Cloud Shell](limitations.md).
