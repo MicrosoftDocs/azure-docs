@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2017
+ms.date: 02/28/2017
 ms.author: andret
 ms.custom: aaddev
 
@@ -33,6 +33,12 @@ For more information about multi-tenancy, see: [How to sign in any Azure Active 
 
 ## Trial Experience
 AppSource recommends offering a trial option for users to allow them to use your application for a limited time with no cost. The trial experience can be timed-based, as well as reduced functionality, and can take two possible forms:
+<!--Reference style links -->
+[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
+[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
 
 ### Customer-led trial experience
 The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:
