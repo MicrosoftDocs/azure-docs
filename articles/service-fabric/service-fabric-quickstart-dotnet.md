@@ -111,12 +111,6 @@ For information about creating your own cluster, see [Create your first Service 
 > The web front-end service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
 >
 
-### Configure the application to run in a Party Cluster
-The front-end web API service needs to bind to a well-know port to accept HTTP requests in a Party Cluster. You specify the port in the service's **ServiceManifest.xml** file.
-
-1. In Solution Explorer in Visual Studio, open up **VotingWeb->PackageRoot->ServiceManifest.xml**.
-2. Change the **Port** attribute of the existing **Endpoint** element to **80** and save your changes.
-
 ### Deploy the application using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
