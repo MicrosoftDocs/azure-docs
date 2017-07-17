@@ -1,16 +1,17 @@
 
 ## Test your code
 
-### Testing in Visual Studio
-If you are using Visual Studio, press `F5` to run your project. The browser will open and direct you to *http://localhost:{port}* where you’ll see the *Call Microsoft Graph API* button.
+> ### Testing in Visual Studio
+> If you are using Visual Studio, press `F5` to run your project. The browser will open and direct you to *http://localhost:{port}* where you’ll see the *Call Microsoft Graph API* button.
+<p/>
 
-### Testing with Python or another Web Server
-If you are not using Visual Studio, make sure your web server is started and that the folder containing your JavaScript web application is configured in your web server to listen to a TCP port. For Python, you can start listening to the port by running the following in the command prompt/ terminal, from the app's folder:
-
-```bash
-python -m http.server 8080
-```
- Then, open the browser and type *http://localhost:8080* or *http://localhost:{port}* - where the *port* corresponds to the port that your Web Server is listening to. You should see the contents of your index.html page with the *Call Microsoft Graph API* button.
+> ### Testing with Python or another Web Server
+> If you are not using Visual Studio, make sure your web server is started and it is configured to listen to a TCP port based on the folder containing your JavaScript web application. For Python, you can start listening to the port by running the following in the command prompt/ terminal, from the app's folder:
+> 
+> ```bash
+> python -m http.server 8080
+> ```
+>  Then, open the browser and type *http://localhost:8080* or *http://localhost:{port}* - where the *port* corresponds to the port that your web server is listening to. You should see the contents of your index.html page with the *Call Microsoft Graph API* button.
 
 ## Test your application
 

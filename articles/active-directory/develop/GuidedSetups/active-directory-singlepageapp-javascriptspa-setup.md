@@ -15,18 +15,17 @@ A local web server such as [Python](https://www.python.org/downloads/), [http-se
 Instructions in this guide are based on both Python and Visual Studio 2017, but feel free to use any other development environment or Web Server.
 
 
-## Create your project (Visual Studio only)
+> ## Create your project (Visual Studio only)
+> If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
+> 1.	In Visual Studio:  `File` > `New` > `Project`
+> 2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
+> 3.	Name your application and click *OK*
+> 4.	Under `New ASP.NET Web Application`, select `Empty`
+<p/>
 
-If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
-1.	In Visual Studio:  `File` > `New` > `Project`
-2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
-3.	Name your application and click *OK*
-4.	Under `New ASP.NET Web Application`, select `Empty`
-
-## Create your project (Python only)
-
-Make sure you have installed Python, then follow the steps below:
-1.	Create a folder to host your application.
+> ## Create your project (Python/ other web servers)
+> Make sure you have installed Python, then follow the steps below:
+> 1.	Create a folder to host your application.
 
 
 ## Create your single page application’s UI
