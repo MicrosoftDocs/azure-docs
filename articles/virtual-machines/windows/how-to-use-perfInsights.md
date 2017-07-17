@@ -1,27 +1,27 @@
 ---
 title: How to use PerfInsights in Microsoft Azure| Microsoft Docs
-description: Learns how to use PerfInsights in Microsoft Azure.
-services: ''
+description: Learns how to use PerfInsights to troubleshoot Windows VM performance problems.
+services: virtual-machines-windows'
 documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
 tags: ''
 
-ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: genli
 
 ---
-# How to use PerfInsights
+# How to use PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsights) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows IaaS performance scenarios in Microsoft Azure. 
+[PerfInsights](http://aka.ms/perfinsights) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows VM performance problems in Microsoft Azure. 
 
-We recommend that you run this script before you open a Support ticket with Microsoft for IaaS performance issues.
+We recommend that you run this script before you open a Support ticket with Microsoft for VM performance issues.
 
 ## Supported troubleshooting scenarios
 
