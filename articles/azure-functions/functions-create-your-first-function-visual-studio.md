@@ -31,15 +31,16 @@ In this topic, you learn how to use the Azure Function Tools for Visual Studio 2
 
 To complete this tutorial, install:
 
-* [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+* [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** and [ASP.NET and web development tools](https://marketplace.visualstudio.com/items?itemName=JacquesEloff.MicrosoftASPNETandWebTools-9689) workloads.
     
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
+    
+* 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Install Azure Functions Tools for Visual Studio 2017
+## Install Azure Functions Tools for Visual Studio 2017 Preview 15.3+
 
-Before you begin, you must download and install the Azure Functions Tools for Visual Studio 2017. These tools can only be used with Visual Studio 2017 Preview version 15.3, or a later version. If you have already installed the Azure Functions Tools, you can skip this section.
+Before you begin, you must download and install the Azure Functions Tools for Visual Studio 2017. **These tools can only be used with [Visual Studio 2017 Preview version 15.3](](https://www.visualstudio.com/vs/preview/)), or a later version.** If you have already installed the Azure Functions Tools, you can skip this section.
 
 [!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)]   
 
