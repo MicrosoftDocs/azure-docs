@@ -17,7 +17,7 @@ ms.date: 10/01/2016
 ms.author: adrianha
 
 ---
-# <a name="getting-started"> </a>What is Mobile Apps?
+# <a name="getting-started"> </a>What are Mobile Apps?
 Azure App Service is a fully managed [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers
 that brings a rich set of capabilities to web, mobile and integration scenarios. *Mobile Apps* in
 *Azure App Service* offer a highly scalable, globally available mobile application development platform
