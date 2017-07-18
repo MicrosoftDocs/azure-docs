@@ -33,7 +33,7 @@ Application Proxy uses the custom domain names that you set up in Azure Active D
 
 ## Configure a custom domain
 
-Before you configure a custom domain, make sure that you have the following: 
+Before you configure a custom domain, make sure that you have the following requirements prepared: 
 - A [verified domain added to Azure Active Directory](active-directory-domains-add-azure-portal.md).
 - A custom certificate for the domain, in the form of a PFX file. 
 - An on-premises app [published through Application Proxy](application-proxy-publish-azure-portal.md).
@@ -52,7 +52,7 @@ When you have those three requirements ready, follow these steps to set up your 
 ## Manage certificates
 
 ### Certificate format
-There is no restriction on the certificate signature methods, so ECC, SAN, and other common certificate types are all supported. You can also use wildcard certificates. If you use a wildcard certificate, please make sure the wildcard will match the desired external URL. Self-signed certificates are also accepted. If you’re using a private certificate authority, the CDP (certificate revocation point distribution point) for the certificate should be public.
+There is no restriction on the certificate signature methods. ECC, SAN, and other common certificate types are all supported. You can also use wildcard certificates. If you use a wildcard certificate, make sure that the wildcard matches the desired external URL. Self-signed certificates are also accepted. If you’re using a private certificate authority, the CDP (certificate revocation point distribution point) for the certificate should be public.
 
 ### Changing the domain
 All verified domains appear in the External URL dropdown list for your application. To change the domain, just update that field for the application. If you select a domain that doesn't have an associated certificate, follow steps 5-7 to add the certificate. If the domain you want isn't in the list, [add it as a verified domain](active-directory-domains-add-azure-portal.md). Then, make sure you update the DNS record to redirect from the new external URL. 
@@ -60,9 +60,9 @@ All verified domains appear in the External URL dropdown list for your applicati
 ### Certificate management
 You can use the same certificate for multiple applications unless the applications share an external host. 
 
-When a certificate expires, you will get a warning and you will need to go upload another certificate through the portal. If the certificate is revoked, your users may see a security warning when accessing the application. We don’t perform revocation checks for certificates.  To update the certificate for a given application, navigate to the application and follow steps 5-7 above for configuring custom domains on published applications to upload a new certificate. If the old certificate is not being used by other applications, it will automatically be deleted. 
+You get a warning when a certificate expires, telling you to upload another certificate through the portal. If the certificate is revoked, your users may see a security warning when accessing the application. We don’t perform revocation checks for certificates.  To update the certificate for a given application, navigate to the application and follow steps 5-7 for configuring custom domains on published applications to upload a new certificate. If the old certificate is not being used by other applications, it is deleted automatically. 
 
-Currently all certificate management is through individual application pages so you will need to manage certificates in the context of the relevant applications. 
+Currently all certificate management is through individual application pages so you need to manage certificates in the context of the relevant applications. 
 
 ## Next steps
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md) to your published apps with Azure AD authentication.
