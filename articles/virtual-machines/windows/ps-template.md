@@ -170,7 +170,7 @@ In this step, you create a template file that deploys the resources and a parame
     }
     ```
 
-3. Create a new storage account and container, and get the storage key:
+3. Create a new storage account and container:
 
     ```powershell
     $storageName = "st" + (Get-Random)
@@ -180,18 +180,18 @@ In this step, you create a template file that deploys the resources and a parame
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
-4. Upload the files the to storage account:
+4. Upload the files to the storage account:
 
     ```powershell
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
     Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
     ```
 
-    Change the paths to the location where you stored the files.
+    Change the -File paths to the location where you stored the files.
 
 ## Create the resources
 
-Deploy the template and using the parameters that you created:
+Deploy the template using the parameters:
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
