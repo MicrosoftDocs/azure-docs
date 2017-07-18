@@ -34,7 +34,7 @@ To add someone as an admin for a subscription in the Azure portal, you give them
     ![Screenshot that shows a selected subscription](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
 3. In the subscription blade, select **Access control (IAM)**.
-4. Select **Add** > **Select a role** > **Owner**. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
+4. Select **Add** > **Role** > **Owner**. Type the email address of the user you want to add as owner, select the user, and then select **Save**.
 
     ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -45,7 +45,7 @@ To add someone as an admin for a subscription in the Azure portal, you give them
     >[!TIP]
     >You will need to add the "Owner" user as co-administrator if the user needs to manage the Azure services in [Azure classic portal](https://manage.windowsazure.com/).
 
-    To remove the co-administrator permission, right click the "co-administrator" user and then select **remove co-administrator**.
+    To remove the co-administrator permission, right-click the "co-administrator" user and then select **remove co-administrator**.
 
     ![Screenshot that removes co-administrator](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
@@ -75,7 +75,7 @@ Only the Account Administrator can change the Service Administrator for a subscr
 
 1. Sign in to [Azure Account Center](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
 2. Select the subscription you want to change.
-3. On the right side, click **Edit subscription** details. </br>
+3. On the right side, select **Edit subscription** details. </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new Service Administrator. </br>
