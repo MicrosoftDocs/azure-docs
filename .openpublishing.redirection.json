@@ -8224,7 +8224,41 @@
             "source_path": "articles/active-directory/active-directory-reporting-guide-classic-portal.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
             "redirect_document_id": false
-        }
-
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-after-multiple-failures.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-multiple-geographies.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-users-with-anomalous-sign-in-activity.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        }            
     ]
 }
