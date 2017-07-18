@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 10/05/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
 
 ---
