@@ -1,6 +1,6 @@
 ---
 ms.assetid: 
-title: How to: Azure Key Vault soft delete | Microsoft Docs
+title: How to: Azure Key Vault How to soft delete
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
@@ -78,3 +78,17 @@ When a vault is recovered, the result is a new resource with the vault's origina
 To purge, permanently delete:
 
 ` Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus `
+
+To recover a vault, a user needs to have RBAC permission to perform ‘Microsoft.KeyVault/vaults/write’ operation. Similarly to purging a deleted vault so that the vault and all its contents are permanently removed the user needs RBAC permission to perform ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ operation. To list the deleted vault a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission.
+
+## Vault objects and soft-delete
+
+Now that we have seen the complete life cycle of a vault with soft-delete enabled, let's turn our attention to keys and secrets in a vault with soft-delete enabled. I'm assuming here that you already know how to create keys and secrets in a vault. If not check out Get started with Azure Key Vault.
+
+Let's say you have a key 'ContosoFirstKey' in your vault 'ContosoVault' with soft-delete enabled. Here's how you would delete that key.
+
+`Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey`
+
+With your key vault enabled for soft-delete, a deleted key still appears like it's deleted for the most part, except, when you explicitly list/retrieve deleted keys. Most operations on a key in deleted state will fail except for specifically listing deleted key, recovering it or purging it. For example, if you request to list keys in a key vault with 'Get-AzureKeyVaultKey -VaultName ContosoVault', the deleted key will not show up. To see deleted keys in a vault, you must use the '-InRemovedState' parameter.
+
+Note: When you delete a key in a vault with soft-delete enabled it may take a while (a few seconds, usually) for the transition to complete; during this interval, it may appear that the key is in neither the active state, nor the deleted one – i.e. listing the key, with or without the -InRemovedState parameter, will return an empty list.
