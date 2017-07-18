@@ -73,10 +73,7 @@ Congratulations! You're finished authoring and deploying your first Analysis Ser
   
   
 ## What's next?
-[Connect with Power BI Desktop](../analysis-services-connect-pbi.md)
-
-[Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)
-
-[Supplemental Lesson - Detail rows](../tutorials/aas-supplemental-lesson-detail-rows.md)
-
-[Supplemental Lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+[Connect with Power BI Desktop](../analysis-services-connect-pbi.md)   
+[Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Supplemental Lesson - Detail rows](../tutorials/aas-supplemental-lesson-detail-rows.md)   
+[Supplemental Lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
