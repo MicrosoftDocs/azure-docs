@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2017
+ms.date: 07/18/2017
 ms.author: seanmck
 ms.custom: 
 ---
