@@ -51,11 +51,11 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes|Not supported|Yes|Yes\*|N/A
-|Windows 8.1|Yes|Not supported|Yes|Yes\*|N/A
-|Windows 8|Yes|Not supported|Yes|Yes\*|N/A
-|Windows 7|Yes|Not supported|Yes|Yes\*|N/A
-|Mac OS X|N/A|N/A|Yes\*|Yes\*|Not supported
+|Windows 10|Yes|Yes|Yes|Yes\*|N/A
+|Windows 8.1|Yes|N/A|Yes|Yes\*|N/A
+|Windows 8|Yes|N/A|Yes|Yes\*|N/A
+|Windows 7|Yes|N/A|Yes|Yes\*|N/A
+|Mac OS X|N/A|N/A|Yes\*|Yes\*|Yes\*
 
 \*Requires [additional configuration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
