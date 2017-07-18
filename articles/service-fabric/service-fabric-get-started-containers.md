@@ -173,8 +173,20 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
     ```xml
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     ```
-    Providing the ```UriScheme``` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
-7. Configure the container port-to-host port mapping by specifying a ```PortBinding``` policy in ```ContainerHostPolicies``` of the ApplicationManifest.xml file.  For this article, ```ContainerPort``` is 8081 (the container exposes port 80, as specified in the Dockerfile) and ```EndpointRef``` is "Guest1TypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 8081 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add ```RepositoryCredentials```.  For this article, add the account name and password for the myregistry.azurecr.io container registry. 
+    Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
+7. Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 8081 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "Guest1TypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 8081 are mapped to port 80 on the container.   
+
+    ```xml
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ```
+
+    A full ApplicationManifest.xml example file is provided at the end of this article.
+ 
+8. Configure container registry authentication by adding `RepositoryCredentials` to `ContainerHostPolicies` of the ApplicationManifest.xml file. Add the account and password for the myregistry.azurecr.io container registry, which allows the service to download the container image from the repository.
 
     ```xml
     <Policies>
@@ -184,19 +196,68 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
         </ContainerHostPolicies>
     </Policies>
     ```
-
-    A full ApplicationManifest.xml example file is provided at the end of this article.
-8. Configure the cluster connection endpoint so you can publish the application to your cluster.  You can find the client connection endpoint in the Overview blade for your cluster in the [Azure portal](https://portal.azure.com). In Solution Explorer, open *Cloud.xml* under **MyFirstContainer**->**PublishProfiles**.  Add the cluster name and connection port to **ClusterConnectionParameters**.  For example:
-    ```xml
-    <ClusterConnectionParameters ConnectionEndpoint="containercluster.westus2.cloudapp.azure.com:19000" />
-    ```
-    
 9. Save all files and build your project.  
 
-10. To package your application, right-click on **MyFirstContainer** in Solution Explorer and select **Package**. 
+## Encrypt the container registry password
+We recommend that you encrypt the repository password by using an encipherment certificate that's deployed to all nodes of the cluster. When Service Fabric deploys the service package to the cluster, the encipherment certificate is used to decrypt the cipher text.  The Invoke-ServiceFabricEncryptText cmdlet is used to create the cipher text for the password, which is added to the ApplicationManifest.xml file.
+
+The following script creates a new self-signed certificate and exports it to a PFX file.  The certificate is imported into an existing key vault and then deployed to the Service Fabric cluster.
+
+```xml
+# Variables.
+$certpwd = ConvertTo-SecureString -String "Pa$$word321!" -Force -AsPlainText
+$filepath = "C:\MyCertificates\dataenciphermentcert.pfx"
+$subjectname = "dataencipherment"
+$vaultname = "mykeyvault"
+$certificateName = "dataenciphermentcert"
+$groupname="myclustergroup"
+$clustername = "mycluster"
+
+$subscriptionId = "subscription ID"
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+# Create a self signed cert, export to PFX file.
+New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
+| Export-PfxCertificate -FilePath $filepath -Password $certpwd
+
+# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
+$cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+
+# Add the certificate to all the VMs in the cluster.
+Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+```
+Encrypt the password using the Invoke-ServiceFabricEncryptText cmdlet.
+```xml
+$text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
+Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
+```
+
+Replace the password with the cipher text returned by Invoke-ServiceFabricEncryptText cmdlet and set `PasswordEncrypted` to "true".
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
 
 ## Deploy the container application
 To publish your application, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
+
+In **Connection Endpoint**, enter the management endpoint for the cluster.  For example, "containercluster.westus2.cloudapp.azure.com:19000". You can find the client connection endpoint in the Overview blade for your cluster in the [Azure portal](https://portal.azure.com).
+
+Click **Publish**. 
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ and follow the application deployment.  The application deploys but is in an error state until the image is downloaded on the cluster nodes (which can take some time, depending on the image size):
 ![Error][1]
