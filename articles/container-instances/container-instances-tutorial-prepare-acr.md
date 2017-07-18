@@ -175,7 +175,7 @@ v1
 
 ## Create an Azure Key Vault and store ACR credentials
 
-To protect access to your Azure Container Registry credentials, we recommend that you store them in an Azure Key Vault. You can reference your key vault as part of an Azure Resource Manager (ARM) template when deploying your containers to Azure Container Instances.
+To protect access to your Azure Container Registry credentials, we recommend that you store them in an Azure Key Vault. You can reference your key vault as part of an Azure Resource Manager template when deploying your containers to Azure Container Instances.
 
 Create the key vault with the Azure CLI:
 
