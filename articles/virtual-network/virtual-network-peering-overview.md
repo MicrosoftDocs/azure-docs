@@ -26,7 +26,7 @@ The traffic between virtual machines in the peered virtual networks is routed th
 * The ability to use resources such as network appliances and VPN gateways as transit points in a peered virtual network.
 * The ability to peer two virtual networks created through the Azure Resource Manager deployment model or to peer one virtual network created through Resource Manager to a virtual network created through the classic deployment model. Read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article to learn more about the differences between the two Azure deployment models.
 
-## <a name="requirements-constraints></a>Requirements and constraints:
+## <a name="requirements-constraints"></a>Requirements and constraints
 
 * The peered virtual networks must exist in the same Azure region. You can connect virtual networks in different Azure regions using a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
 * The peered virtual networks must have non-overlapping IP address spaces.
