@@ -32,8 +32,6 @@ As a cloud operator, you can create a test virtual machine to validate your Azur
 4. In the **Settings** blade, accept the defaults and click **OK**
 5. In the **Summary** blade, click **OK** to create the virtual machine.  
 6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
-
-
     ![](media/azure-stack-provision-vm/image06.png)
 
 
