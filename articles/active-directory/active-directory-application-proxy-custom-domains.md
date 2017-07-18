@@ -50,7 +50,7 @@ When you have those three requirements ready, follow these steps to set up your 
 
 6. Upload the PFX certificate and enter the password for the certificate. 
 7. Select **Save** to save your changes. 
-8. Add a DNS record that redirects the new external URL to the application. This record enables you to have the same URL for internal and external access to the app, and a single shortcut in the user’s applications list.
+8. Add a DNS record that redirects the new external URL to the msappproxy.net domain. 
 
 ## Manage certificates
 
