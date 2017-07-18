@@ -3,8 +3,8 @@ title: Users with anomalous sign in activity
 description: A report that indicates all user accounts for which anomalous sign in activity has been identified.
 services: active-directory
 documentationcenter: ''
-author: SSalahAhmed
-manager: gchander
+author: MarkusVi
+manager: femila
 editor: ''
 
 ms.assetid: 59b518e9-2dfa-4188-9f3b-d5c4397b870e
