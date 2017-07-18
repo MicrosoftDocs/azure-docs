@@ -3,7 +3,7 @@ title: Get Started with Azure Mobile Apps for Xamarin.Android apps
 description: Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: ''
 
@@ -41,8 +41,8 @@ To complete this tutorial, you need the following prerequisites:
 > If you want to get started with Azure App Service before signing up for an Azure account, go to
 > [Try App Service](https://azure.microsoft.com/try/app-service/mobile/).  You can immediately create a short-lived starter Mobile
 > App in App Service. No credit cards required; no commitments.
-> 
-> 
+>
+>
 
 ## Create an Azure Mobile App backend
 Follow these steps to create a Mobile App backend.
@@ -57,20 +57,20 @@ project for a simple "todo list" backend and publish it to Azure.
 
 ## Download and run the Xamarin.Android app
 1. Under **Download and run your Xamarin.Android project**, click the **Download** button.
-   
+
       Save the compressed project file to your local computer, and make a note of where you save it.
 2. Press the **F5** key to build the project and start the app.
 3. In the app, type meaningful text, such as *Complete the tutorial* and then click the **Add** button.
-   
+
     ![][10]
-   
+
     Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the
     data appears in the list.
-   
+
    > [!NOTE]
    > You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
-   > 
-   > 
+   >
+   >
 
 ## Next steps
 * [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
