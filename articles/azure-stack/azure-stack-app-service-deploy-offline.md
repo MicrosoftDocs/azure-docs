@@ -24,7 +24,7 @@ You must add an [Azure App Service resource provider](azure-stack-app-service-ov
 * If you're running Azure Stack in an isolated environment secured by Active Directory Federation Services (AD FS). 
 * You want to give your tenants the capability to create web, mobile, and API applications and Azure Functions with their Azure Stack subscription. 
 
-To do so, follow these steps.
+To do so, follow the steps in this article.
 
 ## Download the required components
 
@@ -95,8 +95,8 @@ This first script works with the Azure Stack certificate authority to create thr
 
     ![App Service on Azure Stack cloud configuration][5]
 
-> [!NOTE]
-> The App Service on Azure Stack installer provides the default values for a one-node Azure Stack installation. If you customized options when you deployed Azure Stack, for example, the domain suffix, you need to edit the values in this window accordingly. For example, if you use the domain suffix mycloud.com, your admin Azure Resource Manager endpoint needs to change to adminmanagement.[region].mycloud.com.
+    > [!NOTE]
+    > The App Service on Azure Stack installer provides the default values for a one-node Azure Stack installation. If you customized options when you deployed Azure Stack, for example, the domain suffix, you need to edit the values in this window accordingly. For example, if you use the domain suffix mycloud.com, your admin Azure Resource Manager endpoint needs to change to adminmanagement.[region].mycloud.com.
 
 7. Click the **Connect** button next to the **Azure Stack Subscriptions** box. Enter your admin account, for example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
 
@@ -106,9 +106,9 @@ This first script works with the Azure Stack certificate authority to create thr
 
     ![App Service on Azure Stack subscription selection][6]
 
-10. Enter the **Resource Group Name** for your App Service deployment. By default it's set to **APPSERVICE-LOCAL**.
+10. Enter the **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
 
-11. Enter the **Storage Account Name** you want App Service to create as part of the installation. By default it's set to **appsvclocalstor**.
+11. Enter the **Storage Account Name** you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
 
 12. Enter the SQL Server details for the instance that's used to host the App Service resource provider databases. Click **Next**, and the installer validates the SQL connection properties.
 
@@ -229,9 +229,10 @@ After you deploy and register the App Service resource provider, test it to make
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see  [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
 >
->You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding worker tiers and SKUs.
->
-> As of the third technical preview, to create web, mobile, and API apps you must use the tenant portal and have a tenant subscription.  
+
+You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding worker tiers and SKUs.
+
+As of the third technical preview, to create web, mobile, and API apps you must use the tenant portal and have a tenant subscription.  
 
 1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
 

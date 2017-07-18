@@ -41,7 +41,7 @@ This first script works with the Azure Stack certificate authority to create thr
 
 1. In a PowerShell session running as azurestack\AzureStackAdmin, execute the **Create-AppServiceCerts.ps1** script from the folder where you extracted the helper scripts. The script creates three certificates in the same folder as the create certificates script that are needed by App Service.
 
-2. Enter a password to secure the .pfx files, and make a note of it. You need to enter it in the App Service on Azure Stack installer.
+2. Enter a password to secure the .pfx files, and make a note of it. You will need to enter it in the App Service on Azure Stack installer.
 
 ### Create-AppServiceCerts.ps1 parameters
 
@@ -299,7 +299,7 @@ After you deploy and register the App Service resource provider, test it to make
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
 >
->You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service, These capabilities include adding capacity, configuring deployment sources, and adding worker tiers and SKUs.
+>You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding worker tiers and SKUs.
 >
 > As of the third technical preview, to create web, mobile, API, and Azure Function apps, you must use the tenant portal and have a tenant subscription. 
 
@@ -313,7 +313,7 @@ After you deploy and register the App Service resource provider, test it to make
 
 5. On the **App Service plan** blade, type a name in the **App Service plan** box.
 
-6. Click **Pricing tier** > **Free-Shared** or **Shared-Shared** > **Select** > **OK** >  **Create**.
+6. Click **Pricing tier** > **Free-Shared** or **Shared-Shared** > **Select** > **OK** > **Create**.
 
 7. In under a minute, a tile for the new web app appears on the dashboard. Click the tile.
 

@@ -51,7 +51,7 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 
 3.	In Internet Explorer, select **Tools** (the gear icon) > **Internet Options** > **Privacy** > **Advanced**.
 
-4.	Select **Advanced**. Make sure that both of the **Accept** check boxes are selected. Select **OK** twice.
+4.	Select **Advanced**. Make sure that both **Accept** check boxes are selected. Select **OK** twice.
 
 5.	Close Internet Explorer, and restart the PowerShell ISE as an administrator.
 
