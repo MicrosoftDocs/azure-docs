@@ -52,6 +52,9 @@ When you have those three requirements ready, follow these steps to set up your 
 7. Select **Save** to save your changes. 
 8. Add a DNS record that redirects the new external URL to the msappproxy.net domain. 
 
+>[!TIP] 
+>You only need to upload one certificate per custom domain. Once you upload a certificate, you can choose the custom domain when you publish a new app and not have to do additional configuration except for the DNS record. 
+
 ## Manage certificates
 
 ### Certificate format
