@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 07/17/2017
 ms.author: juliako;anilmur
 
 ---
@@ -87,10 +87,7 @@ The topic shows how to do the following:
 ## Prerequisites
 The following are required to complete the tutorial.
 
-* To complete this tutorial, you need an Azure account.
-
-If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
-
+* An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
 * A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
 * You must use Media Services .NET SDK version 3.2.0.0 or newer.
@@ -100,32 +97,13 @@ If you don't have an account, you can create a free trial account in just a coup
 * Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
 * There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
-
 ## Download sample
-Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+
+You can download the sample that is described in this topic from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 ## Set up for development with Media Services SDK for .NET
-1. Create a console application using Visual Studio.
-2. Add the Media Services SDK for .NET to your console application using Media Services NuGet package.
 
-## Connect to Media Services
-As a best practice, you should use an app.config file to store the Media Services name and account key.
-
-> [!NOTE]
-> To find the Name and Key values, go to the Azure portal and select your account. The Settings window appears on the right. In the Settings window, select Keys. Clicking on the icon next to each text box copies the value to the system clipboard.
-> 
-> 
-
-Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.
-
-    <?xml version="1.0"?>
-    <configuration>
-      <appSettings>
-          <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-          <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-      </appSettings>
-    </configuration>
-
+Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 
 ## Code example
 
