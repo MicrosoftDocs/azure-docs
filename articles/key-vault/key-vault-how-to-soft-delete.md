@@ -1,6 +1,6 @@
 ---
 ms.assetid: 
-title: How to: Azure Key Vault How to soft delete
+title: Azure Key Vault - How to use soft delete
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
