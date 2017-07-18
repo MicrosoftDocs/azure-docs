@@ -70,11 +70,13 @@ Since this app is a web application, a reference to an ASP.NET Core package was 
 
 ## Build and test the application locally ##
 
-Test your application locally before deploying it to cloud. You can build and run your .NET Core app with the `dotnet run` command, as shown here: 
+You can build and run your .NET Core app with the `dotnet restore` command followed by the `dotnet run` command, as shown here:
 
 ```
+dotnet restore
 dotnet run
-``` 
+```
+
 
 When the application starts, it displays a message indicating the app is listening to incoming requests at a port. 
 
