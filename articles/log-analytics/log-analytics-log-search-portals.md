@@ -1,4 +1,4 @@
-l---
+---
 title: Portals for creating and editing log queries in Azure Log Analytics | Microsoft Docs
 description: This article describes the portals that you can use in Azure Log Analytics to create and edit log searches.  
 services: log-analytics
@@ -28,7 +28,7 @@ You use log searches in a variety of places throughout Log Analytics to retrieve
 ## Log search portal
 The Log Search portal is accessible from the Azure portal or the OMS portal.  It's suitable for creating basic queries that can be created on a single line.  The Log Search portal can be used without launching an external portal, and you can use it to perform a variety of functions with log searches including creating alert rules, creating computer groups, and exporting the results of the query.  
 
-The Log Search portal provides multiple features for editing the query without having a full knowledge of the query language.  You can get a summary of these features in [Create log searches in Azure Log Analytics using the Log Search portal](log-analytics-log-search-logsearchportal.md).
+The Log Search portal provides multiple features for editing the query without having a full knowledge of the query language.  You can get a summary of these features in [Create log searches in Azure Log Analytics using the Log Search portal](log-analytics-log-search-log-search-portal.md).
 
 
 ![Log Search portal](media/log-analytics-log-search-portals/log-search-portal.png)
@@ -46,5 +46,5 @@ Because of its advanced features, it's a common scenario to edit queries in the 
 
 ## Next steps
 
-- Walk through a tutorial on using the [Log Search portal](log-analytics-log-search-logsearchportal.md) or the [Advanced Analytics portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) to create queries.
+- Walk through a tutorial on using the [Log Search portal](log-analytics-log-search-log-search-portal.md) or the [Advanced Analytics portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) to create queries.
 - Check out a [tutorial on writing queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) using the next generation query language.
