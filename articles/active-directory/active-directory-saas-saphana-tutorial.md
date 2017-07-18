@@ -5,6 +5,7 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
 ms.service: active-directory
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/20/2017
 ms.author: jeedes
 
 ---
@@ -33,15 +34,17 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with SAP HANA, you need the following items:
 
 - An Azure AD subscription
-- An SAP HANA single sign-on enabled subscription
+- A SAP HANA single sign-on enabled subscription
+- A running HANA Instance either on any public IaaS, on-premises, Azure VMs or SAP Large Instances in Azure
+- The XSA Administration Web Interface as well as HANA Studio installed on the HANA instance.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> To test the steps in this tutorial, we do not recommend using a production environment of SAP HANA. Test the integration first in development or staging environment of the application and then use the production environment.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -57,23 +60,23 @@ To configure the integration of SAP HANA into Azure AD, you need to add SAP HANA
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+	![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
+	![The Enterprise applications blade][2]
 	
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+	![The New application button][3]
 
 4. In the search box, type **SAP HANA**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_search.png)
+	![results list](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_search.png)
 
 5. In the results panel, select **SAP HANA**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_addfromgallery.png)
+	![results list](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with SAP HANA based on a test user called "Britta Simon."
@@ -86,7 +89,7 @@ To configure and test Azure AD single sign-on with SAP HANA, you need to complet
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating an SAP HANA test user](#creating-an-sap-hana-test-user)** - to have a counterpart of Britta Simon in SAP HANA that is linked to the Azure AD representation of user.
+3. **[Creating a SAP HANA test user](#creating-a-sap-hana-test-user)** - to have a counterpart of Britta Simon in SAP HANA that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -102,56 +105,69 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_samlbase.png)
+	![Single sign-on dialog box](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_samlbase.png)
 
 3. On the **SAP HANA Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_url.png)
+	![Domain and URLs single sign-on information](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_url.png)
 
-	In the **Reply URL** textbox, type a URL using the following pattern: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
+	a. In the **Identifier** textbox, type as: `HA100` 
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [SAP HANA Client support team](https://cloudplatform.sap.com/contact.html) to get this value. 
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [SAP HANA Client support team](https://cloudplatform.sap.com/contact.html) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_certificate.png) 
+	![The Certificate download link](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_certificate.png) 
 
 	>[!Note]
 	>If certificate is not active then make it active by clicking the “Make new certificate active” checkbox in the Azure AD. 
 
-5. Click **Save** button.
+5. SAP HANA application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/tutorial_general_400.png)
+	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/attribute.png)
+
+6. In the **User Attributes** section on the **Single sign-on** dialog:
+
+	a. In the **User Identifier** dropdown list, select **ExtractMailPrefix**.
 	
-6. To configure single sign-on on **SAP HANA** side, login to your **HANA XSA Web Console**  by browsing to the respective HTTPS-endpoint.
+	b. In the **Mail** dropdown list, select **user.mail**.
+
+7. Click **Save** button.
+
+	![Configure Single Sign-On Save button](./media/active-directory-saas-saphana-tutorial/tutorial_general_400.png)
+	
+8. To configure single sign-on on **SAP HANA** side, login to your **HANA XSA Web Console**  by browsing to the respective HTTPS-endpoint.
 
 	> [!Note]
 	> In the default configuration, the URL redirects the request to a logon screen, which requires the credentials of an authenticated SAP HANA database user to complete the logon process. The user who logs on must have the privileges required to perform SAML administration tasks.
 
-	> [!TIP]
-	> Take note of the Forms-Authentication URL. If you break something in your SAML-P configuration later down the road, you can always use it to sign back in via Forms Authentication to fix the configuration! 
+9. In the XSA Web Interface, navigate to **SAML Identity Provider** and from there, click the **“+”** -button on the bottom of the screen to display the Add Identity Provider Info pane and perform the following steps:
 
-7. In the XSA Web Interface, navigate to **SAML Identity Provider** and from there, click the **“+”** -button on the bottom of the screen to display the Add Identity Provider Info pane and perform the following steps:
-
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap1.png)
+	![Add Identity Provider](./media/active-directory-saas-saphana-tutorial/sap1.png)
 
 	a. In the **Add Identity Provider Info** pane, paste the contents of the Metadata XML, which you have downloaded from Azure portal into the **Metadata** textbox.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap2.png)
+	![Add Identity Provider settings](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
 	b. If the contents of the XML document are valid, the parsing process extracts the information required to insert into the **Subject, Entity ID, and Issuer** fields in the General Data screen area, and the URL fields in the Destination screen area, for example, **Base URL and SingleSignOn URL (*)**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap3.png)
+	![Add Identity Provider settings](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
 	c. In the Name box of the General Data screen area, enter a name for the new SAML SSO identity provider.
 
 	> [!Note]
 	> The name of the SAML IDP is mandatory and must be unique; it appears in the list of available SAML IDPs that is displayed, if you select SAML as the authentication method for SAP HANA XS applications to use, for example, in the Authentication screen area of the XS Artifact Administration tool.
 
-8. Save the details of the new SAML identity provider. Choose **Save** to save the details of the SAML identity provider and add the new SAML IDP to the list of known SAML IDPs.
+10. Save the details of the new SAML identity provider. Choose **Save** to save the details of the SAML identity provider and add the new SAML IDP to the list of known SAML IDPs.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap4.png)
+	![save button](./media/active-directory-saas-saphana-tutorial/sap4.png)
+
+11. In HANA Studio within the system properties of the **Configuration** tab, just filter settings by **saml** and adjust the **assertion_timeout** from **10 sec** to **120 sec**.
+
+	![assertion_timeout setting](./media/active-directory-saas-saphana-tutorial/sap7.png)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,19 +182,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-saphana-tutorial/create_aaduser_01.png) 
+	![The Azure Active Directory button](./media/active-directory-saas-saphana-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Creating an Azure AD test user](./media/active-directory-saas-saphana-tutorial/create_aaduser_02.png) 
+	![The "Users and groups" and "All users" links](./media/active-directory-saas-saphana-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-saphana-tutorial/create_aaduser_03.png) 
+	![The Add button](./media/active-directory-saas-saphana-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-saphana-tutorial/create_aaduser_04.png) 
+	![The User dialog box](./media/active-directory-saas-saphana-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -188,7 +204,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating an SAP HANA test user
+### Creating a SAP HANA test user
 
 To enable Azure AD users to log in to SAP HANA, they must be provisioned into SAP HANA.  
 SAP HANA supports just-in-time provisioning, which is by default enabled.
@@ -197,7 +213,7 @@ If you need to create a user manually, perform the following steps:
 
 1. Open the [SAP HANA Studio](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-us) as an administrator and enable the DB-User for SAML SSO.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap5.png)
+	![create user](./media/active-directory-saas-saphana-tutorial/sap5.png)
 
 2. Tick the invisible (?) checkbox in front of **SAML** and follow the Configuration link.
 
@@ -211,7 +227,7 @@ External users are authenticated using an external system, for example a Kerbero
 
 5. For testing purposes, assign all **"XS"** roles to the user. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/sap6.png)
+	![assigning roles](./media/active-directory-saas-saphana-tutorial/sap6.png)
 
  	> [!TIP]
   	> You should give those permissions appropriate for your use cases, only.
@@ -222,7 +238,7 @@ External users are authenticated using an external system, for example a Kerbero
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to SAP HANA.
 
-![Assign User][200] 
+![Assign the user role][200] 
 
 **To assign Britta Simon to SAP HANA, perform the following steps:**
 
@@ -232,15 +248,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **SAP HANA**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_app.png) 
+	![Assign User](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![The "Users and groups" link][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+	![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
