@@ -42,9 +42,9 @@
 ## Next generation log search (Public preview)
 ### [Upgrade your workspace](log-analytics-log-search-upgrade.md)
 ### [FAQ](log-analytics-log-search-faq.md)
-### [Log searches overview](log-analytics-log-search-nextgeneration.md)
+### [Log searches overview](log-analytics-log-search-next-generation.md)
 ### [Log search portals](log-analytics-log-search-portals.md)
-#### [Use the log search portal](log-analytics-log-search-logsearchportal.md)
+#### [Use the log search portal](log-analytics-log-search-log-search-portal.md)
 ### [Transitioning from legacy language](log-analytics-log-search-transition.md)
 
 ## Analyze data

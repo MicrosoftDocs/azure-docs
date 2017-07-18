@@ -60,5 +60,5 @@ Just type in your legacy query and then click **Convert** to see the translated 
 
 ## Next steps
 - Check out a [tutorial on the new language](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).
-- Walk through a [tutorial on using the Log Search portal](log-analytics-log-search-logsearchportal.md) with the next generation query language.
+- Walk through a [tutorial on using the Log Search portal](log-analytics-log-search-log-search-portal.md) with the next generation query language.
 - Get an introduction to the new [Advanced Analytics portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).
