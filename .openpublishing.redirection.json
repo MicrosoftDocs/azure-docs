@@ -8219,6 +8219,12 @@
             "source_path": "articles/active-directory/active-directory-saas-linkedinlookup-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-guide-classic-portal.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
         }
+
     ]
 }
