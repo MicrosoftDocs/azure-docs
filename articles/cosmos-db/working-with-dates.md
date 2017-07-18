@@ -72,7 +72,7 @@ Range queries are common with DateTime values. For example, if you need to find 
 You can learn more about how to configure indexing policies at [Cosmos DB Indexing Policies](indexing-policies.md).
 
 ## Querying DateTimes in LINQ
-The DocumentDB .NET SDK automatically supports querying data stored in DocumentDB via LINQ. For example, the following snippet shows a LINQ query that filters orders that were shipped in the last three days.
+The DocumentDB .NET SDK automatically supports querying data stored in Cosmos DB via LINQ. For example, the following snippet shows a LINQ query that filters orders that were shipped in the last three days.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
