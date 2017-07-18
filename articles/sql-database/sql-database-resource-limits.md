@@ -43,7 +43,7 @@ For example, the number of connections to a SQL database and the number of concu
 There are service tiers and performance levels for both single database and elastic pools.
 
 ### Single databases
-For a single database, the limits of a database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, Premium, and Premium RS databases at varying performance levels.
+For a single database, the limits of a database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, Premium, and Premium RS databases at varying performance levels. You can set the service tier, performance level, and storage amount for single databases using the [Azure portal](sql-database-service-tiers.md#manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal), [PowerShell](sql-database-service-tiers.md#manage-single-database-service-tiers-and-performance-levels-using-powershell), the [Azure CLI](sql-database-service-tiers.md#manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli), or the [REST API](sql-database-service-tiers.md#manage-single-databases-using-the-rest-api).
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 

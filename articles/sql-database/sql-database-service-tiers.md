@@ -71,8 +71,8 @@ Once you have determined the appropriate service tier, you are ready to determin
 > Review the [SQL elastic pools](sql-database-elastic-pool.md) topic for the details about grouping databases into SQL elastic pools to share compute and storage resources. The remainder of this topic focuses on service tiers and performance levels for single databases.
 >
 
-## Single database service tiers and performance levels
-For single databases, there are multiple performance levels and storage amounts within each service tier. 
+## Single database service tiers, performance levels, and storage amounts
+For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](#manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal), [PowerShell](#manage-single-database-service-tiers-and-performance-levels-using-powershell), the [Azure CLI](#manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli), or the [REST API](#manage-single-databases-using-the-rest-api).
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
@@ -114,7 +114,7 @@ A maximum size of 4 TB for P11 and P15 database is supported in some regions (as
    - Upgrading the primary database in a geo-replication relationship: Changing the maxsize to 4 TB on a primary database triggers the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the 4TB option apply (see above). If the secondary is in a region that does not support 4 TB, the primary is not upgraded.
 - Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import.md) and [export](sql-database-export.md) data.
 
-## Manage single database service tiers and performance levels using the Azure portal
+## Manage single database service tiers, performance levels, and storage amounts using the Azure portal
 
 To set or change the service tier, performance level, or storage amount for a new or existing Azure SQL database using the Azure portal, open the **Configure performance** window for your database by clicking **Pricing tier (scale DTUs)** - as shown in the following screenshot. 
 
@@ -128,7 +128,7 @@ To set or change the service tier, performance level, or storage amount for a ne
 > Review [Current limitations of P11 and P15 databases with 4 TB maxsize](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize) when selecting a P11 or P15 service tier.
 >
 
-## Manage single database service tiers and performance levels using PowerShell
+## Manage single database service tiers, performance levels, and storage amounts using PowerShell
 
 To set or change Azure SQL databases service tiers, performance levels, and storage amount using PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
@@ -142,7 +142,7 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 > [!TIP]
 > For a PowerShell example script that monitors the performance metrics of a database, scales it to a higher performance level, and creates an alert rule on one of the performance metrics, see [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-## Manage single database service tiers and performance levels using the Azure CLI
+## Manage single database service tiers, performance levels, and storage amounts using the Azure CLI
 
 To set or change Azure SQL databases service tiers, performance levels, and storage amount using the Azure CLI, use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
@@ -159,7 +159,7 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 > For an Azure CLI example script that scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
-## Manage single database service tiers and performance levels using Transact-SQL
+## Manage single database service tiers, performance levels, and storage amounts using Transact-SQL
 
 To set or change Azure SQL databases service tiers, performance levels, and storage amount with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. 
 
@@ -177,7 +177,7 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-## Manage single databases using the REST API
+## Manage single database service tiers, performance levels, and storage amounts using the REST API
 
 To set or change Azure SQL databases service tiers, performance levels, and storage amount using the REST API, see [Azure SQL Database REST API](/rest/api/sql/).
 
