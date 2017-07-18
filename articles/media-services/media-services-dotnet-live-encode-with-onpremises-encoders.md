@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/18/2017
 ms.author: cenkdin;juliako
 
 ---
