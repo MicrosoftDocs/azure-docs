@@ -237,7 +237,7 @@ func main() {
 	rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
 	checkError(err)
 	rowcount, err := rows.RowsAffected()
-	fmt.Printf("Updated %d row of data.\n", rowcount)
+	fmt.Printf("Updated %d row(s) of data.\n", rowcount)
 	fmt.Println("Done.")
 }
 ```
@@ -274,24 +274,24 @@ func checkError(err error) {
 }
 
 func main() {
-	
+
 	// Initialize connection string.
-	var connectionString string = 
-		fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
+	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", USER, PASSWORD, HOST, DATABASE)
 
 	// Initialize connection object.
-	db, err := sql.Open("postgres", connectionString)
+	db, err := sql.Open("mysql", connectionString)
 	checkError(err)
 
 	err = db.Ping()
 	checkError(err)
-	fmt.Println("Successfully created connection to database")
+	fmt.Println("Successfully created connection to database.")
 
-	// Delete some data from table.
-	sql_statement := "DELETE FROM inventory WHERE name = $1;"
-	_, err = db.Exec(sql_statement, "orange")
+	// Modify some data in table.
+	rows, err := db.Exec("DELETE FROM inventory WHERE name = ?", "orange")
 	checkError(err)
-	fmt.Println("Deleted 1 row of data")
+	rowcount, err := rows.RowsAffected()
+	fmt.Printf("Deleted %d row(s) of data.\n", rowcount)
+	fmt.Println("Done.")
 }
 ```
 
