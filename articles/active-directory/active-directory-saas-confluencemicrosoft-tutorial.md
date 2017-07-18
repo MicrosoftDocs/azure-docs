@@ -190,19 +190,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
 	
-	b. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
+	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Confluence SAML SSO by Microsoft Domain and URLs** section on Azure portal.
 
-	c. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user id. If the user id is not matched, then system will not allow users to log in. 
+	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
+
+	d. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user id. If the user id is not matched, then system will not allow users to log in. 
 	
-	  * If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User Id is expected. 
+	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User Id is expected. 
 
-	d. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
+	f. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
 	
-	   * In **Domain Name** type the domain name here in case of the ADFS-based login.
+	g. In **Domain Name** type the domain name here in case of the ADFS-based login.
 
-	e. Check **Enable Single Sign out** if you wish to log out from Azure AD when a user logs out from Confluence. 
+	h. Check **Enable Single Sign out** if you wish to log out from Azure AD when a user logs out from Confluence. 
 
-	f. Click **Save** button to save the settings.
+	i. Click **Save** button to save the settings.
 
 
 > [!TIP]
