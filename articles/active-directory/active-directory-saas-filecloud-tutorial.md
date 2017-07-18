@@ -129,23 +129,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. On the left navigation pane, click **Settings**. 
    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Settings section On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Click **SSO** tab on Settings section. 
    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Single Sign-On Tab On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Select **SAML** as **Default SSO Type** on **Single Sign On (SSO) Settings** panel.
    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Single Sign-On Settings Panel On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
 11. Paste **SAML Entity ID**, which you have copied from Azure portal into the **IdP End Point URL** textbox.
 
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![IDP End Point URL Textbox](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. Open your downloaded metadata file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Meta Data** textbox on **SAML Settings** panel.
 
-	![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+	![IDP Meta Data Section on App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Click **Save** button.
 
