@@ -54,24 +54,39 @@ synchronized.
 
 For VMs in availability sets, update domains are updated one at a time. Pausing all VMs in the UD, resuming them and then going on to the next UD.
 
-Some applications may be impacted by these types of updates. Applications that perform real-time event processing, media streaming 
-or transcoding, or high throughput networking scenarios, for example,
-may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? -->
-Applications running in a virtual machine can learn about upcoming
-updates by calling the [Scheduled Events](../virtual-machines-scheduled-events.md)
-API of the [Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).
+Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? -->
+Applications running in a virtual machine can learn about upcoming updates by calling the [Scheduled Events](../virtual-machines-scheduled-events.md) API of the [Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).
 
 ## Impactful maintenance for virtual machines
 
 When VMs need to be rebooted for planned maintenance, you will be notified at least 30 days in advance. 
 
-Planned maintenance has two phases: the Pre-emptive (or self-service)
-Maintenance Window and a Scheduled Maintenance Window.
+Planned maintenance has two phases: the Pre-emptive (or self-service) Maintenance Window and a Scheduled Maintenance Window.
 
-The **Pre-emptive Maintenance Window** lets you initiate the maintenance on your VMs at a time that works for you. DUring this time, you can query each VM to see their status  and check the result of your last initiated maintenance request.
+The **Pre-emptive Maintenance Window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status  and check the result of your last maintenance request.
 
-When the pre-emptive window has passed, the **Scheduled Maintenance Window** begins. During this time window, you can still query for the maintenance
-window, but no longer be able to start the maintenance yourself.
+If you initiate maintenance, your VM is moved to a node that has already been updated and then powers it back on. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
+
+Pre-emptive redeploy is enabled once per VM. If there is an error during the process, the operation is stopped, the VM is not updated and it is removed from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to do pre-emptive maintenance. 
+
+
+When the pre-emptive window has passed, the **Scheduled Maintenance Window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
+
+
+## Pre-emptive Redeploy
+
+Pre-emptive redeploy action provides the flexibility to control the time when maintenance is applied to your VMs in Azure. Planned  maintenance begins with a pre-emptive maintenance window where you can decide on the exact time for each of your VMs to be rebooted. The following are use cases where such a functionality is useful:
+
+-   Maintenance need to be coordinated with the end customer.
+
+-   The scheduled maintenance window offered by Azure is not sufficient. It could be that the window happens to be on the busiest time of the     week or it is too long.
+
+-   For multi-instance or multi-tier applications, you need sufficient time between two VMs or a certain sequence to follow.
+
+When you call for pre-emptive redeploy on a VM, it moves the VM to an already updated node and then powers it back on, retaining all your configuration options and associated resources. While doing so, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
+
+Pre-emptive redeploy is enabled once per VM. If there is an error during the process, the operation is aborted, the VM is not impacted and it is excluded from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to schedule and sequence the impact on your VMs.
+
 
 ## Availability Considerations during Planned Maintenance 
 
@@ -109,9 +124,9 @@ For more information about configuring your virtual machines for high
 availability, see [*Manage the availability of your Windows virtual
 machines*](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### Scheduled Events
+## Next steps
 
-Azure Metadata Service enables you to discover information about your
+The Azure Metadata Service enables you to discover information about your
 Virtual Machine hosted in Azure. Scheduled Events, one of the exposed
 categories, surfaces information regarding upcoming events (for example,
 reboot) so your application can prepare for them and limit disruption.
@@ -119,86 +134,5 @@ reboot) so your application can prepare for them and limit disruption.
 For more information about scheduled events, refer to [Azure Metadata
 Service - Scheduled
 Events](../virtual-machines-scheduled-events.md).
-
-## Maintenance Discovery and Notifications
-
-Maintenance schedule is visible to customers at the level of individual
-VMs. You can use Azure portal, API, PowerShell, or CLI to query for the
-pre-emptive and scheduled maintenance windows. In addition, expect to
-receive a notification (email) in the case where one (or more) of your
-VMs are impacted during the process.
-
-Both pre-emptive maintenance and scheduled maintenance phases begin with
-a notification. Expect to receive a single notification per Azure
-subscription. The notification is sent to the subscription’s admin
-and co-admin by default. You can also configure the audience for the
-maintenance notification.
-
-### View the Maintenance Window in the portal 
-
-You can use the Azure portal and look for VMs scheduled for maintenance.
-
-1.  Sign in to the Azure portal.
-
-2.  Click and open the **Virtual Machines** blade.
-
-3.  Click the **Columns** button to open the list of available columns
-    to choose from
-
-4.  Select and add the **Maintenance Window** columns. VMs that are
-    scheduled for maintenance have the maintenance windows
-    surfaced. Once maintenance is completed or aborted for a, the
-    maintenance window is no longer be presented.
-
-### Query maintenance details using the Azure API
-
-Use the [get VM information
-API](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)
-and look for the instance view to discover the maintenance details on an
-individual VM. The response includes the following elements:
-
-  - isCustomerInitiatedMaintenanceAllowed: Indicates whether you can now initiate pre-emptive redeploy on the VM.
-
-  - preMaintenanceWindowStartTime: The start time of the pre-emptive maintenance window.
-
-  - preMaintenanceWindowEndTime: The end time of the pre-emptive maintenance window. After this time, you will no longer be able to initiate maintenance on this VM.
-    
-  - maintenanceWindowStartTime: The start time of the scheduled maintenance window when your VM are impacted.
-
-  - maintenanceWindowEndTime: The end time of the scheduled maintenance window.
-  
-  - lastOperationResultCode: The result of your last Maintenance-Redeploy operation.
- 
-  - lastOperationMessage:  Message describing the result of your last Maintenance-Redeploy operation.
-
-## Pre-emptive Redeploy
-
-Pre-emptive redeploy action provides the flexibility to control the time
-when maintenance is applied to your VMs in Azure. Planned
-maintenance begins with a pre-emptive maintenance window where you can
-decide on the exact time for each of your VMs to be rebooted. The
-following are use cases where such a functionality is useful:
-
--   Maintenance need to be coordinated with the end customer.
-
--   The scheduled maintenance window offered by Azure is not sufficient.
-    It could be that the window happens to be on the busiest time of the
-    week or it is too long.
-
--   For multi-instance or multi-tier applications, you need sufficient
-    time between two VMs or a certain sequence to follow.
-
-When you call for pre-emptive redeploy on a VM, it moves the VM to an
-already updated node and then powers it
-back on, retaining all your configuration options and associated
-resources. While doing so, the temporary disk is lost and dynamic IP
-addresses associated with virtual network interface are updated.
-
-Pre-emptive redeploy is enabled once per VM. If there is an error during the process, the operation is aborted,
-the VM is not impacted and it is excluded from the planned
-maintenance iteration. You will be contacted in a later time with a new schedule
-and offered a new opportunity to schedule and sequence the impact on
-your VMs.
-
 
 
