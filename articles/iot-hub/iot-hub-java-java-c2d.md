@@ -100,7 +100,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.4.22</version>
+      <version>1.5.22</version>
     </dependency>
     ```
 

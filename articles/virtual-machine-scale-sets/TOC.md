@@ -14,6 +14,7 @@
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
 ### [Use an existing virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Use a custom image](virtual-machine-scale-sets-mvss-custom-image.md)
+### [Use guest-based autoscaling with a Linux scale set template](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Deploy
 ### [Create with the portal](virtual-machine-scale-sets-portal-create.md)
@@ -32,10 +33,11 @@
 ## Manage
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
+### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
+### [Networking for scale sets](virtual-machine-scale-sets-networking.md)
 ### [Convert a template to managed disks](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Troubleshoot

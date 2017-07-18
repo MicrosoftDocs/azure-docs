@@ -111,10 +111,12 @@
 ### [Set alerts](app-insights-powershell-alerts.md)
 ### [Get Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
 ### [Automate with Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automate with an Azure Logic App](automate-with-logic-apps.md)
 
 ## Develop
 
-### [API for custom events and metrics ](app-insights-api-custom-events-metrics.md)
+### [API for custom events and metrics](app-insights-api-custom-events-metrics.md)
+### [Track custom operations in .NET SDK](application-insights-custom-operations-tracking.md)
 ### [Filtering and preprocessing telemetry](app-insights-api-filtering-sampling.md)
 ### [Sampling](app-insights-sampling.md)
 
