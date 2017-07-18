@@ -160,50 +160,80 @@ Push the image to your container registry:
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## Create and package the containerized service in Visual Studio
-The Service Fabric SDK and tools provide a service template to help you deploy a container to a Service Fabric cluster.
+## Create the containerized service in Visual Studio
+The Service Fabric SDK and tools provide a service template to help you create a containerized application.
 
 1. Start Visual Studio.  Select **File** > **New** > **Project**.
 2. Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
 3. Select **Guest Container** from the list of **service templates**.
 4. In **Image Name** enter "myregistry.azurecr.io/samples/helloworldapp", the image you pushed to your container repository. 
 5. Give your service a name, and click **OK**.
-6. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to an ```Endpoint``` in the ServiceManifest.xml file. For this article, the containerized service listens on port 80: 
 
-    ```xml
+## Configure communication
+The containerized service needs an endpoint for communication. Add an `Endpoint` element with the protocol, port, and type to the ServiceManifest.xml file. For this article, the containerized service listens on port 8081.  In this example, a fixed port 8081 is used.  If no port is specified, a random port from the application port range is chosen.  
+
+```xml
+<Resources>
+  <Endpoints>
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
-    ```
-    Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
-7. Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 8081 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "Guest1TypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 8081 are mapped to port 80 on the container.   
+  </Endpoints>
+</Resources>
+```
+    
+By defining an endpoint, Service Fabric publishes the endpoint to the Naming service.  Other services running in the cluster can resolve this container.  You can also perform container-to-container communication using the [reverse proxy](service-fabric-reverse-proxy.md).  Communication is performed by providing the reverse proxy HTTP listening port and the name of the services that you want to communicate with as environment variables. 
 
-    ```xml
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ```
+## Configure and set environment variables
+Environment variables can be specified for each code package in the service manifest. This feature is available for all services irrespective of whether they are deployed as containers or processes or guest executables. You can override environment variable values in the application manifest or specify them during deployment as application parameters.
 
-    A full ApplicationManifest.xml example file is provided at the end of this article.
- 
-8. Configure container registry authentication by adding `RepositoryCredentials` to `ContainerHostPolicies` of the ApplicationManifest.xml file. Add the account and password for the myregistry.azurecr.io container registry, which allows the service to download the container image from the repository.
+The following service manifest XML snippet shows an example of how to specify environment variables for a code package:
+```xml
+<CodePackage Name="Code" Version="1.0.0">
+  ...
+  <EnvironmentVariables>
+    <EnvironmentVariable Name="HttpGatewayPort" Value=""/>    
+  </EnvironmentVariables>
+</CodePackage>
+```
 
-    ```xml
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ```
-9. Save all files and build your project.  
+These environment variables can be overridden in the application manifest:
 
-## Encrypt the container registry password
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+  </EnvironmentOverrides>
+  ...
+</ServiceManifestImport>
+```
+
+## Configure container port-to-host port mapping and container-to-container discovery
+Configure a host port used to communicate  with the container. The port binding maps the port on which the service is listening inside the container to a port on the host. Add a `PortBinding` element in `ContainerHostPolicies` element of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "Guest1TypeEndpoint" (the endpoint previously defined in the service manifest).  Incoming requests to the service on port 8081 are mapped to port 80 on the container. 
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## Configure container registry authentication
+Configure container registry authentication by adding `RepositoryCredentials` to `ContainerHostPolicies` of the ApplicationManifest.xml file. Add the account and password for the myregistry.azurecr.io container registry, which allows the service to download the container image from the repository.
+
+```xml
+<Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+    </ContainerHostPolicies>
+</Policies>
+```
+
 We recommend that you encrypt the repository password by using an encipherment certificate that's deployed to all nodes of the cluster. When Service Fabric deploys the service package to the cluster, the encipherment certificate is used to decrypt the cipher text.  The Invoke-ServiceFabricEncryptText cmdlet is used to create the cipher text for the password, which is added to the ApplicationManifest.xml file.
 
 The following script creates a new self-signed certificate and exports it to a PFX file.  The certificate is imported into an existing key vault and then deployed to the Service Fabric cluster.
 
-```xml
+```powershell
 # Variables.
 $certpwd = ConvertTo-SecureString -String "Pa$$word321!" -Force -AsPlainText
 $filepath = "C:\MyCertificates\dataenciphermentcert.pfx"
@@ -233,7 +263,7 @@ Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Na
 ```
 Encrypt the password using the [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet.
 
-```xml
+```powershell
 $text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
 ```
@@ -251,6 +281,13 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
     <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
   </ContainerHostPolicies>
 </Policies>
+```
+
+## Configure isolation mode
+Windows supports two isolation modes for containers: process and Hyper-V. With the process isolation mode, all the containers running on the same host machine share the kernel with the host. With the Hyper-V isolation mode, the kernels are isolated between each Hyper-V container and the container host. The isolation mode is specified in the `ContainerHostPolicies` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default isolation mode defaults to `process` on Windows Server hosts, and defaults to `hyperv` on Windows 10 hosts. The following snippet shows how the isolation mode is specified in the application manifest file.
+
+```xml
+<ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
 
 ## Deploy the container application
@@ -303,12 +340,12 @@ Here are the complete service and application manifests used in this article.
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables to your container: -->
-    <!--
+    <!-- Pass environment variables to your container: -->    
     <EnvironmentVariables>
-      <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
+      <EnvironmentVariable Name="BackendServiceName" Value=""/>
     </EnvironmentVariables>
-    -->
+    
   </CodePackage>
 
   <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
@@ -341,6 +378,9 @@ Here are the complete service and application manifests used in this article.
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentOverrides CodePackageRef="FrontendService.Code">
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentOverrides>
     <ConfigOverrides />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
