@@ -1,0 +1,7 @@
+# Testing the new code owners feature in GitHub. Please contact Tyson if you have questions.
+
+contributor-guide/*           tysonn@microsoft.com
+articles/storage/*            marsma@microsoft.com
+articles/virtual-machines/*   iainfou@microsoft.com cynthn@microsoft.com
+articles/virtual-machines/linux/*   iainfou@microsoft.com cynthn@microsoft.com
+articles/virtual-machines/windows/*   iainfou@microsoft.com cynthn@microsoft.com

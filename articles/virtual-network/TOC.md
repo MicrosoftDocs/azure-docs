@@ -133,6 +133,7 @@
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Throughput testing](virtual-network-bandwidth-testing.md)
+### [Cannot delete virtual networks](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Reference
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)

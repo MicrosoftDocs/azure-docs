@@ -39,7 +39,7 @@ This script demonstrates the creation of four usage reports by using the `TimeSt
 # Constants
 $ClientID      = "your-client-application-id-here"  
 $ClientSecret  = "your-client-application-secret-here"
-$loginURL      = "https://login.windows.net"
+$loginURL      = "https://login.microsoftonline.com"
 $tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}

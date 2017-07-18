@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning automated data pipeline cheat sheet | Microsoft Docs
-description: A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premise, streaming, in Azure, or in a third-party cloud service.
+description: A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premises, streaming, in Azure, or in a third-party cloud service.
 services: machine-learning
 documentationcenter: ''
 author: garyericson

@@ -4,7 +4,7 @@ description: Describes how to use the standard Microsoft Management Console (MMC
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
@@ -13,13 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
 
 ---
 # Use the MMC menu actions in StorSimple Snapshot Manager
+
 ## Overview
-In StorSimple Snapshot Manager, you will see the following actions listed on all action menus and all variations of the **Actions** pane. 
+In StorSimple Snapshot Manager, you will see the following actions listed on all action menus and all variations of the **Actions** pane.
 
 * View
 * New Window from Here 
