@@ -35,7 +35,7 @@ Azure AD B2C supports a feature for sending data to Application Insights.  Appli
 1. Find **Properties** in the left-menu, and click on it.
 1. Copy the **Instrumentation Key** and save it for the next section.
 
-### Set up the custom policy
+### Setup the custom policy
 
 1. Open the RP file (e.g. SignUpOrSignin.xml).
 1. Add the following attributes to the `<TrustFrameworkPolicy>` element:
