@@ -45,7 +45,7 @@ To deploy App Service in an isolated environment, you need must create an offlin
 
 ## Create certificates to be used by App Service on Azure Stack
 
-This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the ClientVM ensuring you are running PowerShell as azurestack\administrator:
+This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the Azure Stack Host ensuring you are running PowerShell as azurestack\administrator:
 
 1. In a PowerShell session running as **azurestack\administrator**, execute the **Create-AppServiceCerts.ps1** script from the location you extracted the Helper Scripts into.  The script creates three certificates, in the same folder as the create certificates script, that is needed by App Service.
 2. Enter a password to secure the pfx files and make a note of it as you need to enter it in the App Service on Azure Stack Installer.

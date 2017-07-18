@@ -180,7 +180,7 @@ If those certificates or network information is changed then you will need to cl
 One of the benefits of the VNET Integration feature is that if your VNET is connected to your on-premises network with a Site to Site VPN then your apps can have access to your on-premises resources from your app.  For this to work though you may need to update your on-premises VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
 
 > [!NOTE]
-> While the VNET Integration feature will work with a Site to Site VPN to access on-premises resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a Classic or Resource Manager VNET.  If you need to access resources through an ExpressRoute VPN then you can use an ASE which can run in your VNET. 
+> The VNET Integration feature does not integrate an app with a VNet that has an ExpressRoute Gateway. Even if the ExpressRoute Gateway is configured in [coexistence mode][VPNERCoex] it will not work. If you need to access resources through an ExpressRoute connection then you can use an [App Service Environment][ASE] which runs in your VNet.
 > 
 > 
 
@@ -300,3 +300,5 @@ Beyond the functional differences there are also pricing differences.  The App S
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 [V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+[VPNERCoex]: http://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager
+[ASE]: http://docs.microsoft.com/azure/app-service/app-service-environment/intro

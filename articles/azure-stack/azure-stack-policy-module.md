@@ -28,7 +28,7 @@ The Azure Stack Policy module allows you to configure an Azure subscription with
 4. Import the AzureStack.Policy.psm1 module:
 
    ```PowerShell
-   import-module .\Policy\AzureStack.Policy.psm1
+   Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
 ## Apply policy to subscription
