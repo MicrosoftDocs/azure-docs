@@ -29,8 +29,6 @@ We recommend that you set up custom domains for your applications whenever possi
 - You control your branding, and create the URLs you want. 
 
 
-Application Proxy uses the custom domain names that you set up in Azure Active Directory. If you haven't added your organization's domain yet, follow the steps in [Add a custom domain name to Azure Active Directory].
-
 ## Configure a custom domain
 
 Before you configure a custom domain, make sure that you have the following requirements prepared: 
@@ -45,7 +43,12 @@ When you have those three requirements ready, follow these steps to set up your 
 3. Select **Application Proxy**. 
 4. In the External URL field, use the dropdown list to select your custom domain. If you don't see your domain in the list, then it hasn't been verified yet. 
 5. The **Certificate** field that was disabled becomes enabled. Select this field. 
-6. Select the location of the PFX certificate and click **Upload**.
+
+   ![Click to upload a certificate](./media/active-directory-application-proxy-custom-domains/certificate.png)
+
+   If this field stays disabled, it probably means that a certificate already was uploaded for that domain. 
+
+6. Upload the PFX certificate and enter the password for the certificate. 
 7. Select **Save** to save your changes. 
 8. Add a DNS record that redirects the new external URL to the application. This record enables you to have the same URL for internal and external access to the app, and a single shortcut in the user’s applications list.
 
@@ -67,6 +70,6 @@ Currently all certificate management is through individual application pages so 
 ## Next steps
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md) to your published apps with Azure AD authentication.
 * [Enable conditional access](active-directory-application-proxy-conditional-access.md) to your published apps.
-* [Add your custom domain name to Azure AD](active-directory-add-domain.md)
+* [Add your custom domain name to Azure AD](active-directory-domains-add-azure-portal.md)
 
 

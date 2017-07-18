@@ -44,15 +44,15 @@ Azure AD Application Proxy is:
    * When you publish your apps using Azure AD Application Proxy, you can take advantage of the rich authorization controls and security analytics in Azure. You get cloud-scale security and Azure security features like conditional access and two-step verification.
    * You don't have to open any inbound connections through your firewall to give your users remote access. 
 * **Cost-effective**
-   * Application Proxy works in the cloud, so you can save time and money. On-premises solutions require you to set up and maintain DMZs, edge servers, or other complex infrastructures.  
+   * Application Proxy works in the cloud, so you can save time and money. On-premises solutions typically require you to set up and maintain DMZs, edge servers, or other complex infrastructures.  
 
 ## What kind of applications work with Application Proxy?
 With Azure AD Application Proxy you can access different types of internal applications:
 
-* Web applications that use Integrated Windows Authentication for authentication  
-* Web applications that use form-based or header-based access  
+* Web applications that use [Integrated Windows Authentication](active-directory-application-proxy-sso-using-kcd.md#sso-for-on-prem-iwa-apps-using-kcd-with-application-proxy) for authentication  
+* Web applications that use form-based or [header-based](application-proxy-ping-access.md) access  
 * Web APIs that you want to expose to rich applications on different devices  
-* Applications hosted behind a Remote Desktop Gateway  
+* Applications hosted behind a [Remote Desktop Gateway](application-proxy-publish-remote-desktop.md)  
 * Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
 
 ## How does Application Proxy work?
