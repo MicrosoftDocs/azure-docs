@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: billmath
 ---
 
@@ -101,9 +101,13 @@ Mozilla Firefox doesn't automatically do Kerberos Authentication. Each user has 
 >[!NOTE]
 >Seamless SSO doesn't work in private browsing mode on Firefox.
 
-#### Google Chrome on Mac
+#### Safari on Mac OS
 
-For Google Chrome on Mac and other non-Windows platforms, refer to [this article](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URLs for integrated authentication.
+Ensure that the machine running Mac OS is joined to AD. See instructions on how to do that [here](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
+
+#### Google Chrome on Mac OS
+
+For Google Chrome on Mac OS and other non-Windows platforms, refer to [this article](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URLs for integrated authentication.
 
 Using third-party Active Directory Group Policy extensions to roll out the Azure AD URLs to Firefox and Google Chrome on Mac users is outside of this article's scope.
 
