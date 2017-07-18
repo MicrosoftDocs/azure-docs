@@ -4,7 +4,7 @@ description: Use Azure Functions to create a serverless function that is invoked
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 07/17/2017
 ms.author: glenga
 
 ---
@@ -26,7 +26,9 @@ Learn how to create a function that is triggered by an HTTP webhook request with
 
 ## Prerequisites 
 
-+ An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete this tutorial:
+
++ If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
