@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/19/2017
 ms.author: jeedes
 
 ---
@@ -177,8 +177,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 10. Manually upload the plugin provided by Microsoft. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section.
 
 11. Click **Configure** to configure the new plugin.
-
-	![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon11.png)
 
 12. Perform following steps on configuration page:
 
