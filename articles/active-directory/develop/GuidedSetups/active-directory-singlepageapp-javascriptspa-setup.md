@@ -2,10 +2,10 @@
 ## Setting up your web server or project
 
 > Prefer to download this sample's project instead? 
-> - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/master.zip)
+> - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
 >
 > or
-> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/webserver.zip) for a local web server, such as Phython
+> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) for a local web server, such as Phython
 >
 > And then  skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing it.
 
