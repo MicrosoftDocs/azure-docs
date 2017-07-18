@@ -102,6 +102,12 @@ Check the existence of a specific Data Lake Analytics account. The cmdlet return
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
+Check the existence of a specific Data Lake Store account. The cmdlet returns either `True` or `False`.
+
+```powershell
+Test-AdlStoreAccount -Name $adls
+```
+
 ### Listing accounts
 
 List Data Lake Analytics accounts within the current subscription.
@@ -545,6 +551,64 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+## Working with Azure
+
+### Get details of AzureRm errors
+
+```
+Resolve-AzureRmError -Last
+```
+
+### Verify if you are running as an administrator
+
+```
+function Test-Administrator  
+{  
+    $user = [Security.Principal.WindowsIdentity]::GetCurrent();
+    $p = New-Object Security.Principal.WindowsPrincipal $user
+    $p.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
+}
+```
+
+### Find the TenantID for a subscription
+
+From the subscription name:
+
+```
+function Get-TenantIdFromSubcriptionName( [string] $subname )
+{
+    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub.TenantId
+}
+
+Get-TenantIdFromSubcriptionName "ADLTrainingMS"
+
+```
+
+From the subscription id:
+
+```
+function Get-TenantIdFromSubcriptionId( [string] $subid )
+{
+    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub.TenantId
+}
+
+$subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Get-TenantIdFromSubcriptionId $subid
+```
+
+### List all your subscriptions and tenantids
+
+```
+$subs = Get-AzureRmSubscription
+foreach ($sub in $subs)
+{
+    Write-Host $sub.Name "("  $sub.Id ")"
+    Write-Host "`tTenant Id" $sub.TenantId
+}
+```
+
 
 ## Create a Data Lake Analytics account using a template
 
