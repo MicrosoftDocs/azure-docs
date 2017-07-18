@@ -30,8 +30,8 @@ You might receive errors when you try to delete a virtual network in Microsoft A
 2. [Check whether an application gateway is running in the virtual network](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
 3. [Check whether Azure Active Directory Domain Service is enabled in the virtual network](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
 4. [Check whether the virtual network is connected to other resource](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Check whether a VM is still running in the virtual network](#check-whether-a-vm-is-still-running-in-the-virtual-network).
-6. [Check whether the virtual network is stuck in a migration state](#check-whether-the-virtual-network-is-stuck-in-a-migration-state).
+5. [Check whether a virtual machine is still running in the virtual network](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+6. [Check whether the virtual network is stuck in migration](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## Troubleshooting steps
 
