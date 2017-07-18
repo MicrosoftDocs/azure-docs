@@ -20,42 +20,24 @@ ms.author: cynthn
 ---
 # Planned maintenance for Windows virtual machines 
 
-Azure periodically performs updates 
-improve the reliability, performance, and security of the host
-infrastructure for virtual machines. These updates range from
-patching software components in the hosting environment (OS, hypervisor
-and various agents deployed on the host), upgrading networking
-components, to hardware decommissioning.
-
-The majority of these updates are performed without any impact to the hosted
-virtual machines.
+Azure periodically performs updates improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (OS, hypervisor and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines.
 
 However, there are cases where updates do have an impact:
 
 -   In-place VM migration during the maintenance (where VMs are not rebooted) is called **VM preserving maintenance**.
 
--   Maintenance that requires a reboot or redeploy to hosted
-    virtual machines is called **VM restarting maintenance**.
+-   Maintenance that requires a reboot or redeploy to hosted virtual machines is called **VM restarting maintenance**.
 
-Please note that this page describes how Microsoft Azure performs
-planned maintenance. For more information about unplanned events
-(outages), see [Manage the availability of virtual
-machines](manage-availability.md).
+This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned events (outages), see [Manage the availability of virtual machines](manage-availability.md).
 
 
 ## VM preserving maintenance with In-place VM migration
 
-WHen updates don't require a full reboot, an in-place
-live migration (memory-preserving update) is used. During the update the virtual machine is paused for about 30 seconds,
-preserving the memory in RAM, while the hosting environment applies the necessary updates and patches.
-The virtual machine is then resumed.
-After resuming, the clock of the virtual machine is automatically
-synchronized.
+WHen updates don't require a full reboot, an in-place live migration (memory-preserving update) is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed. After resuming, the clock of the virtual machine is automatically synchronized.
 
 For VMs in availability sets, update domains are updated one at a time. Pausing all VMs in the UD, resuming them and then going on to the next UD.
 
-Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? -->
-Applications running in a virtual machine can learn about upcoming updates by calling the [Scheduled Events](../virtual-machines-scheduled-events.md) API of the [Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).
+Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> Applications running in a virtual machine can learn about upcoming updates by calling the [Scheduled Events](../virtual-machines-scheduled-events.md) API of the [Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).
 
 ## Impactful maintenance for virtual machines
 
@@ -92,47 +74,23 @@ Pre-emptive redeploy is enabled once per VM. If there is an error during the pro
 
 ### Paired Regions
 
-Each Azure region is paired with another region within the same
-geography, together making a regional pair. When executing maintenance,
-Azure will only update the Virtual Machine instances in a single region
-of its pair. For example, when updating the Virtual Machines in North
-Central US, Azure will not update any Virtual Machines in South Central
-US at the same time. This will be scheduled at a separate time, enabling
-failover or load balancing between regions. However, other regions such
-as North Europe can be under maintenance at the same time as East US.
-Read more about [Azure region
-pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Each Azure region is paired with another region within the same geography, together making a regional pair. When executing maintenance, Azure will only update the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North
+Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a separate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US. Read more about [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ### Single Instance VMs vs. Availability Set or VM scale set
 
-When deploying a workload using virtual machines in Azure, you can create the VMs within an availability set in order to provide
-high availability to your application. This configuration ensures that during
-either an outage or maintenance events, at least one virtual machine is available.
+When deploying a workload using virtual machines in Azure, you can create the VMs within an availability set in order to provide high availability to your application. This configuration ensures that during either an outage or maintenance events, at least one virtual machine is available.
 
-Within an availability set, individual VMs are spread across up to 20
-update domains. During planned maintenance, only a single update domain
-is impacted at any given time. The order of update domains being
-impacted may not proceed sequentially during planned maintenance. For single instance VMs (not part of availability set), there is no way to predict or determine which and how many VMs
-are impacted together.
+Within an availability set, individual VMs are spread across up to 20 update domains. During planned maintenance, only a single update domain is impacted at any given time. The order of update domains being impacted may not proceed sequentially during planned maintenance. For single instance VMs (not part of availability set), there is no way to predict or determine which and how many VMs are impacted together.
 
-Virtual machine scale sets are an Azure compute resource that enables
-you to deploy and manage a set of identical VMs as a single resource.
-The scale set provides similar guarantees to an availability set in the
-form of update domains. 
+Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set provides similar guarantees to an availability set in the form of update domains. 
 
-For more information about configuring your virtual machines for high
-availability, see [*Manage the availability of your Windows virtual
-machines*](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about configuring your virtual machines for high availability, see [*Manage the availability of your Windows virtual machines*](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
 
-The Azure Metadata Service enables you to discover information about your
-Virtual Machine hosted in Azure. Scheduled Events, one of the exposed
-categories, surfaces information regarding upcoming events (for example,
-reboot) so your application can prepare for them and limit disruption.
+The Azure Metadata Service enables you to discover information about your Virtual Machine hosted in Azure. Scheduled Events, one of the exposed categories, surfaces information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption.
 
-For more information about scheduled events, refer to [Azure Metadata
-Service - Scheduled
-Events](../virtual-machines-scheduled-events.md).
+For more information about scheduled events, refer to [Azure Metadata Service - Scheduled Events](../virtual-machines-scheduled-events.md).
 
 
