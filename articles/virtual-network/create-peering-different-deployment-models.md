@@ -77,7 +77,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 
 1. [Install](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) the Azure CLI 1.0 to create the virtual network (classic).
 2. Open a command session and log in to Azure using the `azure login` command.
-3. Run the CLI in asm mode by entering the `azure config mode asm` command.
+3. Run the CLI in Service Management mode by entering the `azure config mode asm` command.
 4. Enter the following command to create the virtual network (classic):
  
     ```azurecli
@@ -141,18 +141,18 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 3. In PowerShell, log in to Azure by entering the `Add-AzureAccount` command.
 4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
 
-        ```
-        <VirtualNetworkSite name="myVnet2" Location="East US">
-           <AddressSpace>
-             <AddressPrefix>10.1.0.0/16</AddressPrefix>
-           </AddressSpace>
-           <Subnets>
-             <Subnet name="default">
-               <AddressPrefix>10.1.0.0/24</AddressPrefix>
-             </Subnet>
-           </Subnets>
-         </VirtualNetworkSite>
-        ```
+    ```xml
+    <VirtualNetworkSite name="myVnet2" Location="East US">
+      <AddressSpace>
+        <AddressPrefix>10.1.0.0/16</AddressPrefix>
+      </AddressSpace>
+      <Subnets>
+        <Subnet name="default">
+          <AddressPrefix>10.1.0.0/24</AddressPrefix>
+        </Subnet>
+      </Subnets>
+    </VirtualNetworkSite>
+    ```
 
     > [!WARNING]
     > Importing a changed network configuration file can cause changes to existing virtual networks (classic) in your subscription. Ensure you only add the previous virtual network and that you don't change or remove any existing virtual networks from your subscription. 
@@ -169,6 +169,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
       -Name 'myVnet1' `
       -AddressPrefix '10.0.0.0/16' `
       -Location eastus
+    ```
 
 7. Create a virtual network peering between the two virtual networks created through the different deployment models. Copy the following script to a text editor on your PC. Replace `<subscription id>` with your subscription Id. If you don't know your subscription Id, enter the `Get-AzureRmSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. To execute the script, copy the modified script from your text editor, then right-click in your PowerShell session, and then press `Enter`.
 
@@ -244,18 +245,18 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 2. To delete the virtual network (classic) with PowerShell, you must modify an existing network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). Remove the following VirtualNetworkSite element for the virtual network used in this tutorial:
 
-        ```
-        <VirtualNetworkSite name="myVnet2" Location="East US">
-           <AddressSpace>
-             <AddressPrefix>10.1.0.0/16</AddressPrefix>
-           </AddressSpace>
-           <Subnets>
-             <Subnet name="default">
-               <AddressPrefix>10.1.0.0/24</AddressPrefix>
-             </Subnet>
-           </Subnets>
-         </VirtualNetworkSite>
-        ```
+    ```xml
+    <VirtualNetworkSite name="myVnet2" Location="East US">
+      <AddressSpace>
+        <AddressPrefix>10.1.0.0/16</AddressPrefix>
+      </AddressSpace>
+      <Subnets>
+        <Subnet name="default">
+          <AddressPrefix>10.1.0.0/24</AddressPrefix>
+        </Subnet>
+      </Subnets>
+    </VirtualNetworkSite>
+    ```
 
     > [!WARNING]
     > Importing a changed network configuration file can cause changes to existing virtual networks (classic) in your subscription. Ensure you only remove the previous virtual network and that you don't change or remove any other existing virtual networks from your subscription. 
