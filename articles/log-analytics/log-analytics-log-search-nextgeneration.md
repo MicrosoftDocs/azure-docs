@@ -1,4 +1,4 @@
-l---
+---
 title: Log searches in OMS Log Analytics| Microsoft Docs
 description: You require a log search to retrieve any data from Log Analytics.  This article describes how next generation log searches are used in Log Analytics and provides concepts that you need to understand before creating one. 
 services: log-analytics
