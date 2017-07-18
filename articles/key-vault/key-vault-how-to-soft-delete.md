@@ -1,4 +1,5 @@
 ---
+
 ms.assetid: 
 title: Azure Key Vault - How to use soft delete
 ms.service: key-vault
@@ -6,6 +7,7 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/18/2017
+
 ---
 # How to: Azure Key Vault soft-delete
 
@@ -91,4 +93,54 @@ Let's say you have a key 'ContosoFirstKey' in your vault 'ContosoVault' with sof
 
 With your key vault enabled for soft-delete, a deleted key still appears like it's deleted for the most part, except, when you explicitly list/retrieve deleted keys. Most operations on a key in deleted state will fail except for specifically listing deleted key, recovering it or purging it. For example, if you request to list keys in a key vault with 'Get-AzureKeyVaultKey -VaultName ContosoVault', the deleted key will not show up. To see deleted keys in a vault, you must use the '-InRemovedState' parameter.
 
-Note: When you delete a key in a vault with soft-delete enabled it may take a while (a few seconds, usually) for the transition to complete; during this interval, it may appear that the key is in neither the active state, nor the deleted one – i.e. listing the key, with or without the -InRemovedState parameter, will return an empty list.
+### Transition state 
+
+When you delete a key in a vault with soft-delete enabled it may take a few seconds for the transition to complete.During this transition state, it may appear that the key is neither in the active state nor the deleted state. Ex. listing the key, with or without the *-InRemovedState* parameter, will return an empty list.
+
+This command will list all deleted keys in 'ContosoVault'.
+```
+  Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
+  Vault Name           : ContosoVault
+  Name                 : ContosoFirstKey
+  Id                   : https://ContosoVault.vault.azure.net:443/keys/ContosoFirstKey
+  Deleted Date         : 2/14/2017 8:20:52 PM
+  Scheduled Purge Date : 5/15/2017 8:20:52 PM
+  Enabled              : True
+  Expires              :
+  Not Before           :
+  Created              : 2/14/2017 8:16:07 PM
+  Updated              : 2/14/2017 8:16:07 PM
+  Tags                 :
+```
+
+## Using soft delete with keys and secrets
+
+Just like vaults, a deleted key or secret will remain in deleted state for up to 90 days unless you recover it or purge it. *Scheduled Purge Date* field indicates when a key will be permanently deleted, if no action is taken.
+
+### Keys
+
+To recover a deleted key:
+
+`Undo-AzureKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey`
+
+To permanently delete a key:
+
+`Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState`
+
+The **recover** and **purge** actions have their own permissions associated in Key Vault a access policy. For a user or service principal to be able to execute a **recover** or **purge** action they must have the respective permission for that object (key or secret) in the key vault access policy. By default, the **purge** permission is not added to a vault's access policy when the 'all' shortcut is used to grant all permissions to a user. You must explicitly grant **purge** permission. For example, the following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**.
+
+`Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge`
+
+Note that, if you have an existing vault that has just had soft-delete enabled, you may not have **recover** and **purge** permissions.
+
+### Secrets
+
+Similarly here are related commands for deleting, listing, recovering and purging secrets respectively.
+
+- Delete a secret named SQLPassword: `Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword`
+
+- List all deleted secrets in a key vault: `Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState`
+
+- Recover a secret in deleted state: `Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword`
+
+- Purge a secret in deleted state: `Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword`
