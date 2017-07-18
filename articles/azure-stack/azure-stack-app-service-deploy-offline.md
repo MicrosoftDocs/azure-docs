@@ -128,11 +128,11 @@ This first script works with the Azure Stack certificate authority to create thr
 
 19. Review the App Service role configuration. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
-  - **Controller**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The Controller role is responsible for managing and maintaining the health of the App Service cloud.
-  - **Management**: By default, one Standard A2 instance is selected. To provide failover, we recommend two instances. The Management role is responsible for the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service.
-  - **Publisher**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The Publisher role is responsible for publishing content via FTP and web deployment.
-  - **FrontEnd**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The FrontEnd role is responsible for routing requests to App Service applications.
-  - **Shared Worker**: By default, one Standard A1 instance is selected, but you might want to add more. As an administrator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. The Shared Worker role is responsible for hosting web, mobile, or API applications and Azure Functions apps.
+    - **Controller**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The Controller role is responsible for managing and maintaining the health of the App Service cloud.
+    - **Management**: By default, one Standard A2 instance is selected. To provide failover, we recommend two instances. The Management role is responsible for the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service.
+    - **Publisher**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The Publisher role is responsible for publishing content via FTP and web deployment.
+    - **FrontEnd**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The FrontEnd role is responsible for routing requests to App Service applications.
+    - **Shared Worker**: By default, one Standard A1 instance is selected, but you might want to add more. As an administrator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. The Shared Worker role is responsible for hosting web, mobile, or API applications and Azure Functions apps.
 
     ![App Service on Azure Stack role configuration][9]
 
@@ -213,12 +213,12 @@ Follow these steps:
 
 4. Go to **Managed Servers**.
 
-5. When all the machines except one or more Workers display **Ready**, proceed to step 6.
+5. When all the machines display Ready for one or more Workers, proceed to step 6.
 
 6. Close the remote desktop machine, and return to the machine where you executed the App Service installer.
 
     > [!NOTE]
-    > You don't need to wait for one or more Workers to display **Ready** to complete the installation of App Service on Azure Stack. However, you need a minimum of one Worker that's ready to deploy a web, mobile, or API app or Azure Functions.
+    > You don't need to wait for one or more Workers to display Ready to complete the installation of App Service on Azure Stack. However, you need a minimum of one Worker that's ready to deploy a web, mobile, or API app or Azure Functions.
     
     ![App Service on Azure Stack Managed Servers status][14]
 
@@ -230,7 +230,7 @@ After you deploy and register the App Service resource provider, test it to make
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see  [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
 >
 
-You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding worker tiers and SKUs.
+You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
 
 As of the third technical preview, to create web, mobile, and API apps you must use the tenant portal and have a tenant subscription.  
 
