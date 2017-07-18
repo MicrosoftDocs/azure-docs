@@ -102,6 +102,12 @@ Check the existence of a specific Data Lake Analytics account. The cmdlet return
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
+Check the existence of a specific Data Lake Store account. The cmdlet returns either `True` or `False`.
+
+```powershell
+Test-AdlStoreAccount -Name $adls
+```
+
 ### Listing accounts
 
 List Data Lake Analytics accounts within the current subscription.
@@ -281,7 +287,7 @@ $d = [DateTime]::Now.AddDays(-1)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-List jobs submitted in the last 5 days and that successfully completed.
+List jobs submitted in the last five days and that successfully completed.
 
 ```
 $d = (Get-Date).AddDays(-5)
@@ -321,7 +327,7 @@ $lowerdate = $upperdate.AddHours(-24)
 $jobs | Where-Object { $_.EndTime -ge $lowerdate }
 ```
 
-Filter a list of jobs to those ended in the last 24 hours
+Filter a list of jobs to the jobs that ended in the last 24 hours
 
 ```
 $upperdate = Get-Date
@@ -329,7 +335,7 @@ $lowerdate = $upperdate.AddHours(-24)
 $jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
 ```
 
-Filter a list of jobs to those that started running. A job might fail at compile time - and so it never starts. Let's look at the failed
+Filter a list of jobs to the jobs that started running. A job might fail at compile time - and so it never starts. Let's look at the failed
 jobs that actually started running and then failed.
 
 ```
@@ -353,7 +359,7 @@ $jobs | Group-Object State | Select -Property Count,Name
 #  Count the number of jobs by DegreeOfParallelism
 $jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
 ```
-When performing an analysis, it can be useful to add properties to the Job objects to make filtering and grouping sinmpler. The following following snippet shows how to annotate a JobInfo with calculated properties.
+When performing an analysis, it can be useful to add properties to the Job objects to make filtering and grouping simpler. The following  snippet shows how to annotate a JobInfo with calculated properties.
 
 ```
 function annotate_job( $j )
@@ -545,6 +551,64 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+## Working with Azure
+
+### Get details of AzureRm errors
+
+```
+Resolve-AzureRmError -Last
+```
+
+### Verify if you are running as an administrator
+
+```
+function Test-Administrator  
+{  
+    $user = [Security.Principal.WindowsIdentity]::GetCurrent();
+    $p = New-Object Security.Principal.WindowsPrincipal $user
+    $p.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
+}
+```
+
+### Find the TenantID for a subscription
+
+From the subscription name:
+
+```
+function Get-TenantIdFromSubcriptionName( [string] $subname )
+{
+    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub.TenantId
+}
+
+Get-TenantIdFromSubcriptionName "ADLTrainingMS"
+
+```
+
+From the subscription id:
+
+```
+function Get-TenantIdFromSubcriptionId( [string] $subid )
+{
+    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub.TenantId
+}
+
+$subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Get-TenantIdFromSubcriptionId $subid
+```
+
+### List all your subscriptions and tenant ids
+
+```
+$subs = Get-AzureRmSubscription
+foreach ($sub in $subs)
+{
+    Write-Host $sub.Name "("  $sub.Id ")"
+    Write-Host "`tTenant Id" $sub.TenantId
+}
+```
+
 
 ## Create a Data Lake Analytics account using a template
 
