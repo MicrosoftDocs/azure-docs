@@ -190,7 +190,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
 	
-	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste it in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft Domain and URLs** section on Azure portal.
+	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft Domain and URLs** section on Azure portal.
 
 	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
