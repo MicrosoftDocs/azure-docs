@@ -287,7 +287,7 @@ $d = [DateTime]::Now.AddDays(-1)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-List jobs submitted in the last 5 days and that successfully completed.
+List jobs submitted in the last five days and that successfully completed.
 
 ```
 $d = (Get-Date).AddDays(-5)
@@ -327,7 +327,7 @@ $lowerdate = $upperdate.AddHours(-24)
 $jobs | Where-Object { $_.EndTime -ge $lowerdate }
 ```
 
-Filter a list of jobs to those ended in the last 24 hours
+Filter a list of jobs to the jobs that ended in the last 24 hours
 
 ```
 $upperdate = Get-Date
@@ -335,7 +335,7 @@ $lowerdate = $upperdate.AddHours(-24)
 $jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
 ```
 
-Filter a list of jobs to those that started running. A job might fail at compile time - and so it never starts. Let's look at the failed
+Filter a list of jobs to the jobs that started running. A job might fail at compile time - and so it never starts. Let's look at the failed
 jobs that actually started running and then failed.
 
 ```
@@ -359,7 +359,7 @@ $jobs | Group-Object State | Select -Property Count,Name
 #  Count the number of jobs by DegreeOfParallelism
 $jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
 ```
-When performing an analysis, it can be useful to add properties to the Job objects to make filtering and grouping sinmpler. The following following snippet shows how to annotate a JobInfo with calculated properties.
+When performing an analysis, it can be useful to add properties to the Job objects to make filtering and grouping simpler. The following  snippet shows how to annotate a JobInfo with calculated properties.
 
 ```
 function annotate_job( $j )
@@ -598,7 +598,7 @@ $subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 Get-TenantIdFromSubcriptionId $subid
 ```
 
-### List all your subscriptions and tenantids
+### List all your subscriptions and tenant ids
 
 ```
 $subs = Get-AzureRmSubscription
