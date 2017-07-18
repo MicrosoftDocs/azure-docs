@@ -134,6 +134,9 @@ Change directory to the *start* folder, then run `yo swaggerize`. Swaggerize cre
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 

@@ -3,7 +3,7 @@ title: View your access and usage reports | Microsoft Docs
 description: Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory.
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 ---
 # View your access and usage reports
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*

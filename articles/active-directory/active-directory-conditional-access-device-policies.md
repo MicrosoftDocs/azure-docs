@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Active Directory conditional access device policies for Office 365 services
