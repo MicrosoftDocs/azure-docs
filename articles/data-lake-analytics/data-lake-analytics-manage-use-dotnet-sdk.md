@@ -360,6 +360,28 @@ foreach (var j in jobs)
 }
 ```
 
+### List pipelines
+The following code lists information about each pipeline of jobs submitted to the account.
+
+```
+var pipelines = adlaJobClient.Pipeline.List(adla);
+foreach (var p in pipelines)
+{
+   Console.WriteLine($"Pipeline: {p.Name}\t{p.PipelineId}\t{p.LastSubmitTime}");
+}
+```
+
+### List recurrences
+The following code lists information about each recurrence of jobs submitted to the account.
+
+```
+var recurrences = adlaJobClient.Recurrence.List(adla);
+foreach (var r in recurrences)
+{
+   Console.WriteLine($"Recurrence: {r.Name}\t{r.RecurrenceId}\t{r.LastSubmitTime}");
+}
+```
+
 ## Common graph scenarios
 
 ### Look up user in the AAD directory
