@@ -8226,7 +8226,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/monoiitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
+            "source_path": "articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-get-started",
             "redirect_document_id": false
         },
