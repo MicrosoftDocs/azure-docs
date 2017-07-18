@@ -42,8 +42,7 @@ Recommended to review the following articles:
 
 ## Create and configure a Visual Studio project
 
-1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
-2. Create a new folder (folder can be anywhere on your local drive) and copy an .mp4 file that you want to encode and stream or progressively download. In this example, the "C:\VideoFiles" path is used.
+Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 
 ## Example
 The following code example demonstrates how to achieve the following tasks:
