@@ -30,7 +30,7 @@ When your system receives an utterance, you can use a variety of techniques to d
 
 Consider the following tradeoffs when deciding which approach you use with multiple LUIS apps:
 * **Saving suggested utterances for training** Your LUIS apps get a performance boost when you label the user utterances it receives, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
-* **Calling LUIS apps in parallel instead of in series** It is a common to design a system to reduce to the number of REST API calls that happen in series to improve responsiveness. If you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call them in parallel. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
+* **Calling LUIS apps in parallel instead of in series** It is a common to design a system to reduce to the number of REST API calls that happen in series to improve responsiveness. If you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call them in parallel by sending all the requests asynchronously. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
 
 
 
