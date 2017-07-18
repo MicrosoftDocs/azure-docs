@@ -29,7 +29,7 @@ Estimated time to complete this lesson: **Five minutes**
 This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 12: Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
-> You must have Administrator permissions on the remote Analysis Services server in-order to deploy to it.  
+> You must have [Administrator permissions](../analysis-services-server-admins.md) on the remote Analysis Services server in-order to deploy to it.  
 
 > [!IMPORTANT]  
 > If you installed the AdventureWorksDW2014 sample database on an on-premises SQL Server, and you're deploying your model to an Azure Analysis Services server, an [On-premises data gateway](../analysis-services-gateway.md) is required.
@@ -73,8 +73,10 @@ Congratulations! You're finished authoring and deploying your first Analysis Ser
   
   
 ## What's next?
-*  [Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)
+[Connect with Power BI Desktop](../analysis-services-connect-pbi.md)
 
-*  [Supplemental Lesson - Detail rows](../tutorials/aas-supplemental-lesson-detail-rows.md)
+[Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)
 
-*  [Supplemental Lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+[Supplemental Lesson - Detail rows](../tutorials/aas-supplemental-lesson-detail-rows.md)
+
+[Supplemental Lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
