@@ -3,7 +3,7 @@ title: Manage Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Learn how to manage Data Lake Analytics accounts, data sources, jobs, and catalog items. '
 services: data-lake-analytics
 documentationcenter: ''
-author: saveenr
+author: matt1883
 manager: jhubbard
 editor: cgronlun
 
@@ -44,12 +44,26 @@ $location = "<Location>"
 
 ## Log in
 
+Log in using a subscription id.
+
 ```powershell
 Login-AzureRmAccount -SubscriptionId $subId
 ```
 
-> [!NOTE]
-> To save your login session for future use, use ``Save-AzureRmProfile``. To load the login session again, use ``Select-AzureRmProfile``.
+Log in using a subscription name.
+
+```
+Login-AzureRmAccount -SubscriptionName $subname 
+```
+
+The `Login-AzureRmAccount` cmdlet will always prompt for credentials. You can avoid being prompted by using the following cmdlets:
+
+```
+# Save login session information
+Save-AzureRmProfile -Path D:\profile.json  
+
+# Load login session information
+Select-AzureRmProfile -Path D:\profile.json 
 
 ## Managing accounts
 
@@ -166,7 +180,14 @@ created a Data Lake Analytics account, you can add additional Data Lake Store ac
 ### Find the default Data Lake Store account
 
 ```powershell
-$dataLakeStoreName = (Get-AdlAnalyticsAccount -Name $adla).DefaultDataLakeAccount
+$adla_acct = Get-AdlAnalyticsAccount -Name $adla
+$dataLakeStoreName = $adla_acct.DefaultDataLakeAccount
+```
+
+Alternatively, if you are enumerating the list of data sources. You can find the default Data Lake Store account using the following pattern:
+
+```powershell
+Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault } 
 ```
 
 ### Add data sources
@@ -189,31 +210,26 @@ Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName
 
 ### List data sources
 
-List all attached data sources.
-
 ```powershell
+
+# List all the data sources
 Get-AdlAnalyticsDataSource -Name $adla
-```
 
-List attached Data Lake Store accounts.
-
-```powershell
+# List attached Data Lake Store accounts
 Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "DataLakeStore"
-```
 
-List attached Storage accounts.
-
-```powershell
+# List attached Storage accounts
 Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
 ```
 
 ## Managing jobs
 
-### Submit a job
+### Submit a U-SQL job
 
-Create a local text file with following U-SQL script.
+Submit a string as a U-SQL script.
 
-```
+```powershell
+$script = @"
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -223,12 +239,21 @@ Create a local text file with following U-SQL script.
 OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
+"@
+
+$scriptpath = "d:\test.usql"
+$script | Out-File $scriptpath 
+
+Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-Submit the script.
+
+Submit a file as a U-SQL script.
 
 ```powershell
-Submit-AdlJob -AccountName $adla –ScriptPath "<LocalPathToScriptFile>"
+$scriptpath = "d:\test.usql"
+$script | Out-File $scriptpath 
+Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 ```
 
 ### List jobs
@@ -237,6 +262,42 @@ List all the jobs in the account. The output includes the currently running jobs
 
 ```powershell
 Get-AdlJob -Account $adla
+```
+
+### List a specific number of jobs
+
+By default the list of jobs is sorted on submit time. So the most recently submitted jobs will come first. By default, The ADLA account remembers jobs for 180 days, but the Ge-AdlJob  cmdlet by default will return only the first 500. Use -Top parameter to list a specific number of jobs.
+
+```
+$jobs = Get-AdlJob -Account $adla -Top 10
+```
+
+### List jobs based on the value of job property
+
+List  jobs submitted in the last day.
+
+```
+$d = [DateTime]::Now.AddDays(-1)
+Get-AdlJob -Account $adla -SubmittedAfter $d
+```
+
+List jobs submitted in the last 5 days and that successfully completed.
+
+```
+$d = (Get-Date).AddDays(-5)
+Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
+```
+
+List Successful jobs.
+
+```
+Get-AdlJob -Account $adla -State Ended -Result Succeeded
+```
+
+List Failed jobs.
+
+```
+Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
 List all failed jobs submitted by "joe@contoso.com" within the past seven days.
@@ -261,6 +322,8 @@ Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the
 ```powershell
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
+
+### Examine the job outputs
 
 After the job has ended, check if the output file exists by listing the files in a folder.
 
@@ -288,7 +351,7 @@ Upload a file.
 Import-AdlStoreItem -AccountName $adls -Path "c:\data.tsv" -Destination "/data_copy.csv" 
 ```
 
-Upload an entire folder.
+Upload an entire folder recursively.
 
 ```powershell
 Import-AdlStoreItem -AccountName $adls -Path "c:\myData\" -Destination "/myData/" -Recurse
@@ -300,7 +363,7 @@ Download a file.
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "c:\data.csv"
 ```
 
-Download an entire folder.
+Download an entire folder recursively.
 
 ```powershell
 Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recurse

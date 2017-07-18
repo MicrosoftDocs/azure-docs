@@ -46,6 +46,7 @@ The following limitations exist when using this capability:
 * **Regions:** Windows VMs with accelerated networking are offered in most Azure regions. Linux VMs with accelerated networking are offered in multiple regions. The regions this capability is available in is expanding. Please see the Azure Virtual Networking Updates blog below for the latest information.   
 * **Supported operating systems:** Windows: Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016. Linux: Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3 and CentOS 7.3 (Published by “Rogue Wave Software”).
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
+* **Deployment through Azure Resource Manager (ARM) only:** Accelerated Networking is not available for deployment through ASM/RDFE.
 
 Changes to these limitations are announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-preview) page.
 
