@@ -20,7 +20,7 @@ ms.author: rclaus
 
 # Create an Oracle Database in an Azure VM
 
-This guide details using the Azure CLI to deploy an Azure virtual machine from the [Oracle marketplace gallery image](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) in order to create an Oracle 12c database. Once the server is deployed, an SSH connection will be created in oder to further configure the Oracle database. 
+This guide details using the Azure CLI to deploy an Azure virtual machine from the [Oracle marketplace gallery image](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) in order to create an Oracle 12c database. Once the server is deployed, you will connect via SSH in order to configure the Oracle database. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -194,7 +194,7 @@ For a GUI management tool that you can use to explore the database, set up Oracl
     alter database open;
    ```
 
-You will need to type `quit` to end the sqlplus session and type `exit` to logout of the oracle user.
+You need to type `quit` to end the sqlplus session and type `exit` to logout of the oracle user.
 
 ## Automate database startup and shutdown
 
@@ -313,7 +313,7 @@ You can log in by using the **SYS** account, and check the **as sysdba** checkbo
 
 ## Clean up resources
 
-Once you have finished exploring your first Oracle database on Azure and the VM is no longer needed - you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
+Once you have finished exploring your first Oracle database on Azure and the VM is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
