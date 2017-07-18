@@ -317,7 +317,7 @@
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
-## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
+## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resources

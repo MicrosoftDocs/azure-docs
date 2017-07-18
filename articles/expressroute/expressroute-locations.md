@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/03/2017
+ms.date: 07/18/2017
 ms.author: kaanan
 
 ---
@@ -98,7 +98,7 @@ The following table shows locations by service provider. If you want to view ava
 | **NEXTDC** |Supported |Supported |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Supported |Supported |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Supported |Supported |Osaka |
-| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Hong Kong, London, Paris+, Silicon Valley, Singapore, Sydney, Washington DC |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Hong Kong, London, Paris, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Supported |Supported |Hong Kong |
 | **Sejong Telecom** |Supported |Supported |Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supported |Supported |Chennai |
