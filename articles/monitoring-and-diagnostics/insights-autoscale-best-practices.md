@@ -1,8 +1,8 @@
 ---
 title: Best practices for autoscale | Microsoft Docs
-description: Learn principles to effectively autoscale Virtual Machines, Virtual Machine Scale Sets, and Cloud Services.
-author: kamathashwin
-manager: carmonm
+description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services 
+author: anirudhcavale
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: ashwink
+ms.author: ancav
 
 ---
 # Best practices for Autoscale
