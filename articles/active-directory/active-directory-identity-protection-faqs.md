@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection FAQ
