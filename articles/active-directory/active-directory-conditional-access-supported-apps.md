@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Applications and browsers that use conditional access rules in Azure Active Directory

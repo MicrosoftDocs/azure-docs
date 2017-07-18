@@ -56,14 +56,15 @@ Log in using a subscription name.
 Login-AzureRmAccount -SubscriptionName $subname 
 ```
 
-The `Login-AzureRmAccount` cmdlet will always prompt for credentials. You can avoid being prompted by using the following cmdlets:
+The `Login-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
-```
+```powershell
 # Save login session information
 Save-AzureRmProfile -Path D:\profile.json  
 
 # Load login session information
 Select-AzureRmProfile -Path D:\profile.json 
+```
 
 ## Managing accounts
 
@@ -211,7 +212,6 @@ Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName
 ### List data sources
 
 ```powershell
-
 # List all the data sources
 Get-AdlAnalyticsDataSource -Name $adla
 
@@ -266,7 +266,7 @@ Get-AdlJob -Account $adla
 
 ### List a specific number of jobs
 
-By default the list of jobs is sorted on submit time. So the most recently submitted jobs will come first. By default, The ADLA account remembers jobs for 180 days, but the Ge-AdlJob  cmdlet by default will return only the first 500. Use -Top parameter to list a specific number of jobs.
+By default the list of jobs is sorted on submit time. So the most recently submitted jobs appear first. By default, The ADLA account remembers jobs for 180 days, but the Ge-AdlJob  cmdlet by default returns only the first 500. Use -Top parameter to list a specific number of jobs.
 
 ```
 $jobs = Get-AdlJob -Account $adla -Top 10
@@ -307,6 +307,73 @@ Get-AdlJob -Account $adla `
     -Submitter "joe@contoso.com" `
     -SubmittedAfter (Get-Date).AddDays(-7) `
     -Result Failed
+```
+
+### Filtering a list of jobs
+
+Once you have a list of jobs in your current PowerShell session. You can use normal PowerShell cmdlets to filter the list.
+
+Filter a list of jobs to the jobs submitted in the last 24 hours
+
+```
+$upperdate = Get-Date
+$lowerdate = $upperdate.AddHours(-24)
+$jobs | Where-Object { $_.EndTime -ge $lowerdate }
+```
+
+Filter a list of jobs to those ended in the last 24 hours
+
+```
+$upperdate = Get-Date
+$lowerdate = $upperdate.AddHours(-24)
+$jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
+```
+
+Filter a list of jobs to those that started running. A job might fail at compile time - and so it never starts. Let's look at the failed
+jobs that actually started running and then failed.
+
+```
+$jobs | Where-Object { $_.StartTime -ne $null }
+```
+
+### Analyzing a list of jobs
+
+Use the `Group-Object` cmdlet to analyze a list of jobs.
+
+```
+# Count the number of jobs by Submitter
+$jobs | Group-Object Submitter | Select -Property Count,Name
+
+# Count the number of jobs by Result
+$jobs | Group-Object Result | Select -Property Count,Name
+
+# Count the number of jobs by State
+$jobs | Group-Object State | Select -Property Count,Name
+
+#  Count the number of jobs by DegreeOfParallelism
+$jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
+```
+When performing an analysis, it can be useful to add properties to the Job objects to make filtering and grouping sinmpler. The following following snippet shows how to annotate a JobInfo with calculated properties.
+
+```
+function annotate_job( $j )
+{
+    $dic1 = @{
+        Label='AUHours';
+        Expression={ ($_.DegreeOfParallelism * ($_.EndTime-$_.StartTime).TotalHours)}}
+    $dic2 = @{
+        Label='DurationSeconds';
+        Expression={ ($_.EndTime-$_.StartTime).TotalSeconds}}
+    $dic3 = @{
+        Label='DidRun';
+        Expression={ ($_.StartTime -ne $null)}}
+
+    $j2 = $j | select *, $dic1, $dic2, $dic3
+    $j2
+}
+
+$jobs = Get-AdlJob -Account $adla -Top 10
+$jobs = $jobs | %{ annotate_job( $_ ) }
 ```
 
 ### Get information about a job
@@ -397,10 +464,17 @@ Get-AdlCatalogItem -Account $adla -ItemType Table -Path "master.dbo"
 
 ### Get information about a catalog item
 
-Get details of a U-SQL database.
+List items in a U-SQL database.
 
-```powershell
-Get-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
+```
+# Listing databases
+Get-AdlCatalogItem -Account $adla -ItemType Database
+
+# Listing assemblies
+Get-AdlCatalogItem -Account $adla -ItemType Assembly -Path "database"
+
+# Listing Tables
+Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
 Get details of a table in a U-SQL database.
@@ -415,6 +489,22 @@ Test existence of a U-SQL database.
 Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 ```
 
+List all the assemblies in all the databases in an ADLA Account
+
+```
+$dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
+
+foreach ($db in $dbs)
+{
+    $asms = Get-AdlCatalogItem -Account $adla -ItemType Assembly -Path $db.Name
+
+    foreach ($asm in $asms)
+    {
+        $asmname = "[" + $db.Name + "].[" + $asm.Name + "]"
+        Write-Host $asmname
+    }
+}
+```
 ### Create catalog items
 
 Within a U-SQL database, create a credential object for a database hosted in Azure. Currently, U-SQL credentials are the only type of catalog item that you can create through PowerShell.
@@ -429,6 +519,31 @@ New-AdlCatalogCredential -AccountName $adla `
           -CredentialName $credentialName `
           -Credential (Get-Credential) `
           -Uri $dbUri
+```
+
+### Get basic information about at ADLA account
+
+Given an account name, the following code looks up some basic information about the account
+
+```
+$adla_acct = Get-AdlAnalyticsAccount -Name "saveenrdemoadla"
+$adla_name = $adla_acct.Name
+$adla_subid = $adla_acct.Id.Split("/")[2]
+$adla_sub = Get-AzureRmSubscription -SubscriptionId $adla_subid
+$adla_subname = $adla_sub.Name
+$adla_defadls_datasource = Get-AdlAnalyticsDataSource -Account $adla_name  | ? { $_.IsDefault } 
+$adla_defadlsname = $adla_defadls_datasource.Name
+
+Write-Host "ADLA Account Name" $adla_name
+Write-Host "Subscription Id" $adla_subid
+Write-Host "Subscription Name" $adla_subname
+Write-Host "Defautl ADLS Store" $adla_defadlsname
+Write-Host 
+
+Write-Host '$subname' " = ""$adla_subname"" "
+Write-Host '$subid' " = ""$adla_subid"" "
+Write-Host '$adla' " = ""$adla_name"" "
+Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
 
 ## Create a Data Lake Analytics account using a template
