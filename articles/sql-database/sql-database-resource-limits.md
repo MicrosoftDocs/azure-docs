@@ -39,8 +39,8 @@ Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying 
 
 For example, the number of connections to a SQL database and the number of concurrent requests that can be processed are restricted. SQL Database allows the number of connections to the database to be greater than the number of concurrent requests to support connection pooling. While the number of connections that are available can easily be controlled by the application, the number of parallel requests is often times harder to estimate and to control. Especially during peak loads when the application either sends too many requests or the database reaches its resource limits and starts piling up worker threads due to longer running queries, errors can be encountered.
 
-## Service tiers and performance levels
-There are service tiers and performance levels for both single database and elastic pools.
+## Service tiers, performance levels, and storage limits
+There are service tiers, performance levels, and storage limits for both single database and elastic pools. For a general discussion of service tiers, see [Service tiers](sql-database-service-tiers.md). For a detailed discussion of elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 ### Single databases
 For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-service-tiers.md#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-azure-portal), [PowerShell](sql-database-service-tiers.md#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-powershell), the [Azure CLI](sql-database-service-tiers.md#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-azure-cli), or the [REST API](sql-database-service-tiers.md#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-rest-api).
@@ -52,12 +52,12 @@ For single databases, the following tables show the resources available for a si
 >
 
 ### Elastic pools
-For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](#manage-single-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-single-database-elastic-pools-using-powershell), the [Azure CLI](#manage-single-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
+For elastic pools, the following tables show the resources available at each service tier and performance level for the entire pool and for individual databases within an elastic pool. You can set the service tier, performance level, and storage amount using the [Azure portal](#manage-single-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-single-database-elastic-pools-using-powershell), the [Azure CLI](#manage-single-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
 
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-For an expanded definition of each resource listed in the previous tables, see the descriptions in [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). For an overview of service tiers, see [Azure SQL Database service tiers and performance levels](sql-database-service-tiers.md).
+For an expanded definition of each resource listed in the previous tables, see the descriptions in [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). 
 
 ## Other SQL Database limits
 | Area | Limit | Description |
