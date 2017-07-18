@@ -1,6 +1,6 @@
 ---
 title: Data transfer tools for Azure Stack storage
-description: Learn about Azure Stack storage data trandfer tools
+description: Learn about Azure Stack storage data transfer tools
 services: azure-stack
 documentationcenter: ''
 author: xiaofmao
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 7/10/2017
 ms.author: xiaofmao
 
 ---
@@ -64,9 +64,9 @@ Azure PowerShell is a module that provides cmdlets for managing services on both
 
 Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md) to learn more.
 
-The current compatible Azure PowerShell module version for Azure Stack is 1.2.9. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+The current compatible Azure PowerShell module version for Azure Stack is 1.2.10. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.9 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.10 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
 
    ```
    # This command gets a specific key for a Storage account, 

@@ -55,9 +55,8 @@ To improve the readability of the descriptions, this topic uses the following te
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- The registration of Windows down-level devices **is not** supported for:
-    - Non-federated environments (password hash sync configurations).  
-    - Devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
+- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://aka.ms/hybrid/sso).
+- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
 
 
 

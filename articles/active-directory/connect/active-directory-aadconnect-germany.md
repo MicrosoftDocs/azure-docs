@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---
@@ -33,8 +33,7 @@ When using Microsoft Cloud Germany, you must be aware of the following:
 * The following features are not available:
   * Azure AD Connect Health
   * Automatic updates
-  * Password writeback
-
+ 
 ## Download
 You can download Azure AD Connect from the Azure AD Connect blade within the portal.  Use the instructions below to locate the Azure AD Connect blade.
 

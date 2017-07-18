@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 07/03/2017
 ms.author: cfreeman
 
 ---
@@ -21,9 +21,11 @@ When an exception occurs, you can automatically collect a debug snapshot from yo
 
 You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
 
-Snapshot collection is available for ASP.NET web apps that run on .NET Framework 4.6 or later, hosted on IIS in Azure Compute or in Azure App Service.
+Snapshot collection is available for:
+* .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
+* .NET Core 2.0 and ASP.NET Core 2.0 applications running on Windows.
 
-## Configure snapshot collection
+### Configure snapshot collection for ASP.NET applications
 
 1. [Enable Application Insights in your web app](app-insights-asp-net.md), if you haven't done it yet.
 
@@ -55,15 +57,60 @@ Snapshot collection is available for ASP.NET web apps that run on .NET Framework
     </TelemetryProcessors>
     ```
 
-### Collect exceptions
+4. Snapshots are collected only on exceptions that are reported to Application Insights. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](app-insights-asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
 
-Snapshots are collected on exceptions that are visible only to the Application Insights SDK. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](app-insights-asp-net-exceptions.md#exceptions) to see exceptions with snapshots that appear in the portal.
 
-### Grant permissions
+### Configure snapshot collection for ASP.NET Core 2.0 applications
+
+1. [Enable Application Insights in your ASP.NET Core web app](app-insights-asp-net-core.md), if you haven't done it yet.
+
+2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
+
+3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor.
+   ```C#
+   using Microsoft.ApplicationInsights.SnapshotCollector;
+   ...
+   class Startup
+   {
+       // This method gets called by the runtime. Use this method to add services to the container.
+       public void ConfigureServices(IServiceCollection services)
+       {
+           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
+           // TODO: Add any other services your application needs here.
+       }
+   }
+   ```
+
+### Configure snapshot collection for other .NET applications
+
+1. If your application is not already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](app-insights-windows-desktop.md).
+
+2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
+
+3. Snapshots are collected only on exceptions that are reported to Application Insights. You may need to modify your code to report them. The exception handling code depends on the structure of your application, but an example is below:
+   ```C#
+   TelemetryClient _telemetryClient = new TelemetryClient();
+
+   void ExampleRequest()
+   {
+        try
+        {
+            // TODO: Handle the request.
+        }
+        catch (Exception ex)
+        {
+            // Report the exception to Application Insights.
+            _telemetryClient.TrackException(ex);
+
+            // TODO: Rethrow the exception if desired.
+        }
+   }
+
+## Grant permissions
 
 Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
 
-To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Applicaton Insights resource or its resource group or subscription.
+To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
 1. On the Application Insights navigation menu, select **Access Control (IAM)**.
 2. Click **Roles** > **Application Insights Snapshot Debugger**.

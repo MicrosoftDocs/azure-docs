@@ -6,9 +6,9 @@ description:
 keywords:
 author: jeffgilb
 manager: femila
-editor: jsnow
+ms.reviewr: jsnow
 ms.author: jeffgilb
-ms.date: 6/6/2017
+ms.date: 7/5/2017
 ms.topic: article
 ms.prod:
 ms.service: azure

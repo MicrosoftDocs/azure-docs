@@ -189,6 +189,7 @@ Refer to [OpenSSL documentation](https://www.openssl.org/docs/man1.0.1/apps/pkcs
 
 ## Troubleshooting
 
+
 ### Copying of the application package does not succeed
 
 Check if `openssh` is installed. By default, Ubuntu Desktop doesn't have it installed. Install it using the 
@@ -221,7 +222,7 @@ packages), so use password authentication instead.
 
 ## Next steps
 
-Set up the development environment and deploy a Service Fabric application to a Linux cluster.
+[Set up the development environment and deploy a Service Fabric application to a Linux cluster.](service-fabric-get-started-linux.md)
 
 ## Related articles
 

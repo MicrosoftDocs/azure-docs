@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 07/06/2017
 ms.author: nepeters
 ---
 
@@ -33,7 +33,7 @@ In subsequent tutorials, this application is scaled out, updated, and the Kubern
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, an application was packaged into container images, these images were uploaded to Azure Container Registry, and a Kubernetes cluster was created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 At minimum, this tutorial requires a Kubernetes cluster.
 
@@ -41,13 +41,13 @@ At minimum, this tutorial requires a Kubernetes cluster.
 
 When deploying a containerized application into Kubernetes, many different Kubernetes objects are created. Each object represents the desired state for the cluster. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage, and a deployment, which manages the state of the application. 
 
-For details on all Kubernetes object, see [Kubernetes Concepts](https://kubernetes.io/docs/concepts/) on kubernetes.io.
+For details on all Kubernetes objects, see [Kubernetes Concepts](https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
 ## Get manifest files
 
 For this tutorial, Kubernetes objects are deployed using Kubernetes manifests. A Kubernetes manifest is a YAML file containing object configuration instructions.
 
-The manifest files for each object in this tutorial are available in the Azure Vote application repo, which was cloned in a pervious tutorial. If you have not already done so, clone the repo with the following command: 
+The manifest files for each object in this tutorial are available in the Azure Vote application repo, which was cloned in a previous tutorial. If you have not already done so, clone the repo with the following command: 
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app.git
@@ -95,7 +95,7 @@ The `azure-vote-deployment.yaml` manifest file creates a deployment for the fron
 
 #### Update image names
 
-If using Azure Container Registry to store images, the image names need to be prepended with the ACR logins server name.
+If using Azure Container Registry to store images, the image names need to be prepended with the ACR login server name.
 
 Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
 

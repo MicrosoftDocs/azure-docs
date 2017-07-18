@@ -3,7 +3,7 @@ title: Azure SQL Database backups-automatic, geo-redundant | Microsoft Docs
 description: SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy.
 services: sql-database
 documentationcenter: ''
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
-ms.author: sashan
+ms.date: 07/05/2017
+ms.author: carlrab
 
 ---
 # Learn about SQL Database backups
@@ -37,7 +37,6 @@ You can use these backups to:
 
 > [!NOTE]
 > In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
-> 
 > 
 
 ## How much backup storage is included at no cost?
@@ -65,7 +64,6 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 > 
-> 
 
 ## How to extend the backup retention period?
 If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years. For more information, see [Long-term retention](sql-database-long-term-retention.md).
@@ -76,6 +74,10 @@ The restore API supports backups stored in the vault as long as the vault is in 
 > [!TIP]
 > For a How-to guide, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)
 >
+
+## Are backups encrypted?
+
+When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
 
 ## Next steps
 

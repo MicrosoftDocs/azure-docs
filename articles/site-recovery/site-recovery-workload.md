@@ -50,7 +50,7 @@ Site Recovery can replicate any app running on a supported machine. In addition 
 | System Center Operations Manager |Y |Y |Y |Y |
 | Sharepoint |Y |Y |Y |Y |
 | SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
-| Exchange (non-DAG) |Y |Coming soon |Y |Y |
+| Exchange (non-DAG) |Y |Y |Y |Y |
 | Remote Desktop/VDI |Y |Y |Y |N/A |
 | Linux (operating system and apps) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
 | Dynamics AX |Y |Y |Y |Y |
