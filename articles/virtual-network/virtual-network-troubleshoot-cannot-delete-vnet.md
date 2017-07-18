@@ -39,15 +39,15 @@ You might receive errors when you try to delete a virtual network in Microsoft A
 
 To remove the virtual network, you must first remove the virtual network gateway.
 
-For classic virtual networks, go to the **Overview** page of the Virtual Networks (classic) in the Azure portal. If the gateway is running in the virtual network, you will see the IP address of the gateway. 
+For classic virtual networks, go to the **Overview** page of the classic virtual network in the Azure portal. In the **VPN connections** section, if the gateway is running in the virtual network, you will see the IP address of the gateway. 
 
 ![Check whether gateway is running](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-For virtual networks, go to the **Overview** page of the virtual network. Check **Connected devices** for the virtual network gateway.
+For virtual networks, go to the **Overview** page of the Virtual Network. Check **Connected devices** for the virtual network gateway.
 
-![Check the connected device for ](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
-Before you can remove the gateway, first remove any **Connection** objects in the gateway.
+Before you can remove the gateway, first remove any **Connection** objects in the gateway. 
 
 ### Check whether an application gateway is running in the virtual network
 
@@ -68,14 +68,14 @@ To disable the service, follow these steps:
 1. Go to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the left pane, select  **Active Directory**.
 3. Select the Azure Active Directory (Azure AD) directory that has Active Directory Domain Service enabled.
-4. click the **Configure** tab.
+4. Select the **Configure** tab.
 5. Under **domain services**, change the **Enable domain services for this directory** option to **No**.  
 
 ### Check whether the virtual network is connected to other resource
 
-check for Circuit Links, connections, and virtual network peerings. Any of these can cause a virtual network deletion to fail. 
+Check for Circuit Links, connections, and virtual network peerings. Any of these can cause a virtual network deletion to fail. 
 
-The recommended deletion order should be:
+The recommended deletion order is as follows:
 
 1. Gateway connections
 2. Gateways
@@ -83,11 +83,11 @@ The recommended deletion order should be:
 4. Virtual network peerings
 5. App Service Environment (ASE)
 
-### Check whether a VM is still running in the virtual network
+### Check whether a virtual machine is still running in the virtual network
 
-Make sure that no VM is in the virtual network.
+Make sure that no virtual machine is in the virtual network.
 
-### Check whether the virtual network is stuck in a migration state
+### Check whether the virtual network is stuck in migration
 
 If the virtual network is stuck in a migration state, it cannot be deleted. Run the following command to abort the migration, and then delete the virtual network.
 
