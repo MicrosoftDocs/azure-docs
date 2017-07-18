@@ -3,7 +3,7 @@ title: Quickstart - Azure Kubernetes cluster for Linux | Microsoft Docs
 description: Quickly learn to create a Kubernetes cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
 documentationcenter: ''
-author: anhowe
+author: neilpeterson
 manager: timlt
 editor: ''
 tags: acs, azure-container-service, kubernetes
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
-ms.author: anhowe
+ms.date: 07/18/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -24,19 +24,11 @@ ms.custom: H1Hack27Feb2017
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Linux container.
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
-## Log in to Azure 
-
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
-```azurecli-interactive
-az login
-```
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
