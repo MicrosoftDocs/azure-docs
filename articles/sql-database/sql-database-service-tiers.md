@@ -72,7 +72,7 @@ Once you have determined the appropriate service tier, you are ready to determin
 >
 
 ## Single database service tiers, performance levels, and storage amounts
-For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](#manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal), [PowerShell](#manage-single-database-service-tiers-and-performance-levels-using-powershell), the [Azure CLI](#manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli), or the [REST API](#manage-single-databases-using-the-rest-api).
+For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](#manage-single-database-service-tiers-performance-levels-and-storage-amounts--using-the-azure-portal), [PowerShell](#manage-single-database-service-tiers-performance-levels-and-storage-amounts--using-powershell), the [Azure CLI](#manage-single-database-service-tiers-performance-levels-and-storage-amounts--using-the-azure-cli), or the [REST API](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-res).
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
