@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: curtand;jeffsta
+ms.date: 07/13/2017
+ms.author: curtand
 
 ---
 # Managing custom domain names in your Azure Active Directory

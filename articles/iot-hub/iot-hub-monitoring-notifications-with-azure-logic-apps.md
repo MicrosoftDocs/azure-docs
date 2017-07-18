@@ -4,7 +4,7 @@ description: Use Azure Logic Apps for IoT temperature monitoring on your IoT hub
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot monitoring, iot notifications, iot temperature monitoring'
 
