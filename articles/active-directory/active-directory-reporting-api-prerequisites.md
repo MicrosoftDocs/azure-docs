@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
+ms.reviewer: dhanyahk
 
 ---
 # Prerequisites to access the Azure AD reporting API
