@@ -54,8 +54,8 @@ You can use Azure PowerShell or the CLI to create a network interface or VM with
 - You can add any IP address for any IP configuration of any primary or secondary network interface to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary network interface could be added to a back-end pool. To learn more about IP addresses and configurations, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article.
 - Deleting a VM does not delete the network interfaces that are attached to it. When a VM is deleted, the network interfaces are detached from the VM. You can add the network interfaces to different VMs, or delete them.
 
->[!NOTE]
->You can only use PowerShell or the Azure CLI to add and remove network interfaces from virtual machines. You cannot use the Azure portal to add or remove network interfaces from a virtual machine.
+> [!NOTE]
+> You can only use PowerShell or the Azure CLI to add or remove network interfaces from stopped (deallocated) virtual machines. You cannot use the Azure portal to add or remove network interfaces from a virtual machine.
 >
 
 ## <a name="vm-create"></a>Add existing network interfaces to a new VM
