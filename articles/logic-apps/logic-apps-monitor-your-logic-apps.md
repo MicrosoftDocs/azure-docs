@@ -25,12 +25,16 @@ you can check its run history, status, and performance.
 For monitoring real-time events and richer debugging, 
 set up diagnostics [logging](#azure-diagnostics). 
 That way, you can [find and view events](#find-events), 
-like trigger events, run events, and action events.
+like trigger events, run events, and action events. 
+You can also use this [dignostic data with other services](#extend-diagnostic-data), 
+like Azure Storage and Azure Event Hubs. 
 
 To get notifications about failures or other possible problems, 
 set up [alerts](#add-azure-alerts). For example, 
 you can create an alert that detects 
 "when more than five runs fail in an hour." 
+You can also set up monitoring, tracking, and logging programmatically 
+by using [diagnostic event details and properties](#diagnostic-event-properties).
 
 ## View runs and trigger history for your logic app
 
@@ -195,6 +199,8 @@ Your previous results are now filtered too.
 10. To save your query for future use, choose **Save**. 
 Learn [how to save your query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
+<a name="extend-diagnostic-data"></a>
+
 ## Extend how and where you use diagnostic data with other services
 
 Along with Azure Log Analytics, you can extend how you use your logic app's 
@@ -229,6 +235,10 @@ that are crossed when your logic app runs, set up
 [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
 Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
+These steps show how to set up alerts without 
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
+For more advanced alerts criteria and actions, set up Log Analytics.
+
 1. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 
@@ -257,6 +267,8 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 > * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
 > * [Send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 > * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+
+<a name="diagnostic-event-properties"></a>
 
 ## Azure Diagnostics event settings and details
 
