@@ -9,9 +9,9 @@
     href: container-instances-quickstart.md
 - name: Tutorials
   items:
-  - name: Multi-container group
+  - name: Build and deploy a container
     items:
-    - name: Create container images
+    - name: Create container image
       href: container-instances-tutorial-prepare-app.md
     - name: Create container registry
       href: container-instances-tutorial-prepare-acr.md    
