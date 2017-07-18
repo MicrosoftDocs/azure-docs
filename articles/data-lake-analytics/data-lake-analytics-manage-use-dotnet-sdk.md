@@ -125,7 +125,7 @@ graphClient.TenantID = domain;
 
 ### Create an Azure Resource Group
 
-If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. You will need your authentication credentials, subscription ID, and a location. The following code shows how to create a resource group:
+If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. You  need your authentication credentials, subscription ID, and a location. The following code shows how to create a resource group:
 
 ```
 var resourceGroup = new ResourceGroup { Location = location };
