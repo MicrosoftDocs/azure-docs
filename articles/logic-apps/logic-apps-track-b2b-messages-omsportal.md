@@ -103,17 +103,17 @@ Choose the tile for **AS2**, **X12**, or **EDIFACT**.
 
    ![View message status](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-   A list of messages appears for your chosen tile. For example, 
-   this list just shows AS2 messages:
-
-   ![View AS2 messages](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
-
+   A list of messages appears for your chosen tile. 
    To learn more about the properties for each message type, 
    see these message property descriptions:
 
    * [AS2 message properties](#as2-message-properties)
    * [X12 message properties](#x12-message-properties)
    * [EDIFACT message properties](#EDIFACT-message-properties)
+
+   For example, here's what an AS2 message list might look like:
+
+   ![View AS2 messages](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
 3. To view or export the inputs and outputs for specific messages, 
 select those messages, and choose **Download**. When you're prompted, 
@@ -127,7 +127,7 @@ save the .zip file to your local computer, and then extract that file.
    * Human-readable files with the input payload and output payload details
    * Encoded files with the inputs and outputs
 
-   For each message type, you can find the formats for the folder and file names here:
+   For each message type, you can find the folder and file name formats here:
 
    * [AS2 folder and file name formats](#as2-folder-file-names)
    * [X12 folder and file name formats](#x12-folder-file-names)
