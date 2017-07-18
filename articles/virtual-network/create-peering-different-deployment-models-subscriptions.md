@@ -49,9 +49,9 @@ To register for the preview, complete the steps that follow for both subscriptio
     Register-AzureRmProviderFeature `
       -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
+    
     Register-AzureRmResourceProvider `
       -ProviderNamespace Microsoft.Network
-    #
     ```
     Do not complete the steps in the Portal, Azure CLI, or PowerShell sections of this article until the **RegistrationState** output you receive after entering the following command is **Registered** for both subscriptions:
 
@@ -59,7 +59,6 @@ To register for the preview, complete the steps that follow for both subscriptio
     Get-AzureRmProviderFeature `
       -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
-    #
     ```
 
 ## <a name="portal"></a>Create peering - Azure portal
@@ -215,7 +214,7 @@ Before completing any of the following steps, you must register for the preview.
 3. In PowerShell, log in to UserB's subscription as UserB by entering the `Add-AzureAccount` command.
 4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
 
-        ```xml
+        ```
         <VirtualNetworkSite name="myVnetB" Location="East US">
            <AddressSpace>
              <AddressPrefix>10.1.0.0/16</AddressPrefix>
@@ -242,7 +241,7 @@ Before completing any of the following steps, you must register for the preview.
     ```
 
 7. Log out of Azure as UserB and log in to UserA's subscription as UserA by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
-8. Create the virtual network (Resource Manager) by copying the following scriptm, pasting it in to PowerShell, and then pressing `Enter`:
+8. Create the virtual network (Resource Manager) by copying the following script, pasting it in to PowerShell, and then pressing `Enter`:
 
     ```powershell
     # Variables for common values
@@ -335,7 +334,6 @@ When you've finished this tutorial, you might want to delete the resources you c
     azure config mode asm 
 
     azure network vnet delete --vnet myVnetB --quiet
-    #
     ```
 
 ### <a name="delete-powershell"></a>PowerShell
@@ -348,7 +346,7 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 2. To delete the virtual network (classic) with PowerShell, you must modify an existing network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). Remove the following VirtualNetworkSite element for the virtual network used in this tutorial:
 
-        ```xml
+        ```
         <VirtualNetworkSite name="myVnetB" Location="East US">
            <AddressSpace>
              <AddressPrefix>10.1.0.0/16</AddressPrefix>

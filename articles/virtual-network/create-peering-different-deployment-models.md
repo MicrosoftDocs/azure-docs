@@ -141,7 +141,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 3. In PowerShell, log in to Azure by entering the `Add-AzureAccount` command.
 4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
 
-        ```xml
+        ```
         <VirtualNetworkSite name="myVnet2" Location="East US">
            <AddressSpace>
              <AddressPrefix>10.1.0.0/16</AddressPrefix>
@@ -244,7 +244,7 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 2. To delete the virtual network (classic) with PowerShell, you must modify an existing network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). Remove the following VirtualNetworkSite element for the virtual network used in this tutorial:
 
-        ```xml
+        ```
         <VirtualNetworkSite name="myVnet2" Location="East US">
            <AddressSpace>
              <AddressPrefix>10.1.0.0/16</AddressPrefix>
