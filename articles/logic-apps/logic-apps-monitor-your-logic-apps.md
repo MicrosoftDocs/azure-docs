@@ -21,15 +21,16 @@ ms.author: LADocs; jehollan
 # Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps
 
 After you [create and run a logic app](../logic-apps/logic-apps-create-a-logic-app.md), 
-you can check its status, performance, and run history. 
+you can check its run history, status, and performance. 
 For monitoring real-time events and richer debugging, 
 set up diagnostics [logging](#azure-diagnostics). 
+That way, you can [find and view events](#find-events), 
+like trigger events, run events, and action events.
+
 To get notifications about failures or other possible problems, 
 set up [alerts](#add-azure-alerts). For example, 
 you can create an alert that detects 
 "when more than five runs fail in an hour." 
-After your logic app runs, you can [view the events](#find-events) 
-that happened during your logic app run.
 
 ## View runs and trigger history for your logic app
 
@@ -43,7 +44,7 @@ find "logic apps", and choose **Logic apps**.
 
 2. Select your logic app, then choose **Overview**.
 
-   The Azure portal shows the runs and triggers history for your logic app. 
+   The Azure portal shows the runs and trigger history for your logic app. 
    For example:
 
    ![Logic app runs history and trigger history](media/logic-apps-monitor-your-logic-apps/overview.png)
@@ -112,6 +113,8 @@ find and select your logic app.
 2. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Diagnostic Settings**.
 
+   ![Go to Monitoring, Diagnostics, Diagnostic Settings](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
+
 3. Under **Diagnostics settings**, choose **On**.
 
    ![Turn on diagnostic logs](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
@@ -128,7 +131,8 @@ choose **Diagnostics** > **Diagnostic Settings**.
 
    ![Select OMS workspace and data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
-After your logic app runs, you can find events and other data for those runs.
+Now, you can find events and other data for trigger events, 
+run events, and action events.
 
 <a name="find-events"></a>
 
