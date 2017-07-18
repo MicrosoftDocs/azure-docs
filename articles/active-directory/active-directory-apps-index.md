@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
+ms.reviewer: asteen
 
 ---
 # Article Index for Application Management in Azure Active Directory

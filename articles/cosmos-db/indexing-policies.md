@@ -156,7 +156,7 @@ Now that we've taken a look at how to specify paths, let's look at the options w
 
 * Data type: **String**, **Number**, **Point**, **Polygon**, or **LineString** (can contain only one entry per data type per path)
 * Index kind: **Hash** (equality queries), **Range** (equality, range or Order By queries), or **Spatial** (spatial queries) 
-* Precision: 1-8 or -1 (Maximum precision) for numbers, 1-100 (Maximum precision) for string
+* Precision: For hash index this varies from 1 to 8 for both strings and numbers with default as 3. For range index this value can be -1 (Maximum precision) and vary between 1-100 (Maximum precision) for string or number values.
 
 #### Index kind
 Azure Cosmos DB supports Hash and Range index kinds for every path (that can configured for strings, numbers or both).

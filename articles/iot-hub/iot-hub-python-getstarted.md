@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (Python) | Microsoft Docs
-description: Learn how to send device-to-cloud messages to Azure IoT hub using IoT SDKs for Python. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
+description: Learn how to send device-to-cloud messages to Azure IoT Hub using IoT SDKs for Python. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
 services: iot-hub
 author: dsk-2015
 manager: timlt

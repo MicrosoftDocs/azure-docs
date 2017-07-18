@@ -4,7 +4,7 @@ description: Set up Intel NUC to work as an IoT gateway between a sensor and Azu
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: ''
 keywords: 'iot gateway, intel nuc, nuc computer, DE3815TYKE'
 

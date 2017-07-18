@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 07/14/2017
 ms.author: cherylmc
 
 ---
@@ -242,6 +242,9 @@ Refer to [ExpressRoute partners and locations](expressroute-locations.md) for mo
 
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
+
+### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
+Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
 ### Can Dynamics 365 for Operations (formerly known as Dynamics AX Online) be accessed over an ExpressRoute connection?
 Yes. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) is hosted on Azure. You can enable Azure public peering on your ExpressRoute circuit to connect to it. 
