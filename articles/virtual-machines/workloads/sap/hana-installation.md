@@ -28,7 +28,7 @@ The class specifier is going to be used throughout the HANA Large Instance docum
 
 Other definitions we use frequently are:
 - **Large Instance stamp:** A hardware infrastructure stack that is SAP HANA TDI certified and dedicated to run SAP HANA instances within Azure.
-- **SAP HANA on Azure (Large Instances):** Official name for the offer in Azure to run HANA instances in on SAP HANA TDI certified hardware that is deployed in Large Instance stamps in different Azure regions. The related term **HANA Large Instances** is short for SAP HANA on Azure (Large Instances) and is widely used this technical deployment guide.
+- **SAP HANA on Azure (Large Instances):** Official name for the offer in Azure to run HANA instances in on SAP HANA TDI certified hardware that is deployed in Large Instance stamps in different Azure regions. The related term **HANA Large Instance** is short for SAP HANA on Azure (Large Instances) and is widely used this technical deployment guide.
 
 
 The installation of SAP HANA is your responsibility and you can start the activity after handoff of a new SAP HANA on Azure (Large Instances) server. And after the connectivity between your Azure VNet(s) and the HANA Large Instance unit(s) got established. Note, per SAP policy, installation of SAP HANA must be performed by a person certified to perform SAP HANA installations. A person, who has passed the Certified SAP Technology Associate exam, SAP HANA Installation certification exam, or by an SAP-certified system integrator (SI).
@@ -284,7 +284,7 @@ There might be a scenario where the load of the certificate from the server by t
 If the registration failed, read this [SUSE support document](https://www.suse.com/de-de/support/kb/doc/?id=7006024) and execute the steps described there.
 
 > [!IMPORTANT] 
-> As server name just provide the name of the VM, in this case smtserver, without the fully qualified domain name. Just the VM name works. 
+> As server name you need to provide the name of the VM, in this case smtserver, without the fully qualified domain name. Just the VM name works. 
 
 After these steps have been executed, you need to execute the following command on the HANA Large Instance unit
 
@@ -410,7 +410,7 @@ If you continue from the confirmation screen, you see a progress screen that doc
 
 ![Check installation progress](./media/hana-installation/image27_show_progress.PNG)
 
-As the installation finishes, you should a picture like this one
+As the installation finishes, you should a picture like the following one
 
 ![Installation is finished](./media/hana-installation/image28_install_finished.PNG)
 
