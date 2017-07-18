@@ -28,7 +28,7 @@ ms.author: piyushjo
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.
 
-The Engagement SDK requires iOS6+ and Xcode 8: the deployment target of your application must be at least iOS 6.
+The Engagement SDK requires iOS7+ and Xcode 8+: the deployment target of your application must be at least iOS 7.
 
 > [!NOTE]
 > If you really depend on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the Reach module of this previous version while running on iOS 10 devices see [the reach module integration](mobile-engagement-ios-integrate-engagement-reach.md) for more details. If you choose to use the SDK v3.2.4 then just skip the `UserNotifications.framework` import in the next step.
