@@ -21,7 +21,8 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 > 2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
 > 3.	Name your application and click *OK*
 > 4.	Under `New ASP.NET Web Application`, select `Empty`
-<p/>
+
+<p/><!-- -->
 
 > ## Create your project (Python/ other web servers)
 > Make sure you have installed Python, then follow the steps below:
