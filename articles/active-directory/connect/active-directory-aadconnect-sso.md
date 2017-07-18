@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: billmath
 ---
 
@@ -29,14 +29,14 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 >[!NOTE]
 >This feature is _not_ applicable to Active Directory Federation Services (ADFS), which already includes this capability.
 
-## Key benefits of using Azure AD Seamless SSO
+## Key benefits
 
 - *Great user experience*
   - Users are automatically signed into both on-premises and cloud-based applications.
   - Users don't have to enter their passwords repeatedly.
 - *Easy to deploy & administer*
   - No additional components needed on-premises to make this work.
-  - Works with any method of managed authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
+  - Works with any method of cloud authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
   - Can be rolled out to some or all your users using Group Policy.
   - Register non-Windows 10 devices with Azure AD. This needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
