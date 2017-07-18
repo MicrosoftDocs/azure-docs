@@ -8209,6 +8209,16 @@
             "source_path": "articles/active-directory/active-directory-editions.md",
             "redirect_url": "/azure/active-directory/active-directory-whatis",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-linkedinlookup-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-linkedinlookup-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
         }
     ]
 }
