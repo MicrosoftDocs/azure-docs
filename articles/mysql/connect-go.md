@@ -12,6 +12,7 @@ ms.devlang: go
 ms.topic: hero-article
 ms.date: 07/18/2017
 ---
+
 # Azure Database for MySQL: Use Go language to connect and query data
 This quickstart demonstrates how to connect to an Azure Database for MySQL using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using Go, but that you are new to working with Azure Database for MySQL.
 
@@ -21,14 +22,14 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install Go and MySQL connector
-- Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform.
-- Make a folder for your project such as `mkdir C:\mysqlgo\` or `mkdir /c/mysqlgo/`. 
-- Launch the command line or bash, change directory into the project folder, such as `cd C:\mysqlgo\` or `cd /c/mysqlgo/`.
-- Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)
+1. Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform.
+2. Make a folder for your project such as `mkdir C:\mysqlgo\` or `mkdir /c/mysqlgo/`. 
+3. Launch the command line or bash, change directory into the project folder, such as `cd C:\mysqlgo\` or `cd /c/mysqlgo/`.
+4. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)
 
-```cmd
-go get github.com/go-sql-driver/mysql
-```
+   ```cmd
+   go get github.com/go-sql-driver/mysql
+   ```
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
@@ -42,9 +43,10 @@ Get the connection information needed to connect to the Azure Database for MySQL
    
 
 ## Build and run Go code 
-- Save the code from the sections below into text files with extension *.go into your project folder, such as `C:\mysqlgo\createtable.go`.
-- To run the code, change directory into your project folder `cd mysqlgo`, then type the command `go run createtable.go` to compile the application and run it.
-- To build the code into a native application, `go build createtable.go`, then launch createtable.exe to run the application.
+1. Paste the Go code from the sections below into text files, and save into your project folder with file extension *.go, such as `C:\mysqlgo\createtable.go` or `/home/username/mysqlgo/createtable.go`.
+2. Launch the command prompt or bash shell. Change directory into your project folder `cd mysqlgo`.
+3. Run the code by typing the command `go run createtable.go` to compile the application and run it.
+4. Alternatively, to build the code into a native application, `go build createtable.go`, then launch `createtable.exe` to run the application.
 
 ## Connect, create table, and insert data
 Use the following code to connect to the server, create a table, and load the data using an **INSERT** SQL statement. 
