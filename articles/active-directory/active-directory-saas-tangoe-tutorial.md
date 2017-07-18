@@ -48,10 +48,10 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Tangoe Command Premium Mobile from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Add Tangoe Command Premium Mobile from the gallery
+2. Configure and test Azure AD single sign-on
 
-## Adding Tangoe Command Premium Mobile from the gallery
+## Add Tangoe Command Premium Mobile from the gallery
 To configure the integration of Tangoe Command Premium Mobile into Azure AD, you need to add Tangoe Command Premium Mobile from the gallery to your list of managed SaaS apps.
 
 **To add Tangoe Command Premium Mobile from the gallery, perform the following steps:**
@@ -70,7 +70,7 @@ To configure the integration of Tangoe Command Premium Mobile into Azure AD, you
 
 4. In the search box, type **Tangoe Command Premium Mobile**, select **Tangoe Command Premium Mobile** from result panel then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
+	![Add Tangoe Command Premium Mobile from gallery ](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
 ##  Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Tangoe Command Premium Mobile based on a test user called "Britta Simon".
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_samlbase.png)
+	![SAML-based Sign-on](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_samlbase.png)
 
 3. On the **Tangoe Command Premium Mobile Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_url.png)
+	![Tangoe Command Premium Mobile Domain and URLs](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.tangoe.com/sp/startSSO.ping?PartnerIdpId=IDPID&TARGET=TARGETPAGEURL`
 
@@ -114,15 +114,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_certificate.png) 
+	![SAML Signing Certificate section](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_general_400.png)
+	![Save button](./media/active-directory-saas-tangoe-tutorial/tutorial_general_400.png)
 	
 6. On the **Tangoe Command Premium Mobile Configuration** section, click **Configure Tangoe Command Premium Mobile** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_configure.png) 
+	![Tangoe Command Premium Mobile Configuration section](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_configure.png) 
 
 7. To get SSO configured for your application, contact your [Tangoe Command Premium Mobile Client support team](https://www.tangoe.com/contact-2/) and provide the following:
 
@@ -148,15 +148,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_02.png) 
+	![Users and groups -> All users](./media/active-directory-saas-tangoe-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_03.png) 
+	![Add user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_04.png) 
+	![User dialog page](./media/active-directory-saas-tangoe-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -186,7 +186,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Tangoe Command Premium Mobile**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_app.png) 
+	![Tangoe Command Premium Mobile in app list](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
