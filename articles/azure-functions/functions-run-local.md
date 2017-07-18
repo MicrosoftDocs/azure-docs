@@ -174,7 +174,7 @@ When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
-Job host started
+ob host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
@@ -231,7 +231,7 @@ You can use the following options:
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].
 
-## Next Steps
+## Next steps
 
 Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
 To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues). 
