@@ -35,7 +35,7 @@ SSE works by encrypting the data when it is written to Azure Storage, and can be
 
 To learn more, please refer to the FAQ.
 
-To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://azure.portal.com) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
+To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://portal.azure.com) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
 <br/>*Figure 1: Enable SSE for Blob Service (Step1)*

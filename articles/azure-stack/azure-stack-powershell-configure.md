@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/16/2017
 ms.author: sngun
 
 ---
@@ -63,7 +63,43 @@ To configure your Azure Stack environment, do the following:
 
    ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
 
-2. Get the GUID value of the Active Directory tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed by using:  
+2. Set the GraphEndpointResourceId value by using one of the following cmdlets:
+   
+   * **Azure Active Directory (Azure AD)**
+   
+      * For the **cloud administrative environment**, use:
+        ```powershell
+        Set-AzureRmEnvironment `
+          -Name "AzureStackAdmin" `
+          -GraphAudience "https://graph.windows.net/"
+        ```
+        
+      * For the **user environment**, use:
+        ```powershell
+        Set-AzureRmEnvironment `
+          -Name "AzureStackUser" `
+          -GraphAudience "https://graph.windows.net/"
+        ```
+
+   * **Active Directory Federation Services**
+   
+      * For the **cloud administrative environment**, use:
+        ```powershell
+        Set-AzureRmEnvironment `
+          -Name "AzureStackAdmin" `
+          -GraphAudience "https://graph.local.azurestack.external/" `
+          -EnableAdfsAuthentication:$true
+        ```
+        
+      * For the **user environment**, use:
+        ```powershell
+        Set-AzureRmEnvironment `
+          -Name "AzureStackUser" `
+          -GraphAudience "https://graph.local.azurestack.external/" `
+          -EnableAdfsAuthentication:$true
+        ```
+
+3. Get the GUID value of the Active Directory tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed by using:  
 
    * **Azure Active Directory (Azure AD)**
    
@@ -71,14 +107,14 @@ To configure your Azure Stack environment, do the following:
         ```PowerShell
         $TenantID = Get-AzsDirectoryTenantId `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-          -EnvironmentName AzureStackAdmin
+          -EnvironmentName "AzureStackAdmin"
         ```
 
       * To access the **user environment**, use:
         ```PowerShell
         $TenantID = Get-AzsDirectoryTenantId `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-          -EnvironmentName AzureStackUser
+          -EnvironmentName "AzureStackUser"
         ```
 
    * **Active Directory Federation Services**
@@ -87,14 +123,14 @@ To configure your Azure Stack environment, do the following:
         ```PowerShell
         $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
-          -EnvironmentName AzureStackAdmin
+          -EnvironmentName "AzureStackAdmin"
         ```
 
       * To access the **user environment**, use:
         ```PowerShell 
         $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
-          -EnvironmentName AzureStackUser 
+          -EnvironmentName "AzureStackUser" 
         ```
 
 ## Sign in to Azure Stack
@@ -106,7 +142,7 @@ Sign in to the Azure Stack environment by using one of the following two cmdlets
        ```PowerShell
        Login-AzureRmAccount `
          -EnvironmentName "AzureStackAdmin" `
-         -TenantId $TenantID `
+         -TenantId $TenantID 
        ```
 
    * To sign in to the **user portal**, use:
@@ -114,7 +150,7 @@ Sign in to the Azure Stack environment by using one of the following two cmdlets
        ```PowerShell
        Login-AzureRmAccount `
          -EnvironmentName "AzureStackUser" `
-         -TenantId $TenantID `
+         -TenantId $TenantID 
        ```
 
 ## Register resource providers

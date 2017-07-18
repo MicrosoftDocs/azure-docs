@@ -81,6 +81,7 @@
 ### [Publish service catalog application](managed-application-publishing.md)
 ### [Consume service catalog application](managed-application-consumption.md)
 ### [Publish marketplace application](managed-application-author-marketplace.md)
+### [Consume marketplace application](managed-application-consume-marketplace.md)
 ### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Audit
@@ -89,6 +90,11 @@
 
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
+### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
+### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Virtual Machine deployment errors
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Reference
 ## [Template format](/azure/templates/)

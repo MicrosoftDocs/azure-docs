@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # How to configure automatic registration of Windows domain-joined devices with Azure Active Directory

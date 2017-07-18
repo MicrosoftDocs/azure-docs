@@ -20,6 +20,7 @@
 ### [Monitor VMs using v2.x of the Diagnostic VM Extension](diagnostic-extension-v2.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
+### [Maintenance](planned-maintenance-schedule.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
 ### [Create a Docker host using the portal](portal-use-docker.md)
 ### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md)
