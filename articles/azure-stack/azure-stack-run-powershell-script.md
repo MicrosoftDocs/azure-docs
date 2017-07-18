@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 7/17/2017
 ms.author: erikje
 
 ---
@@ -125,15 +125,12 @@ To deploy the development kit, you must complete the following steps:
 
 To make sure that the password for the development kit host doesn't expire too soon, follow these steps after you deploy:
 
-1. Sign in to the development kit host as azurestack\azurestackadmin.
+1. On the development kit host, open **Group Policy Management** and navigate to **Group Policy Management** – **Forest: azurestack.local** – **Domains** – **azurestack.local**.
+2. Right click on **MemberServer** and click **Edit**.
+3. In the Group Policy Management Editor, navigate to **Computer Configuration** – **Policies** – **Windows Settings** – **Security Settings** – **Account Policies** – **Password Policy**.
+4. In the right pane, double-click on **Maximum password age**.
+5. In the **Maximum password age Properties** dialog box, change the **Password will expire in** value to 180, then Click **OK**.
 
-2. Run the following command to display the current MaxPasswordAge of 42 days: `Get-ADDefaultDomainPasswordPolicy`
-
-3. Run the following command to update the MaxPasswordAge to 180 days:
-
-    `Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local`   
-
-4. Run the following command again to confirm the password age change: `Get-ADDefaultDomainPasswordPolicy`.
 
 ## Next steps
 [Register Azure Stack with your Azure subscription](azure-stack-register.md)

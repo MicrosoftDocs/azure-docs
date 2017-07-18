@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Licenses for specific Azure Active Directory editions are required to use some features. To learn if a feature is supported by your license type, check the [Azure Active Directory pricing information](https://azure.microsoft.com/pricing/details/active-directory/) page. 
