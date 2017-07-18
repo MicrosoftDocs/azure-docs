@@ -1,6 +1,6 @@
 ---
 title: Deploy your app to Azure and Azure Stack | Microsoft Docs
-description: Learn how to deploy apps to Azure and Azure Stack with a hybrid CI/CD.
+description: Learn how to deploy apps to Azure and Azure Stack with a hybrid CI/CD pipeline.
 services: azure-stack
 documentationcenter: ''
 author: HeathL17
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/18/2017
 ms.author: helaw
 ms.custom: mvc
 ---
@@ -131,7 +131,7 @@ This step uses your newly built CI/CD pipeline to deploy the ASP.NET app to a We
 1.  From the banner in VSTS, select **Build & Release**, and then select **Builds**.
 2.  Click **...** on the build definition previously created, and select **Queue new build**.
 3.  Accept the defaults and click **Ok**.  The build will now begin and display progress.
-4.  Once the build is complete, you can track the status by selecting **Buuld & Release** and selecting **Releases**.
+4.  Once the build is complete, you can track the status by selecting **Build & Release** and selecting **Releases**.
 5.  After the build is complete, visit the website using the URL noted when creating the Web App.    
 
 
