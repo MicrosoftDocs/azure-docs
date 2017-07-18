@@ -56,7 +56,7 @@ Log in using a subscription name.
 Login-AzureRmAccount -SubscriptionName $subname 
 ```
 
-The `Login-AzureRmAccount` cmdlet will always prompt for credentials. You can avoid being prompted by using the following cmdlets:
+The `Login-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
 ```powershell
 # Save login session information
@@ -266,7 +266,7 @@ Get-AdlJob -Account $adla
 
 ### List a specific number of jobs
 
-By default the list of jobs is sorted on submit time. So the most recently submitted jobs will come first. By default, The ADLA account remembers jobs for 180 days, but the Ge-AdlJob  cmdlet by default will return only the first 500. Use -Top parameter to list a specific number of jobs.
+By default the list of jobs is sorted on submit time. So the most recently submitted jobs appear first. By default, The ADLA account remembers jobs for 180 days, but the Ge-AdlJob  cmdlet by default returns only the first 500. Use -Top parameter to list a specific number of jobs.
 
 ```
 $jobs = Get-AdlJob -Account $adla -Top 10
@@ -313,7 +313,7 @@ Get-AdlJob -Account $adla `
 
 Once you have a list of jobs in your current PowerShell session. You can use normal PowerShell cmdlets to filter the list.
 
-Filter a list of jobs to those submitted in the last 24 hours
+Filter a list of jobs to the jobs submitted in the last 24 hours
 
 ```
 $upperdate = Get-Date
@@ -329,7 +329,7 @@ $lowerdate = $upperdate.AddHours(-24)
 $jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
 ```
 
-Filter a list of jobs tho those that actually started. A job might fail at compile time - and so it never starts. Let's look at the failed
+Filter a list of jobs to those that started running. A job might fail at compile time - and so it never starts. Let's look at the failed
 jobs that actually started running and then failed.
 
 ```
@@ -353,7 +353,7 @@ $jobs | Group-Object State | Select -Property Count,Name
 #  Count the number of jobs by DegreeOfParallelism
 $jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
 ```
-When performing an analysis, it can be useful to add proprerties to the Job objects to make filtering and grouping sinmpler. The following snippet below shows how to annotate a JobInfo with calculated properties.
+When performing an analysis, it can be useful to add properties to the Job objects to make filtering and grouping sinmpler. The following following snippet shows how to annotate a JobInfo with calculated properties.
 
 ```
 function annotate_job( $j )
@@ -523,7 +523,7 @@ New-AdlCatalogCredential -AccountName $adla `
 
 ### Get basic information about at ADLA account
 
-Given an acount name, the following code looks up some basic information about the account
+Given an account name, the following code looks up some basic information about the account
 
 ```
 $adla_acct = Get-AdlAnalyticsAccount -Name "saveenrdemoadla"
