@@ -1,6 +1,6 @@
 ---
-title: Use Azure IoT Hub direct methods (.NET/Node) | Microsoft Docs
-description: How to use Azure IoT Hub direct methods. You use the Azure IoT device SDK for Node.js to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
+title: Use Azure IoT Hub direct methods (.NET/.NET) | Microsoft Docs
+description: How to use Azure IoT Hub direct methods. You use the Azure IoT device SDK for .NET to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: ''
 author: dsk-2015
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 07/18/2017
 ms.author: dkshir
 
 ---
-# Use direct methods (.NET/Node)
+# Use direct methods (.NET/.NET)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 In this tutorial, we are going to develop two .NET console apps:
