@@ -8294,6 +8294,11 @@
             "source_path": "articles/active-directory/active-directory-view-access-usage-reports.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
             "redirect_document_id": false
-        }                                        
+        },                                        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-guide.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        }                                           
     ]
 }
