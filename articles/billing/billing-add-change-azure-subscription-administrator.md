@@ -33,16 +33,23 @@ To add someone as an admin for a subscription in the Azure portal, you give them
 
     ![Screenshot that shows a selected subscription](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. In the subscription blade, select **Access control (IAM)**> **Add**.
+3. In the subscription blade, select **Access control (IAM)**.
+4. Select **Add** > **Select a role** > **Owner**. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
 
-    ![Screenshot that shows the Add button selected](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. Select **Select a role** > **Owner**.
+    ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-    ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. If you want to add the owner account as co-administraotor, in the  **Access control (IAM)** page, right-click the user and then select **Add co-administrator**. 
 
-5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
+     ![Screenshot that adds co-administrator](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    ![Screenshot that shows a user email added and selected](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    >[!TIPS]
+    >You will need to add the "Owner" user as co-administrator if the user needs to manage the Azure services in [Azure classcic portal](https://manage.windowsazure.com/).
+
+    To remove the co-administraotor premisison, right click the "co-administrator" user and then select **remove co-administrator*.
+
+    ![Screenshot that removes co-administrator](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
+
 
 **Azure classic portal**
 
@@ -62,8 +69,6 @@ The following email address can be added as a Co-Administrator:
   An organizational account is an account that is created under Azure Active Directory. The organizational account address has this format:
 
     user@&lt;your domain&gt;.onmicrosoft.com
-
-
 
 ## Change Service Administrator for a subscription
 Only the Account Administrator can change the Service Administrator for a subscription.
