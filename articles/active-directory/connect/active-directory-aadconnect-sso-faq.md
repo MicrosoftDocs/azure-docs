@@ -61,6 +61,9 @@ The steps that you need are as follows:
 - Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACCT` computer account in this specific AD forest and correspondly updates it in Azure AD.
 - Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
+>[!IMPORTANT]
+>Ensure that you don't run the `Update-AzureADSSOForest` command more than once. This invalidates _all_ existing Kerberos tickets for _all_ users and the Seamless SSO feature will stop working for them for up to 12 hours (or the validity time period of Kerberos tickets specified in your Active Directory configuration).
+
 ## How can I disable Seamless SSO?
 
 Seamless SSO can be disabled using Azure AD Connect.
