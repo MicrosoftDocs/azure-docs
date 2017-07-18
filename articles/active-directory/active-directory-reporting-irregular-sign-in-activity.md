@@ -3,8 +3,8 @@ title: Irregular sign-in activity
 description: A report that includes sign ins that have been identified as anomalous by our machine learning algorithms.
 services: active-directory
 documentationcenter: ''
-author: SSalahAhmed
-manager: gchander
+author: MarkusVi
+manager: femila
 editor: ''
 
 ms.assetid: a5a270a9-a0eb-4a99-b04c-ccde3829ffe4

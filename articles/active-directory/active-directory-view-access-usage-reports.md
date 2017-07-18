@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
-
+ms.reviewer: dhanyahk
 ---
 # View your access and usage reports
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
