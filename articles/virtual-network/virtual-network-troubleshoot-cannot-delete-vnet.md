@@ -43,7 +43,7 @@ For classic virtual networks, go to the **Overview** page of the classic virtual
 
 ![Check whether gateway is running](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-For virtual networks, go to the **Overview** page of the Virtual Network. Check **Connected devices** for the virtual network gateway.
+For virtual networks, go to the **Overview** page of the virtual network. Check **Connected devices** for the virtual network gateway.
 
 ![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
@@ -51,7 +51,7 @@ Before you can remove the gateway, first remove any **Connection** objects in th
 
 ### Check whether an application gateway is running in the virtual network
 
-Go to the **Overview** page of the virtual network . Check the **Connected devices** for the application gateway.
+Go to the **Overview** page of the virtual network. Check the **Connected devices** for the application gateway.
 
 ![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
