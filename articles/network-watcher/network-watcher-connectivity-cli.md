@@ -1,6 +1,6 @@
 ---
 title: Check connectivity with Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs
-description: This page explains how to test connectivity check with Network Watcher using Azure CLI 2.0
+description: This page explains how to use connectivity check with Network Watcher using Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -36,9 +36,9 @@ This article takes you through some connectivity check scenarios.
 
 This article assumes you have the following resources:
 
-* An instance of Network Watcher in the region you want to test connectivity.
+* An instance of Network Watcher in the region you want to check connectivity.
 
-* Virtual machines to test connectivity with.
+* Virtual machines to check connectivity with.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -215,7 +215,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 ## Check website latency
 
-The following example tests the connectivity to a website.
+The following example checks the connectivity to a website.
 
 ### Example
 
@@ -261,7 +261,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 ## Check connectivity to a storage endpoint
 
-The following example tests the connectivity from a virtual machine to a blog storage account.
+The following example checks the connectivity from a virtual machine to a blog storage account.
 
 ### Example
 
@@ -271,7 +271,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### Response
 
-The following json is the example response from running the previous cmdlet. As the test was successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
+The following json is the example response from running the previous cmdlet. As the check is successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```json
 {

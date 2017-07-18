@@ -30,6 +30,32 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.558.0
+Status: To be released
+
+### Azure AD Connect
+
+#### Fixed issue
+
+* Fixed an issue that caused the out-of-box synchronization rule “Out to AD - User ImmutableId” to be removed when OU-based filtering configuration is updated. This synchronization rule is required for the [msDS-ConsistencyGuid as Source Anchor feature](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+
+* Fixed an issue where the [Domain and OU Filtering screen](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the Azure AD Connect wizard is showing *Sync all domains and OUs* option as selected, even though OU-based filtering is enabled.
+
+*	Fixed an issue that caused the [Configure Directory Partitions screen](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) in the Synchronization Service Manager to return an error if the *Refresh* button is clicked. The error message is *“An error was encountered while refreshing domains: Unable to cast object of type ‘System.Collections.ArrayList’ to type ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject.”* The error occurs when new AD domain has been added to an existing AD forest and you are trying to update Azure AD Connect using the Refresh button.
+
+#### New features and improvements
+
+* [Automatic Upgrade feature](active-directory-aadconnect-feature-automatic-upgrade.md) has been expanded to support customers with the following configurations:
+  * You have enabled the device writeback feature.
+  * You have enabled the group writeback feature.
+  * The installation is not an Express settings or a DirSync upgrade.
+  * You have more than 100,000 objects in the metaverse.
+  * You are connecting to more than one forest. Express setup only connects to one forest.
+  * You are not using a SQL Server Express LocalDB database.
+  * The AD Connector account is not the default MSOL_ account anymore.
+  * The server is set to be in staging mode.
+  * You have enabled the user writeback feature.
+
 ## 1.1.557.0
 Status: July 2017
 

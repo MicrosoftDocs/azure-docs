@@ -1,6 +1,6 @@
 ---
 title: Check connectivity with Azure Network Watcher - Azure REST API | Microsoft Docs
-description: This page explains how to test connectivity with Network Watcher using Azure REST API
+description: This page explains how to check connectivity with Network Watcher using Azure REST API
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -25,7 +25,7 @@ ms.author: gwallace
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
 
-This article takes you through the different types of tests that can be ran with connectivity.
+This article takes you through the different types of checks that can be ran with connectivity.
 
 * [Check connectivity to a virtual machine](#check-connectivity-to-a-virtual-machine)
 * [Validate routing issues](#validate-routing-issues)
@@ -36,9 +36,9 @@ This article takes you through the different types of tests that can be ran with
 
 This article assumes you have the following resources:
 
-* An instance of Network Watcher in the region you want to test connectivity.
+* An instance of Network Watcher in the region you want to check connectivity.
 
-* Virtual machines to test connectivity with.
+* Virtual machines to check connectivity with.
 
 ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient).
 
@@ -412,7 +412,7 @@ In the following response, you can see the `connectionStatus` shows as **Reachab
 
 ## Check connectivity to a storage endpoint
 
-The following example tests the connectivity from a virtual machine to a blog storage account.
+The following example checks the connectivity from a virtual machine to a blog storage account.
 
 ### Example
 
@@ -464,7 +464,7 @@ null
 
 ### Response
 
-The following is the example response from running the previous API call. As the test was successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
+The following is the example response from running the previous API call. As the check is successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```json
 {

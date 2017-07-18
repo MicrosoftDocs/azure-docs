@@ -961,9 +961,7 @@ You can also perform aggregates in combination with filters. For example, the fo
 
 **Results**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
 The following tables shows the list of supported aggregate functions in DocumentDB API. `SUM` and `AVG` are performed over numeric values, whereas `COUNT`, `MIN`, and `MAX` can be performed over numbers, strings, Booleans, and nulls. 
 
@@ -1246,7 +1244,7 @@ This example is a natural extension of the preceding example, and performs a dou
         }
     }
 
-`AndersenFamily` has one child who has one pet. So, the cross product yields one row (1*1*1) from this family. WakefieldFamily however has two children, but only one child "Jesse" has pets. Jesse has 2 pets though. Hence the cross product yields 1*1*2 = 2 rows from this family.
+`AndersenFamily` has one child who has one pet. So, the cross product yields one row (1\*1\*1) from this family. WakefieldFamily however has two children, but only one child "Jesse" has pets. Jesse has 2 pets though. Hence the cross product yields 1\*1\*2 = 2 rows from this family.
 
 In the next example, there is an additional filter on `pet`. This excludes all the tuples where the pet name is not "Shadow". Notice that we are able to build tuples from arrays, filter on any of the elements of the tuple, and project any combination of the elements. 
 
@@ -1282,7 +1280,7 @@ Azure Cosmos DB provides a programming model for executing JavaScript based appl
 ### <a id="UserDefinedFunctions"></a>User Defined Functions (UDFs)
 Along with the types already defined in this article, DocumentDB API SQL provides support for User Defined Functions (UDF). In particular, scalar UDFs are supported where the developers can pass in zero or many arguments and return a single argument result back. Each of these arguments are checked for being legal JSON values.  
 
-The DoucmentDB API SQL syntax is extended to support custom application logic using these User Defined Functions. UDFs can be registered with DocumentDB API and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to be invoked by queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (stored procedures and triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
+The DocumentDB API SQL syntax is extended to support custom application logic using these User Defined Functions. UDFs can be registered with DocumentDB API and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to be invoked by queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (stored procedures and triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
 
 Below is an example of how a UDF can be registered at the Cosmos DB database, specifically under a document collection.
 

@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 07/12/2017
 ms.author: tomfitz
 
 ---
@@ -39,9 +39,9 @@ Resource policies enable you to create standard rules for your organization. You
 ## PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## Azure CLI 2.0
+## Azure CLI
 
-With Azure CLI 2.0, you can add tags to resources and resource group, and query resources by tag values.
+With Azure CLI, you can add tags to resources and resource group, and query resources by tag values.
 
 Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags that you want to preserve. To add tags to a:
 
@@ -60,14 +60,16 @@ Every time you apply tags to a resource or resource group, you overwrite the exi
 To add tags to a resource that already has tags, first retrieve the existing tags: 
 
 ```azurecli
-az resource show --query tags --output list -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+az resource show --query tags -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
 ```
 
 Which returns the following format:
 
-```
-Dept        : Finance
-Environment : Test
+```json
+{
+  "Dept"        : "IT",
+  "Environment" : "Test"
+}
 ```
 
 Reapply the existing tags to the resource, and add the new tags.
@@ -87,9 +89,6 @@ To get all the resources with a particular tag and value, use `az resource list`
 ```azurecli
 az resource list --tag Dept=Finance
 ```
-
-## Azure CLI 1.0
-[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
 
 ## REST API
 The portal and PowerShell both use the [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.

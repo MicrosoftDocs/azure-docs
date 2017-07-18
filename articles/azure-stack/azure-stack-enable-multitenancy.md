@@ -1,6 +1,6 @@
 ---
 title: Enable multi-tenancy in Azure Stack | Microsoft Docs
-description: Learn how to support multiple Azure AD directories in Azure Stack
+description: Learn how to support multiple Azure Active Directory directories in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: HeathL17

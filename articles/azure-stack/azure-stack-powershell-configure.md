@@ -106,7 +106,7 @@ Sign in to the Azure Stack environment by using one of the following two cmdlets
        ```PowerShell
        Login-AzureRmAccount `
          -EnvironmentName "AzureStackAdmin" `
-         -TenantId $TenantID `
+         -TenantId $TenantID 
        ```
 
    * To sign in to the **user portal**, use:
@@ -114,7 +114,7 @@ Sign in to the Azure Stack environment by using one of the following two cmdlets
        ```PowerShell
        Login-AzureRmAccount `
          -EnvironmentName "AzureStackUser" `
-         -TenantId $TenantID `
+         -TenantId $TenantID 
        ```
 
 ## Register resource providers

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 07/12/2017
 ms.author: tomfitz
 
 ---
@@ -119,7 +119,7 @@ You receive this error when the resource SKU you have selected (such as VM size)
   }    
   ```
 
-If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
+If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://aka.ms/skurestriction).
 
 ### DisallowedOperation
 
@@ -525,7 +525,10 @@ In **Azure CLI 2.0**, provide the name of the policy definition:
 az policy definition show --name regionPolicyAssignment
 ```
 
-For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+For more information, see the following articles:
+
+- [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
+- [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ### Authorization failed
 You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, you are not able to create resources. In that case, you see an error message indicating that authorization failed.

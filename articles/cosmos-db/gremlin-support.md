@@ -145,7 +145,7 @@ And the edge contains the following information to help with navigation to other
 | --- | --- |
 | id | The ID for the edge. Must be unique (in combination with the value of _partition if applicable) |
 | label | The label of the edge. This property is optional, and used to describe the relationship type. |
-| inV | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
+| inV | This contains a list of in vertices for an edge. Storing the adjacency information with the edge allows for fast execution of traversals. Vertices are grouped based on their labels. |
 | properties | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
 
 Each property can store multiple values within an array. 

@@ -47,23 +47,21 @@ On the other hand, some features are only available in VMs (at least for the tim
 ## Storage
 
 ### Scale sets with Azure Managed Disks
-Scale sets can be now created with [Azure Managed Disks](../storage/storage-managed-disks-overview.md). Managed Disks provide the following benefits:
+Scale sets can be created with [Azure Managed Disks](../storage/storage-managed-disks-overview.md) instead of traditional Azure storage accounts. Managed Disks provide the following benefits:
 - You do not have to pre-create a set of Azure storage accounts for the scale set VMs.
 - You can define [attached data disks](virtual-machine-scale-sets-attached-disks.md) for the VMs in your scale set.
 - Scale sets can be configured to [support up to 1,000 VMs in a set](virtual-machine-scale-sets-placement-groups.md). 
 
-You can create scale sets with Managed Disks starting with version "2016-04-30-preview" of the Azure Compute API. For information on converting a scale set template to Managed Disks, refer to [Convert a scale set template to a managed disk scale set template](virtual-machine-scale-sets-convert-template-to-md.md).
+If you have an existing template, you can also [update the template to use Managed Disks](virtual-machine-scale-sets-convert-template-to-md.md).
 
 ### User-managed Storage
 A scale set that is not defined with Azure Managed Disks relies on user-created storage accounts to store the OS disks of the VMs in the set. A ratio of 20 VMs per storage account or less is recommended to achieve maximum IO and also take advantage of _overprovisioning_ (see below). It is also recommended that you spread the beginning characters of the storage account names across the alphabet. Doing so helps spread load across different internal systems. 
 
->[!NOTE]
->Scale sets API version `2016-04-30-preview` supports using Azure Managed Disks for the Operating System disk and any extra data disks. For more information, see [Managed Disks Overview](../storage/storage-managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md). 
 
 ## Overprovisioning
-Starting with the "2016-03-30" API version, scale sets default to "overprovisioning" VMs. With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs once the requested number of VMs are successfully provisioned. Overprovisioning improves provisioning success rates and reduces deployment time. You are not billed for the extra VMs, and they do not count toward your quota limits.
+Scale sets currently default to "overprovisioning" VMs. With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs once the requested number of VMs are successfully provisioned. Overprovisioning improves provisioning success rates and reduces deployment time. You are not billed for the extra VMs, and they do not count toward your quota limits.
 
-While overprovisioning does improve provisioning success rates, it can cause confusing behavior for an application that is not designed to handle extra VMs appearing and then disappearing. To turn overprovisioning off, ensure you have the following string in your template: "overprovision": "false". More details can be found in the [Scale Set REST API documentation](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+While overprovisioning does improve provisioning success rates, it can cause confusing behavior for an application that is not designed to handle extra VMs appearing and then disappearing. To turn overprovisioning off, ensure you have the following string in your template: `"overprovision": "false"`. More details can be found in the [Scale Set REST API documentation](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 If your scale set uses user-managed storage, and you turn off overprovisioning, you can have more than 20 VMs per storage account, but it is not recommended to go above 40 for IO performance reasons. 
 

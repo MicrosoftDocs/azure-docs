@@ -18,7 +18,7 @@ ms.author: gwallace
 
 # Introduction to connectivity check in Azure Network Watcher
 
-The connectivity feature of Network Watcher provides the capability to test a direct TCP connection from a virtual machine to a virtual machine (VM), fully qualified domain name (FQDN), URI, or IPv4 address. Network scenarios are complex, they are implemented using Network Security Groups, firewalls, User-defined routes, and resources provided by Azure. Complex configurations make troubleshooting connectivity issues challenging. Network Watcher helps reduce the amount of time to find and detect connectivity issues. The results returned can provide insights into whether a connectivity issue is due to a platform or a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
+The connectivity feature of Network Watcher provides the capability to check a direct TCP connection from a virtual machine to a virtual machine (VM), fully qualified domain name (FQDN), URI, or IPv4 address. Network scenarios are complex, they are implemented using Network Security Groups, firewalls, User-defined routes, and resources provided by Azure. Complex configurations make troubleshooting connectivity issues challenging. Network Watcher helps reduce the amount of time to find and detect connectivity issues. The results returned can provide insights into whether a connectivity issue is due to a platform or a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -55,9 +55,9 @@ The following table shows the properties returned when a connectivity check has 
 |Property  |Description  |
 |---------|---------|
 |ConnectionStatus     | The status of the connectivity check. Possible results are **Reachable** and **Unreachable**.        |
-|AvgLatencyInMs     | Average latency during the connectivity test in milliseconds. (Only shown if check status is reachable)        |
-|MinLatencyInMs     | Minimum latency during the connectivity test in milliseconds. (Only shown if check status is reachable)        |
-|MaxLatencyInMs     | Maximum latency during the connectivity test in milliseconds. (Only shown if check status is reachable)        |
+|AvgLatencyInMs     | Average latency during the connectivity check in milliseconds. (Only shown if check status is reachable)        |
+|MinLatencyInMs     | Minimum latency during the connectivity check in milliseconds. (Only shown if check status is reachable)        |
+|MaxLatencyInMs     | Maximum latency during the connectivity check in milliseconds. (Only shown if check status is reachable)        |
 |ProbesSent     | Number of probes sent during the check. Max value is 100.        |
 |ProbesFailed     | Number of probes that failed during the check. Max value is 100.        |
 |Hops     | Hop by hop path from source to destination.        |
@@ -106,7 +106,7 @@ The connectivity check returns fault types about the connection. The following t
 
 ### Next steps
 
-Learn how to verify connectivity to a resource by visiting: [Test connectivity with Azure Network Watcher](network-watcher-connectivity-powershell.md).
+Learn how to verify connectivity to a resource by visiting: [Check connectivity with Azure Network Watcher](network-watcher-connectivity-powershell.md).
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png
