@@ -23,21 +23,21 @@ ms.author: saveenr
 
 ## Python versions
 
-* You must use a 64-bit version of Python.
-* You can use the standard python distribution found at **[Python.org downloads](https://www.python.org/downloads/)**. 
-* Many developers find it  convenient to use the **[Anaconda Python distribution](https://www.continuum.io/downloads)**.  
+* Use a 64-bit version of Python.
+* You can use the standard Python distribution found at **[Python.org downloads](https://www.python.org/downloads/)**. 
+* Many developers find it convenient to use the **[Anaconda Python distribution](https://www.continuum.io/downloads)**.  
 * This article was written using Python version 3.6 from the standard Python distribution
 
 ## Install Azure Python SDK
 
-You need to install the following modules.
+Install the following modules:
 
 * The **azure-mgmt-resource** module includes other Azure modules for Active Directory, etc.
 * The **azure-mgmt-datalake-store** module includes the Azure Data Lake Store account management operations.
 * The **azure-datalake-store** module includes the Azure Data Lake Store filesystem operations. 
 * The **azure-datalake-analytics** module includes the Azure Data Lake Analytics operations. 
 
-First, ensure you have the latest `pip` by running the following command.
+First, ensure you have the latest `pip` by running the following command:
 
 ```
 python -m pip install --upgrade pip
@@ -45,7 +45,7 @@ python -m pip install --upgrade pip
 
 This document was written using `pip version 9.0.1`.
 
-Use the following `pip` commands to install the modules from the commandline.
+Use the following `pip` commands to install the modules from the commandline:
 
 ```
 pip install azure-mgmt-resource
@@ -56,7 +56,7 @@ pip install azure-mgmt-datalake-analytics
 
 ## Create a new Python script
 
-Paste the following code into the script.
+Paste the following code into the script:
 
 ```python
 ## Use this only for Azure AD service-to-service authentication
@@ -99,7 +99,7 @@ Run this script to verify that the modules can be imported.
 
 This method is not supported.
 
-### Interactice user authentication with a device code
+### Interactive user authentication with a device code
 
 ```python
 user = input('Enter the user to authenticate with that has permission to subscription: ')
@@ -119,7 +119,7 @@ This method is not supported.
 
 ## Common script variables
 
-These variables will be used in the samples
+These variables are used in the samples.
 
 ```python
 subid= '<Azure Subscription ID>'
