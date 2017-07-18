@@ -48,10 +48,10 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Veracode from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Add Veracode from the gallery
+2. Configure and test Azure AD single sign-on
 
-## Adding Veracode from the gallery
+## Add Veracode from the gallery
 To configure the integration of Veracode into Azure AD, you need to add Veracode from the gallery to your list of managed SaaS apps.
 
 **To add Veracode from the gallery, perform the following steps:**
