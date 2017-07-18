@@ -52,10 +52,6 @@ The following components are required for disaster recovery of VMware VMs or phy
 ### Configuration server or additional process server
 
 Set up an on-premises machine as the configuration server to orchestrate communication between the on-premises site and Azure. The on-premises machine also manages data replication. <br/></br>
-<<<<<<< HEAD
-=======
-
->>>>>>> 318a5c647e3d41ab11b493ebe2fa8cef2358cd5d
 
 *   **VMware vCenter or vSphere host prerequisites**
 
@@ -63,10 +59,6 @@ Set up an on-premises machine as the configuration server to orchestrate communi
     | --- | --- |
     | **vSphere** | You must have one or more VMware vSphere hypervisors.<br/><br/>Hypervisors must be running vSphere version 6.0, 5.5, or 5.1, with the latest updates.<br/><br/>We recommend that vSphere hosts and vCenter servers both be in the same network as the process server. Unless you’ve set up a dedicated process server, this is the network where the configuration server is located. |
     | **vCenter** | We recommend that you deploy a VMware vCenter server to manage your vSphere hosts. It must be running vCenter version 6.0 or 5.5, with the latest updates.<br/><br/>**Limitation**: Site Recovery does not support replication between instances of vCenter vMotion. Storage DRS and Storage vMotion also are not supported on a master target VM after a reprotect operation.||
-<<<<<<< HEAD
-=======
-
->>>>>>> 318a5c647e3d41ab11b493ebe2fa8cef2358cd5d
 
 * **Replicated machine prerequisites**
 
