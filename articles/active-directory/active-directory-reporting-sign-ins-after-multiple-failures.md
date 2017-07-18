@@ -3,7 +3,7 @@ title: Sign ins after multiple failures
 description: A report that indicates users who have successfully signed in after multiple consecutive failed sign in attempts.
 services: active-directory
 documentationcenter: ''
-author: SSalahAhmed
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2016
-ms.author: saah;kenhoff
+ms.date: 07/15/2017
+ms.author: markvi
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 
 ---
 # Sign-ins after multiple failures

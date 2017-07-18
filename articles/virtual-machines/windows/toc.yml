@@ -74,9 +74,6 @@
     href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Planned maintenance
     href: planned-maintenance.md
-    items:
-    - name: Schedule
-      href: planned-maintenance-schedule.md
   - name: VM sizes
     href: sizes.md
     items:
@@ -387,6 +384,8 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Use PerfInsights to troubleshoot performance problems
+      href: how-to-use-perfInsights.md
 - name: Reference
   items:
   - name: Azure CLI
