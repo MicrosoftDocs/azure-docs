@@ -178,7 +178,7 @@ For a GUI management tool that you can use to explore the database, set up Oracl
     select con_id, name, open_mode from v$pdbs;
     ```
 
-The output is similar to the following:
+    The output is similar to the following:
 
     ```bash
       CON_ID NAME                           OPEN_MODE 
@@ -194,7 +194,7 @@ The output is similar to the following:
     alter database open;
    ```
 
-You will need to type `quit` to exit sqlplus and type `exit` to logout of the oracle user.
+You will need to type `quit` to end the sqlplus session and type `exit` to logout of the oracle user.
 
 ## Automate database startup and shutdown
 
@@ -307,7 +307,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
     https://<VM ip address or hostname>:5502/em
     ```
 
-You can log in by using the *SYS* account, and check the *as sysdba* checkbox. Use the password *OraPasswd1* that you set during installation. 
+You can log in by using the **SYS** account, and check the **as sysdba** checkbox. Use the password **OraPasswd1** that you set during installation. 
 
 ![Screenshot of the Oracle OEM Express login page](./media/oracle-quick-start/oracle_oem_express_login.png)
 
