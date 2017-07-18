@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Conditional access in Azure Active Directory
