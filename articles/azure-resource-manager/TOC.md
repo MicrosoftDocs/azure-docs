@@ -90,7 +90,11 @@
 
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
+### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
 ### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Virtual Machine deployment errors
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Reference
 ## [Template format](/azure/templates/)

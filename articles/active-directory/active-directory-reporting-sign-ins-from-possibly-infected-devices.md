@@ -3,8 +3,8 @@ title: Sign ins from possibly infected devices
 description: A report that includes sign in attempts that have been executed from devices on which some malware (malicious software) may be running.
 services: active-directory
 documentationcenter: ''
-author: SSalahAhmed
-manager: gchander
+author: MarkusVi
+manager: femila
 editor: ''
 
 ms.assetid: d0361662-d970-4a66-8eb3-72e9f8824dcf
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 
 ---
 # Sign ins from possibly infected devices

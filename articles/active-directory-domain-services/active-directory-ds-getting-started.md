@@ -13,16 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/15/2017
 ms.author: maheshu
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure portal (Preview)
-This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) for your Azure Active Directory (Azure AD) directory using the Azure portal.
-
-> [!div class="op_single_selector"]
-> * [PREVIEW - Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started.md)
-> * [Enable Azure AD Domain Services using the Azure classic portal](active-directory-ds-getting-started-create-group.md)
+This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) using the Azure portal.
 
 
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:

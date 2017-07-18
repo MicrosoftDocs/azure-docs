@@ -3,11 +3,11 @@ title: EMS and Office 365 services overview | Microsoft Docs
 description: This article provides an overview of the EMS and Office 365 services.
 author: jeffgilb
 manager: femila
-editor: jsnow
 ms.service: guidance
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeffgilb
+ms.reviewer: jsnow
 ms.custom: it-pro
 pnp.series.title: Best Practices
 ---

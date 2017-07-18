@@ -2,4 +2,4 @@
 
 This guidance has moved to the docs.microsoft.com internal contributor's guide.
 
-[https://aka.ms/style-guidance](https://aka.ms/style-guidance)
+See [https://aka.ms/style-guidance](https://aka.ms/style-guidance).

@@ -3,8 +3,8 @@ title: Sign ins from multiple geographies
 description: A report that indicates users where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions.
 services: active-directory
 documentationcenter: ''
-author: SSalahAhmed
-manager: gchander
+author: MarkusVi
+manager: femila
 editor: ''
 
 ms.assetid: 79259c8a-2388-4747-b41e-c07434ea9a02
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 
 ---
 # Sign-ins from multiple geographies

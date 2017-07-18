@@ -68,7 +68,9 @@ Limitations
 * Azure VMs cannot connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.
 * Network Security Group (NSG) protection for IPv4 is supported in dual-stack (IPv4+IPv6) deployments. NSGs do not apply to the IPv6 endpoints.
 * The IPv6 endpoint on the VM is not exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
-* Changing the IdleTimeout parameter for IPv6 is **not currently supported**. The default is four minutes.
+* Changing the IdleTimeout parameter for IPv6 is **currently not supported**. The default is four minutes.
+* Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
+* Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
 
 ## Next steps
 
