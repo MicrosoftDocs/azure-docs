@@ -1,4 +1,3 @@
-
 # Use the Seller Dashboard to submit your solution to the Office Store
 
 If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the Office Store, you need to submit it to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First,  familiarize yourself with the [Office Store validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
@@ -34,7 +33,7 @@ Choose **Add a new app**. On the **Listing type** page, choose the type of solut
 |Version|Required (autopopulated)|
 |Release date (UTC)|Required|
 |Category|One required; two optional|
-|Testing notes|Optional, but recommend|
+|Testing notes|Optional, but recommended|
 |Cryptography and encryption information|Optional|
 |Apple developer ID|Optional|
 |Logo|Required|
