@@ -42,7 +42,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
    
 
 ## Build and run Go code 
-- Save the code from the sections below into a text file with extension *.go into your project folder, such as `C:\mysqlgo\createtable.go`.
+- Save the code from the sections below into text files with extension *.go into your project folder, such as `C:\mysqlgo\createtable.go`.
 - To run the code, change directory into your project folder `cd mysqlgo`, then type the command `go run createtable.go` to compile the application and run it.
 - To build the code into a native application, `go build createtable.go`, then launch createtable.exe to run the application.
 
