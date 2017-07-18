@@ -15,9 +15,9 @@
 
      **Pin to dashboard**: Select this option for easy access to your IoT hub from the dashboard.
 
-    ![Enter information to create your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
+   ![Enter information to create your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
 
-    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
 3. Click **Create**. Your IoT hub might take a few minutes to create. You can see progress in the **Notifications** pane.
 
