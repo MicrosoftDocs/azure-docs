@@ -3,7 +3,7 @@ title: Sign ins from IP addresses with suspicious activity
 description: A report that includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted.
 services: active-directory
 documentationcenter: ''
-author: SSalahAhmed
+author: MarkusVi
 manager: femila
 editor: ''
 
