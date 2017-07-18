@@ -15,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-ms.custom: oldportal
 ms.reviewer: dhanyahk
 
 ---

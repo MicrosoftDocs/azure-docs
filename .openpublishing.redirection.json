@@ -8263,7 +8263,42 @@
             "source_path": "articles/active-directory/active-directory-reporting-users-with-anomalous-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
-        }            
+        },            
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-latencies.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-latencies-azure-portal",
+            "redirect_document_id": false
+        },                
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-audit-events.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-activity-audit-logs",
+            "redirect_document_id": false
+        },                    
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-prerequisites.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal",
+            "redirect_document_id": false
+        },                        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-getting-started.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal",
+            "redirect_document_id": false
+        },                            
+        {
+            "source_path": "articles/active-directory/active-directory-known-networks.md",
+            "redirect_url": "/azure/active-directory/active-directory-named-locations",
+            "redirect_document_id": false
+        },                                
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-getting-started.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        },                                    
+        {
+            "source_path": "articles/active-directory/active-directory-view-access-usage-reports.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        }                                        
 
     ]
 }
