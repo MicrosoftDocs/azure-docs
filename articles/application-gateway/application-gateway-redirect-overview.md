@@ -3,7 +3,7 @@ title: Redirect overview for Azure Application Gateway | Microsoft Docs
 description: Learn about the redirect capability in Azure Application Gateway
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: amsriva
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -13,32 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
-ms.author: gwallace
+ms.date: 07/18/2017
+ms.author: amsriva
 
 ---
 
 # Application Gateway redirect overview
 
-Application gateway supports the ability to redirect traffic based on a defined configuration. This capability supports the following scenarios:
+A common scenario for many web applications is to support automatic HTTP to HTTPS redirection to ensure all communication between application and its users occurs over an encrypted path. In the past, customers have used techniques such as creating a dedicated backend pool whose sole purpose is to redirect requests it receives on HTTP to HTTPS.  Application gateway now supports ability to redirect traffic on the Application Gateway. This simplifies application configuration, optimizes the resource usage, and supports new redirection scenarios including global and path-based redirection. Application Gateway redirection support is not limited to HTTP -> HTTPS redirection alone. This is a generic redirection mechanism, which allows for redirection of traffic received at one listener to another listener on Application Gateway. It also supports redirection to an external site as well. Application Gateway redirection support offers the following capabilities:
 
-1. Redirect HTTP requests to an HTTPS listener
-2. Redirect requests to a fixed url
-3. Redirect requests under a given path
+1. Global redirection from one listener to another listener on the Gateway. This enables HTTP to HTTPS redirection on a site.
+2. Path-based redirection. This type of redirection enables HTTP to HTTPS redirection only on a specific site area, for example a shopping cart area denoted by /cart/*.
+3. Redirect to external site.
 
-Redirects are configured on the rules defined on the application gateway. When using a basic rule the redirect configuration is associated with a listener.  When a path based rule is used, the redirect configuration is defined on the URL path map.
-
-## HTTP status codes supported
-
-Application gateway supports multiple status codes that are returned when redirecting traffic. The following table shows the current status codes that are configurable through application gateway when created redirects.
-
-|Type  |Code  |Description  |
-|---------|---------|---------|
-|**Permanent**     | 301        | The requested resource has moved permanently and the client should use the returned URI.       |
-|**Found**    | 302        | The requested resource has temporarily moved and the client should continue to use the current URI.         |
-|**See Other**     | 303        | The response to the request is found at a different URI and should be retrieved using a GET method.       |
-|**Temporary**    | 307        | The requested resource has temporarily moved and the client should continue to use the current URI.        |
+With this change, customers would need to create a new redirect configuration object, which specifies the target listener or external site to which redirection is desired. The configuration element also supports options to enable appending the URI path and query string to the redirected URL. Customers could also choose whether redirection is a temporary (HTTP status code 302) or a permanent redirect (HTTP status code 301). Once created this redirect configuration is attached to the source listener via a new rule. When using a basic rule, the redirect configuration is associated with a source listener and is a global redirect. When a path-based rule is used, the redirect configuration is defined on the URL path map and hence only applies to the specific path area of a site.
 
 ## Next steps
 
-Configure URL redirection on an application gateway
+[Configure URL redirection on an application gateway](application-gateway-configure-redirect-powershell.md)
