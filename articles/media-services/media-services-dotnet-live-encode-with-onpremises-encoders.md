@@ -56,7 +56,6 @@ The following code example demonstrates how to achieve the following tasks:
 * Create a locator needed to access the program
 * Create and start a StreamingEndpoint
 * Update the streaming endpoint
-* Get locators for all your streaming endpoints
 * Shut down resources
 
 >[!IMPORTANT]
