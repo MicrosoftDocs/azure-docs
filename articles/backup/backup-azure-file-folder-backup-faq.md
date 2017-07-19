@@ -59,6 +59,15 @@ Absolutely. Azure Backup provides VM-level backup for Azure VMs using the VM ext
 ### Can I install the Azure Backup agent on an Azure VM to back up files and folders present on temporary storage provided by the Azure VM? <br/>
 Yes. Install the Azure Backup agent on the guest Windows OS, and back up files and folders to temporary storage. Backup jobs fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
+### What's the minimum size requirement for the cache folder? <br/>
+The size of the cache folder determines the amount of data that you are backing up. Your cache folder should be 5% of the space required for data storage.
+
+### How do I register my server to another datacenter?<br/>
+Backup data is sent to the datacenter of the vault to which it is registered. The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new vault that belongs to desired datacenter.
+
+### Does the Azure Backup agent work on a server that uses Windows Server 2012 deduplication? <br/>
+Yes. The agent service converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the online backup service.
+
 ## Backup
 ### How do I change the cache location specified for the Azure Backup agent?<br/>
 Use the following list to change the cache location.
@@ -98,6 +107,9 @@ The following attributes or their combinations are not supported for the cache f
 
 The cache folder and the metadata VHD do not have the necessary attributes for the Azure Backup agent.
 
+### Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
+  Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. You can adjust the amount of bandwidth and the times when you use that bandwidth. For step-by-step instructions, see **[Enable network throttling](backup-configure-vault.md#enable-network-throttling)**.
+
 ## Manage backups
 ### What happens if I rename a Windows server that is backing up data to Azure?<br/>
 When you rename a server, all currently configured backups are stopped.
@@ -108,6 +120,9 @@ Azure Backup agent relies on NTFS. The [filepath length specification is limited
 
 ### What characters are allowed in file path of Azure Backup policy using Azure Backup agent? <br>
  Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification. 
+ 
+### I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
+This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
 
 
 
