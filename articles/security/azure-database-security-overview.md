@@ -1,6 +1,6 @@
 ---
 
-title: Azure database security overview | Microsoft Docs
+title: Azure database security overview| Microsoft Docs
 description: This article provides an overview of the Azure database security features.
 services: security
 documentationcenter: na
