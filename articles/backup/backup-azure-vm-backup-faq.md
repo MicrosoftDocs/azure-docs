@@ -39,7 +39,7 @@ In Configure backup wizard, Azure Backup only lists VMs which are:
 No. You need to specify the retention range for an on-demand backup job. By default, it will be retained for 30 days when triggered from portal. 
 
 ### I recently enabled Azure Disk Encryption on some VMs. Will my backups continue to work?
-You need to give permissions for Azure Backup service to access Key Vault. You can provide these permissions in PowerShell using steps mentioned in *Enable Backup* section of [PowerShell](backup-azure-vms-automation) documentation.
+You need to give permissions for Azure Backup service to access Key Vault. You can provide these permissions in PowerShell using steps mentioned in *Enable Backup* section of [PowerShell](backup-azure-vms-automation.md) documentation.
 
 ### I migrated disks of a VM to managed disks. Will my backups continue to work?
 Yes, backups work seamlessly and no need to re-configure backup. 
