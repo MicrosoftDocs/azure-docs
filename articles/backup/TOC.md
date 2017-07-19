@@ -78,8 +78,6 @@
 ### [FAQ on Recovery Services vault]
 ### [FAQ on Azure VM backup]
 ### [FAQ on file-folder backup using Azure Backup agent]
-### [FAQ on Azure Backup Server]
-### [FAQ on Data Protection Manager]
 
 ## Troubleshoot
 ### [Azure VM backup problems in Azure portal](backup-azure-vms-troubleshoot.md)
