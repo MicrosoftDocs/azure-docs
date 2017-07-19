@@ -67,7 +67,7 @@ Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       6.45 MB
+aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       64.1 MB
 ```
 
 ## Run the container locally
@@ -79,6 +79,8 @@ docker run -d -p 8080:80 aci-tutorial-app
 ```
 
 Open the browser to http://localhost:8080 to confirm that the container is running.
+
+![Running the app locally in the browser][aci-tutorial-app-local]
 
 ## Next steps
 
@@ -96,3 +98,4 @@ Advance to the next tutorial to learn about storing container images in an Azure
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
+[aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
