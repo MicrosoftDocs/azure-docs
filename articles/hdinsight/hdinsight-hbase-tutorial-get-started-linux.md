@@ -79,13 +79,13 @@ In HBase (an implementation of BigTable), the same data looks like:
 
 2. Create an HBase with two-column families:
 
-    ```hbase shell   
+    ```hbaseshell   
     create 'Contacts', 'Personal', 'Office'
     list
     ```
 3. Insert some data:
     
-    ```hbase shell   
+    ```hbaseshell   
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
     put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
     put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
@@ -96,7 +96,7 @@ In HBase (an implementation of BigTable), the same data looks like:
     ![HDInsight Hadoop HBase shell][img-hbase-shell]
 4. Get a single row
    
-    ```hbase shell
+    ```hbaseshell
     get 'Contacts', '1000'
     ```
    
@@ -105,7 +105,7 @@ In HBase (an implementation of BigTable), the same data looks like:
     For more information about the HBase table schema, see [Introduction to HBase Schema Design][hbase-schema]. For more HBase commands, see [Apache HBase reference guide][hbase-quick-start].
 5. Exit the shell
    
-    ```hbase shell
+    ```hbaseshell
     exit
     ```
 
@@ -171,7 +171,7 @@ You can query data in HBase tables by using Hive. In this section, you create a 
 4. Run the following HiveQL script to query the data in the HBase table:
 
     ```hiveql   
-            SELECT count(rowkey) FROM hbasecontacts;
+    SELECT count(rowkey) FROM hbasecontacts;
     ```
 
 ## Use HBase REST APIs using Curl
