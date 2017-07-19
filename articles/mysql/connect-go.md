@@ -37,6 +37,7 @@ Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](h
    set GOPATH=%cd%
    go get github.com/go-sql-driver/mysql
    ```
+
 ### Linux (Ubuntu)
 1. Launch Bash and install Go by running `sudo apt-get install golang-go`.
 2. Make a folder for your project such as `mkdir /home/user/go/mysqlgo/`.
@@ -51,7 +52,6 @@ Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](h
    export GOPATH=PWD
    go get github.com/go-sql-driver/mysql
    ```
-
 
 ### MacOS
 1. Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform. 
