@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # Setting up on-premises conditional access by using Azure Active Directory device registration

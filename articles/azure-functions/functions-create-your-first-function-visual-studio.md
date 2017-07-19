@@ -19,9 +19,12 @@ ms.date: 07/05/2017
 ms.author: rachelap, glenga
 
 ---
-# Create your first function using Visual Studio 
+# Create your first function using Visual Studio
 
-Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application. 
+Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application.
+
+> [!IMPORTANT]
+> This topic uses a Preview Version of Visual Studio in order to complete it's steps. Please ensure that you have installed [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/) before preceeding.
 
 In this topic, you learn how to use the Azure Function Tools for Visual Studio 2017 to create and test a "hello world" function locally. You will then publish the function code to Azure.
 
@@ -32,7 +35,7 @@ In this topic, you learn how to use the Azure Function Tools for Visual Studio 2
 To complete this tutorial, install:
 
 * [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
