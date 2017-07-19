@@ -38,18 +38,18 @@ In this tutorial, you learn how to:
 6. Create an [Azure subscription][link-azure-subscription] and a [Visual Studio Team Services account][link-vsts-account]. 
 7. [Create a cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 
+## Containerize the application
+
+Now that you have a [Service Fabric cluster is running in Azure](service-fabric-tutorial-create-cluster-azure-ps.md) you are ready to create and deploy a containerized application. To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _Dockerfile_ is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. The new project contains a few docker-compose files. Docker-compose files can be used to describe how the container is run.
+
+More info on working with [Visual Studio Container Tools][link-visualstudio-container-tools].
+
 >[!NOTE]
 >If it is the first time you are running Windows container images on your computer, Docker CE must pull down the base images for your containers. The images used in this tutorial are 14 GB. Go ahead and run the following terminal command to pull the base images:
 >```cmd
 >docker pull microsoft/mssql-server-windows-developer
 >docker pull microsoft/aspnet:4.6.2
 >```
-
-## Containerize the application
-
-Now that you have a [Service Fabric cluster is running in Azure](service-fabric-tutorial-create-cluster-azure-ps.md) you are ready to create and deploy a containerized application. To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _Dockerfile_ is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. The new project contains a few docker-compose files. Docker-compose files can be used to describe how the container is run.
-
-More info on working with [Visual Studio Container Tools][link-visualstudio-container-tools].
 
 ### Add Docker support
 
