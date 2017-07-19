@@ -24,7 +24,7 @@ Live streaming media is especially difficult to deliver because of the large siz
 
 The request patterns of streaming also provide some new challenges. When a popular live stream or a new series is released for video on demand, thousands to millions of viewers might request the stream at the same time. In this case, smart request consolidation is vital to not overwhelm the origin servers when the assets aren't cached yet.
  
-The Azure Content Delivery Network from Akamai now offers a feature that delivers streaming media assets efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the Standard Akamai pricing tier. 
+The Azure Content Delivery Network (CDN) from Akamai now offers a feature that delivers streaming media assets efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the Standard Akamai pricing tier. 
 
 The Azure Content Delivery Network from Verizon delivers streaming media directly in the general web delivery optimization type.
  
