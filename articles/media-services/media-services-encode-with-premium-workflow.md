@@ -97,7 +97,6 @@ The following steps are performed:
                 private static readonly string _singleMP4InputFilePath =
                     Path.GetFullPath(_supportFiles + @"\BigBuckBunny.mp4");
 
-
                 static void Main(string[] args)
                 {
                     var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
