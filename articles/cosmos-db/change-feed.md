@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 07/19/2017
 ms.author: arramac
 
 ---
@@ -328,71 +328,188 @@ You can also filter the change feed using client side logic to selectively proce
         // trigger an action, like call an API
     }
 
-## <a id="change-feed-processor"></a>Change feed processor library
-The [Azure Cosmos DB change feed processor library](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor) can be used to distribute event processing from the change feed across multiple consumers. You should use this implementation when building change feed readers on the .NET platform. The `ChangeFeedProcessorHost` class provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.
+## <a id="change-feed-processor"></a>Cosmos DB Change Feed Processor Library
+The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) can help you easily distribute event processing from the change feed across multiple consumers . The library is great for building change feed readers on the .NET platform. Some workflows that would be simplified by using this library include: 
+*Pulling updates from change feed when data is stored across multiple partitions
+*Moving or replicating data from one collection to another
+*Parallel execution of actions triggered by updates to data and change feed 
 
-To use the [`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs) class, you can implement [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs). This interface contains three methods:
+While using the change feed SDK provides precise access to change feed updates in each partition, using the Change Feed Processor simplifies reading changes across partitions and multiple threads working in parallel. Instead of manually reading changes from each container and saving a continuation token for each partition, the change feed processor automatically manages reading changes across partitions using a lease mechanism.
+The library is available as a NuGet Package: [Microsoft.Azure.Documents.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) and from source code as a Github [sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor). 
 
-* OpenAsync
-* CloseAsync
-* ProcessEventsAsync
+### Understanding Change Feed Processor Library 
 
-To start event processing, instantiate ChangeFeedProcessorHost, providing the appropriate parameters for your Azure Cosmos DB collection. Then, call `RegisterObserverAsync` to register your `IChangeFeedObserver` implementation with the runtime. At this point, the host will attempt to acquire a lease on every partition key range in the Azure Cosmos DB collection using a "greedy" algorithm. These leases will last for a given timeframe and must then be renewed. As new nodes, worker instances in this case, come online, they place lease reservations and over time the load shifts between nodes as each attempts to acquire more leases.
+There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and consumers. Here, in a document schema, we use container and collection interchangeably. In other schemas, “container” is the more accurate terminology. 
 
-![Using the Azure Cosmos DB change feed processor host](./media/change-feed/changefeedprocessor.png)
+**Monitored Collection**
+The monitored container is the data from which the change feed is generated. Any inserts and changes to the monitored container will be reflected in the change feed of the container. 
 
-Over time, an equilibrium is established. This dynamic capability enables CPU-based autoscaling to be applied to consumers for both scale-up and scale-down. If changes are available in Azure Cosmos DB at a faster rate than consumers can process, the CPU increase on consumers can be used to cause an auto-scale on worker instance count.
+**Lease Collection**
+The lease container coordinates processing the change feed across multiple workers. A separate container is used to store the leases with one lease per partition. It is advantageous to store this lease container on a different account with the write region closer to where the Change Feed Processor is running. A lease object contains the following attributes: 
+* Owner: specifies the host that owns the lease
+* Continuation: specifies position (continuation token) in change feed for a particular partition
+* Timestamp: last time lease was updated; this can be used to check whether the lease is considered expired 
 
-The `ChangeFeedProcessorHost` class also implements an checkpointing mechanism using a separate Azure Cosmos DB leases collection. This mechanism stores the offset on a per-partition basis, so that each consumer can determine what the last checkpoint from the previous consumer was. As partitions transition between nodes via leases, this is the synchronization mechanism that facilitates load shifting.
+**Processor Host**
+Each host determines how many partitions are its own to process based on how many other instances of hosts have active leases. 
+1.	When a host starts up, it acquires leases to balance workload across all hosts. A host periodically renews leases, so leases remain active. 
+2.	A host checkpoints last continuation token to its lease for each read. To ensure concurrency safety, a host checks the ETag for each lease update . Other checkpoint strategies are also supported.  
+3.	Upon shut down, a host releases all leases but keeps continuation information, so it can resume reading from stored checkpoint later. 
 
+**Consumers**
+Consumers, or workers, are threads which perform change feed processing initiated by each host. Each Processor Host can have multiple consumers . Each consumer reads change feed from the partition it is assigned to and notifies its host of changes and expired leases.
 
-Here's a code snippet for a simple change feed processor host that prints changes to the console:
+To further understand how these four elements of Change Feed Processor work together, let’s look at an example in the diagram below. The monitored collection stores documents with “city” as the partition key. We see that the blue partition contains documents with the “city” field from “A-E” and so on. There are two hosts, each with 2 consumers reading from the 4 partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already read changes on the change feed. The hosts use the lease collection to store a “continuation” value to keep track of the current reading position for each consumer. 
 
-```cs
-    class DocumentFeedObserver : IChangeFeedObserver
-    {
-        private static int s_totalDocs = 0;
-        public Task OpenAsync(ChangeFeedObserverContext context)
-        {
-            Console.WriteLine("Worker opened, {0}", context.PartitionKeyRangeId);
-            return Task.CompletedTask;  // Requires targeting .NET 4.6+.
-        }
-        public Task CloseAsync(ChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
-        {
-            Console.WriteLine("Worker closed, {0}", context.PartitionKeyRangeId);
-            return Task.CompletedTask;
-        }
-        public Task ProcessEventsAsync(IReadOnlyList<Document> docs, ChangeFeedObserverContext context)
-        {
-            Console.WriteLine("Change feed: total {0} doc(s)", Interlocked.Add(ref s_totalDocs, docs.Count));
-            return Task.CompletedTask;
-        }
-    }
+![Using the Azure Cosmos DB change feed processor host](./media/change-feed/changefeedprocessornew.png)
+
+### Using Change Feed Processor Library 
+The following section will use building a data movement tool from a source collection to a destination collection as an example to explain how to use the Change Feed Processor Library. 
+
+**Install and include the Change Feed Processor NuGet package** 
+Before installing Change Feed Processor NuGet Package, first install: 
+*Microsoft.Azure.DocumentDB, version 1.13.1 or above 
+*Newtonsoft.Json, version 9.0.1 or above
+Install `Microsoft.Azure.DocumentDB.ChangeFeedProcessor` and include it as a reference.
+
+**Create a lease and destination collection** 
+In order to use the Change Feed Processor Library, the lease collection needs to be created before running the processor host(s). Again, we recommend storing a lease collection on a different account with a write region closer to where the Change Feed Processor is running. In this data movement example, the destination collection must also be created before running the Change Feed Processor host. In the sample code: we call a helper method to create the monitored, lease and destination collections if they do not already exist. 
+
+> [!WARNING]
+> Creating a collection has pricing implications, as you are reserving throughput for the application to communicate with Azure Cosmos DB. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> 
+> 
+
+*Part 1: Creating a Processor Host*
+The `ChangeFeedProcessorHost` class provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management. To use the `ChangeFeedProcessorHost` class, you can implement `IChangeFeedObserver`. This interface contains three methods:
+
+*`OpenAsync`: This function is called when change feed observer is opened. It can be modified to perform a specific action when consumer/observer is opened.  
+*`CloseAsync`: This function is called when change feed observer is terminated. It can be modified to perform a specific action when consumer/observer is closed.  
+*`ProcessChangesAsync`: This function is called when document new changes are available on change feed. It can be modified to perform a specific action upon every change feed update.  
+
+In our example, we implement the interface `IChangeFeedObserver` through the `DocumentFeedObserver` class. Here, the `ProcessChangesAsync` function upserts (updates) a document from change feed into the destination collection . This is useful for moving data from one collection to another in order to change the partition key of a data set. 
+
+*Part 2: Run Processor Host*
+Before beginning event processing, both change feed options and change feed host options can be customized. 
+
+**Change Feed Options**:
+<table>
+	<tr>
+		<th>Property Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>MaxItemCount</td>
+		<td>Gets or sets the maximum number of items to be returned in the enumeration operation in the Azure Cosmos DB database service.</td>
+	</tr>
+	<tr>
+		<td>PartitionKeyRangeId</td>
+		<td>Gets or sets the partition key range id for the current request in the Azure Cosmos DB database service.</td>
+	</tr>
+	<tr>
+		<td>RequestContinuation</td>
+		<td>Gets or sets the request continuation token in the Azure Cosmos DB database service.</td>
+	</tr>
+		<tr>
+		<td>SessionToken</td>
+		<td>Gets or sets the session token for use with session consistency in the Azure Cosmos DB database service.</td>
+	</tr>
+		<tr>
+		<td>StartFromBeginning</td>
+		<td>Gets or sets whether change feed in the Azure Cosmos DB database service should start from the beginning (true) or from current (false). By default, it starts from current (false).</td>
+	</tr>
+</table>
+
+**Change Feed Host Options**:
+<table>
+	<tr>
+		<th>Property Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>LeaseRenewInterval</td>
+		<td>TimeSpan</td>
+		<td>The interval for all leases for partitions currently held by ChangeFeedEventHost instance.</td>
+	</tr>
+	<tr>
+		<td>LeaseAcquireInterval</td>
+		<td>TimeSpan</td>
+		<td>The interval to kick off a task to compute if partitions are distributed evenly among known host instances.</td>
+	</tr>
+	<tr>
+		<td>LeaseExpirationInterval</td>
+		<td>TimeSpan</td>
+		<td>The interval for which the lease is taken on a lease representing a partition. If the lease is not renewed within this interval, it will cause it to expire and ownership of the partition will move to another ChangeFeedEventHost instance.</td>
+	</tr>
+	<tr>
+		<td>FeedPollDelay</td>
+		<td>TimeSpan</td>
+		<td>The delay in between polling a partition for new changes on the feed, after all current changes are drained.</td>
+	</tr>
+	<tr>
+		<td>CheckpointFrequency</td>
+		<td>CheckpointFrequency</td>
+		<td>The frequency to checkpoint leases.</td>
+	</tr>
+	<tr>
+		<td>MinPartitionCount</td>
+		<td>Int</td>
+		<td>The minimum partition count for the host.</td>
+	</tr>
+	<tr>
+		<td>MaxPartitionCount</td>
+		<td>Int</td>
+		<td>The maximum number of partitions the host can serve.</td>
+	</tr>
+	<tr>
+		<td>DiscardExistingLeases</td>
+		<td>Bool</td>
+		<td>Whether on the start of the host all existing leases should be deleted and the host should start from scratch.</td>
+	</tr>
+</table>
+
+```csharp
+            // Customizable change feed option and host options 
+            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
+
+            // ie customize StartFromBeginning so change feed reads from beginning
+            // can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
+            feedOptions.StartFromBeginning = true;
+
+            ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
+
+            // ie. customizing lease renewal interval to 15 seconds
+            // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
+            feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+
 ```
+To start event processing, instantiate `ChangeFeedProcessorHost`, providing the appropriate parameters for your Azure Cosmos DB collection. Then, call `RegisterObserverAsync` to register your `IChangeFeedObserver` (Document Feed Observer in this example) implementation with the runtime. At this point, the host will attempt to acquire a lease on every partition key range in the Azure Cosmos DB collection using a "greedy" algorithm. These leases will last for a given timeframe and must then be renewed. As new nodes, worker instances, in this case, come online, they place lease reservations and over time the load shifts between nodes as each host attempts to acquire more leases. 
 
-The following code snippet shows how to register a new host to listen to changes from an Azure Cosmos DB collection. Here, we configure a separate collection to manage the leases to partitions across multiple consumers:
+In the sample code, we use a factory class (DocumentFeedObserverFactory.cs) to create an observer and the `RegistObserverFactoryAsync` to register the observer. 
 
-```cs
-    string hostName = Guid.NewGuid().ToString();
-    DocumentCollectionInfo documentCollectionLocation = new DocumentCollectionInfo
-    {
-        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
-        MasterKey = "YOUR_SECRET_KEY==",
-        DatabaseName = "db1",
-        CollectionName = "documents"
-    };
+```csharp
+		using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destCollInfo.MasterKey))
+					{
+						DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
 
-    DocumentCollectionInfo leaseCollectionLocation = new DocumentCollectionInfo
-    {
-        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
-        MasterKey = "YOUR_SECRET_KEY==",
-        DatabaseName = "db1",
-        CollectionName = "leases"
-    };
+						ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
 
-    ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation);
-    await host.RegisterObserverAsync<DocumentFeedObserver>();
+						await host.RegisterObserverFactoryAsync(docObserverFactory);
+
+						Console.WriteLine("Running... Press enter to stop.");
+						Console.ReadLine();
+
+						await host.UnregisterObserversAsync();
+					}
 ```
+Over time, an equilibrium is established. This dynamic capability enables CPU-based auto-scaling to be applied to consumers for both scale-up and scale-down. If changes are available in Azure Cosmos DB at a faster rate than consumers can process, the CPU increase on consumers can be used to cause an auto-scale on worker instance count.
+
+In this article, we provided a walkthrough of Azure Cosmos DB's change feed support, and how to track changes made to Azure Cosmos DB data using the REST API and/or SDKs.
+
+**Current Limitations**
+*The number of hosts cannot be greater than the number of partitions (leases)
+*Delete operations are not currently surfaced on change feed (coming soon)
 
 In this article, we provided a walkthrough of Azure Cosmos DB's change feed support, and how to track changes made to Azure Cosmos DB data using the REST API and/or SDKs. 
 
