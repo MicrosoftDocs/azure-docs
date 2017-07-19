@@ -19,9 +19,9 @@ ms.author: juliako
 ---
 # Use Azure Media Analytics to convert text content in video files into digital text
 ## Overview
-If you need to extract text content from your video files and generate an editable, searchable digital text, you should use Azure Media Analytics OCR (optical character recognition). This Azure Media Processor detects text content in you video files and generates text files for your use. OCR enables you to automate the extraction of meaningful metadata from the video signal of your media.
+If you need to extract text content from your video files and generate an editable, searchable digital text, you should use Azure Media Analytics OCR (optical character recognition). This Azure Media Processor detects text content in your video files and generates text files for your use. OCR enables you to automate the extraction of meaningful metadata from the video signal of your media.
 
-When used in conjunction with a search engine, you can easily index your media by text, and enhance the discoverability of your content. This is extremely useful in highly textual video, like a video recording or screen-capture of a slideshow presentation.The Azure OCR Media Processor is optimized for digital text.
+When used in conjunction with a search engine, you can easily index your media by text, and enhance the discoverability of your content. This is extremely useful in highly textual video, like a video recording or screen-capture of a slideshow presentation. The Azure OCR Media Processor is optimized for digital text.
 
 The **Azure Media OCR** media processor is currently in Preview.
 
@@ -114,7 +114,7 @@ The output contains the following attributes:
 | text |the actual text |
 
 ### JSON output example
-The following output example contains the general video information and several video fragments. In every video fragment, it contains every region which is detected by OCR MP with the language and the its text orientation. The region also contains every word line in this region with the line’s text, the line’s position, and every word information (word content, position and confidence) in this line. The following is an example, and I put some comments inline.
+The following output example contains the general video information and several video fragments. In every video fragment, it contains every region which is detected by OCR MP with the language and its text orientation. The region also contains every word line in this region with the line’s text, the line’s position, and every word information (word content, position and confidence) in this line. The following is an example, and I put some comments inline.
 
     {
         "version": 1, 
@@ -174,7 +174,7 @@ The following output example contains the general video information and several 
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Creates a job with a OCR configuration/preset file.
+2. Creates a job with an OCR configuration/preset file.
 3. Downloads the output JSON files. 
    
 #### Create and configure a Visual Studio project
