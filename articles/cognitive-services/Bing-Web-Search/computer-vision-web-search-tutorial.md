@@ -70,7 +70,7 @@ From here, search for and install the **Xamarin Media plugin** (Xam.Plugin.Media
 Press **Ctrl+Shift+B**, or click **Build** on the ribbon menu, then select **Build Solution**.  This builds the solution for all available platforms.  If you wish to compile and test code for iOS while using a windows machine, reference [this guide](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/") for help.
 
 ### Step 5: Configure your deployment
-Before running the application, you need to select a target Configuration, Platform, and Project.  Xamarin.Forms applications compile to native code for Windows, Android, and iOS.  This guide includes screenshots of the Windows version of the sample.  However, all versions are functionally equivalent.  
+Before running the application, you need to select a target Configuration, Platform, and Project.  Xamarin.Forms applications compile to native code for Windows, Android, and iOS.  This guide includes screenshots of the Windows version of the sample.  However, all versions are functionally equivalent.  The deployment settings used in this guide are shown below.
 ![An image showing Visual Studio configured to compile for an Android phone](./media/computer-vision-web-search-tutorial/ConfigurationSelection.PNG)
 
 ### Step 6: Run the app
