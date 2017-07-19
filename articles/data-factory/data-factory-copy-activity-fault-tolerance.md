@@ -18,16 +18,16 @@ ms.author: jingwang
 ---
 # Copy Activity Fault Tolerance - Skip Incompatible Rows
 
-With [Copy Activity](data-factory-data-movement-activities.md), you have different options to deal with incompatible rows when copying data between source and sink data stores. You can choose to either abort and fail the copy activity upon encountering the first incompatibility data (default behavior), or continue copying all the data by skipping those incompatible rows. Additionally, you also have the option to log the incompatible rows in Azure Blob so you can examine the cause for failure, fix the data on the data source and retry.
+With [Copy Activity](data-factory-data-movement-activities.md), you have different options to deal with incompatible rows when copying data between source and sink data stores. You can choose to either abort and fail the copy activity upon encountering incompatibile data (default behavior), or continue copying all the data by skipping those incompatible rows. Additionally, you also have the option to log the incompatible rows in Azure Blob so you can examine the cause for failure, fix the data on the data source and retry.
 
 ## Supported scenarios
 Currently, copy activity supports detecting, skipping and logging the following incompatible situation during copy:
 
 1. **Data type incompatibility between source and sink native types**
 
-    Example: to copy from CSV file in Azure Blob to Azure SQL Database, and the schema defined in Azure SQL Database has three columns all in *INT* type. Then the rows with numeric data (for example `123,456,789`) in source CSV file are copied successfully, while the rows containing non-numeric value (for example `123,456,abc`) are skipped as incompatible rows.
+    Example: to copy from CSV file in Azure Blob to Azure SQL Database, and the schema defined in Azure SQL Database has three *INT* type columns. Then the rows with numeric data (for example `123,456,789`) in source CSV file are copied successfully, while the rows containing non-numeric value (for example `123,456,abc`) are skipped as incompatible rows.
 
-2. **Number of columns mismatch between data source and sink**
+2. **Number of columns mismatch between source and sink**
 
     Example: to copy from CSV file in Azure Blob to Azure SQL Database, and the schema defined in SQL Azure has six columns. Then the rows containing six columns in source CSV file are copied successfully, while the rows with other number of columns are skipped as incompatible rows.
 
@@ -62,7 +62,7 @@ The following example provides JSON definition on how to configure skipping the 
 | path | The path of log file that contains all the rows being skipped. | Specify the Blob storage path that you want to log the incompatible data. If you do not provide a path, the service creates a container for you. | No |
 
 ## Monitoring
-After copy activity run completes, you can see the number of rows being skipped in the monitoring section as follows:
+After copy activity run completes, you can see the number of skipped rows in the monitoring section as follows:
 
 ![Skip incompatible rows monitoring](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
 
