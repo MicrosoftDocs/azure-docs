@@ -233,7 +233,6 @@ Set up your development environment and populate the app.config file with connec
 		    }
 		}
 
-
 		private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 		{
 		    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
