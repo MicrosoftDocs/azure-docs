@@ -37,26 +37,19 @@ It takes about 20 minutes to do these steps.
 
 1. If you haven't already done so, install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 2. Install [Maven](http://maven.apache.org/download.cgi).
-3. Create a new folder for the project.
+3. Create a new folder and the project:
     
     ```
     mkdir java-azure-test
     cd java-azure-test
+    
+    mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=testAzureApp  \ 
+      -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-4. Create the Maven project.
-
-   ```
-   mvn archetype:generate -DgroupId=com.myResourceGroup -DartifactId=createVM  \ 
-     -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-   ```
 
 ## Add dependencies
 
-To set the dependencies that you need in Maven, do these steps:
-
-1. Change the directory to *createVM*.
-
-2. Open the pom.xml file and add the build configuration to &lt;project&gt; to enable the building of your application:
+1. Under the `testAzureApp` folder, open the pom.xml file and add the build configuration to &lt;project&gt; to enable the building of your application:
 
     ```xml
     <build>
@@ -65,7 +58,7 @@ To set the dependencies that you need in Maven, do these steps:
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
             <configuration>
-                <mainClass>createVM.App</mainClass>
+                <mainClass>com.fabrikam.testAzureApp.AzureApp</mainClass>
             </configuration>
         </plugin>
       </plugins>
@@ -75,6 +68,11 @@ To set the dependencies that you need in Maven, do these steps:
 2. Add the dependencies that are needed to access the Azure Java SDK.
 
     ```xml
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure</artifactId>
+      <version>1.1.0</version>
+    </dependency>
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-mgmt-compute</artifactId>
@@ -89,6 +87,26 @@ To set the dependencies that you need in Maven, do these steps:
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-mgmt-network</artifactId>
       <version>1.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okio</groupId>
+      <artifactId>okio</artifactId>
+      <version>1.13.0</version>
+    </dependency>
+    <dependency> 
+      <groupId>com.nimbusds</groupId>
+      <artifactId>nimbus-jose-jwt</artifactId>
+      <version>3.6</version>
+    </dependency>
+    <dependency>
+      <groupId>net.minidev</groupId>
+      <artifactId>json-smart</artifactId>
+      <version>1.0.6.3</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.5</version>
     </dependency>
     ```
 
@@ -120,15 +138,23 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 ### Create the management client
 
-1. Open the App.java file that was created in the project, and then add these import statements to the top of the file:
+1. Create a new file in the project named `AzureApp.java` under `src\main\java\com\fabrikam` and make sure this package statement is at the top:
+
+    ```java
+    package com.fabrikam.testAzureApp;
+    ```
+
+2. Under the package statement, and these import statements :
    
     ```java
     import com.microsoft.azure.management.Azure;
     import com.microsoft.azure.management.compute.AvailabilitySet;
     import com.microsoft.azure.management.compute.AvailabilitySetSkuTypes;
+    import com.microsoft.azure.management.compute.CachingTypes;
     import com.microsoft.azure.management.compute.InstanceViewStatus;
     import com.microsoft.azure.management.compute.DiskInstanceView;
     import com.microsoft.azure.management.compute.VirtualMachine;
+    import com.microsoft.azure.management.compute.VirtualMachineSizeTypes;
     import com.microsoft.azure.management.network.PublicIPAddress;
     import com.microsoft.azure.management.network.Network;
     import com.microsoft.azure.management.network.NetworkInterface;
@@ -137,16 +163,23 @@ Before you start this step, make sure that you have access to an [Active Directo
     import com.microsoft.azure.management.resources.fluentcore.model.Creatable;
     import com.microsoft.rest.LogLevel;
     import java.io.File;
+    import java.util.Scanner;
     ```
 
-3. To create the Active Directory credentials that you need to make requests, add this code to the main method of the App class:
+2. To create the Active Directory credentials that you need to make requests, add this code to the main method of the AzureApp class:
    
-    ```java    
-    final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
-    Azure azure = Azure.configure()
-        .withLogLevel(LogLevel.BASIC)
-        .authenticate(credFile)
-        .withDefaultSubscription();
+    ```java
+    try {    
+        final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
+        Azure azure = Azure.configure()
+            .withLogLevel(LogLevel.BASIC)
+            .authenticate(credFile)
+            .withDefaultSubscription();
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+    }
+
     ```
 
 ## Create resources
@@ -155,7 +188,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
 
-To specify values for the application and create the resource group, add this code to the main method:
+To specify values for the application and create the resource group, add this code to the try block in the main method:
 
 ```java
 String groupName = "myResourceGroup";
@@ -173,7 +206,7 @@ ResourceGroup resourceGroup = azure.resourceGroups()
 
 [Availability sets](tutorial-availability-sets.md) make it easier for you to maintain the virtual machines used by your application.
 
-To create the availability set, add this code to the main method:
+To create the availability set, add this code to the try block in the main method:
 
 ```java
 System.out.println("Creating availability set...");
@@ -188,7 +221,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 
 A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
 
-To create the public IP address for the virtual machine, add this code to the main method:
+To create the public IP address for the virtual machine, add this code to the try block in the main method:
 
 ```java
 System.out.println("Creating public IP address...");
@@ -204,7 +237,7 @@ PublicIPAddress publicIPAddress = azure.publicIPAddresses()
 
 A virtual machine must be in a subnet of a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
-To create a subnet and a virtual network, add this code to the main method:
+To create a subnet and a virtual network, add this code to the try block in the main method:
 
 ```java
 System.out.println("Creating virtual network...");
@@ -221,7 +254,7 @@ Network network = azure.networks()
 
 A virtual machine needs a network interface to communicate on the virtual network.
 
-To create a network interface, add this code to the main method:
+To create a network interface, add this code to the try block in the main method:
 
 ```java
 System.out.println("Creating network interface...");
@@ -240,7 +273,7 @@ NetworkInterface networkInterface = azure.networkInterfaces()
 
 Now that you created all the supporting resources, you can create a virtual machine.
 
-To create the virtual machine, add this code to the main method:
+To create the virtual machine, add this code to the try block in the main method:
 
 ```java
 System.out.println("Creating virtual machine...");
@@ -293,7 +326,7 @@ During the lifecycle of a virtual machine, you may want to run management tasks 
 
 ### Get information about the VM
 
-To get information about the virtual machine, add this method to the Program class:
+To get information about the virtual machine, add this code to the try block in the main method:
 
 ```java
 VirtualMachine vm = azure.virtualMachines().getByResourceGroup(groupName, vmName);
@@ -354,7 +387,7 @@ input.nextLine();
 
 You can stop a virtual machine and keep all its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it. When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for it.
 
-To stop the virtual machine without deallocating it, add this code to the main method:
+To stop the virtual machine without deallocating it, add this code to the try block in the main method:
 
 ```java
 System.out.println("Stopping vm...");
@@ -371,7 +404,7 @@ vm.deallocate();
 
 ### Start the VM
 
-To start the virtual machine, add this code to the main method:
+To start the virtual machine, add this code to the try block in the main method:
 
 ```java
 System.out.println("Starting vm...");
@@ -384,7 +417,7 @@ input.nextLine();
 
 Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](sizes.md).  
 
-To change size of the virtual machine, add this code to the main method:
+To change size of the virtual machine, add this code to the try block in the main method:
 
 ```java
 System.out.println("Resizing vm...");
@@ -397,14 +430,14 @@ input.nextLine();
 
 ### Add a data disk to the VM
 
-To add a data disk to the virtual machine that is 2 GB in size, has a LUN of 0, and a caching type of ReadWrite, add this code to the main method:
+To add a data disk to the virtual machine that is 2 GB in size, has a LUN of 0, and a caching type of ReadWrite, add this code to the try block in the main method:
 
 ```java
 System.out.println("Adding data disk...");
 vm.update()
     .withNewDataDisk(2, 0, CachingTypes.READ_WRITE)
     .apply();
-System.out.println("Press enter to continue...");
+System.out.println("Press enter to delete resources...");
 input.nextLine();
 ```
 
@@ -412,14 +445,14 @@ input.nextLine();
 
 Because you are charged for resources used in Azure, it is always good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
-To delete the resource group, add this code to the main method:
+To delete the resource group, add this code to the try block in the main method:
    
 ```java
 System.out.println("Deleting resources...");
 azure.resourceGroups().deleteByName(groupName);
 ```
 
-4. Save the App.java file.
+4. Save the AzureApp.java file.
 
 ## Run the application
 
