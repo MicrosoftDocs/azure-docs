@@ -52,9 +52,8 @@ Use restore disks to:
 * Add VM to availability set
 * You have any configuration which can be achieved only using PowerShell/a declarative template definition
 
-
-###
-
 ## Manage VM backups
+### What happens when I change a backup policy on VM(s)?
+When a new policy is applied on VM(s), scheudle and retention of the new policy will be followed. If retention is extended, existing recovery points will be marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and will be deleted. 
 
-## Monitor VM backups 
+
