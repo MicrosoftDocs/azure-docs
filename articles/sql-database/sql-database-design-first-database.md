@@ -37,7 +37,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
+To complete this tutorial, make sure you have installed:
+- The newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
+- The newest version of [BCP and SQLCMD][https://www.microsoft.com/download/details.aspx?id=36433].
 
 ## Log in to the Azure portal
 
@@ -105,7 +107,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
    > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
    > 
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
@@ -125,7 +127,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
 
-## Get connection information in the Azure portal
+## SQL server connection information in the Azure portal
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
@@ -133,7 +135,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-   ![connection information](./media/sql-database-get-started-portal/server-name.png)
+   ![connection information](./media/sql-database-connect-query-dotnet/server-name.png)
 
 ## Connect to the database with SSMS
 

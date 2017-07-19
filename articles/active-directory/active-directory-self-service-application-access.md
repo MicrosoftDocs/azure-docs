@@ -3,7 +3,7 @@ title: Self-service application access and delegated management with Azure Activ
 description: This article describes how to enable self-service application access and delegated management with Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: asmalser
+ms.date: 07/13/2017
+ms.author: curtand
 
 ---
 # Self-service application access and delegated management with Azure Active Directory
 Enabling self-service capabilities for end users is a common scenario for enterprise IT. Lots of users, lots of applications, and the person who is best-informed to make access grant decisions may not be the directory administrator. Often the best person to decide who can access an application is a team lead or other delegated administrator. But at the end of the day, it’s the user who uses the app, and the user knows what they need to be able to do their job.
 
-Self-service application access is a feature of [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) that allow directory administrators to:
+Self-service application access is a feature of [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) P1 and P2 licensing that allow directory administrators to:
 
-* Enable users to request access to applications using a “Get more applications” tile in the [Azure AD access panel](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Enable users to request access to applications using a “Get more applications” tile in the [Azure AD Access Panel](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Set which applications users can request access to
 * Set whether or not an approval is required for users to be able to self-assign access to an application
 * Set who should approve the requests and manage access for each application

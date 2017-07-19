@@ -2,7 +2,7 @@
 title: Get started with Azure Monitor | Microsoft Docs
 description: Get started using Azure Monitor to gain insight into the operation of your resources and take action based off of data.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

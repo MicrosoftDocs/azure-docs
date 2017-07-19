@@ -52,8 +52,8 @@ To install the Azure Storage Client Library for C++, you can use the following m
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:  
 
 ```cpp
-include <was/storage_account.h>
-include <was/blob.h>
+#include <was/storage_account.h>
+#include <was/blob.h>
 ```
 
 ## Setup an Azure storage connection string

@@ -34,7 +34,7 @@ In this document, you learn how to use the Ambari Web UI with an HDInsight clust
 The Ambari Web UI is provided by default with HDInsight clusters that use the Linux operating system.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## Connectivity
 

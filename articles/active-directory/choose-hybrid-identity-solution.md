@@ -4,7 +4,9 @@ description: Get a basic understanding of the available hybrid identity solution
 keywords:
 author: jeffgilb
 manager: femila
-ms.date: 6/30/2017
+ms.reviewer: jsnow
+ms.author: jeffgilb
+ms.date: 7/5/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -15,7 +17,6 @@ ms.assetid:
 #ROBOTS:
 #audience:
 #ms.devlang:
-ms.reviewer: jsnow
 #ms.suite:
 #ms.tgt_pltfrm:
 ms.custom: it-pro
@@ -94,6 +95,8 @@ Here are some common hybrid identity and access management scenarios with recomm
 
 
 ## Next steps
+[Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
+
 [Install Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 [Monitor hybrid identity synchronization](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)

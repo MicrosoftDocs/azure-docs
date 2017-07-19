@@ -57,7 +57,7 @@ The outbound traffic is sent to the Application Proxy service and to the publish
 
 As a result of having only outbound traffic, there is no need to set up load balancing between the connectors or configure inbound access through your firewalls.
 
-For information about configuring outbound firewall rules, see [Work with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md).
+For information about configuring outbound firewall rules, see [Work with existing on-premises Proxy servers](application-proxy-working-with-proxy-servers.md).
 
 Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 

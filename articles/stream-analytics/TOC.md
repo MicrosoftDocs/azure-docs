@@ -28,7 +28,7 @@
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Output to DocumentDB](stream-analytics-documentdb-output.md)
 
-## Monitor &amp; optimize
+## Monitor & optimize
 ### [Add alerts](stream-analytics-set-up-alerts.md)
 ### [Monitor jobs](stream-analytics-monitoring.md)
 ### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)

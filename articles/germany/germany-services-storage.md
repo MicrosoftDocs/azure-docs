@@ -66,7 +66,7 @@ For more information on APIs, see [Cloud Storage Account Constructor](https://ms
 The endpoint suffix to use in these overloads is *core.cloudapi.de*.
 
 > [!NOTE]
-> If error 53 ("The network path was not found") is returned while you're [mounting the file share](../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share), a firewall might be blocking the outbound port. Try mounting the file share on a virtual machine that's in the same Azure subscription as storage account.
+> If error 53 ("The network path was not found") is returned while you're [mounting the file share](../storage/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on a virtual machine that's in the same Azure subscription as storage account.
 >
 >
 

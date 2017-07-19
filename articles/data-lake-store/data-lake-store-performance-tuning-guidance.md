@@ -47,11 +47,11 @@ Once you have addressed the source hardware and network connectivity bottlenecks
 
 | Tool               | Settings		| More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](data-lake-store-get-started-powershell.md)	|
-| AdlCopy    | Azure Data Lake Analytics units	|	[Link](data-lake-store-copy-data-azure-storage-blob.md)         |
-| DistCp            | -m (mapper)	| [Link](data-lake-store-copy-data-wasb-distcp.md)                             |
-| Azure Data Factory| parallelCopies	| [Link](../data-factory/data-factory-azure-datalake-connector.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](data-lake-store-data-transfer-sql-sqoop.md)        |
+| Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)	|
+| AdlCopy    | Azure Data Lake Analytics units	|	[Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper)	| [Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies	| [Link](../data-factory/data-factory-copy-activity-performance.md)                          |
+| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## Structure your data set
 
@@ -118,7 +118,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 ![Data Lake Store performance](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
-NOTE: Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It’s common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
+Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It’s common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
 
 **Increase cores per YARN container.**  Increase the number of cores allocated to each container to increase the number of parallel tasks that run in each container.  This works for applications like Spark which run multiple tasks per container.  For applications like Hive which run a single thread in each container, it is better to have more containers rather than more cores per container.   
 
@@ -135,7 +135,7 @@ In addition to the general guidelines above, each application has different para
 | Workload               | Parameter to set tasks                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
 | [Spark on HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
-| [Hive on HDInsight](data-lake-store-performance-tuning-hive.md)    | hive.tez.container.size         |
+| [Hive on HDInsight](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
 | [MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm on HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
 
