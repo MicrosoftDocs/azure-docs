@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/19/2017
 ms.author: billmath
 ---
 
@@ -22,7 +22,7 @@ In this article, we address frequently asked questions about Azure Active Direct
 
 ## What sign-in methods do Seamless SSO work with?
 
-Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods, but not with Active Directory Federation Services (ADFS).
+Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods. However this feature cannot be used with Active Directory Federation Services (ADFS).
 
 ## Is Seamless SSO a free feature?
 
@@ -40,12 +40,12 @@ Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azu
 
 Yes, this scenario needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
-## How can I rollover the Kerberos decryption key of the `AZUREADSSOACCT` computer account?
+## How can I roll over the Kerberos decryption key of the `AZUREADSSOACCT` computer account?
 
-It is important to frequently rollover the Kerberos decryption key of the `AZUREADSSOACCT` computer account (which represents Azure AD) created in your on-premises AD forest.
+It is important to frequently roll over the Kerberos decryption key of the `AZUREADSSOACCT` computer account (which represents Azure AD) created in your on-premises AD forest.
 
 >[!IMPORTANT]
->We highly recommend that you rollover the Kerberos decryption key at least every 30 days.
+>We highly recommend that you roll over the Kerberos decryption key at least every 30 days.
 
 The steps that you need are as follows:
 
@@ -58,11 +58,11 @@ The steps that you need are as follows:
   - Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 2. Update the Kerberos decryption key on each AD forest that it was set it up on
 - Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
-- Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACCT` computer account in this specific AD forest and correspondly updates it in Azure AD.
+- Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACCT` computer account in this specific AD forest and updates it in Azure AD.
 - Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
 >[!IMPORTANT]
->Ensure that you don't run the `Update-AzureADSSOForest` command more than once. This invalidates _all_ existing Kerberos tickets for _all_ users and the Seamless SSO feature will stop working for them for up to 12 hours (or the validity time period of Kerberos tickets specified in your Active Directory configuration).
+>Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working till the time your Kerberos tickets expire and are re-issued by your on-premises Active Directory - this can be upto 12 hours.
 
 ## How can I disable Seamless SSO?
 
