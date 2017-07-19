@@ -291,7 +291,7 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
 ```
 
 ## Deploy the container application
-To publish your application, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
+Save all your changes and build the application. To publish your application, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
 
 In **Connection Endpoint**, enter the management endpoint for the cluster.  For example, "containercluster.westus2.cloudapp.azure.com:19000". You can find the client connection endpoint in the Overview blade for your cluster in the [Azure portal](https://portal.azure.com).
 
