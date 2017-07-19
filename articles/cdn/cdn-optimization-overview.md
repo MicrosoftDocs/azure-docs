@@ -18,14 +18,14 @@ ms.author: v-semcev
 ---
 # Optimize Azure content delivery for your scenario
 
-When you deliver content to a large global audience, it's critical to ensure the optimized delivery of your content. The Azure Content Delivery Network can optimize the delivery experience based on the type of content you have. Content can be a website, a live stream, a video, or a large file for download. When you create a content delivery network endpoint, you specify a scenario in the **Optimized for** option. Your choice determines which optimization is applied to the content delivered from the content delivery network endpoint.
+When you deliver content to a large global audience, it's critical to ensure the optimized delivery of your content. The Azure Content Delivery Network can optimize the delivery experience based on the type of content you have. Content can be a website, a live stream, a video, or a large file for download. When you create a CDN endpoint, you specify a scenario in the **Optimized for** option. Your choice determines which optimization is applied to the content delivered from the CDN endpoint.
 
 Optimization choices are designed to use best-practice behaviors to improve content delivery performance and better origin offload. Your scenario choices affect performance by modifying configurations for partial caching, object chunking, and the origin failure retry policy. 
 
 This article provides an overview of various optimization features and when you should use them. For more information on features and limitations, see the respective articles on each individual optimization type.
 
 > [!NOTE]
-> Your **Optimized for** options can vary based on the provider you select. Content delivery network providers apply enhancement in different ways, depending on the scenario. 
+> Your **Optimized for** options can vary based on the provider you select. CDN providers apply enhancement in different ways, depending on the scenario. 
 
 ## Provider options
 
@@ -47,31 +47,19 @@ We highly recommend that you test performance variations between different provi
 
 ## Select and configure optimization types
 
-To create a new endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. **General web delivery** is the default selection. You can update the optimization option for any existing Akamai endpoint at any time. This change doesn't interrupt delivery from the content delivery network. 
+To create a new endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. **General web delivery** is the default selection. You can update the optimization option for any existing Akamai endpoint at any time. This change doesn't interrupt delivery from the CDN. 
 
 1. Select an endpoint within a Standard Akamai profile.
 
     ![Endpoint selection ](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. Under **SETTINGS**, select **Optimization**. Then select a type from the **Optimized for** drop-down list box.
+2. Under **SETTINGS**, select **Optimization**. Then select a type from the **Optimized for** drop-down list.
 
     ![Optimization and type selection](./media/cdn-optimization-overview/02_Select.png)
 
 ## Optimization for specific scenarios
 
-You can optimize the content delivery network endpoint for one of the following scenarios: 
-
-*	General web delivery
-
-*	General media streaming
-
-*	Video-on-demand media streaming
-
-*	Large file download
-
-*   Dynamic site acceleration
-
-These five scenarios are explained in the following sections. 
+You can optimize the CDN endpoint for one of the following scenarios. 
 
 ### General web delivery
 
@@ -80,7 +68,7 @@ General web delivery is the most common optimization option. It's designed for g
 A typical website contains static and dynamic content. Static content includes images, JavaScript libraries, and style sheets that can be cached and delivered to different users. Dynamic content is personalized for an individual user, such as news items that are tailored to a user profile. Dynamic content isn't cached because it's unique to each user, such as shopping cart contents. General web delivery can optimize your entire website. 
 
 > [!NOTE]
-> If you use the Azure Content Delivery Network from Akamai, you might want to use this optimization if your average file size is smaller than 10 MB. If your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list box.
+> If you use the Azure Content Delivery Network from Akamai, you might want to use this optimization if your average file size is smaller than 10 MB. If your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
 
 ### General media streaming
 
@@ -121,7 +109,7 @@ This optimization is available from both Akamai and Verizon Content Delivery Net
 
 Dynamic site acceleration includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more. 
 
-You can use this optimization to accelerate a web app that includes numerous responses that aren't cacheable. Examples are search results, checkout transactions, or real-time data. You can continue to use core content delivery network caching capabilities for static data. 
+You can use this optimization to accelerate a web app that includes numerous responses that aren't cacheable. Examples are search results, checkout transactions, or real-time data. You can continue to use core CDN caching capabilities for static data. 
 
 
 

@@ -30,13 +30,13 @@ The Azure Content Delivery Network from Verizon delivers streaming media directl
  
 ## Configure an endpoint to optimize media streaming in the Azure Content Delivery Network from Akamai
  
-You can configure your content delivery network endpoint to optimize delivery for large files via the Azure portal. You can also use our REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal.
+You can configure your CDN endpoint to optimize delivery for large files via the Azure portal. You can also use our REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal.
 
 1. To add a new endpoint, on the **CDN profile** page, select **Endpoint**.
   
     ![New endpoint](./media/cdn-media-streaming-optimization/01_Adding.png)
 
-2. In the **Optimized for** drop-down list box, select **Video on demand media streaming** for video-on-demand assets. If you do a combination of live and video-on-demand streaming, select **General media streaming**.
+2. In the **Optimized for** drop-down list, select **Video on demand media streaming** for video-on-demand assets. If you do a combination of live and video-on-demand streaming, select **General media streaming**.
 
     ![Streaming selected](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
@@ -51,7 +51,7 @@ The general media delivery or video-on-demand media delivery optimization types 
 
 ### Caching
 
-If the Azure Content Delivery Network from Akamai detects that the asset is a streaming manifest or fragment, it uses different caching expiration times from general web delivery. (See the full list in the following table.) As always, cache-control or expires headers sent from the origin are honored. If the asset is not a media asset, it caches by using the expiration times for general web delivery.
+If the Azure Content Delivery Network from Akamai detects that the asset is a streaming manifest or fragment, it uses different caching expiration times from general web delivery. (See the full list in the following table.) As always, cache-control or Expires headers sent from the origin are honored. If the asset is not a media asset, it caches by using the expiration times for general web delivery.
 
 The short negative caching time is useful for origin offload when many users request a fragment that doesn’t exist yet. An example is a live stream where the packets aren't available from the origin that second. The longer caching interval also helps offload requests from the origin because video content isn't typically modified.
  
