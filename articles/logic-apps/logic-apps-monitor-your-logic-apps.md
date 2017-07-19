@@ -26,7 +26,7 @@ For real-time event monitoring and richer debugging,
 set up [diagnostics logging](#azure-diagnostics) for your logic app. 
 That way, you can [find and view events](#find-events), 
 like trigger events, run events, and action events. 
-You can also use this [dignostic data with other services](#extend-diagnostic-data), 
+You can also use this [diagnostics data with other services](#extend-diagnostic-data), 
 like Azure Storage and Azure Event Hubs. 
 
 To get notifications about failures or other possible problems, 
@@ -48,8 +48,8 @@ find "logic apps", and choose **Logic apps**.
 
 2. Select your logic app, then choose **Overview**.
 
-   The Azure portal shows the runs and trigger history for your logic app. 
-   For example:
+   The Azure portal shows the runs history and trigger history 
+   for your logic app. For example:
 
    ![Logic app runs history and trigger history](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -214,7 +214,7 @@ diagnostic data with other Azure services, for example:
 * [Archive Azure Diagnostics Logs in Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-You can then get real-time monitoring by using this telemetry and analytics from other services, 
+You can then get real-time monitoring by using telemetry and analytics from other services, 
 like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
 and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
 
@@ -235,14 +235,13 @@ Then select the options for where you want to send diagnostic data:
 
 ## Set up alerts for your logic app
 
-To monitor metrics that you want to measure or thresholds 
-that are crossed when your logic app runs, set up 
-[alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
+To monitor specific metrics or exceeded thresholds for your logic app, 
+set up [alerts in Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
 Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 To set up alerts without 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md), follow these steps. 
-For more advanced alerts criteria and actions, [set up Log Analytics](#azure-diagnostics).
+For more advanced alerts criteria and actions, [set up Log Analytics](#azure-diagnostics) too.
 
 1. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
@@ -279,7 +278,8 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 
 Each diagnostic event has details about your logic app and that event, 
 for example, the status, start time, end time, and so on. 
-You can use these details to set up monitoring, tracking, and logging with the 
+To programmatically set up monitoring, tracking, and logging, 
+ou can use these details with the 
 [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) 
 and the [REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
@@ -321,7 +321,7 @@ that you can use for tracking and monitoring:
 }
 ```
 
-* `clientTrackingId`: If not provided, this ID is auto-generated 
+* `clientTrackingId`: If not provided, Azure automatically generates this ID 
 and correlates events across a logic app run, 
 including any nested workflows that are called from the logic app. 
 You can manually specify this ID from a trigger by passing a 
