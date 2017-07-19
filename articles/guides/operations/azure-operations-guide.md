@@ -9,7 +9,7 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid:
-ms.service:
+ms.service: multiple
 ms.devlang: 
 ms.topic: 
 ms.tgt_pltfrm: 
