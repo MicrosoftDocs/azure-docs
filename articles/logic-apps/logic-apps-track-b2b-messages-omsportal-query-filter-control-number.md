@@ -35,12 +35,18 @@ and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-
 Learn [how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* An OMS workspace for [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
-After you've met the previous requirements, you should already have an OMS workspace. 
-Otherwise, learn more about [how to create this workspace](../log-analytics/log-analytics-get-started.md).
-
 * If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 
 and [set up message tracking in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+
+> [!NOTE]
+> After you've met the previous requirements, 
+> you should have a workspace in the 
+> [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
+> You should use the same OMS workspace for tracking 
+> your B2B communication in OMS. 
+>  
+> If you don't have an OMS workspace, 
+> learn [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
 
 ## Create message queries with filters in the Operations Management Suite portal
 
