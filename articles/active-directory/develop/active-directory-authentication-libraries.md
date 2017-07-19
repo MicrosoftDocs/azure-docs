@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 07/15/2017
 ms.author: bryanla
 ms.custom: aaddev
 
@@ -27,7 +27,10 @@ ADAL is available on a variety of platforms.
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
-| .NET Client, Windows Store, UWP, Xamarin iOS and Android |MSAL .NET preview |[NuGet](TBD) |[GitHub](TBD) | [Desktop App](TBD) |[Reference](TBD) | 
+| .NET Client, Windows Store, UWP, Xamarin iOS and Android |MSAL .NET 1.1.0-preview |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=active-directory%20msal) |[Reference](TBD) | 
+| JavaScript |MSAL .NET 1.1.0-preview |[GitHub](TBD) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=active-directory%20msal) |[Reference](TBD) | 
+| iOS |MSAL .NET 1.1.0-preview |[GitHub](TBD) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=active-directory%20msal) |[Reference](TBD) |
+| Android |MSAL .NET 1.1.0-preview |[GitHub](TBD) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=active-directory%20msal) |[Reference](TBD) |
 | .NET Client, Windows Store, UWP, Xamarin iOS and Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Desktop App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Reference](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=identitymodelclientsad-3.13.9) | 
 | .NET Client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.2) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.2) | [Desktop App](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | | 
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Single Page App](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
