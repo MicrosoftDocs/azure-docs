@@ -21,7 +21,9 @@ ms.author: carlrab
 ---
 # What are Azure SQL Database service tiers and resource limits
 
-Azure SQL Database manages the resources available to a database using two different mechanisms: **Service tiers** and **Enforcement of Limits**. This topic explains these two main areas of resource management.
+Azure SQL Database manages the resources available to a database using two mechanisms:
+- CPU, memory, storage, log I/O, and data I/O resource are managed using [Service tiers, performance levels, and storage amounts](#service-tiers)
+- [Other resource limits](#enforcement-of-additional-resource-limits) are enforced by denying new requests when limits are reached.
 
 ## Service tiers
 
@@ -100,7 +102,7 @@ For example, suppose a 125 eDTU Premium pool has provisioned 1 TB by setting its
 
 ## Enforcement of additional resource limits
 
-Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying new requests when limits are reached. When a database reaches the configured maximum size limit, inserts and updates that increase data size fail, while selects and deletes continue to work. Clients receive an [error message](sql-database-develop-error-messages.md) depending on the limit that has been reached.
+Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying new requests when limits are reached. These resource limits vary based on the service tier and performance level for [single databases](ql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and for [elastic pools](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts). When a database reaches the configured maximum size limit, inserts and updates that increase data size fail, while selects and deletes continue to work. Clients receive an [error message](sql-database-develop-error-messages.md) depending on the limit that has been reached.
 
 For example, the number of connections to a SQL database and the number of concurrent requests that can be processed are restricted. SQL Database allows the number of connections to the database to be greater than the number of concurrent requests to support connection pooling. While the number of connections that are available can easily be controlled by the application, the number of parallel requests is often times harder to estimate and to control. Especially during peak loads when the application either sends too many requests or the database reaches its resource limits and starts piling up worker threads due to longer running queries, errors can be encountered.
 
