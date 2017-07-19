@@ -156,7 +156,7 @@ Set up your development environment and populate the app.config file with connec
 This section shows three examples of output layers produced by MES as a result of encoding with the **Adaptive Streaming** preset. 
 
 ### Example 1
-Source with height "1080" and framerate "29.970" procuces 6 video layers:
+Source with height "1080" and framerate "29.970" produces 6 video layers:
 
 |Layer|Height|Width|Bitrate(kbps)|
 |---|---|---|---|
@@ -168,7 +168,7 @@ Source with height "1080" and framerate "29.970" procuces 6 video layers:
 |6|180|320|380|
 
 ### Example 2
-Source with height "720" and framerate "23.970" procuces 5 video layers:
+Source with height "720" and framerate "23.970" produces 5 video layers:
 
 |Layer|Height|Width|Bitrate(kbps)|
 |---|---|---|---|
@@ -179,7 +179,7 @@ Source with height "720" and framerate "23.970" procuces 5 video layers:
 |5|180|320|320|
 
 ### Example 3
-Source with height "360" and framerate "29.970" procuces 3 video layers:
+Source with height "360" and framerate "29.970" produces 3 video layers:
 
 |Layer|Height|Width|Bitrate(kbps)|
 |---|---|---|---|
