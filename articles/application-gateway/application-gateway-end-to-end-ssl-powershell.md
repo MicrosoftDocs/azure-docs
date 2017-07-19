@@ -23,7 +23,7 @@ ms.author: gwallace
 
 Application Gateway supports end to end encryption of traffic. Application Gateway does this by terminating the SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, re-encrypts the packet, and forwards the packet to the appropriate backend based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
 
-Another feature that application gateway supports is disabling certain SSL protocol versions. Application Gateway supports disabling the following protocol version; **TLSv1.0**, **TLSv1.1**, and **TLSv1.2**.
+Another feature that application gateway supports defining custom SSL options. Application Gateway supports disabling the following protocol version; **TLSv1.0**, **TLSv1.1**, and **TLSv1.2** as well defining the which cipher suites to use and the order of preference.  To learn more about configurable SSL options, visit [SSL Policy overview](application-gateway-ssl-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecure and are not able to be used with Application Gateway.
@@ -232,18 +232,18 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 ### Step 11
 
-Configure the SSL policy to be used on the Application Gateway. Application Gateway supports the ability to disable certain SSL protocol versions.
+Configure the SSL policy to be used on the Application Gateway. Application Gateway supports the ability to set a minimum version for SSL protocol versions.
 
-The following values are a list of protocol versions that can be disabled.
+The following values are a list of protocol versions that can be defined.
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-The following example disables **TLSv1\_0**.
+Sets the minimum protocol version to **TLSv1_2** and enables **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** , and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** only.
 
 ```powershell
-$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0
+$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
 ## Create the Application Gateway
@@ -268,10 +268,11 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### Step 2
 
-Define an SSL policy. In the following example, TLSv1.0 and TLSv1.1 are disabled.
+Define an SSL policy. In the following example, TLSv1.0 and TLSv1.1 are disabled and the cipher suites **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** , and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** are the only ones allowed.
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0, TLSv1_1 -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySslPolicy -MinProtoclVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+
 ```
 
 ### Step 3
