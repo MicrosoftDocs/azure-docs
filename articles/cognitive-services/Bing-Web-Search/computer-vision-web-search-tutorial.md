@@ -90,7 +90,7 @@ Here you can see the results of querying the Bing Web Search API using the extra
 
 6) Finally, selecting an item from the Web Results Page opens a WebView showing the content at that Bing result.  
 ![Image of the Web View Page](./media/computer-vision-web-search-tutorial/WebViewPage.png)  
-From here, you can interact with the website as if it were loaded within a standard browser, or use the navigation bar to return to the Web Results Page. 
+From here, you can interact with the website as if it were loaded within a standard browser.  You can also use the navigation bar to return to the Web Results Page. 
 
 [!NOTE]
 > The Handwritten OCR endpoint is in preview.  Although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/?cdn=disable).  
@@ -100,12 +100,12 @@ Now that the sample is up and running, let's jump in and explore exactly how it 
 
 ### Add Keys Page
 The Add Keys Page is where the user inputs their Azure API keys so that the Cognitive Services endpoints can be accessed later. The UI for this page is defined in `AddKeysPage.xaml`, and its primary logic is defined in `AddKeysPage.xaml.cs`.  While the specific parameters of our test requests are discussed later, this is a great place to establish the basic structure for how the Azure endpoints can be reached from a C# codebase.  Throughout this sample, the basic structure of this interaction is as follows: 
-1) Establish the URI for each endpoint in a reusable location, and attach the URI call's specific parameters
-2) Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
-3) Attach any desired headers (defined in each endpoint's API reference) to your *HttpClient* object
-5) Send a GET or POST request with your data
-6) Check that the response was successful
-7) Pass the response on for further parsing
+1. Establish the URI for each endpoint in a reusable location, and attach the URI call's specific parameters
+2. Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
+3. Attach any desired headers (defined in each endpoint's API reference) to your *HttpClient* object
+4. Send a GET or POST request with your data
+5. Check that the response was successful
+6. Pass the response on for further parsing
  
 Step 1 is carried out in the first few lines of our class.  Here, we initialize our endpoint URIs as constants to be accessed later.
 
@@ -146,7 +146,7 @@ async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
 }
 ```
 
-### OCR Select Pagez
+### OCR Select Page
 The OCR Select Page has two main roles.  First, it is where the user determines what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally cumbersome in a cross-platform application, as different logic has to be written for photo capture and import photos per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
 
 The following function provides an example of how to use the Xamarin Media Plugin for photo capture.  In it, we:
@@ -206,7 +206,7 @@ The photo import utility works in a similar way, and can be found in `OcrSelectP
 ### OCR Results Page
 The OCR Results Page is where we extract text from the selected OCR endpoint and pull text from the endpoint response using the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them.
 
-Let's first look at the Print OCR endpoint. The Azure Computer Vision OCR API is capable of parsing text from an undetermined language, but here we tell the endpoint to search for English text to improve results.  We will let the endpoint determine text orientation. Setting this flag to false might improve our parsing results, but in a mobile application  orientation detection can be useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
+Let's first look at the Print OCR endpoint. The Azure Computer Vision OCR API is capable of parsing text from an undetermined language, but here we tell the endpoint to search for English text to improve results.  We also let the endpoint determine text orientation. Setting this flag to false might improve our parsing results, but in a mobile application  orientation detection can be useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
 
 ```csharp
 /* This is the url that will be passed into the POST request for parsing printed text.  It's parameters are as follows:
@@ -236,7 +236,7 @@ Next, let's examine the functions that call the API.
 *FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a *ByteArrayContent* object, and add a header to this *ByteArrayContent* object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
 
 [!TIP]
-> Note the use of the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  `SelectToken` is used here because we are only looking for a specific feature of the JSON response which we can then pass on to the next function.  Elsewhere in the codebase, JSON responses are deserialized onto model objects defined in 
+> Note the use of the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  `SelectToken` is used here because we are only looking for a specific feature of the JSON response, which we can then pass on to the next function.  Elsewhere in the codebase, JSON responses are deserialized onto model objects defined in `ModelObjects.cs`.
 
 ```csharp
 async Task<ObservableCollection<string>> FetchPrintedWordList()
@@ -283,7 +283,7 @@ async Task<ObservableCollection<string>> FetchPrintedWordList()
 }
 ```
 
-Structurally, the primary difference between the Handwritten OCR and Print OCR request is that Handwritten OCR returns an HTTP 202 response, which signals that processing has begun and returns an endpoint that the client must check to attain their completed response.  
+Structurally, the primary difference between the Handwritten OCR and Print OCR request is that Handwritten OCR returns an HTTP 202 response, which signals that processing has begun and returns an endpoint that the client must check to attain the completed response once it is available.
 
 ```csharp
 async Task<ObservableCollection<string>> FetchHandwrittenWordList()
@@ -298,7 +298,7 @@ async Task<ObservableCollection<string>> FetchHandwrittenWordList()
             content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             response = await VisionApiClient.PostAsync(handwritingUri, content);
         }
-        if ((response != null) && ((int)response.StatusCode == 202))
+        if ((int)response?.StatusCode == 202)
         {
             IEnumerable<string> values;
             string statusUri = string.Empty;
@@ -356,7 +356,7 @@ async Task<JObject> FetchResultFromStatusUri(string statusUri)
 ```
 
 ### Web Results Page
-Finally, we send this data to the Web Results Page, which constructs [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) requests, sends them to Azure, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.  
+Finally, we send this data to the Web Results Page, which constructs a [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) request, sends it to Azure, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.  
 
 ```csharp
 async Task<WebResultsList> GetQueryResults()
@@ -389,14 +389,13 @@ async Task<WebResultsList> GetQueryResults()
         Device.BeginInvokeOnMainThread(async () =>
         {
             await DisplayAlert("Error", "Error fetching results.", "OK");
-            await Task.Delay(TimeSpan.FromSeconds(0.1d));
         });
     }
     return webResults;
 }
 ```
 
-It's important to acknowledge here that the Web Search API functions best when a maximal number of case-specific headers and parameters are used to personalize and optimize your call.  Whatever your domain, you should spend some time considering how you would like to tailor results that you serve to your users.  The simplest way to ensure this is through utilizing parameters such as **mkt** and the **responseFilter**, but for enterprise applications it will be valuable to explore the [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/).
+It's important to acknowledge here that the Web Search API functions best when a maximal number of headers and parameters are used to personalize and optimize your call.  The simplest way to ensure this is through utilizing parameters such as **mkt** and the **responseFilter**.
 
 
 [!NOTE]
@@ -406,16 +405,16 @@ It's important to acknowledge here that the Web Search API functions best when a
 > * X-Search-ClientIP  
 > * X-Search-Location  
 >
-> These parameters will help better tailor your results to the specific needs of your users, and help your search system grow and evolve with the needs of your users over time.  You can learn more about these header values in the [Bing Web Search API Reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference#headers)
+> These parameters help the API provide optimal results.  You can learn more about these header values in the [Bing Web Search API Reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference#headers)
 
 ## Looking Forward
-This application provides a general framework for a Xamarin.Forms application implementing basic visual search.  However, Azure provides many utilities that could easily be integrated into this application.  For example, you could:
+This application provides a general framework for a Xamarin.Forms application implementing basic visual search.  However, Microsoft Cognitive Services provides many utilities that could easily be integrated into this application.  For example, you could:
 * Tack on the [Bing Entity Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-entity-search-api/) to augment your web search results
 * Swap in [Bing Custom Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/) in place of Bing Web Search
 * Use the [Bing Image Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/) image insights capability to learn more about your captured image and find similar images on the web
 * Leverage [Bing Spell Check](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) to further improve the quality of your parsed text
 * Integrate the [Microsoft Translator](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/) to see your extracted text in different languages  
-* Mix and match countless other services from the [Azure portal](https://azure.microsoft.com/en-us/services/cognitive-services/). 
+* Mix and match countless other services from [Azure](https://azure.microsoft.com/en-us/services/cognitive-services/) to build your own novel utilities. 
 
 ## Related Topics
  * [C# Ranking Tutorial](./csharp-ranking-tutorial.md)
