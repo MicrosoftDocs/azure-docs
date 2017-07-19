@@ -56,14 +56,15 @@ Log in using a subscription name.
 Login-AzureRmAccount -SubscriptionName $subname 
 ```
 
-The `Login-AzureRmAccount` cmdlet will always prompt for credentials. You can avoid being prompted by using the following cmdlets:
+The `Login-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
-```
+```powershell
 # Save login session information
 Save-AzureRmProfile -Path D:\profile.json  
 
 # Load login session information
 Select-AzureRmProfile -Path D:\profile.json 
+```
 
 ## Managing accounts
 
@@ -99,6 +100,12 @@ Check the existence of a specific Data Lake Analytics account. The cmdlet return
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
+```
+
+Check the existence of a specific Data Lake Store account. The cmdlet returns either `True` or `False`.
+
+```powershell
+Test-AdlStoreAccount -Name $adls
 ```
 
 ### Listing accounts
@@ -211,7 +218,6 @@ Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName
 ### List data sources
 
 ```powershell
-
 # List all the data sources
 Get-AdlAnalyticsDataSource -Name $adla
 
@@ -266,9 +272,9 @@ Get-AdlJob -Account $adla
 
 ### List a specific number of jobs
 
-By default the list of jobs is sorted on submit time. So the most recently submitted jobs will come first. By default, The ADLA account remembers jobs for 180 days, but the Ge-AdlJob  cmdlet by default will return only the first 500. Use -Top parameter to list a specific number of jobs.
+By default the list of jobs is sorted on submit time. So the most recently submitted jobs appear first. By default, The ADLA account remembers jobs for 180 days, but the Ge-AdlJob  cmdlet by default returns only the first 500. Use -Top parameter to list a specific number of jobs.
 
-```
+```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
 
@@ -281,7 +287,7 @@ $d = [DateTime]::Now.AddDays(-1)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-List jobs submitted in the last 5 days and that successfully completed.
+List jobs submitted in the last five days and that successfully completed.
 
 ```
 $d = (Get-Date).AddDays(-5)
@@ -296,7 +302,7 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 
 List Failed jobs.
 
-```
+```powershell
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
@@ -307,6 +313,73 @@ Get-AdlJob -Account $adla `
     -Submitter "joe@contoso.com" `
     -SubmittedAfter (Get-Date).AddDays(-7) `
     -Result Failed
+```
+
+### Filtering a list of jobs
+
+Once you have a list of jobs in your current PowerShell session. You can use normal PowerShell cmdlets to filter the list.
+
+Filter a list of jobs to the jobs submitted in the last 24 hours
+
+```
+$upperdate = Get-Date
+$lowerdate = $upperdate.AddHours(-24)
+$jobs | Where-Object { $_.EndTime -ge $lowerdate }
+```
+
+Filter a list of jobs to the jobs that ended in the last 24 hours
+
+```
+$upperdate = Get-Date
+$lowerdate = $upperdate.AddHours(-24)
+$jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
+```
+
+Filter a list of jobs to the jobs that started running. A job might fail at compile time - and so it never starts. Let's look at the failed
+jobs that actually started running and then failed.
+
+```powershell
+$jobs | Where-Object { $_.StartTime -ne $null }
+```
+
+### Analyzing a list of jobs
+
+Use the `Group-Object` cmdlet to analyze a list of jobs.
+
+```
+# Count the number of jobs by Submitter
+$jobs | Group-Object Submitter | Select -Property Count,Name
+
+# Count the number of jobs by Result
+$jobs | Group-Object Result | Select -Property Count,Name
+
+# Count the number of jobs by State
+$jobs | Group-Object State | Select -Property Count,Name
+
+#  Count the number of jobs by DegreeOfParallelism
+$jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
+```
+When performing an analysis, it can be useful to add properties to the Job objects to make filtering and grouping simpler. The following  snippet shows how to annotate a JobInfo with calculated properties.
+
+```
+function annotate_job( $j )
+{
+    $dic1 = @{
+        Label='AUHours';
+        Expression={ ($_.DegreeOfParallelism * ($_.EndTime-$_.StartTime).TotalHours)}}
+    $dic2 = @{
+        Label='DurationSeconds';
+        Expression={ ($_.EndTime-$_.StartTime).TotalSeconds}}
+    $dic3 = @{
+        Label='DidRun';
+        Expression={ ($_.StartTime -ne $null)}}
+
+    $j2 = $j | select *, $dic1, $dic2, $dic3
+    $j2
+}
+
+$jobs = Get-AdlJob -Account $adla -Top 10
+$jobs = $jobs | %{ annotate_job( $_ ) }
 ```
 
 ### Get information about a job
@@ -375,47 +448,48 @@ Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recu
 ## Manage catalog items
 The U-SQL catalog is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake. For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
 
-### List items
+### List items in the U-SQL catalog
 
-List U-SQL databases.
 
 ```powershell
+# List U-SQL databases
 Get-AdlCatalogItem -Account $adla -ItemType Database 
+
+# List tables within a database
+Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
+
+# List tables within a schema.
+Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
-List tables within a database.
+List all the assemblies in all the databases in an ADLA Account.
 
 ```powershell
-Get-AdlCatalogItem -Account $adla -ItemType Table -Path "master"
+$dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
+
+foreach ($db in $dbs)
+{
+    $asms = Get-AdlCatalogItem -Account $adla -ItemType Assembly -Path $db.Name
+
+    foreach ($asm in $asms)
+    {
+        $asmname = "[" + $db.Name + "].[" + $asm.Name + "]"
+        Write-Host $asmname
+    }
+}
 ```
 
-List tables within a schema.
+### Get details about a catalog item
 
 ```powershell
-Get-AdlCatalogItem -Account $adla -ItemType Table -Path "master.dbo"
-```
-
-### Get information about a catalog item
-
-Get details of a U-SQL database.
-
-```powershell
-Get-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
-```
-
-Get details of a table in a U-SQL database.
-
-```powershell
+# Get details of a table
 Get-AdlCatalogItem  -Account $adla -ItemType Table -Path "master.dbo.mytable"
-```
 
-Test existence of a U-SQL database.
-
-```powershell
+# Test existence of a U-SQL database.
 Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 ```
 
-### Create catalog items
+### Create credentials in a catalog
 
 Within a U-SQL database, create a credential object for a database hosted in Azure. Currently, U-SQL credentials are the only type of catalog item that you can create through PowerShell.
 
@@ -429,6 +503,101 @@ New-AdlCatalogCredential -AccountName $adla `
           -CredentialName $credentialName `
           -Credential (Get-Credential) `
           -Uri $dbUri
+```
+
+### Get basic information about an ADLA account
+
+Given an account name, the following code looks up basic information about the account
+
+```
+$adla_acct = Get-AdlAnalyticsAccount -Name "saveenrdemoadla"
+$adla_name = $adla_acct.Name
+$adla_subid = $adla_acct.Id.Split("/")[2]
+$adla_sub = Get-AzureRmSubscription -SubscriptionId $adla_subid
+$adla_subname = $adla_sub.Name
+$adla_defadls_datasource = Get-AdlAnalyticsDataSource -Account $adla_name  | ? { $_.IsDefault } 
+$adla_defadlsname = $adla_defadls_datasource.Name
+
+Write-Host "ADLA Account Name" $adla_name
+Write-Host "Subscription Id" $adla_subid
+Write-Host "Subscription Name" $adla_subname
+Write-Host "Defautl ADLS Store" $adla_defadlsname
+Write-Host 
+
+Write-Host '$subname' " = ""$adla_subname"" "
+Write-Host '$subid' " = ""$adla_subid"" "
+Write-Host '$adla' " = ""$adla_name"" "
+Write-Host '$adls' " = ""$adla_defadlsname"" "
+```
+## Working with Azure
+
+### Get details of AzureRm errors
+
+```powershell
+Resolve-AzureRmError -Last
+```
+
+### Verify if you are running as an administrator
+
+```powershell
+function Test-Administrator  
+{  
+    $user = [Security.Principal.WindowsIdentity]::GetCurrent();
+    $p = New-Object Security.Principal.WindowsPrincipal $user
+    $p.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
+}
+```
+
+### Find a TenantID
+
+From a subscription name:
+
+```powershell
+function Get-TenantIdFromSubcriptionName( [string] $subname )
+{
+    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub.TenantId
+}
+
+Get-TenantIdFromSubcriptionName "ADLTrainingMS"
+```
+
+From a subscription id:
+
+```powershell
+function Get-TenantIdFromSubcriptionId( [string] $subid )
+{
+    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub.TenantId
+}
+
+$subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Get-TenantIdFromSubcriptionId $subid
+```
+
+From a domain address such as "contoso.com"
+
+
+```powershell
+function Get-TenantIdFromDomain( $domain )
+{
+    $url = "https://login.windows.net/" + $domain + "/.well-known/openid-configuration"
+    return (Invoke-WebRequest $url|ConvertFrom-Json).token_endpoint.Split('/')[3]
+}
+
+$domain = "contoso.com"
+Get-TenantIdFromDomain $domain
+```
+
+### List all your subscriptions and tenant ids
+
+```powershell
+$subs = Get-AzureRmSubscription
+foreach ($sub in $subs)
+{
+    Write-Host $sub.Name "("  $sub.Id ")"
+    Write-Host "`tTenant Id" $sub.TenantId
+}
 ```
 
 ## Create a Data Lake Analytics account using a template
@@ -522,4 +691,4 @@ Save the following text as a `.json` file, and then use the preceding PowerShell
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Get started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI 2.0](data-lake-analytics-get-started-cli2.md)
-* Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  [Azure portal](data-lake-analytics-manage-use-portal.md) | [CLI](data-lake-analytics-manage-use-cli.md) 
+* Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) 

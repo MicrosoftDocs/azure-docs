@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
 
 ---
@@ -38,7 +38,7 @@ You can configure security policies for each subscription. To modify a security 
     ![Defining policy](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. The **Security policy** blade for the selected subscription opens with a set of options. The available options in this blade are:
 
-   * **Prevention policy**: Use this option to configure policies per subscription or resource group.  
+   * **Prevention policy**: Use this option to configure policies per subscription.  
    * **Email notification**: Use this option to configure an email notification that's sent on the first daily occurrence of an alert and for high severity alerts. Email preferences can be configured only for subscription policies. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information about how to configure an email notification.
    * **Pricing tier**: Use this option to upgrade the pricing tier selection. See [Security Center pricing](security-center-pricing.md) to learn more about pricing options.
 4. Make sure that **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources using the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent will be stored in either an existing Log Analytics workspace(s) associated with your Azure subscription or a new workspace(s), taking into account the geography of the VM.

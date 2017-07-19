@@ -40,5 +40,5 @@ For frequently asked questions,read our [FAQ](https://docs.microsoft.com/en-us/a
    * [Using the sign-in activity report API reference](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## Next Steps
-If you are curious to see all of the available Azure AD Graph API endpoints by navigating to [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
+If you are curious to see all of the available Azure AD Graph API endpoints by navigating to [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
 
