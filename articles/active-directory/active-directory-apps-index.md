@@ -1,4 +1,4 @@
----
+﻿---
 title: Article Index for Application Management in Azure Active Directory | Microsoft Azure
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
+ms.reviewer: asteen
 
 ---
 # Article Index for Application Management in Azure Active Directory
@@ -198,7 +199,7 @@ Azure Active Directory provides several reports and alerts to help you monitor y
 | Track changes made to who can access a particular application |[Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) |
 | Export the data of these reports to your preferred tools using the Reporting API |[Getting Started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md) |
 
-To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md#report-editions).
+To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md).
 
 ## See also
 [What is Azure Active Directory?](active-directory-whatis.md)
