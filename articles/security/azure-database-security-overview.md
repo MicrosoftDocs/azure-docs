@@ -1,5 +1,5 @@
 
-# Overview
+# Azure database security overview
 
 Security is a top concern when managing databases, and it has always been a priority for Azure SQL Database. Azure SQL Database supports connection security with firewall rules and connection encryption. It supports authentication with username and password and Azure Active Directory Authentication, which uses identities managed by Azure Active Directory. Authorization uses role-based access control.
 
