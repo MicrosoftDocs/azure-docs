@@ -94,7 +94,7 @@ Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       6.45 MB
+aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       64.1 MB
 ```
 
 Tag the *aci-tutorial-app* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version number.
@@ -113,8 +113,8 @@ Output:
 
 ```bash
 REPOSITORY                                                TAG                 IMAGE ID            CREATED             SIZE
-aci-tutorial-app                                          latest              5c745774dfa9        39 seconds ago      6.45 MB
-mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9dace4e1a17        7 minutes ago       6.45 MB
+aci-tutorial-app                                          latest              5c745774dfa9        39 seconds ago      64.1 MB
+mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9dace4e1a17        7 minutes ago       64.1 MB
 ```
 
 ## Push image to Azure Container Registry
