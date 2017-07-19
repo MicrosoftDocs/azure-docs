@@ -105,9 +105,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Tangoe Command Premium Mobile Domain and URLs](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.tangoe.com/sp/startSSO.ping?PartnerIdpId=IDPID&TARGET=TARGETPAGEURL`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<tenant issuer>&TARGET=<target page url>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<instancename>.tangoe.com/sp/ACS.saml2`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://sso.tangoe.com/sp/ACS.saml2`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual  Reply URL and Sign-On URL. Contact [Tangoe Command Premium Mobile Client support team](https://www.tangoe.com/contact-2/) to get these values. 
