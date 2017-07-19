@@ -38,7 +38,7 @@ To add someone as an admin for a subscription in the Azure portal, you give them
 
     ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-5. If you want to add the owner account as co-administrator, in the  **Access control (IAM)** page, right-click the user and then select **Add as co-administrator**. 
+5. If you want to add the owner account as co-administrator , in the  **Access control (IAM)** page, right-click the user and then select **Add as co-administrator**.  This feature is avaiable on [Azure preview portal](https://preview.portal.azure.com/). it will come to [Azure portal](https://portal.azure.com/) soon.
 
      ![Screenshot that adds co-administrator](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
