@@ -24,7 +24,6 @@ ms.author: piyushjo
 * Fixed warnings on XCode 9 about APIs not called in main queue.
 * Fixed a memory leak in Reach polls.
 * Dropped support for iOS 6.X. Starting from this version the deployment target of your application must be at least iOS 7.
-* Replaced some deprecated APIs.
 
 ## 4.0.1 (12/13/2016)
 * Improved log delivery in background.
