@@ -33,7 +33,6 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 * Fixed warnings on XCode 9 about APIs not called in main queue.
 * Fixed a memory leak in Reach polls.
 * Dropped support for iOS 6.X. Starting from this version the deployment target of your application must be at least iOS 7.
-* Replaced some deprecated APIs.
 
 For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)
 
