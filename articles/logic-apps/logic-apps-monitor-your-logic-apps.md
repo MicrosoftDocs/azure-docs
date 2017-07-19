@@ -331,30 +331,28 @@ HTTP trigger, or webhook trigger.
 
 * `trackedProperties`: To track inputs or outputs in diagnostics data, 
 you can add tracked properties to actions in your logic app's JSON definition. 
+Tracked properties can track only a single action's inputs and outputs, 
+but you can use the `correlation` properties of events to correlate across actions in a run.
 
-  For example, suppose you want to track data like an "order ID" in your telemetry. 
   To track one or more properties, add the `trackedProperties` section and the 
-  properties you want to the action definition.
-  Tracked properties can track only a single action's inputs and outputs, 
-  but you can use the `correlation` properties of events to correlate across actions in a run.
+  properties you want to the action definition. For example, 
+  suppose you want to track data like an "order ID" in your telemetry:
 
   ``` json
-  {
-      "myAction": {
-          "type": "http",
-          "inputs": {
-              "uri": "http://uri",
-              "headers": {
-                  "Content-Type": "application/json"
-              },
-              "body": "@triggerBody()"
-          },
-          "trackedProperties": {
-              "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
-              "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
-              "transactionId": "@action()['inputs']['body']['<content>']"
-          }
-      }
+  "myAction": {
+    "type": "http",
+    "inputs": {
+        "uri": "http://uri",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": "@triggerBody()"
+    },
+    "trackedProperties": {
+        "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
+        "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
+        "transactionId": "@action()['inputs']['body']['<content>']"
+    }
   }
   ```
 
@@ -363,4 +361,3 @@ you can add tracked properties to actions in your logic app's JSON definition.
 * [Create templates for logic app deployment and release management](../logic-apps/logic-apps-create-deploy-template.md)
 * [B2B scenarios with Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-message.md)
-
