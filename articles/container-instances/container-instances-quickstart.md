@@ -34,7 +34,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Azure Container Instances are Azure resources and must be placed in an Azure resource group, a logical container into which Azure resources are deployed and managed.
+Azure Container Instances are Azure resources and must be placed in an Azure resource group, a logical collection into which Azure resources are deployed and managed.
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. 
 
@@ -46,9 +46,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container
 
-You can create a container by providing a name for the container, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address.
-
-Create a container in your resource group and give it a public IP address. In this case, we'll use a container that hosts a very simple web app written in NodeJS.
+You can create a container by providing a name, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name myContainer --image seanmckenna/aci-helloworld -g acidemogroup --ip-address public 
@@ -60,7 +58,25 @@ Within a few seconds, you should get a response to your request. Initially,the c
 az container show myContainer -g acidemogroup
 ```
 
-Once the container moves to the **Succeeded** state, you will be able to reach it in the browser using the IP address shown in the output. 
+At the bottom of the output, you will see the container's provisioning state and its IP address:
+
+```json
+...
+"ipAddress": {
+      "ip": "13.88.8.148",
+      "ports": [
+        {
+          "port": 80,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    "osType": "Linux",
+    "provisioningState": "Succeeded"
+...
+```
+
+Once the container moves to the **Succeeded** state, you can reach it in the browser using the IP address provided. 
 
 ![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
