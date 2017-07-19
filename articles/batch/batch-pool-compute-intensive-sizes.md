@@ -20,26 +20,59 @@ ms.author: danlep
 ---
 # Use compute-intensive and GPU-enabled instances in Batch pools
 
-When running certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example, for MPI workloads, you can choose RDMA-capable H-series or A-series VM sizes that use an InfiniBand network for inter-node communcation. Or for CUDA applications, you can use N-series instances that include NVIDIA Tesla GPU cards.
+When running certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example, for MPI workloads, you can choose RDMA-capable A8, A9, or H-series sizes that use an InfiniBand network for inter-node communcation. Or for CUDA applications, you can use N-series sizes that include NVIDIA Tesla GPU cards.
 
-This article provides guidance and examples for setting up an Azure Batch pool to use these specialized sizes. For Azure VM size specs, storage capacities, and disk details, see:
+This article provides guidance and examples for setting up an Azure Batch pool to use these specialized sizes. For Azure VM size specs, storage capacities, disk details, and general deployment considerations, see:
 
 * High performance compute VM sizes - [Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md) 
 
 * GPU-enabled VM sizes - [Linux](../virtual-machines/linux/sizes-gpu.md), [Windows](../virtual-machines/windows/sizes-gpu.md) 
 
 
-## General considerations
+## Subscription and account considerations
 
-* **Quotas** - When choosing a VM size for your Batch pool, you may be limited by one or more Azure quotas. You are more likely to be limited when you choose HPC, GPU, or other multicore VM sizes, or when using a free subscription.
+* **Quotas** - When choosing a VM size for your pool nodes, you may be limited by one or more Azure quotas. You are more likely to be limited when you choose HPC, GPU, or other multicore VM sizes, or when using a free subscription. Depending on the type of Batch account you use, the quota may apply to the account itself or to your subscription.
 
     * If you created your Batch account in the **Batch service** configuration, you are limited by the [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas). By default, this quota is 20 cores.
 
-    * If you created the account in the **User subscription** configuration, your subscription limits the number of VM cores per region that you can use. Different quotas apply to [low-priority VM](batch-low-pri-vms.md) cores, if you use them. It also applies regional quotas to certain VM sizes, including HPC and GPU instances. In the user subscription configuration, there are not separate quotas applied to the Batch account. 
+    * If you created the account in the **User subscription** configuration, your subscription limits the number of VM cores per region that you can use. See [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). A different quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. Your subsciption also applies a regional quota to certain VM sizes, including HPC and GPU instances. In the user subscription configuration, no additional quotas apply to the Batch account. 
 
   To request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 
 * **Regional availability** - Compute-intensive VMs might not be available in all regions where you create your Batch accounts. To make sure the size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
+
+
+## Dependencies
+
+For full functionality, some compute-intensive sizes must be deployed with specific supported operating systems. You might also need to install or configure additional driver or other software. See the following tables and linked articles.
+
+
+### Linux pools
+
+| Size | Operating systems | Required software | Pool settings |
+| -------- | -------- | -------- | ----- |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc,md#rdma-capable-instances) | SUSE Linux Enterprise Server 12 HPC<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
+| [NC series](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA CUDA 8.0 drivers | N/A | 
+| [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.2 drivers | N/A |
+
+### Windows pools
+
+
+## Pool configuration strategies
+
+
+## Example: Set up Microsoft MPI on A8 VMs
+
+
+## Example: Set up NVIDA Tesla drivers on NC VMs
+
+
+
+
+
+
+
+
 ## RDMA-capable nodes
 
 When choosing RDMA-capable sizes such as H16r, H16mr, A8, and A9, set the following pool properties:
