@@ -95,7 +95,9 @@ To begin working with your new HBase cluster, you can use the procedures found i
      2. Click **Hosts** from the top menu.
    * Use Curl to make REST calls:
 
+        ```bash
          curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
+        ```
 
      In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. It contains the FQDN for the nodes in the cluster. For example:
 
@@ -108,6 +110,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
      Use the following Azure PowerShell script to register the **Get-ClusterDetail** function, which can be used to return the DNS suffix:
 
+        ```powershell
          function Get-ClusterDetail(
              [String]
              [Parameter( Position=0, Mandatory=$true )]
@@ -197,10 +200,13 @@ To begin working with your new HBase cluster, you can use the procedures found i
                  Write-host $Suffix
              }
          }
+        ```
 
      After running the Azure PowerShell script, use the following command to return the DNS suffix by using the **Get-ClusterDetail** function. Specify your HDInsight HBase cluster name, admin name, and admin password when using this command.
 
+        ```powershell
          Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
+        ```
 
      This command returns the DNS suffix. For example, **yourclustername.b4.internal.cloudapp.net**.
 
