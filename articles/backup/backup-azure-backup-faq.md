@@ -169,7 +169,7 @@ Yes. Data is encrypted on the on-premises server/client/SCDPM machine using AES2
 Yes. The data sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point. When backing up an Azure VM, Azure Backup relies on encryption of the virtual machine. For example, if your VM is encrypted using Azure Disk Encryption, or some other encryption technology, Azure Backup uses that encryption to secure your data.
 
 ### What is the minimum length of encryption key used to encrypt backup data? <br/>
-The encryption key should be at least 16 characters whne you are using Azure backup agent. For Azure VMs, there is no limit to length of keys used by Azure KeyVault. 
+The encryption key should be at least 16 characters when you are using Azure backup agent. For Azure VMs, there is no limit to length of keys used by Azure KeyVault. 
 
 ### What happens if I misplace the encryption key? Can I recover the data (or) can Microsoft recover the data? <br/>
 The key used to encrypt the backup data is present only on the customer premises. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the customer misplaces the key, Microsoft cannot recover the backup data.
