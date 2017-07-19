@@ -18,7 +18,7 @@ ms.date: 07/18/2017
 ms.author: carlrab
 
 ---
-# What are the resource limits for single databases in the Azure SQL Database service
+# Managing single database resources in Azure SQL Database
 
 With a single database, you determine the amount of resources that the database requires to handle its workload at the service tier, performance level, and amount of storage it requires. 
 
