@@ -33,7 +33,8 @@ The Azure portal **Device settings** section in the **Settings** blade contains 
 
 You can use the Azure portal to change the device name and assign it a unique friendly name of your choice. Use the **General settings** blade on your device to modify the device friendly name. The friendly name can contain any characters and can be a maximum of 64 characters long.
 
-> [!NOTE] You can only modify the device name in the Azure portal before the device setup is complete. Once the minimum device setup is complete, you cannot change the device name.
+> [!NOTE] 
+> You can only modify the device name in the Azure portal before the device setup is complete. Once the minimum device setup is complete, you cannot change the device name.
 
 ![Device name in General settings](./media/storsimple-8000-modify-device-config/modify-general-settings3.png)
 
