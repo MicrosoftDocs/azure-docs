@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: seanmck
 ---
 
@@ -25,14 +25,14 @@ Azure Container Registry is an Azure-based, private registry, for Docker contain
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry instance
-> * Tagging container images for Azure Container Registry
-> * Uploading images to Azure Container Registry
+> * Tagging container image for Azure Container Registry
+> * Uploading image to Azure Container Registry
 
 In subsequent tutorials, you will deploy containers from your private registry as an Azure Container Instances group. 
 
 ## Before you begin
 
-This is part two of a three-part tutorial. In the [previous step](./container-instances-tutorial-prepare-app.md), container images were created for a simple web application and accompanying sidecar. In this tutorial, these images are pushed to an Azure Container Registry. If you have not created the container images, return to [Tutorial 1 – Create container images](./container-instances-tutorial-prepare-app.md). Alternatively, the steps detailed here work with any container image.
+This is part two of a three-part tutorial. In the [previous step](./container-instances-tutorial-prepare-app.md), a container image was created for a simple web application written in [Node.js](http://nodejs.org). In this tutorial, this image is pushed to an Azure Container Registry. If you have not created the container image, return to [Tutorial 1 – Create container image](./container-instances-tutorial-prepare-app.md). Alternatively, the steps detailed here work with any container image.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -80,7 +80,7 @@ docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
 
 The command returns a 'Login Succeeded’ message once completed.
 
-## Tag container images
+## Tag container image
 
 Each container image needs to be tagged with the `loginServer` name of the registry. This tag is used for routing when pushing container images to an image registry.
 
@@ -95,19 +95,12 @@ Output:
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       6.45 MB
-aci-tutorial-sidecar         latest              057343f8b24a        About a minute ago   6.33 MB
 ```
 
 Tag the *aci-tutorial-app* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version number.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
-```
-
-Repeat the command with the *aci-tutorial-sidecar* image.
-
-```bash
-docker tag aci-tutorial-sidecar <acrLoginServer>/aci-tutorial-sidecar:v1
 ```
 
 Once tagged, run `docker images` to verify the operation.
@@ -122,11 +115,9 @@ Output:
 REPOSITORY                                                TAG                 IMAGE ID            CREATED             SIZE
 aci-tutorial-app                                          latest              5c745774dfa9        39 seconds ago      6.45 MB
 mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9dace4e1a17        7 minutes ago       6.45 MB
-aci-tutorial-sidecar                                      latest              057343f8b24a        About a minute ago  6.33 MB
-mycontainerregistry082.azurecr.io/aci-tutorial-sidecar    v1                  a9dace4e1a17        7 minutes ago       6.33 MB
 ```
 
-## Push images to Azure Container Registry
+## Push image to Azure Container Registry
 
 Push the *aci-tutorial-app* image to the registry. 
 
@@ -134,12 +125,6 @@ Using the following example, replace the ACR loginServer name with the loginServ
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
-```
-
-Do the same to the *aci-tutorial-sidecar* image.
-
-```bash
-docker push <Azure Container RegistryLoginServer>/aci-tutorial-sidecar:v1
 ```
 
 ## List images in Azure Container Registry 
@@ -155,7 +140,6 @@ Output:
 ```azurecli
 Result
 ----------------
-aci-tutorial-sidecar
 aci-tutorial-app
 ```
 
@@ -173,34 +157,16 @@ Result
 v1
 ```
 
-## Create an Azure Key Vault and store your container registry credentials
-
-To protect access to your Azure Container Registry credentials, we recommend that you store them in an Azure Key Vault. You can reference your key vault as part of an Azure Resource Manager template when deploying your containers to Azure Container Instances.
-
-Create the key vault with the Azure CLI:
-
-```bash
-az keyvault create -n aci-keyvault --enabled-for-template-deployment -g myResourceGroup
-```
-
-The `enabled-for-template-deployment` switch allows Azure Resource Manager to pull secrets from your key vault at deployment time.
-
-Store the password for your registry as a new secret in the key vault:
-
-```
-az keyvault secret set --vault-name aci-keyvault --name acrpassword --value <acrPassword>
-```
-
 ## Next steps
 
 In this tutorial, an Azure Container Registry was prepared for use with Azure Container Instances. The following steps were completed:
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry instance
-> * Tagging container images for Azure Container Registry
-> * Uploading images to Azure Container Registry
+> * Tagging container image for Azure Container Registry
+> * Uploading image to Azure Container Registry
 
-Advance to the next tutorial to learn about deploying the containers in an Azure Container Instances group.
+Advance to the next tutorial to learn about deploying the container to Azure using Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Deploy containers to Azure Container Instances](./container-instances-tutorial-deploy-app.md)

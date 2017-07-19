@@ -20,16 +20,16 @@ ms.author: seanmck
 ms.custom: 
 ---
 
-# Create containers for deployment to Azure Container Instances
+# Create container for deployment to Azure Container Instances
 
-Azure Container Instances supports deployment of groups of containers onto a single host machine, where they can share mounted volumes and reach each other on the local network. In this tutorial, we will build two simple containers that can cooperate as part of a group. We will cover:
+Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you will build a simple web application in Node.js and package it in a container that can be run using Azure Container Instances. We will cover:
 
 > [!div class="checklist"]
 > * Cloning application source from GitHub  
 > * Creating container images from application source
 > * Testing the images in a local Docker environment
 
-In subsequent tutorials, these container images are uploaded to an Azure Container Registry, and then deployed in a group using Azure Container Instances.
+In subsequent tutorials, you will upload your image to an Azure Container Registry, and then deploy them to Azure Container Instances.
 
 ## Before you begin
 
@@ -39,7 +39,9 @@ To complete this tutorial, you need a Docker development environment. Docker pro
 
 ## Get application code
 
-The sample in this tutorial includes a simple web application built in [Go](http://golang.org) and a [sidecar][sidecar-pattern] shell script that periodically makes a request to the main app using curl.
+The sample in this tutorial includes a simple web application built in [Node.js](http://nodejs.org). The app serves a static HTML page and looks like this:
+
+![Tutorial app shown in browser][aci-tutorial-app]
 
 Use git to download the sample:
 
@@ -47,23 +49,15 @@ Use git to download the sample:
 git clone https://github.com/seanmck/aci-tutorial.git
 ```
 
-The sample includes two directories, one for each container. Each directory contains a Dockerfile that you can use to build the container image.
+## Build the container image
 
-## Build the container images
-
-Use the `docker build` command to create the container images. First create the main application image:
+Use the `docker build` command to create the container image: 
 
 ```bash
 docker build ./aci-tutorial/app -t aci-tutorial-app
 ```
 
-Repeat for the sidecar container:
-
-```bash
-docker build ./aci-tutorial/sidecar -t aci-tutorial-sidecar
-```
-
-Use the `docker images` to see the built images:
+Use the `docker images` to see the built image:
 
 ```bash
 docker images
@@ -74,23 +68,31 @@ Output:
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       6.45 MB
-aci-tutorial-sidecar         latest              057343f8b24a        About a minute ago   6.33 MB
 ```
 
-You now have two container images that can be deployed to Azure Container Instances as a group.
+## Run the container locally
+
+Before you try deploying the container to Azure Container Instances, run it locally to confirm that it works. The `-d` switch lets the container run in the background, while `-p` allows you to map an arbitrary port on your compute to port 80 in the container.
+
+```bash
+docker run -d -p 8080:80 aci-tutorial-app
+```
+
+Open the browser to http://localhost:8080 to confirm that the container is running.
 
 ## Next steps
 
-In this tutorial, you created two container images that can be deployed to Azure Container Instances. The following steps were completed:
+In this tutorial, you created a container image that can be deployed to Azure Container Instances. The following steps were completed:
 
 > [!div class="checklist"]
 > * Cloning the application source from GitHub  
 > * Creating container images from application source
+> * Testing the container locally
 
 Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
 
 > [!div class="nextstepaction"]
 > [Push images to Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
 
-<!--- Links --->
-[sidecar-pattern]:https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar
+<!--- IMAGES --->
+[aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

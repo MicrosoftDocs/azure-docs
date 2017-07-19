@@ -15,109 +15,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: seanmck
 ---
 
 # Deploy a container group
 
-Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This tutorial walks through the creation of an Azure Resource Manager template defining a multi-container group and deploying it to Azure Container Instances. Steps completed include:
+This is the last of a three-part tutorial. In previous sections, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This section completes the tutorial by deploying the container to Azure Container Instances. Steps completed include:
 
 > [!div class="checklist"]
 > * Defining a container group using an Azure Resource Manager template
 > * Deploying the container group using the Azure CLI
 > * Viewing container logs
 
-## Configure the Azure Resource Manager template
-
-The sample git repo that you cloned in [the first section][prepare-app] of this tutorial includes an Azure Resource Manager template and parameters file that you will use to deploy your container group to Azure Container Instances.
-
-Open `azuredeploy.json` to view the layout of the template. Pay particular attention to the `resources` section, which defines the container group, requests a public IP address for it, and provides a reference to the private Azure Container Registry where the container images are stored.
-
-```json
-"resources":[
-        {
-            "name": "aci-tutorial",
-            "type": "Microsoft.Container/containerGroups",
-            "apiVersion": "2017-04-01-preview",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "containers": [
-                    {
-                        "name": "aci-tutorial-app",
-                        "properties": {
-                            "image": "[concat(parameters('imageRegistry'), '/aci-tutorial-app:v1]",
-                            "ports": [
-                                {
-                                    "port": "80" 
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "name": "aci-tutorial-sidecar",
-                        "properties": {
-                            "image": "[concat(parameters('imageRegistry'), '/aci-tutorial-sidecar:v1]"                        
-                        }
-                    }
-                ],
-                "osType": "Linux",
-                "ipAddress": {
-                    "type": "Public",
-                    "ports": [
-                        {
-                            "protocol": "tcp",
-                            "port": "80" 
-                        }
-                    ]
-                 },
-                "imageRegistryCredentials": [
-                  {
-                    "server": "[parameters('imageRegistry')]",
-                    "username": "[parameters('imageRegistryUsername')]",
-                    "password": "[parameters('imageRegistryPassword')]"
-                  }
-                ]
-            }
-        }
-  ]
-
-```
-
-The properties of the container registry are defined as template parameters in the `azuredeploy.parameters.json` file that is also available with the sample. Two parameters are required:
-
-|Value|How to find|
-|-----|-----------|
-|Image registry login server URI|`az acr show --name <acrName>`|
-|Azure Resource Manager ID of your Azure Key Vault|`az keyvault show --name <keyvaultName>`|
-
-
-An updated parameters file should look something like this:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "imageRegistry": {
-      "value": "acidemo.azurecr.io"
-    },
-    "imageRegistryUsername": {
-      "value": "aciregistryusername"
-    },
-    "imageRegistryPassword": {
-      "reference": {
-        "keyVault": {
-          "id": "/subscriptions/90c3d154-5f70-4d38-adea-9557ef27a699/resourceGroups/cseries-rg/providers/Microsoft.KeyVault/vaults/acikeyvault"
-        },
-        "secretName": "acrpassword"
-      }
-    }
-  }
-}
-```
-
-## Deploy the template
+## Deploy the container using the Azure CLI
 
 Deploy the template:
 
