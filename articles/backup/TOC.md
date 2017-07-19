@@ -74,10 +74,10 @@
 ### [Windows Server in Azure portal](backup-client-automation.md)
 ### [Windows Server in classic portal](backup-client-automation-classic.md)
 
-## [FAQ](backup-azure-backup-faq.md)
-### [FAQ on Recovery Services vault]
-### [FAQ on Azure VM backup]
-### [FAQ on file-folder backup using Azure Backup agent]
+## FAQ
+### [FAQ on Recovery Services vault](backup-azure-backup-faq.md)
+### [FAQ on Azure VM backup](backup-azure-vm-backup-faq.md)
+### [FAQ on file-folder backup using Azure Backup agent](backup-azure-file-folder-backup-faq.md)
 
 ## Troubleshoot
 ### [Azure VM backup problems in Azure portal](backup-azure-vms-troubleshoot.md)
