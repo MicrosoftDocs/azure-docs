@@ -14,7 +14,7 @@ ms.date: 07/18/2017
 ---
 
 # Azure Database for MySQL: Use Go language to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using Go, but that you are new to working with Azure Database for MySQL.
+This quickstart demonstrates how to connect to an Azure Database for MySQL using code written in the [Go](https://golang.org/) language from Mac OS, Ubuntu Linux, and Windows platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using Go, but that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -22,15 +22,52 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install Go and MySQL connector
-1. Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform. For example, on Ubuntu Linux, `sudo apt install golang-go`.
-2. Make a folder for your project such as `mkdir C:\mysqlgo\` or `mkdir /home/user/go/mysqlgo/`. 
-3. Launch the command line or bash, change directory into the project folder, such as `cd C:\mysqlgo\` or `cd /home/user/go/mysqlgo/`.
-4. Set the GOPATH environment variable to point to a valid directory, such as your current project folder. On Linux, `export GOPATH=PWD` to add the current directory as the GOPATH for the current shell session. 
-5. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) 
+Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) on your own machine. Depending on your platform, follow the steps:
+
+### Windows
+1. [Download](https://golang.org/dl/) and install Go for Microsoft Windows according to the [installation instructions](https://golang.org/doc/install).
+2. Make a folder for your project such. `mkdir C:\mysqlgo\`.
+3. Launch the command line or bash, change directory into the project folder, such as `cd C:\mysqlgo\`.
+4. Set the environment variable for GOPATH to point to the source code directory. `set GOPATH=%cd%`.
+5. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
 
    ```cmd
+   mkdir C:\mysqlgo\
+   cd c:\mysqlgo\
+   set GOPATH=%cd%
    go get github.com/go-sql-driver/mysql
    ```
+### Linux (Ubuntu)
+1. Launch Bash and install Go by running `sudo apt-get install golang-go`.
+2. Make a folder for your project such as `mkdir /home/user/go/mysqlgo/`.
+3. Change directory into the project folder, such as `cd /home/user/go/mysqlgo/`.
+4. Set the GOPATH environment variable to point to a valid source directory, such as your current project folder. At the bash shell, run `export GOPATH=PWD` to add the current directory as the GOPATH for the current shell session.
+5. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
+
+   ```bash
+   sudo apt-get install golang-go
+   mkdir /home/user/go/mysqlgo/
+   cd /home/user/go/mysqlgo/
+   export GOPATH=PWD
+   go get github.com/go-sql-driver/mysql
+   ```
+
+
+### MacOS
+1. Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform. 
+2. Make a folder for your project such as `mkdir /home/user/go/mysqlgo/`.
+3. Change directory into the project folder, such as `cd /home/user/go/mysqlgo/`.
+4. Set the GOPATH environment variable to point to a valid source directory, such as your current project folder. At the bash shell, run `export GOPATH=PWD` to add the current directory as the GOPATH for the current shell session.
+5. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
+
+   ```bash
+   sudo apt-get install golang-go
+   mkdir /home/user/go/mysqlgo/
+   cd /home/user/go/mysqlgo/
+   export GOPATH=PWD
+   go get github.com/go-sql-driver/mysql
+   ```
+
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
