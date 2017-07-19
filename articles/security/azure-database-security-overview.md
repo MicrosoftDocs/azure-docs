@@ -1,4 +1,3 @@
-
 ---
 
 title: Azure database security overview | Microsoft Docs
