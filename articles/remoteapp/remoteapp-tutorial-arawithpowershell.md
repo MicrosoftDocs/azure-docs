@@ -41,7 +41,7 @@ You can use these steps to get started quickly:
 2. Launch Microsoft Azure PowerShell.
 3. Run **Add-AzureAccount** to authenticate to your Azure subscription. When prompted, enter the same user name and password that you use to sign in to Azure portal.  
 4. Run **Get-AzureSubscription** to list the subscriptions associated with your user account. 
-5. Run **Select-AzureSubscription -SubscriptionName <subscription name>** or **Select-AzureSubscription -SubscriptionId <subscription ID>** to specify the subscription to use.
+5. Run **Select-AzureSubscription -SubscriptionName &lt;subscription name&gt;** or **Select-AzureSubscription -SubscriptionId &lt;subscription ID&gt;** to specify the subscription to use.
 
 Congratulations, your Azure PowerShell console is configured and ready to use. Be aware that you'll need to repeate steps 2 through 5 each time you start the the Azure PowerShell console.  
 
@@ -54,7 +54,7 @@ Congratulations, your Azure PowerShell console is configured and ready to use. B
 - - -
     Remove-AzureRemoteAppCollection <enter collection name>
 
-Example:  `Remove-AzureRemoteAppCollection ConsotoProduction`.
+Example:  `Remove-AzureRemoteAppCollection ContosoProduction`.
 
 ## Create a cloud collection
 - - -
