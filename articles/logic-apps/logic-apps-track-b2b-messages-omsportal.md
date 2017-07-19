@@ -45,10 +45,17 @@ and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-
 Learn [how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* An OMS workspace for [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
-Learn more about [how to create this workspace](../log-analytics/log-analytics-get-started.md). 
-
 * If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) in OMS.
+
+> [!NOTE]
+> After you've met the previous requirements, 
+> you should have a workspace in the 
+> [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
+> You should use the same OMS workspace for tracking 
+> your B2B communication in OMS. 
+>  
+> If you don't have an OMS workspace, 
+> learn [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
 
 ## Add the Logic Apps B2B solution to the Operations Management Suite (OMS)
 
@@ -95,6 +102,15 @@ you can view the status and details for those messages.
 On the OMS home page, choose the **Logic Apps B2B Messages** tile.
 
    ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+
+   > [!NOTE]
+   > By default, the **Logic Apps B2B Messages** tile 
+   > shows data based on a single day. 
+   > To change the data scope to a different interval, 
+   > choose the scope control at the top of the OMS page:
+   > 
+   > ![Change data scope](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   >
 
 2. After the message status dashboard appears, 
 you can view more details for a specific message type, 

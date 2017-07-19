@@ -20,41 +20,45 @@ ms.author: LADocs; padmavc
 
 # Monitor and set up diagnostics logging for B2B communication in your integration account
 
-After you set up B2B communication between two running business processes or applications 
-through your integration account, those entities can exchange messages with each other. 
+After you set up B2B communication between two running business 
+processes or applications through your integration account, 
+those entities can exchange messages with each other. 
 To confirm this communication works as expected, 
-you can set up monitoring for AS2, X12, and EDIFACT messages. 
-For richer details and debugging, you can also set up logging for your integration account.
+you can set up monitoring for AS2, X12, and EDIFACT messages, 
+plus diagnostics logging for your integration account 
+with [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
+
+Log Analytics is a service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
+that monitors your cloud and on-premises environments 
+to help you maintain their availability and performance and logs 
+diagnostic data for richer debugging with runtime details and events. 
+You can also [use your diagnostic data with other services](#extend-diagnostic-data), 
+like Azure Storage and Azure Event Hubs.
 
 ## Requirements
 
 * A logic app that's set up with diagnostics logging. 
-Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
-and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Learn [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+
+  > [!NOTE]
+  > After you've met this requirement, you should have a workspace in the 
+  > [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
+  > You should use the same OMS workspace 
+  > when you set up logging for your integration account. 
+  > If you don't have an OMS workspace, 
+  > learn [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
 
 * An integration account that's linked to your logic app. Learn 
-[how to create an integration account with a link your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+[how to create an integration account with a link to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-* A workspace in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
-so you can use [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
-Log Analytics is a service in OMS that monitors your cloud and on-premises 
-environments to help you maintain their availability and performance. 
-Learn [how to create this workspace](../log-analytics/log-analytics-get-started.md).
-
-## Turn on logging for your integration account
-
-For richer debugging with runtime details and events, 
-you can set up diagnostic logging with [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
-Log Analytics is a service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
-that monitors your cloud and on-premises environments 
-to help you maintain their availability and performance. 
+## Turn on diagnostics logging for your integration account
 
 You can turn on logging either directly from your integration account 
 or [through the Azure Monitor service](#azure-monitor-service). 
 Azure Monitor provides basic monitoring with infrastructure-level data. 
 Learn more about [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
 
-### Turn on logging directly from your integration account
+### Turn on diagnostics logging directly from your integration account
 
 1. In the [Azure portal](https://portal.azure.com), 
 find and select your integration account. 
@@ -85,8 +89,7 @@ Otherwise, select the values that you want:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the OMS workspace 
-   to use for logging.
+   3. Under **OMS Workspaces**, select the OMS workspace to use for logging.
    4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
    5. Choose **Save**.
 
@@ -96,7 +99,7 @@ Otherwise, select the values that you want:
 
 <a name="azure-monitor-service"></a>
 
-### Turn on logging through Azure Monitor
+### Turn on diagnostics logging through Azure Monitor
 
 1. In the [Azure portal](https://portal.azure.com), 
 on the main Azure menu, choose **Monitor**, **Diagnostics logs**. 

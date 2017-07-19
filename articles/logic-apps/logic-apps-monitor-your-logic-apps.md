@@ -21,9 +21,9 @@ ms.author: LADocs; jehollan
 # Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps
 
 After you [create and run a logic app](../logic-apps/logic-apps-create-a-logic-app.md), 
-you can check its run history, status, and performance. 
-For monitoring real-time events and richer debugging, 
-set up diagnostics [logging](#azure-diagnostics). 
+you can check its runs history, trigger history, status, and performance. 
+For real-time event monitoring and richer debugging, 
+set up [diagnostics logging](#azure-diagnostics) for your logic app. 
 That way, you can [find and view events](#find-events), 
 like trigger events, run events, and action events. 
 You can also use this [dignostic data with other services](#extend-diagnostic-data), 
@@ -34,7 +34,7 @@ set up [alerts](#add-azure-alerts). For example,
 you can create an alert that detects 
 "when more than five runs fail in an hour." 
 You can also set up monitoring, tracking, and logging programmatically 
-by using [diagnostic event details and properties](#diagnostic-event-properties).
+by using [Azure Diagnostics event settings and properties](#diagnostic-event-properties).
 
 ## View runs and trigger history for your logic app
 
@@ -100,10 +100,11 @@ for example:
 
 <a name="azure-diagnostics"></a>
 
-## Turn on logging for your logic app
+## Turn on diagnostics logging for your logic app
 
 For richer debugging with runtime details and events, 
-you can set up diagnostic logging with [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
+you can set up diagnostics logging with 
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
 Log Analytics is a service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
 that monitors your cloud and on-premises environments 
 to help you maintain their availability and performance. 
@@ -140,7 +141,11 @@ run events, and action events.
 
 <a name="find-events"></a>
 
-## Find events and data from your logic app runs
+## Find events and data for your logic app
+
+To find and view events in your logic app, 
+like trigger events, run events, and action events, 
+follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
 Search for "log analytics", then choose **Log Analytics** as shown here:
@@ -230,14 +235,14 @@ Then select the options for where you want to send diagnostic data:
 
 ## Set up alerts for your logic app
 
-For monitoring metrics that you want to measure or thresholds 
+To monitor metrics that you want to measure or thresholds 
 that are crossed when your logic app runs, set up 
 [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
-Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-These steps show how to set up alerts without 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
-For more advanced alerts criteria and actions, set up Log Analytics.
+To set up alerts without 
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md), follow these steps. 
+For more advanced alerts criteria and actions, [set up Log Analytics](#azure-diagnostics).
 
 1. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
