@@ -34,7 +34,7 @@ Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](h
 
 |Cmdlet|Description| 
 |------------|-----------------| 
-|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exports log from an instance of Azure Analysis Services server to file.| 
+|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exports log to file.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Gets details of a server instance.|  
 |[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Creates a server instance.|
 |[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Removes a server instance.|  
