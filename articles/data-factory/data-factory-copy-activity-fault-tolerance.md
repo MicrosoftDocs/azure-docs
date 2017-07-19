@@ -1,6 +1,6 @@
 ---
-title: Copy Activity Fault Tolerance | Microsoft Docs
-description: 'Learn about the fault tolerance during data movement by skipping the compatible rows in Copy Activity'
+title: Azure Data Factory Copy Activity fault tolerance - skip incompatible rows | Microsoft Docs
+description: 'Learn about the fault tolerance by skipping the compatible rows during copy using Azure Data Factory'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -16,22 +16,22 @@ ms.date: 07/19/2017
 ms.author: jingwang
 
 ---
-# Copy Activity Fault Tolerance - Skip Incompatible Rows
+# Copy Activity fault tolerance - skip incompatible rows
 
 With [Copy Activity](data-factory-data-movement-activities.md), you have different options to deal with incompatible rows when copying data between source and sink data stores. You can choose to either abort and fail the copy activity upon encountering incompatible data (default behavior), or continue copying all the data by skipping those incompatible rows. Additionally, you also have the option to log the incompatible rows in Azure Blob so you can examine the cause for failure, fix the data on the data source and retry.
 
 ## Supported scenarios
 Currently, copy activity supports detecting, skipping, and logging the following incompatible situation during copy:
 
-1. **Data type incompatibility between source and sink native types**
+- **Data type incompatibility between source and sink native types**
 
     Example: to copy from CSV file in Azure Blob to Azure SQL Database, and the schema defined in Azure SQL Database has three *INT* type columns. Then the rows with numeric data (for example `123,456,789`) in source CSV file are copied successfully, while the rows containing non-numeric value (for example `123,456,abc`) are skipped as incompatible rows.
 
-2. **Number of columns mismatch between source and sink**
+- **Number of columns mismatch between source and sink**
 
     Example: to copy from CSV file in Azure Blob to Azure SQL Database, and the schema defined in SQL Azure has six columns. Then the rows containing six columns in source CSV file are copied successfully, while the rows with other number of columns are skipped as incompatible rows.
 
-3. **Primary key violation when writing to relational database**
+- **Primary key violation when writing to relational database**
 
     Example: to copy from SQL Server to Azure SQL Database, there is a Primary Key defined in sink Azure SQL Database, but no such a Primary Key defined in source SQL Server. The duplicated rows that can exist in source are not allowed when writing into sink. Copy activity copies only the first row into sink and skips the second or more rows with duplicated primary key value from source to sink.
 
@@ -74,5 +74,5 @@ data1	data2	data3	UserErrorInvalidDataValue	Column 'Prop_2' contains an invalid 
 data4	data5	data6 	Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## Next Steps
+## Next steps
 To learn more on Azure Data Factory Copy Activity, see [Move data by using Copy Activity](data-factory-data-movement-activities.md).

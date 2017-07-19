@@ -44,7 +44,7 @@ This DB2 connector supports the following IBM DB2 platforms and versions with Di
 * IBM DB2 for LUW 10.1
 
 > [!TIP]
-> If you hit error stating "The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805", the reason is a needed package is not created for normal user on such OS. Follow below instructions according to your DB2 server type:
+> If you receive an error message that states "The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805", the reason is a needed package is not created for normal user on such OS. Follow below instructions according to your DB2 server type:
 > - DB2 for i (AS400): let power user create collection for the login user before using copy activity. Command: `create collection <username>`
 > - DB2 for z/OS or LUW: use a high privilege account - power user or admin with package authorities and BIND, BINDADD, GRANT EXECUTE TO PUBLIC permissions - to run the copy activity once, then the needed package will be auto created during copy. Afterwards, you can switch back to normal user for your subsequent copy runs.
 
