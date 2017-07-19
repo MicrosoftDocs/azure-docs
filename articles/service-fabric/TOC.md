@@ -241,6 +241,7 @@
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
 #### [Generate infrastructure level events](service-fabric-diagnostics-event-generation-infra.md)
+##### [Operational channel](service-fabric-diagnostics-event-generation-operational.md)
 ##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
 ##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
