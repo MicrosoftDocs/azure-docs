@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: oanapl
 
 ---
@@ -50,7 +50,7 @@ The health entities, organized in a hierarchy based on parent-child relationship
 The health entities are:
 
 * **Cluster**. Represents the health of a Service Fabric cluster. Cluster health reports describe conditions that affect the entire cluster. These conditions affect multiple entities in the cluster or the cluster itself. Based on the condition, the reporter can't narrow the issue down to one or more unhealthy children. Examples include the brain of the cluster splitting due to network partitioning or communication issues.
-* **Node**. Represents the health of a Service Fabric node. Node health reports describe conditions that affect the node functionality. They typically affect all the deployed entities running on it. Examples include node out of disk space (or other machine-wide property, such as memory, connections) and when a node is down. The node entity is identified by the node name (string).
+* **Node**. Represents the health of a Service Fabric node. Node health reports describe conditions that affect the node functionality. They typically affect all the deployed entities running on it. Examples include node out of disk space (or other machine-wide properties, such as memory, connections) and when a node is down. The node entity is identified by the node name (string).
 * **Application**. Represents the health of an application instance running in the cluster. Application health reports describe conditions that affect the overall health of the application. They can't be narrowed down to individual children (services or deployed applications). Examples include the end-to-end interaction among different services in the application. The application entity is identified by the application name (URI).
 * **Service**. Represents the health of a service running in the cluster. Service health reports describe conditions that affect the overall health of the service. The reporter can't narrow down the issue to an unhealthy partition or replica. Examples include a service configuration (such as port or external file share) that is causing issues for all partitions. The service entity is identified by the service name (URI).
 * **Partition**. Represents the health of a service partition. Partition health reports describe conditions that affect the entire replica set. Examples include when the number of replicas is below target count and when a partition is in quorum loss. The partition entity is identified by the partition ID (GUID).
@@ -75,7 +75,7 @@ The possible [health states](https://docs.microsoft.com/dotnet/api/system.fabric
 * **OK**. The entity is healthy. There are no known issues reported on it or its children (when applicable).
 * **Warning**. The entity has some issues, but it can still function correctly. For example, there are delays, but they do not cause any functional issues yet. In some cases, the warning condition may fix itself without external intervention. In these cases, health reports raise awareness and provide visibility into what is going on. In other cases, the warning condition may degrade into a severe problem without user intervention.
 * **Error**. The entity is unhealthy. Action should be taken to fix the state of the entity, because it can't function properly.
-* **Unknown**. The entity doesn't exist in the health store. This result can be obtained from the distributed queries that merge results from multiple components. For example, the get node list query goes to **FailoverManager** and **HealthManager**, and the get application list query goes to **ClusterManager** and **HealthManager**. These queries merge results from multiple system components. If another system component returns an entity that is not present in health store, the merged result has unknown health state. An entity is not in store because health reports have not yet been processed or the entity has been cleaned up after deletion.
+* **Unknown**. The entity doesn't exist in the health store. This result can be obtained from the distributed queries that merge results from multiple components. For example, the get node list query goes to **FailoverManager**, **ClusterManager**, and **HealthManager**; get application list query goes to **ClusterManager** and **HealthManager**. These queries merge results from multiple system components. If another system component returns an entity that is not present in health store, the merged result has unknown health state. An entity is not in store because health reports have not yet been processed or the entity has been cleaned up after deletion.
 
 ## Health policies
 The health store applies health policies to determine whether an entity is healthy based on its reports and its children.

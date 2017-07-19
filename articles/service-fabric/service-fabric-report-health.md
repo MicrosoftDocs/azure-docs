@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: oanapl
 
 ---
@@ -132,7 +132,7 @@ If Service Fabric services do not have admin access to the cluster, you can repo
 > 
 > 
 
-You can specify `HealthReportSendOptions` when sending reports through `Partition` and `CodePackageActivationContext` health APIs. If you have critical reports that must be sent as soon as possible, use `HealthReportSendOptions` with Immediate `true`. Immediate reports bypass the batching interval of the internal health client. As mentioned before, wse this flag with care; we want to take advantage of the health client batching whenever possible.
+You can specify `HealthReportSendOptions` when sending reports through `Partition` and `CodePackageActivationContext` health APIs. If you have critical reports that must be sent as soon as possible, use `HealthReportSendOptions` with Immediate `true`. Immediate reports bypass the batching interval of the internal health client. As mentioned before, use this flag with care; we want to take advantage of the health client batching whenever possible.
 
 ## Design health reporting
 The first step in generating high-quality reports is identifying the conditions that can impact the health of the service. Any condition that can help flag problems in the service or cluster when it starts--or even better, before a problem happens--can potentially save billions of dollars. The benefits include less down time, fewer night hours spent investigating and repairing issues, and higher customer satisfaction.
