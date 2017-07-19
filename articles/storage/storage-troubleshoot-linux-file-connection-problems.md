@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: genli
 
 ---
@@ -79,11 +79,11 @@ If you cannot upgrade to the latest kernel versions, you can work around this pr
 
 ### Cause
 
-Linux distributions do not yet support encryption features in SMB 3.0. In some distributions, users might receive a "115" error message if they try to mount Azure File storage by using SMB 3.0 because of a missing feature.
+Some Linux distributions do not yet support encryption features in SMB 3.0 and users might receive a "115" error message if they try to mount Azure File storage by using SMB 3.0 because of a missing feature.
 
 ### Solution
 
-If the Linux SMB client does not support encryption, mount Azure File storage by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
+Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure File share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure File storage by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
@@ -106,18 +106,7 @@ You can also check whether the correct options are being used by running the  **
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-If the **cache=strict** or **serverino** option is not present, unmount and mount Azure File storage again by running the mount command from the [documentation](storage-how-to-use-files-linux.md#mount-the-file-share). Then, recheck that the **/etc/fstab** entry has the correct options.
-
-<a id="error11"></a>
-## "Mount error(11): Resource temporarily unavailable" when you're mounting to an Ubuntu 4.8 kernel
-
-### Cause
-
-In the Ubuntu 16.10 kernel (version 4.8), the client is documented to support encryption but actually doesn’t.
-
-### Solution
-
-Until Ubuntu 16.10 is fixed, specify the `vers=2.1` mount option or use Ubuntu 16.04.
+If the **cache=strict** or **serverino** option is not present, unmount and mount Azure File storage again by running the mount command from the [documentation](storage-how-to-use-files-linux.md). Then, recheck that the **/etc/fstab** entry has the correct options.
 
 <a id="timestampslost"></a>
 ## Time stamps were lost in copying files from Windows to Linux

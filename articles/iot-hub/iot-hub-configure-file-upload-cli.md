@@ -1,6 +1,6 @@
 ---
 title: Configure file upload to IoT Hub using Azure CLI (az.py) | Microsoft Docs
-description: How to configure fileuploads to Azure IoT hub using the cross-platform Azure CLI 2.0 (az.py).
+description: How to configure fileuploads to Azure IoT Hub using the cross-platform Azure CLI 2.0 (az.py).
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts

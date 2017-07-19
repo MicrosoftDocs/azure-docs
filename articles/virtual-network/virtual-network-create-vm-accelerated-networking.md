@@ -31,7 +31,11 @@ With accelerated networking, network traffic arrives at the VM's network interfa
 
 The benefits of accelerated networking only apply to the VM that it is enabled on. For the best results, it is ideal to enable this feature on at least two VMs connected to the same Azure Virtual Network (VNet). When communicating across VNets or connecting on-premises, this feature has minimal impact to overall latency.
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+> [!WARNING]
+> This Linux Public Preview may not have the same level of availability and reliability as features that are in general 
+> availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure 
+> locations. For the most up-to-date notifications on availability and status of this feature, check the Azure Virtual Network updates 
+> page.
 
 ## Benefits
 * **Lower Latency / Higher packets per second (pps):** Removing the virtual switch from the datapath removes the time packets spend in the host for policy processing and increases the number of packets that can be processed inside the VM.
@@ -46,6 +50,7 @@ The following limitations exist when using this capability:
 * **Regions:** Windows VMs with accelerated networking are offered in most Azure regions. Linux VMs with accelerated networking are offered in multiple regions. The regions this capability is available in is expanding. Please see the Azure Virtual Networking Updates blog below for the latest information.   
 * **Supported operating systems:** Windows: Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016. Linux: Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3 and CentOS 7.3 (Published by “Rogue Wave Software”).
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
+* **Deployment through Azure Resource Manager (ARM) only:** Accelerated Networking is not available for deployment through ASM/RDFE.
 
 Changes to these limitations are announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-preview) page.
 

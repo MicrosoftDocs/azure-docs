@@ -4,7 +4,7 @@ description: Learn how to use Intel NUC as an IoT gateway to connect a TI Sensor
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot gateway connect device to cloud'
 
