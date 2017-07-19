@@ -76,7 +76,7 @@ If a database is in a GeoDR relationship, it is protected by a different key on 
 
 Most data breaches involve the theft of critical data such as credit card numbers or personally identifiable information. Databases can be treasure troves of sensitive information. They can contain customers' personal data, confidential competitive information, and intellectual property. Lost or stolen data, especially customer data, can result in brand damage, competitive disadvantage, and serious fines—even lawsuits.
 
-![Always Encrypted](./media/azure-databse-security-overview/azure-database-fig1.png.png)
+![Always Encrypted](./media/azure-databse-security-overview/azure-database-fig1.png)
 
 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (e.g. U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server).
 
@@ -113,7 +113,7 @@ SQL database authentication refers to how you prove your identity when connectin
 
 -	**Azure Active Directory Authentication:** [Azure Active Directory authentication](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) is a mechanism of connecting to Microsoft Azure SQL Database and SQL Data Warehouse by using identities in Azure Active Directory (Azure AD). This enables you to centrally manage identities of database users.
 
-![Authentication](./media/azure-databse-security-overview/azure-database-fig2.png.png)
+![Authentication](./media/azure-databse-security-overview/azure-database-fig2.png)
 
  Advantages of Azure Active Directory authentication include:
   -	It provides an alternative to SQL Server authentication.
@@ -137,7 +137,7 @@ A service representative at a call center may identify callers by several digits
 
 A masking rule can be defined that masks all but the last four digits of any social security number or credit card number in the result set of any query.
 
-![Dynamic data masking](./media/azure-databse-security-overview/azure-database-fig3.png.png)
+![Dynamic data masking](./media/azure-databse-security-overview/azure-database-fig3.png)
 
 As another example, an appropriate data mask can be defined to protect personally identifiable information (PII) data, so that a developer can query production environments for troubleshooting purposes without violating compliance regulations.
 
@@ -152,7 +152,7 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 #### Row level security
 Another common security requirement for multitenant databases is [Row-Level Security](https://msdn.microsoft.com/en-us/library/dn765131.aspx). This feature enables you to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).
 
-![Row-level-security](./media/azure-databse-security-overview/azure-database-fig4.png.png)
+![Row-level-security](./media/azure-databse-security-overview/azure-database-fig4.png)
 
 The access restriction logic is located in the database tier rather than away from the data in another application tier. The database system applies the access restrictions every time that data access is attempted from any tier. This makes your security system more reliable and robust by reducing the surface area of your security system.
 
@@ -181,7 +181,7 @@ There are two Auditing methods:
 ### Threat detection
 [Azure SQL Database threat detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection) detects suspicious activities that indicate potential security threats. Threat detection enables you to respond to suspicious events in the database, such as SQL Injections, as they occur. It provides alerts and allows the use of Azure SQL Database Auditing to explore the suspicious events.
 
-![Threat-detection](./media/azure-databse-security-overview/azure-database-fig5.png.png)
+![Threat-detection](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
 For example, SQL injection is one of the common Web application security issues on the Internet, used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, breaching or modifying data in the database.
 
