@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/18/2017
 ms.author: cenkdin;juliako
 
 ---
@@ -56,7 +56,6 @@ The following code example demonstrates how to achieve the following tasks:
 * Create a locator needed to access the program
 * Create and start a StreamingEndpoint
 * Update the streaming endpoint
-* Get locators for all your streaming endpoints
 * Shut down resources
 
 >[!IMPORTANT]
@@ -67,327 +66,315 @@ The following code example demonstrates how to achieve the following tasks:
 
 For information on how to configure a live encoder, see [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
-    using System.Security.Cryptography;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Newtonsoft.Json.Linq;
+	using System;
+	using System.Collections.Generic;
+	using System.Configuration;
+	using System.Linq;
+	using System.Net;
+	using System.Security.Cryptography;
+	using Microsoft.WindowsAzure.MediaServices.Client;
 
-    namespace AMSLiveTest
-    {
-        class Program
-        {
-            private const string StreamingEndpointName = "streamingendpoint001";
-            private const string ChannelName = "channel001";
-            private const string AssetlName = "asset001";
-            private const string ProgramlName = "program001";
+	namespace AMSLiveTest
+	{
+	    class Program
+	    {
+		private const string StreamingEndpointName = "streamingendpoint001";
+		private const string ChannelName = "channel001";
+		private const string AssetlName = "asset001";
+		private const string ProgramlName = "program001";
 
-	    // Read values from the App.config file.
-	    private static readonly string _AADTenantDomain =
-	    ConfigurationManager.AppSettings["AADTenantDomain"];
-	    private static readonly string _RESTAPIEndpoint =
-	    ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+		// Read values from the App.config file.
+		private static readonly string _AADTenantDomain =
+		ConfigurationManager.AppSettings["AADTenantDomain"];
+		private static readonly string _RESTAPIEndpoint =
+		ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-	    private static CloudMediaContext _context = null;
+		private static CloudMediaContext _context = null;
 
-            static void Main(string[] args)
-            {
-		var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-		var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+		static void Main(string[] args)
+		{
+		    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+		    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-		_context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+		    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                IChannel channel = CreateAndStartChannel();
+		    IChannel channel = CreateAndStartChannel();
 
-                // Set the Live Encoder to point to the channel's input endpoint:
-                string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
+		    // Set the Live Encoder to point to the channel's input endpoint:
+		    string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
 
-                // Use the previewEndpoint to preview and verify
-                // that the input from the encoder is actually reaching the Channel.
-                string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
+		    // Use the previewEndpoint to preview and verify
+		    // that the input from the encoder is actually reaching the Channel.
+		    string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
 
-                IProgram program = CreateAndStartProgram(channel);
-                ILocator locator = CreateLocatorForAsset(program.Asset, program.ArchiveWindowLength);
-                IStreamingEndpoint streamingEndpoint = CreateAndStartStreamingEndpoint();
-                GetLocatorsInAllStreamingEndpoints(program.Asset);
+		    IProgram program = CreateAndStartProgram(channel);
+		    ILocator locator = CreateLocatorForAsset(program.Asset, program.ArchiveWindowLength);
+		    IStreamingEndpoint streamingEndpoint = CreateAndStartStreamingEndpoint(false);
 
-                // Once you are done streaming, clean up your resources.
-                Cleanup(streamingEndpoint, channel);
-            }
+		    // Once you are done streaming, clean up your resources.
+		    Cleanup(streamingEndpoint, channel);
+		}
 
-            public static IChannel CreateAndStartChannel()
-            {
-                //If you want to change the Smooth fragments to HLS segment ratio, you would set the ChannelCreationOptions’s Output property.
+		public static IChannel CreateAndStartChannel()
+		{
+		    //If you want to change the Smooth fragments to HLS segment ratio, you would set the ChannelCreationOptions’s Output property.
 
-                IChannel channel = _context.Channels.Create(
-                new ChannelCreationOptions
-                {
-                Name = ChannelName,
-                Input = CreateChannelInput(),
-                Preview = CreateChannelPreview()
-                });
+		    IChannel channel = _context.Channels.Create(
+		    new ChannelCreationOptions
+		    {
+			Name = ChannelName,
+			Input = CreateChannelInput(),
+			Preview = CreateChannelPreview()
+		    });
 
-                //Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
+		    //Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
 
-                channel.Start();
+		    channel.Start();
 
-                return channel;
-            }
+		    return channel;
+		}
 
-            private static ChannelInput CreateChannelInput()
-            {
-                return new ChannelInput
-                {
-                    StreamingProtocol = StreamingProtocol.RTMP,
-                    AccessControl = new ChannelAccessControl
-                    {
-                        IPAllowList = new List<IPRange>
-                                {
-                                new IPRange
-                            {
-                                Name = "TestChannelInput001",
-                                // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                                // will allow access to IP addresses.
-                                Address = IPAddress.Parse("0.0.0.0"),
-                                SubnetPrefixLength = 0
-                            }
-                        }
-                    }
-                };
-            }
+		private static ChannelInput CreateChannelInput()
+		{
+		    return new ChannelInput
+		    {
+			StreamingProtocol = StreamingProtocol.RTMP,
+			AccessControl = new ChannelAccessControl
+			{
+			    IPAllowList = new List<IPRange>
+					{
+					new IPRange
+				    {
+					Name = "TestChannelInput001",
+					// Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
+					// will allow access to IP addresses.
+					Address = IPAddress.Parse("0.0.0.0"),
+					SubnetPrefixLength = 0
+				    }
+				}
+			}
+		    };
+		}
 
-            private static ChannelPreview CreateChannelPreview()
-            {
-                return new ChannelPreview
-                {
-                    AccessControl = new ChannelAccessControl
-                    {
-                        IPAllowList = new List<IPRange>
-                        {
-                            new IPRange
-                            {
-                                Name = "TestChannelPreview001",
-                                // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                                // will allow access to IP addresses.
-                                Address = IPAddress.Parse("0.0.0.0"),
-                                SubnetPrefixLength = 0
-                            }
-                        }
-                    }
-                };
-            }
+		private static ChannelPreview CreateChannelPreview()
+		{
+		    return new ChannelPreview
+		    {
+			AccessControl = new ChannelAccessControl
+			{
+			    IPAllowList = new List<IPRange>
+				{
+				    new IPRange
+				    {
+					Name = "TestChannelPreview001",
+					// Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
+					// will allow access to IP addresses.
+					Address = IPAddress.Parse("0.0.0.0"),
+					SubnetPrefixLength = 0
+				    }
+				}
+			}
+		    };
+		}
 
-            public static void UpdateCrossSiteAccessPoliciesForChannel(IChannel channel)
-            {
-                var clientPolicy =
-                    @"<?xml version=""1.0"" encoding=""utf-8""?>
-                <access-policy>
-                    <cross-domain-access>
-                        <policy>
-                            <allow-from http-request-headers=""*"" http-methods=""*"">
-                                <domain uri=""*""/>
-                            </allow-from>
-                            <grant-to>
-                               <resource path=""/"" include-subpaths=""true""/>
-                            </grant-to>
-                        </policy>
-                    </cross-domain-access>
-                </access-policy>";
+		public static void UpdateCrossSiteAccessPoliciesForChannel(IChannel channel)
+		{
+		    var clientPolicy =
+			@"<?xml version=""1.0"" encoding=""utf-8""?>
+			<access-policy>
+			    <cross-domain-access>
+				<policy>
+				    <allow-from http-request-headers=""*"" http-methods=""*"">
+					<domain uri=""*""/>
+				    </allow-from>
+				    <grant-to>
+				       <resource path=""/"" include-subpaths=""true""/>
+				    </grant-to>
+				</policy>
+			    </cross-domain-access>
+			</access-policy>";
 
-                var xdomainPolicy =
-                    @"<?xml version=""1.0"" ?>
-                <cross-domain-policy>
-                    <allow-access-from domain=""*"" />
-                </cross-domain-policy>";
+		    var xdomainPolicy =
+			@"<?xml version=""1.0"" ?>
+			<cross-domain-policy>
+			    <allow-access-from domain=""*"" />
+			</cross-domain-policy>";
 
-                channel.CrossSiteAccessPolicies.ClientAccessPolicy = clientPolicy;
-                channel.CrossSiteAccessPolicies.CrossDomainPolicy = xdomainPolicy;
+		    channel.CrossSiteAccessPolicies.ClientAccessPolicy = clientPolicy;
+		    channel.CrossSiteAccessPolicies.CrossDomainPolicy = xdomainPolicy;
 
-                channel.Update();
-            }
+		    channel.Update();
+		}
 
-            public static IProgram CreateAndStartProgram(IChannel channel)
-            {
-                IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
+		public static IProgram CreateAndStartProgram(IChannel channel)
+		{
+		    IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
 
-                // Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
-                // however each Program must have a unique name within your Media Services account.
-                IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
-                program.Start();
+		    // Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
+		    // however each Program must have a unique name within your Media Services account.
+		    IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
+		    program.Start();
 
-                return program;
-            }
+		    return program;
+		}
 
-            public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
-            {
-                // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+		public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
+		{
+		    // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 
-                var locator = _context.Locators.CreateLocator
-                    (
-                        LocatorType.OnDemandOrigin,
-                        asset,
-                        _context.AccessPolicies.Create
-                        (
-                            "Live Stream Policy",
-                            ArchiveWindowLength,
-                            AccessPermissions.Read
-                        )
-                    );
+		    var locator = _context.Locators.CreateLocator
+			(
+			    LocatorType.OnDemandOrigin,
+			    asset,
+			    _context.AccessPolicies.Create
+			    (
+				"Live Stream Policy",
+				ArchiveWindowLength,
+				AccessPermissions.Read
+			    )
+			);
 
-                return locator;
-            }
+		    return locator;
+		}
 
-            public static IStreamingEndpoint CreateAndStartStreamingEndpoint()
-            {
-                var options = new StreamingEndpointCreationOptions
-                {
-                    Name = StreamingEndpointName,
-                    ScaleUnits = 1,
-                    AccessControl = GetAccessControl(),
-                    CacheControl = GetCacheControl()
-                };
+		public static IStreamingEndpoint CreateAndStartStreamingEndpoint(bool createNew)
+		{
+		    IStreamingEndpoint streamingEndpoint = null;
+		    if (createNew)
+		    {
+			var options = new StreamingEndpointCreationOptions
+			{
+			    Name = StreamingEndpointName,
+			    ScaleUnits = 1,
+			    AccessControl = GetAccessControl(),
+			    CacheControl = GetCacheControl()
+			};
 
-                IStreamingEndpoint streamingEndpoint = _context.StreamingEndpoints.Create(options);
-                streamingEndpoint.Start();
+			streamingEndpoint = _context.StreamingEndpoints.Create(options);
+		    }
+		    else
+		    {
+			streamingEndpoint = _context.StreamingEndpoints.FirstOrDefault();
+		    }
 
-                return streamingEndpoint;
-            }
 
-            private static StreamingEndpointAccessControl GetAccessControl()
-            {
-                return new StreamingEndpointAccessControl
-                {
-                    IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
-                        {
-                            Name = "Allow all",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
-                        }
-                    },
+		    if (streamingEndpoint.State == StreamingEndpointState.Stopped)
+			streamingEndpoint.Start();
 
-                    AkamaiSignatureHeaderAuthenticationKeyList = new List<AkamaiSignatureHeaderAuthenticationKey>
-                    {
-                        new AkamaiSignatureHeaderAuthenticationKey
-                        {
-                            Identifier = "My key",
-                            Expiration = DateTime.UtcNow + TimeSpan.FromDays(365),
-                            Base64Key = Convert.ToBase64String(GenerateRandomBytes(16))
-                        }
-                    }
-                };
-            }
+		    return streamingEndpoint;
+		}
 
-            private static byte[] GenerateRandomBytes(int length)
-            {
-                var bytes = new byte[length];
-                using (var rng = new RNGCryptoServiceProvider())
-                {
-                    rng.GetBytes(bytes);
-                }
+		private static StreamingEndpointAccessControl GetAccessControl()
+		{
+		    return new StreamingEndpointAccessControl
+		    {
+			IPAllowList = new List<IPRange>
+			    {
+				new IPRange
+				{
+				    Name = "Allow all",
+				    Address = IPAddress.Parse("0.0.0.0"),
+				    SubnetPrefixLength = 0
+				}
+			    },
 
-                return bytes;
-            }
+			AkamaiSignatureHeaderAuthenticationKeyList = new List<AkamaiSignatureHeaderAuthenticationKey>
+			    {
+				new AkamaiSignatureHeaderAuthenticationKey
+				{
+				    Identifier = "My key",
+				    Expiration = DateTime.UtcNow + TimeSpan.FromDays(365),
+				    Base64Key = Convert.ToBase64String(GenerateRandomBytes(16))
+				}
+			    }
+		    };
+		}
 
-            private static StreamingEndpointCacheControl GetCacheControl()
-            {
-                return new StreamingEndpointCacheControl
-                {
-                    MaxAge = TimeSpan.FromSeconds(1000)
-                };
-            }
+		private static byte[] GenerateRandomBytes(int length)
+		{
+		    var bytes = new byte[length];
+		    using (var rng = new RNGCryptoServiceProvider())
+		    {
+			rng.GetBytes(bytes);
+		    }
 
-            public static void UpdateCrossSiteAccessPoliciesForStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
-            {
-                var clientPolicy =
-                    @"<?xml version=""1.0"" encoding=""utf-8""?>
-                <access-policy>
-                    <cross-domain-access>
-                        <policy>
-                            <allow-from http-request-headers=""*"" http-methods=""*"">
-                                <domain uri=""*""/>
-                            </allow-from>
-                            <grant-to>
-                               <resource path=""/"" include-subpaths=""true""/>
-                            </grant-to>
-                        </policy>
-                    </cross-domain-access>
-                </access-policy>";
+		    return bytes;
+		}
 
-                var xdomainPolicy =
-                    @"<?xml version=""1.0"" ?>
-                <cross-domain-policy>
-                    <allow-access-from domain=""*"" />
-                </cross-domain-policy>";
+		private static StreamingEndpointCacheControl GetCacheControl()
+		{
+		    return new StreamingEndpointCacheControl
+		    {
+			MaxAge = TimeSpan.FromSeconds(1000)
+		    };
+		}
 
-                streamingEndpoint.CrossSiteAccessPolicies.ClientAccessPolicy = clientPolicy;
-                streamingEndpoint.CrossSiteAccessPolicies.CrossDomainPolicy = xdomainPolicy;
+		public static void UpdateCrossSiteAccessPoliciesForStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
+		{
+		    var clientPolicy =
+			@"<?xml version=""1.0"" encoding=""utf-8""?>
+			<access-policy>
+			    <cross-domain-access>
+				<policy>
+				    <allow-from http-request-headers=""*"" http-methods=""*"">
+					<domain uri=""*""/>
+				    </allow-from>
+				    <grant-to>
+				       <resource path=""/"" include-subpaths=""true""/>
+				    </grant-to>
+				</policy>
+			    </cross-domain-access>
+			</access-policy>";
 
-                streamingEndpoint.Update();
-            }
+		    var xdomainPolicy =
+			@"<?xml version=""1.0"" ?>
+			<cross-domain-policy>
+			    <allow-access-from domain=""*"" />
+			</cross-domain-policy>";
 
-            public static void GetLocatorsInAllStreamingEndpoints(IAsset asset)
-            {
-                var locators = asset.Locators.Where(l => l.Type == LocatorType.OnDemandOrigin);
-                var ismFile = asset.AssetFiles.AsEnumerable().FirstOrDefault(a => a.Name.EndsWith(".ism"));
-                var template = new UriTemplate("{contentAccessComponent}/{ismFileName}/manifest");
-                var urls = locators.SelectMany(l =>
-                            _context
-                                .StreamingEndpoints
-                                .AsEnumerable()
-                                .Where(se => se.State == StreamingEndpointState.Running)
-                                .Select(
-                                    se =>
-                                        template.BindByPosition(new Uri("http://" + se.HostName),
-                                        l.ContentAccessComponent,
-                                            ismFile.Name)))
-                            .ToArray();
+		    streamingEndpoint.CrossSiteAccessPolicies.ClientAccessPolicy = clientPolicy;
+		    streamingEndpoint.CrossSiteAccessPolicies.CrossDomainPolicy = xdomainPolicy;
 
-            }
+		    streamingEndpoint.Update();
+		}
 
-            public static void Cleanup(IStreamingEndpoint streamingEndpoint,
-                                        IChannel channel)
-            {
-                if (streamingEndpoint != null)
-                {
-                    streamingEndpoint.Stop();
-                    streamingEndpoint.Delete();
-                }
+		public static void Cleanup(IStreamingEndpoint streamingEndpoint,
+					    IChannel channel)
+		{
+		    if (streamingEndpoint != null)
+		    {
+			streamingEndpoint.Stop();
+			if(streamingEndpoint.Name != "default")
+			    streamingEndpoint.Delete();
+		    }
 
-                IAsset asset;
-                if (channel != null)
-                {
+		    IAsset asset;
+		    if (channel != null)
+		    {
 
-                    foreach (var program in channel.Programs)
-                    {
-                        asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                                                .FirstOrDefault();
+			foreach (var program in channel.Programs)
+			{
+			    asset = _context.Assets.Where(se => se.Id == program.AssetId)
+						    .FirstOrDefault();
 
-                        program.Stop();
-                        program.Delete();
+			    program.Stop();
+			    program.Delete();
 
-                        if (asset != null)
-                        {
-                            foreach (var l in asset.Locators)
-                                l.Delete();
+			    if (asset != null)
+			    {
+				foreach (var l in asset.Locators)
+				    l.Delete();
 
-                            asset.Delete();
-                        }
-                    }
+				asset.Delete();
+			    }
+			}
 
-                    channel.Stop();
-                    channel.Delete();
-                }
-            }
-        }
-    }
+			channel.Stop();
+			channel.Delete();
+		    }
+		}
+	    }
+	}
 
 ## Next Step
 Review Media Services learning paths
