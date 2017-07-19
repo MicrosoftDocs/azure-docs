@@ -13,11 +13,11 @@
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 07/14/2017
+  ms.date: 07/19/2017
   ms.author: luywang
 
 ---
-# Backup and Disaster Recovery for Azure IaaS Disks
+# Backup and disaster recovery for Azure IaaS disks
 
 In this article, we will explain how to plan for Backup and Disaster Recovery (DR) of IaaS virtual machines (VMs) and Disks in Azure. This document covers both Managed and Unmanaged Disks.
 
