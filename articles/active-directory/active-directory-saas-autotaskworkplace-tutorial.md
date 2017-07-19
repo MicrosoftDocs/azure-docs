@@ -138,14 +138,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. Go to **Configuration** > **Single Sign-On** and perform the following steps:
 
-   ![Autotask Single Sign-on configuration](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
+    ![Autotask Single Sign-on configuration](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
 
    
     a. Select the **XML Metadata File** option, and then upload the **Metadata XML** downloaded from Azure portal.
 
     b. Click **Enable SSO**.
     
-   ![Autotask Single Sign-on approve configuration](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
+    ![Autotask Single Sign-on approve configuration](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
 
      c. Select the **I confirm this information is correct and I trust this IdP** check box.
 
