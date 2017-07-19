@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/14/2017
 ms.author: magoedte
 
 ---
@@ -301,6 +301,34 @@ The following table provides sample log searches for update records collected by
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |List what update deployments have modified computers | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Computers that were updated in this update run (replace value with your Update Deployment name | 
 | Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |List of all the “Ubuntu” machines with any update available | 
+
+
+>[!NOTE]
+> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](../log-analytics/log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+>
+>| Query | Description |
+|:---|:---|
+| Update &#124; where OSType != "Linux" and UpdateState == "Needed" and iff(isnotnull(toint(Optional)), Optional == false, Optional == "false") == true and iff(isnotnull(toint(Approved)), Approved != false, Approved != "false") == true &#124; summarize AggregatedValue = count() by Computer |Windows-based server computers that need updates |
+| Update &#124; where OSType == "Linux" and UpdateState != "Not needed" &#124; summarize AggregatedValue = count() by Computer |Linux servers that need updates | 
+| Update &#124; where UpdateState == "Needed" and iff(isnotnull(toint(Optional)), Optional == false, Optional == "false") == true &#124; project Computer, Title, KBID, Classification, UpdateSeverity, PublishedDate |All computers with missing updates |
+| Update &#124; where UpdateState == "Needed" and iff(isnotnull(toint(Optional)), Optional == false, Optional == "false") == true and Computer == "COMPUTER01.contoso.com" &#124; project Computer, Title, KBID, Product, UpdateSeverity, PublishedDate |Missing updates for a specific computer (replace value with your own computer name)|
+| Update &#124; where UpdateState == "Needed" and iff(isnotnull(toint(Optional)), Optional == false, Optional == "false") == true and (Classification == "Security Updates" or Classification == "Critical Updates") |All computers with missing critical or security updates | 
+| Update &#124; where UpdateState == "Needed" and iff(isnotnull(toint(Optional)), Optional == false, Optional == "false") == true and (Classification == "Security Updates" or Classification == "Critical Updates") and Computer in ((UpdateSummary &#124; where WindowsUpdateSetting == "Manual" &#124; distinct Computer)) &#124; distinct KBID |Critical or security updates needed by machines where updates are manually applied |
+| Event &#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates") and UpdateState == "Needed" and iff(isnotnull(toint(Optional)), Optional == false, Optional == "false") == true &#124; distinct Computer)) |Error events for machines that have missing critical or security required updates |
+| Update &#124; where iff(isnotnull(toint(Optional)), Optional == false, Optional == "false") == true and Classification == "Update Rollups" and UpdateState == "Needed" &#124; project Computer, Title, KBID, Classification, UpdateSeverity, PublishedDate |All computers with missing update rollups | 
+| Update &#124; where UpdateState == "Needed" and iff(isnotnull(toint(Optional)), Optional == false, Optional == "false") == true &#124; distinct Title |Distinct missing updates across all computers | 
+| UpdateRunProgress &#124; where InstallationStatus == "failed" &#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Windows-based server computer with updates that failed in an update run | 
+| UpdateRunProgress &#124; where InstallationStatus == "failed" &#124; summarize AggregatedValue = count() by Computer, Product, UpdateRunName |Linux server with updates that failed an update run | 
+| UpdateSummary &#124; summarize AggregatedValue = count() by WSUSServer |WSUS computer membership | 
+| UpdateSummary &#124; summarize AggregatedValue = count() by WindowsUpdateSetting |Automatic update configuration | 
+| UpdateSummary &#124; where WindowsUpdateSetting == "Manual" |Computers with automatic update disabled | 
+| Update &#124; where OSType == "Linux" and UpdateState != "Not needed" &#124; summarize AggregatedValue = count() by Computer |List of all the Linux machines which have a package update available | 
+| Update &#124; where OSType == "Linux" and UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates") &#124; summarize AggregatedValue = count() by Computer |List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability | 
+| Update &#124; where OSType == "Linux" and UpdateState != "Not needed" |List of all packages that have an update available | 
+| Update &#124; where OSType == "Linux" and UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates") |List of all packages that have an update available which addresses Critical or Security vulnerability | 
+| UpdateRunProgress &#124; summarize AggregatedValue = count() by UpdateRunName |List what update deployments have modified computers | 
+| UpdateRunProgress &#124; where UpdateRunName == "DeploymentName" &#124; summarize AggregatedValue = count() by Computer |Computers that were updated in this update run (replace value with your Update Deployment name | 
+| Update &#124; where OSType == "Linux" and OSName == "Ubuntu" &#124; summarize AggregatedValue = count() by Computer |List of all the “Ubuntu” machines with any update available | 
 
 ## Troubleshooting
 
