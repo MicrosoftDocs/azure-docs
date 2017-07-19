@@ -43,13 +43,13 @@ To attain 30-day trial keys to these APIs, see [this page](https://azure.microso
 ## Environment Setup  
 ### Installing Xamarin 
 #### Windows   
-With Visual Studio 2017 installed, open the Visual Studio Installer, select the hamburger menu associated with your Visual Studio installation, and select `Modify`.
+With Visual Studio 2017 installed, open the Visual Studio Installer, select the hamburger menu associated with your Visual Studio installation, and select **Modify**.
 ![A picture of the visual studio installer](./media/computer-vision-web-search-tutorial/VisualStudioInstallerPhoto.PNG) 
 
-Now, scroll down to Mobile & Gaming, and make sure that you've enabled `Mobile Development with .NET`
+Now, scroll down to Mobile & Gaming, and make sure that you've enabled **Mobile Development with .NET**
 ![A picture showing that Xamarin.Forms is installed](./media/computer-vision-web-search-tutorial/XamarinFormsIsEnabled.PNG)
 
-Now, click `Modify` in the bottom right corner of the window, and wait for Xamarin to install.
+Now, click **Modify** in the bottom right corner of the window, and wait for Xamarin to install.
 
 #### macOS
 Xamarin should come pre-packaged with Visual Studio for Mac.
@@ -64,7 +64,7 @@ In Visual Studio, open `cognitive-services-xamarin-forms-computer-vision-search\
 ### Step 3: Install required NuGet packages
 This application requires two NuGet packages to be installed: **Json.NET**, and the **Xamarin Media Plugin**.  You can open the NuGet Package Manager in `Tools > NuGet Package Manager > Manage NuGet Packages For Solution`, or by right-clicking on your solution and selecting *Manage NuGet Packages*.  
 
-From here, search for and install the **Xamarin Media plugin** (`Xam.Plugin.Media`) and **Json.NET** (`Newtonsoft.Json`) packages.
+From here, search for and install the **Xamarin Media plugin** (Xam.Plugin.Media) and **Json.NET** (Newtonsoft.Json) packages.
 
 ### Step 4: Build the sample
 Press **Ctrl+Shift+B**, or click **Build** on the ribbon menu, then select **Build Solution**.  This builds the solution for all available platforms.  If you wish to compile and test code for iOS while using a windows machine, reference [this guide](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/") for help.
@@ -101,8 +101,8 @@ Now that the sample is up and running, let's jump in and explore exactly how it 
 ### Add Keys Page
 The Add Keys Page is where the user inputs their Azure API keys so that the Cognitive Services endpoints can be accessed later. The UI for this page is defined in `AddKeysPage.xaml`, and its primary logic is defined in `AddKeysPage.xaml.cs`.  While the specific parameters of our test requests are discussed later, this is a great place to establish the basic structure for how the Azure endpoints can be reached from a C# codebase.  Throughout this sample, the basic structure of this interaction is as follows: 
 1) Establish the URI for each endpoint in a reusable location, and attach the URI call's specific parameters
-2) Initialize `HttpResponseMessage` and `HttpClient` objects from `System.Net.Http`
-3) Attach any desired headers (defined in each endpoint's API reference) to your `HttpClient` object
+2) Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
+3) Attach any desired headers (defined in each endpoint's API reference) to your *HttpClient* object
 5) Send a GET or POST request with your data
 6) Check that the response was successful
 7) Pass the response on for further parsing
@@ -146,14 +146,14 @@ async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
 }
 ```
 
-### OCR Select Page
+### OCR Select Pagez
 The OCR Select Page has two main roles.  First, it is where the user determines what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally cumbersome in a cross-platform application, as different logic has to be written for photo capture and import photos per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
 
 The following function provides an example of how to use the Xamarin Media Plugin for photo capture.  In it, we:
 1) Ensure that a camera is available on the current device.
-2) Initialize a new `StoreCameraMediaOptions` object and use it to set where we want to save our captured image.
-3) Take an image, save it to the specified location, and attain a `MediaFile` object containing the image data.
-4) Unpack the `MediaFile` into a byte array.
+2) Initialize a new *StoreCameraMediaOptions* object and use it to set where we want to save our captured image.
+3) Take an image, save it to the specified location, and attain a *MediaFile* object containing the image data.
+4) Unpack the *MediaFile* into a byte array.
 5) Return the byte array for further processing.
 
 Here's the function that uses the Xamarin Media Plugin for photo capture.  
@@ -186,7 +186,7 @@ async Task<byte[]> TakePhoto()
 }
 ```
 
-And here's the utility function used to convert a `MediaFile` into a byte array: 
+And here's the utility function used to convert a *MediaFile* into a byte array: 
 
 ```csharp
 byte[] MediaFileToByteArray(MediaFile photoMediaFile)
@@ -201,7 +201,7 @@ byte[] MediaFileToByteArray(MediaFile photoMediaFile)
 
 The photo import utility works in a similar way, and can be found in `OcrSelectPage.xaml.cs`  
 [!NOTE]
->The downscaling done by setting `PhotoSize = PhotoSize.Medium` on the `StoreCameraMediaOptions` object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4 MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all file-size related issues.  If your device takes exceptionally high-quality photos and you are getting errors, you might try setting `PhotoSize = PhotoSize.Small` here.  
+>The downscaling done by setting `PhotoSize = PhotoSize.Medium` on the *StoreCameraMediaOptions* object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4 MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all file-size related issues.  If your device takes exceptionally high-quality photos and you are getting errors, you might try setting `PhotoSize = PhotoSize.Small` here.  
 
 ### OCR Results Page
 The OCR Results Page is where we extract text from the selected OCR endpoint and pull text from the endpoint response using the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them.
@@ -233,7 +233,7 @@ public const string handwritingUri = "https://westcentralus.api.cognitive.micros
 
 Next, let's examine the functions that call the API.
 
-`FetchPrintedWordList` uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a `ByteArrayContent` object, and add a header to this `ByteArrayContent` object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
+*FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a *ByteArrayContent* object, and add a header to this *ByteArrayContent* object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
 
 [!TIP]
 > Note the use of the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  `SelectToken` is used here because we are only looking for a specific feature of the JSON response which we can then pass on to the next function.  Elsewhere in the codebase, JSON responses are deserialized onto model objects defined in 
@@ -396,7 +396,7 @@ async Task<WebResultsList> GetQueryResults()
 }
 ```
 
-It's important to acknowledge here that the Web Search API functions best when a maximal number of case-specific headers and parameters are used to personalize and optimize your call.  Whatever your domain, you should spend some time considering how you would like to tailor results that you serve to your users.  The simplest way to ensure this is through utilizing parameters such as **mkt** and the **responseFilter**, but for certain applications it might be valuable to explore the [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/).
+It's important to acknowledge here that the Web Search API functions best when a maximal number of case-specific headers and parameters are used to personalize and optimize your call.  Whatever your domain, you should spend some time considering how you would like to tailor results that you serve to your users.  The simplest way to ensure this is through utilizing parameters such as **mkt** and the **responseFilter**, but for enterprise applications it will be valuable to explore the [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/).
 
 
 [!NOTE]
