@@ -329,24 +329,24 @@ You can also filter the change feed using client side logic to selectively proce
     }
 
 ## <a id="change-feed-processor"></a>Cosmos DB Change Feed Processor Library
-The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) can help you easily distribute event processing from the change feed across multiple consumers. The library is great for building change feed readers on the .NET platform. Some workflows that would be simplified by using this library include: 
+The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) can help you easily distribute event processing from change feed across multiple consumers. The library is great for building change feed readers on the .NET platform. Some workflows that would be simplified by using this library include: 
 
 * Pulling updates from change feed when data is stored across multiple partitions
 * Moving or replicating data from one collection to another
 * Parallel execution of actions triggered by updates to data and change feed 
 
-While using the change feed SDK provides precise access to change feed updates in each partition, using the Change Feed Processor simplifies reading changes across partitions and multiple threads working in parallel. Instead of manually reading changes from each container and saving a continuation token for each partition, the change feed processor automatically manages reading changes across partitions using a lease mechanism.
+While using the change feed SDK provides precise access to change feed updates in each partition, using the Change Feed Processor simplifies reading changes across partitions and multiple threads working in parallel. Instead of manually reading changes from each container and saving a continuation token for each partition, the Change Feed Processor automatically manages reading changes across partitions using a lease mechanism.
 The library is available as a NuGet Package: [Microsoft.Azure.Documents.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) and from source code as a Github [sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor). 
 
 ### Understanding Change Feed Processor Library 
 
-There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and consumers. Here, in a document schema, we use container and collection interchangeably. In other schemas, "container" is the more accurate terminology. 
+There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and consumers. Here, in a document schema, we use "container" and "collection" interchangeably. In other schemas, "container" is the more accurate terminology. 
 
 **Monitored Collection:**
-The monitored container is the data from which the change feed is generated. Any inserts and changes to the monitored container is reflected in the change feed of the container. 
+The monitored collection is the data from which the change feed is generated. Any inserts and changes to the monitored collection is reflected in the change feed of the collection. 
 
-**Lease Collection:*
-The lease container coordinates processing the change feed across multiple workers. A separate container is used to store the leases with one lease per partition. It is advantageous to store this lease container on a different account with the write region closer to where the Change Feed Processor is running. A lease object contains the following attributes: 
+**Lease Collection:**
+The lease collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition. It is advantageous to store this lease collection on a different account with the write region closer to where the Change Feed Processor is running. A lease object contains the following attributes: 
 * Owner: specifies the host that owns the lease
 * Continuation: specifies position (continuation token) in change feed for a particular partition
 * Timestamp: last time lease was updated; the timestamp can be used to check whether the lease is considered expired 
@@ -374,7 +374,7 @@ Before installing Change Feed Processor NuGet Package, first install:
 * Newtonsoft.Json, version 9.0.1 or above
 Install `Microsoft.Azure.DocumentDB.ChangeFeedProcessor` and include it as a reference.
 
-**Create a lease and destination collection** 
+**Create a monitored, lease and destination collection** 
 
 In order to use the Change Feed Processor Library, the lease collection needs to be created before running the processor host(s). Again, we recommend storing a lease collection on a different account with a write region closer to where the Change Feed Processor is running. In this data movement example, we need to create the destination collection before running the Change Feed Processor host. In the sample code: we call a helper method to create the monitored, lease, and destination collections if they do not already exist. 
 
