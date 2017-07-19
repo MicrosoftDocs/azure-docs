@@ -2,14 +2,14 @@
 title: Language Understanding Intelligent Services (LUIS) in Azure Frequently Asked Questions | Microsoft Docs
 description:  A list of Frequently Asked Questions about Language Understanding Intelligent Services (LUIS)
 services: cognitive-services
-author: cahann
+author: DeniseMak
 manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 07/19/2017
+ms.author: v-demak
 ---
 # Language Understanding Intelligent Services (LUIS) Frequently Asked Questions
 
