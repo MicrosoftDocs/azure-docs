@@ -75,7 +75,7 @@ To set or change the service tier, performance level, or storage amount for a ne
   ![Configure service tier and performance level](./media/sql-database-service-tiers/service-tier-performance-level.png)
 
 > [!IMPORTANT]
-> Review [Current limitations of P11 and P15 databases with 4 TB maxsize](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize) when selecting a P11 or P15 service tier.
+> Review [Current limitations of P11 and P15 databases with 4 TB maxsize](#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize) when selecting a P11 or P15 service tier.
 >
 
 ## Manage single database service tiers, performance levels, and storage amounts using PowerShell

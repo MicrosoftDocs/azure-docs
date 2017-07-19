@@ -40,7 +40,7 @@ Monitor the resource utilization and the average response times of queries when 
 
 1. Reduce the number of incoming requests to the database to prevent timeout and the pile up of requests.
 2. Assign a higher performance level to the database.
-3. Optimize queries to reduce the resource utilization of each query. For more information, see the [Query Tuning/Hinting](sql-database/sql-database-performance-guidance.md#query-tuning-and-hinting).
+3. Optimize queries to reduce the resource utilization of each query. For more information, see the [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 The following table provides examples of the tiers best suited for different application workloads.
 
