@@ -8,7 +8,7 @@ manager: timlt
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: 
+ms.service: multiple
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
