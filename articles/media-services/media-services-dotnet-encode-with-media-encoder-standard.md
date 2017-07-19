@@ -49,7 +49,8 @@ If you want to examine either of the two metadata files, you can create a SAS lo
 ## Download sample
 You can get and run a sample that shows how to encode with MES from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## Example
+## .NET sample code
+
 The following code example uses Media Services .NET SDK to perform the following tasks:
 
 * Create an encoding job.
@@ -60,6 +61,12 @@ The following code example uses Media Services .NET SDK to perform the following
 * Create an output asset that will contain the encoded asset.
 * Add an event handler to check the job progress.
 * Submit the job.
+
+#### Create and configure a Visual Studio project
+
+Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
+
+#### Example 
 
         using System;
         using System.Linq;
