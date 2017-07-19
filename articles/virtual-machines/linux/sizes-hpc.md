@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/13/2017
 ms.author: cynthn
 
 ---
@@ -38,10 +38,10 @@ Following are requirements for RDMA-capable Linux VMs to access the Azure RDMA n
   
     * SLES 12 SP1 for HPC, or SLES 12 SP1 for HPC (Premium)
     
-    * CentOS-based 7.1 HPC, or CentOS-based 6.5 HPC  
+    * CentOS-based 7.3 HPC, CentOS-based 7.1 HPC, CentOS-based 6.8 HPC, or CentOS-based 6.5 HPC  
  
         > [!NOTE]
-        > For H-series VMs, we recommend either a SLES 12 SP1 for HPC image or CentOS-based 7.1 HPC image.
+        > For H-series VMs, we recommend either a SLES 12 SP1 for HPC image or CentOS-based 7.1 or later HPC image.
         >
         > On the CentOS-based HPC images, kernel updates are disabled in the **yum** configuration file. This is because the Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
         > 

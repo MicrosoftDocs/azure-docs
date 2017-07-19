@@ -1,6 +1,6 @@
 ---
 title: Enable multi-tenancy in Azure Stack | Microsoft Docs
-description: Learn how to support multiple Azure AD directories in Azure Stack
+description: Learn how to support multiple Azure Active Directory directories in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: HeathL17
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/14/2017
 ms.author: helaw
 
 ---
@@ -55,7 +55,7 @@ $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 ## Replace the value below with the guest tenant directory. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
-Register-GuestDirectoryTenantToAzureStack -AdminResourceManagerEndpoint $adminARMEndpoint `
+Register-AzSGuestDirectoryTenantToAzureStack -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant`
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded 
 ````
@@ -79,7 +79,7 @@ $tenantARMEndpoint = "https://management.local.azurestack.external"
 ## Replace the value below with the guest tenant directory. 
 $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
-Register-AzureStackWithMyDirectoryTenant `
+Register-AzSAzureStackWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
  -DirectoryTenantName $guestDirectoryTenantName -Verbose 
 ````
