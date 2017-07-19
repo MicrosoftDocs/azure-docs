@@ -4606,6 +4606,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices-mbed.md",
+            "redirect_url": "/azure/iot-suite",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md",
             "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
             "redirect_document_id": false
@@ -8189,6 +8194,130 @@
             "source_path": "articles/sql-database/sql-database-resource-limits.md",
             "redirect_url": "/azure/sql-database/sql-database-single-database-resources",
             "redirect_document_id": false
-        }
+        },
+            "source_path": "articles/media-services/media-services-rest-connect-programmatically.md",
+            "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/media-services/media-services-dotnet-connect-programmatically.md",
+            "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/fundamentals-identity.md",
+            "redirect_url": "/azure/active-directory/identity-fundamentals",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-editions.md",
+            "redirect_url": "/azure/active-directory/active-directory-whatis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-linkedinlookup-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-linkedinlookup-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-guide-classic-portal.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso-git.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-get-started",
+            "redirect_document_id": false
+        },
+        {   "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-after-multiple-failures.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-multiple-geographies.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-users-with-anomalous-sign-in-activity.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
+            "redirect_document_id": false
+        },            
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-latencies.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-latencies-azure-portal",
+            "redirect_document_id": false
+        },                
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-audit-events.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-activity-audit-logs",
+            "redirect_document_id": false
+        },                    
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-prerequisites.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal",
+            "redirect_document_id": false
+        },                        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-getting-started.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal",
+            "redirect_document_id": false
+        },                            
+        {
+            "source_path": "articles/active-directory/active-directory-known-networks.md",
+            "redirect_url": "/azure/active-directory/active-directory-named-locations",
+            "redirect_document_id": false
+        },                                
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-getting-started.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        },                                    
+        {
+            "source_path": "articles/active-directory/active-directory-view-access-usage-reports.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        },                                        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-guide.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        }                                           
+
     ]
 }
