@@ -67,17 +67,17 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-![GitHub Provisioning](./media/active-directory-saas-github-provisioning-tutorial/GitHub1.png)
+	![GitHub Provisioning](./media/active-directory-saas-github-provisioning-tutorial/GitHub1.png)
 
 5. Under the **Admin Credentials** section, click **Authorize**. This operation opens a GitHub authorization dialog in a new browser window. 
 
 6. In the new window, sign into GitHub using your Admin account. In the resulting authorization dialog, select the GitHub team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
 
-![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
+	![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
 
 7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: "https://api.github.com/scim/v2/organizations/ + <Organizations_name>", you can find your organizations under your GitHub account: **Settings** > **Organizations**).
 
-![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
+	![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
 
 8. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
 

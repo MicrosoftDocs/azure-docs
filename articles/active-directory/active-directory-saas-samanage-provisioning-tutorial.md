@@ -69,7 +69,7 @@ This section guides you through connecting your Azure AD to Samanage's user acco
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
+	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
 
 5. Under the **Admin Credentials** section, input the **Admin Username&Admin Password** of your Samanage's account. 
 
