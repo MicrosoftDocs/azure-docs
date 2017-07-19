@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 07/19/2017
 ms.author: gwallace
 
 ---
@@ -37,9 +37,9 @@ In this scenario, you learn how to create an application gateway using end to en
 This scenario will:
 
 * Create a resource group named **appgw-rg**
-* Create a virtual network named **appgwvnet** with a reserved CIDR block of 10.0.0.0/16.
+* Create a virtual network named **appgwvnet** with an address space of 10.0.0.0/16.
 * Create two subnets called **appgwsubnet** and **appsubnet**.
-* Create a small application gateway supporting end to end SSL encryption that disables certain SSL protocols.
+* Create a small application gateway supporting end to end SSL encryption that limits SSL protocols versions and cipher suites.
 
 ## Before you begin
 
@@ -254,7 +254,7 @@ Using all the preceding steps, create the Application Gateway. The creation of t
 $appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## Disable SSL protocol versions on an existing Application Gateway
+## Limit SSL protocol versions on an existing Application Gateway
 
 The preceding steps take you through creating an application with end to end ssl and disabling certain SSL protocol versions. The following example disables certain SSL policies on an existing application gateway.
 
@@ -271,7 +271,7 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 Define an SSL policy. In the following example, TLSv1.0 and TLSv1.1 are disabled and the cipher suites **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** , and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** are the only ones allowed.
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -MinProtoclVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySslPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
 ```
 

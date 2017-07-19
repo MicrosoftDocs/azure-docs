@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 
 ---
@@ -178,7 +178,7 @@ Self signed certs, CA certs, and wild-card certs are supported. EV certs are not
 
 **Q. What are the current cipher suites supported by Application Gateway?**
 
-The following are the current cipher suites supported in order of priority.
+The following are the current cipher suites supported by application gateway.
 
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256

@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 
 ---
@@ -38,6 +38,7 @@ Application Gateway currently provides the following capabilities:
 * **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
 * **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the native support for Websocket.
 * **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources and custom probes to monitor for more specific scenarios.
+* **[SSL Policy and Ciphers](application-gateway-ssl-policy-overview.md) - This feature provides the ability to limit the SSL protocol versions and the ciphers suites that are supported and the order in which they are processed.
 * **[Advanced diagnostics](application-gateway-diagnostics.md)** - Application gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
 
 ## Benefits
