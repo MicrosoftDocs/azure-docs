@@ -13,7 +13,7 @@
 
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Start with Spark]
+## Start with Spark
 ### [Create a Spark cluster](hdinsight-apache-spark-jupyter-spark-sql.md)
 ### [Run queries on a Spark cluster](hdinsight-apache-spark-load-data-run-query.md)
 ### [Analyze data using BI tools](hdinsight-apache-spark-use-bi-tools.md)
