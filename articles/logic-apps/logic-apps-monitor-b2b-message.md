@@ -25,13 +25,12 @@ processes or applications through your integration account,
 those entities can exchange messages with each other. 
 To confirm this communication works as expected, 
 you can set up monitoring for AS2, X12, and EDIFACT messages, 
-plus diagnostics logging for your integration account 
-with [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
-
-Log Analytics is a service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
-that monitors your cloud and on-premises environments 
-to help you maintain their availability and performance and logs 
-diagnostic data for richer debugging with runtime details and events. 
+along with diagnostics logging for your integration account 
+through the [Azure Log Analytics](../log-analytics/log-analytics-overview.md) service. 
+This service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
+monitors your cloud and on-premises environments, 
+helping you maintain their availability and performance, 
+and also collects runtime details and events for richer debugging. 
 You can also [use your diagnostic data with other services](#extend-diagnostic-data), 
 like Azure Storage and Azure Event Hubs.
 
