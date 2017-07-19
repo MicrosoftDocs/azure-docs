@@ -18,10 +18,10 @@ ms.author: jingwang
 ---
 # Copy Activity Fault Tolerance - Skip Incompatible Rows
 
-With [Copy Activity](data-factory-data-movement-activities.md), you have different options to deal with incompatible rows when copying data between source and sink data stores. You can choose to either abort and fail the copy activity upon encountering incompatibile data (default behavior), or continue copying all the data by skipping those incompatible rows. Additionally, you also have the option to log the incompatible rows in Azure Blob so you can examine the cause for failure, fix the data on the data source and retry.
+With [Copy Activity](data-factory-data-movement-activities.md), you have different options to deal with incompatible rows when copying data between source and sink data stores. You can choose to either abort and fail the copy activity upon encountering incompatible data (default behavior), or continue copying all the data by skipping those incompatible rows. Additionally, you also have the option to log the incompatible rows in Azure Blob so you can examine the cause for failure, fix the data on the data source and retry.
 
 ## Supported scenarios
-Currently, copy activity supports detecting, skipping and logging the following incompatible situation during copy:
+Currently, copy activity supports detecting, skipping, and logging the following incompatible situation during copy:
 
 1. **Data type incompatibility between source and sink native types**
 
