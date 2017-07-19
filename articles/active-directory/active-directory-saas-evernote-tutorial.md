@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Evernote, you need the following items:
 
 - An Azure AD subscription
-- A Evernote single sign-on enabled subscription
+- An Evernote single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -84,7 +84,7 @@ To configure and test Azure AD single sign-on with Evernote, you need to complet
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Evernote test user](#create-a-evernote-test-user)** - to have a counterpart of Britta Simon in Evernote that is linked to the Azure AD representation of user.
+3. **[Create an Evernote test user](#create-an-evernote-test-user)** - to have a counterpart of Britta Simon in Evernote that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -136,7 +136,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a.  **Enable SSO:** SSO is enabled by default (Click **Disable Single Sign-on** to remove the SSO requirement)
 
-	b. Paste **SAML Single sign-on Service URL** value, which you have copied from the Azure poratl into the **SAML HTTP Request URL** textbox.
+	b. Paste **SAML Single sign-on Service URL** value, which you have copied from the Azure portal into the **SAML HTTP Request URL** textbox.
 
 	c. Open the downloaded certificate from Azure AD in a notepad and copy the content including "BEGIN CERTIFICATE" and "END CERTIFICATE" and paste it into the **X.509 Certificate** textbox. 
 
@@ -178,7 +178,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a Evernote test user
+### Create an Evernote test user
 
 In order to enable Azure AD users to log into Evernote, they must be provisioned into Evernote.  
 In the case of Evernote, provisioning is a manual task.
