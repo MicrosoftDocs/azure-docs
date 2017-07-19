@@ -68,10 +68,10 @@ import (
 )
 
 const (
-	HOST     = "myserver4demo.mysql.database.azure.com"
-	DATABASE = "quickstartdb"
-	USER     = "myadmin@myserver4demo"
-	PASSWORD = "yourpassword"
+	host     = "myserver4demo.mysql.database.azure.com"
+	database = "quickstartdb"
+	user     = "myadmin@myserver4demo"
+	password = "yourpassword"
 )
 
 func checkError(err error) {
@@ -83,11 +83,12 @@ func checkError(err error) {
 func main() {
 
 	// Initialize connection string.
-	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", USER, PASSWORD, HOST, DATABASE)
+	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
 	// Initialize connection object.
 	db, err := sql.Open("mysql", connectionString)
 	checkError(err)
+	defer db.Close()
 
 	err = db.Ping()
 	checkError(err)
@@ -104,21 +105,21 @@ func main() {
 	fmt.Println("Finished creating table.")
 
 	// Insert some data into table.
-	sqlstatement, err := db.Prepare("INSERT INTO inventory (name, quantity) VALUES (?, ?);")
-	res, err := sqlstatement.Exec("banana", 150)
+	sqlStatement, err := db.Prepare("INSERT INTO inventory (name, quantity) VALUES (?, ?);")
+	res, err := sqlStatement.Exec("banana", 150)
 	checkError(err)
-	rowCnt, err := res.RowsAffected()
-	fmt.Printf("Inserted %d row(s) of data.\n", rowCnt)
+	rowCount, err := res.RowsAffected()
+	fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
 
-	res, err = sqlstatement.Exec("orange", 154)
+	res, err = sqlStatement.Exec("orange", 154)
 	checkError(err)
-	rowCnt, err = res.RowsAffected()
-	fmt.Printf("Inserted %d row(s) of data.\n", rowCnt)
+	rowCount, err = res.RowsAffected()
+	fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
 
-	res, err = sqlstatement.Exec("apple", 100)
+	res, err = sqlStatement.Exec("apple", 100)
 	checkError(err)
-	rowCnt, err = res.RowsAffected()
-	fmt.Printf("Inserted %d row(s) of data.\n", rowCnt)
+	rowCount, err = res.RowsAffected()
+	fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
 
@@ -143,10 +144,10 @@ import (
 )
 
 const (
-	HOST     = "myserver4demo.mysql.database.azure.com"
-	DATABASE = "quickstartdb"
-	USER     = "myadmin@myserver4demo"
-	PASSWORD = "yourpassword"
+	host     = "myserver4demo.mysql.database.azure.com"
+	database = "quickstartdb"
+	user     = "myadmin@myserver4demo"
+	password = "yourpassword"
 )
 
 func checkError(err error) {
@@ -158,11 +159,12 @@ func checkError(err error) {
 func main() {
 
 	// Initialize connection string.
-	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", USER, PASSWORD, HOST, DATABASE)
+	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
 	// Initialize connection object.
 	db, err := sql.Open("mysql", connectionString)
 	checkError(err)
+	defer db.Close()
 
 	err = db.Ping()
 	checkError(err)
@@ -211,10 +213,10 @@ import (
 )
 
 const (
-	HOST     = "myserver4demo.mysql.database.azure.com"
-	DATABASE = "quickstartdb"
-	USER     = "myadmin@myserver4demo"
-	PASSWORD = "yourpassword"
+	host     = "myserver4demo.mysql.database.azure.com"
+	database = "quickstartdb"
+	user     = "myadmin@myserver4demo"
+	password = "yourpassword"
 )
 
 func checkError(err error) {
@@ -226,11 +228,12 @@ func checkError(err error) {
 func main() {
 
 	// Initialize connection string.
-	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", USER, PASSWORD, HOST, DATABASE)
+	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
 	// Initialize connection object.
 	db, err := sql.Open("mysql", connectionString)
 	checkError(err)
+	defer db.Close()
 
 	err = db.Ping()
 	checkError(err)
@@ -239,8 +242,8 @@ func main() {
 	// Modify some data in table.
 	rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
 	checkError(err)
-	rowcount, err := rows.RowsAffected()
-	fmt.Printf("Updated %d row(s) of data.\n", rowcount)
+	rowCount, err := rows.RowsAffected()
+	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
 ```
@@ -264,10 +267,10 @@ import (
 )
 
 const (
-	HOST     = "myserver4demo.mysql.database.azure.com"
-	DATABASE = "quickstartdb"
-	USER     = "myadmin@myserver4demo"
-	PASSWORD = "yourpassword"
+	host     = "myserver4demo.mysql.database.azure.com"
+	database = "quickstartdb"
+	user     = "myadmin@myserver4demo"
+	password = "yourpassword"
 )
 
 func checkError(err error) {
@@ -279,11 +282,12 @@ func checkError(err error) {
 func main() {
 
 	// Initialize connection string.
-	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", USER, PASSWORD, HOST, DATABASE)
+	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
 	// Initialize connection object.
 	db, err := sql.Open("mysql", connectionString)
 	checkError(err)
+	defer db.Close()
 
 	err = db.Ping()
 	checkError(err)
@@ -292,8 +296,8 @@ func main() {
 	// Modify some data in table.
 	rows, err := db.Exec("DELETE FROM inventory WHERE name = ?", "orange")
 	checkError(err)
-	rowcount, err := rows.RowsAffected()
-	fmt.Printf("Deleted %d row(s) of data.\n", rowcount)
+	rowCount, err := rows.RowsAffected()
+	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
 ```
