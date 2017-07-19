@@ -39,4 +39,4 @@ The following illustration demonstrates the data the Funnels blade generates. Fr
 ![Funnels blade with data](./media/app-insights-understand-usage-patterns/funnel1.png)
 
 ## Next steps
-- Learn more about [usage analysis](app-insights-usage-overview.md). 
+- Learn more about [usage analysis](app-insights-usage-overview.md).

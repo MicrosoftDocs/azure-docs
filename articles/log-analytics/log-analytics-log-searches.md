@@ -261,7 +261,7 @@ The SELECT command behaves like Select-Object in PowerShell. It returns filtered
 3. Select some of those explicitly, and the query changes to `Type=Event | Select Computer,EventID,RenderedDescription`.  
     ![search select](./media/log-analytics-log-searches/oms-search-select.png)
 
-This is command particularly useful when you want to control search output and choose only the portions of data that really matter for your exploration, which often isn’t the full record. This is also useful when records of different types have *some* common properties, but not *all* of their properties are common. The, you can generate output that looks more naturally like a table, or work well when exported to a CSV file and then massaged in Excel.
+This command is particularly useful when you want to control search output and choose only the portions of data that really matter for your exploration, which often isn’t the full record. This is also useful when records of different types have *some* common properties, but not *all* of their properties are common. The, you can generate output that looks more naturally like a table, or work well when exported to a CSV file and then massaged in Excel.
 
 ## Use the measure command
 MEASURE is one of the most versatile commands in Log Analytics searches. It allows you to apply statistical *functions* to your data and aggregate results grouped by a given field. There are multiple statistical functions that Measure supports.
