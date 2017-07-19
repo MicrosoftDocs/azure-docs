@@ -36,15 +36,6 @@ This preview includes our new Storage Account Keys feature, available through th
 
 For more information on the new Storage Account Keys feature, see [Azure Key Vault storage account keys overview](key-vault-ovw-storage-keys.md).
 
-### Soft-delete - May 10, 2017
-
->[!NOTE]
->For this update of Azure Key Vault only the **soft-delete** feature is in preview.
-
-This preview includes our new soft-delete feature, recoverable deletion of Key Vaults and Key Vault objects,  and updated interfaces for developers; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) and [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
-
-For more information on the new soft-delete feature, see [Azure Key Vault soft delete overview](key-vault-ovw-soft-delete.md).
-
 ## Videos
 
 This video shows you how to create your own key vault and how to use it from the 'Hello Key Vault' sample application.

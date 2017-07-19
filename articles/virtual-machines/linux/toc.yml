@@ -353,6 +353,8 @@
         href: classic/hpcpack-cluster-namd.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
+    - name: Oracle on Azure
+      href: ../workloads/oracle/oracle-considerations.md
   - name: Docker on VMs
     items:
     - name: Create Docker hosts with the Azure Docker VM extension
@@ -398,6 +400,8 @@
       href: troubleshoot-deploy-vm.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Device names are changed
+      href: troubleshoot-device-names-problems.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
     - name: Common error messages

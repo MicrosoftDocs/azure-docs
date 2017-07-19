@@ -25,6 +25,7 @@
 # How To
 
 ## [Migrate user data from Azure RemoteApp](remoteapp-migrate.md)
+## [Migrate to MyCloudIT](remoteapp-migrate-mycloudit.md)
 ## [Migrate to Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Create a RemoteApp collection
 ### [Which collection do you need?](remoteapp-collections.md)

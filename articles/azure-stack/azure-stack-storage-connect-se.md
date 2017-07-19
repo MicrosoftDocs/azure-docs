@@ -76,7 +76,7 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
     The details for each field are as follows:
 
     * **Environment name**: The field can be customized by user.
-    * **Authority**: The value should be https://login.windows.net.
+    * **Authority**: The value should be https://login.microsoftonline.com.
     * **Sign in resource id**: Retrieve the value by running one of the following PowerShell scripts:
 
         If you are a cloud operator:
