@@ -18,7 +18,7 @@ ms.author: rajram
 
 ---
 # Get started with Autoscale in Azure
-This article describes how to to set up your Autoscale settings for your resource in the Microsoft Azure portal.
+This article describes how to set up your Autoscale settings for your resource in the Microsoft Azure portal.
 
 Azure Monitor Autoscale applies only to virtual machine scale sets, cloud services, App Service plans, and App Service environments. 
 
