@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/19/2017
 ms.author: cynthn
 
 ---
@@ -22,11 +22,11 @@ ms.author: cynthn
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (OS, hypervisor and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
-- In-place VM migration during the maintenance (where VMs are not rebooted) is called **VM preserving maintenance**.
+- If the maintenance does not require a reboot, Azure will use in-place migration to pause the machine for about 30 seconds while it is moved to an updated host.
 
-- Maintenance that requires a reboot or redeploy to hosted virtual machines is called **VM restarting maintenance**.
+- If maintenance requires a reboot you will get at least 30 days notice of when the maintenance is planned. In these cases, you will also be given a time window where you can start the maintenance yourself, at a time that works for you.
 
-This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned events (outages), see [Manage the availability of virtual machines](manage-availability.md).
+This page describes how Microsoft Azure performs both types of planned maintenance. For more information about unplanned events (outages), see [Manage the availability of virtual machines](manage-availability.md).
 
 
 ## In-place VM migration
@@ -67,11 +67,11 @@ Central US, Azure will not update any Virtual Machines in South Central US at th
 
 When deploying a workload on Azure VMs, you can create the VMs within an availability to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
 
-Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. The order of update domains being impacted will not necessarily happen sequentially during planned maintenance. 
+Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted will not necessarily happen sequentially. 
 
-Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. 
+Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
 
-For more information about configuring your virtual machines for high availability, see [*Manage the availability of your Windows virtual machines*](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
 
