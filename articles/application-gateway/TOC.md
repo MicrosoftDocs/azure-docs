@@ -32,7 +32,7 @@
 ### [PowerShell (Classic)](application-gateway-ssl.md)
 ### [End to end](application-gateway-end-to-end-ssl-powershell.md)
 ## Configure SSL policy
-### [SSL Policy](application-gateway-configure-ssl-policy.md)
+### [SSL Policy](application-gateway-configure-ssl-policy-powershell.md)
 ## Configure URL path based routing
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
