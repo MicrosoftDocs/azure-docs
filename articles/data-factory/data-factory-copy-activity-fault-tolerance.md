@@ -54,7 +54,7 @@ The following example provides JSON definition on how to configure skipping the 
 }
 ```
 
-| Property | Description | Allow Value | Required |
+| Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | enableSkipIncompatibleRow | Enable skipping incompatible rows during copy or not. | True<br/>False (default) | No |
 | redirectIncompatibleRowSettings | A group of properties that can be specified when you want to log the incompatible rows. | &nbsp; | No |
