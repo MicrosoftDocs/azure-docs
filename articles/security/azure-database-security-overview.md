@@ -146,8 +146,8 @@ As another example, an appropriate data mask can be defined to protect personall
 [Dynamic data masking](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking) helps prevent unauthorized access to sensitive data by enabling you to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
 
-##### Permissions
-Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.
+> [!Note]
+> Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.
 
 #### Row level security
 Another common security requirement for multitenant databases is [Row-Level Security](https://msdn.microsoft.com/en-us/library/dn765131.aspx). This feature enables you to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).
