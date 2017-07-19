@@ -63,7 +63,7 @@
       href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
-    - name: Limits
+    - name: Single databases
       href: sql-database-single-database-resources.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
