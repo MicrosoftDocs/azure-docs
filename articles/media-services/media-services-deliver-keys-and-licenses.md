@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
 
 ---
@@ -32,31 +32,35 @@ The following diagram shows the main steps you need to take to use AMS to delive
 ## Download sample
 You can download the sample described in this article from [here](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
+## Create and configure a Visual Studio project
+
+1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
+2. Add the following elements to **appSettings** defined in your app.config file:
+
+    <add key="Issuer" value="http://testacs.com"/>
+    <add key="Audience" value="urn:test"/>
+
 ## .NET code example
-The code example in this topic shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. You need to get the following pieces of information from AMS and configure your on-premises server: **content key**, **key id**, **license acquisition URL**. Once you configure your on-premises server, you could stream from your own streaming server. Since the encrypted stream points to AMS license server, your player will request a license from AMS. If you choose token authentication, the AMS license server will validate the token you sent through HTTPS and (if valid) will deliver the license back to your player. (The code example only shows how to create a common content key and  get PlayReady or Widevine license acquisition URLs. If you want to delivery AES-128 keys, you need to create an envelope content key and get a key acquisition URL and [this](media-services-protect-with-aes128.md) article shows how to do it).
+
+The following code example shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. You need to get the following pieces of information from AMS and configure your on-premises server: **content key**, **key id**, **license acquisition URL**. Once you configure your on-premises server, you could stream from your own streaming server. Since the encrypted stream points to AMS license server, your player will request a license from AMS. If you choose token authentication, the AMS license server will validate the token you sent through HTTPS and (if valid) will deliver the license back to your player. (The code example only shows how to create a common content key and  get PlayReady or Widevine license acquisition URLs. If you want to delivery AES-128 keys, you need to create an envelope content key and get a key acquisition URL and [this](media-services-protect-with-aes128.md) article shows how to do it).
 
     using System;
     using System.Collections.Generic;
     using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
     using Microsoft.WindowsAzure.MediaServices.Client;
     using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
     using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
     using Newtonsoft.Json;
-
 
     namespace DeliverDRMLicenses
     {
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             private static readonly Uri _sampleIssuer =
                 new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -65,16 +69,13 @@ The code example in this topic shows how to create a common content key and get 
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 bool tokenRestriction = true;
                 string tokenTemplateString = null;
@@ -83,10 +84,10 @@ The code example in this topic shows how to create a common content key and get 
                 IContentKey key = CreateCommonTypeContentKey();
 
                 // Print out the key ID and Key in base64 string format
-                Console.WriteLine("Created key {0} with key value {1} ", 
+                Console.WriteLine("Created key {0} with key value {1} ",
                     key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
 
-                Console.WriteLine("PlayReady License Key delivery URL: {0}", 
+                Console.WriteLine("PlayReady License Key delivery URL: {0}",
                     key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
 
                 Console.WriteLine("Widevine License Key delivery URL: {0}",
@@ -97,7 +98,7 @@ The code example in this topic shows how to create a common content key and get 
                 else
                     AddOpenAuthorizationPolicy(key);
 
-                Console.WriteLine("Added authorization policy: {0}", 
+                Console.WriteLine("Added authorization policy: {0}",
                     key.AuthorizationPolicyId);
                 Console.WriteLine();
                 Console.ReadLine();
@@ -109,15 +110,15 @@ The code example in this topic shows how to create a common content key and get 
                 // Create ContentKeyAuthorizationPolicy with Open restrictions 
                 // and create authorization policy          
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Open",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-                        Requirements = null
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Open",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+                            Requirements = null
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -152,15 +153,15 @@ The code example in this topic shows how to create a common content key and get 
             {
                 string tokenTemplateString = GenerateTokenRequirements();
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Token Authorization Policy",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-                        Requirements = tokenTemplateString,
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Token Authorization Policy",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+                            Requirements = tokenTemplateString,
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -217,7 +218,7 @@ The code example in this topic shows how to create a common content key and get 
                 //and the application (may be useful for custom app logic) 
                 //as well as a list of one or more license templates.
 
-                PlayReadyLicenseResponseTemplate responseTemplate = 
+                PlayReadyLicenseResponseTemplate responseTemplate =
                     new PlayReadyLicenseResponseTemplate();
 
                 // The PlayReadyLicenseTemplate class represents a license template 
@@ -271,14 +272,14 @@ The code example in this topic shows how to create a common content key and get 
                     allowed_track_types = AllowedTrackTypes.SD_HD,
                     content_key_specs = new[]
                     {
-                        new ContentKeySpecs
-                        {
-                            required_output_protection = 
-                                new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                            security_level = 1,
-                            track_type = "SD"
-                        }
-                    },
+                            new ContentKeySpecs
+                            {
+                                required_output_protection =
+                                    new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                                security_level = 1,
+                                track_type = "SD"
+                            }
+                        },
                     policy_overrides = new
                     {
                         can_play = true,
@@ -307,8 +308,6 @@ The code example in this topic shows how to create a common content key and get 
                 return key;
             }
 
-
-
             static private byte[] GetRandomBuffer(int length)
             {
                 var returnValue = new byte[length];
@@ -321,11 +320,8 @@ The code example in this topic shows how to create a common content key and get 
 
                 return returnValue;
             }
-
-
         }
     }
-
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
