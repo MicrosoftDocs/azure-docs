@@ -47,7 +47,7 @@ After you create the endpoint, it applies the optimization for all files that ma
 Media streaming optimization from Akamai is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [Large file optimization](cdn-large-file-optimization.md).
 
 
-The general media delivery or video-on-demand media delivery optimization types use a content delivery network with back-end optimizations to deliver media assets faster. They also use configurations for media assets based on best practices learned over time.
+The general media delivery or video-on-demand media delivery optimization types use a CDN with back-end optimizations to deliver media assets faster. They also use configurations for media assets based on best practices learned over time.
 
 ### Caching
 
@@ -65,9 +65,9 @@ Caching: Negative <br> HTTP 204, 305, 404, <br> and 405 | None | 1 second | 1 se
 
 General media delivery and video-on-demand media delivery also have origin time-out and a retry log based on best practices for typical request patterns. For example, because general media delivery is for live and video-on-demand media delivery, it uses a shorter connection time-out due to the time-sensitive nature of live streaming.
 
-When a connection times out, the content delivery network retries a number of times before it sends a "504 - Gateway Timeout" error to the client. 
+When a connection times out, the CDN retries a number of times before it sends a "504 - Gateway Timeout" error to the client. 
 
-When a file matches the file type and size conditions list, the content delivery network uses the behavior for media streaming. Otherwise, it uses general web delivery.
+When a file matches the file type and size conditions list, the CDN uses the behavior for media streaming. Otherwise, it uses general web delivery.
    
 ### Conditions for media streaming optimization 
 
@@ -84,13 +84,13 @@ Smooth streaming | /manifest/,/QualityLevels/Fragments/
  
 ## Media streaming optimizations for the Azure Content Delivery Network from Verizon
 
-The Azure Content Delivery Network from Verizon delivers streaming media assets directly by using the general web delivery optimization type. A few features on the content delivery network directly assist in delivering media assets by default.
+The Azure Content Delivery Network from Verizon delivers streaming media assets directly by using the general web delivery optimization type. A few features on the CDN directly assist in delivering media assets by default.
 
 ### Partial cache sharing
 
-This feature allows the content delivery network to serve partially cached content to new requests. For example, if the first request to the content delivery network results in a cache miss, the request is sent to the origin. Although this incomplete content is loaded into the content delivery network cache, other requests to the content delivery network can start getting this data. 
+Partial cache sharing allows the CDN to serve partially cached content to new requests. For example, if the first request to the CDN results in a cache miss, the request is sent to the origin. Although this incomplete content is loaded into the CDN cache, other requests to the CDN can start getting this data. 
 
 ### Cache fill wait time
 
- This feature forces the edge server to hold any subsequent requests for the same resource until HTTP response headers arrive from the origin server. If HTTP response headers from the origin  arrive before the timer expires, all requests that were put on hold are served out of the growing cache. At the same time, the cache is filled by data from the origin. By default, the cache fill wait time is set to 3,000 milliseconds. 
+ The cache fill wait time feature forces the edge server to hold any subsequent requests for the same resource until HTTP response headers arrive from the origin server. If HTTP response headers from the origin  arrive before the timer expires, all requests that were put on hold are served out of the growing cache. At the same time, the cache is filled by data from the origin. By default, the cache fill wait time is set to 3,000 milliseconds. 
 

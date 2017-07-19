@@ -95,7 +95,7 @@ To learn more about media streaming optimization, see [Media streaming optimizat
 
 ### Large file download
 
-If you use the Azure Content Delivery Network from Akamai, you must use this optimization to deliver files larger than 1.8 GB. The Azure Content Delivery Network from Verizon doesn't have a limitation on file download size in its general web delivery optimization.
+If you use the Azure Content Delivery Network from Akamai, you must use large file download to deliver files larger than 1.8 GB. The Azure Content Delivery Network from Verizon doesn't have a limitation on file download size in its general web delivery optimization.
 
 If you use the Azure Content Delivery Network from Akamai, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, you might want to use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files.
 
@@ -105,7 +105,7 @@ To learn more about large file optimization, see [Large file optimization](cdn-l
 
 ### Dynamic site acceleration
 
-This optimization is available from both Akamai and Verizon Content Delivery Network profiles and involves an additional fee to use. For more information, see the pricing page.
+ Dynamic site acceleration is available from both Akamai and Verizon Content Delivery Network profiles. This optimization involves an additional fee to use. For more information, see the pricing page.
 
 Dynamic site acceleration includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more. 
 
