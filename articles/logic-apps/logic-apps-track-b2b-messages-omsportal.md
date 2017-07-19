@@ -17,7 +17,7 @@ ms.date: 07/21/2017
 ms.author: LADocs; padmavc
 ---
 
-# Track B2B communication in Microsoft Operations Management Suite (OMS)
+# Track B2B communication in the Microsoft Operations Management Suite (OMS)
 
 After you set up B2B communication between two running business processes 
 or applications through your integration account, 

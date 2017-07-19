@@ -17,7 +17,7 @@ ms.date: 07/14/2017
 ms.author: LADocs; padmavc
 ---
 
-# Query for AS2, X12, and EDIFACT messages in the Operations Management Suite (OMS)
+# Query for AS2, X12, and EDIFACT messages in the Microsoft Operations Management Suite (OMS)
 
 To find the AS2, X12, or EDIFACT messages that you're tracking with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
