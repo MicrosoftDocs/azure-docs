@@ -68,10 +68,6 @@ To configure the integration of Voyance into Azure AD, you need to add Voyance f
 
 	![The New application button][3]
 
-4. In the search box, type **Voyance**.
-
-	![Creating an Azure AD test user](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_search.png)
-
 4. In the search box, type **Voyance**, select  **Voyance**  from result panel then click **Add** button to add the application.
 
 	![Voyance  in the results list](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_addfromgallery.png)
