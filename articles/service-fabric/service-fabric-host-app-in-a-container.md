@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 07/19/2017
 ms.author: mikhegn
 ---
 
@@ -32,10 +32,10 @@ In this tutorial, you learn how to:
 
 1. Install [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
 2. Familiarize yourself with the [Windows 10 Containers quickstart][link-container-quickstart].
-3. For this tutorial, we use **Fabrikam Fiber CallCenter**, a sample app you can download [here][link-fabrikam-github].
-4. [Azure PowerShell][link-azure-powershell-install]
-5. [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]
-6. An [Azure subscription][link-azure-subscription] and a [Visual Studio Team Services account][link-vsts-account]. 
+3. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application.
+4. Install [Azure PowerShell][link-azure-powershell-install]
+5. Install the [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]
+6. Create an [Azure subscription][link-azure-subscription] and a [Visual Studio Team Services account][link-vsts-account]. 
 7. [Create a cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 
 >[!NOTE]
