@@ -125,5 +125,7 @@ Load Balancer backend pools can contain any VM SKU except Basic tier.
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-portal.md)
+
+[Azure networking](../networking/networking-overview.md)
 
