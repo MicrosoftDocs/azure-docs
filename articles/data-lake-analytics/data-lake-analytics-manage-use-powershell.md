@@ -548,9 +548,9 @@ function Test-Administrator
 }
 ```
 
-### Find the TenantID for a subscription
+### Find a TenantID
 
-From the subscription name:
+From a subscription name:
 
 ```powershell
 function Get-TenantIdFromSubcriptionName( [string] $subname )
@@ -562,7 +562,7 @@ function Get-TenantIdFromSubcriptionName( [string] $subname )
 Get-TenantIdFromSubcriptionName "ADLTrainingMS"
 ```
 
-From the subscription id:
+From a subscription id:
 
 ```powershell
 function Get-TenantIdFromSubcriptionId( [string] $subid )
@@ -573,6 +573,20 @@ function Get-TenantIdFromSubcriptionId( [string] $subid )
 
 $subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 Get-TenantIdFromSubcriptionId $subid
+```
+
+From a domain address such as "contoso.com"
+
+
+```powershell
+function Get-TenantIdFromDomain( $domain )
+{
+    $url = "https://login.windows.net/" + $domain + "/.well-known/openid-configuration"
+    return (Invoke-WebRequest $url|ConvertFrom-Json).token_endpoint.Split('/')[3]
+}
+
+$domain = "contoso.com"
+Get-TenantIdFromDomain $domain
 ```
 
 ### List all your subscriptions and tenant ids
