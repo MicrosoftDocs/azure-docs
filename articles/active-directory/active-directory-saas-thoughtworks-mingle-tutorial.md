@@ -169,9 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Thoughtworks Mingle test user
 
-For Azure AD users to be able to sign in, they must be provisioned to the Thoughtworks Mingle application using their Azure Active Directory user names.  
-
-* In the case of Thoughtworks Mingle, provisioning is a manual task.
+For Azure AD users to be able to sign in, they must be provisioned to the Thoughtworks Mingle application using their Azure Active Directory user names. In the case of Thoughtworks Mingle, provisioning is a manual task.
 
 **To configure user provisioning, perform the following steps:**
 
