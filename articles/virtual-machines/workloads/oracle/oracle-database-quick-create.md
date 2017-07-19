@@ -301,7 +301,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
         --output tsv
     ```
 
-4.  Connect EM Express from your browser. Make sure your browser is compliable with EM Express (Flash install is required): 
+4.  Connect EM Express from your browser. Make sure your browser is compatible with EM Express (Flash install is required): 
 
     ```
     https://<VM ip address or hostname>:5502/em
