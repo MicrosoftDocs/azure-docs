@@ -45,7 +45,7 @@ To add someone as an admin for a subscription in the Azure portal, you give them
     >[!TIP]
     >You will need to add the "Owner" user as co-administrator if the user needs to manage the Azure services in [Azure classic portal](https://manage.windowsazure.com/).
 
-    To remove the co-administrator permission, right-click the "co-administrator" user and then select **remove co-administrator**.
+    To remove the co-administrator permission, right-click the "co-administrator" user and then select **Remove co-administrator**.
 
     ![Screenshot that removes co-administrator](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
