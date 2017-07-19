@@ -52,7 +52,7 @@ Application Gateway is a dedicated deployment in your virtual network.
 
 **Q. Is HTTP->HTTPS redirection supported?**
 
-This is currently not supported.
+Redirection is supported. Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn more.
 
 **Q. In what order are listeners processed?**
 
