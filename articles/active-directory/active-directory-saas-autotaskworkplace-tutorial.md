@@ -73,7 +73,7 @@ To configure the integration of Autotask Workplace into Azure AD, you need to ad
 
 4. In the search box, type **Autotask Workplace**, select  **Autotask Workplace**  from result panel then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
+	![Autotask Workplace in the results list](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 3. If you wish to configure the application in **IDP** initiated mode, perform the following steps on the **Autotask Workplace Domain and URLs** section:
 
-	![YouEarnedIt Domain and URLs single sign-on information for IDP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
+	![Autotask workplace Domain and URLs single sign-on information for IDP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. If you wish to configure the application in **SP** initiated mode, check **Show advanced URL settings** and perform the following steps:
 
-	![YouEarnedIt Domain and URLs single sign-on information for SP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
+	![Autotask workplace Domain and URLs single sign-on information for SP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.awp.autotask.net/loginsso`
 	 
