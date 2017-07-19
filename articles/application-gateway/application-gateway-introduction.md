@@ -39,6 +39,7 @@ Application Gateway currently provides the following capabilities:
 * **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the native support for Websocket.
 * **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources and custom probes to monitor for more specific scenarios.
 * **[SSL Policy and Ciphers](application-gateway-ssl-policy-overview.md) - This feature provides the ability to limit the SSL protocol versions and the ciphers suites that are supported and the order in which they are processed.
+* **[Request redirect](application-gateway-redirect-overview.md)** - This feature provides the capability to redirect HTTP requests to an HTTPS listener.
 * **[Advanced diagnostics](application-gateway-diagnostics.md)** - Application gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
 
 ## Benefits

@@ -96,7 +96,7 @@ runcmd:
   - nodejs index.js
 ```
 
-For more information about cloud-init configuration options, see [cloud-init config examples](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]
+For more information about cloud-init configuration options, see [cloud-init config examples](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## Create virtual machine
 Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAutomate* in the *eastus* location:

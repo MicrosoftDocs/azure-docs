@@ -4,11 +4,11 @@ description: Learn how to setup and connect a simulated Raspberry Pi to Azure Io
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'raspberry pi simulator, azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud'
 experimental: true
-experiment_id: "bfcb8ffc-3d7a-4d"
+experiment_id: "4b13d735-4c02-4e"
 
 ms.service: iot-hub
 ms.devlang: node

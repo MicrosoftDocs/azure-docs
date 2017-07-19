@@ -4,7 +4,7 @@ description: 'Learn how to run Python code in U-SQL Scripts'
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
-manager: saveenr
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
