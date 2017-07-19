@@ -12,19 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: gwallace
 
 ---
 
 # Configure redirection on Application Gateway with PowerShell
 
-Application gateway supports the ability to redirect traffic based on a defined configuration. To learn more about redirection in general visit, [Application Gateway redirect overview](application-gateway-redirect-overview.md). This article provides examples of multiple scenarios that use redirection in different ways.
-
-* [HTTP to HTTPS redirect on an existing application gateway](#http-to-https-redirect-on-an-existing-application-gateway)
-* [Path based redirect](#path-based-redirect)
-* [Multi-site redirect](#multisite-redirect)
-* [Redirect to an external site](#redirect-to-an-external-site)
+Application gateway supports the ability to redirect traffic based on a defined configuration. To learn more about redirection in general visit, [Application Gateway redirect overview](application-gateway-redirect-overview.md). This article provides examples of HTTP to HTTPS redirection, path based redirects, multi-site redirects, and redirects to external sites.
 
 ## HTTP to HTTPS redirect on an existing application gateway
 

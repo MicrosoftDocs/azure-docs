@@ -30,6 +30,6 @@ A common scenario for many web applications is to support automatic HTTP to HTTP
 
 With this change, customers would need to create a new redirect configuration object, which specifies the target listener or external site to which redirection is desired. The configuration element also supports options to enable appending the URI path and query string to the redirected URL. Customers could also choose whether redirection is a temporary (HTTP status code 302) or a permanent redirect (HTTP status code 301). Once created this redirect configuration is attached to the source listener via a new rule. When using a basic rule, the redirect configuration is associated with a source listener and is a global redirect. When a path-based rule is used, the redirect configuration is defined on the URL path map and hence only applies to the specific path area of a site.
 
-## Next steps
+### Next steps
 
 [Configure URL redirection on an application gateway](application-gateway-configure-redirect-powershell.md)
