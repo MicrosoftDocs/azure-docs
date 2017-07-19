@@ -1377,7 +1377,6 @@ The following steps are based on chapter 4 of the [SAP HANA SR Performance Optim
 
 1. **[A]** Run hdblcm from the HANA DVD
    
-   TODO test if internal network works
    <pre><code>
    sudo hdblcm --sid=<b>HDB</b> --number=<b>03</b> --action=install --batch --password=<b>&lt;password&gt;</b> --system_user_password=<b>&lt;password for system user&gt;</b>
 
