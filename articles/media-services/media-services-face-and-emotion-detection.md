@@ -315,7 +315,7 @@ JSON output for aggregate emotion (truncated):
 * For each video, the maximum number of faces returned is 64.
 * Some faces may not be detected due to technical challenges; e.g. very large face angles (head-pose), and large occlusion. Frontal and near-frontal faces have the best results.
 
-## Sample code
+## .NET sample code
 
 The following program shows how to:
 
