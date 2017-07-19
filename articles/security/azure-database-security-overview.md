@@ -13,7 +13,7 @@ Microsoft provides additional ways to encrypt enterprise data:
 
 -	Always Encrypted (currently in preview) makes encryption transparent to applications and allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
-Azure SQL Database Auditing allows enterprises to record events to an audit log in Azure Storage. SQL Database Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses.
+Azure SQL Database Auditing allows enterprises to record events to an audit login Azure Storage. SQL Database Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses.
 
  SQL Azure databases can be tightly secured to satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1, among others. A current list of security compliance certifications is available at the [Microsoft Azure Trust Center site](http://azure.microsoft.com/en-us/support/trust-center/services/).
 
@@ -35,7 +35,7 @@ This Azure Database Security Overview article focuses on the following areas:
 
 SQL Database secures your data by providing encryption for data in motion using [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest using [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), and for data in use using [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
-In this section, we will talk about:
+In this section, we talk about:
 
 -	Encryption in motion
 
@@ -62,7 +62,7 @@ All connections to Azure SQL Database require encryption (SSL/TLS) at all times 
 ### Encryption at rest
 You can take several precautions to help secure the database such as designing a secure system, encrypting confidential assets, and building a firewall around the database servers. However, in a scenario where the physical media (such as drives or backup tapes) are stolen, a malicious party can just restore or attach the database and browse the data.
 
-One solution is to encrypt the sensitive data in the database and protect the keys that are used to encrypt the data with a certificate. This prevents anyone without the keys from using the data, but this kind of protection must be planned.
+One solution is to encrypt the sensitive data in the database and protects the keys that are used to encrypt the data with a certificate. This prevents anyone without the keys from using the data, but this kind of protection must be planned.
 
 To solve this problem, SQL Server and Azure SQL support [Transparent Data Encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde). TDE encrypts SQL Server and Azure SQL Database data files, known as encryption data at rest.
 
@@ -70,7 +70,7 @@ Azure SQL Database transparent data encryption helps protect against the threat 
 
 TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. In SQL Database, the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each SQL Database server.
 
-If a database is in a GeoDR relationship, it is protected by a different key on each server. If 2 databases are connected to the same server, they share the same built-in certificate. Microsoft automatically rotates these certificates at least every 90 days. For a general description of TDE, see [Transparent Data Encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde).
+If a database is in a GeoDR relationship, it is protected by a different key on each server. If two databases are connected to the same server, they share the same built-in certificate. Microsoft automatically rotates these certificates at least every 90 days. For a general description of TDE, see [Transparent Data Encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde).
 
 ### Encryption in use (client)
 
@@ -78,7 +78,7 @@ Most data breaches involve the theft of critical data such as credit card number
 
 ![Always Encrypted](./media/azure-databse-security-overview/azure-database-fig1.png)
 
-[Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (e.g. U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server).
+[Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server).
 
 Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access). By ensuring on-premises database administrators, cloud database operators, or other high-privileged, but unauthorized users, cannot access the encrypted data,
 
@@ -91,7 +91,7 @@ To provide security, SQL Database controls access with firewall rules limiting c
 
 Data protection begins with controlling access to your data. The datacenter hosting your data manages physical access, while you can configure a firewall to manage security at the network layer. You also control access by configuring logins for authentication and defining permissions for server and database roles.
 
-In this section, we will talk about:
+In this section, we talk about:
 
 -	Firewall and firewall rules
 
@@ -126,7 +126,7 @@ SQL database authentication refers to how you prove your identity when connectin
 
 ### Application access
 
-In this section, we will talk about:
+In this section, we talk about:
 
 -	Dynamic data masking
 
@@ -170,7 +170,7 @@ SQL Database Auditing allows you to:
 
 -	**Retain** an audit trail of selected events. You can define categories of database actions to be audited.
 -	**Report** on database activity. You can use preconfigured reports and a dashboard to get started quickly with activity and event reporting.
--	**Analyse** reports. You can find suspicious events, unusual activity, and trends.
+-	**Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 There are two Auditing methods:
 
@@ -191,7 +191,7 @@ Security officers or other designated administrators can get an immediate notifi
 
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) helps you prevent, detect, and respond to threats. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-[Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-sql-database) helps you safeguard data in SQL Database by providing visibility into the security of all your servers and databases. With Security Centre, you can:
+[Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-sql-database) helps you safeguard data in SQL Database by providing visibility into the security of all your servers and databases. With Security Center, you can:
 
 -	Define policies for SQL Database encryption and auditing.
 
@@ -201,7 +201,7 @@ Security officers or other designated administrators can get an immediate notifi
 
 -	Integrate alerts from [Azure SQL Database threat detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection).
 
--	Security Centre supports role-based access.
+-	Security Center supports role-based access.
 
 ## Azure Marketplace
 
