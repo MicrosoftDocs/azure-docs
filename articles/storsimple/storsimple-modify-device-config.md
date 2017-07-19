@@ -30,7 +30,8 @@ The Azure classic portal **Configure** page contains all the device parameters t
 ## Modify device settings
 The device settings include the friendly name of the device and the device description.
 
-> [!NOTE] You cannot modify the device name in the Azure classic portal. Renaming the device is not supported.
+> [!NOTE] 
+> You cannot modify the device name in the Azure classic portal. Renaming the device is not supported.
 
 A StorSimple device that is connected to the StorSimple Manager service is assigned a default name. The default name typically reflects the serial number of the device. For example, a default device name that is 15 characters long, such as 8600-SHX0991003G44HT, indicates the following:
 
