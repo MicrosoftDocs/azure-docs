@@ -2,7 +2,7 @@
 title: Create Action Groups with Resource Manager Templates | Microsoft Docs
 description: Action groups allow you to notify email, SMS or call webhooks when certain events occur.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

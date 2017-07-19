@@ -1,3 +1,22 @@
+---
+title: Receive Activity Log Alerts on Azure Service Notifications | Microsoft Docs
+description: Get notified via SMS, email, or webhook when issues in an Azure service occur.
+author: johnkemnetz
+manager: orenr
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: johnkem
+
+---
 # Webhooks for Azure Activity Log alerts
 As part of the definition of an Action Group you are able to configure Webhook endpoints to receive Activity Log Alert notifications. Webhooks allow you to route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 
