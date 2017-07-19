@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/18/2017
 ms.author: ryanwi
 
 ---
@@ -180,7 +180,7 @@ The containerized service needs an endpoint for communication. Add an `Endpoint`
 </Resources>
 ```
     
-By defining an endpoint, Service Fabric publishes the endpoint to the Naming service.  Other services running in the cluster can resolve this container.  You can also perform container-to-container communication using the [reverse proxy](service-fabric-reverse-proxy.md).  Communication is performed by providing the reverse proxy HTTP listening port and the name of the services that you want to communicate with as environment variables. 
+By defining an endpoint, Service Fabric publishes the endpoint to the Naming service.  Other services running in the cluster can resolve this container.  You can also perform container-to-container communication using the [reverse proxy](service-fabric-reverseproxy.md).  Communication is performed by providing the reverse proxy HTTP listening port and the name of the services that you want to communicate with as environment variables. 
 
 ## Configure and set environment variables
 Environment variables can be specified for each code package in the service manifest. This feature is available for all services irrespective of whether they are deployed as containers or processes or guest executables. You can override environment variable values in the application manifest or specify them during deployment as application parameters.
