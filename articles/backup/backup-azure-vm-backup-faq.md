@@ -23,13 +23,16 @@ ms.author: trinadhk;pullabhk;
 This article has sections of common questions (with answers) to help you quickly understand the Azure VM Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Configure Backup
+### Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
+Recovery Services vaults support both models.  You can back up a classic VM (created in the Classic portal), or a Resource Manager VM (created in the Azure portal) to a Recovery Services vault.
+
+### What configurations are not supported by Azure VM backup ?
+Please go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) and [Limiattions of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+
 ### Why can't I see my VM in configure backup wizrad?
 In Configure backup wizard, Azure Backup only lists VMs which are:
 * Not already protected - You can verify the backup status of a VM by going to VM blade and checking on Backup status from Settings Menu of the blade. Learn more on how to [Check backup status of a VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
 * Belongs to same region as VM
-
-### What configurations are not supported by Azure VM backup ?
-Please go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) and [Limiattions of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 ## Backup
 ### Will on-demand backup job follow same retention schedule as scheduled backups?
