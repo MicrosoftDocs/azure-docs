@@ -119,7 +119,6 @@ To deploy the development kit, you must complete the following steps:
     When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**.
    
 If the deployment fails, you can use the following PowerShell rerun script from the same elevated PowerShell window:
-    
     ```powershell
     cd c:\CloudDeployment\Setup
     .\InstallAzureStackPOC.ps1 -Rerun
