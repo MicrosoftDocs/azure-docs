@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 07/18/2017
 ms.author: milanga;juliako;
 
 ---
@@ -72,7 +72,6 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 | Attribute name | Description |
 | --- | --- |
 | Mode |Fast - fast processing speed, but less accurate (default).|
-
 
 ### JSON output
 The following example of JSON output was truncated.
@@ -310,7 +309,6 @@ JSON output for aggregate emotion (truncated):
                  "disgust": 0,
                  "fear": 0,
 
-
 ## Limitations
 * The supported input video formats include MP4, MOV, and WMV.
 * The detectable face size range is 24x24 to 2048x2048 pixels. The faces out of this range will not be detected.
@@ -318,6 +316,7 @@ JSON output for aggregate emotion (truncated):
 * Some faces may not be detected due to technical challenges; e.g. very large face angles (head-pose), and large occlusion. Frontal and near-frontal faces have the best results.
 
 ## Sample code
+
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
@@ -327,7 +326,13 @@ The following program shows how to:
             "version": "1.0"
         }
 3. Download the output JSON files. 
-   
+
+#### Create and configure a Visual Studio project
+
+Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
+
+#### Example
+
         using System;
         using System.Configuration;
         using System.IO;
@@ -340,25 +345,20 @@ The following program shows how to:
         {
             class Program
             {
-                // Read values from the App.config file.
-                private static readonly string _mediaServicesAccountName =
-                    ConfigurationManager.AppSettings["MediaServicesAccountName"];
-                private static readonly string _mediaServicesAccountKey =
-                    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+                private static readonly string _AADTenantDomain =
+                          ConfigurationManager.AppSettings["AADTenantDomain"];
+                private static readonly string _RESTAPIEndpoint =
+                          ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
    
                 // Field for service context.
                 private static CloudMediaContext _context = null;
-                private static MediaServicesCredentials _cachedCredentials = null;
    
                 static void Main(string[] args)
                 {
-   
-                    // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                                    _mediaServicesAccountName,
-                                    _mediaServicesAccountKey);
-                    // Used the cached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_cachedCredentials);
+                    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
    
                     // Run the FaceDetection job.
                     var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4",
@@ -486,8 +486,7 @@ The following program shows how to:
                         default:
                             break;
                     }
-                }
-   
+                }   
             }
         }
 
