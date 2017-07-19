@@ -76,7 +76,7 @@ ms.author: renash
    
     SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol, you can't use a SAS to delegate access to its contents. 
     
-* **Q. What are the data complaince policies support for Azure File storage?**
+* **Q. What are the data compliance policies supported for Azure File storage?**
 
    Azure File Storage runs on top of the same storage architecture as other storage services in Azure Storage and applies the same data compliance policies. More information on Azure Storage data compliance, you can download and refer to [Microsoft Azure Data Protection document](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409).
 
