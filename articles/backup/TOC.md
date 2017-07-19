@@ -10,30 +10,31 @@
 # How to
 ## Azure VMs
 ### Prepare the VM
-#### [Prepare Azure virtual machines](backup-azure-vms-prepare.md)
 #### [Prepare Resource Manager-deployed virtual machines](backup-azure-arm-vms-prepare.md)
+#### [Prepare Azure virtual machines](backup-azure-vms-prepare.md)
 ### Plan your environment
 #### [Plan VM backup infrastructure](backup-azure-vms-introduction.md)
 ### Back up VMs
-#### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
 #### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
 #### [Back up encrypted virtual machines](backup-azure-vms-encryption.md)
+#### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
 ### Manage and monitor VMs
-#### [Manage and monitor Azure VM backups in classic portal](backup-azure-manage-vms-classic.md)
 #### [Manage Azure VM backups in Azure portal](backup-azure-manage-vms.md)
 #### [Monitor alerts for Azure VM backups in Azure portal](backup-azure-monitor-vms.md)
+#### [Manage and monitor Azure VM backups in classic portal](backup-azure-manage-vms-classic.md)
 ### Restore data from VMs
 #### [Recover files from Azure VM backups](backup-azure-restore-files-from-vm.md)
-#### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
 #### [Restore Resource Manager-deployed VMs in Azure portal](backup-azure-arm-restore-vms.md)
-#### [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md)
 #### [Restore encrypted virtual machines](backup-azure-vms-encryption.md)
+#### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
+#### [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md)
+
 
 ## Windows files and folders
-### [Windows Server using the classic deployment model](backup-configure-vault-classic.md)
 ### [Windows Server using the Resource Manager deployment model](backup-configure-vault.md)
-### [Manage Backup vaults using the classic deployment model](backup-azure-manage-windows-server-classic.md)
+### [Windows Server using the classic deployment model](backup-configure-vault-classic.md)
 ### [Monitor and manage Recovery Services vaults](backup-azure-manage-windows-server.md)
+### [Manage Backup vaults using the classic deployment model](backup-azure-manage-windows-server-classic.md)
 ### [Recover files to a Windows Server using Resource Manager deployment model](backup-azure-restore-windows-server.md)
 ### [Recover files to a Windows Server using the classic deployment model](backup-azure-restore-windows-server-classic.md)
 
