@@ -76,16 +76,16 @@ Before running the application, you need to select a target Configuration, Platf
 ### Step 6: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5**.  This deploys your solution to your target platform.  
 
-2) The application should launch and open to the following page (defined in the codebase at `AddKeysPage.xaml`, and referenced in this guide as the Add Keys Page).  ![Image of the Add Keys Page](./media/computer-vision-web-search-tutorial/AddKeysPage.png)  
+2) The application should launch and open to the following page (defined in the codebase at `AddKeysPage.xaml` and referenced in this guide as the Add Keys Page).  ![Image of the Add Keys Page](./media/computer-vision-web-search-tutorial/AddKeysPage.png)  
 Here you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the `App.xaml.cs` page of the codebase. 
 
-3) Adding a set of working Azure keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml`, and referenced in this guide as the OCR Select Page). ![Image of the OCR Select Page](./media/computer-vision-web-search-tutorial/OcrSelectPage.png)  
+3) Adding a set of working Azure keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml` and referenced in this guide as the OCR Select Page). ![Image of the OCR Select Page](./media/computer-vision-web-search-tutorial/OcrSelectPage.png)  
 Here you can either import or capture a new photo and then pass that photo to the respective OCR service for processing. 
 
-4) The next screen (defined in the codebase at `OcrResultsPage.xaml`, and referenced in this guide as the OCR Results Page) displays the text extracted by the Azure Computer Vision API.  ![Image of the OCR Results Page](./media/computer-vision-web-search-tutorial/OcrResultsPage.png)  
-Here you can select a line from the discovered text to find Bing search results for that query, or you can use the navigation bar to return to the OCR Select Page.
+4) The next screen (defined in the codebase at `OcrResultsPage.xaml` and referenced in this guide as the OCR Results Page) displays the text extracted by the Azure Computer Vision API.  ![Image of the OCR Results Page](./media/computer-vision-web-search-tutorial/OcrResultsPage.png)  
+Here you can select a line from the discovered text to find Bing search results for that query, or you can use the navigation bar to return to the OCR Select Page.  The image used in this guide can be found in the sample code repository at `SamplePhotos\TestImage.jpg`.
 
-5) Selecting an item from the OCR Results Page takes you to the following screen (defined in the codebase at `WebResultsPage.xaml`, and referenced in this guide as the Web Results Page) ![Image of the Web Results Page](./media/computer-vision-web-search-tutorial/WebResultsPage.png)  
+5) Selecting an item from the OCR Results Page takes you to the following screen (defined in the codebase at `WebResultsPage.xaml` and referenced in this guide as the Web Results Page) ![Image of the Web Results Page](./media/computer-vision-web-search-tutorial/WebResultsPage.png)  
 Here you can see the results of querying the Bing Web Search API using the extracted text and open the linked pages within the application.  As before, you can also use the navigation bar to return to the OCR Results Page. 
 
 6) Finally, selecting an item from the Web Results Page opens a WebView showing the content at that Bing result.  
