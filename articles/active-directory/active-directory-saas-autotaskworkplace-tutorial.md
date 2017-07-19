@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/19/2017
 ms.author: jeedes
 
 ---
@@ -35,6 +35,9 @@ To configure Azure AD integration with Autotask Workplace, you need the followin
 
 - An Azure AD subscription
 - An Autotask Workplace single-sign on enabled subscription
+- You must be an administrator or super administrator in Workplace.
+- You must have an administrator account in the Azure AD.
+- The users that will utilize this feature must have accounts within Workplace and the Azure AD, and their email addresses for both must match.
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -43,7 +46,6 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -128,50 +130,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Autotask Workplace** side, following requirements must be met:
+7. In a different web browser window, Log in to Workplace Online using the administrator credentials.
 
-   * You must be an administrator or super administrator in Workplace.
+    >[!Note]
+    >When configuring the IdP, a subdomain will need to be specified. To confirm the correct subdomain, login to Workplace Online. Once logged in, make note to the subdomain in the URL.
+    >The subdomain is the part between the “https://“ and “.awp.autotask.net/“ and should be us, eu, ca, or au.
 
-   * You must have an administrator account in the IdP.
+8. Go to **Configuration** > **Single Sign-On** and perform the following steps:
 
-   * The users that will utilize this feature must have accounts within Workplace and the IdP, and their email addresses for both must match.
+   ![Autotask Single Sign-on configuration](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
 
-8. **Configure the subdomain**
-
-    When configuring the IdP, a subdomain will need to be specified. To confirm the correct subdomain, login to Workplace Online. Once logged in, make note to the subdomain in the URL.
-
-    The subdomain is the part between the “https://“ and “.awp.autotask.net/“ and should be us, eu, ca, or au.
-
-9. **Access the single sign-on configuration page in Workplace**
-
-    a. Log in to Workplace Online using the administrator credentials for your team.
-
-    b. Go to **Configuration** > **Single Sign-On**:
-
-    ![Autotask Single Sign-on](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
-
-10. **Activate single sign-on**
-
-    Using the XML file (Metadata XML which you have downloaded from Azure portal) or URL from the IdP, the final step is to activate the feature within Workplace Online.
-
-    a. Enter the Metadata URL 
-
-    or
-
-    Select the XML Metadata File option, then click **Choose File** and upload the **Metadata XML** downloaded from Azure portal.
+   
+    a. Select the **XML Metadata File** option, and then upload the **Metadata XML** downloaded from Azure portal.
 
     b. Click **Enable SSO**.
+    
+   ![Autotask Single Sign-on approve configuration](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
 
-    c. Select the **I confirm this information is correct and I trust this IdP** check box.
+     c. Select the **I confirm this information is correct and I trust this IdP** check box.
 
-    ![Autotask Single Sign-on configuration](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
-
-    d. Click **Approve**.
-
-11. **Enable or disable single sign-on**
-
-    Toggle the **Enable SSO / Disable SSO** button on the Single Sign-On configuration page.
-
+     d. Click **Approve**.
+     
 >[!Note]
 >If you require assistance with configuring Autotask Workplace, please see [this page](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) to get assistance with your Workplace account.
 
