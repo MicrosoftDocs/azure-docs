@@ -63,6 +63,8 @@
       href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
+    - name: Limits
+      href: sql-database-single-database-resources.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
     - name: Connectivity architecture
@@ -71,8 +73,6 @@
       href: sql-database-what-is-a-dtu.md
     - name: DTU benchmark
       href: sql-database-benchmark-overview.md
-    - name: Limits
-      href: sql-database-resource-limits.md
     - name: PaaS or IaaS
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Features

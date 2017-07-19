@@ -106,7 +106,7 @@ For example, the number of connections to a SQL database and the number of concu
 
 ## Next steps
 
-- Learn about [Single database resources](sql-database-resource-limits.md).
+- Learn about [Single database resources](sql-database-single-database-resources.md).
 - Learn about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
 * Learn more about [DTUs and eDTUs](sql-database-what-is-a-dtu.md).

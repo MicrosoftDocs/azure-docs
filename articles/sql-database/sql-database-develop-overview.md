@@ -36,7 +36,7 @@ You can leverage open source tools like [cheetah](https://github.com/wunderlist/
 ## Resource limitations
 Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
 
-* More Information: [Azure SQL Database resource limits](sql-database-resource-limits.md)
+* More Information: [Azure SQL Database resource limits](sql-database-service-tiers.md)
 
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
