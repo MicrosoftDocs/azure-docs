@@ -54,7 +54,7 @@ The process of rotating your master key is simple. Navigate to the Azure portal 
 The following code sample illustrates how to use a Cosmos DB account endpoint and master key to instantiate a DocumentClient and create a database. 
 
 ```csharp
-//Read the DocumentDB endpointUrl and authorization keys from config.
+//Read the Cosmos DB endpointUrl and authorization keys from config.
 //These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
