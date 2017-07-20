@@ -1361,6 +1361,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service-web/web-sites-godaddy-custom-domain-name.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-tutorial-custom-domain",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-acs-differences-tp2.md",
             "redirect_url": "/azure/azure-stack/azure-stack-acs-differences",
             "redirect_document_id": false

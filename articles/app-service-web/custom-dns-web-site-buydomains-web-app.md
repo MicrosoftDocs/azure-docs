@@ -169,7 +169,7 @@ In the **Add hostname** page, assign any other hostname to your web app, as desi
 
 You should now see the newly assigned hostname(s) in your app's **Custom domains** page.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
 
 ### Test the hostnames
 

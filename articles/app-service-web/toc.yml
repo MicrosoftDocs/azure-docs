@@ -160,8 +160,6 @@
         href: custom-dns-web-site-buydomains-web-app.md
       - name: Map domains with Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
-      - name: Map GoDaddy domains
-        href: web-sites-godaddy-custom-domain-name.md
       - name: Migrate an active domain
         href: app-service-custom-domain-name-migrate.md
     - name: Migrate from IIS
