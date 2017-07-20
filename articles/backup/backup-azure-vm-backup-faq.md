@@ -20,9 +20,9 @@ ms.author: trinadhk;pullabhk;
 
 ---
 # Questions about the Azure VM Backup service
-This article has sections of common questions (with answers) to help you quickly understand the Azure VM Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article has answers to common questions to help you quickly understand the Azure VM Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Configure Backup
+## Configure backup
 ### Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
 Recovery Services vaults support both models.  You can back up a classic VM (created in the Classic portal), or a Resource Manager VM (created in the Azure portal) to a Recovery Services vault.
 
@@ -58,5 +58,3 @@ Use restore disks to:
 ## Manage VM backups
 ### What happens when I change a backup policy on VM(s)?
 When a new policy is applied on VM(s), schedule and retention of the new policy will be followed. If retention is extended, existing recovery points will be marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and will be deleted. 
-
-
