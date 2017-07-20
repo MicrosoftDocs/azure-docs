@@ -42,6 +42,8 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 
     **https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd**
 
+    ![The image about VM's location](./media/troubleshoot-recovery-disks-portal/vm-location.png)
+
 3. Right-click the VM and then select Delete. Make sure that you Keep the disks when you do this.
 4. Create a new recovery VM. This VM must be in the same region and resource group (Cloud Service) as the problem VM.
 5. Select the recovery VM, select **Disks** > **Attach Existing**.
@@ -67,11 +69,11 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the menu on the left, click **Virtual Machines (classic)**.
-3. Locate the recovery VM. Select Disks, right-click the disk, and then select Detach.
+3. Locate the recovery VM. Select Disks, right-click the disk, and then select **Detach**.
 
 ## Create VM from original hard disk
 
-To create a VM from your original virtual hard disk, use [Azure classic portal] (https://manage.windowsazure.com).
+To create a VM from your original virtual hard disk, use [Azure classic portal](https://manage.windowsazure.com).
 
 1. Sign into [Azure classic portal](https://manage.windowsazure.com).
 2. On the bottom of the portal, select **New** > **Compute** > **Virtual Machine** > **From Gallery**.
