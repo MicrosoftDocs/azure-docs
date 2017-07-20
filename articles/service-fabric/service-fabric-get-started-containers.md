@@ -290,6 +290,19 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
 
+## Configure resource governance
+[Resource governance](service-fabric-resource-governance.md) restricts the resources that the container can use on the host. The `ResourceGovernancePolicy` element, which is specified in the application manifest, is used to declare resource limits for a service code package. Resource limits can be set for the following resources: Memory, MemorySwap, CpuShares (CPU relative weight), MemoryReservationInMB, BlkioWeight (BlockIO relative weight).
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ResourceGovernancePolicy CodePackageRef="FrontendService.Code" CpuShares="500"
+            MemoryInMB="1024" MemorySwapInMB="4084" MemoryReservationInMB="1024" />
+  </Policies>
+</ServiceManifestImport>
+```
+
 ## Deploy the container application
 Save all your changes and build the application. To publish your application, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
 
