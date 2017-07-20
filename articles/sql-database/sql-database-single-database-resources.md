@@ -29,7 +29,7 @@ For single databases, the following tables show the resources available for a si
 
 ## Scaling up or scaling down a single database
 
-After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience.  
+After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-transact-sql), [PowerShell](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-powershell), the [Azure CLI](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-azure-cli), or the [REST API](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-rest-api).  
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >

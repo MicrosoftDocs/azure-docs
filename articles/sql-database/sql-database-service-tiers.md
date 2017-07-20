@@ -94,7 +94,7 @@ Once you have determined the appropriate service tier, you are ready to determin
 
 ## Choosing storage amounts
 
-Each performance level within a service tier comes with a certain about of storage that is included in the price for the single database or elastic pool. You can provision additional storage above the included amount for a single database or an elastic pool. Storage sizes greater than the storage included are in preview.  If the storage max size set exceeds the amount of storage included, then an additional cost for the extra storage applies. The price of extra storage is the amount of extra storage multiplied by the unit price of extra storage for the service tier. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  
+Each performance level within a service tier comes with a certain about of storage that is included in the price for the single database or elastic pool. You can provision additional storage above the included amount for a [single database](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and for an [elastic pool](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts). Storage sizes greater than the storage included are in preview.  If the storage max size set exceeds the amount of storage included, then an additional cost for the extra storage applies. The price of extra storage is the amount of extra storage multiplied by the unit price of extra storage for the service tier. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  
 
 Examples showing how the price of extra storage is determined:
 

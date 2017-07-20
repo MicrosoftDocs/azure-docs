@@ -42,8 +42,6 @@ Elastic pools enable the developer to purchase [elastic Database Transaction Uni
 
 Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool. Additional eDTUs can be added to an existing pool with no database downtime, except that the databases may need to be moved to provide the additional compute resources for the new eDTU reservation. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time. And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
 
-You can create and manage an elastic pool using the [Azure portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API. 
-
 ## When should you consider a SQL Database elastic pool?
 
 Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
@@ -126,12 +124,13 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
 ### Changing elastic pool resources
 
-You can increase or decrease the resources available to an elastic pool based on resource needs.
+You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-single-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-single-database-elastic-pools-using-powershell), the [Azure CLI](#manage-single-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
 
 * Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
 * Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 ## Elastic pool service tiers, performance levels, and storage amounts
+
 For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](#manage-single-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-single-database-elastic-pools-using-powershell), the [Azure CLI](#manage-single-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
 
 > [!NOTE]
