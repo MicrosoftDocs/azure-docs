@@ -293,6 +293,22 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 ```
 
+You can also bind to a POCO instead of `HttpRequestMessage`. This will be hydrated from the body of the request, parsed as JSON. Similarly, a type can be passed to the HTTP response output binding, and this will be returned as the response body, with a 200 status code.
+```csharp
+using System.Net;
+using System.Threading.Tasks;
+
+public static string Run(CustomObject req, TraceWriter log)
+{
+    return "Hello " + req?.name;
+}
+
+public class CustomObject {
+     public String name {get; set;}
+}
+}
+```
+
 <a name="httptriggerfsharp"></a>
 ### HTTP trigger sample in F# #
 ```fsharp
