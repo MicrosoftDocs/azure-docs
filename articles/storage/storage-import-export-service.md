@@ -233,7 +233,7 @@ The following table describes the drive failure states and the actions taken for
 | N/A | A drive that is not part of any job arrives at the data center as part of another job. | The drive will be marked as an extra drive and will be returned to the customer when the job associated with the original package is completed. |
 
 ### Time to process job
-The amount of time it takes to process an import/export job varies depending on different factors such as shipping time, job type, type and size of the data being copied, and the size of the disks provided. The Import/Export service does not have an SLA. You can use the REST API to track the job progress more closely. There is a percent complete parameter in the List Jobs operation which gives an indication of copy progress. Reach out to us if you need an estimate to complete a time critical import/export job.
+The amount of time it takes to process an import/export job varies depending on different factors such as shipping time, job type, type and size of the data being copied, and the size of the disks provided. The Import/Export service does not have an SLA but after the disks are received the service strives to complete the copy in 7 to 10 days. You can use the REST API to track the job progress more closely. There is a percent complete parameter in the List Jobs operation which gives an indication of copy progress. Reach out to us if you need an estimate to complete a time critical import/export job.
 
 ### Pricing
 **Drive handling fee**
@@ -251,13 +251,12 @@ There are no transaction costs when importing data into blob storage. The standa
 ## Quick Start
 In this section, we provide step-by-step instructions for creating an import and an export job. Please make sure you meet all of the [pre-requisites](#pre-requisites) before moving forward.
 
+> [!IMPORTANT]
+> The service supports one standard storage account per import or export job and does not support premium storage accounts. 
+> 
+> 
 ## Create an import job
 Create an import job to copy data to your Azure storage account from hard drives by shipping one or more drives containing data to the specified data center. The import job conveys details about hard disk drives, data to be copied, target storage account, and shipping information to the Azure Import/Export service. Creating an import job is a three-step process. First, prepare your drives using the WAImportExport tool. Second, submit an import job using the Azure portal. Third, ship the drives to the shipping address provided during job creation and update the shipping info in your job details.   
-
-> [!IMPORTANT]
-> You can submit only one job per storage account. Each drive you ship can be imported to one storage account. For example, let's say you wish to import data into two storage accounts. You must use separate hard disk drives for each storage account and create separate jobs per storage account.
-> 
-> 
 
 ### Prepare your drives
 The first step when importing data using the Azure Import/Export service is to prepare your drives using the WAImportExport tool. Follow the steps below to prepare your drives.
@@ -433,9 +432,9 @@ Please go through the FAQ section below as it covers the most common questions c
 
 ## Frequently asked questions
 
-**Can I copy Azure Files using the Azure Import/Export service?**
+**Can I copy Azure File storage using the Azure Import/Export service?**
 
-No, the Azure Import/Export service only supports Block Blobs and Page Blobs. All other storage types including Azure Files, Tables, and Queues are not supported.
+No, the Azure Import/Export service only supports Block Blobs and Page Blobs. All other storage types including Azure File storage, Table Storage, and Queue Storage are not supported.
 
 **Is the Azure Import/Export service available for CSP subscriptions?**
 
@@ -474,6 +473,7 @@ No. All drives are encrypted with BitLocker.
 No. You will need to ship your own drives for both import and export jobs.
 
 ** How can I access data that is imported by this service**
+
 The data under your Azure storage account can be accessed via the Azure Portal or using a standalone tool called Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **After the import job completes, what will my data look like in the storage account? Will my directory hierarchy be preserved?**
@@ -525,6 +525,20 @@ b) Update the jobs with a tracking number suffixed with -1, -2 etc.
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
 Max Page Blob size is 1TB.
+
+**Does Disk Import/Export support AES 256 encryption?**
+
+Azure Import/Export service by default encrypts with AES 128 bitlocker encryption but this can be increased to AES 256 by manually encrypting with bitlocker before data is copied. 
+
+If using [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+If using [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
 ## Next steps
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)

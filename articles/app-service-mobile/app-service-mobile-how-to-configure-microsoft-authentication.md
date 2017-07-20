@@ -4,7 +4,7 @@ description: Learn how to configure Microsoft Account authentication for your Ap
 author: mattchenderson
 services: app-service
 documentationcenter: ''
-manager: adrianha
+manager: syntaxc4
 editor: ''
 
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf

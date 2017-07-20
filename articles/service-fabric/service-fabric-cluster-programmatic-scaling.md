@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 06/29/2017
 ms.author: mikerou
 
 ---
@@ -37,7 +37,7 @@ Azure APIs exist which allow applications to programmatically work with virtual 
 
 One approach to implementing this 'home-made' auto-scaling functionality is to add a new stateless service to the Service Fabric application to manage scaling operations. Within the service's `RunAsync` method, a set of triggers can determine if scaling is required (including checking parameters such as maximum cluster size and scaling cooldowns).   
 
-The API used for virtual machine scale set interactions (both to check the current number of virtual machine instances and to modify it) is the fluent [Azure Management Compute library](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/1.0.0-beta50). The fluent compute library provides an easy-to-use API for interacting with virtual machine scale sets.
+The API used for virtual machine scale set interactions (both to check the current number of virtual machine instances and to modify it) is the [fluent Azure Management Compute library](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). The fluent compute library provides an easy-to-use API for interacting with virtual machine scale sets.
 
 To interact with the Service Fabric cluster itself, use [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
@@ -53,10 +53,13 @@ A service principal can be created with the following steps:
 	1. Make note of the appId (called 'client ID' elsewhere), name, password, and tenant for later use.
 	2. You will also need your subscription ID, which can be viewed with `az account list`
 
-The fluent compute library can log in using these credentials as follows:
+The fluent compute library can log in using these credentials as follows (note that core fluent Azure types like `IAzure` are in the [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) package):
 
 ```C#
-var credentials = AzureCredentials.FromServicePrincipal(AzureClientId, AzureClientKey, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
+var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
+                ClientId = AzureClientId,
+                ClientSecret = 
+                AzureClientKey }, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
 IAzure AzureClient = Azure.Authenticate(credentials).WithSubscription(AzureSubscriptionId);
 
 if (AzureClient?.SubscriptionId == AzureSubscriptionId)
@@ -75,40 +78,12 @@ Once logged in, scale set instance count can be queried via `AzureClient.Virtual
 Using the fluent Azure compute SDK, instances can be added to the virtual machine scale set with just a few calls -
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
-var newCapacity = Math.Min(MaximumNodeCount, NodeCount.Value + 1);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
+var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-**There is currently [a bug](https://github.com/Azure/azure-sdk-for-net/issues/2716) that keeps this code from working**, but a fix has been merged, so the issue should be resolved in published versions of Microsoft.Azure.Management.Compute.Fluent soon. The bug is that when changing virtual machine scale set properties (like capacity) with the fluent compute API, protected settings from the scale set's Resource Manager template are lost. These missing settings cause (among other things) Service Fabric services to not set up properly on new virtual machine instances.
-
-As a temporary workaround, PowerShell cmdlets can be invoked from the scaling service to enact the same change (though this route means that PowerShell tools must be present):
-
-```C#
-using (var psInstance = PowerShell.Create())
-{
-    psInstance.AddScript($@"
-        $clientId = ""{AzureClientId}""
-        $clientKey = ConvertTo-SecureString -String ""{AzureClientKey}"" -AsPlainText -Force
-        $Credential = New-Object -TypeName ""System.Management.Automation.PSCredential"" -ArgumentList $clientId, $clientKey
-        Login-AzureRmAccount -Credential $Credential -ServicePrincipal -TenantId {AzureTenantId}
-        
-        $vmss = Get-AzureRmVmss -ResourceGroupName {ResourceGroup} -VMScaleSetName {NodeTypeToScale}
-        $vmss.sku.capacity = {newCapacity}
-        Update-AzureRmVmss -ResourceGroupName {ResourceGroup} -Name {NodeTypeToScale} -VirtualMachineScaleSet $vmss
-    ");
-
-    psInstance.Invoke();
-
-    if (psInstance.HadErrors)
-    {
-        foreach (var error in psInstance.Streams.Error)
-        {
-            ServiceEventSource.Current.ServiceMessage(Context, $"ERROR adding node: {error.ToString()}");
-        }
-    }                
-}
-```
+Alternatively, virtual machine scale set size can also be managed with PowerShell cmdlets. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss) can retrieve the virtual machine scale set object. The current capacity will be stored in the `.sku.capacity` property. After changing the capacity to the desired value, the virtual machine scale set in Azure can be updated with the [`Update-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss) command.
 
 As when adding a node manually, adding a scale set instance should be all that's needed to start a new Service Fabric node since the scale set template includes extensions to automatically join new instances to the Service Fabric cluster. 
 
@@ -133,7 +108,7 @@ Be aware that *seed* nodes don't seem to always follow the convention that great
 Once the node to be removed is found, it can be deactivated and removed using the same `FabricClient` instance and the `IAzure` instance from earlier.
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
 ServiceEventSource.Current.ServiceMessage(Context, $"Disabling node {mostRecentLiveNode.NodeName}");
@@ -150,18 +125,16 @@ while ((mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Up || mo
 }
 
 // Decrement VMSS capacity
-var newCapacity = Math.Max(MinimumNodeCount, NodeCount.Value - 1); // Check min count 
+var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Check min count 
 
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Once the virtual machine instance is removed, Service Fabric node state can be removed.
+As with scaling out, PowerShell cmdlets for modifying virtual machine scale set capacity can also be used here if a scripting approach is preferable. Once the virtual machine instance is removed, Service Fabric node state can be removed.
 
 ```C#
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
-
-As before, you need to work around `IVirtualMachineScaleSet.Update()` not working until [Azure/azure-sdk-for-net#2716](https://github.com/Azure/azure-sdk-for-net/issues/2716) is addressed.
 
 ## Potential drawbacks
 

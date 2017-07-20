@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 07/19/2017
 ms.author: glenga
 ms.custom: mvc
 
@@ -59,17 +59,15 @@ A function is created in your chosen language using the template for an HTTP tri
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Paste the URL for the HTTP request into your browser's address bar. Append the query string `&name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the function:
+2. Paste the function URL into your browser's address bar. Append the query string `&name=<yourname>` to this URL and press the `Enter` key on your keyboard to execute the request. The following is an example of the response returned by the function in the Edge browser:
 
     ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     The request URL includes a key that is required, by default, to access your function over HTTP.   
 
-## View the function logs 
+3. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and click the up arrow at the bottom of the screen to expand **Logs**. 
 
-When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and click the up arrow at the bottom of the screen to expand **Logs**. 
-
-![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## Clean up resources
 

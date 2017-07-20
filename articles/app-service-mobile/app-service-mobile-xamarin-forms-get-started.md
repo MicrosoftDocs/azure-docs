@@ -3,8 +3,8 @@ title: Get Started with Mobile Apps by using Xamarin.Forms
 description: Follow this tutorial to get started using Azure Mobile Apps for Xamarin.Forms development
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # Create a Xamarin.Forms app
@@ -29,13 +29,13 @@ Completing this tutorial is a prerequisite for all other Mobile Apps tutorials f
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions. 
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
 * A Mac with Xcode v7.0 or later and Xamarin Studio Community installed. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) and [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/mobile/), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
-> 
-> 
+>
+>
 
 ## Create a new Azure Mobile App backend
 Follow these steps to create a new Mobile App backend.
@@ -56,12 +56,12 @@ Let's proceed:
 
 1. On your Mac or on your Windows computer, open the [Azure Portal] in a browser window.
 2. On the settings blade for your Mobile App, click **Get Started** (under Mobile) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
-   
+
    This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
 3. Extract the project that you downloaded, and then open it in Xamarin Studio or Visual Studio.
-   
+
    ![][9]
-   
+
    ![][8]
 
 ## (Optional) Run the iOS project
@@ -76,11 +76,11 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
 2. On the **Build** menu, click **Configuration Manager**.
 3. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the iOS project.
 4. Press the **F5** key to build the project and start the app in the iPhone emulator.
-   
+
    > [!NOTE]
    > If you have problems building, run NuGet package manager and update to the latest version of the Xamarin support packages. Sometimes the Quickstart projects may lag behind in being updated to the latest.    
-   > 
-   > 
+   >
+   >
 
 In the app, type meaningful text, such as *Learn Xamarin* and then click the **+** button.
 
@@ -90,8 +90,8 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 
 > [!NOTE]
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
-> 
-> 
+>
+>
 
 ## (Optional) Run the Android project
 This section is for running the Xamarin droid project for Android. You can skip this section if you are not working with Android devices.
@@ -105,11 +105,11 @@ This section is for running the Xamarin droid project for Android. You can skip 
 2. On the **Build** menu, click **Configuration Manager**.
 3. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the Android project.
 4. Press the **F5** key to build the project and start the app in an Android emulator.
-   
+
    > [!NOTE]
    > If you have problems building, run NuGet package manager and update to the latest version of the Xamarin support packages. Sometimes the Quickstart projects may lag behind in being updated to the latest.    
-   > 
-   > 
+   >
+   >
 
 In the app, type meaningful text, such as *Learn Xamarin* and then click the **+** button.
 
@@ -119,8 +119,8 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 
 > [!NOTE]
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
-> 
-> 
+>
+>
 
 ## (Optional) Run the Windows project
 This section is for running the Xamarin WinApp project for Windows devices. You can skip this section if you are not working with Windows devices.
@@ -130,11 +130,11 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 2. On the **Build** menu, click **Configuration Manager**.
 3. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the Windows project that you chose.
 4. Press the **F5** key to build the project and start the app in a Windows emulator.
-   
+
    > [!NOTE]
    > If you have problems building, run NuGet package manager and update to the latest version of the Xamarin support packages. Sometimes the Quickstart projects may lag behind in being updated to the latest.    
-   > 
-   > 
+   >
+   >
 
 In the app, type meaningful text, such as *Learn Xamarin* and then click the **+** button.
 
@@ -144,8 +144,8 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 
 > [!NOTE]
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
-> 
-> 
+>
+>
 
 ## Next steps
 * [Add authentication to your app](app-service-mobile-xamarin-forms-get-started-users.md)  
@@ -155,7 +155,7 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 * [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 * [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
-  Learn how to work with the managed client SDK in your Xamarin app. 
+  Learn how to work with the managed client SDK in your Xamarin app.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started
@@ -176,4 +176,3 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-

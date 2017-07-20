@@ -182,7 +182,7 @@ After the new sync group members are created and deployed, Step 3, **Configure s
 
     ![Select tables to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
-3.  Enable the checkbox for the columns that you want to sync. Be sure to select the primary key column, or to leave it selected.
+3.  By default, all columns in the table are selected. If you don't want to sync all the columns, disable the checkbox for the columns that you don't want to sync. Be sure to leave the primary key column selected.
 
     ![Select fields to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
