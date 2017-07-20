@@ -43,6 +43,8 @@ To complete this tutorial, you must have the following:
 
 This tutorial is designed for Azure PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information, see [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
+If do most of your work in Java or Python for example and you prefer to work with the Azure CLI 2.0 you can download it from [Download Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and access the [Getting Started with Key Vault in Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-manage-with-cli2).
+
 To get detailed help for any cmdlet that you see in this tutorial, use the **Get-Help** cmdlet.
 
     Get-Help <cmdlet-name> -Detailed
