@@ -62,10 +62,14 @@ To decide on a service tier, start by determining the minimum database features 
 
 | **Service tier limits for single databases** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Maximum single database size | 2 GB | 1 TB | 4 TB  | 1 TB  |
+| Maximum single database size | 2 GB | 1 TB | 4 TB*  | 1 TB  |
 | Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
+
+> [!IMPORTANT]
+> Storage up to 4 TB is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East
+>
 
 | **Service tier limits for elastic pools** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
