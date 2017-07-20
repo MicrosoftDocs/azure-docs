@@ -35,13 +35,12 @@ Check out [this video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da2
 -->
 
 ## Built on SQL Server Analysis Services
-Azure Analysis Services is compatible with the same SQL Server Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 or higher compatibility levels. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported. 
+Azure Analysis Services is compatible with the same SQL Server Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 and 1400  compatibility levels. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported. 
 
 Tabular models offer rapid development, highly customizable, and lightning fast queries over massive and complex datasets. For developers, tabular models  include the Tabular Object Model (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) namespace.
 
 New features in tabular 1400 models support Detail Rows, Object-level security, ragged hierarchies, a modern Get Data experience in SSDT for data connectivity, and many other enhancements. And because the underlying model metadata is the same, existing on-premises tabular model solutions can be easily migrated to the cloud.
 
-We know how important your existing **multidimensional** model investments are. While not yet supported in Azure Analysis Services, we're working hard to bring multidimensional to the cloud. Stay tuned!
 
 ## Better with Azure
 Azure Analysis Services integrates with many Azure data services enabling you to build sophisticated analytics solutions.
@@ -76,7 +75,9 @@ Azure Analysis Services servers can be created in the following [Azure regions](
 New regions are being added all the time, so this list might be incomplete. You choose a location when you create your server in Azure portal or by using Azure Resource Manager templates. To get the best performance, choose a location nearest your largest user base. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in multiple regions.
 
 ## Get up and running quickly
-With Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And, with Azure Resource Manager templates and PowerShell, you can provision servers using a declarative template. With a single template, you can deploy multiple services along with other Azure components such as storage accounts.  To learn more, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md). 
+With Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And, with Azure Resource Manager templates and PowerShell, you can provision servers using a declarative template. With a single template, you can deploy multiple services along with other Azure components such as storage accounts.  To learn more, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+
+Once you have a server created, you can create a tabular model right in Azure portal. With the new (preview) Web designer feature, you can connect to an Azure SQL Database, Azure SQL Data Warehouse data source, or import a Power BI Desktop .pbix file. Relationships between tables are created automatically, and you can create measures or edit the model.bim file in json format right from your browser.
 
 ## Migrate existing tabular models
 If you already have existing on-premises SQL Server Analysis Services model solutions, you can migrate to Azure Analysis Services without significant changes. To migrate, you can use SSDT to deploy your model to your server. Or, in SSMS, you can use backup and restore or TMSL.
