@@ -58,8 +58,8 @@ Get the connection information needed to connect to the Azure Database for MySQL
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
 ## Run Ruby code 
-1. Paste the Ruby code from the sections below into text files, and save the files into a project folder with file extension .rb, such as C:\rubymysql\createtable.rb or /home/username/rubymysql/createtable.rb
-. To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd rubymysql`
+1. Paste the Ruby code from the sections below into text files, and save the files into a project folder with file extension .rb, such as `C:\rubymysql\createtable.rb` or `/home/username/rubymysql/createtable.rb`.
+2. To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd rubymysql`
 3. Then type the ruby command followed by the file name, such as `ruby createtable.rb` to run the application.
 4. On the Windows OS, if the ruby application is not in your path environment variable, you may need to use the full path to launch the node application, such as `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 

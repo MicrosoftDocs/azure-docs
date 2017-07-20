@@ -8,7 +8,7 @@ manager: timlt
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
@@ -24,8 +24,7 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 ## Start Cloud Shell
 1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
 ![](media/shell-icon.png)
-2. Select a subscription to create a storage account and Azure file share with <br>
-![](media/storage-prompt.png)
+2. Select a subscription to create a storage account and Azure file share
 3. Select "Create storage"
 
 > [!TIP]
