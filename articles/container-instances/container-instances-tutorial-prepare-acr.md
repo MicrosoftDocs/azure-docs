@@ -70,9 +70,9 @@ Container registry password:
 az acr credential show --name <acrName> --query passwords[0].value
 ```
 
-## Sign in to the container registry
+## Login to the container registry
 
-You must sign in to your container registry instance before pushing images to it. Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to complete the operation. When running docker login, you need to provide th registry login server name and credentials.
+You must login to your container registry instance before pushing images to it. Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to complete the operation. When running docker login, you need to provide th registry login server name and credentials.
 
 ```bash
 docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
