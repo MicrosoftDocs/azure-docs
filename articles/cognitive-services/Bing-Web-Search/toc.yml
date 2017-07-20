@@ -29,6 +29,8 @@
   items:
   - name: C# Ranking Tutorial
     href: csharp-ranking-tutorial.md
+  - name: Visual Search Mobile App Tutorial
+    href: computer-vision-web-search-tutorial.md 
 - name: Reference
   items:
   - name: REST v5
