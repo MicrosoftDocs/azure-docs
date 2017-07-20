@@ -23,7 +23,7 @@ ms.author: larryfr
 
 Learn how to directly connect to Kafka on HDInsight using Azure Virtual Networks. This document provides information on connecting to Kafka using the following configurations:
 
-* From resources in an on-premise network. This connection is established by using a VPN device (software or hardware) on your local network.
+* From resources in an on-premises network. This connection is established by using a VPN device (software or hardware) on your local network.
 * From a development environment using a VPN software client.
 
 ## Architecture and planning
@@ -40,21 +40,23 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
     4. Configure forwarding between the DNS server in each network.
     5. Install Kafka on HDInsight into the virtual network.
 
-    For more information, see the [Connect to Kafka from an on-premises network](#on-premises) section.
+    For more information, see the [Connect to Kafka from an on-premises network](#on-premises) section. 
 
-* Connect individual machines to the virtual network using a VPN gateway and VPN client. This configuration has the following limitations:
-
-    * Each client must connect using a VPN software client. Azure only provides a Windows-based client.
-
-    * The client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
-
-    For these reasons, we only recommend this configuration for development purposes. To enable this configuration, perform the following tasks:
+* Connect individual machines to the virtual network using a VPN gateway and VPN client.:To enable this configuration, perform the following tasks:
 
     1. Create a virtual network.
     2. Create a VPN gateway that uses a point-to-site configuration. This configuration provides a VPN client that can be installed on Windows clients.
     3. Install Kafka on HDInsight into the virtual network.
     4. Configure Kafka for IP advertising. This configuration allows the client to connect using IP addressing instead of domain names.
     5. Download and use the VPN client on the development system.
+
+    > [!WARNING]
+    > This configuration is only recommended for development purposes because of the following limitations:
+    >
+    > * Each client must connect using a VPN software client. Azure only provides a Windows-based client.
+    > * The client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
+
+    For more information, see the [Connect to Kafka with a VPN client](#vpnclient) section.
 
 For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md).
 
