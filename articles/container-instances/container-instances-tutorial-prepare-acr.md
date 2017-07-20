@@ -28,7 +28,7 @@ Azure Container Registry is an Azure-based, private registry, for Docker contain
 > * Tagging container image for Azure Container Registry
 > * Uploading image to Azure Container Registry
 
-In subsequent tutorials, you will deploy the container from your private registry to Azure Container Instances.
+In subsequent tutorials, you deploy the container from your private registry to Azure Container Instances.
 
 ## Before you begin
 
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. Using the following example, update the name with some random characters.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name acidemo --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
 ## Get Azure Container Registry information
@@ -67,12 +67,12 @@ az acr show --name <acrName> --query loginServer
 Container registry password:
 
 ```azurecli-interactive
-az acr credential show --name cseriesacr --query passwords[0].value
+az acr credential show --name <acrName> --query passwords[0].value
 ```
 
-## Container registry login
+## Sign in to the container registry
 
-You must log in to your container registry instance before pushing images to it. Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to complete the operation. When running docker login, you need to provide th registry login server name and credentials.
+You must sign in to your container registry instance before pushing images to it. Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to complete the operation. When running docker login, you need to provide th registry login server name and credentials.
 
 ```bash
 docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
