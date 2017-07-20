@@ -33,7 +33,7 @@ This sample makes use of the following NuGet Packages:
 * [Xamarin Media Plugin](https://github.com/jamesmontemagno/MediaPlugin)
 * [Json.NET](https://github.com/JamesNK/Newtonsoft.Json)
 
-### Azure Services
+### Cognivite Services Used
 This sample utilizes the following Cognitive Services APIs:
 * [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) 
 * [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  
@@ -79,7 +79,7 @@ Before running the application, you need to select a target Configuration, Platf
 2) The application should launch and open to the following page (defined in the codebase at `AddKeysPage.xaml` and referenced in this guide as the Add Keys Page).  ![Image of the Add Keys Page](./media/computer-vision-web-search-tutorial/AddKeysPage.png)  
 Here you can input your Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the `App.xaml.cs` page of the codebase. 
 
-3) Adding a set of working Azure keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml` and referenced in this guide as the OCR Select Page). ![Image of the OCR Select Page](./media/computer-vision-web-search-tutorial/OcrSelectPage.png)  
+3) Adding a set of working API keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml` and referenced in this guide as the OCR Select Page). ![Image of the OCR Select Page](./media/computer-vision-web-search-tutorial/OcrSelectPage.png)  
 Here you can either import or capture a new photo and then pass that photo to the respective OCR service for processing. 
 
 4) The next screen (defined in the codebase at `OcrResultsPage.xaml` and referenced in this guide as the OCR Results Page) displays the text extracted by the Computer Vision API.  ![Image of the OCR Results Page](./media/computer-vision-web-search-tutorial/OcrResultsPage.png)  
@@ -92,14 +92,11 @@ Here you can see the results of querying the Bing Web Search API using the extra
 ![Image of the Web View Page](./media/computer-vision-web-search-tutorial/WebViewPage.png)  
 From here, you can interact with the website as if it were loaded within a standard browser.  You can also use the navigation bar to return to the Web Results Page. 
 
-> [!NOTE]
-> The Handwritten OCR endpoint is in preview.  Although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/?cdn=disable).  
-
-## Review and Learn:
+## Review and Learn
 Now that the sample is up and running, let's jump in and explore exactly how it uses the APIs provided in Microsoft Cognitive Services.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it is valuable to walk through the application screen-by-screen to examine exactly how it works.
 
 ### Add Keys Page
-The Add Keys Page is where the user inputs their Azure API keys so that the Cognitive Services endpoints can be accessed later. The UI for this page is defined in `AddKeysPage.xaml`, and its primary logic is defined in `AddKeysPage.xaml.cs`.  While the specific parameters of our test requests are discussed later, this is a great place to establish the basic structure for how the Azure endpoints can be reached from a C# codebase.  Throughout this sample, the basic structure of this interaction is as follows: 
+The Add Keys Page is where the user inputs their API keys so that the Cognitive Services endpoints can be accessed later. The UI for this page is defined in `AddKeysPage.xaml`, and its primary logic is defined in `AddKeysPage.xaml.cs`.  While the specific parameters of our test requests are discussed later, this is a great place to establish the basic structure for how the Cognitive Services endpoints can be reached from a C# codebase.  Throughout this sample, the basic structure of this interaction is as follows: 
 1. Establish the URI for each endpoint in a reusable location, and attach the URI call's specific parameters
 2. Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
 3. Attach any desired headers (defined in each endpoint's API reference) to your *HttpClient* object
@@ -201,7 +198,7 @@ byte[] MediaFileToByteArray(MediaFile photoMediaFile)
 
 The photo import utility works in a similar way, and can be found in `OcrSelectPage.xaml.cs`  
 > [!NOTE]
-> The downscaling done by setting `PhotoSize = PhotoSize.Medium` on the *StoreCameraMediaOptions* object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4 MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all file-size related issues.  If your device takes exceptionally high-quality photos and you are getting errors, you might try setting `PhotoSize = PhotoSize.Small` here.  
+> The downscaling done by setting `PhotoSize = PhotoSize.Medium` on the *StoreCameraMediaOptions* object.  At the moment, the Handwritten OCR endpoint can only handle photos that are smaller than 4 MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all file-size related issues.  If your device takes exceptionally high-quality photos and you are getting errors, you might try setting `PhotoSize = PhotoSize.Small` on this object.  
 
 ### OCR Results Page
 The OCR Results Page is where we extract text from the selected OCR endpoint and pull text from the endpoint response using the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them.
@@ -233,7 +230,7 @@ public const string handwritingUri = "https://westcentralus.api.cognitive.micros
 
 Next, let's examine the functions that call the API.
 
-*FetchPrintedWordList* uses the Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a *ByteArrayContent* object, and add a header to this *ByteArrayContent* object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
+*FetchPrintedWordList* uses the Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a *ByteArrayContent* object, and add a header to this *ByteArrayContent* object defining what kind of data we're sending to the Cognitive Services endpoint. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
 
 > [!TIP]
 > Note the use of the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  `SelectToken` is used here because we are only looking for a specific feature of the JSON response, which we can then pass on to the next function.  Elsewhere in the codebase, JSON responses are deserialized onto model objects defined in `ModelObjects.cs`.
@@ -356,7 +353,7 @@ async Task<JObject> FetchResultFromStatusUri(string statusUri)
 ```
 
 ### Web Results Page
-Finally, we send this data to the Web Results Page, which constructs a [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) request, sends it to Azure, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.  
+Finally, we send this data to the Web Results Page, which constructs a [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) request, sends it to the Cognitive Services endpoint, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.  
 
 ```csharp
 async Task<WebResultsList> GetQueryResults()
