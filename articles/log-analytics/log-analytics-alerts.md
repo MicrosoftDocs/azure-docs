@@ -1,5 +1,5 @@
 ---
-title: Understanding alerts in OMS Log Analytics | Microsoft Docs
+title: Understanding alerts in Azure Log Analytics | Microsoft Docs
 description: Alerts in Log Analytics identify important information in your OMS repository and can proactively notify you of issues or invoke actions to attempt to correct them.  This article describes the different kinds of alert rules and how they are defined.
 services: log-analytics
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 07/10/2017
 ms.author: bwren
 
 ---
@@ -78,6 +78,12 @@ For example, if you wanted to alert when the processor runs over 90%, you would 
 If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**. 
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
+
+>[!NOTE]
+> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
+
 
 ## Metric measurement alert rules
 

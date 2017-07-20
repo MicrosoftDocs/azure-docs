@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
 
 ---
@@ -24,6 +24,9 @@ Other articles available for View Designer are:
 
 * [View Designer](log-analytics-view-designer.md) - Overview of the View Designer and procedures for creating and editing custom views.
 * [Tile reference](log-analytics-view-designer-tiles.md) - Reference of the settings for each of the tiles available to use in your custom views. 
+
+>[!NOTE]
+> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [next generation query language](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Any views that were created before the workspace was upgraded will be automtically converted.
 
 The following table describes the different types of tiles available in the View Designer.  The sections below describe each tile type in detail and their properties.
 
