@@ -56,7 +56,7 @@ Xamarin should come pre-packaged with Visual Studio for Mac.
 
 ## Building and Running the Sample
 ### Step 1: Download the sample
-The sample can be found at [cognitive-services-xamarin-forms-computer-vision-search](https://github.com/Azure-Samples/cognitive-services-xamarin-forms-computer-vision-search). You can download it using Visual Studio or directly from GitHub.
+The sample can be found at [cognitive-services-xamarin-forms-computer-vision-search](https://azure.microsoft.com/en-us/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/). You can download it using Visual Studio or directly from GitHub.
 
 ### Step 2: Install the sample
 In Visual Studio, open `cognitive-services-xamarin-forms-computer-vision-search\VisualSearchApp.sln`.  It may take a few moments to initialize all of the required components.  
