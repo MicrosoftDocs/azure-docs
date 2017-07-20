@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2017
+ms.date: 07/20/2017
 ms.author: seanmck
 ms.custom: 
 ---
@@ -46,15 +46,26 @@ The sample in this tutorial includes a simple web application built in [Node.js]
 Use git to download the sample:
 
 ```bash
-git clone https://github.com/seanmck/aci-tutorial.git
+git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
 ## Build the container image
 
-Use the `docker build` command to create the container image: 
+The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image](dockerhub-nodeimage) based on [Alpine Linux](https://alpinelinux.org/), a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
+
+```
+FROM node:8.2.0-alpine
+RUN mkdir -p /usr/src/app
+COPY ./app/* /usr/src/app/
+WORKDIR /usr/src/app
+RUN npm install
+CMD node /usr/src/app/index.js
+```
+
+Use the `docker build` command to create the container image, tagging it as *aci-tutorial-app*:
 
 ```bash
-docker build ./aci-tutorial/app -t aci-tutorial-app
+docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
 Use the `docker images` to see the built image:
@@ -67,7 +78,7 @@ Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       64.1 MB
+aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       66.7 MB
 ```
 
 ## Run the container locally
@@ -95,6 +106,9 @@ Advance to the next tutorial to learn about storing container images in an Azure
 
 > [!div class="nextstepaction"]
 > [Push images to Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
+
+<!-- LINKS -->
+[dockerhub-nodeimage]: https://hub.docker.com/r/library/node/tags/8.2.0-alpine/
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

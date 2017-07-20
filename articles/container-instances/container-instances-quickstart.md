@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 You can create a container by providing a name, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
-az container create --name myContainer --image seanmckenna/aci-helloworld -g acidemogroup --ip-address public 
+az container create --name myContainer --image microsoft/aci-helloworld -g acidemogroup --ip-address public 
 ```
 
 Within a few seconds, you should get a response to your request. Initially,the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
@@ -96,7 +96,6 @@ When you are done with the container, you can remove it using the `delete` comma
 az container delete --name myContainer -g acidemogroup
 ```
 
-
 ## Next steps
 
 All of the code for the container used in this quick start is available [on GitHub][app-github-repo], along with its Dockerfile. If you'd like to try building it yourself and deploying it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
@@ -106,7 +105,7 @@ All of the code for the container used in this quick start is available [on GitH
 
 
 <!-- LINKS -->
-[app-github-repo]: https://github.com/seanmck/aci-tutorial.git
+[app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 
 <!-- IMAGES -->
 
