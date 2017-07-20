@@ -1,12 +1,12 @@
 ---
-title: Azure Computer Vision Search Application Tutorial
-description: Open Source sample application using the Azure Computer Vision and Bing Web Search APIs to provide a framework for a visual search application written using Xamarin.Forms
+title: Visual Search Application Tutorial
+description: Open Source C# application implementing visual search using the Cognitive Services Computer Vision API, Bing Web Search API, and Xamarin.Forms cross-platform framework.
 services: bing-web-search, computer-vision
 author: Aristoddle 
 manager: bking
 
 ms.service: cognitive-services
-ms.devlang: c#
+ms.devlang: csharp
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: t-jolanz
@@ -15,10 +15,10 @@ ms.author: t-jolanz
 # Bing Web Search And Computer Vision API Tutorial
 
 ## Introduction  
-This tutorial explores the [Azure Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) and [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) endpoints and how they can be used to build a basic visual search application with [Xamarin.Forms](https://developer.xamarin.com/guides/xamarin-forms/).  Overall, this tutorial covers the following topics: 
+This tutorial explores the [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) and [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) endpoints and how they can be used to build a basic visual search application with [Xamarin.Forms](https://developer.xamarin.com/guides/xamarin-forms/).  Overall, this tutorial covers the following topics: 
 * Setting up your system to develop Xamarin.Forms applications
 * Using the [Xamarin Media Plugin](https://github.com/jamesmontemagno/MediaPlugin) to capture and import image data to a Xamarin.Forms application
-* Formatting images and parsing text from them using the Azure Computer Vision APIs
+* Formatting images and parsing text from them using the Computer Vision APIs
 * Structuring and sending text-based requests to the Bing Web Search API
 * Parsing responses from the Bing Web Search and Computer Vision APIs with [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) (with LINQ and model object deserialization)
 * Integrating these APIs into a C# based Xamarin.Forms application 
@@ -36,7 +36,7 @@ This sample makes use of the following NuGet Packages:
 ### Azure Services
 This sample utilizes the following Cognitive Services APIs:
 * [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) 
-* [Azure Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  
+* [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  
 
 To attain 30-day trial keys to these APIs, see [this page](https://azure.microsoft.com/en-us/try/cognitive-services/).  For more information about attaining keys for professional use, see [Pricing](https://azure.microsoft.com/en-us/pricing/calculator/).
 
@@ -77,12 +77,12 @@ Before running the application, you need to select a target Configuration, Platf
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5**.  This deploys your solution to your target platform.  
 
 2) The application should launch and open to the following page (defined in the codebase at `AddKeysPage.xaml` and referenced in this guide as the Add Keys Page).  ![Image of the Add Keys Page](./media/computer-vision-web-search-tutorial/AddKeysPage.png)  
-Here you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the `App.xaml.cs` page of the codebase. 
+Here you can input your Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the `App.xaml.cs` page of the codebase. 
 
 3) Adding a set of working Azure keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml` and referenced in this guide as the OCR Select Page). ![Image of the OCR Select Page](./media/computer-vision-web-search-tutorial/OcrSelectPage.png)  
 Here you can either import or capture a new photo and then pass that photo to the respective OCR service for processing. 
 
-4) The next screen (defined in the codebase at `OcrResultsPage.xaml` and referenced in this guide as the OCR Results Page) displays the text extracted by the Azure Computer Vision API.  ![Image of the OCR Results Page](./media/computer-vision-web-search-tutorial/OcrResultsPage.png)  
+4) The next screen (defined in the codebase at `OcrResultsPage.xaml` and referenced in this guide as the OCR Results Page) displays the text extracted by the Computer Vision API.  ![Image of the OCR Results Page](./media/computer-vision-web-search-tutorial/OcrResultsPage.png)  
 Here you can select a line from the discovered text to find Bing search results for that query, or you can use the navigation bar to return to the OCR Select Page.  The image used in this guide can be found in the sample code repository at `SamplePhotos\TestImage.jpg`.
 
 5) Selecting an item from the OCR Results Page takes you to the following screen (defined in the codebase at `WebResultsPage.xaml` and referenced in this guide as the Web Results Page) ![Image of the Web Results Page](./media/computer-vision-web-search-tutorial/WebResultsPage.png)  
@@ -206,7 +206,7 @@ The photo import utility works in a similar way, and can be found in `OcrSelectP
 ### OCR Results Page
 The OCR Results Page is where we extract text from the selected OCR endpoint and pull text from the endpoint response using the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them.
 
-Let's first look at the Print OCR endpoint. The Azure Computer Vision OCR API is capable of parsing text from an undetermined language, but here we tell the endpoint to search for English text to improve results.  We also let the endpoint determine text orientation. Setting this flag to false might improve our parsing results, but in a mobile application  orientation detection can be useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
+Let's first look at the Print OCR endpoint. The Computer Vision OCR API is capable of parsing text from an undetermined language, but here we tell the endpoint to search for English text to improve results.  We also let the endpoint determine text orientation. Setting this flag to false might improve our parsing results, but in a mobile application  orientation detection can be useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
 
 ```csharp
 /* This is the url that will be passed into the POST request for parsing printed text.  It's parameters are as follows:
@@ -233,7 +233,7 @@ public const string handwritingUri = "https://westcentralus.api.cognitive.micros
 
 Next, let's examine the functions that call the API.
 
-*FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a *ByteArrayContent* object, and add a header to this *ByteArrayContent* object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
+*FetchPrintedWordList* uses the Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a *ByteArrayContent* object, and add a header to this *ByteArrayContent* object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
 
 [!TIP]
 > Note the use of the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  `SelectToken` is used here because we are only looking for a specific feature of the JSON response, which we can then pass on to the next function.  Elsewhere in the codebase, JSON responses are deserialized onto model objects defined in `ModelObjects.cs`.
