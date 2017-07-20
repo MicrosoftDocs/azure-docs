@@ -20,7 +20,7 @@ ms.author: rajram
 # Get started with Autoscale in Azure
 This article describes how to set up your Autoscale settings for your resource in the Microsoft Azure portal.
 
-Azure Monitor Autoscale applies only to virtual machine scale sets, cloud services, App Service plans, and App Service environments. 
+Azure Monitor Autoscale applies only to virtual machine scale sets, cloud services, Azure App Service plans, and App Service environments. 
 
 ## Discover the Autoscale settings in your subscription
 You can discover all the resources for which Autoscale is applicable in Azure Monitor. Use the following steps for a step-by-step walkthrough:
@@ -48,7 +48,7 @@ Let's now go through a simple step-by-step walkthrough to create your first Auto
   ![Scale setting for new web app][5]
 3. Provide a name for the scale setting, and then click **Add a rule**. Notice the scale rule options that open as a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
   ![Create scale setting for a web app][6]
-4. You've now created your first scale rule. Note that the UX recommends best practices and states that 'It is recommended to have at least one scale in rule'. To do so:
+4. You've now created your first scale rule. Note that the UX recommends best practices and states that "It is recommended to have at least one scale in rule." To do so:
   
     a. Click **Add a rule**. 
 
@@ -58,8 +58,8 @@ Let's now go through a simple step-by-step walkthrough to create your first Auto
 
     d. Set Operation to **Decrease count by**.
 
-You should now have a scale setting that scales out/scales in based on CPU usage.
-  ![Scale based on CPU][8]
+   You should now have a scale setting that scales out/scales in based on CPU usage.
+   ![Scale based on CPU][8]
 5. Click **Save**.
 
 Congratulations! You've now successfully created your first scale setting to autoscale your web app based on CPU usage.
@@ -117,8 +117,8 @@ You can now set the number of instances you want to scale manually.
 You can always return to Autoscale by clicking **Enable autoscale** and then **Save**.
 
 ## Next steps
-- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Create an Activity Log Alert to monitor all failed Autoscale scale in/scale out operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed Autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 <!--Reference-->
 [1]:https://portal.azure.com
