@@ -230,10 +230,10 @@ The Azure Marketplace combines Microsoft Azure partner ecosystems into a single,
 
 ## Next steps
 
-- Learn more about [Secure your Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-tutorial)
+- Learn more about [Secure your Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-tutorial).
 
-- Learn more about [Azure Security Center and Azure SQL Database service](https://docs.microsoft.com/en-us/azure/security-center/security-center-sql-database)
+- Learn more about [Azure Security Center and Azure SQL Database service](https://docs.microsoft.com/en-us/azure/security-center/security-center-sql-database).
 
-- To learn more about threat detection, see [SQL Database Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection)
+- To learn more about threat detection, see [SQL Database Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection).
 
-- To learn more, see [Improve SQL database performance](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-performance-tutorial) 
+- To learn more, see [Improve SQL database performance](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-performance-tutorial). 
