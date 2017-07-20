@@ -21,11 +21,11 @@ ms.author: carlrab
 ---
 # What are Azure SQL Database service tiers and resource limits
 
-Azure SQL Database manages the resources available to a database using two mechanisms:
+Azure SQL Database manages the resources available to a single database or a database in an elastic pool using two mechanisms:
 - CPU, memory, storage, log I/O, and data I/O resource are managed using [Service tiers, performance levels, and storage amounts](#service-tiers)
 - [Other resource limits](#enforcement-of-additional-resource-limits) are enforced by denying new requests when limits are reached.
 
-## Service tiers
+## What are the Azure SQL Datbase service tiers?
 
 [Azure SQL Database](sql-database-technical-overview.md) offers four service tiers for both single and [pooled](sql-database-elastic-pool.md) databases. These service tiers are: **Basic**, **Standard**, **Premium**, and **Premium RS**. Within each service tier are multiple performance levels ([DTUs](sql-database-what-is-a-dtu.md)) and storage options to handle different workloads and data sizes. Higher performance levels provide additional compute and storage resources designed to deliver increasingly higher throughput and capacity. You can change service tiers, performance levels, and storage dynamically without downtime. 
 - **Basic**, **Standard**, and **Premium** service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
