@@ -46,7 +46,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
 * You will receive repeated notifications for syndicated marketplace items that have completed downloading.
 * You are not able to view permissions to your subscription using the Azure Stack portals.  As a work around, you can verify permissions using Powershell.
-* You must add "-TenantID" as a flag when exporting a completed deployment as an automation script from the portal.
+* You must add `-TenantID` as a flag when exporting a completed deployment as an automation script from the portal.
 
 #### Services
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
