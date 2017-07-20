@@ -5,16 +5,16 @@ keywords:
 services: time-series-insights
 documentationcenter:
 author: ankryach
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 
 ms.assetid:
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 07/20/2017
 ms.author: ankryach
 ---
 # Query data from the Azure Time Series Insights environment by using C#
