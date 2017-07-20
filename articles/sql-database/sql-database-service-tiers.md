@@ -68,7 +68,7 @@ To decide on a service tier, start by determining the minimum database features 
 ||||||
 
 > [!IMPORTANT]
-> Storage up to 4 TB is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-single-database-resources.mde#current-limitations-of-p11-and-p15-databases-with-maxsize-greater-than-1-tb)
+> Storage up to 4 TB is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-single-database-resources.md#current-limitations-of-p11-and-p15-databases-with-maxsize-greater-than-1-tb)
 >
 
 | **Service tier limits for elastic pools** | **Basic** | **Standard** | **Premium** | **Premium RS**|
