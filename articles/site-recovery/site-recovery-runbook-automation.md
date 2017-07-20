@@ -95,7 +95,7 @@ In this article, we describe how you can integrate Azure Automation runbooks int
 	| VMMap key |A unique key (GUID) for each VM. It's the same as the Azure Virtual Machine Manager (VMM) ID of the VM, where applicable. |
 	| SubscriptionId |The Azure subscription ID in which the VM was created. |
 	| RoleName |The name of the Azure VM that's being recovered. |
-	| CloudServiceName |The Azure Cloud Service name under which the VM was created. |
+	| CloudServiceName |The Azure cloud service name under which the VM was created. |
 	| ResourceGroupName|The Azure resource group name under which the VM was created. |
 	| RecoveryPointId|The timestamp for when the VM is recovered. |
 
