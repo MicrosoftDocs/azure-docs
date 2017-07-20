@@ -58,7 +58,9 @@ When your app attempts to access a service with a CA policy, it may encounter a 
 
 Here's an example: 
 
-```claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}```
+```
+claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
+```
 
 Developers can take this challenge and append it onto a new request to Azure AD.  Passing this state will prompt the end user to perform any action necessary to comply with the conditional access policy. 
 
@@ -98,7 +100,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-Our app will need to catch the ```error=interaction_required```, and extract the claims challenge inside the `acquireToken()` callback.  The application can then perform a custom `login()`.  This customized `login()` has ADAL.js construct a URL to request the new id token, but will give us the freedom to modify and append the `claims`.  The user will sign in again and be forced to do a multi-factor authentication. Once these steps are completed, the app can redo the original `acquireToken()` call to get an access token for our CA-protected Web API.
+Our app will need to catch the `error=interaction_required`, and extract the claims challenge inside the `acquireToken()` callback.  The application can then perform a custom `login()`.  This customized `login()` has ADAL.js construct a URL to request the new id token, but will give us the freedom to modify and append the `claims`.  The user will sign in again and be forced to do a multi-factor authentication. Once these steps are completed, the app can redo the original `acquireToken()` call to get an access token for our CA-protected Web API.
 
 If we want to force all users to invoke the CA  policy when they first enter the app, we can follow the strategy of modifying the `login()` call to request the Web API service. This forces the CA policy to trigger and we would get a "stepped-up" token.
 
@@ -144,7 +146,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-In our Web API 1, we catch the error ```error=interaction_required```, and send back the `claims` challenge to the desktop app.  At that point, the desktop app can make a new [acquireToken()](https://docs.microsoft.com/en-us/active-directory/adal/microsoft.identitymodel.clients.activedirectory.authenticationcontext#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_System_String_System_Uri_Microsoft_IdentityModel_Clients_ActiveDirectory_IPlatformParameters_Microsoft_IdentityModel_Clients_ActiveDirectory_UserIdentifier_System_String_)  call and append the `claims`challenge as an extra query string parameter.  This new request will require the user to do MFA and then send this new token back to Web API 1 and complete the on-behalf-of flow.
+In our Web API 1, we catch the error `error=interaction_required`, and send back the `claims` challenge to the desktop app.  At that point, the desktop app can make a new [acquireToken()](https://docs.microsoft.com/en-us/active-directory/adal/microsoft.identitymodel.clients.activedirectory.authenticationcontext#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_System_String_System_Uri_Microsoft_IdentityModel_Clients_ActiveDirectory_IPlatformParameters_Microsoft_IdentityModel_Clients_ActiveDirectory_UserIdentifier_System_String_)  call and append the `claims`challenge as an extra query string parameter.  This new request will require the user to do MFA and then send this new token back to Web API 1 and complete the on-behalf-of flow.
 
 To try out this scenario, checkout our [.NET code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).  It demonstrates how to pass the claims challenge back from Web API 1 to the native app and construct a new request inside the client app. 
 
@@ -163,7 +165,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-We can catch the ```error=interaction_required``` and extract the claims challenge for the next request.  Once it's appended to the new request, AzureAD will know to evaluate the CA policy when signing in the user and the token will be properly "stepped-up".
+We can catch the `error=interaction_required` and extract the claims challenge for the next request.  Once it's appended to the new request, AzureAD will know to evaluate the CA policy when signing in the user and the token will be properly "stepped-up".
 
 If MS Graph is the first interactive request to the end-user, the app will not be presented with a claims challenge because Azure AD will invoke the policy automatically.
 
