@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2016
+ms.date: 07/17/2017
 ms.author: saah;kenhoff
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 
 ---
 # Sign ins from unknown sources

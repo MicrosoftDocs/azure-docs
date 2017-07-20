@@ -47,7 +47,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Updates an Azure Cosmos DB account. |
-| [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
