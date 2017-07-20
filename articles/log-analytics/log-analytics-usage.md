@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: magoedte
 
 ---
@@ -127,7 +127,7 @@ If needed, perform additional analysis to identify large volumes within a soluti
 + **Security** solution
   - `Type=SecurityEvent | measure count() by EventID`
 + **Log Management** solution
-  - `Type=Usage Solution=LogManagement IsBillable=true \| measure count() by DataType`
+  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
 + **Perf** data type
   - `Type=Perf | measure count() by CounterPath`
   - `Type=Perf | measure count() by CounterName`
