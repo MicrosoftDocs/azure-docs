@@ -22,7 +22,7 @@ ms.author: carlrab
 # What are Azure SQL Database service tiers and resource limits
 
 Azure SQL Database manages the resources available to a single database or a database in an elastic pool using two mechanisms:
-- CPU, memory, storage, log I/O, and data I/O resource are managed using [Service tiers, performance levels, and storage amounts](#service-tiers)
+- CPU, memory, storage, log I/O, and data I/O resource are managed using [Service tiers, performance levels, and storage amounts](#what-are-the-azure-sql-database-service-tiers)
 - [Other resource limits](#enforcement-of-additional-resource-limits) are enforced by denying new requests when limits are reached.
 
 ## What are the Azure SQL Datbase service tiers?
