@@ -2,11 +2,11 @@
 title: Overview of Azure Time Series Insights | Microsoft Docs
 description: Introduction to Azure Time Series Insight which is a new service for time series data analytics and IoT solutions
 keywords:  
-services: time-series-insights
+services: tsi
 documentationcenter:
 author: op-ravi
-manager: santoshb
-editor: cgronlun
+manager: jhubbard
+editor: 
 
 ms.assetid:
 ms.service: time-series-insights
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/20/2017
+ms.date: 07/20/2017
 ms.author: omravi
 ---
 
-# Overview of Azure Time Series Insights
+# What is Azure Time Series Insights
 
-Azure Time Series Insights is a fully managed cloud service with storage, analytics, and visualization components that make it incredibly easy to ingest, store, explore and analyze billions of events simultaneously. Time Series Insights gives you a global view of your data, letting you quickly validate your IoT Solutions and avoid costly downtime to mission critical devices by helping you discover hidden trends and anomalies, and conduct root-cause analyses in near real-time. Time Series Insights ingests time-series data from event-brokers (e.g. IoT Hubs or Event Hubs), indexes the data, and retires data based on a configurable retention policy. Users consume the data for their business scenario either through an intuitive UX or REST Query APIs.
+Azure Time Series Insights is a managed cloud service with storage, analytics, and visualization components that make it incredibly easy to ingest, store, explore and analyze billions of events simultaneously. Time Series Insights gives you a global view of your data, letting you quickly validate your IoT Solutions and avoid costly downtime to mission critical devices by helping you discover hidden trends and anomalies, and conduct root-cause analyses in near real-time. Time Series Insights ingests time-series data from event-brokers (e.g. IoT Hubs or Event Hubs), indexes the data, and retires data based on a configurable retention policy. Users consume the data for their business scenario either through an intuitive UX or REST Query APIs.
 
 ![Time Series Insight Overview](media/overview/time-series-insights-overview-flow.png)
 
