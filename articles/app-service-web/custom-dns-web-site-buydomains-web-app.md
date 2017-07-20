@@ -104,7 +104,12 @@ Next, select the desired options for your domain. See the following table for ex
 
 ### Accept terms and purchase
 
-Click **Legal Terms**, then click **Buy**.
+Click **Legal Terms** to review the terms and the charges, then click **Buy**.
+
+> [!NOTE]
+> App Service Domains use Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/en-us/pricing/details/dns/).
+>
+>
 
 Back in the **App Service Domain** page, click **OK**. While the operation is in progress, you see the following notifications:
 
