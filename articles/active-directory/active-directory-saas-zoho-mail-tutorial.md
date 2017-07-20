@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. In the **Logout URL** textbox, paste **Sign-Out URL** which you have copied from Azure portal.
    
-    c.In the **Change Password URL** textbox, paste **Change Password URL** which you have copied from Azure portal.
+    c. In the **Change Password URL** textbox, paste **Change Password URL** which you have copied from Azure portal.
        
     d. Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **PublicKey** textbox.
    
@@ -193,6 +193,9 @@ The objective of this section is to create a test user in the Azure portal calle
 In order to enable Azure AD users to log into Zoho Mail, they must be provisioned into Zoho Mail.  
 In the case of Zoho Mail, provisioning is a manual task.
 
+> [!NOTE]
+> You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.
+
 ### To provision a user account, perform the following steps:
 
 1. Log in to your **Zoho Mail** company site as an administrator.
@@ -213,9 +216,6 @@ In the case of Zoho Mail, provisioning is a manual task.
       
     > [!NOTE]
     > The Azure Active Directory account holder will receive an email with a link to confirm the account before it becomes active.
-  
-> [!NOTE]
-> You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.
 
 ### Assign the Azure AD test user
 
