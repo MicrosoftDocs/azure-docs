@@ -8,7 +8,7 @@ manager: pablocas
 editor: 
 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: search
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA

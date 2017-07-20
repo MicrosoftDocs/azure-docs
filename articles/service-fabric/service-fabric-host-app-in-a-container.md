@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 07/19/2017
 ms.author: mikhegn
 ---
 
@@ -32,11 +32,17 @@ In this tutorial, you learn how to:
 
 1. Install [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
 2. Familiarize yourself with the [Windows 10 Containers quickstart][link-container-quickstart].
-3. For this tutorial, we use **Fabrikam Fiber CallCenter**, a sample app you can download [here][link-fabrikam-github].
-4. [Azure PowerShell][link-azure-powershell-install]
-5. [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]
-6. An [Azure subscription][link-azure-subscription] and a [Visual Studio Team Services account][link-vsts-account]. 
+3. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application.
+4. Install [Azure PowerShell][link-azure-powershell-install]
+5. Install the [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]
+6. Create an [Azure subscription][link-azure-subscription] and a [Visual Studio Team Services account][link-vsts-account]. 
 7. [Create a cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
+
+## Containerize the application
+
+Now that you have a [Service Fabric cluster is running in Azure](service-fabric-tutorial-create-cluster-azure-ps.md) you are ready to create and deploy a containerized application. To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _Dockerfile_ is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. The new project contains a few docker-compose files. Docker-compose files can be used to describe how the container is run.
+
+More info on working with [Visual Studio Container Tools][link-visualstudio-container-tools].
 
 >[!NOTE]
 >If it is the first time you are running Windows container images on your computer, Docker CE must pull down the base images for your containers. The images used in this tutorial are 14 GB. Go ahead and run the following terminal command to pull the base images:
@@ -44,12 +50,6 @@ In this tutorial, you learn how to:
 >docker pull microsoft/mssql-server-windows-developer
 >docker pull microsoft/aspnet:4.6.2
 >```
-
-## Containerize the application
-
-Now that you have a [Service Fabric cluster is running in Azure](service-fabric-tutorial-create-cluster-azure-ps.md) you are ready to create and deploy a containerized application. To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _Dockerfile_ is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. The new project contains a few docker-compose files. Docker-compose files can be used to describe how the container is run.
-
-More info on working with [Visual Studio Container Tools][link-visualstudio-container-tools].
 
 ### Add Docker support
 
