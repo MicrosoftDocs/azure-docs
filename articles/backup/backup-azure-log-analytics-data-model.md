@@ -50,3 +50,30 @@ This table provides basic fields and aggregations over various alert related fie
 | ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
 | ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
 | ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
+### BackupItem
+This table provides basic fields and aggregations over various alert related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |  
+| BackupItemUniqueId_s |Text |Unique Id of the backup item |
+| BackupItemId_s |Text |Id of backup item |
+| BackupItemName_s |Text |Name of backup item |
+| BackupItemFriendlyName_s |Text |Friendly name of backup item |
+| BackupItemType_s |Text |Type of backup item for example, VM, FileFolder |
+| ProtectedServerName_s |Text |Name of protected server to which backup item belongs to |
+| ProtectionState_s |Text |Current protection state of the backup item for example, Protected, ProtectionStopped |
+| SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
+| State_s |Text |Current state of the backup item object for example, Active, Deleted |
+| BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this backup item belongs to |
+| OperationName |Text |This is the name of the current operation - BackupItem |
+| Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
+| SourceSystem |Text |Source system of the current data - Azure |
+| ResourceId |Text |This is the resource id for which data is being collected, it shows Recovery Services vault resource id |
+| SubscriptionId |Text |This is the subscription id of the resource (RS vault) for which data is being collected |
+| ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
+| ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
+| ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
