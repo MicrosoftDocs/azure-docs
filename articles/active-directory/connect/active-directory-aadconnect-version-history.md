@@ -31,8 +31,29 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-## 1.1.558.0
+## 1.1.561.0
 Status: To be released
+
+### Azure AD Connect
+
+#### Fixed issue
+
+* Fixed an issue that caused the out-of-box synchronization rule “Out to AD - User ImmutableId” to be removed:
+
+  * The issue occurs when Azure AD Connect is upgraded, or when the task option *Update Synchronization Configuration* in the Azure AD Connect wizard is used to update Azure AD Connect synchronization configuration.
+  
+  * This synchronization rule is applicable to customers who have enabled the [msDS-ConsistencyGuid as Source Anchor feature](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). This feature was introduced in version 1.1.524.0 and after. When the synchronization rule is removed, Azure AD Connect can no longer populate on-premises AD ms-DS-ConsistencyGuid attribute with the ObjectGuid attribute value. It does not prevent new users from being provisioned into Azure AD.
+  
+  * The fix ensures that the synchronization rule will no longer be removed during upgrade, or during configuration change, as long as the feature is enabled. For existing customers who have been affected by this issue, the fix also ensures that the synchronization rule is added back after upgrading to this version of Azure AD Connect.
+
+* Fixed an issue which causes out-of-box synchronization rules to have precedence value that is less than 100:
+
+  * In general, precedence values 0 - 99 are reserved for custom synchronization rules. During upgrade, the precedence values for out-of-box synchronization rules are updated to accommodate sync rule changes. Due to this issue, out-of-box synchronization rules may be assigned predence value that is less than 100.
+  
+  * The fix prevents the issue from occurring during upgrade. However, it does not restore the precedence values for existing customers who have been affected by the issue. A separate fix will be provided in the future to help with the restoration.
+
+## 1.1.558.0
+Status: Will not be released.
 
 ### Azure AD Connect
 
