@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 7/20/2017
 ms.author: xiaofmao
 
 ---
@@ -23,10 +23,7 @@ Azure Storage Explorer (Preview) is a standalone app that enables you to easily 
 
 In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
 
-Azure Stack requires Storage Explorer version 0.8.13. If you haven't installed it yet, [download](https://go.microsoft.com/fwlink/?LinkId=809306) Storage Explorer version 0.8.13 and install it.
-
-> [!WARNING]
-> Do not update Storage Explorer if you are prompted with an available update. To work with Azure Stack, you must continue to use version 0.8.13. 
+If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
 
 After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 
@@ -40,19 +37,18 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
 2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
 
-    ![Load the Azure Stack root certificate through mmc.exe][25]   
 
-3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackCertificationAuthority**. 
 
-    If you see multiple copies of this certificate, select the first one.
+3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
+
+    ![Load the Azure Stack root certificate through mmc.exe][25]
 
 4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
 
     The exported certificate will be used in the next step.   
+5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
 
-    ![Export the root Azure Stack authority root certificate][26]   
-
-5. In Storage Explorer (Preview), on the **Edit** menu, point to **SSL Certificates**, and then select **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.  
+6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
 
     After importing, you are prompted to restart Storage Explorer.
 
@@ -71,7 +67,7 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
 9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Create Custom Environment**, and then click **Next**.
 
-10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to a Custom Cloud ETestnvironment** dialog box.  
+10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to a Custom Cloud Environment** dialog box.  
 
     The details for each field are as follows:
 
