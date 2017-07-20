@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: sergkanz
+ms.author: cfreeman
 
 ---
 # Metric telemetry: Application Insights data model
@@ -67,6 +67,6 @@ Standard deviation of the aggregated metric. Should not be set for a measurement
 
 ## Next steps
 
-- Learn how to use [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md#send-metrics).
+- Learn how to use [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md#trackmetric).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Check out [platforms](app-insights-platforms.md) supported by Application Insights.

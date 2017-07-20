@@ -4,7 +4,7 @@ description: Analyze, visualize, and explore trends in your Application Insights
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 
 ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: daviste
+ms.author: cfreeman
 
 ---
 # Analyzing Trends in Visual Studio

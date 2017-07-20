@@ -3,7 +3,7 @@ title: Azure Event Hubs API overview | Microsoft Docs
 description: Overview of available Azure Event Hubs APIs
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
-ms.author: jotaub
+ms.date: 05/03/2017
+ms.author: sethm
+
 ---
 
 # Available Event Hubs APIs
@@ -36,7 +37,7 @@ See [additional information](#additional-information) for more details on the cu
 ### Additional information
 
 #### .NET
-The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions.](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)
+The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### Node
 

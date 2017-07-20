@@ -1,5 +1,5 @@
 ---
-title: Bing Speech Recognition REST API in Microsoft Cognitive Services | Microsoft Docs
+title: Speech Recognition API in Microsoft Cognitive Services | Microsoft Docs
 description: Use the Bing Speech Recognition REST API in contexts that need cloud-based speech recognition capabilities.
 services: cognitive-services
 author: priyaravi20
@@ -8,327 +8,240 @@ manager: yanbo
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: prrajan
+ms.date: 06/05/2017
+ms.author: jstock
 ---
 
-# Bing Speech Recognition API
+# Convert speech to text with Microsoft APIs
+You can choose to convert speech to text by using either an [HTTP-based REST protocol](#REST_protocol) or a [WebSocket-based protocol](#WebSocket_protocol). The protocol that you select depends on the needs of your application.
 
-## <a name="Introduction">Introduction</a>
-This documentation describes the Bing Speech Recognition REST API that exposes an HTTP interface which enables developers to transcribe voice queries. The Bing Speech Recognition API may be used in many different contexts that need cloud-based speech recognition capabilities. 
+## REST Speech Recognition API <a id="REST_protocol"></a>
+The Microsoft [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) Speech Recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. This API is most suitable for applications where continuous user feedback is not required or for platforms that do not support the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
 
-## <a name="VoiceRecReq">Speech Recognition Request</a>
-### <a name="Authorize">Authenticate the API call</a>
+* Utterances are limited to a maximum of 15 seconds.
+* Partial results are not returned. Only the final phrase result is returned.
+* Service end-of-speech detection is not supported. Clients must determine the end of speech. 
+* A single recognition phrase result is returned to the client only after the client stops writing to the request stream.
+* Continuous recognition is not supported. 
 
-Every request requires a JSON Web Token (JWT) access token. The JWT access token is passed through in the Speech request header. The token has an expiry time of 10 minutes. See [Get Started for Free](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions?productId=%2fproducts%2fBing.Speech.Preview) for information about subscribing and obtaining API keys used to retrieve valid JWT access tokens.
+If these features are important to your application's functionality, use the [WebSocket API](#WebSocket_protocol).
 
-The API key is passed to the token service, for example:
+## WebSocket Speech Recognition API <a id="WebSocket_protocol"></a>
+The Microsoft WebSocket Speech Recognition API is a service protocol definition that uses a [WebSocket](https://tools.ietf.org/html/rfc6455) for bidirectional communication. With this API, you can build full-featured speech applications that provide a rich user experience.
 
-```
-POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
-Content-Length: 0
-```
+A [JavaScript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of protocol. SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](websocketprotocol.md).
 
-The required header for token access is:
+## Endpoints
+The API endpoints that are based on user scenarios are highlighted here:
 
-Name	| Format	| Description, Example and Use
----------|---------|--------
-Ocp-Apim-Subscription-Key |	ASCII	| Your subscription key.
+| Mode | Path | Example URL |
+|-----|-----|-----|
+|Interactive|/speech/recognition/interactive/cognitiveservices/v1 |[https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR](https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR) | 
+| Conversation	|/speech/recognition/conversation/cognitiveservices/v1 |[https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US](https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US) |
+|Dictation|	/speech/recognition/dictation/cognitiveservices/v1	|[https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR](https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR)  |
 
-The token service returns the JWT access token as text/plain. Then the JWT is passed as a Base64 access_token to the Speech endpoint as an Authorization header prefixed with the string Bearer, for example:
+## Recognition modes
+There are three modes of recognition: interactive, conversation, and dictation. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application. 
 
-`Authorization: Bearer [Base64 access_token]`
+> [!NOTE]
+> Recognition modes might have different behaviors in the REST protocol than they do in the WebSocket protocol. For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
 
-### <a name="SpeechService">Access the Speech Service Endpoint</a>
+The Microsoft Speech Service returns only one recognition phrase result for all recognition modes. There is a limit of 15 seconds for any single utterance.
 
-Clients must use the following endpoint to access the service and build voice enabled applications: 
+### Interactive mode
+In *interactive* mode, a user makes short requests and expects the application to perform an action in response. 
 
- `https://speech.platform.bing.com/recognize`
+The following characteristics are typical of interactive mode applications:
+* Users know they are speaking to a machine and not to another human.
+* Application users know ahead of time what they want to say, based on what they want the application to do.
+* Utterances typically last about 2-3 seconds.
 
->[!NOTE]
->Until you have acquired an `access token` with your subscription key as described above this link will generate a 403 Response Error.
+### Conversation mode
+In *conversation* mode, users are engaged in a human-to-human conversation.
 
-The API uses HTTP POST to upload audio. The API supports [chunked transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) for efficient audio streaming. For live transcription scenarios, it is recommended you use chunked transfer encoding to stream the audio to the service while the user is speaking. Other implementations result in higher user-perceived latency. 
+The following characteristics are typical of conversation mode applications:
 
-Your application must indicate the end of the audio to determine start and end of speech, which in turn is used by the service to determine the start and end of the request. You may not upload more than 10 seconds of audio in any one request and the total request duration cannot exceed 14 seconds. 
+* Users know that they are talking to another person.
+* Speech recognition enhances the human conversations by allowing one or both participants to see the spoken text.
+* Users do not always plan what they want to say.
+* Users frequently use slang and other informal speech.
 
-### <a name="InputParam">Input Parameters</a>
+### Dictation mode
+In *dictation*  mode, users recite longer utterances to the application for further processing.
 
-Inputs to the Bing Speech Recognition API are expressed as HTTP query parameters. Parameters in the POST body are treated as audio content. Unsafe characters should be escaped following the W3C URL spec ([http://www.w3.org/Addressing/URL/url-spec.txt](http://www.w3.org/Addressing/URL/url-spec.txt)). A request with more than one instance of any parameter will result in an error response (HTTP 400). 
+The following characteristics are typical of dictation mode applications:
+* Users know that they are talking to a machine.
+* Users are shown the speech recognition text results. 
+* Users often plan what they want to say and use more formal language.
+* Users employ full sentences that last 5-8 seconds.
 
-Following is a complete list of required and optional input parameters.
+> [!NOTE]
+> In dictation and conversation modes, the Microsoft Speech Service does not return partial results. Instead, the service returns stable phrase results after silence boundaries in the audio stream. Microsoft might enhance the speech protocol to improve the user experience in these continuous recognition modes.
 
-#### <a name="ReqParam">Required Parameters</a>
+## Recognition language 
+The *recognition language* specifies the language that your application user speaks. Specify the *recognition language* with the *language* URL query parameter on the connection. The value of the *language* query parameter *must* be one of the languages that are supported by the service, as specified in [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) format. 
 
-Name  |Format  |Description, example and use  
----------|---------|---------
-Version     |  Digits and "."       |    The API version being used by the client. The required value is 3.0.   **Example:** version=3.0   
-requestid     |    GUID     |        A globally unique identifier generated by the client for this request. **Example:** requestid=b2c95ede-97eb-4c88-81e4-80f32d6aee54
-appID     |   GUID      |   A globally unique identifier used for this application. Always use appID = D4D52672-91D7-4C74-8AD8-42B1D98141A5. Do not generate a new GUID as it will be unsupported.     
-format     |  UTF-8       |      Specifies the desired format of the returned data. The required value is JSON. **Example:** format=json. 
-locale     |    UTF-8 (IETF Language Tag)     |    Language code of the audio content in IETF RFC 5646. Case does not matter. **Example:** locale=en-US. 
-device.os    |     UTF-8    |     Operating system the client is running on. This is an open field but we encourage clients to use it consistently across devices and applications. Suggested values: Windows OS, Windows Phone OS, XBOX, Android, iPhone OS. **Example:** device.os=Windows Phone OS.
-scenarios     |    UTF-8     |    The context for performing a recognition. The supported values are: ulm, websearch. **Example:** scenarios=ulm.     
-instanceid      |    GUID     |      A globally unique device identifier of the device making the request. **Example:** instanceid=b2c95ede-97eb-4c88-81e4-80f32d6aee54
-  
-#### <a name="OptParam">Optional Parameters</a>
+The Microsoft Speech Service rejects invalid connection requests by displaying an ```HTTP 400 Bad Request``` response. An invalid request is one that:
+* Does not include a *language* query parameter value.
+* Includes a *language* query parameter that is incorrectly formatted.
+* Includes a *language* query parameter that is not one of the support languages.
 
->[!NOTE]
->The values below are used either for performing the request or to manage the service operationally. 
+You may choose to build an application that supports one or all of the languages that are supported by the service.
 
-Name  |Format  |Description and example  
----------|---------|---------
-maxnbest     |     Integer    |       Maximum number of results the voice application API should return. The default is 1. The maximum is 5. **Example:** maxnbest=3   
-result.profanitymarkup     |     0/1    |      Scan the result text for words included in an offensive word list. If found, the word will be delimited by bad word tag. **Example:** result.profanity=1 (0 means off, 1 means on, default is 1.)
-
-### <a name="SampleImplementation">REST API Implementation Sample
-
-A working code sample of REST API implementation can be found [here](https://oxfordportal.blob.core.windows.net/speech/doc/recognition/Program.cs). 
-
-###  <a name="SampleVoiceRR">Example Speech Recognition Request</a>
-
-The following is an example of a request where the audio is supplied as part of a recognition request: 
-   
-```
-POST /recognize?scenarios=catsearch&appid=f84e364c-ec34-4773-a783-73707bd9a585&locale=en-US&device.os=wp7&version=3.0&format=xml&requestid=1d4b6030-9099-11e0-91e4-0800200c9a66&instanceid=1d4b6030-9099-11e0-91e4-0800200c9a66 HTTP/1.1
-Host: speech.platform.bing.com
-Content-Type: audio/wav; samplerate=16000
-Authorization: Bearer [Base64 access_token]
-
-(audio data)
-```
-### <a name="Codecs">Supported Codecs</a>
-The Speech Recognition API supports audio/wav using the following codecs: 
-* PCM single channel
-* Siren
-* SirenSR
-
-## <a name="VoiceRecResponse">Speech Recognition Responses</a>
-The API response is returned in JSON format. The value of the “name” tag has the post-inverse text normalization result. The value of the “lexical” tag has the pre-inverse text normalization result. 
-
-### <a name="NormalResponse">Normal response</a>
-
-#### <a name="Schema1">Schema 1</a>
-Schema Legend: 
-
-* < ... >  means optional
-* "[ ]" represents a json array
-* "{ }" represents a json object  
-* "*" indicates that the object can be defined multiple times
-
-  
-```
-JSON-text: version header <results> // result must be always and only present when status = "success" 
-version: string // The API version "3.0" — the value the client passed and consequently the API version that serviced the request. 
-header: {status scenario <name> <lexical> properties} // name and lexical are always and only present in the case of "status" = “success”
-     status: "success"/ "error"/ "false reco"// 'false reco' is returned only for 2.0 responses when NOSPEECH OR FALSERECO is 1. This is done to maintain backward compatibility. 
-     scenario: string // the scenario this recognition result came from. 
-     name: string // formatted recognition result. Profane terms are surrounded with <profanity> tags. 
-     lexical: string // text of what was spoken. Profane terms are surrounded with <profanity> tags.
-     properties: {requestid <NOSPEECH> <FALSERECO> <HIGHCONF> <ERROR>} 
-           requestid: string // this is a uuid identifying the requestid to be sent with the associated logs. It should be used as the "server.requestid" parameter value in the subsequent logging API request. 
-           NOSPEECH: 1 // set when no speech was detected on the sent audio. 
-           FALSERECO: 1 // set when no matches were found for the sent audio. 
-           HIGHCONF: 1 // set when the header result is determined to be of high-confidence. 
-           MIDCONF: 1 // set when the header result is determined to be of medium-confidence.
-           LOWCONF: 1 // set when the header result is determined to be of low-confidence. 
-           ERROR: 1 // set when there was an error generating a response. 
-results: [{scenario name lexical confidence pronunciation tokens}*] // n-best list of results ordered by confidence. 
-     scenario: string // the scenario this recognition result came from. 
-     name: string // formatted recognition result. Profane terms are surrounded with <profanity> tags. 
-     lexical: string // text of what was spoken. Profane terms are surrounded with <profanity> tags. 
-     properties: {<HIGHCONF>} 
-           HIGHCONF: 1 // set when the header result is determined to be of high-confidence. 
-           MIDCONF: 1 // set when the header result is determined to be of medium-confidence. 
-           LOWCONF: 1 // set when the header result is determined to be of low-confidence. 
+### Example
+In the following example, an application uses *conversation* speech recognition mode for a US English speaker.
 
 ```
-  
-#### <a name="Schema2">Schema 2</a>
-
-* **speechbox-root:**  
-  * **child tags:** version, header, results 
-  * **value:** none 
-  * **attributes:** none 
-
-* **version:** 
-  * **child tags:** none 
-  * **value:** string, the API version "3.0" 
-  * **attributes:** none 
-
-* **header:**  
-  * **tags:** status, name, lexical, properties 
-  * **value:** none 
-  * **attributes:** none 
-
-* **status:**  
-  * **child tags:** none 
-  * **value:** string, "success" or "error" 
-  * **attributes:** none 
-
-* **scenario:**  
-  * **child tags:** none 
-  * **value:** string, the scenario parameter value 
-  * **attributes:** none 
-
-* **name:**  
-  * **child tags:** none 
-  * **value:** string, formatted recognition result 
-  * **attributes:** none 
-
-* **lexical:**  
-  * **child tags:** none 
-  * **value:** string, text of what was spoken 
-  * **attributes:** none 
-
-* **properties:**  
-  * **child tags:** property 
-  * **value: none** 
-  * **attributes:** none 
-
-* **property:**  
-  * **child tags:** none 
-  * **value:** string, the property value 
-  * **attributes:** { name: the property name } 
-  * **other information:**  Properties based in the header have the following valid names: requestid, NOSPEECH, FALSERECO. 
-Properties based in the result portion consist of only HIGHCONF.
-  * **valid property values:**  requestid: a valid GUID string
-NOSPEECH: “1” to indicate a no speech false recognition
-FALSERECO: “1” to indicate that there were no interpretations
-HIGHCONF: “1” to indicate high confidence (currently above .5 threshold)
-MIDCONF: “1” to indicate medium-confidence
-LOWCONF: “1” to indicate low-confidence
-* **results:**  
-  * **child tags:** result 
-  * **value:** none 
-  * **attributes:** none 
-
-* **result:**  
-  * **child tags:** name, lexical, confidence, tokens 
-  * **value:** none 
-  * **attributes:** none 
-
-* **confidence:** 
-  * **child tags:** none 
-  * **value:** float, indicates result confidence 
-  * **attributes:** none 
-
-* **tokens:**  
-  * **child tags:** token 
-  * **value:** none 
-  * **attributes:** none 
-
-* **token:**  
-  * **child tags:** name, lexical, pronunciation 
-  * **value:** none 
-  * **attributes:** none 
-
-* **pronunciation:**  
-  * **child tags:** none 
-  * **value:** string, the IPA pronunciation of this token 
-  * **attributes:** none 
-
-#### <a name="SuccessfulRecResponse">Successful Recognition Response</a>
-
-Example JSON response for a successful voice search. The comments and formatting of the JSON below is for example reasons only. The real result will omit indentations, spaces, smart quotes, comments, etc. 
-
+https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-HTTP/1.1 200 OK
-Content-Length: XXX
-Content-Type: application/json; charset=UTF-8
-{
+
+### Interactive and dictation mode
+The Microsoft Speech Recognition API supports the following languages in *interactive* and *dictation* modes. 
+
+|Code | Language | Code | Language |
+|-----|-----|-----|-----|
+| ar-EG | Arabic (Egypt), modern standard | hi-IN | Hindi (India) |
+| ca-ES | Catalan (Spain) | it-IT | Italian (Italy)  |
+| da-DK | Danish (Denmark) | ja-JP | Japanese (Japan) |
+| de-DE | German (Germany) |ko-KR | Korean (Korea) |
+| en-AU | English (Australia) |nb-NO | Norwegian (Bokmål) (Norway)  |
+| en-CA | English (Canada) | nl-NL | Dutch (Netherlands)   |
+| en-GB | English (United Kingdom) |pl-PL | Polish (Poland) |
+| en-IN | English (India) | pt-BR | Portuguese (Brazil)  |
+| en-NZ | English (New Zealand) |pt-PT | Portuguese (Portugal)  |
+| en-US | English (United States) | ru-RU | Russian (Russia) |
+| es-ES | Spanish (Spain) | sv-SE | Swedish (Sweden) |
+| es-MX | Spanish (Mexico) |zh-CN | Chinese (Mandarin, simplified)  |
+| fi-FI | Finnish (Finland) |zh-HK | Chinese (Hong Kong SAR) |
+| fr-CA | French (Canada) | zh-TW | Chinese (Mandarin, Taiwanese)|
+| fr-FR | French (France) | ||
+
+### Conversation mode
+The Microsoft Speech Recognition API supports the following languages in *conversation* modes. 
+
+| Code | Language | Code | Language |
+|-----|-----|-----|-----|
+| ar-EG | Arabic (Egypt), modern standard | It-IT | Italian (Italy) |
+| de-DE | German (Germany) | ja-JP | Japanese (Japan) |
+| en-US | English (United States) | pt-BR | Portuguese (Brazil) |
+| es-ES | Spanish (Spain) | ru-RU | Russian (Russia) |
+| fr-FR | French (France) | zh-CN | Chinese (Mandarin, simplified) |
  
-  "version":"3.0", 
-  "header":{
-    "status":"success",
-    "scenario":"websearch",
-    "name":"Mc Dermant Autos",
-    “lexical”:”mac dermant autos”,
-    "properties":{
-      "requestid":"ABDDD97E-171F-4B75-A491-A977027B0BC3"
-    },
-  "results":[{
-    # Formatted result
-    "name":"Mc Dermant Autos",
-    # The text of what was spoken
-    “lexical”:”mac dermant autos”,
-    # Words that make up the result; a word can include a space if there
-    # isn’t supposed to be a pause between words when speaking them
-    "tokens":[{ 
-      # The text in the grammar that matched what was spoken for this token
-      "token":"mc dermant", 
-      # The text of what was spoken for this token
-      “lexical”:”mac dermant”,
-      # The IPA pronunciation of this token (I made up M AC DIR MANT; 
-      # refer to a real IPA spec for the text of an actual pronunciation)
-      “pronunciation”:”M AC DIR MANT”,
-    },
-    {
-      "token":"autos",
-      “lexical”:”autos”,
-      “pronunciation”:”OW TOS”,
-    }],
-    “properties”:{
-      “HIGHCONF”:”1”
-    },
-  }],
-  }
-}
+## Output format
+The Microsoft Speech Service can return a variety of payload formats of recognition phrase results. All payloads are JSON structures. 
 
-```
+You can control the phrase result format by specifying the `format` URL query parameter. By default, the service returns `simple` results. 
 
-```
-</speechbox-root>
-```
-#### <a name="RecFailure">Recognition Failure</a>
+| Format | Description |
+|-----|-----|
+| simple | A simplified phrase result containing the recognition status and the recognized text in display form. |
+| detailed | A recognition status and N-best list of phrase results where each phrase result contains all four recognition forms and a confidence score. |
 
-Example JSON response for a voice search query where the user’s speech could not be recognized. 
+The *detailed* format contains the following four recognition forms.
 
+### Lexical form
+The lexical form is the recognized text, exactly how it occurred in the utterance and without punctuation or capitalization. For example, the lexical form of the address "1020 Enterprise Way" would be *ten twenty enterprise way*, assuming that it was spoken that way. The lexical form of the sentence "Remind me to buy 5 pencils" is *remind me to buy five pencils*.
 
-```
-HTTP/1.1 200 OK
-Content-Length: XXX
-Content-Type: application/json; charset=UTF-8
+The lexical form is most appropriate for applications that need to perform non-standard text normalization. The lexical form is also appropriate for applications that need unprocessed recognition words.
 
+Profanity is never masked in the lexical form.
+
+### ITN form
+Text normalization is the process of converting text from one form to another "canonical" form. For example, the phone number "555-1212" might be converted to the canonical form *five five five one two one two*. *Inverse* text normalization (ITN) reverses this process, converting the words "five five five one two one two" to the inverted canonical form *555-1212*. The ITN form of a recognition result does not include capitalization or punctuation. 
+
+The ITN form is most appropriate for applications that act on the recognized text. For example, an application that allows a user to speak search terms and then uses these terms in a web query would use the ITN form. Profanity is never masked in the ITN form. To mask profanity, use the *Masked ITN form*.
+
+### Masked ITN form
+Because profanity is naturally a part of spoken language, the Microsoft Speech Service recognizes such words and phrases when they are spoken. Profanity might not, however, be appropriate for all applications, especially those applications with a restricted, non-adult user audience.
+
+The masked ITN form applies profanity masking to the inverse text normalization form. To mask profanity, set the value of the profanity parameter value to `masked`. When profanity is masked, words that are recognized as part of the language's profanity lexicon are replaced with asterisks. For example: *remind me to buy 5 **** pencils*. The masked ITN form of a recognition result does not include capitalization or punctuation. 
+
+> [!NOTE] 
+> If the profanity query parameter value is set to `raw`, the masked ITN form is the same as the ITN form. Profanity is *not* masked. 
+
+### Display form
+Punctuation and capitalization signal where to put emphasis, where to pause, and so on, which makes text easier to understand. The display form adds punctuation and capitalization to recognition results, making it the most appropriate form for applications that display the spoken text.
+
+Because the display form extends the masked ITN form, you can set the profanity parameter value to `masked` or `raw`. If the value is set to `raw`, the recognition results include any profanity spoken by the user. If the value is set to `masked`, words recognized as part of the language's profanity lexicon are replaced with asterisks.
+
+## Sample responses
+All payloads are JSON structures.
+
+The payload format of the `simple` phrase result: 
+```json
 {
-   "version":"3.0",
-   "results":[{}],
-   “header”:{
-     "status":"error",
-     "scenario":"websearch",
-     "properties":{
-"requestid":"ABDDD97E-171F-4B75-A491-A977027B0BC3",
-       "FALSERECO":"1"
-     }
-   }
+  "RecognitionStatus": "Success",
+  "DisplayText": "Remind me to buy 5 pencils.",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289"
 }
-
 ```
 
-### <a name="ErrorResponse">Error Responses</a>
-
-* **Http/400 BadRequest:** Will be returned if a required parameter is missing, empty or null, or if the value passed to either a required or optional parameter is invalid. The “Invalid” response includes passing a string value that is longer than the allowed length. A brief description of the problematic parameter will be included. 
-
-* **Http/401 Unauthorized:** Will be returned if the request is not authorized. 
-
-* **Http/502 BadGateway:** Will be returned when the service was unable to perform the recognition. 
-
-* **Http/403 Forbidden:** Will be returned when there are issues with your authentication or quota.
-
-Example response for a voice search request submitted with a bad parameter. This is the error response format regardless of what format the user has requested. 
-
+The payload format of the `detailed` phrase result:
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289",
+  "N-Best": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
+      },
+      {
+        "Confidence" : "0.54",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
 ```
-HTTP/1.0 400 Bad Request
-Content-Length: XXX
-Content-Type: text/plain; charset=UTF-8
+## N-best values
+Listeners, whether human or machine, can never be certain that they heard *exactly* what was spoken. A listener can assign a *probability* only to a particular interpretation of an utterance. 
 
-Invalid lat parameter specified       
-```
+In normal conditions, when speaking to others with whom they frequently interact, people have a high probability of recognizing the words that were spoken. Machine-based speech listeners strive to achieve similar accuracy levels and, under the right conditions, [they achieve parity with humans](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
-## <a name="TrouNSupport">Troubleshooting and Support</a>
-Post all questions and issues to the [Bing Speech Service](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) MSDN Forum, with complete detail, such as: 
-* An example of the full request string (minus the raw audio data).
-* If applicable, the full output of a failed request, which includes log IDs.
-* The percentage of requests that are failing.
+The algorithms that are used in speech recognition explore alternative interpretations of an utterance as part of normal processing. Usually, these alternatives are discarded as the evidence in favor of a single interpretation becomes overwhelming. In less than optimal conditions, however, the speech recognizer finishes with a list of alternate possible interpretations. The top *N* alternatives in this list are called the *N-best list*. Each alternative is assigned a [confidence score](#confidence). Confidence scores range from 0 to 1. A score of 1 represents the highest level of confidence. A score of 0 represents the lowest level of confidence.
 
+> [!NOTE]
+> The number of entries in the N-best list vary across multiple utterances. The number of entries can vary across multiple recognitions of the *same* utterance. This variation is a natural and expected outcome of the probabilistic nature of the speech recognition algorithm.
+ 
+## Confidence scores <a id="confidence"></a>
+Confidence scores are integral to speech recognition systems. The Microsoft Speech Service obtains confidence scores from a *confidence classifier*. Microsoft trains the confidence classifier over a set of features that are designed to maximally discriminate between correct and incorrect recognition. Confidence scores are evaluated for individual words and entire utterances.
 
+If you choose to use the confidence scores that are returned by the service, be aware of the following behavior:
+* Confidence scores can be compared only within the same recognition mode and language. Do not compare scores between different languages or different recognition modes. For example, a confidence score in interactive recognition mode has *no* correlation to a confidence score in dictation mode.
+* Confidence scores are best used on a restricted set of utterances. There is naturally a great degree of variability in the scores for a large set of utterances.
+
+If you choose to use a confidence score value as a *threshold* on which your application acts, use speech recognition to establish the threshold values.
+* Execute speech recognition on a representative sample of utterances for your application.
+* Collect the confidence scores for each recognition in the sample set.
+* Base your threshold value on some percentile of confidence for that sample.
+
+No single threshold value is appropriate for all applications. An acceptable confidence score for one application might be unacceptable for another application.
+ 
+## Profanity-handling in speech recognition
+The Microsoft Speech Service recognizes all forms of human speech, including words and phrases that many people would classify as "profanity." You can control how the service handles profanity by using the *profanity* query parameter. By default, the service masks profanity in *speech.phrase* results and does not return *speech.hypothesis* messages that contain profanity.
+
+| *Profanity* value | Description |
+| - | - |
+| *masked* | Masks profanity with asterisks. This behavior is the default. | 
+| *removed* | Removes profanity from all results. |
+| *raw* | Recognizes and returns profanity in all results. |
+
+### Masked profanity parameter value
+To mask profanity, set the *profanity* query parameter to the value *masked*. When the *profanity* query parameter has this value or is not specified for a request, the service *masks* profanity. The service performs masking by replacing profanity in the recognition results with asterisks. When you specify profanity-masking handling, the service does not return *speech.hypothesis* messages that contain profanity.
+
+### Removed profanity parameter value
+When the *profanity* query parameter has the value *removed*, the service removes profanity from both *speech.phrase* and *speech.hypothesis* messages. The results are the same *as if the profanity words were not spoken*.
+
+#### Profanity-only utterances
+A user might speak *only* profanity when an application has configured the service to remove profanity. For this scenario, if the recognition mode is *dictation* or *conversation*, the service does not return a *speech.result*. If the recognition mode is *interactive*, the service returns a *speech.result* with the status code *NoMatch*. 
+
+### Raw profanity parameter value
+When the *profanity* query parameter has the value *raw*, the service does not remove or mask profanity in either the *speech.phrase* or *speech.hypothesis* messages.

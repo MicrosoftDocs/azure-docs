@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Service Bus Messaging?](service-bus-messaging-overview.md)
 ## [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 ## [Service Bus architecture](service-bus-architecture.md)
@@ -42,8 +42,10 @@
 ### [Transaction processing](service-bus-transactions.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### AMQP
+#### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
+#### [Java Message Service and AMQP](service-bus-java-how-to-use-jms-api-amqp.md)
 #### [AMQP protocol guide](service-bus-amqp-protocol-guide.md)
 #### [AMQP request-response-based operations](service-bus-amqp-request-response.md)
 
@@ -64,14 +66,15 @@
 ## [SQLRuleAction syntax](service-bus-messaging-sql-rule-action.md)
 
 # Resources
-## [Pricing details](service-bus-pricing-billing.md)
-## [Samples](service-bus-samples.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Pricing details](service-bus-pricing-billing.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Samples](service-bus-samples.md)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

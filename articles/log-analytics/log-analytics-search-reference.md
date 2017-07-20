@@ -3,7 +3,7 @@ title: Azure Log Analytics search reference | Microsoft Docs
 description: The Log Analytics search reference describes the search language and provides the general query syntax options you can use when searching for data and filtering expressions to help narrow your search.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-ms.author: banders
+ms.date: 06/13/2017
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -607,7 +607,7 @@ This example returns one event (the latest event) per EventID.
 
 ### Join
 Joins the results of two queries to form a single result set.  Supports multiple join types described in the follow table.
-  
+
 | Join type | Description |
 |:--|:--|
 | inner | Return only records with a matching value in both queries. |
@@ -615,7 +615,7 @@ Joins the results of two queries to form a single result set.  Supports multiple
 | left  | Return all records from left query and matching records from right query. |
 
 
-- Joins do not currently support queries that include the **IN** keyword or the **Measure** command.
+- Joins do not currently support queries that include the **IN** keyword, the **Measure** command or the **Extend** command if it targets a field from the right query.
 - You can currently include only a single field in a join.
 - A single search may not include more than one join.
 
@@ -686,7 +686,7 @@ Returns the following records from MyBackup_CL with any matching fields from Hea
 
 
 ### Extend
-Allows you to create run-time fields in queries. You can also use the measure command after the extend command if you want to perform aggregation.
+Allows you to create run-time fields in queries. Note that run-time fields cannot be used with the measure command to perform aggregation.
 
 **Example 1**
 

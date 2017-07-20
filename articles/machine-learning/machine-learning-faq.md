@@ -14,12 +14,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 06/02/2017
 ms.author: garye
 
 ---
 # Azure Machine Learning frequently asked questions: Billing, capabilities, limitations, and support
 Here are some frequently asked questions (FAQs) and corresponding answers about Azure Machine Learning, a cloud service for developing predictive models and operationalizing solutions through web services. These FAQs provide questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
+
+**Have a question you can't find here?**
+
+Azure Machine Learning has a forum on MSDN where members of the data science community can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to the [Azure Machine Learning Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to search for answers or to post a new question of your own.
 
 ## General questions
 **What is Azure Machine Learning?**
@@ -38,7 +42,7 @@ For more information about Machine Learning Studio, see [What is Machine Learnin
 
 The Machine Learning API service enables you to deploy predictive models, like those that are built into Machine Learning Studio, as scalable, fault-tolerant, web services. The web services that the Machine Learning API service creates are REST APIs that provide an interface for communication between external applications and your predictive analytics models.
 
-For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
+For more information, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 
 **Where are my Classic web services listed? Where are my New (Azure Resource Manager-based) web services listed?**
 
@@ -212,7 +216,7 @@ See the [Azure subscription limits](../azure-subscription-service-limits.md).
 ### Use
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
-The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and deployed from the experimentation environment. The Batch Execution service (BES) is a service that asynchronously scores a batch of data records. The input for BES is like data input that RRS uses. The main difference is that BES reads a block of records from a variety of sources, such as Azure Blob storage, Azure Table storage, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](machine-learning-consume-web-services.md).
+The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and deployed from the experimentation environment. The Batch Execution service (BES) is a service that asynchronously scores a batch of data records. The input for BES is like data input that RRS uses. The main difference is that BES reads a block of records from a variety of sources, such as Azure Blob storage, Azure Table storage, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 
 **How do I update the model for the deployed web service?**
 
@@ -278,7 +282,7 @@ No.
 ## Security and availability
 **Who can access the http endpoint for the web service by default? How do I restrict access to the endpoint?**
 
-After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Azure classic portal or programmatically by using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
+After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Azure classic portal or programmatically by using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 
 **What happens if my Azure storage account can't be found?**
 

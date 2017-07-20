@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 ms.date: 3/1/2017
-ms.author: elbutter
+ms.author: elbutter;barbkess
 
 ---
 

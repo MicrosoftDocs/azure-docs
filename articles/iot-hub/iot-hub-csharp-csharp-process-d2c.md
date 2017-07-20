@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
 
 ---
@@ -29,8 +29,8 @@ This tutorial builds on the [Get started with IoT Hub] tutorial, and shows you h
 At the end of this tutorial, you run three .NET console apps:
 
 * **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
-* **ReadDeviceToCloudMessages** that displays the non-critical telemetry sent by your simulated device app.
-* **ReadCriticalQueue** de-queues the critical messages sent by your simulated device app from the Service Bus queue attached to the IoT hub.
+* **ReadDeviceToCloudMessages** that displays the non-critical telemetry sent by your device app.
+* **ReadCriticalQueue** de-queues the critical messages sent by your device app from the Service Bus queue attached to the IoT hub.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. To learn how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
@@ -44,8 +44,8 @@ To complete this tutorial, you need the following:
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
-## Send interactive messages from a simulated device app
-In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
+## Send interactive messages from a device app
+In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
 In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code:
 
@@ -109,6 +109,9 @@ In this section, you:
 For more information about how to process messages from Service Bus queues, see [Get started with queues][Service Bus queue].
 
 1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. The queue must be in the same subscription and region as your IoT hub. Make a note of the namespace and queue name.
+
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
     

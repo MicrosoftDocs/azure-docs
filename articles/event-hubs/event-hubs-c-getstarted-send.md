@@ -3,7 +3,7 @@ title: Send events to Azure Event Hubs using C | Microsoft Docs
 description: Send events to Azure Event Hubs using C
 services: event-hubs
 documentationcenter: ''
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jotaub;sethm
+ms.date: 05/03/2017
+ms.author: sethm
 ---
 
 # Send events to Azure Event Hubs using C
@@ -150,7 +150,7 @@ In this section we will write a C app to send events to your event hub. We will 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview][Event Hubs overview]
 * [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
@@ -159,8 +159,7 @@ You can learn more about Event Hubs by visiting the following links:
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

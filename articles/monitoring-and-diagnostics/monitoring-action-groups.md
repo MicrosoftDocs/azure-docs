@@ -1,8 +1,8 @@
 ---
-title: Create and Manager Action Groups in Azure Portal | Microsoft Docs
+title: Create and Manage Action Groups in Azure Portal | Microsoft Docs
 description:
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/15/2017
 ms.author: ancav
 
 ---
@@ -21,7 +21,7 @@ ms.author: ancav
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 
-Action groups enable you to configure a list of receivers. These groups can then be leveraged when defining activity log alerts; ensuring that a particular action group is notified when the activity log alert is triggered.
+Action groups enable you to configure a list of actions. These groups can then be leveraged when defining activity log alerts; ensuring that a particular action group is invoked when the activity log alert is triggered.
 
 An action group can have up to 10 of each action type. An action is defined by the combination of:
 
@@ -29,11 +29,9 @@ An action group can have up to 10 of each action type. An action is defined by t
 **Action Type:** This defines the action that will be performed. Options are send SMS, send Email, or call a Webhook.  
 **Details:** Based on the action type, the corresponding phone number, email address or webhook URI needs to be provided.
 
-You can configure and get information about service health notification alerts using:
-* [Azure Portal](monitoring-action-groups.md)
-- [Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)
+For information on using Azure Resource Manager templates to configure action groups: [Action Group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)
 
-## Creating an action group for the Azure portal ##
+## Creating an action group using the Azure portal ##
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
     ![Monitor](./media/monitoring-action-groups/home-monitor.png)
@@ -51,7 +49,7 @@ You can configure and get information about service health notification alerts u
 
 6.	The **Subscription** is the one the Action group will be saved in. It will be auto filled to the subscription you are currently operating under.
 
-7.	Choose the **Resource Group** for this action group.
+7.	Choose the **Resource Group** this alert will be associated with in the **Subscription**.
 
 8.	Then, define a list of actions through a combination of:
   1. **Name:** A unique identifier within the action group.
@@ -62,7 +60,7 @@ You can configure and get information about service health notification alerts u
 
 ## Managing your action groups ##
 Once you have created an action group, it will be visible in the Action groups section of the Monitor service. Select the action group you wish to manage, you will be able to:
-* Add, edit, or remove receivers.
+* Add, edit, or remove actions.
 -	Delete the action group.
 
 ## Next Steps: ##

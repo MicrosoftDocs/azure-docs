@@ -3,7 +3,7 @@ title: Azure Application Insights Data Model | Microsoft Docs
 description: Describes properties exported from continuous export in JSON, and used as filters.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights Export Data Model

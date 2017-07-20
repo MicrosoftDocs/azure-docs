@@ -1,6 +1,6 @@
 ---
-title: Azure Germany image gallery | Microsoft Docs
-description: This article provides an overview of the Azure Germany Image Gallery and the images included
+title: Azure Germany images | Microsoft Docs
+description: This article provides an overview of the images included in the Azure Germany Marketplace
 services: germany
 cloud: na
 documentationcenter: na
@@ -19,13 +19,12 @@ ms.author: ralfwi
 
 # Azure Germany images
 ## Overview
-When deploying new virtual servers in Azure Germany, customers can choose to deploy pre-built images from Microsoft or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
+When deploying new virtual servers in Azure Germany, customers can choose to deploy prebuilt images from Microsoft or upload their own VHDs. This flexibility means that you can deploy your own standardized images if needed.
 
 ## Variations
-* Marketplace images from our partners are not yet supported in Azure Germany.
+Marketplace images from our partners are not yet supported in Azure Germany.
 
-Following is a list of available images within the Azure Germany Marketplace. Notice that there could be different versions for each of the images, which are not listed here.  Some of the prebuilt images do include pay as you go licensing for specific software. Please review the
-[Virtual Machine Pricing](https://azure.microsoft.com/pricing/) page for more guidance and work with your Microsoft account team or reseller.
+Following is a list of available images in the Azure Germany Marketplace. Note that each image might have different versions that aren't listed here. Some of the prebuilt images include pay-as-you-go licensing for specific software. Please review the [Azure pricing](https://azure.microsoft.com/pricing/) page for more guidance and work with your Microsoft account team or reseller.
 
 ## Images for deployments with Azure Resource Manager
 
@@ -52,7 +51,7 @@ Following is a list of available images within the Azure Germany Marketplace. No
 | MicrosoftOSTC | FreeBSD | 10.3 | 10.3.20170112 |
 | MicrosoftOSTC | FreeBSD | 11.0 | 11.0.20161223 11.0.20170111 |
 | MicrosoftSharePoint | SharePoint2016 | SharePoint_Server_2016_Trial | 16.0.4351 |
-| MicrosoftSQLServer | sql2014sp1-ws2012r2 | enterprise | 12.0.4100 |
+| MicrosoftSQLServer | sql2014sp1-ws2012r2 | Enterprise | 12.0.4100 |
 | MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Enterprise | 12.0.50000 12.0.50001 |
 | MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Express | 12.0.50000 |
 | MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Standard | 12.0.50000 |
@@ -169,10 +168,10 @@ Following is a list of available images within the Azure Germany Marketplace. No
 |  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter - Server Core, April 2017  |  Windows  |
 |  Microsoft Windows Server Product Group  |  Windows Server 2016 - Nano Server, October 2016  |  Windows  |
 |  Microsoft Windows Server Product Group  |  Windows Server 2016 - Nano Server, December 2016  |  Windows  |
-|  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter - with Containers, October 2016  |  Windows  |
-|  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter - with Containers, December 2016  |  Windows  |
-|  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter - with Containers, March 2017  |  Windows  |
-|  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter - with Containers, April 2017  |  Windows  |
+|  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter with Containers, October 2016  |  Windows  |
+|  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter with Containers, December 2016  |  Windows  |
+|  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter with Containers, March 2017  |  Windows  |
+|  Microsoft Windows Server Product Group  |  Windows Server 2016 Datacenter with Containers, April 2017  |  Windows  |
 |  SUSE  |  SUSE Manager 3.0 Proxy (Bring Your Own Subscription)  |  Linux  |
 |  SUSE  |  SUSE Manager 3.0 Server (Bring Your Own Subscription)  |  Linux  |
 |  SUSE  |  openSUSE Leap 42.2  |  Linux  |
@@ -193,7 +192,7 @@ Following is a list of available images within the Azure Germany Marketplace. No
 |  OpenLogic  |  OpenLogic 7.3  |  Linux  |
 |  Microsoft Open Source Technology Center for FreeBSD  |  FreeBSD 10.3  |  Linux  |
 |  Microsoft Open Source Technology Center for FreeBSD  |  FreeBSD 11.0  |  Linux  |
-|  Microsoft Sharepoint Server Product Group  |  SharePoint Server 2016 Trial  |  Windows  |
+|  Microsoft SharePoint Server Product Group  |  SharePoint Server 2016 Trial  |  Windows  |
 |  RedHat  |  Red Hat Enterprise Linux 6.7  |  Linux  |
 |  RedHat  |  Red Hat Enterprise Linux 6.8  |  Linux  |
 |  RedHat  |  Red Hat Enterprise Linux 6.9  |  Linux  |
@@ -212,20 +211,20 @@ Following is a list of available images within the Azure Germany Marketplace. No
 |  Microsoft SQL Server Product Group  |  SQL Server 2014 SP2 Express on Windows Server 2012 R2  |  Windows  |
 |  Microsoft SQL Server Product Group  |  SQL Server 2014 SP2 Standard on Windows Server 2012 R2  |  Windows  |
 |  Microsoft SQL Server Product Group  |  SQL Server 2014 SP2 Web Windows Server 2012 R2  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Developer Windows Server 2016  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Enterprise Windows Server 2016  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Express Windows Server 2016  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Standard Windows Server 2016  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Web Windows Server 2016  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Developer on Windows Server 2016  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Enterprise on Windows Server 2016  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Express on Windows Server 2016  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Standard on Windows Server 2016  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 SP1 Web on Windows Server 2016  |  Windows  |
 |  Microsoft SQL Server Product Group  |  SQL Server 2016 Developer on Windows Server 2012 R2  |  Windows  |
 |  Microsoft SQL Server Product Group  |  SQL Server 2016 RTM Developer on Windows Server 2016  |  Windows  |
 |  Microsoft SQL Server Product Group  |  SQL Server 2016 RTM Enterprise on Windows Server 2012 R2  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 RTM Enterprise Windows Server 2016  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 RTM Enterprise on Windows Server 2016  |  Windows  |
 |  Microsoft SQL Server Product Group  |  SQL Server 2016 Express on Windows Server 2012 R2  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 Standard Windows Server 2012 R2  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 Standard Windows Server 2016  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 Web Windows Server 2012 R2  |  Windows  |
-|  Microsoft SQL Server Product Group  |  SQL Server 2016 Web Windows Server 2016  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 Standard on Windows Server 2012 R2  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 Standard on Windows Server 2016  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 Web on Windows Server 2012 R2  |  Windows  |
+|  Microsoft SQL Server Product Group  |  SQL Server 2016 Web on Windows Server 2016  |  Windows  |
 |  Microsoft SQL Server Product Group  |  SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2  |  Windows  |
 |  GE-SRS-Prod-GalleryImages  |  Microsoft Azure Site Recovery Process Server V2  |  Windows  |
 
@@ -236,12 +235,13 @@ Following is a list of available images within the Azure Germany Marketplace. No
 
 
 ## Next steps
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Germany Developer Guide](./germany-developer-guide.md) to uncover any programmatic differences with endpoints when working with Azure Germany.
+To uncover any programmatic differences with endpoints when you're working with Azure Germany, see the [Azure Germany developer guide](./germany-developer-guide.md).
 
-### Other resources:
-* [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Windows Virtual Machine FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Capture Linux VM Image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+For more information on deploying from the Marketplace or creating your own VHD, see these resources:  
+
+* [Deploying a Windows virtual machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Windows virtual machines FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Capture a Linux VM as an image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 
 

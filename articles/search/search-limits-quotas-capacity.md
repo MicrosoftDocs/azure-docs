@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/23/2017
+ms.date: 06/07/2017
 ms.author: heidist
 
 ---
@@ -41,7 +41,7 @@ There is a one-to-one correspondence between limits on indexes and limits on ind
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Index: maximum fields per index |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Index: maximum scoring profiles per index |16 |16 |16 |16 |16 |16 |
+| Index: maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
 | Index: maximum functions per profile |8 |8 |8 |8 |8 |8 |
 | Indexers: maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A <sup>2</sup> |
 | Indexers: maximum running time |3 minutes |24 hours |24 hours |24 hours |24 hours |N/A <sup>2</sup> |

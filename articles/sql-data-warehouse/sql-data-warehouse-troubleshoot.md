@@ -1,9 +1,9 @@
-﻿---
+---
 title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
-ms.author: barbkess
+ms.author: kevin;barbkess
 
 ---
 # Troubleshooting Azure SQL Data Warehouse

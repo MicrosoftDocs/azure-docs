@@ -4,7 +4,7 @@ description: This provides a comparision of features and guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: MeganYount
+author: smichelotti
 manager: zakramer
 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/06/2016
-ms.author: MeganYount
+ms.date: 05/18/2017
+ms.author: stemi
 
 ---
 # Azure Government Intelligence + Analytics
@@ -36,6 +36,14 @@ The URLs for Log Analytics are different in Azure Government:
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
 | HDInsight Cluster | \*.azurehdinsight.net | \*.azurehdinsight.us |
+
+For secured virtual networks, you will want to allow Network Security Groups (NSGs) access to certain IP addresses and ports. For Azure Government, you should allow the follow IP addresses (all with an Allowed port of 443):
+
+| Region | Allowed IP addresses | Allowed port |
+| ---- | ---- | ---- | ---- |
+| USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
+| USGov Iowa | 13.72.184.124</br>13.72.190.110 | 443 |
+
 
 For more information, see [HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
 

@@ -3,7 +3,7 @@ title: Create an Azure event hub | Microsoft Docs
 description: Create an Azure Event Hubs namespace and an event hub using the Azure portal
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2017
-ms.author: jotaub
+ms.date: 05/03/2017
+ms.author: sethm
+
 ---
 
 # Create an Event Hubs namespace and an event hub using the Azure portal
@@ -59,7 +60,7 @@ Your event hub is now created, and you have the connection strings you need to s
 ## Next steps
 To learn more about Event Hubs, visit these links:
 
-* [Event Hubs overview](event-hubs-overview.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Event Hubs API overview](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/

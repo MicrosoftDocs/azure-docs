@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
-ms.author: klam
+ms.author: LADocs; klam
 ---
 
 # Manage your logic apps with Visual Studio Cloud Explorer

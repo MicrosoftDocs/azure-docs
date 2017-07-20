@@ -29,8 +29,8 @@ The easiest way to use custom code is to use the Data Lake Tools for Visual Stud
 To address these drawbacks, you can turn code-behind into assemblies, and register the assemblies to the Data Lake Analytics catalog.
 
 ## Prerequisites
-* Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed
-* Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the Web platform installer.
+* Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed
+* Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the Web platform installer or Visual Studio Installer
 * A Data Lake Analytics account.  See [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
 * Go through the [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-get-started.md) tutorial.
 * Connect to Azure.

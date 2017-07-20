@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/27/2017
 ms.author: jgao
 
 ---
@@ -43,11 +43,32 @@ Before you begin this article, you must have the following:
 
        If you don't see HDInsight cluster, click **More services** on the bottom of the list, and then click **HDInsight clusters** under the **Intelligence + Analytics** section.
 
+
 ## Create clusters
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported,
 see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versioning.md). For the general cluster creation information, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
+### Access control requirements
+
+You must specify an Azure subscription when you create an HDInsight cluster. This cluster can be created in either a new Azure Resource group or an existing Resource group. You can use the following steps to verify your permissions for creating HDInsight clusters:
+
+- To use an existing resource group.
+
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    2. Click **Resource groups** from the left menu to list the resource groups.
+    3. Click the resource group you want to use for creating your HDInsight cluster.
+    4. Click **Access control (IAM)**, and verify that you (or a group that you belong to) have at least the Contributor access to the resource group.
+
+- To create a new resource group
+
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
+    3. Click the subscription that you use to create clusters. 
+    4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
+
+If you recieve the NoRegisteredProviderFound error or the MissingSubscriptionRegistration error, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## List and show clusters
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
@@ -151,7 +172,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     The Storm web UI is available on the HDInsight cluster:
 
-    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
@@ -168,7 +189,7 @@ The impact of changing the number of data nodes for each type of cluster support
 3. Click **Scale Cluster**.
 4. Enter **Number of Worker nodes**. The limit on the number of cluster node varies among Azure subscriptions. You can contact billing support to increase the limit.  The cost information will reflect the changes you have made to the number of nodes.
 
-    ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
+    ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## Pause/shut down clusters
 
@@ -297,7 +318,9 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 >
 
 ## Connect to a cluster
-See [Use Hive with Hadoop in HDInsight with SSH](hdinsight-hadoop-use-hive-beeline.md#a-idsshaconnect-with-ssh).
+
+* [Use Hive with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## Next steps
 In this article, you have learned how to create an HDInsight cluster by using the Portal, and how to open the Hadoop command-line tool. To learn more, see the following articles:

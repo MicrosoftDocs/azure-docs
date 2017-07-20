@@ -12,9 +12,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 09/30/2016
-ms.author: curtand;jeffsta
+ms.topic: article
+ms.date: 07/13/2017
+ms.author: curtand
 
 ---
 # Add a custom domain name to Azure Active Directory

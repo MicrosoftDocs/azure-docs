@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Azure Batch](batch-technical-overview.md)
 ## [Feature overview](batch-api-basics.md)
 ## [APIs and tools](batch-apis-tools.md)
@@ -7,17 +7,23 @@
 ## [Create a Batch account](batch-account-create-portal.md)
 ## [Batch .NET tutorial](batch-dotnet-get-started.md)
 ## [Batch Python tutorial](batch-python-tutorial.md)
+## [Batch Node.js tutorial](batch-nodejs-get-started.md)
 # How To
 ## Develop
 ### [Application packages](batch-application-packages.md)
 ### [Autoscale compute nodes](batch-automatic-scaling.md)
-### [Azure AD authentication](batch-aad-auth.md)
+### Azure AD authentication
+#### [Azure AD with Batch service](batch-aad-auth.md)
+#### [Azure AD with Batch Management](batch-aad-auth-management.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
+### [Low-priority VMs](batch-low-pri-vms.md)
 ### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
 ### [Persist job and task output](batch-task-output.md)
+#### [Persist output with Batch API](batch-task-output-files.md)
+#### [Persist output with File Conventions library](batch-task-output-file-conventions.md)
 ### [Run MPI jobs in Batch](batch-mpi.md)
 ### [Task dependencies](batch-task-dependencies.md)
 ### [User accounts for running tasks](batch-user-accounts.md)
@@ -25,6 +31,11 @@
 ## Manage
 ### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
+#### [Create a Batch account](./scripts/batch-cli-sample-create-account.md)
+#### [Run Batch jobs without code](batch-cli-templates.md)
+#### [Add an application](./scripts/batch-cli-sample-add-application.md)
+#### [Manage pools](./scripts/batch-cli-sample-manage-pool.md)
+#### [Run a job and tasks](./scripts/batch-cli-sample-run-job.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -52,15 +63,15 @@
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [CLI samples](batch-cli-samples.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Big Compute resources](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
+## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 

@@ -103,7 +103,7 @@ In the example above, we created a resource group called **appgw-RG** and locati
 > [!NOTE]
 > If you need to configure a custom probe for your application gateway, visit: [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
-## Create a virtual network and a subnet for the application gateway
+## Create a virtual network and a subnet
 
 The following example shows how to create a virtual network by using Resource Manager. This example creates a VNET for the Application Gateway. Application Gateway requires it's own subnet, for this reason the subnet created for the Application Gateway is smaller than the VNET address space. By using a smaller subnet it allows for other resources, including but not limited to web servers to be configured in the same VNET.
 
@@ -131,7 +131,7 @@ Assign the subnet variable for the next steps, this variable is passed to the `N
 $subnet=$vnet.Subnets[0]
 ```
 
-## Create a public IP address for the front-end configuration
+## Create a public IP address
 
 Create a public IP resource **publicIP01** in resource group **appgw-rg** for the West US region. Application Gateway can use a public IP address, internal IP address or both to receive requests for load balancing.  This example only uses a public IP address. In the following example, no DNS name is configured for creating the Public IP address.  Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
 
@@ -215,7 +215,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > The default value for **InstanceCount** is 2, with a maximum value of 10. The default value for **GatewaySize** is Medium. You can choose between **Standard_Small**, **Standard_Medium**, and **Standard_Large**.
 
-## Create an application gateway by using New-AzureRmApplicationGateway
+## Create the application gateway
 
 Create an application gateway with all configuration items from the preceding steps. In this example, the application gateway is called **appgwtest**.
 
@@ -229,7 +229,7 @@ Retrieve DNS and VIP details of the application gateway from the public IP resou
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## Delete an application gateway
+## Delete the application gateway
 
 To delete an application gateway, follow these steps:
 
@@ -292,6 +292,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## Delete all resources
+
+To delete all resources created in this article, complete the following steps:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## Next steps

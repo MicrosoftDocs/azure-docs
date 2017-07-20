@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 05/04/2017
 ms.author: asteen
 
 ---
@@ -20,9 +20,9 @@ ms.author: asteen
 
 # No users are being provisioned to an Azure AD Gallery application
 
-Once automatic provisioning has been configured for an application (including verifying that the app credentials provided to Azure AD to connect to the app are valid). Then users and/or groups are provisioned to the app is determined by the following things:
+Once automatic provisioning has been configured for an application (including verifying that the app credentials provided to Azure AD to connect to the app are valid). Then users and/or groups are provisioned to the app and is determined by the following things:
 
--   Which users and groups have been **assigned** to the application. For more information on assignment, see [Assign a user or group to an enterprise app in Azure Active Directory preview](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+-   Which users and groups have been **assigned** to the application. For more information on assignment, see [Assign a user or group to an enterprise app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 -   Whether or not **attribute mappings** are enabled, and configured to sync valid attributes from Azure AD to the app. For more information on attribute mappings, see [Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings).
 

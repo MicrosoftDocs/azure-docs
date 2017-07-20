@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/10/2017
 ms.author: cynthn
 
 ---
@@ -30,7 +30,9 @@ Certain versions of Windows 7, Windows 8.1, and Windows 10 are available to MSDN
 ## How much storage can I use with a virtual machine?
 Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).
+Azure Managed Disks are the new and recommended disk storage offerings for use with Azure Virtual Machines for persistent storage of data. You can use multiple Managed Disks with each Virtual Machine. Managed Disks offer two types of durable storage options: Premium and Standard Managed Disks. For pricing information, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+
+Azure storage accounts can also provide storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).
 
 ## How can I access my virtual machine?
 Establish a remote connection using Remote Desktop Connection (RDP) for a Windows VM. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). A maximum of two concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
@@ -50,27 +52,31 @@ You can change the drive letter by moving the page file and reassigning drive le
 
 ## Can I add an existing VM to an availability set?
 No. If you want your VM to be part of an availability set, you need to create the VM within the set. There currently isn't a way to add a VM to an availability set after it has been created.
+
 ## Can I upload a virtual machine to Azure?
-Yes. For instructions, see [Upload a Windows VM image to Azure ](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Yes. For instructions, see [Migrating on-premises VMs to Azure](on-prem-to-azure.md).
 
 ## Can I resize the OS disk?
 Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Can I copy or clone an existing Azure VM?
-Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Yes. Using managed images, you can create an image of a virtual machine and then use the image to build multiple new VMs. For instructions, see [Create a custom image of a VM](tutorial-custom-images.md).
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 
 The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
 
 ## Does Azure support Linux VMs?
-Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure using the Portal](../linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure using the Portal](../linux/quick-create-portal.md).
 
 ## Can I add a NIC to my VM after it's created?
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
 Yes. The computer name can be a maximum of 15 characters in length. See [Infrastructure naming guidelines](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
+
+## Are there any resource group name requirements?
+Yes. The resource group name can be a maximum of 90 characters in length. See [Infrastructure resource group guidelines](infrastructure-resource-groups-guidelines.md) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 

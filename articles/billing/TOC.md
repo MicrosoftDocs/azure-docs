@@ -9,6 +9,8 @@
 ## Monitor usage and costs
 ### [Get invoice and usage](billing-download-azure-invoice-daily-usage-date.md)
 ### [Understand your bill](billing-understand-your-bill.md)
+### [Understand terms on your invoice](billing-understand-your-invoice.md)
+### [Understand terms on your usage](billing-understand-your-usage.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
 ### [Understand spending limit](billing-spending-limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)
@@ -33,10 +35,12 @@
 
 # Reference
 ## [API Overview](billing-usage-rate-card-overview.md)
+## [Enterprise Reporting API Overview](billing-enterprise-api.md)
 ## [Invoice REST](/rest/api/billing)
 ## [Usage and RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Partner solution: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [Partner solution: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Contact support](../azure-supportability/how-to-create-azure-support-request.md)

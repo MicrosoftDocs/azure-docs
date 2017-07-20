@@ -60,7 +60,7 @@ Within each of these five stages, there are several device operator requirements
     *Further reading*:  [Use direct methods][lnk-c2d-methods], [Invoke a direct method on a device][lnk-methods-devguide], [How to use device twin properties][lnk-twin-properties], [Schedule and broadcast jobs][lnk-jobs], [Schedule jobs on multiple devices][lnk-jobs-devguide].
 * **Monitor**: Monitor overall device collection health, the status of ongoing operations, and alert operators to issues that might require their attention.  Apply the device twin to allow devices to report realtime operating conditions and status of update operations. Build powerful dashboard reports that surface the most immediate issues by using device twin queries.
   
-    *Further reading*: [How to use device twin properties][lnk-twin-properties], [IoT Hub query language for device twins and jobs][lnk-query-language].
+    *Further reading*: [How to use device twin properties][lnk-twin-properties], [IoT Hub query language for device twins, jobs, and message routing][lnk-query-language].
 * **Retire**:  Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub identity registry for securely revoking device identities and credentials.
   
     *Further reading*: [How to use device twin properties][lnk-twin-properties], [Manage device identities][lnk-identity-registry].

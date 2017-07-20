@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/07/2017
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
@@ -50,15 +50,15 @@ In this section, you create a sample scala project using IntelliJ IDEA. In the n
 3. Click **HDInsight** from the left pane, click **Spark on HDInsight(Scala)** from the right pane, and then click **Next**.
 
     ![Create IntelliJ Scala project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+    - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according to need.
 4. Enter the following information:
 
     ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
     - **Project name**: Provide a project name.
     - **Project location**: Provide a project location.
-    - **Project SDK**: Click **New**, click **JDK**, and then specify the folder of Java JDK version 7 or later.  The default location is C:\Program Files\Java\jdk1.8.x_xxx.
-    - **Scala SDK**: Click **Select**, select version **2.10.6**, and then click **OK**. If the version is not listed, click **Download**, select **Scala version**, and then click **OK**. Make sure not to use version 2.11.x. This article uses version 2.10.6.
-    - **Spark SDK**: Download the [SDK](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). You can also ignore this and use the Spark Maven repository instead, however please make sure you have the right maven repository installed to develop your Spark applications. (For example, you need to make sure you have the Spark Streaming part installed if you are using Spark Streaming; Also please make sure you are using the repository marked as Scala 2.10 - do not use the repository marked as Scala 2.11.)
+    - **Project SDK**: Click **New**, click **JDK**, and then specify the folder of Java JDK version 7 or later. Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster. The default location is C:\Program Files\Java\jdk1.8.x_xxx.
+    - **Spark Version**: Scala project creation wizard integrates proper version for Spark SDK and Scala SDK. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark1.6.2(Scala 2.10.5). Also please make sure you are using the repository marked as Scala 2.10.x - do not use the repository marked as Scala 2.11.x)
 5. Click **Finish**.
 6. Press **[ALT]+1** to open the Project view if it is not opened.
 7. From **Project Explorer**, expand the project, and then click **src**.
@@ -135,10 +135,11 @@ After you have linked the IntelliJ IDEA to the emulator, you can submit your pro
     - **Main class name**: Choose or enter the main class name.  For this tutorial, it is **GroupByTest**.
 3. Click **Submit**. The job submission logs are shown in the Spark submission tool window.
 
-##Next steps:
+## Next steps:
 
 - To learn how to create Spark applications for HDInsight using HDInsight Tools for IntelliJ, see [Use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin.md).
-- To watch a video of HDInsight Tools for IntelliJ, see [Introduce HDInsight Tools for IntelliJ for Spark Development](https://mix.office.com/watch/1nqkqjt5xonza).
-- To learn how to debug Spark applications using the toolkit remotely on HDInsight, see [Use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
+- To watch a video of HDInsight Tools for IntelliJ, see [Introduce HDInsight Tools for IntelliJ for Spark Development](https://www.youtube.com/watch?v=YTZzYVgut6c).
+- To learn how to debug Spark applications using the toolkit remotely on HDInsight through SSH, see [Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+- To learn how to debug Spark applications using the toolkit remotely on HDInsight through VPN, see [Use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 - To learn how to use HDInsight Tools for Eclipse to create Spark application, see [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md).
 - To watch a video of HDInsight Tools for Eclipse, see [Use HDInsight Tool for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha).

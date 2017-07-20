@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/26/2017
 ms.author: kgremban
 ---
 
@@ -22,7 +22,7 @@ ms.author: kgremban
 
 Azure Active Directory Application Proxy helps you improve productivity by publishing on-premises applications so that remote employees can securely access them, too. In the Azure portal, you can also set up single sign-on (SSO) to these apps. Now, your users only need to authenticate with Azure AD, and they can access your enterprise application without having to sign in again.
 
-In this article, we'll use the example of a password-based app to show how password vaulting provides a simple SSO experience. 
+In this article, we use the example of a password-based app to show how password vaulting provides a simple SSO experience. 
 
 You should already have published and tested your app with Application Proxy. If not, follow the steps in [Publish applications using Azure AD Application Proxy - Public Preview](application-proxy-publish-azure-portal.md) then come back here. 
 
@@ -32,7 +32,7 @@ Or, if you're new to Application Proxy, learn more about this feature with the a
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Select **Azure Active Directory** > **Enterprise applications** > **All applications**.
-3. From the list, select the app that you want to set up with SSO. If you have a lot of apps, you can use the search box to filter for the right one.  
+3. From the list, select the app that you want to set up with SSO. If you have many apps, you can use the search box to filter for the right one.  
 4. Under the Manage section, select **Single sign-on**.
 
    ![Select Single sign-on](./media/application-proxy-sso-azure-portal/select-sso.png)

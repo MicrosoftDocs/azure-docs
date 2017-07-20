@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
 ---
 
@@ -38,9 +38,6 @@ You should consider the following information before you configure scaling for y
 * You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
 * To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
-
-> [!WARNING]
-> Automatic scaling only works with Classic Azure Storage Accounts. It does not work with Azure Resource Manager Storage Accounts.
 
 ## Schedule scaling
 By default, all roles do not follow a specific schedule. Therefore, any settings changed apply to all times and all days throughout the year. If you want, you can setup manual or automatic scaling for one of the following modes:

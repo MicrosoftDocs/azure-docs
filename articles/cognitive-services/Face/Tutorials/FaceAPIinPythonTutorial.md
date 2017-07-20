@@ -28,7 +28,7 @@ To use the tutorial, you will need to do the following:
 pip install cognitive_face
 ```
 
-- Obtain a [subscription key](https://www.microsoft.com/cognitive-services/en-us/sign-up) for Microsoft Cognitive Services (formerly Project Oxford). You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
+- Obtain a [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
 
 ## <a name="sdk-example"></a> Detect a Face in an Image
 

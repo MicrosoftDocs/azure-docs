@@ -19,8 +19,10 @@ ms.author: gwallace
 # How to manage DNS Zones in Azure DNS using the Azure CLI 1.0
 
 > [!div class="op_single_selector"]
-> * [Azure CLI](dns-operations-dnszones-cli.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
+> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 This guide shows how to manage your DNS zones by using the cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. You can also manage your DNS zones using [Azure PowerShell](dns-operations-dnszones.md) or the Azure portal.
 
@@ -57,7 +59,7 @@ The following example creates a DNS zone called *contoso.com* in the resource gr
 azure network dns zone create MyResourceGroup contoso.com
 ```
 
-### To create a DNS zone with tags.
+### To create a DNS zone with tags
 
 The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*, by using the `--tags` parameter (short form `-t`):
 

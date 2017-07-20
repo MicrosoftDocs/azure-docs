@@ -50,10 +50,10 @@ After you create your policies, you're ready to build your app.
 
 ## Download the code
 
-The code for this tutorial is maintained on [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). You can clone the sample by running:
+The code for this tutorial is maintained on [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). You can clone the sample by running:
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 After you download the sample code, open the Visual Studio .sln file to get started. The solution file contains two projects: `TaskWebApp` and `TaskService`. `TaskWebApp` is the MVC web application that the user interacts with. `TaskService` is the app's back-end web API that stores each user's to-do list. This article will only discuss the `TaskWebApp` application. To learn how to build `TaskService` using Azure AD B2C, see [our .NET web api tutorial](active-directory-b2c-devquickstarts-api-dotnet.md).
@@ -343,7 +343,7 @@ You can access any claim that your application receives in the same way.  A list
 
 ## Run the sample app
 
-Finally, you can build and run your app. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit the profile or reset the password. Sign out and sign up as a different user. Note that the information displayed on the **Claims** tab corresponds to the information that you configured on your policies.
+Finally, build the TaskService and TaskWebApp projects, set TaskWebApp as the StartUp Project in Visual Studio so that the web page menu items will display correctly, and run your app. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit the profile or reset the password. Sign out and sign up as a different user. Note that the information displayed on the **Claims** tab corresponds to the information that you configured on your policies.
 
 ## Add social IDPs
 

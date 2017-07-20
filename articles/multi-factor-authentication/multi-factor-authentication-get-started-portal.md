@@ -13,27 +13,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 04/24/2017
 ms.author: kgremban
 
 ---
 # Deploy the user portal for the Azure Multi-Factor Authentication Server
-The user portal allows the administrator to install and configure the Azure Multi-Factor Authentication User Portal. The user portal is an IIS web site that allows users to enroll in Azure Multi-Factor Authentication and maintain their accounts. A user may change their phone number, change their PIN, or choose to bypass two-step verification during their next sign-on.
+The user portal is an IIS web site that allows users to enroll in Azure Multi-Factor Authentication and maintain their accounts. A user may change their phone number, change their PIN, or choose to bypass two-step verification during their next sign-on.
 
-Users sign in to the User Portal using their normal username and password, then either complete a two-step verification call or answer security questions to complete their authentication. If user enrollment is allowed, users configure their phone number and PIN the first time they sign in to the user portal.
+Users sign in to the user portal with their normal username and password, then either complete a two-step verification call or answer security questions to complete their authentication. If user enrollment is allowed, users configure their phone number and PIN the first time they sign in to the user portal.
 
 User Portal Administrators may be set up and granted permission to add new users and update existing users.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
+>[!NOTE] 
+>The user portal is only available with Multi-Factor Authentication Server. If you use Multi-Factor Authentication in the cloud, refer your users to the [Set up your account for two-step verification](./end-user/multi-factor-authentication-end-user-first-time.md) or [Manage your settings for two-step verification](./end-user/multi-factor-authentication-end-user-manage-settings.md).
+
+
 ## Deploy the user portal on the same server as the Azure Multi-Factor Authentication Server
-The following pre-requisites are required to install the users portal on the same server as the Azure Multi-Factor Authentication Server:
+The following pre-requisites are required to install the user portal on the same server as the Azure Multi-Factor Authentication Server:
 
 * IIS, including asp.net and IIS 6 meta base compatibility (for IIS 7 or higher)
-* Logged in user must have admin rights for the computer and Domain if applicable.  This is because the account needs permissions to create Active Directory security groups.
+* An account with admin rights for the computer and Domain if applicable. The account needs permissions to create Active Directory security groups.
 
-### To deploy the user portal
-1. Within the Azure Multi-Factor Authentication Server, click the **User Portal** icon in the left menu, then click **Install User Portal**.
+To deploy the user portal, follow these steps:
+
+1. In the Azure Multi-Factor Authentication Server, click the **User Portal** icon in the left menu, then click **Install User Portal**.
 2. Click **Next**.
 3. Click **Next**.
 4. If the computer is domain-joined, and Active Directory is not configured to secure communication between the user portal and the Azure Multi-Factor Authentication service, then the Active Directory step is displayed. Click the **Next** button to automatically complete this configuration.
@@ -44,22 +49,23 @@ The following pre-requisites are required to install the users portal on the sam
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## Deploy the Azure Multi-Factor Authentication Server User Portal on a Separate Server
-To allow the Microsoft Authenticator app to communicate with the user portal, complete the following requirements: 
+## Deploy the user portal on a separate server
+If the server where Azure Multi-Factor Authentication Server is running is not internet-facing, you should install the user portal on a separate, internet-facing server. 
 
-* You must be using v6.0 or higher of the Azure Multi-Factor Authentication Server.
-* The user portal must be installed on an Internet-facing web server running Microsoft® Internet Information Services (IIS) 6.x, IIS 7.x or higher.
+If your organization uses the Microsoft Authenticator app as one of the verification methods, and want to deploy the user portal on its own server, complete the following requirements: 
+
+* Use v6.0 or higher of the Azure Multi-Factor Authentication Server.
+* Install the user portal on an internet-facing web server running Microsoft internet Information Services (IIS) 6.x or higher.
 * When using IIS 6.x, ensure ASP.NET v2.0.50727 is installed, registered, and set to **Allowed**.
-* Required role services when using IIS 7.x or higher include ASP.NET and IIS 6 Metabase Compatibility.
-* The user portal should be secured with an SSL certificate.
-* The Azure Multi-Factor Authentication Web Service SDK must be installed in IIS 6.x, IIS 7.x or higher on the server where the Azure Multi-Factor Authentication Server is installed.
-* The Azure Multi-Factor Authentication Web Service SDK must be secured with an SSL certificate.
-* The user portal must be able to connect to the Azure Multi-Factor Authentication Web Service SDK over SSL.
-* The user portal must be able to authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account in the "PhoneFactor Admins" security group. This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.
+* When using IIS 7.x or higher, ASP.NET and IIS 6 Metabasea Compatibility role services are required.
+* Secure the user portal with an SSL certificate.
+* Secure the Azure Multi-Factor Authentication Web Service SDK with an SSL certificate.
+* Ensure that the user portal can connect to the Azure Multi-Factor Authentication Web Service SDK over SSL.
+* Ensure that the user portal can authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account in the "PhoneFactor Admins" security group. This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.
 
 Installing the user portal on a server other than the Azure Multi-Factor Authentication Server requires the following three steps:
 
-1. Install the web service SDK
+1. Install the web service SDK on the same server as the Azure Multi-Factor Authentication Server
 2. Install the user portal
 3. Configure the User Portal Settings in the Azure Multi-Factor Authentication Server
 
@@ -73,18 +79,20 @@ The Web Service SDK must be secured with an SSL certificate. A self-signed certi
 ### Step 2: Install the user portal
 Before installing the user portal on a separate server, be aware of the following best practices:
 
-* It is helpful to open a web browser on the Internet-facing web server and navigate to the URL of the Web Service SDK that was entered into the web.config file. If the browser can get to the web service successfully, it should prompt you for credentials. Enter the username and password that were entered into the web.config file exactly as it appears in the file. Ensure that no certificate warnings or errors are displayed.
+* It is helpful to open a web browser on the internet-facing web server and navigate to the URL of the Web Service SDK that was entered into the web.config file. If the browser can get to the web service successfully, it should prompt you for credentials. Enter the username and password that were entered into the web.config file exactly as it appears in the file. Ensure that no certificate warnings or errors are displayed.
 * If a reverse proxy or firewall is sitting in front of the user portal web server and performing SSL offloading, you can edit the user portal's web.config file and add the following key to the `<appSettings>` section so that the User Portal can use http instead of https:
 
     `<add key="SSL_REQUIRED" value="false"/>`
 
 #### To install the user portal
-1. Open Windows Explorer on the Azure Multi-Factor Authentication Server server and navigate to the folder where the Azure Multi-Factor Authentication Server is installed (e.g. C:\Program Files\Multi-Factor Authentication Server). Choose the 32-bit or 64-bit version of the MultiFactorAuthenticationUserPortalSetup installation file as appropriate for the server that User Portal will be installed on. Copy the installation file to the Internet-facing server.
-2. On the Internet-facing web server, the setup file must be run with administrator rights. The easiest way to do this is to open a command prompt as an administrator and navigate to the location where the installation file was copied.
+1. Open Windows Explorer on the server with Azure MFA Server and navigate to the folder where the Azure Multi-Factor Authentication Server is installed (e.g. C:\Program Files\Multi-Factor Authentication Server). Copy the 32-bit or 64-bit version of the MultiFactorAuthenticationUserPortalSetup installation file to the internet-facing server.
+2. On the internet-facing web server, run the file with administrator rights. The easiest way to do this is to open a command prompt as an administrator and navigate to the location where the installation file was copied.
 3. Run the MultiFactorAuthenticationUserPortalSetup64 install file, change the Site and Virtual Directory name if desired.
 4. After finishing the install of the User Portal, browse to C:\inetpub\wwwroot\MultiFactorAuth (or appropriate directory based on the virtual directory name) and edit the web.config file.
-5. Locate the USE_WEB_SERVICE_SDK key and change the value from false to true. Locate the WEB_SERVICE_SDK_AUTHENTICATION_USERNAME and WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD keys and set the values to the username and password of the service account in the PhoneFactor Admins security group (see the Requirements section). Be sure to enter the Username and Password in between the quotation marks at the end of the line, (value=””/>). You should use a qualified username (e.g. domain\username or machine\username)
-6. Locate the pfup_pfwssdk_PfWsSdk setting and change the value from “http://localhost:4898/PfWsSdk.asmx” to the URL of the Web Service SDK that is running on the Azure Multi-Factor Authentication Server (e.g. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Since SSL is used for this connection, refer to the Web Service SDK by server name, not IP address, since the SSL certificate was issued for the server name. If the server name does not resolve to an IP address from the Internet-facing server, add an entry to the hosts file on that server to map the name of the Azure Multi-Factor Authentication Server to its IP address. Save the web.config file after changes have been made.
+5. Locate the USE_WEB_SERVICE_SDK key and change the value from **false** to **true**. 
+6. Locate the WEB_SERVICE_SDK_AUTHENTICATION_USERNAME key and set the value to the username of the service account in the PhoneFactor Admins security group. Use a qualified username, like domain\username or machine\username. 
+7. Locate the WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD key and set the value to the password of the service account in the PhoneFactor Admins security group.
+8. Locate the pfup_pfwssdk_PfWsSdk setting and change the value from “http://localhost:4898/PfWsSdk.asmx” to the URL of the Web Service SDK that is running on the Azure Multi-Factor Authentication Server (e.g. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Since SSL is used for this connection, refer to the Web Service SDK by server name, not IP address, since the SSL certificate was issued for the server name. If the server name does not resolve to an IP address from the internet-facing server, add an entry to the hosts file on that server to map the name of the Azure Multi-Factor Authentication Server to its IP address. Save the web.config file after changes have been made.
 
     Go to [Secure your resources using Azure Multi-Factor Authentication Server with AD FS](multi-factor-authentication-get-started-adfs-w2k12.md#edit-the-multifactorauthenticationadfsadapterconfig-file) for more details about editing the config file.
 
@@ -116,30 +124,30 @@ The majority of these settings are visible to the user once they are enabled and
 ![User portal settings](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
 ### To configure the user portal settings in the Azure Multi-Factor Authentication Server
-1. In the Azure Multi-Factor Authentication Server, click the **User Portal** icon. On the Settings tab, enter the URL to the user portal in the **User Portal URL** textbox. This URL is included in the emails that are sent to users when they are imported into the Azure Multi-Factor Authentication Server if the email functionality has been enabled.
-2. Choose the settings that you want to use in the User Portal. For example, if users are allowed to control their authentication methods, ensure that **Allow users to select method** is checked, along with the methods they can choose from.
+1. In the Azure Multi-Factor Authentication Server, click the **User Portal** icon. On the Settings tab, enter the URL to the user portal in the **User Portal URL** textbox. If email functionality has been enabled, this URL is included in the emails that are sent to users when they are imported into the Azure Multi-Factor Authentication Server.
+2. Choose the settings that you want to use in the User Portal. For example, if users are allowed to choose their authentication methods, ensure that **Allow users to select method** is checked, along with the methods they can choose from.
 3. Click the **Help** link in the top right corner for help understanding any of the settings displayed.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
 
 ## Administrators tab
-This tab simply allows you to add users who will have administrative privileges.  When adding an administrator, you can fine-tune the permissions that they receive. Click the **Add** button, select a user and their permissions, and then click **Add**.
+Use the **Administrators** tab to add users who will have administrative privileges.  When adding an administrator, you can fine-tune the permissions that they receive. Click the **Add** button, select a user and their permissions, and then click **Add**.
 
 ![User portal administrators](./media/multi-factor-authentication-get-started-portal/admin.png)
 
 ## Security Questions
-This tab allows you to specify the security questions that users will need answer if the **Use security questions for fallback** option is selected.  Azure Multi-Factor Authentication Server comes with default questions that you can use. You can change the order or add your own questions.  When adding your own questions, you can specify the language you would like those questions to appear in as well.
+Use the **Security Questions** tab to specify the security questions that users will need answer if the **Use security questions for fallback** option is selected.  Azure Multi-Factor Authentication Server comes with default questions that you can use. You can change the order or add your own questions.  When adding your own questions, you can specify the language you would like those questions to appear in as well.
 
 ![User portal security questions](./media/multi-factor-authentication-get-started-portal/secquestion.png)
 
 ## SAML
-Use this tab to configure the user portal to accept claims from an identity provider using SAML.  You can specify the timeout session, the verification certificate, and the Log out redirect URL.
+Use the **SAML** tab to configure the user portal to accept claims from an identity provider using SAML.  You can specify the timeout session, the verification certificate, and the Log out redirect URL.
 
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## Trusted IPs
-This tab allows you to specify either single IP addresses or IP address ranges that can be added so that users who sign in from one of these address don't have to complete two-step verification.
+Use the **Trusted IPs** tab to specify either single IP addresses or IP address ranges that can be added so that users who sign in from one of these address don't have to complete two-step verification.
 
 ![User portal trusted IPs](./media/multi-factor-authentication-get-started-portal/trusted.png)
 

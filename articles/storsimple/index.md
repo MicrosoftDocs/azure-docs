@@ -116,32 +116,30 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
 
 <ul class="panelContent cardsW">
 	<li>
-        <a href="http://onlinehelp.storsimple.com/">
+        
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Other StorSimple Solutions</h3>
-                        <p>StorSimple 5000-7000 Series</p>
+                        <p><a href="http://onlinehelp.storsimple.com/">StorSimple 5000-7000 Series</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 	<li>
-        <a href="/azure/storsimple/storsimple-update3-release-notes">
+        
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Release Notes</h3>
-                        <p>Release Notes</p>
+                        <p><a href="/azure/storsimple/storsimple-update3-release-notes">Release Notes</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 

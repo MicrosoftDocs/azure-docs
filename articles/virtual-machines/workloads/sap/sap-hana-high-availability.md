@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2076
+ms.date: 04/25/2017
 ms.author: sedusch
 
 ---
@@ -54,7 +54,6 @@ Read the following SAP Notes and papers first
   * Important capacity information for Azure VM sizes
   * Supported SAP software, and operating system (OS) and database combinations
   * Required SAP kernel version for Windows and Linux on Microsoft Azure
-
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
 * SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
@@ -67,7 +66,7 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]  
+* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]
   The guide contains all required information to set up SAP HANA System Replication on-premises. Use this guide as a baseline.
 
 ## Deploying Linux

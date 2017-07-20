@@ -42,7 +42,6 @@ For more information, see [Site Recovery commercial documentation](../site-recov
 ### Variations
 The following Site Recovery features are not currently available in Azure Government:
 
-* Azure Resource Manager Site Recovery vaults
 * Email notification
 
 | Site Recovery | Classic | Resource Manager |

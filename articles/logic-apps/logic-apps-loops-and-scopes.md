@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Logic Apps Loops, Scopes, and Debatching

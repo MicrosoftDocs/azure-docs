@@ -51,6 +51,8 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Have a Visual Studio Team Services account and team project created](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Fork the GitHub repository to your GitHub account](https://github.com/jcorioland/MyShop/)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 You also need an Ubuntu (14.04 or 16.04) machine with Docker installed. This machine is used by Visual Studio Team Services during the build and release processes. 
 One way to create this machine is to use the image available in the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
 
@@ -161,7 +163,7 @@ You need to add two Docker steps for each image, one to build the image, and one
 
 4. After you configure the build and push steps for each of the five images, add two more steps in the build workflow.
 
-    a. A command-line task that uses a bash script to replace the *BuildNumber* occurence in the docker-compose.yml file with the current build Id. See the following screen for details.
+    a. A command-line task that uses a bash script to replace the *BuildNumber* occurrence in the docker-compose.yml file with the current build Id. See the following screen for details.
 
     ![Visual Studio Team Services - Update Compose file](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 

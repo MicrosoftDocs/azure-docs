@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Azure Automation?](automation-intro.md)
 # Get started
 ## [Get started with Azure Automation](automation-offering-get-started.md)
@@ -11,7 +11,7 @@
 ### [Create standalone Automation account](automation-create-standalone-account.md)
 ### [Create Azure AD User account](automation-create-aduser-account.md)
 ### [Configure Authentication with AWS](automation-config-aws-account.md)
-### [Create Azure Run As account with PowerShell](automation-update-account-powershell.md)
+### [Create Automation Run As account](automation-create-runas-account.md)
 ### [Validate Automation account config](automation-verify-runas-authentication.md)
 ### [Manage role-based access control](automation-role-based-access-control.md)
 ### [Manage Automation account](automation-manage-account.md)
@@ -25,23 +25,25 @@
 ### [Child runbooks](automation-child-runbooks.md)
 ### [Runbook output](automation-runbook-output-and-messages.md)
 ### [Source control integration](automation-source-control-integration.md)
-## Automate runbooks
+## Automate
 ### [Start a runbook](automation-starting-a-runbook.md)
 ### [Start a runbook from a webhook](automation-webhooks.md)
-### [Run runbooks in your datacenter](automation-hybrid-runbook-worker.md)
+### [Run runbooks on Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Configure runbook input parameters](automation-runbook-input-parameters.md)
 ### [Error handling in graphical runbooks](automation-runbook-graphical-error-handling.md)
 ### [Track a runbook job](automation-runbook-execution.md)
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
+### [Pass a JSON object to an Azure Automation runbook](automation-pass-json-string.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
 ### [Onboarding machines for management](automation-dsc-onboarding.md)
 ### [Compiling DSC configurations](automation-dsc-compile.md)
 ### [Continuous deployment using Chocolatey](automation-dsc-cd-chocolatey.md)
-## Manage automation assets
+### [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md)
+## Manage assets
 ### [Certificates](automation-certificates.md)
 ### [Connections](automation-connections.md)
 ### [Credentials](automation-credentials.md)
@@ -49,18 +51,19 @@
 ### [Schedules](automation-schedules.md)
 ### [Variables](automation-variables.md)
 ### [Update Azure PowerShell modules](automation-update-azure-modules.md)
-## Automate scenarios
+## Scenarios
 ### [Runbook gallery](automation-runbook-gallery.md)
 ### [Create Amazon Web Service VM](automation-scenario-aws-deployment.md)
 ### [Remediate Azure VM alert](automation-azure-vm-alert-integration.md)
 ### [Start/stop VM with JSON Tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
-### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ## Solutions
 ### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
+### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Unlink Azure Automation account from Log Analytics](automation-unlink-from-log-analytics.md)
@@ -77,12 +80,13 @@
 ## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources
-## [Release notes](https://azure.microsoft.com/updates/?product=automation)
-## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
+## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
+## [Azure Automation training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
+## [Release notes](https://azure.microsoft.com/updates/?product=automation)
+## [Service updates](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=automation)
-## [Service updates](https://azure.microsoft.com/updates/?product=automation)
-## [Azure Automation training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
-## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

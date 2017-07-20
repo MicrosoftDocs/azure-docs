@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
+ms.custom: aaddev
 
 ---
 # Single Sign-Out SAML Protocol

@@ -4,7 +4,7 @@ description: Describes how to add or change Azure Co-Administrator, Service Admi
 services: ''
 documentationcenter: ''
 author: genlin
-manager: vikdesai
+manager: jlian
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 07/20/2017
 ms.author: genli
 
 ---
@@ -33,16 +33,22 @@ To add someone as an admin for a subscription in the Azure portal, you give them
 
     ![Screenshot that shows a selected subscription](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. In the subscription blade, select **Access control (IAM)**> **Add**.
+3. In the subscription blade, select **Access control (IAM)**.
+4. Select **Add** > **Role** > **Owner**. Type the email address of the user you want to add as owner, select the user, and then select **Save**.
 
-    ![Screenshot that shows the Add button selected](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. Select **Select a role** > **Owner**.
+    ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-    ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. If you want to add the owner account as co-administrator, in the  **Access control (IAM)** page, right-click the user and then select **Add as co-administrator**. This feature is now available on [Azure preview portal](https://preview.portal.azure.com/). 
 
-5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
+     ![Screenshot that adds co-administrator](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    ![Screenshot that shows a user email added and selected](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    >[!TIP]
+    >You will need to add the "Owner" user as co-administrator if the user needs to manage the Azure services in [Azure classic portal](https://manage.windowsazure.com/).
+
+    To remove the co-administrator permission, right-click the "co-administrator" user and then select **Remove co-administrator**.
+
+    ![Screenshot that removes co-administrator](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
 
 **Azure classic portal**
 
@@ -63,14 +69,12 @@ The following email address can be added as a Co-Administrator:
 
     user@&lt;your domain&gt;.onmicrosoft.com
 
-
-
 ## Change Service Administrator for a subscription
 Only the Account Administrator can change the Service Administrator for a subscription.
 
 1. Sign in to [Azure Account Center](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
 2. Select the subscription you want to change.
-3. On the right side, click **Edit subscription** details. </br>
+3. On the right side, select **Edit subscription** details. </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new Service Administrator. </br>
@@ -104,7 +108,7 @@ Azure Active Directory Role-based Access Control (RBAC) allows users to be added
 ## Limitations and restrictions for admin accounts
 * Each subscription is associated with an Azure AD directory (also known as the Default Directory). To find the Default Directory the subscription is associated with, go to the [Azure classic portal](https://manage.windowsazure.com/), select **Settings** > **Subscriptions**. Check the subscription ID to find the Default Directory.
 * If you are signed in with a Microsoft Account, you can only add other Microsoft Accounts or users within the Default Directory as Co-Administrator.
-* If you are signed in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but can't add john@notcontoso.com unless john@noncontoso.com is in Default Directory. Users signed in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
+* If you are signed in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but can't add john@notcontoso.com unless john@notcontoso.com is in Default Directory. Users signed in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
 * Now that it is possible to sign in to Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
 
   | Sign in Method | Add Microsoft Account or users within Default Directory as CA or SA? | Add organizational account in the same organization as CA or SA? | Add organizational account in different organization as CA or SA? |
