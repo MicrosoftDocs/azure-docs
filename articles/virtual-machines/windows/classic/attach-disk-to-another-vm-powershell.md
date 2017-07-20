@@ -38,7 +38,7 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the menu on the left, click **Virtual Machines (classic)**.
-3. Select the VM that has problem, select **Disks**, and then identify the name of the virtual hard disk. Click the virtual hard disk, check the **Location** of the virtual hard disk to identify the storege account that contians this virtual hard disk. In the following example, the string before “.blob.core.windows.net “ is the storage account name.
+3. Select the VM that has problem, select **Disks**, and then identify the name of the virtual hard disk. Click the virtual hard disk, check the **Location** of the virtual hard disk to identify the storage account that contains this virtual hard disk. In the following example, the string before “.blob.core.windows.net “ is the storage account name.
 
     **https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd**
 
