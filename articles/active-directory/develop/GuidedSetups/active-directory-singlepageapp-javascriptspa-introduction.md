@@ -1,7 +1,7 @@
 
 # Call the Microsoft Graph API from a JavaScript Single Page Application (SPA)
 
-This guide demonstrates how a JavaScript Single Page Application (SPA) can sign in personal, work and school accounts, get an access token and call the Microsoft Graph API or other APIs that require access tokens from Azure Active Directory v2 endpoint.
+This guide demonstrates how a JavaScript Single Page Application (SPA) can sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API or other APIs that require access tokens from the Azure Active Directory v2 endpoint.
 
 ### How this guide works
 
@@ -10,7 +10,7 @@ This guide demonstrates how a JavaScript Single Page Application (SPA) can sign 
 <!--start-collapse-->
 ### More Information
 
-The sample application created by this guide enables a JavaScript SPA to query the Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, after a user signs-in, a token is added to HTTP requests via the authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
+The sample application created by this guide enables a JavaScript SPA to query the Microsoft Graph API or an Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, after a user signs-in, a token is added to HTTP requests via the authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
 <!--end-collapse-->
 
 <!--start-collapse-->
