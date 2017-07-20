@@ -60,13 +60,18 @@ Resources available for single databases are expressed in terms of Database Tran
 
 To decide on a service tier, start by determining the minimum database features that you need:
 
-| **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
+| **Service tier limits for single databases** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Maximum single database size | 2 GB | 1 TB | 4 TB  | 1 TB  |
-| Maximum elastic pool size | 156 GB | 4 TB | 4 TB* | 1 TB |
+| Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
+| Database backup retention period | 7 days | 35 days | 35 days | 35 days |
+||||||
+
+| **Service tier limits for elastic pools** | **Basic** | **Standard** | **Premium** | **Premium RS**|
+| :-- | --: | --: | --: | --: |
+| Maximum elastic pool size | 156 GB | 1 TB | 1 TB* | 1 TB |
 | Maximum database size in an elastic pool | 2 GB | 4 TB | 4 TB | 1 TB |
 | Maximum number of databases per pool | 500  | 500 | 100 | 100 |
-| Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
 | Maximum DTUs per database in an elastic pool | 5 | 3000 | 4000 | 1000 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
@@ -90,15 +95,14 @@ Once you have determined the appropriate service tier, you are ready to determin
 
 ## Choosing storage amounts
 
-Each performance level within a service tier comes with a certain about of storage that is included in the price for the single database or elastic pool. In additional to this amount of included storage, you can provision additional storage for a single database or an elastic pool. Storage sizes greater than the storage included are in preview.  If the storage max size set exceeds the amount of storage included, then an additional cost for the extra storage applies. The price of extra storage is the amount of extra storage multiplied by the unit price of extra storage for the service tier.
+Each performance level within a service tier comes with a certain about of storage that is included in the price for the single database or elastic pool. In additional to this amount of included storage, you can provision additional storage for a single database or an elastic pool. Storage sizes greater than the storage included are in preview.  If the storage max size set exceeds the amount of storage included, then an additional cost for the extra storage applies. The price of extra storage is the amount of extra storage multiplied by the unit price of extra storage for the service tier. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  
 
-### Single database additional storage pricing example
+Examples showing how the price of extra storage is determined:
 
-For example, suppose an S3 database has provisioned 1 TB by setting its max size to 1 TB. The amount of storage included for S3 is 250 GB, and so the extra storage amount is 1 TB – 250 GB = 774 GB. The unit price for extra storage in the Standard tier is $0.085/GB/month during preview, and so the extra storage price is 774 GB * $0.085/GB/month = $65.79/month. Therefore, the total price for this database is $150/month for DTUs + $65.79/month for extra storage = $215.79/month.
+- **Single database**: Suppose an S3 database has provisioned 1 TB. The amount of storage included for S3 is 250 GB, and so the extra storage amount is 1 TB – 250 GB = 774 GB. The unit price for extra storage in the Standard tier is approximately $0.085/GB/month during preview, and so the extra storage price is 774 GB * $0.085/GB/month = $65.79/month. Therefore, the total price for the S3 database is $150/month for DTUs + $65.79/month for extra storage = $215.79/month.
+- **Elastic pool**: Suppose a 125 eDTU Premium pool has provisioned 1 TB. The amount of storage included for a 125 eDTU Premium pool is 250 GB, and so the extra storage amount is 1 TB – 250 GB = 774 GB. The unit price for extra storage in the Premium tier is approximately $0.17/GB/month during preview, and so the extra storage price is 774 GB * $0.17/GB/month = $131.58/month. Therefore, the total price for the pool is $697.13/month for pool eDTUs + $131.58/month for extra storage = $828.71/month.
 
-### Elastic databse additional storage pricing example 
 
-For example, suppose a 125 eDTU Premium pool has provisioned 1 TB by setting its max size to 1 TB. The amount of storage included is 250 GB, and so, the extra storage amount is 1 TB – 250 GB = 774 GB.  The unit price for extra storage in the Premium tier is $0.17/GB/month during preview, and so the extra storage price is 774 GB * $0.17/GB/month = $131.58/month. Therefore, the total price the Premium pool is the summation of its eDTU price and extra storage price. The price of a 125 eDTU Premium pool without any extra storage is $697.13/month. Therefore, the total price for this pool is $697.13/month + $131.58/month = $828.71/month.
 
 ## Enforcement of additional resource limits
 
