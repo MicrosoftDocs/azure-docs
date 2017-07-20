@@ -23,13 +23,13 @@ ms.author: carlrab
 With a single database, you determine the amount of resources that the database requires to handle its workload at the service tier, performance level, and amount of storage it requires. 
 
 ## Single database service tiers, performance levels, and storage amounts
-For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](#manage-single-database-service-tiers-performance-levels-and-storage-amounts--using-the-azure-portal), [PowerShell](#manage-single-database-service-tiers-performance-levels-and-storage-amounts--using-powershell), the [Azure CLI](#manage-single-database-service-tiers-performance-levels-and-storage-amounts--using-the-azure-cli), or the [REST API](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-res).
+For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-transact-sql) [PowerShell](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-powershell), the [Azure CLI](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-azure-cli), or the [REST API](#manage-single-database-service-tiers-performance-levels-and-storage-amounts-using-the-rest-api).
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ## Scaling up or scaling down a single database
 
-After initially picking a service tier and performance level, you can scale a single database up or down dynamically based on actual experience.  
+After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience.  
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
