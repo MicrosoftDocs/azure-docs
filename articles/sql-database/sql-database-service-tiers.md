@@ -22,10 +22,10 @@ ms.author: carlrab
 # What are Azure SQL Database service tiers and resource limits
 
 Azure SQL Database manages the resources available to a single database or a database in an elastic pool using two mechanisms:
-- CPU, memory, storage, log I/O, and data I/O resource are managed using [Service tiers, performance levels, and storage amounts](#what-are-the-azure-sql-database-service-tiers)
-- [Other resource limits](#enforcement-of-additional-resource-limits) are enforced by denying new requests when limits are reached.
+- CPU, memory, storage, log I/O, and data I/O resource are managed using [Service tiers, performance levels, and storage amounts](#what-are-azure-sql-database-service-tiers?)
+- [Other resource limits](#how-are-other-resource-limits-enforced?) are enforced by denying new requests when limits are reached.
 
-## What are the Azure SQL Datbase service tiers?
+## What are Azure SQL Datbase service tiers?
 
 [Azure SQL Database](sql-database-technical-overview.md) offers four service tiers for both single and [pooled](sql-database-elastic-pool.md) databases. These service tiers are: **Basic**, **Standard**, **Premium**, and **Premium RS**. Within each service tier are multiple performance levels ([DTUs](sql-database-what-is-a-dtu.md)) and storage options to handle different workloads and data sizes. Higher performance levels provide additional compute and storage resources designed to deliver increasingly higher throughput and capacity. You can change service tiers, performance levels, and storage dynamically without downtime. 
 - **Basic**, **Standard**, and **Premium** service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
@@ -102,7 +102,7 @@ Examples showing how the price of extra storage is determined:
 - **Single database**: Suppose an S3 database has provisioned 1 TB. The amount of storage included for S3 is 250 GB, and so the extra storage amount is 1 TB – 250 GB = 774 GB. The unit price for extra storage in the Standard tier is approximately $0.085/GB/month during preview, and so the extra storage price is 774 GB * $0.085/GB/month = $65.79/month. Therefore, the total price for the S3 database is $150/month for DTUs + $65.79/month for extra storage = $215.79/month.
 - **Elastic pool**: Suppose a 125 eDTU Premium pool has provisioned 1 TB. The amount of storage included for a 125 eDTU Premium pool is 250 GB, and so the extra storage amount is 1 TB – 250 GB = 774 GB. The unit price for extra storage in the Premium tier is approximately $0.17/GB/month during preview, and so the extra storage price is 774 GB * $0.17/GB/month = $131.58/month. Therefore, the total price for the pool is $697.13/month for pool eDTUs + $131.58/month for extra storage = $828.71/month.
 
-## Enforcement of additional resource limits
+## How are other resource limits enforced?
 
 Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying new requests when limits are reached. These resource limits vary based on the service tier and performance level for [single databases](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and for [elastic pools](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts). When a database reaches the configured maximum size limit, inserts and updates that increase data size fail, while selects and deletes continue to work. Clients receive an [error message](sql-database-develop-error-messages.md) depending on the limit that has been reached.
 
