@@ -152,6 +152,7 @@
 ### [Analyze media using the portal](media-services-portal-analyze.md)
 ### [Process with Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Process with Indexer](media-services-index-content.md)
+#### [Task preset](indexer-task-preset.md)
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
