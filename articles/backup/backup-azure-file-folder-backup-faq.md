@@ -1,6 +1,6 @@
 
 ---
-title: Azure Backup FAQ | Microsoft Docs
+title: Azure Backup agent FAQ | Microsoft Docs
 description: 'Answers to common questions about: how the Azure backup agent works, backup and retention limits.'
 services: backup
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.author: trinadhk;pullabhk;
 ---
 
 # Questions about the Azure Backup agent
-This article has sections of common questions (with answers) to help you quickly understand the Azure Backup agent components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article has answers to common questions to help you quickly understand the Azure Backup agent components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Configure backup
 ### Where can I download the latest Azure Backup agent? <br/>
@@ -72,29 +72,30 @@ Yes. The agent service converts the deduplicated data to normal data when it pre
 ### How do I change the cache location specified for the Azure Backup agent?<br/>
 Use the following list to change the cache location.
 
-* Stop the Backup engine by executing the following command in an elevated command prompt:
+1. Stop the Backup engine by executing the following command in an elevated command prompt:
 
-```PS C:\> Net stop obengine```
-* Do not move the files. Instead, copy the cache space folder to a different drive with sufficient space. The original cache space can be removed after confirming the backups are working with the new cache space.
-* Update the following registry entries with the path to the new cache space folder.<br/>
+    ```PS C:\> Net stop obengine``` 
+  
+2. Do not move the files. Instead, copy the cache space folder to a different drive with sufficient space. The original cache space can be removed after confirming the backups are working with the new cache space.
+3. Update the following registry entries with the path to the new cache space folder.<br/>
 
-| Registry path | Registry Key | Value |
-| --- | --- | --- |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
+    | Registry path | Registry Key | Value |
+    | --- | --- | --- |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
 
-* Restart the Backup engine by executing the following command in an elevated command prompt:
+4. Restart the Backup engine by executing the following command in an elevated command prompt:
 
-```PS C:\> Net start obengine```
+    ```PS C:\> Net start obengine```
 
 Once the backup creation is successfully completed in the new cache location, you can remove the original cache folder.
 
 
-### Where can I put the cache-folder for the Azure Backup Agent to work as expected?<br/>
-The following locations for the cache-folder are not recommended:
+### Where can I put the cache folder for the Azure Backup Agent to work as expected?<br/>
+The following locations for the cache folder are not recommended:
 
-* Network share or Removable Media: The cache-folder must be local to the server that needs backing up using online backup. Network locations or removable media like USB drives are not supported.
-* Offline Volumes: The cache-folder must be online for expected backup using Azure Backup Agent.
+* Network share or Removable Media: The cache folder must be local to the server that needs backing up using online backup. Network locations or removable media like USB drives are not supported.
+* Offline Volumes: The cache folder must be online for expected backup using Azure Backup Agent.
 
 ### Are there any attributes of the cache-folder that are not supported?<br/>
 The following attributes or their combinations are not supported for the cache folder:
@@ -123,18 +124,3 @@ Azure Backup agent relies on NTFS. The [filepath length specification is limited
  
 ### I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
 This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
