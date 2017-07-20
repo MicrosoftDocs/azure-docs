@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/04/2017
+ms.date: 07/19/2017
 ms.author: alkohli
 
 ---
@@ -72,7 +72,7 @@ The **Volumes** blade allows you to manage the storage volumes that are provisio
 
 A volume consists of a series of attributes:
 
-* **Volume Name** – A descriptive name that must be unique and helps identify the volume. This name is also used in monitoring reports when you filter on a specific volume.
+* **Volume Name** – A descriptive name that must be unique and helps identify the volume. This name is also used in monitoring reports when you filter on a specific volume. Once the volume is created, it cannot be renamed.
 * **Status** – Can be online or offline. If a volume is offline, it is not visible to initiators (servers) that are allowed access to use the volume.
 * **Capacity** – specifies the total amount of data that can be stored by the initiator (server). Locally-pinned volumes are fully provisioned and reside on the StorSimple device. Tiered volumes are thinly provisioned and the data is deduplicated. With thinly provisioned volumes, your device doesn’t pre-allocate physical storage capacity internally or on the cloud according to configured volume capacity. The volume capacity is allocated and consumed on demand.
 * **Type** – Indicates whether the volume is **Tiered** (the default) or **Locally pinned**.
@@ -102,7 +102,7 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
 
     2. From the drop-down list, select the volume container where you need to add a volume.
 
-    3.  Type a **Name** for your volume.
+    3.  Type a **Name** for your volume. Once the volume is created, you cannot rename the volume.
 
     4. On the drop-down list, select the **Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**.
       

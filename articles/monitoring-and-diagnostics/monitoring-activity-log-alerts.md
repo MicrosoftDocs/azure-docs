@@ -1,8 +1,8 @@
 ---
 title: Create Activity Log Alerts | Microsoft Docs
 description: Be notified via SMS, webhook, and email when certain events occur in the Activity log.
-author: anirudhcavale
-manager: carmonm
+author: johnkemnetz
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: ancav
+ms.author: johnkem
 
 ---
 # Create Activity Log Alerts
