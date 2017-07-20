@@ -21,14 +21,14 @@ ms.author: seanmck
 
 # Deploy and use Azure Container Registry
 
-Azure Container Registry is an Azure-based, private registry, for Docker container images. This tutorial walks through deploying an Azure Container Registry instance, and pushing container images to it. Steps completed include:
+Azure Container Registry is an Azure-based, private registry, for Docker container images. This tutorial walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry instance
 > * Tagging container image for Azure Container Registry
 > * Uploading image to Azure Container Registry
 
-In subsequent tutorials, you will deploy containers from your private registry as an Azure Container Instances group. 
+In subsequent tutorials, you will deploy the container from your private registry to Azure Container Instances.
 
 ## Before you begin
 
@@ -36,11 +36,11 @@ This is part two of a three-part tutorial. In the [previous step](./container-in
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Deploy Azure Container Registry
 
-When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical collection into which Azure resources are deployed and managed.
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.
 
@@ -54,20 +54,20 @@ Create an Azure Container registry with the [az acr create](/cli/azure/acr#creat
 az acr create --resource-group myResourceGroup --name acidemo --sku Basic --admin-enabled true
 ```
 
-## Get Azure Container Registry information 
+## Get Azure Container Registry information
 
-Once the ACR instance has been created, the name, login server name, and authentication password are needed. The following code returns each of these values. Note each value down, they are referenced throughout this tutorial.  
+Once the container registry is created, you can query its login server and password. The following code returns these values. Note each value down, they are referenced throughout this tutorial.
 
-Azure Container Registry Name and Login Server:
+Container registry login server (update with your registry name):
 
 ```azurecli-interactive
-az acr list --resource-group myResourceGroup --query "[].{acrName:name,acrLoginServer:loginServer}" --output table
+az acr show --name <acrName> --query loginServer
 ```
 
-Azure Container Registry Password - update with the registry name.
+Container registry password:
 
 ```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value -o tsv
+az acr credential show --name cseriesacr --query passwords[0].value
 ```
 
 ## Container registry login
@@ -82,7 +82,7 @@ The command returns a 'Login Succeeded’ message once completed.
 
 ## Tag container image
 
-Each container image needs to be tagged with the `loginServer` name of the registry. This tag is used for routing when pushing container images to an image registry.
+In order to deploy a container image from a private registry, the image needs to be tagged with the `loginServer` name of the registry.
 
 To see a list of current images, use the `docker images` command.
 
@@ -119,15 +119,15 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## Push image to Azure Container Registry
 
-Push the *aci-tutorial-app* image to the registry. 
+Push the *aci-tutorial-app* image to the registry.
 
-Using the following example, replace the ACR loginServer name with the loginServer from your environment. This takes a couple of minutes to complete.
+Using the following example, replace the container registry loginServer name with the loginServer from your environment.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
 ```
 
-## List images in Azure Container Registry 
+## List images in Azure Container Registry
 
 To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
 
@@ -159,7 +159,7 @@ v1
 
 ## Next steps
 
-In this tutorial, an Azure Container Registry was prepared for use with Azure Container Instances. The following steps were completed:
+In this tutorial, an Azure Container Registry was prepared for use with Azure Container Instances, and the container image was pushed. The following steps were completed:
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry instance
