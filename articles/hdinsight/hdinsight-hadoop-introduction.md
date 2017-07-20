@@ -1,5 +1,5 @@
 ---
-title: What is Azure HDInsight, the Hadoop technology stack, & clusters? | Microsoft Docs
+title: What are HDInsight, the Hadoop technology stack & clusters? - Azure | Microsoft Docs
 description: An introduction to HDInsight and the Hadoop technology stack and components, including Spark, Kafka, Hive, HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
@@ -25,16 +25,8 @@ ms.author: cgronlun
 ## What is HDInsight and the Hadoop technology stack? 
 Azure HDInsight is a cloud distribution of the Hadoop components from the **Hortonworks Data Platform (HDP)**. [Apache Hadoop](http://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters of computers. 
 
-HDInsight makes Hadoop technologies easier to use, with:
 
-*	Less setup and configuration. See [Provision Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-*	High availability and reliability. See [HDInsight availability and reliability](hdinsight-high-availability-linux.md).
-*	Security and governance through integration with Active Directory. See [Domain-joined clusters](hdinsight-domain-joined-introduction.md).
-*	Dynamic scaling without interrupting jobs
-*   Component updates and current versions. See [Hadoop components and versions on HDInsight][component-versioning].
-*   Integration with other Azure services, including [Web apps](https://docs.microsoft.com/azure/app-service-web/) and [SQL Database](https://docs.microsoft.com/azure/sql-database/)
-
-The Hadoop technology stack includes related software and utilities, including Apache Hive, HBase, Spark, Kafka, and many others. To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
+The Hadoop technology stack includes related software and utilities, including Apache Hive, HBase, Spark, Kafka, and many others. To see available Hadoop technology stack components on HDInsight, see [Components and versions available with HDInsight][component-versioning]. To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 ## What is a Hadoop cluster, and when do you use it?
 The term *Hadoop* also refers to a type of cluster that has:
@@ -52,10 +44,10 @@ Big data describes any large body of digital information, such as:
 * Sensor data from industrial equipment
 * Customer activity collected from a website
 
-Big data can be historical (meaning stored data) or real time (meaning streamed from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
+Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats. It can be historical (meaning stored) or real time (meaning streamed from the source). 
 
 ## <a name="overview"></a>Cluster types in HDInsight
-HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes specific cluster types and cluster customization capabilities, such as adding components, utilities, and languages.
+HDInsight includes specific cluster types and cluster customization capabilities, such as adding components, utilities, and languages.
 
 ### Spark, Kafka, Interactive Hive, HBase, customized, and other cluster types
 HDInsight offers the following cluster types:
@@ -67,6 +59,8 @@ HDInsight offers the following cluster types:
 * **[Apache Storm](https://storm.incubator.apache.org/)**: A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
 * **[Apache Interactive Hive preview (AKA: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: In-memory caching for interactive and faster Hive queries. See [Use Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
 * **[Apache Kafka](https://kafka.apache.org/)**: An open-source platform used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](hdinsight-apache-kafka-introduction.md).
+
+You also configure the following for clusters:
 * **[Domain-joined clusters preview](hdinsight-domain-joined-introduction.md)**: A cluster joined to an Active Directory domain so that you can control access and provide governance for data.
 * **[Custom clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md)**: Clusters with scripts that run during provisioning and install additional components.
 
