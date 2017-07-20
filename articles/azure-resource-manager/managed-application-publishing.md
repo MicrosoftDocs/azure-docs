@@ -14,7 +14,7 @@ ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
 
 ---
-# Create and publish Service Catalog Managed Application
+# Create and publish Service Catalog managed application
 
 As described in the [Managed Application overview](managed-application-overview.md) article, there are two scenarios in the end to end experience. One is the publisher or ISV who wants to create a managed application for use by customers. The second is the customer or the consumer of the managed application. This article focuses on the first scenario and explains how an ISV can create and publish a managed application. 
 
@@ -206,5 +206,7 @@ The parameters used in the preceding example are:
 
 * For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
 * For examples of the files, see [Managed Application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).
+* For information about consuming Service Catalog managed application, see [Consume a Service Catalog managed application](managed-application-consumption.md).
+* For information about publishing managed applications to the Marketplace, see [Azure Managed Applications in the Marketplace](managed-application-author-marketplace.md).
+* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](managed-application-consume-marketplace.md).
 * To learn about creating a UI definition file for a managed application, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).

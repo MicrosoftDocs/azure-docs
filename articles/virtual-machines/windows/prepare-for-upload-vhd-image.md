@@ -306,7 +306,7 @@ Make sure that the following settings are configured correctly for remote deskto
 9. Uninstall any other third-party software and driver that is related to physical components or any other virtualization technology.
 
 ### Install Windows Updates
-The ideal Windows Update configuration is to have all system update levels be current. If this is not possible, make sure that the following updates are installed:
+The ideal configuration is to **have the patch level of the machine at the latest**. If this is not possible, make sure that the following updates are installed:
 
 | Component               | Binary            | Windows 7 & Windows Server 2008 R2 | Windows 8 & Windows Server 2012             | Windows 8.1 & Windows Server 2012 R2 | Windows 10 & Windows Server 2016 RTM | Windows 10 & Windows Server 2016 Build 10586 | Windows 10 & Windows Server 2016 Build 14393 |
 |-------------------------|-------------------|------------------------------------|---------------------------------------------|--------------------------------------|--------------------------------------|----------------------------------------------|----------------------------------------------|
@@ -343,7 +343,7 @@ The ideal Windows Update configuration is to have all system update levels be cu
 |                         |                   |                           | KB4012214                                   |                           | KB4013429                            |                                              | KB4013429                                    |
 |                         |                   |                                    | KB4012217                                   |                                      | KB4013429                            |                                              | KB4013429                                    |
        
-### Run Sysprep  <a id="step23"></a>    
+### When to use sysprep <a id="step23"></a>    
 
 Sysprep is a process that you could run into a windows installation that will reset the installation of the system and will provide an “out of the box experience” by removing all personal data and resetting several components. You typically do this if you want to create a template from which you can deploy several other VMs that have a specific configuration. This is called a **generalized image**.
 

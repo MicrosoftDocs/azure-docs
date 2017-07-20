@@ -106,7 +106,7 @@ An ILB ASE enables network isolation for your apps as the apps are not accessibl
 
 If you wish to use NSGs to further restrict access then you need to make sure you do not break the communication that the ASE needs in order to operate.  Even though the HTTP/HTTPS access is only through the ILB used by the ASE the ASE still depends on resource outside of the VNet.  To see what network access is still required look at the information in the document on [Controlling Inbound Traffic to an App Service Environment][ControlInbound] and the document on [Network Configuration Details for App Service Environments with ExpressRoute][ExpressRoute].  
 
-To configure your NSGs you need to know the IP address that is used by Azure to manage your ASE.  That IP address is also the outbound IP address from your ASE if it makes internet requests.  To find this IP address go to **Settings -> Properties** and find the **Outbound IP Address**.  
+To configure your NSGs you need to know the IP address that is used by Azure to manage your ASE.  That IP address is also the outbound IP address from your ASE if it makes internet requests.  The outbound IP address for your ASE will remain static for the life of your ASE.  If you delete and recreate your ASE you will get a new IP address.  To find this IP address go to **Settings -> Properties** and find the **Outbound IP Address**.  
 
 ![][5]
 

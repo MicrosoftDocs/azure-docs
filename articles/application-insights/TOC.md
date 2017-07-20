@@ -92,7 +92,7 @@
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
-#### [Funnels](app-insights-understand-usage-patterns.md)
+#### [Funnels](usage-funnels.md)
 #### [Retention](app-insights-usage-retention.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
 
@@ -115,7 +115,8 @@
 
 ## Develop
 
-### [API for custom events and metrics ](app-insights-api-custom-events-metrics.md)
+### [API for custom events and metrics](app-insights-api-custom-events-metrics.md)
+### [Track custom operations in .NET SDK](application-insights-custom-operations-tracking.md)
 ### [Filtering and preprocessing telemetry](app-insights-api-filtering-sampling.md)
 ### [Sampling](app-insights-sampling.md)
 

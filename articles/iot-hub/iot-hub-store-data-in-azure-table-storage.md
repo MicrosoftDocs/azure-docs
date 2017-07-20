@@ -4,7 +4,7 @@ description: Use an Azure function app to save your IoT hub messages to your Azu
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot data storage, iot sensor data storage'
 
@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/12/2017
 ms.author: xshi
 
 ---
@@ -161,7 +161,7 @@ IoT hub exposes a built-in event hub-compatible endpoint to enable applications 
       
    c. Click **Save**.
 
-7. Under **Triggers**, click **Azure Event Hub (myEventHubTrigger)**.
+7. Under **Triggers**, click **Azure Event Hub (eventHubMessages)**.
 
 8. Under **Event Hub consumer group**, enter the name of the consumer group that you created, and then click **Save**.
 
