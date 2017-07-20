@@ -129,3 +129,43 @@ This table provides details about job related fields.
 | ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
 | ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
 | ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
+### Policy
+This table provides details about policy related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
+| SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
+| State_s |Text |Current state of the alert object for example, Active, Deleted |
+| BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this policy belongs to |
+| OperationName |Text |This is the name of the current operation - Policy |
+| Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
+| PolicyUniqueId_g |Text |Unique Id to identify the policy which backup item is associated to |
+| PolicyName_s |Text |Name of the policy defined |
+| BackupFrequency_s |Text |Frequency with which backups are run for example, daily, weekly |
+| BackupTimes_s |Text |Date and time when backups are scheduled |
+| BackupDaysOfTheWeek_s |Text |Days of the week when backups have been scheduled |
+| RetentionDuration_s |Whole Number |Retention duration for configured backups |
+| DailyRetentionDuration_s |Whole Number |Total retention duration in days for configured backups |
+| DailyRetentionTimes_s |Text |Date and time when daily retention was configured |
+| WeeklyRetentionDuration_s |Decimal Number |Total weekly retention duration in weeks for configured backups |
+| WeeklyRetentionTimes_s |Text |Date and time when weekly retention is configured |
+| WeeklyRetentionDaysOfTheWeek_s |Text |Days of the week selected for weekly retention |
+| MonthlyRetentionDuration_s |Decimal Number |Total retention duration in months for configured backups |
+| MonthlyRetentionTimes_s |Text |Date and time when monthly retention is configured |
+| MonthlyRetentionFormat_s |Text |Type of configuration for monthly retention for example, daily for day based, weekly for week based |
+| MonthlyRetentionDaysOfTheWeek_s |Text |Days of the week selected for monthly retention |
+| MonthlyRetentionWeeksOfTheMonth_s |Text |Weeks of the month when monthly retention is configured for example, First, Last etc. |
+| YearlyRetentionDuration_s |Decimal Number |Total retention duration in years for configured backups |
+| YearlyRetentionTimes_s |Text |Date and time when yearly retention is configured |
+| YearlyRetentionMonthsOfTheYear_s |Text |Months of the year selected for yearly retention |
+| YearlyRetentionFormat_s |Text |Type of configuration for yearly retention for example, daily for day based, weekly for week based |
+| YearlyRetentionDaysOfTheMonth_s |Text |Dates of the month selected for yearly retention |
+| SourceSystem |Text |Source system of the current data - Azure |
+| ResourceId |Text |This is the resource id for which data is being collected, it shows Recovery Services vault resource id |
+| SubscriptionId |Text |This is the subscription id of the resource (RS vault) for which data is being collected |
+| ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
+| ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
+| ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
