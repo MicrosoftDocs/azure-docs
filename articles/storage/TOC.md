@@ -128,7 +128,7 @@
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitor and troubleshoot
 ### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
-### [Backup and DR for IAAS disks](backup-and-disaster-recovery-for-azure-iaas-disks.md)
+### [Backup and DR for IAAS disks](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
 ### [Troubleshoot Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
