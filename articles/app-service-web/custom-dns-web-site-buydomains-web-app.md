@@ -114,9 +114,11 @@ Back in the **App Service Domain** page, click **OK**. While the operation is in
 
 ### Test the hostnames
 
-If you have assigned default hostnames to your web app, you also see a success notification for each selected hostname, and also the selected hostnames in the **Custom domains** page, in the **Hostnames** section.  
+If you have assigned default hostnames to your web app, you also see a success notification for each selected hostname. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+
+You also see the selected hostnames in the **Custom domains** page, in the **Hostnames** section. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -126,10 +128,10 @@ To test the hostnames, navigate to the listed hostnames in the browser. In the e
 
 If you choose not to assign one or more default hostnames to your web app during the purchase process, or if you need to assign a hostname not listed, you can assign a hostname at anytime.
 
-You can also assign hostnames in the App Service Domain to any other web app, but it depends on whether the App Service Domain and the web app belong to the same subscription.
+You can also assign hostnames in the App Service Domain to any other web app. The steps depend on whether the App Service Domain and the web app belong to the same subscription.
 
 - Different subscription: Map custom DNS records from the App Service Domain to the web app like an externally purchased domain. For information on adding custom DNS names to an App Service Domain, see [Manage custom DNS records](#custom). To map an external purchased domain to a web app, see [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md). 
-- Same subscription: use the following steps.
+- Same subscription: Use the following steps.
 
 ### Launch add hostname
 In the **App Services** page, select the name of your web app that you want to assign hostnames to, select **Settings**, and then select **Custom domains**.
