@@ -1,6 +1,6 @@
 ---
 title: Check status, set up logging, and get alerts - Azure Logic Apps | Microsoft Docs
-description: Monitor status for your logic app runs, log diagnostic data, and set up alerts
+description: Monitor status and performance for logic apps, log diagnostics data, and set up alerts
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: LADocs; jehollan
 ---
 
