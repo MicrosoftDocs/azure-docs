@@ -24,13 +24,13 @@ Live streaming media is especially difficult to deliver because of the large siz
 
 The request patterns of streaming also provide some new challenges. When a popular live stream or a new series is released for video on demand, thousands to millions of viewers might request the stream at the same time. In this case, smart request consolidation is vital to not overwhelm the origin servers when the assets aren't cached yet.
  
-The Azure Content Delivery Network (CDN) from Akamai now offers a feature that delivers streaming media assets efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the Standard Akamai pricing tier. 
+The Azure Content Delivery Network from Akamai now offers a feature that delivers streaming media assets efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the Standard Akamai pricing tier. 
 
 The Azure Content Delivery Network from Verizon delivers streaming media directly in the general web delivery optimization type.
  
 ## Configure an endpoint to optimize media streaming in the Azure Content Delivery Network from Akamai
  
-You can configure your CDN endpoint to optimize delivery for large files via the Azure portal. You can also use our REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal.
+You can configure your content delivery network (CDN) endpoint to optimize delivery for large files via the Azure portal. You can also use our REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal:
 
 1. To add a new endpoint, on the **CDN profile** page, select **Endpoint**.
   
