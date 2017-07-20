@@ -92,7 +92,7 @@ Here you can see the results of querying the Bing Web Search API using the extra
 ![Image of the Web View Page](./media/computer-vision-web-search-tutorial/WebViewPage.png)  
 From here, you can interact with the website as if it were loaded within a standard browser.  You can also use the navigation bar to return to the Web Results Page. 
 
-[!NOTE]
+> [!NOTE]
 > The Handwritten OCR endpoint is in preview.  Although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/?cdn=disable).  
 
 ## Review and Learn:
@@ -200,8 +200,8 @@ byte[] MediaFileToByteArray(MediaFile photoMediaFile)
 ```
 
 The photo import utility works in a similar way, and can be found in `OcrSelectPage.xaml.cs`  
-[!NOTE]
->The downscaling done by setting `PhotoSize = PhotoSize.Medium` on the *StoreCameraMediaOptions* object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4 MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all file-size related issues.  If your device takes exceptionally high-quality photos and you are getting errors, you might try setting `PhotoSize = PhotoSize.Small` here.  
+> [!NOTE]
+> The downscaling done by setting `PhotoSize = PhotoSize.Medium` on the *StoreCameraMediaOptions* object.  At the moment, the Azure Handwritten OCR endpoint can only handle photos that are smaller than 4 MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all file-size related issues.  If your device takes exceptionally high-quality photos and you are getting errors, you might try setting `PhotoSize = PhotoSize.Small` here.  
 
 ### OCR Results Page
 The OCR Results Page is where we extract text from the selected OCR endpoint and pull text from the endpoint response using the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them.
@@ -235,7 +235,7 @@ Next, let's examine the functions that call the API.
 
 *FetchPrintedWordList* uses the Computer Vision OCR endpoint to parse printed text from images.  The HTTP call here follows a similar structure to the call carried out in the Add Keys Page, but here we send an HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a *ByteArrayContent* object, and add a header to this *ByteArrayContent* object defining the data that we're sending to Azure. You can read about other acceptable content types in the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  
 
-[!TIP]
+> [!TIP]
 > Note the use of the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  `SelectToken` is used here because we are only looking for a specific feature of the JSON response, which we can then pass on to the next function.  Elsewhere in the codebase, JSON responses are deserialized onto model objects defined in `ModelObjects.cs`.
 
 ```csharp
@@ -398,7 +398,7 @@ async Task<WebResultsList> GetQueryResults()
 It's important to acknowledge here that the Web Search API functions best when a maximal number of headers and parameters are used to personalize and optimize your call.  The simplest way to ensure this is through utilizing parameters such as **mkt** and the **responseFilter**.
 
 
-[!NOTE]
+> [!NOTE]
 > The Bing Web Search API query used in this sample was kept simple in order to keep the source code legible, simple, and extendable.  However in a professional application, there are a few additional headers that you Should add to your HTTP request for improved results.  They are as follows:  
 > * User-Agent  
 > * X-MSEdge-ClientID  
