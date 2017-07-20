@@ -1,7 +1,7 @@
 
 ---
 title: Azure Backup FAQ | Microsoft Docs
-description: 'Answers to common questions about: how the service works, the Azure Backup agent, Recovery Services vault, and backup and retention limits.'
+description: 'Answers to common questions about: Recovery Services vault, what it can backup, how it works, encryption, and limits.'
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -20,7 +20,7 @@ ms.author: markgal;giridham;arunak;trinadhk;
 
 ---
 # Questions about the Azure Backup service
-This article has sections of common questions (with answers) to help you quickly understand the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article has answers to common questions to help you quickly understand the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 To quickly scan the sections in this article, use the links to the right, under **In this article**.
 
