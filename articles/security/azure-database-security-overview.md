@@ -227,3 +227,13 @@ Security officers or other designated administrators can get an immediate notifi
 
 The Azure Marketplace is an online applications and services marketplace that enables start-ups and independent software vendors (ISVs) to offer their solutions to Azure customers around the world.
 The Azure Marketplace combines Microsoft Azure partner ecosystems into a single, unified platform to better serve our customers and partners. Click [here](https://azuremarketplace.microsoft.com/en-in/marketplace/apps?search=Database%20Security&page=1) to glance database security products available on Azure market place.
+
+## Next steps
+
+- Learn more about [Secure your Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-tutorial)
+
+- Learn more about [Azure Security Center and Azure SQL Database service](https://docs.microsoft.com/en-us/azure/security-center/security-center-sql-database)
+
+- To learn more about threat detection, see [SQL Database Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection)
+
+- To learn more, see [Improve SQL database performance](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-performance-tutorial) 
