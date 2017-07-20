@@ -3,7 +3,7 @@ title: Build an Azure Cosmos DB .NET application using the Graph API | Microsoft
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
+ms.date: 07/14/2017
+ms.author: denlee
 
 ---
 # Azure Cosmos DB: Build a .NET application using the Graph API
@@ -99,19 +99,23 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `App.config` file in the next step.
+1. In the Azure portal, in your Azure Cosmos DB account, click **Overview** in the left navigation. You'll copy the **Gremlin URI** value into the App.config file in the next step. 
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-dotnet/gremlin-uri.png)
 
-2. In Visual Studio 2017, open the `App.config` file. 
+    If the **Gremlin URI** value is blank, you can generate the value from the **Keys** page in the portal, using the **URI** value, removing https://, and changing documents to graphs. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `App.config`. 
+2. In Visual Studio 2017, open the App.config file. 
 
-    `<add key="Endpoint" value="FILLME.documents.azure.com:443" />`
+3. Copy your **Gremlin URI** value from the portal and make it the value of the Endpoint key in App.config. 
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in `App.config`. 
+    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
+
+4. Back in the Azure portal, click **Keys** on the left navigation menu, copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
 
     `<add key="AuthKey" value="FILLME" />`
+
+    ![View and copy an primary key in the Azure portal, on the Keys page](./media/create-graph-dotnet/keys.png)
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 

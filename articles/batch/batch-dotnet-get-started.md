@@ -370,7 +370,7 @@ Along with these physical node properties, you may also specify a [StartTask][ne
 In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] property) from the StartTask working directory to the shared directory that *all* tasks running on the node can access. Essentially, this copies `TaskApplication.exe` and its dependencies to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
 > [!TIP]
-> The **application packages** feature of Azure Batch provides another way to get your application onto the compute nodes in a pool. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for details.
+> The **application packages** feature of Azure Batch provides another way to get your application onto the compute nodes in a pool. See [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) for details.
 >
 >
 

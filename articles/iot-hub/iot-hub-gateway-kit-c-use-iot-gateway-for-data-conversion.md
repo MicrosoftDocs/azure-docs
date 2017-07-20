@@ -4,7 +4,7 @@ description: Use IoT gateway to convert the format of sensor data through a cust
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot gateway data conversion, iot gateway data transformation'
 

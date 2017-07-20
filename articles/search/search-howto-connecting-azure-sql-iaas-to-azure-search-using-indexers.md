@@ -18,7 +18,7 @@ ms.author: heidist
 
 ---
 # Configure a connection from an Azure Search indexer to SQL Server on an Azure VM
-As noted in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#frequently-asked-questions), creating indexers against **SQL Server on Azure VMs** (or **SQL Azure VMs** for short) is supported by Azure Search, but there are a few security-related prerequisites to take care of first. 
+As noted in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), creating indexers against **SQL Server on Azure VMs** (or **SQL Azure VMs** for short) is supported by Azure Search, but there are a few security-related prerequisites to take care of first. 
 
 **Task Duration:** About 30 minutes, assuming you already installed a certificate on the VM.
 

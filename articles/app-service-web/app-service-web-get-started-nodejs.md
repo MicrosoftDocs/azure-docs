@@ -134,7 +134,7 @@ The Node.js sample code is running in an Azure App Service web app.
 
 ![Sample app running in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**Congratulations!** You've deployed your first PHP app to App Service.
+**Congratulations!** You've deployed your first Node.js app to App Service.
 
 ## Update and redeploy the code
 

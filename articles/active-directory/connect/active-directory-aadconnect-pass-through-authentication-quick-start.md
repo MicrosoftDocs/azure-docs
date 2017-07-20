@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ---
 
@@ -50,6 +50,9 @@ Ensure that the following prerequisites are in place:
 ## Step 2: Enable the feature
 
 Pass-through Authentication can be enabled using [Azure AD Connect](active-directory-aadconnect.md).
+
+>[!IMPORTANT]
+>Pass-through Authentication can be enabled on the Azure AD Connect primary or staging server. It is highly recommended that you enable it from the primary server.
 
 If you are installing Azure AD Connect for the first time, choose the [custom installation path](active-directory-aadconnect-get-started-custom.md). At the **User sign-in** page, choose **Pass-through Authentication** as the Sign on method. On successful completion, a Pass-through Authentication agent is installed on the same server as Azure AD Connect. In addition, the Pass-through Authentication feature is enabled on your tenant.
 
