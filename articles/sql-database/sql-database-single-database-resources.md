@@ -7,7 +7,7 @@ author: CarlRabeler
 manager: jhubbard
 editor: ''
 
-ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
+ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: na
@@ -49,20 +49,19 @@ The duration of the entire scale-up process depends on both the size and service
 * The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period - see [Azure SQL Database Backups](sql-database-automated-backups.md).
 * The new properties for the database are not applied until the changes are complete.
 
-## Current limitations of P11 and P15 databases with 4 TB maxsize
+## Current limitations of P11 and P15 databases with maxsize greater than 1 TB
 
-A maximum size of 4 TB for P11 and P15 database is supported in some regions (as previously discussed). The following considerations and limitations apply to P11 and P15 databases with 4 TB maxsize:
+A maximum size greater than 1 TB for P11 and P15 database is supported in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The following considerations and limitations apply to P11 and P15 databases with maxsize greater than 1 TB:
 
-- If you choose the 4 TB maxsize option when creating a database (using a value of 4 TB or 4096 GB), the create command fails with an error if the database is provisioned in an unsupported region.
-- For existing P11 and P15 databases located in one of the supported regions, you can increase the maxsize storage to 4 TB. This can be checked using the [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) or by inspecting the database size in the Azure portal. Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 
-- If an upgrade operation is executed in a supported region the configuration is updated immediately. The database remains online during the upgrade process. However, you cannot utilize the full 4 TB of storage until the actual database files have been upgraded to the new maxsize. The length of time required depends upon on the size of the database being upgraded.  
-- When creating or updating a P11 or P15 database, you can only choose between 1 TB and 4 TB maxsize. Intermediate storage sizes are not currently supported. When creating a P11/P15, the default storage option of 1 TB is pre-selected. For databases located in one of the supported regions, you can increase the storage maximum to 4 TB for a new or existing single database. For all other regions, max size cannot be increased above 1 TB. The price does not change when you select 4 TB of included storage.
-- The 4 TB database maxsize cannot be changed to 1 TB even if the actual storage used is below 1 TB. Thus, you cannot downgrade a P11-4 TB/P15-4 TB to a P11-1 TB/P15-1 TB or a lower performance tier for example, to P1-P6) until we are providing additional storage options for the rest of the performance tiers. This restriction also applies to the restore and copy scenarios including point-in-time, geo-restore, long-term-backup-retention, and database copy. Once a database is configured with the 4 TB option, all restore operations of this database must be run into a P11/P15 with 4 TB maxsize.
-- When creating or upgrading an P11/P15 database in an unsupported region, the create or upgrade operation fails with the following error message: **P11 and P15 database with up to 4 TB of storage are available in US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East.**
+- If you choose the maxsize option greater than 1 TB when creating a database (using a value of 4 TB or 4096 GB), the create command fails with an error if the database is provisioned in an unsupported region.
+- For existing P11 and P15 databases located in one of the supported regions, you can increase the maxsize storage to beyond 1 TB in increments of 256 GB up to 4 TB. This can be checked using the [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) or by inspecting the database size in the Azure portal. Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 
+- If an upgrade operation is executed in a supported region the configuration is updated immediately. The database remains online during the upgrade process. However, you cannot utilize the full amount of storage beyond 1 TB of storage until the actual database files have been upgraded to the new maxsize. The length of time required depends upon on the size of the database being upgraded.  
+- When creating or updating a P11 or P15 database, you can only choose between 1 TB and 4 TB maxsize in increments of 256 GB. When creating a P11/P15, the default storage option of 1 TB is pre-selected. For databases located in one of the supported regions, you can increase the storage maximum to up to a maximum of 4 TB for a new or existing single database. For all other regions, max size cannot be increased above 1 TB. The price does not change when you select 4 TB of included storage.
+- If database maxsize is set to greater than 1 TB, then it cannot be changed to 1 TB even if the actual storage used is below 1 TB. Thus, you cannot downgrade a P11 or P15 with a maxsize larger than 1 TB to a 1 TB P11 or 1 TB P15 or lower performance tier, such as P1-P6). This restriction also applies to the restore and copy scenarios including point-in-time, geo-restore, long-term-backup-retention, and database copy. Once a database is configured with maxsize greater than 1 TB, all restore operations of this database must be run into a P11/P15 with maxsize greater tah 1 TB.
 - For active geo-replication scenarios:
-   - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower performance tiers are rejected as secondaries since they are not capable of supporting 4 TB.
-   - Upgrading the primary database in a geo-replication relationship: Changing the maxsize to 4 TB on a primary database triggers the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the 4 TB option apply (see above). If the secondary is in a region that does not support 4 TB, the primary is not upgraded.
-- Using the Import/Export service for loading P11-4 TB/P15-4 TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import.md) and [export](sql-database-export.md) data.
+   - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower performance tiers are rejected as secondaries since they are not capable of supporting more than 1 TB.
+   - Upgrading the primary database in a geo-replication relationship: Changing the maxsize to more then 1 TB on a primary database triggers the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for more than 1 TB option apply (see above). If the secondary is in a region that does not support more than 1 TB, the primary is not upgraded.
+- Using the Import/Export service for loading P11/P15 databases with morethan 1 TB is not supported. Use SqlPackage.exe to [import](sql-database-import.md) and [export](sql-database-export.md) data.
 
 ## Manage single database service tiers, performance levels, and storage amounts using the Azure portal
 

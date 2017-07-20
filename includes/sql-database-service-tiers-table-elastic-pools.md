@@ -100,7 +100,7 @@ sql-database-elastic-pool.md
 ||||||||
 
 > [!IMPORTANT]
-> \* Storage max is the maximum amount of storage can be provisioned for a database for an additional cost. Storage sizes greater than the storage included are in preview.
+> \* Storage sizes greater than the amount of storage included are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
 >
 >\*\* Min/max eDTUs per database starting at 200 eDTUs and higher is in public preview.
 >

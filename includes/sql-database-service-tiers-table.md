@@ -9,7 +9,7 @@ sql-database-single-database-resources.md
 | --- | :---: |
 | Max DTUs | 5 |
 | Storage included |2 GB|
-| Storage max* | 2 GB |
+| Storage max | 2 GB |
 | Max in-memory OLTP storage |N/A |
 | Max concurrent workers (requests) |30 |
 | Max concurrent logins |30 |
@@ -53,4 +53,4 @@ sql-database-single-database-resources.md
 |||||||
 
 > [!IMPORTANT]
-> \* Storage max is the maximum amount of storage can be provisioned for a database for an additional cost. Storage sizes greater than the storage included are in preview.
+> \* Storage sizes greater than the amount of storage included are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
