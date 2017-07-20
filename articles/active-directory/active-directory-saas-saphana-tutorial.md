@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/25/2017
 ms.author: jeedes
 
 ---
@@ -211,6 +211,10 @@ SAP HANA supports just-in-time provisioning, which is by default enabled.
 
 If you need to create a user manually, perform the following steps:
 
+>[!Note]
+>You can change the external authentication used by the user.
+External users are authenticated using an external system, for example a Kerberos system. For detailed information about external identities, contact your [domain administrator](https://cloudplatform.sap.com/contact.html).
+
 1. Open the [SAP HANA Studio](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-us) as an administrator and enable the DB-User for SAML SSO.
 
 	![create user](./media/active-directory-saas-saphana-tutorial/sap5.png)
@@ -219,11 +223,10 @@ If you need to create a user manually, perform the following steps:
 
 3. Click **Add** to add the SAML IDP and click **OK** selecting the appropriate SAML IDP.
 
-4. Add the **External Identity** (ex. globaladmin here) or choose **"Any"** and click **OK**.
+4. Add the **External Identity** (ex. BrittaSimon here) or choose **"Any"** and click **OK**.
 
 	>[!Note]
-	>You can change the external authentication used by the user.
-External users are authenticated using an external system, for example a Kerberos system. For detailed information about external identities, contact your [domain administrator](https://cloudplatform.sap.com/contact.html).
+	>If "ANY" check-box is not checked, then the user name in HANA needs to exactly match the name of the user in the UPN before the domain suffix (i.e. BrittaSimon@contoso.com would become BrittaSimon in HANA).
 
 5. For testing purposes, assign all **"XS"** roles to the user. 
 
