@@ -143,7 +143,6 @@ Use the following steps to reduce the volume of logs collected:
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
 | Security events            | Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [audit file system](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [audit kernel object](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [audit handle manipulation](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [audit removable storage](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
-| Log Management             | Identify the data type, for example Performance counters, and use the guidance in the corresponding row of this table.
 | Performance counters       | Change [performance counter configuration](log-analytics-data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
 | Event logs                 | Change [event log configuration](log-analytics-data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
 | Syslog                     | Change [syslog configuration](log-analytics-data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
@@ -162,3 +161,8 @@ Use [solution targeting](../operations-management-suite/operations-management-su
 ## Next steps
 * See [Log searches in Log Analytics](log-analytics-log-searches.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
 * Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when a search criteria is met
+* Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers
+* Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/)
+* Change [performance counter configuration](log-analytics-data-sources-performance-counters.md)
+* Change [event log configuration](log-analytics-data-sources-windows-events.md)
+* Change [syslog configuration](log-analytics-data-sources-syslog.md)
