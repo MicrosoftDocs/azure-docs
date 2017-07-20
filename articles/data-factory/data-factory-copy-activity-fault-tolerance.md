@@ -70,8 +70,8 @@ If you configure to log the incompatible rows, to figure out what have been skip
 
 Both the original data and the corresponding error are logged in the file. An example of the log file content is as follows:
 ```
-data1	data2	data3	UserErrorInvalidDataValue	Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.
-data4	data5	data6 	Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
+data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
+data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).,
 ```
 
 ## Next steps
