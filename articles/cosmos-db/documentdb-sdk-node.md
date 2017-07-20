@@ -21,6 +21,7 @@ ms.custom: H1Hack27Feb2017
 # DocumentDB Node.js SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -47,7 +48,12 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using DocumentDB](documentdb-nodejs-application.md)</td></tr>
 
-<tr><td>**Current supported platform**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+<tr><td>**Current supported platform**</td><td> 
+[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
+[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
+[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
+[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
+</td></tr>
 </table></br>
 
 ## Release notes

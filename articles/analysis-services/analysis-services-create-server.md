@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 06/14/2017
 ms.author: owend
 
 ---
@@ -34,8 +34,8 @@ To get started, you need:
 > 
 
 ## To create a server in Azure portal
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **+ New** > **Intelligence + analytics** > **Analysis Services**.
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+2. Click **+ New** > **Data + analytics** > **Analysis Services**.
 3. In the **Analysis Services** blade, fill in the required fields, and then press **Create**.
    
     ![Create server](./media/analysis-services-create-server/aas-create-server-blade.png)

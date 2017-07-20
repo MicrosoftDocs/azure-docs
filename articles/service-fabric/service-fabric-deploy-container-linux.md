@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/16/2017
+ms.date: 6/29/2017
 ms.author: msfussell
 
 ---
@@ -55,31 +55,38 @@ Run the following commands to install docker on your Linux development box (if y
 1. In a terminal, type `yo azuresfcontainer`.
 2. Name your application - for example, mycontainerap
 3. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
+4. If the image does not have a workload entry-point defined, then you need to explicitly specify input commands with a comma-delimited set of commands to run inside the container, which will keep the container running after startup.
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
 ## Deploy the application
+
+### Using XPlat CLI
 Once the application is built, you can deploy it to the local cluster using the Azure CLI.
 
 1. Connect to the local Service Fabric cluster.
 
-```bash
+    ```bash
     azure servicefabric cluster connect
-```
+    ```
 
 2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
-```bash
+    ```bash
     ./install.sh
-```
+    ```
 
 3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
 4. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
 5. Use the uninstall script provided in the template to delete the application instance and unregister the application type.
 
-```bash
+    ```bash
     ./uninstall.sh
-```
+    ```
+
+### Using Azure CLI 2.0
+
+See the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
 For an example application, [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
@@ -117,6 +124,9 @@ In the service manifest, add a `ContainerHost` for the entry point. Then set the
 ```
 
 You can provide input commands by specifying the optional `Commands` element with a comma-delimited set of commands to run inside the container.
+
+> [!NOTE]
+> If the image does not have a workload entry-point defined, then you need to explicitly specify input commands inside `Commands` element with a comma-delimited set of commands to run inside the container, which will keep the container running after startup.
 
 ## Understand resource governance
 Resource governance is a capability of the container that restricts the resources that the container can use on the host. The `ResourceGovernancePolicy`, which is specified in the application manifest is used to declare resource limits for a service code package. Resource limits can be set for the following resources:
@@ -311,3 +321,8 @@ Now that you have deployed a containerized service, learn how to manage its life
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
+
+## Related articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

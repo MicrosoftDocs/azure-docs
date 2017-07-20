@@ -1,6 +1,6 @@
 ---
-title: Introduction to a multi-tenant application that uses Azure SQL Database - Wingtip SaaS | Microsoft Docs 
-description: "Learn by using a sample multi-tenant application that uses Azure SQL Database, the Wingtip SaaS app"
+title: Intro Wingtip SaaS - Azure SQL Database multi-tenant app | Microsoft Docs 
+description: Learn by using a sample multi-tenant application that uses Azure SQL Database, the Wingtip SaaS app
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -20,7 +20,7 @@ ms.author: sstein
 
 The *Wingtip SaaS* application is a sample multi-tenant app, that demonstrates the unique advantages of SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including several SaaS design and management patterns. To quickly get up and running, the Wingtip SaaS app deploys in less than five minutes!
 
-Application source code and management scripts are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. To run the scripts, [download the Learning Modules folder](#download-the-wingtip-saas-scripts) to your local computer.
+Application source code and management scripts are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. To run the scripts, [download the Learning Modules folder](#download-and-unblock-the-wingtip-saas-scripts) to your local computer.
 
 ## SQL Database Wingtip SaaS tutorials
 
@@ -36,7 +36,7 @@ After deploying the app, explore the following tutorials that build upon the ini
 |[Restore a single tenant](sql-database-saas-tutorial-restore-single-tenant.md)| Learn how to restore a tenant database to a prior point in time. Steps to restore to a parallel database, leaving the existing tenant database online, are also included. |
 |[Manage tenant schema](sql-database-saas-tutorial-schema-management.md)| Learn how to update schema, and update reference data, across all Wingtip SaaS tenants. |
 |[Run ad-hoc analytics](sql-database-saas-tutorial-adhoc-analytics.md) | Create an ad-hoc analytics database and run real-time distributed queries across all tenants.  |
-|[Run tenant analytics](sql-database-saas-tutorial-tenant-analytics.md) | Extract tenant data into an analytics database for running offline analytic queries. |
+|[Run tenant analytics](sql-database-saas-tutorial-tenant-analytics.md) | Extract tenant data into an analytics database or data warehouse for running offline analytic queries. |
 
 
 

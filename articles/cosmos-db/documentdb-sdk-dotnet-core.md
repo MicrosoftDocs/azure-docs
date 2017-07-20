@@ -21,6 +21,7 @@ ms.custom: H1Hack27Feb2017
 # DocumentDB .NET Core SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -35,7 +36,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Samples**</td><td>[.NET code samples](documentdb-dotnet-samples.md)</td></tr>
 

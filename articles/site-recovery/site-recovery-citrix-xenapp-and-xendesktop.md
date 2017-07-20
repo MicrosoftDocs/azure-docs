@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -30,7 +30,7 @@ A good disaster recovery solution, should allow modeling of recovery plans aroun
 This document provides a step-by-step guidance for building a disaster recovery solution for your on-premises Citrix XenApp deployments on Hyper-V and VMware vSphere platforms. This document also describes how to perform a test failover(disaster recovery drill) and unplanned
 failover to Azure using recovery plans, the supported configurations and prerequisites.
 
- 
+
 ## Prerequisites
 
 Before you start, make sure you understand the following:
@@ -46,7 +46,7 @@ Before you start, make sure you understand the following:
 
 A Citrix XenApp and XenDesktop farm typically has the following deployment pattern:
 
-**Deployment pattern** 
+**Deployment pattern**
 
 Citrix XenApp and XenDesktop deployment with AD DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server
 
@@ -67,14 +67,14 @@ For the purpose of this article, Citrix deployments on VMware virtual machines m
 
 ### Versions
 Customers can deploy XenApp components as Virtual Machines running on Hyper-V or VMware or as
-Physical Servers. Azure Site Recovery can protect both physical and virtual deployments to Azure. 
-Since XenApp 7.7 or later is supported in Azure, only deployments with these versions can be failed over to Azure for Disaster Recovery or migration. 
+Physical Servers. Azure Site Recovery can protect both physical and virtual deployments to Azure.
+Since XenApp 7.7 or later is supported in Azure, only deployments with these versions can be failed over to Azure for Disaster Recovery or migration.
 
 ### Things to keep in mind
 
 1. Protection and recovery of on-premises deployments using Server OS machines to deliver XenApp published apps and XenApp published desktops is supported.
 
-2. Protection and recovery of on-premises deployments using desktop OS machines to deliver Desktop VDI for client virtual desktops, including Windows 10, is not supported. This is because ASR does not support the recovery of machines with desktop OS’es.  Also, some client virtual desktop flavours (eg. Windows 7) are not yet supported for licensing in Azure. [Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure. 
+2. Protection and recovery of on-premises deployments using desktop OS machines to deliver Desktop VDI for client virtual desktops, including Windows 10, is not supported. This is because ASR does not support the recovery of machines with desktop OS’es.  Also, some client virtual desktop flavours (eg. Windows 7) are not yet supported for licensing in Azure. [Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
 
 3.  Azure Site Recovery cannot replicate and protect existing on-premises MCS or PVS clones.
 You need to recreate these clones using Azure RM provisioning from Delivery controller.
@@ -96,21 +96,21 @@ The following components of the Citrix XenApp deployment need to be protected to
 
 **AD DNS server replication**
 
-Please refer to [Protect Active Directory and DNS with Azure Site Recovery](site-recovery-active-directory.md) on guidance for replicating and configuring a domain controller in Azure. 
+Please refer to [Protect Active Directory and DNS with Azure Site Recovery](site-recovery-active-directory.md) on guidance for replicating and configuring a domain controller in Azure.
 
 **SQL database Server replication**
 
 Please refer to [Protect SQL Server with SQL Server disaster recovery and Azure Site Recovery](site-recovery-sql.md) for detailed technical guidance on the recommended options for protecting SQL servers.
 
-Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the other component virtual machines to Azure. 
+Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the other component virtual machines to Azure.
 
 ![Protection of XenApp Components](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 
 **Compute and Network Settings**
 
 After the machines are protected (status shows as “Protected” under Replicated Items), the Compute and Network settings need to be configured.
-In Compute and Network > Compute properties, you can specify the Azure VM name and target size. 
-Modify the name to comply with Azure requirements if you need to. You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. 
+In Compute and Network > Compute properties, you can specify the Azure VM name and target size.
+Modify the name to comply with Azure requirements if you need to. You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM.
 
 Note the following:
 
@@ -125,7 +125,7 @@ The number of network adapters is dictated by the size you specify for the targe
 * For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.
 *	If the virtual machine has multiple network adapters they will all connect to the same network.
 *	If the virtual machine has multiple network adapters, then the first one shown in the list becomes the Default network adapter in the Azure virtual machine.
- 
+
 
 ## Creating a recovery plan
 
@@ -141,13 +141,13 @@ the Recovery Plan.
 and deployment model as Resource Manager and click on Select items.
 4. For Hyper-V virtual machines:
 Select source as VMM server, target as Microsoft Azure, and deployment model as Resource Manager and
-click on Select items and then select the XenApp deployment VMs. 
+click on Select items and then select the XenApp deployment VMs.
 
 ### Adding virtual machines to failover groups
 
-Recovery plans can be customized to add failover groups for specific startup order, scripts or manual actions. The following groups need to be added to the recovery plan. 
+Recovery plans can be customized to add failover groups for specific startup order, scripts or manual actions. The following groups need to be added to the recovery plan.
 
-1. Failover Group1: AD DNS 
+1. Failover Group1: AD DNS
 2. Failover Group2: SQL Server VMs
 2. Failover Group3: VDA Master Image VM
 3. Failover Group4: Delivery Controller and StoreFront server VMs
@@ -155,16 +155,16 @@ Recovery plans can be customized to add failover groups for specific startup ord
 
 ### Adding scripts to the recovery plan
 
-Scripts can be run before or after a specific group in a recovery plan. Manual actions can be also be included and performed during failover. 
+Scripts can be run before or after a specific group in a recovery plan. Manual actions can be also be included and performed during failover.
 
 The customized recovery plan looks like the below:
 
-1. Failover Group1: AD DNS 
+1. Failover Group1: AD DNS
 2. Failover Group2: SQL Server VMs
 3. Failover Group3: VDA Master Image VM
 
    >[!NOTE] 	
-   >Steps 4, 6 and 7 containing manual or script actions are applicable to only an on-premises XenApp >environment with MCS/PVS catalogs. 
+   >Steps 4, 6 and 7 containing manual or script actions are applicable to only an on-premises XenApp >environment with MCS/PVS catalogs.
 
 4. Group 3 Manual or script action: Shutdown master VDA VM
 The Master VDA VM when failed over to Azure will be in a running state. To create new MCS
@@ -172,24 +172,24 @@ catalogs using Azure ARM hosting, the master VDA VM is required to be in Stopped
 state. Shutdown the VM from Azure Portal.
 
 5. Failover Group4: Delivery Controller and StoreFront server VMs
-6. Group3 manual or script action 1: 
-   
+6. Group3 manual or script action 1:
+
 	***Add Azure RM host connection***
-   
+
    	Create Azure ARM host connection in Delivery Controller machine to provision new MCS
    catalogs in Azure. Follow the steps as explained in this [article](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
 
-7. Group3 manual or script action 2: 
+7. Group3 manual or script action 2:
 
     ***Re-create MCS Catalogs in Azure***
-     
-	The existing MCS or PVS clones on the primary site will not be replicated to Azure. You need to recreate these clones using the replicated master VDA and Azure ARM provisioning from Delivery controller.Follow the steps as explained in this [article](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) to create MCS catalogs in Azure. 
+
+	The existing MCS or PVS clones on the primary site will not be replicated to Azure. You need to recreate these clones using the replicated master VDA and Azure ARM provisioning from Delivery controller.Follow the steps as explained in this [article](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) to create MCS catalogs in Azure.
 
 ![Recovery plan for XenApp Components](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 
 
-   >[!NOTE] 
-   >You can use scripts at [location](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over >virtual machines or to attach a load balancer on the failed over virtual machine, if needed. 
+   >[!NOTE]
+   >You can use scripts at [location](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over >virtual machines or to attach a load balancer on the failed over virtual machine, if needed.
 
 
 ## Doing a test failover
@@ -201,8 +201,8 @@ Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test fai
 
 ## Doing a failover
 
-Follow [this guidance](site-recovery-failover.md) when you are doing a failover. 
+Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
 
 ## Next steps
 
-You can [learn more](https://aka.ms/citrix-xenapp-xendesktop-with-asr) about replicating Citrix XenApp and XenDesktop deployments  in this white paper. Look at the guidance to [replicate other applications](site-recovery-workload.md) using Site Recovery. 
+You can [learn more](https://aka.ms/citrix-xenapp-xendesktop-with-asr) about replicating Citrix XenApp and XenDesktop deployments  in this white paper. Look at the guidance to [replicate other applications](site-recovery-workload.md) using Site Recovery.

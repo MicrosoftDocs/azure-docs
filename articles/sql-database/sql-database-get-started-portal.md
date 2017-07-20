@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
@@ -99,7 +99,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
    > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
    > 
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 

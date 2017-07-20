@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 06/15/2017
 ms.author: robinsh
 
 ---
@@ -21,11 +21,6 @@ ms.author: robinsh
 # Azure Managed Disks Overview
 
 Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or [Standard](storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
-
->[!NOTE]
->VMs with Managed Disks require outbound traffic on port 8443 to report the status of the installed [VM extensions](../virtual-machines/windows/extensions-features.md) to the Azure platform. Provisioning a VM with extensions will fail without the availability of this port. Also, the deployment status of an extension will be unknown if it is installed on a running VM. If you cannot unblock port 8443, you must use unmanaged disks. We are actively working to fix this issue. Please refer to the [FAQ for IaaS VM Disks](storage-faq-for-disks.md#managed-disks-and-port-8443) for more details.
->
->
 
 ## Benefits of managed disks
 
@@ -48,7 +43,7 @@ Managed Disks provides better reliability for Availability Sets by ensuring that
 You can use [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
 
 ### Azure Backup service support
-Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports data disk sizes up to 1TB for backup. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## Pricing and Billing
 
@@ -75,15 +70,17 @@ create a standard managed disk and specify a provisioned size of 200 GB, you are
 
 Here are the disk sizes available for a premium managed disk:
 
-| **Premium Managed <br>Disk Type**  | **P10** | **P20** | **P30**        |
-|------------------|---------|---------|----------------|
-| Disk Size        | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+
 
 Here are the disk sizes available for a standard managed disk:
 
-| **Standard Managed <br>Disk Type** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
-|------------------|---------|---------|----------------|---------|----------------|
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+| **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
+| Disk Size        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+
 
 **Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
 
@@ -124,7 +121,7 @@ There are two kinds of encryption to discuss in reference to managed disks. The 
 
 ### Storage Service Encryption (SSE)
 
-[Azure Storage Service Encryption](storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by Microsoft.  Visit the [Managed Disks FAQ page](storage-faq-for-disks.md#managed-disks-and-storage-service-encryption-sse) for more details.
+[Azure Storage Service Encryption](storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by Microsoft.  Visit the [Managed Disks FAQ page](storage-faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
 
 
 ### Azure Disk Encryption (ADE)
@@ -146,6 +143,8 @@ For more information about Managed Disks, please refer to the following articles
 * [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 
 * [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
+
+* [Use Managed Disks in Azure Resource Manager templates](storage-using-managed-disks-template-deployments.md)
 
 ### Compare Managed Disks storage options
 

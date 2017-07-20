@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/11/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ---
 # Automate Mobility Service installation by using software deployment tools

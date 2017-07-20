@@ -5,13 +5,10 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: mysql
-ms.devlang: na
+editor: jasonwhowell
+ms.service: mysql-database
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.date: 06/07/2017
+ms.date: 06/14/2017
 ms.custom: mvc
 ---
 
@@ -30,6 +27,7 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 ![Azure portal - new - database - MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
 3. Fill out the new server details form with the following information, as shown on the preceding image:
+
 | **Setting** | **Suggested value** | **Field Description** |
 |---|---|---|
 | *Server name* | myserver4demo  | Server name has to be globally unique. |
@@ -43,10 +41,11 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 | *Pricing Tier* | Basic, 50 Compute Units, 50 Storage (GB)  | Choose **Pricing tier**, **Compute Units**, **Storage (GB)**, and then click **OK**. |
 | *Pin to Dashboard* | Check | Recommended to check this box so you may find the server easily later on |
 
-Click **Pricing Tier** to specify the pricing tier and performance level for your new database. For this quick start, select Basic Tier, 50 Compute Units and 50 GB of included storage. Then click **OK** to save the pricing tier.
+   Click **Pricing Tier** to specify the pricing tier and performance level for your new database. For this quick start, select Basic Tier, 50 Compute Units and 50 GB of included storage. Then click **OK** to save the pricing tier.
+   
    ![Azure portal - create MySQL by providing the required form input](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
 
-Then, click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. Click **Notifications** (bell icon) button on the toolbar to monitor the deployment process.
+   Then, click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. Click **Notifications** (bell icon) button on the toolbar to monitor the deployment process.
 
 ## Configure the firewall
 Before connecting to Azure Database for MySQL for the first time, configure the firewall and add the client's public network IP address (or a range) to the whitelist.
@@ -74,17 +73,29 @@ Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
-2. View server status to ensure the connection is functional.
+2. View server status to ensure the connection is functional. Type `status` at the mysql> prompt once it is connected.
 ```sql
- mysql> status
+status
 ```
 
    ![Command prompt - mysql command-line example](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
 
-> [!TIP]
-> For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
+   > [!TIP]
+   > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-You can create multiple databases within a MySQL server. There is no limit to the number of databases that can be created, but multiple databases share the same server resources.  
+3. Create an empty database by typing the `CREATE DATABASE` command at the mysql> prompt.
+
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
+
+   Within an Azure Database for MySQL server, you can have one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. There is no limit to the number of databases that can be created, but multiple databases share the same server resources.  
+
+4. List the databases by typing `SHOW DATABASES` command at the mysql> prompt.
+
+   ```sql
+   SHOW DATABASES;
+   ```
 
 ## Connect to the server using the MySQL Workbench GUI tool
 1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
@@ -108,9 +119,20 @@ Click **Test Connection** to test if all parameters are correctly configured. Cl
 > SSL is enforced by default on your server, and requires extra configuration in order to connect successfully. See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you want to disable SSL for this quick start, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
 
 ## Clean up resources
-If you don't need these resources for another quickstart or tutorial, you can delete them by following these steps:
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myresource**. 
-2. On your resource group page, click **Delete**, type **myresource** in the text box, and then click **Delete**.
+Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+
+> [!TIP]
+> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+
+1.	From the left-hand menu in the Azure portal, click **Resource groups** and then click **myresourcegroup**.
+2.	On your resource group page, click **Delete**, type **myresourcegroup** in the text box, and then click Delete.
+
+If you would like to delete the newly created server:
+1.	From the left-hand menu in Azure portal, click PostgreSQL servers and then search for the server you just created
+2.	On the Overview page, click the Delete button on the top pane
+![Azure Database for MySQL - Delete server](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **myserver4demo** in the text box, and then click Delete.
+
 
 ## Next steps
 

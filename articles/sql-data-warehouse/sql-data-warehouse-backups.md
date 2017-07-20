@@ -51,6 +51,11 @@ This feature is on by default. If you don't want to use geo-redundant backups, y
 > 
 > 
 
+> [!NOTE]
+> You cannot opt out of geo-redundant backups with DWU 9000 and DWU 18000. 
+>
+> 
+
 To learn more about:
 
 * Geo-redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md).

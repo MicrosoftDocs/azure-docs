@@ -3,6 +3,7 @@
 ## [Concepts](devtest-lab-concepts.md)
 ## Scenarios
 ### [Use labs for developers](devtest-lab-developer-lab.md)
+### [Use labs for test environments](devtest-lab-test-env.md)
 ### [Use labs for training](devtest-lab-training-lab.md)
 
 # Get started
@@ -40,6 +41,7 @@
 
 ## Manage reusable templates
 ### [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md)
+### [Use a resource manager template](devtest-lab-use-resource-manager-template.md)
 ### [Create custom artifacts](devtest-lab-artifact-author.md)
 ### [Manage formulas](devtest-lab-manage-formulas.md)
 

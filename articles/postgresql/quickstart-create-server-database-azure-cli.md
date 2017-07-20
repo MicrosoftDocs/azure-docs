@@ -6,27 +6,19 @@ author: sanagama
 ms.author: sanagama
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: postgresql-database
-ms.custom: mvc
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: hero-article
-ms.date: 05/31/2017
+ms.date: 06/13/2017
 ---
 # Create an Azure Database for PostgreSQL using the Azure CLI
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to create an Azure Database for PostgreSQL server in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) using the Azure CLI.
 
-You may use the Azure Cloud Shell in the browser to run these Azure CLI commands, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer. 
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-## Log in to Azure
-If you are using the Azure Cloud Shell follow the on screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli-interactive
-az login
-```
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource will be billed. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
 ```azurecli-interactive
@@ -65,8 +57,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 
 > [!NOTE]
-> Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
->
+> Azure PostgreSQL server communicates over port 5432. When connecting from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. Have your IT department open port 5432 to connect to your Azure SQL Database server.
 
 ## Get the connection information
 

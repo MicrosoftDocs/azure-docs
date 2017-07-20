@@ -8,7 +8,7 @@ manager: carmonm
 editor: ''
 
 ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
-ms.service: get-started-article
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -158,7 +158,7 @@ Yes. You can read more about throttling bandwidth in the deployment articles:
 
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
 * [Capacity planning for replicating Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#capacity-planning)
-* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#capacity-planning)
+* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md)
 
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure virtual machines after failover?

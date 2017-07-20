@@ -9,7 +9,7 @@ editor: tysonn
 
 ms.assetid: 9011f567-e0b4-4306-951a-b30da19f5db6
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

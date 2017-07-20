@@ -8,14 +8,17 @@ manager: femila
 editor: ''
 
 ms.assetid: 04813a42-d40a-48d6-ae96-15b7e5025884
-ms.service: active-directoryms.workload: identity
+ms.service: active-directory
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
+ms.reviewer: rodejo
 
 ---
+
 # Populate groups dynamically based on object attributes 
 The Azure classic portal provides you with the ability to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
 
@@ -199,12 +202,12 @@ is equivalent to
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
 
-Extension attributes are synced from on premise Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
+Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
 An example of a rule that uses an extension attribute would be
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Custom Attributes are synced from on premise Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
+Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
 An example of a rule that uses a custom attribute is
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
