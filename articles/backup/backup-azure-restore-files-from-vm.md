@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 20/7/2017
 ms.author: pullabhk;markgal
 
 ---
-# Recover files from Azure virtual machine backup (Preview)
+# Recover files from Azure virtual machine backup
 
 Azure backup provides the capability to restore [Azure VMs and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups. Now this article explains how you can recover items such as files and folders from an Azure VM backup.
 
