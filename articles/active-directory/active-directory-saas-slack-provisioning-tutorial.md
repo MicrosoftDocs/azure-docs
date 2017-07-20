@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/20/2017
 ms.author: asmalser-msft
+
 ---
 
 # Tutorial: Configuring Slack for Automatic User Provisioning
