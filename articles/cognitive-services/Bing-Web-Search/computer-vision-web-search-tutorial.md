@@ -411,7 +411,7 @@ This application provides a general framework for a Xamarin.Forms application im
 * Use the [Bing Image Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/) image insights capability to learn more about your captured image and find similar images on the web
 * Leverage [Bing Spell Check](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) to further improve the quality of your parsed text
 * Integrate the [Microsoft Translator](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/) to see your extracted text in different languages  
-* Mix and match countless other services from [Azure](https://azure.microsoft.com/en-us/services/cognitive-services/) to build your own novel utilities. 
+* Mix and match countless other services from the [Cognitive Services Portal](https://azure.microsoft.com/en-us/services/cognitive-services/) to build your own novel utilities. 
 
 ## Related Topics
  * [C# Ranking Tutorial](./csharp-ranking-tutorial.md)
