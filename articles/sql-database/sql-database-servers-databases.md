@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/01/2017
+ms.date: 07/20/2017
 ms.author: carlrab
 
 ---
