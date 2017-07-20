@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## Build the container image
 
-The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image](dockerhub-nodeimage) based on [Alpine Linux](https://alpinelinux.org/), a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
+The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image][dockerhub-nodeimage] based on [Alpine Linux](https://alpinelinux.org/), a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
 
 ```
 FROM node:8.2.0-alpine
