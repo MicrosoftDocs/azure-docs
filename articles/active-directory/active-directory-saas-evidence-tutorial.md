@@ -106,9 +106,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Evidence.com Domain and URLs single sign-on information](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.evidence.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<yourtenant>.evidence.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.evidence.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<yourtenant>.evidence.com`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Evidence.com Client support team](https://communities.taser.com/support/SupportContactUs?typ=LE) to get these values. 
@@ -187,7 +187,7 @@ For Azure AD users to be able to sign in, they must be provisioned for access in
 
 4. Click the **Add** button.
 
-5. The **Email Address** of the added user must match the username of the users in Azure AD who you wish to give access. If the username and email address are not the same value in your organization, you can use the **Evidence.com > Attributes > Single Sign-On** section of the Azure classic portal to change the nameidenitifer sent to Evidence.com to be the email address.
+5. The **Email Address** of the added user must match the username of the users in Azure AD who you wish to give access. If the username and email address are not the same value in your organization, you can use the **Evidence.com > Attributes > Single Sign-On** section of the Azure portal to change the nameidenitifer sent to Evidence.com to be the email address.
 
 ### Assign the Azure AD test user
 
