@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/20/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname-pricing>.dev.ordering.predictix.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern: 
+	| |
+	|--|
+	| `https://<companyname-pricing>.dev.ordering.predictix.com` |
+	| `https://<companyname-pricing>.ordering.predictix.com` |
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Predictix Ordering Client support team](https://www.predix.io/support/) to get these values. 
@@ -124,9 +128,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. On the **Predictix Ordering Configuration** section, click **Configure Predictix Ordering** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Predictix Ordering Configuration](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_configure.png) 
-
+<CS>
 7. To configure single sign-on on **Predictix Ordering** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Predictix Ordering support team](https://www.predix.io/support/). They set this setting to have the SAML SSO connection set properly on both sides.
-
+<CE>
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
