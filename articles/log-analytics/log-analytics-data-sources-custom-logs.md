@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/13/2017
 ms.author: bwren
 
 ---
@@ -132,6 +132,15 @@ The following table provides different examples of log searches that retrieve re
 |:--- |:--- |
 | Type=MyApp_CL |All events from a custom log named MyApp_CL. |
 | Type=MyApp_CL Severity_CF=error |All events from a custom log named MyApp_CL with a value of *error* in a custom field named *Severity_CF*. |
+
+>[!NOTE]
+> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+
+> | Query | Description |
+|:--- |:--- |
+| MyApp_CL |All events from a custom log named MyApp_CL. |
+| MyApp_CL &#124; where Severity_CF=="error" |All events from a custom log named MyApp_CL with a value of *error* in a custom field named *Severity_CF*. |
+
 
 ## Sample walkthrough of adding a custom log
 The following section walks through an example of creating a custom log.  The sample log being collected has a single entry on each line starting with a date and time and then comma delimited fields for code, status, and message.  Several sample entries are shown below.

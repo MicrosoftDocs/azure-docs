@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/16/2017
+ms.date: 07/12/2017
 ms.author: magoedte
 
 ---
@@ -216,6 +216,23 @@ The following table provides different examples of log searches that retrieve Pe
 | Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |Hourly 70 percentile of every % percent counter for a particular computer |
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
 | Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2.  
+
+>[!NOTE]
+> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+
+> | Query | Description |
+|:--- |:--- |
+| Perf |All Performance data |
+| Perf &#124; where Computer == "MyComputer" |All Performance data from a particular computer |
+| Perf &#124; where CounterName == "Current Disk Queue Length" |All Performance data for a particular counter |
+| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |Average CPU Utilization across all computers |
+| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |Maximum CPU Utilization across all computers |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Average Current Disk Queue length across all  the instances of a given computer |
+| Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |95th Percentile of Disk Transfers/Sec across all computers |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Hourly average of CPU usage across all computers |
+| Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Hourly 70 percentile of every % percent counter for a particular computer |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
+| Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2.  
 
 ## Viewing performance data
 When you run a log search for performance data, the **List** view is displayed by default.  To view the data in graphical form, click **Metrics**.  For a detailed graphical view, click the **+** next to a counter.  
