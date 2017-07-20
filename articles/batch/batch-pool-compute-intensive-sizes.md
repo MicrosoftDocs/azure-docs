@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/20/2017
 ms.author: danlep
 
 
@@ -22,14 +22,14 @@ ms.author: danlep
 
 When running certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example, to run multi-instance [MPI workloads](batch-mpi.md), you can choose RDMA-capable A8, A9, or H-series sizes. These sizes use an InfiniBand network for inter-node communcation, which can accelerate MPI applications. Or for CUDA applications, you can choose N-series sizes that include NVIDIA Tesla GPU cards.
 
-This article provides guidance and examples to use some of Azure's specialized sizes in Batch pools. For specs and background on these sizes, see:
+This article provides guidance and examples to use some of Azure's specialized sizes in Batch pools. For specs and background, see:
 
 * High performance compute VM sizes - [Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md) 
 
 * GPU-enabled VM sizes - [Linux](../virtual-machines/linux/sizes-gpu.md), [Windows](../virtual-machines/windows/sizes-gpu.md) 
 
 
-## Subscription and account considerations
+## Subscription and account limits
 
 * **Quotas** - One or more Azure quotas may limit the number or type of nodes you can add to a Batch pool. You are more likely to be limited when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. Depending on the type of Batch account you created, the quotas could apply to the account itself or to your subscription.
 
@@ -67,10 +67,10 @@ The RDMA and GPU capabilties of compute-intensive sizes are supported only in ce
 | [NC series](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Windows Server 2016<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit 8.0 | N/A | 
 | [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Windows Server 2016<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID 4.2 drivers | N/A |
 
-### Windows pools - Cloud service configuration
+### Windows pools - Cloud services configuration
 
 > [!NOTE]
-> N-series sizes are not supported in Batch pools with the cloud service configuration.
+> N-series sizes are not supported in Batch pools with the cloud services configuration.
 >
 
 | Size | Capability | Operating systems | Required software | Pool settings |
@@ -83,7 +83,7 @@ The RDMA and GPU capabilties of compute-intensive sizes are supported only in ce
 
 ## Pool configuration options
 
-When using a specialized VM size for your Batch pool, you have several options in the Batch APIs and tools to install required software or drivers. For example:
+When using a specialized VM size for your Batch pool, you have several options in the Batch APIs and tools to install required software or drivers. Options include:
 
 * [Start task](batch-api-basics.md#start-task) - Upload an installation package as a resource file to an Azure storage account in the same region as the Batch account. Create a start task command line to install the resource file silently when the pool starts. For example, see 
 
@@ -91,33 +91,58 @@ When using a specialized VM size for your Batch pool, you have several options i
   > The start task must run with elevated (admin) permissions, and it must wait for success.
   >
 
-* [Application package](batch-application-package.md) - Add a zipped installation package to your Batch account, and configure a package reference in the pool. The setting uploads and unzips the package on to all nodes in the pool. If the package is an installer, configure a command line to silently install the app on all pool nodes as a start task, or when a task is scheduled to run on a node.
+* [Application package](batch-application-package.md) - Add a zipped installation package to your Batch account, and configure a package reference in the pool. The setting uploads and unzips the package on all nodes in the pool. If the package is an installer, create a start task command line to silently install the app on all pool nodes. Optionally, install the package when a task is scheduled to run on a node.
 
-* [Custom VM image]() - Create a custom Windows or Linux VM image that contains drivers, software, or other settings required for a particular VM size. If you created your Batch account in the user subscription configuration, you can deploy the custom image to your Batch pool. Custom images can only be used with pools in the virtual machine configuration.
+* [Custom pool image](batch-api-basics.md#pool) - Create a custom Windows or Linux VM image that contains drivers, software, or other settings required for a particular VM size. If you created your Batch account in the user subscription configuration, you can specify the custom image for your Batch pool. (Custom images are not supported in accounts in the Batch service configuration.) Custom images can only be used with pools in the virtual machine configuration.
 
-* [Batch Shipyard](https://github.com/Azure/batch-shipyard) - Use one of the recipes to create a Linux Batch pool with an RDMA-capable or GPU enabled VM size. Then, run Dockerized container tasks on the pool. For example, the [CNTK](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) recipe uses N-series VM sizes and preconfigures GPU drivers and Microsoft Cognitive Toolkit software.
-
-
-
-
+  > [!IMPORTANT]
+  > In Batch pools, you can't currently use a custom image created with managed disks or with Premium storage.
+  >
 
 
 
-
-
-
-
-
-    
-
-
-
+* [Batch Shipyard](https://github.com/Azure/batch-shipyard) - Use one of the recipes to create a Linux Batch pool with an RDMA-capable or GPU enabled VM size. Then, run Dockerized container tasks on the pool. For example, the [CNTK](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) recipe uses N-series VM sizes, and it preconfigures GPU drivers and Microsoft Cognitive Toolkit software.
 
 
 ## Example: Microsoft MPI on an A8 VM pool
 
+To run Windows MPI applications on a pool of Azure A8 nodes, you need to install a supported MPI implementation. Here are sample steps to install [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) on a Windows pool using a Batch application package.
 
-## Example: NVIDA Tesla drivers on NC VM pool
+1. Download the [setup package](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) for the latest version of Microsoft MPI.
+2. Create a zip file of the package.
+3. Upload the package to your Batch account. For steps, see the [application packages](batch-application-packages.md) guidance. Specify an application id such as *MSMPI*, and a version such as *8.1*. 
+4. Using the Batch APIs or Azure portal, create a pool in the cloud services configuration with the desired number of nodes and scale. Here are sample settings to set up MPI in unattended mode using a start task:
+  * **Image Type** - Cloud Services
+  * **OS family** - Windows Server 2012 R2 (OS family 4)
+  * **Node size** - A8 Standard
+  * **Internode communication enabled** - True
+  * **Max tasks per node** - 1
+  * **Application package references** - MSMPI
+  * **Start task enabled** - True
+      * **Command line** - `"cmd /c %AZ_BATCH_APP_PACKAGE_MSMPI#8.1%\\MSMpiSetup.exe -unattend -force"`
+      * **User identity** - Pool autouser, admin
+      * **Wait for success** - True
+
+
+
+
+## Example: NVIDIA Tesla drivers on NC VM pool
+
+To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA Toolkit 8.0 on the nodes. The Toolkit installs the necessary NVIDIA Tesla GPU drivers. Here are sample steps to deploy a custom Ubuntu 16.04 LTS image with the necessary drivers:
+
+1. Deploy an Azure NC6 VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with standard storage, and *without* managed disks.
+2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
+3. Deprovision the Linux agent, and then capture the Linux VM image using the Azure CLI 1.0 commands. For steps, see [Capture a Linux virtual machine running on Azure](../linux/capture-image-nodejs.md). Make a note of the image URI.
+  > [!IMPORTANT]
+  > Do not use Azure CLI 2.0 commands to capture the image for Azure Batch.
+  >
+4. Create a Batch account with the user subscription configuration in a region that supports NC VMs.
+5. Using the Batch APIs or Azure portal, create a pool using the custom image and with the desired number of nodes and scale. Here are sample settings:
+
+  * **Image Type** - Custom Image
+  * **Custom Image** - Image URI of the form `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+  * **Node agent SKU id** - batch.node.ubuntu 16.04
+  * **Node size** - NC6 Standard
 
 
 
