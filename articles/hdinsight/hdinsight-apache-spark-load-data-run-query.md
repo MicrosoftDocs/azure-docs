@@ -14,45 +14,35 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/20/2017
 ms.author: nitinme
 
 ---
 # Run interactive queries on an HDInsight Spark cluster
 
-In this section, you use Jupyter notebook to run interactive Spark SQL queries against the Spark cluster you created earlier. HDInsight Spark clusters provide three kernels that you can use with the Jupyter notebook. These are:
+In this article, you use a Jupyter notebook to run interactive Spark SQL queries against a Spark cluster. Jupyter notebook is a browser-based application that extends the console-based interactive experience to the Web. For more information, see [The Jupyter notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html).
 
-* **PySpark** (for applications written in Python)
-* **PySpark3** (for applications written in Python3)
-* **Spark** (for applications written in Scala)
-
-In this article, you use the **PySpark** kernel in the notebook from where you run the interactive Spark SQL query. For more information about the kernels, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Some of the key benefits of using the PySpark kernel are:
-
-* The contexts for Spark and Hive are set automatically.
-* Use cell magics, such as `%%sql`, to directly run interactive SQL or Hive queries, without any preceding code snippets.
-* The output from the interactive queries is automatically visualized.
+For this tutorial, you use the **PySpark** kernel in the Jupyter notebook to run an interactive Spark SQL query. Jupyter notebooks on HDInsight clusters also support two other kernels - **PySpark3** and **Spark**. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 ## Prerequisites
 
-* **An Azure HDInsight Spark cluster**. Make sure you have already created ann HDInsight Spark cluster in Azure. For instructions, see [Create an Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* **An Azure HDInsight Spark cluster**. For instructions, see [Create an Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Create a Jupyter notebook to run interactive queries
 
-Before you can run queries using the Jupyter notebook, you must load some sample data against which you run the queries. In this section, you look at how to:
+To run queries, we use sample data that is by default available in the storage associated with the cluster. However, you must first load that data into Spark as a dataframe. Once you have the dataframe, you can run queries on it using the Jupyter notebook. In this section, you look at how to:
 
 * Register a sample data set as a Spark dataframe.
-* Run queries on the data set.
+* Run queries on the dataframe.
 
-1. Open the [Azure portal](https://portal.azure.com/).
-
-2. If you opted to pin the cluster to the dashboard, click the cluster tile from the dashboard to launch the cluster blade.
+1. Open the [Azure portal](https://portal.azure.com/). If you opted to pin the cluster to the dashboard, click the cluster tile from the dashboard to launch the cluster blade.
 
 	If you did not pin the cluster to the dashboard, from the left pane, click **HDInsight clusters**, and then click the cluster you created.
 
 3. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-   ![Open Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-load-data-run-query/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Open Jupyter notebook to run interactive Spark SQL query")
+   ![Open Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Open Jupyter notebook to run interactive Spark SQL query")
 
    > [!NOTE]
    > You may also access the Jupyter notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
@@ -80,7 +70,11 @@ Before you can run queries using the Jupyter notebook, you must load some sample
 
     Every time you run an interactive query in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
 
-6. Register a sample data set as a temporary table (**hvac**) by running the following code.
+6. Before you load the data into a Spark cluster, let us look a snapshot of it. The sample data used in this tutorial is available as a CSV file on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. The data captures the temperature variations of a building. Here are the first few rows of the data.
+
+    ![Snapshot of data for interactive Spark SQL query](./media/hdinsight-apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
+
+6. Create a dataframe and a temporary table (**hvac**) by running the following code. For this tutorial, we do not create all the columns in the temporary table as compared to the columns in the raw CSV data. 
 
 		# Load the data
 		hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -97,9 +91,7 @@ Before you can run queries using the Jupyter notebook, you must load some sample
 		# Register the data frame as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-    Spark clusters in HDInsight come with a sample data file, **hvac.csv**, under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
-
-7. To run interactive query on the data, use the following code.
+7. Once the table is created, run interactive query on the data, use the following code.
 
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"

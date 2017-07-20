@@ -22,7 +22,7 @@ ms.author: nitinme
 ---
 # Create an Apache Spark cluster in Azure HDInsight
 
-In this article, you learn how to create an HDInsight Spark cluster in Azure.
+In this article, you learn how to create an Apache Spark cluster in Azure HDInsight.
 
    ![Quickstart diagram describing steps to create an Apache Spark cluster on Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark quickstart using Apache Spark in HDInsight. Steps illustrated: create a cluster; run Spark interactive query")
 
@@ -44,9 +44,9 @@ In this section, you create an HDInsight Spark cluster using an [Azure Resource 
 
 	* **Subscription**: Select your Azure subscription for this cluster.
 	* **Resource group**: Create a resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
-	* **Location**: Select a location for the resource group.  This location is also used for the default cluster storage and the HDInsight cluster.
-	* **ClusterName**: Enter a name for the Hadoop cluster that you create.
-	* **Spark version**: Select the Spark version that you want to install on the cluster.
+	* **Location**: Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage.
+	* **ClusterName**: Enter a name for the HDInsight cluster that you want to create.
+	* **Spark version**: Select **2.0** as the version that you want to install on the cluster.
 	* **Cluster login name and password**: The default login name is admin.
 	* **SSH user name and password**.
 
@@ -57,7 +57,7 @@ In this section, you create an HDInsight Spark cluster using an [Azure Resource 
 If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. See [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters) for more information.
 
 > [!NOTE]
-> This article creates a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as additional storage, in addition to Azure Storage Blobs as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+> This article creates a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 >
 >
 
