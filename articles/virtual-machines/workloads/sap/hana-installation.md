@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # How to install and configure SAP HANA (large instances) on Azure
 
-Some definitions upfront before reading this guide. In [SAP HANA (large instances) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) we introduced two different classes of HANA Large Instance units with:
+Following are some important definitions to know before you read this guide. In [SAP HANA (large instances) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) we introduced two different classes of HANA Large Instance units with:
 
 - S72, S72m, S144, S144m, S192, and S192m, which we refer to as the 'Type I class' of SKUs.
 - S384, S384m, S384xm, S576, S768, and S960, which we refer to as the 'Type II class' of SKUs.
@@ -31,7 +31,10 @@ Other definitions we use frequently are:
 - **SAP HANA on Azure (Large Instances):** Official name for the offer in Azure to run HANA instances in on SAP HANA TDI certified hardware that is deployed in Large Instance stamps in different Azure regions. The related term **HANA Large Instance** is short for SAP HANA on Azure (Large Instances) and is widely used this technical deployment guide.
 
 
-The installation of SAP HANA is your responsibility and you can start the activity after handoff of a new SAP HANA on Azure (Large Instances) server. And after the connectivity between your Azure VNet(s) and the HANA Large Instance unit(s) got established. Note, per SAP policy, installation of SAP HANA must be performed by a person certified to perform SAP HANA installations. A person, who has passed the Certified SAP Technology Associate exam, SAP HANA Installation certification exam, or by an SAP-certified system integrator (SI).
+The installation of SAP HANA is your responsibility and you can start the activity after handoff of a new SAP HANA on Azure (Large Instances) server. And after the connectivity between your Azure VNet(s) and the HANA Large Instance unit(s) got established. 
+
+> [!Note]
+> Per SAP policy, the installation of SAP HANA must be performed by a person certified to perform SAP HANA installations. A person, who has passed the Certified SAP Technology Associate exam, SAP HANA Installation certification exam, or by an SAP-certified system integrator (SI).
 
 Check again, especially when planning to install HANA 2.0, [SAP Support Note #2235581 - SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581/E) in order to make sure that the OS is supported with the SAP HANA release you decided to install. You realize that the supported OS for HANA 2.0 is more restricted than the OS supported for HANA 1.0. 
 
@@ -299,11 +302,7 @@ If you ran into the issue that you needed to fix based on the steps of the SUSE 
 
 ![Client registration succeeded](./media/hana-installation/image14_finish_client_config.PNG)
 
-With this step, you configured the SMT client of the HANA Large Instance unit to connect against the SMT server you installed in the Azure VM. You now can take 'zypper up' or 'zypper in' to install OS patches to HANA Large Instances or install additional packages. 
-
-![Client registration succeeded](./media/hana-installation/image15_use_zypper.PNG)
-
-it is understood that you only can get patches that you downloaded before on the SMT server.
+With this step, you configured the SMT client of the HANA Large Instance unit to connect against the SMT server you installed in the Azure VM. You now can take 'zypper up' or 'zypper in' to install OS patches to HANA Large Instances or install additional packages. It is understood that you only can get patches that you downloaded before on the SMT server.
 
 
 ## Example of an SAP HANA installation on HANA Large Instances
@@ -402,11 +401,7 @@ In the next step, you also need to retrieve data you gave to Microsoft when you 
 
 In the next two screens, which we are not showing in this documentation, you need to provide the password for the SYSTEM user of the SAP HANA database and the password for the sapadm user, which is used for the SAP Host Agent that gets installed as part of the SAP HANA database instance.
 
-After defining the password, a confirmation screen like the following is showing up
-
-![Review confirmation screen](./media/hana-installation/image26_confirmation_screen.PNG)
-
-If you continue from the confirmation screen, you see a progress screen that documents the installation progress, like the one below
+After defining the password, a confirmation screen is showing up. check all the data listed and continue with the installation. You reach a progress screen that documents the installation progress, like the one below
 
 ![Check installation progress](./media/hana-installation/image27_show_progress.PNG)
 
