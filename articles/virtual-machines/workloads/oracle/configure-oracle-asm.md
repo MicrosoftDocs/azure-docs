@@ -3,7 +3,7 @@ title: Set up Oracle ASM on an Azure Linux virtual machine | Microsoft Docs
 description: Quickly get Oracle ASM up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
+author: rickstercdn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,55 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/2/2017
-ms.author: v-shiuma
+ms.date: 07/19/2017
+ms.author: rclaus
 ---
 
 # Set up Oracle ASM on an Azure Linux virtual machine  
 
-In this article, learn how to install and set up Oracle Automatic Storage Management (Oracle ASM) on an Oracle Linux virtual machine (VM) in Azure.
+Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment combined with the installation and configuration of Oracle Automated Storage Management (ASM).  You learn how to:
 
-Before you begin, make sure that Azure CLI is installed. For more information, see [the Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Create and connect to a VM
+> * Select and use VM images
+> * View and use specific VM sizes
+> * Resize a VM
+> * View and understand VM state
+
+
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Prepare the environment
 
-### Sign in to Azure 
-
-In Azure CLI, to sign in to your Azure subscription, use the [az login](/cli/azure/#login) command. Then, follow the on-screen instructions.
-
-```azurecli
-az login
-```
-
 ### Create a resource group
 
-To create a resource group, use the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. 
+To create a resource group, use the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* in the *eastus* region.
 
-The following example creates a resource group named myResourceGroup in the westus location.
-
-```azurecli
-az group create --name myResourceGroup --location westus
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
 ### Create a VM
 
-To create a VM to use with Oracle ASM, complete the following steps:
+To create a virtual machine based on the Oracle Database image and configure it to use Oracle ASM, use the [az vm create](/cli/azure/vm#create) command. 
 
-1. To create a virtual machine, use the [az vm create](/cli/azure/vm#create) command. 
+The following example creates a VM named myVM that is a Standard_DS2_v2 size with four attached data disks of 50 GB each. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-   The following example creates a VM named myVM. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
-
-   ```azurecli
-   az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --size Standard_DS2_v2 --generate-ssh-keys
+   ```azurecli-interactive
+   az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image Oracle:Oracle-Database-Ee:12.1.0.2:latest \
+    --size Standard_DS2_v2 \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 50 50 50 50
    ```
 
-   After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You use this address to access the VM.
+After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You will use this address to access the VM.
 
    ```azurecli
    {
      "fqdns": "",
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-     "location": "westus",
+     "location": "eastus",
      "macAddress": "00-0D-3A-36-2F-56",
      "powerState": "VM running",
      "privateIpAddress": "10.0.0.4",
@@ -71,18 +74,9 @@ To create a VM to use with Oracle ASM, complete the following steps:
    }
    ```
 
-2. Add disks to use for your Oracle ASM configuration:
-
-   ```azurecli
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk2 --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk3 --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM  --disk myDataDisk4 --new --size-gb 50
-   ```
-
 ### Connect to the VM
 
-To create an SSH session with the VM, use the following command. Replace the IP address with the `publicIpAddress` value for your VM.
+To create an SSH session with the VM and configure additional settings, use the following command. Replace the IP address with the `publicIpAddress` value for your VM.
 
 ```bash 
 ssh <publicIpAddress>
@@ -94,67 +88,79 @@ To install Oracle ASM, complete the following steps.
 
 For more information about installing Oracle ASM, see [Oracle ASMLib Downloads for Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
-1. Run `yum list`:
+1. You need to login as root in order to continue with ASM installation.:
 
    ```bash
-   $ sudo su -
-   # yum list
+   sudo su -
    ```
-   It might take several minutes for `yum list` to load the first time you run it.
-
-2. Run these additional commands:
+   
+2. Run these additional commands to install Oracle ASM components:
 
    ```bash
-   # yum list | grep oracleasm
-   # yum -y install kmod-oracleasm.x86_64
-   # yum -y install oracleasm-support.x86_64
-   # wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm
-   # yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm
-   # rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
+    yum list | grep oracleasm &&\
+    yum -y install kmod-oracleasm.x86_64 &&\
+    yum -y install oracleasm-support.x86_64 &&\
+    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm &&\
+    yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm &&\
+    rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
 
 3. Verify that Oracle ASM is installed:
 
    ```bash
-   # rpm -qa |grep oracleasm
+   rpm -qa |grep oracleasm
+   ```
+
+    The output of this command should list the following components:
+
+    ```bash
    oracleasm-support-2.1.10-4.el6.x86_64
    kmod-oracleasm-2.0.8-15.el6_9.x86_64
    oracleasmlib-2.0.12-1.el6.x86_64
-   ```
+    ```
 
-4. Add users and groups:
-
-   ```bash
-   # groupadd -g 54345 asmadmin
-   # groupadd -g 54346 asmdba
-   # groupadd -g 54347 asmoper
-   # useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid
-   # usermod -g oinstall -G dba,asmdba,asmadmin oracle
-   ```
-
-5. Verify users and groups:
+4. ASM requires specific users and roles in order to function correctly. The following commands will create the pre-requisite user accounts and groups: 
 
    ```bash
-   # id grid
-   uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
+    groupadd -g 54345 asmadmin &&\
+    groupadd -g 54346 asmdba &&\
+    groupadd -g 54347 asmoper &&\
+    useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid &&\
+    usermod -g oinstall -G dba,asmdba,asmadmin oracle
    ```
 
-6. Create a folder and change the owner:
+5. Verify users and groups were create correctly:
 
    ```bash
-   # mkdir /u01/app/grid
-   # chown grid:oinstall /u01/app/grid
+   id grid
+   ```
+
+    The output of this command should list the following users and groups:
+
+    ```bash
+    uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
+    ```
+ 
+6. Create a folder for user *grid* and change the owner:
+
+   ```bash
+   mkdir /u01/app/grid &&\
+   chown grid:oinstall /u01/app/grid
    ```
 
 ## Set up Oracle ASM
 
 For this tutorial, the default user is *grid* and the default group is *asmadmin*. Ensure that the *oracle* user is part of the asmadmin group. To set up your Oracle ASM installation, complete the following steps:
 
-1. Set the Oracle ASM library driver:
+1. Seting up the Oracle ASM library driver involves defining the default user (grid) and default group (asmadmin) as well as configuring the drive to start on boot (choose y) and to scan for disks on boot (choose y). You will need to answer the prompts from the following command:
 
    ```bash
-   # /usr/sbin/oracleasm configure -i
+   /usr/sbin/oracleasm configure -i
+   ```
 
+The output of this command should look similar to the following, stopping with prompts to be answered.
+
+    ```bash
    Configuring the Oracle ASM library driver.
 
    This will configure the on-boot properties of the Oracle ASM library
@@ -172,13 +178,33 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
 2. View the disk configuration:
    ```bash
-   # cat /proc/partitions
+   cat /proc/partitions
    ```
 
-3. Format the disk:
+The output of this command should look simiar to the following listing of available disks
+
+    ```bash
+   8       16   14680064 sdb
+   8       17   14678976 sdb1
+   8        0   52428800 sda
+   8        1     512000 sda1
+   8        2   51915776 sda2
+   8       48   52428800 sdd
+   8       64   52428800 sde
+   8       80   52428800 sdf
+   8       32   52428800 sdc
+  11        0       1152 sr0
+    ```
+
+3. Format disk */dev/sdc* by running the following command and answering the prompts with *n* for new partition, *p* for primary partition, *1* to select the first partition, press `enter` for the default first cylinder, press `enter` for the default last cylinder and finally press *w* to write the changes to the partition table.  
 
    ```bash
-   # fdisk /dev/sdc
+   fdisk /dev/sdc
+    ```
+   
+Using the answers provided above, the output for the fdisk command should look like the following:
+
+    ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
    Changes will remain in memory only, until you decide to write them.
@@ -212,12 +238,17 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    Syncing disks.
    ```
 
-4. Repeat the preceding step for /dev/sdd, /dev/sde, and /dev/sdf.
+4. Repeat the preceding fdisk command for `/dev/sdd`, `/dev/sde`, and `/dev/sdf`.
 
 5. Check the disk configuration:
 
    ```bash
-   # cat /proc/partitions
+   cat /proc/partitions
+    ```
+
+The output of the command should look like the following;
+
+    ```bash
    major minor  #blocks  name
 
      8       16   14680064 sdb
@@ -236,70 +267,77 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
      11        0    1048575 sr0
    ```
 
-6. Check the Oracle ASM service status:
+6. Check the Oracle ASM service status and start the Oracle ASM service:
 
    ```bash
-   # service oracleasm status
+   service oracleasm status &&\
+   service oracleasm start
+    ```
+
+The output of the command should look like the following:
+   
+    ```bash
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
-   ```
-
-7. Start the Oracle ASM service:
-
-   ```bash
-   # service oracleasm start
    Initializing the Oracle ASMLib driver:                     [  OK  ]
    Scanning the system for Oracle ASMLib disks:               [  OK  ]
    ```
 
-8. Create Oracle ASM disks:
+7. Create Oracle ASM disks:
 
    ```bash
-   # service oracleasm createdisk ASMSP /dev/sdc1
+    service oracleasm createdisk ASMSP /dev/sdc1 &&\
+    service oracleasm createdisk DATA /dev/sdd1 &&\
+    service oracleasm createdisk DATA1 /dev/sde1 &&\
+    service oracleasm createdisk FRA /dev/sdf1
+   ```    
+
+The output of the command should look like the following:
+
+    ```bash
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
-
-   # service oracleasm createdisk DATA /dev/sdd1
    Marking disk "DATA" as an ASM disk:                        [  OK  ]
-
-   # service oracleasm createdisk DATA1 /dev/sde1
    Marking disk "DATA1" as an ASM disk:                       [  OK  ]
-
-   # service oracleasm createdisk FRA /dev/sdf1
    Marking disk "FRA" as an ASM disk:                         [  OK  ]
-   ```
+    ```
 
-9. List Oracle ASM disks:
+8. List Oracle ASM disks:
 
    ```bash
-   # service oracleasm listdisks
-   ASMSP
-   DATA
-   DATA1
-   FRA
+   service oracleasm listdisks
+   ```   
+
+The output of the command should list off the following Oracle ASM disks:
+
+   ```bash
+    ASMSP
+    DATA
+    DATA1
+    FRA
    ```
 
-10. Change the passwords for the root, oracle, and grid users. (You use the passwords later, during installation.)
+9. Change the passwords for the root, oracle, and grid users. You will need to **make note of these new passwords** as you will be using them later during the installation.
 
     ```bash
-    # passwd oracle
-    # passwd grid
-    # passwd root
+    passwd oracle &&\
+    passwd grid &&\
+    passwd root
     ```
 
-11. Change the folder permission:
+10. Change the folder permission:
 
     ```bash
-    # chmod -R 775 /opt
-    # chown grid:oinstall /opt
-    # chown oracle:oinstall /dev/sdc1
-    # chown oracle:oinstall /dev/sdd1
-    # chown oracle:oinstall /dev/sde1
-    # chown oracle:oinstall /dev/sdf1
-    # chmod 600 /dev/sdc1
-    # chmod 600 /dev/sdd1
-    # chmod 600 /dev/sde1
-    # chmod 600 /dev/sdf1
-    ```
+    chmod -R 775 /opt &&\
+    chown grid:oinstall /opt &&\
+    chown oracle:oinstall /dev/sdc1 &&\
+    chown oracle:oinstall /dev/sdd1 &&\
+    chown oracle:oinstall /dev/sde1 &&\
+    chown oracle:oinstall /dev/sdf1 &&\
+    chmod 600 /dev/sdc1 &&\
+    chmod 600 /dev/sdd1 &&\
+    chmod 600 /dev/sde1 &&\
+    chmod 600 /dev/sdf1
+        ```
 
 ## Download and prepare Oracle Grid Infrastructure
 
