@@ -1,5 +1,8 @@
+## Create an application
 
-### Create an application (Express)
+There are multiple ways to create an application, please select one of them:
+
+### Create an application (Express mode)
 Now you need to register your application in Microsoft Application Registration Portal:
 
 1.	Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure)
@@ -7,13 +10,13 @@ Now you need to register your application in Microsoft Application Registration 
 3.	Make sure the option for *Guided Setup* is checked
 4.	Follow the instructions to obtain the application ID and paste it into your code
 
-### Add your application registration information to your solution (Advanced)
+### Create an application (Advanced mode)
 
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
 3. Make sure the option for *Guided Setup* is unchecked
 4.	Click `Add Platform`, then select `Web`
-5. Add a redirect URL to your application. A redirect URL is the URL for your `index.html` page based on your web server
+5. Add a redirect URL to your application.*****
 6. Click *Save*
 
 > #### Visual Studio instructions for obtaining redirect URL
