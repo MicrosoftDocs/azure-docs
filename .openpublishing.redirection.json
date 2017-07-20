@@ -8316,7 +8316,7 @@
         },
         {
             "source_path": "articles/application-insights/app-insights-understand-usage-patterns.md",
-            "redirect_url": "/articles/application-insights/usage-funnels",
+            "redirect_url": "/azure/application-insights/usage-funnels",
             "redirect_document_id": false
         }                                              
     ]
