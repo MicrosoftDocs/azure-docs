@@ -87,3 +87,4 @@ To review frequently asked questions about Virtual Network, see the [Virtual Net
 
 - Create your first VNet, and connect a few VMs to it, by completing the steps in the [Create your first virtual network](virtual-network-get-started-vnet-subnet.md) article.
 - Create a point-to-site connection to a VNet by completing the steps in the [Configure a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+- Learn about some of the other key [network capabilities](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of Azure.
