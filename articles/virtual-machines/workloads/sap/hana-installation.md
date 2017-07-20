@@ -234,7 +234,7 @@ In YAST, go to Software Maintenance and search for smt. Select smt, which switch
 ![SMT in yast](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Accept the selection for installation on the smtserver. Once installed, go to the SMT server configuration and enter the organizational credentials from the SUSE Customer Center you retrived earlier. Also enter your Azure VM hostname as the SMT Server URL. In this demonstration, it was https://smtserver as displayed in the next graphics.
+Accept the selection for installation on the smtserver. Once installed, go to the SMT server configuration and enter the organizational credentials from the SUSE Customer Center you retrieved earlier. Also enter your Azure VM hostname as the SMT Server URL. In this demonstration, it was https://smtserver as displayed in the next graphics.
 
 ![Configuration of SMT server](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

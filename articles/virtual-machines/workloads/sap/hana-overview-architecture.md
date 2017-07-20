@@ -41,7 +41,7 @@ Several common definitions are widely used in the Architecture and Technical Dep
 - **SAP Landscape:** Refers to the entire SAP assets in your IT landscape. The SAP landscape includes all production and non-production environments.
 - **SAP System:** The combination of DBMS layer and application layer of an SAP ERP development system, SAP BW test system, SAP CRM production system, etc. Azure deployments do not support dividing these two layers between on-premises and Azure. Means an SAP system is either deployed on-premises, or it is deployed in Azure. However, you can deploy the different systems of an SAP landscape into either Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure, while deploying the SAP CRM production system on-premises. For SAP HANA on Azure (Large Instances), it is intended that you host the SAP application layer of SAP systems in Azure VMs and the related SAP HANA instance on a unit in the HANA Large Instance stamp.
 - **Large Instance stamp:** A hardware infrastructure stack that is SAP HANA TDI certified and dedicated to run SAP HANA instances within Azure.
-- **SAP HANA on Azure (Large Instances):** Official name for the offer in Azure to run HANA instances in on SAP HANA TDI certified hardware that is deployed in Large Instance stamps in different Azure regions. The related term **HANA Large Instances** is short for SAP HANA on Azure (Large Instances) and is widely used this technical deployment guide.
+- **SAP HANA on Azure (Large Instances):** Official name for the offer in Azure to run HANA instances in on SAP HANA TDI certified hardware that is deployed in Large Instance stamps in different Azure regions. The related term **HANA Large Instance** is short for SAP HANA on Azure (Large Instances) and is widely used this technical deployment guide.
 - **Cross-Premises:** Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site, or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as Cross-Premises scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the Azure  subscription(s). Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and Azure deployed VMs is possible. Such is the typical scenario in which most SAP assets are deployed. See the guides of  [Planning and design for VPN Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a VNet with a Site-to-Site connection using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more detailed information.
 
 There are a variety of additional resources that have been published on the topic of deploying SAP workload on Microsoft Azure public cloud. It is highly recommended that anyone planning and executing a deployment of SAP HANA in Azure is experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
@@ -99,7 +99,7 @@ The Azure Large Instance stamp itself combines the following components:
 - **Network:**  A unified high-speed network fabric that interconnects the computing, storage, and LAN components.
 - **Storage:**  A storage infrastructure that is accessed through a unified network fabric. Specific storage capacity is provided depending on the specific SAP HANA on Azure (Large Instances) configuration being deployed (more storage capacity is available at an additional monthly cost).
 
-Within the multi-tenant infrastructure of the Large Instance stamp, customers are deployed as isolated tenants. At deployment of the tenant, you need to name an Azure subscription within your Azure enrollment. This will be the Azure subscription, the HANA Large Instance(s) will be billed against. These tenants have a 1:1 relationship to the Azure subscription. Network wise it is possible to access a HANA large Instance unit deployed in one tenant in one Azure Region from two different Azure VNets which are belong to different Azure subscriptions. Though those Azure subscriptions need to belong to the same Azure enrollment. 
+Within the multi-tenant infrastructure of the Large Instance stamp, customers are deployed as isolated tenants. At deployment of the tenant, you need to name an Azure subscription within your Azure enrollment. This going to be the Azure subscription, the HANA Large Instance(s) is going to be billed against. These tenants have a 1:1 relationship to the Azure subscription. Network wise it is possible to access a HANA large Instance unit deployed in one tenant in one Azure Region from two different Azure VNets, which belong to different Azure subscriptions. Though those Azure subscriptions need to belong to the same Azure enrollment. 
 
 As with Azure VMs, SAP HANA on Azure (Large Instances) is offered in multiple Azure regions. In order to offer Disaster Recovery capabilities, you can choose to opt in. Different Large Instance stamps within one geo-political region are connected to each other. For example, HANA Large Instance Stamps in US West and US East are connected through a dedicated network link for the purpose of DR replication. 
 
@@ -127,7 +127,7 @@ The different configurations above which are Available or are 'Not offered anymo
 
 The specific configurations chosen are dependent on workload, CPU resources, and desired memory. It is possible for OLTP workload to leverage the SKUs that are optimized for OLAP workload. 
 
-The hardware base for all the offers are SAP HANA TDI certified. However, we distinguish between two different classes of hardware which divides the SKUs into:
+The hardware base for all the offers are SAP HANA TDI certified. However, we distinguish between two different classes of hardware, which divides the SKUs into:
 
 - S72, S72m, S144, S144m, S192, and S192m, which we refer to as the 'Type I class' of SKUs.
 - S384, S384m, S384xm, S576, S768, and S960, which we refer to as the 'Type II class' of SKUs.
@@ -145,9 +145,9 @@ There are multiple customers deployed on SAP HANA Large Instance Stamp, and each
 ### Running multiple SAP HANA instances on one HANA Large Instance unit
 It is possible to host more than one active SAP HANA instance on the HANA Large Instance units. In order to still provide the capabilities of Storage Snapshots and Disaster recovery, such a configuration requires a volume set per instance. As of now, the HANA Large Instance units can be subdivided as follows:
 
-- S72, S72m, S144, S192: In increments of 256 GB with 256 GB the smallest starting unit. Different increments like 256 GB, 512 GB, and so on can be combined to the maximum of the memory of the unit.
-- S144m and S192m: In increments of 256 GB with 512 GB the smallest unit. Different increments like 512 GB, 768 GB, and so on can be combined to the maximum of the memory of the unit.
-- Type II class: In increments of 512 GB with the smallest starting unit of 2 TB. Different increments like 512 GB, 1 TB, 1.5 TB, and so on can be combined to the maximum of the memory of the unit.
+- S72, S72m, S144, S192: In increments of 256 GB with 256 GB the smallest starting unit. Different increments like 256 GB, 512 GB, and so on, can be combined to the maximum of the memory of the unit.
+- S144m and S192m: In increments of 256 GB with 512 GB the smallest unit. Different increments like 512 GB, 768 GB, and so on, can be combined to the maximum of the memory of the unit.
+- Type II class: In increments of 512 GB with the smallest starting unit of 2 TB. Different increments like 512 GB, 1 TB, 1.5 TB, and so on, can be combined to the maximum of the memory of the unit.
 
 Some examples of running multiple SAP HANA instances could look like:
 
@@ -182,7 +182,7 @@ The following list provides more detail on each of the layers and your responsib
 
 **SDDC:** The management software that is used to manage a data center as a software defined entity. It allows Microsoft to pool resources for scale, availability, and performance reasons.
 
-**O/S:** The OS you choose (SUSE Linux or Red Hat Linux) that is running on the servers. The OS images you are provided are the images provided by the individual Linux vendor to Microsoft for the purpose of running SAP HANA. You are required to have a subscription with the Linux vendor for the specific SAP HANA-optimized image. Your responsibilities include registering the images with the OS vendor. From the point of handover by Microsoft, you are also responsible for any further patching of the Linux operating system. This includes additional packages that might be necessary for a successful SAP HANA installation (refer to SAP's HANA installation documentation and SAP Notes) and which have not been included by the specific Linux vendor in their SAP HANA optimized OS images. The responsibility of the customer also includes patching of the OS that is related to malfunction/optimization of the OS and its drivers related to the specific server hardware. Or any security or functional patching of the OS. Customer's responsibility is as well monitoring and capacity-planning of:
+**O/S:** The OS you choose (SUSE Linux or Red Hat Linux) that is running on the servers. The OS images you are provided are the images provided by the individual Linux vendor to Microsoft for the purpose of running SAP HANA. You are required to have a subscription with the Linux vendor for the specific SAP HANA-optimized image. Your responsibilities include registering the images with the OS vendor. From the point of handover by Microsoft, you are also responsible for any further patching of the Linux operating system. This patching also includes additional packages that might be necessary for a successful SAP HANA installation (refer to SAP's HANA installation documentation and SAP Notes) and which have not been included by the specific Linux vendor in their SAP HANA optimized OS images. The responsibility of the customer also includes patching of the OS that is related to malfunction/optimization of the OS and its drivers related to the specific server hardware. Or any security or functional patching of the OS. Customer's responsibility is as well monitoring and capacity-planning of:
 
 - CPU resource consumption
 - Memory consumption
@@ -193,7 +193,7 @@ The underlying infrastructure of HANA Large Instances provides functionality for
 
 **Middleware:** The SAP HANA Instance, primarily. Administration, operations, and monitoring are your responsibility. There is functionality provided that enables you to use storage snapshots for backup/restore and Disaster Recovery purposes. These capabilities are provided by the infrastructure. However, your responsibilities also include designing High Availability or Disaster Recovery with these capabilities, leveraging them, and monitoring that storage snapshots have been executed successfully.
 
-**Data:** Your data managed by SAP HANA, and other data such as backups files located on volumes or file shares. Your responsibilities include monitoring disk free space and managing the content on the volumes, and monitoring the successful execution of backups of disk volumes and storage snapshots. However, successful execution of data replication to DR sites is the responsibility of Microsalloft.
+**Data:** Your data managed by SAP HANA, and other data such as backups files located on volumes or file shares. Your responsibilities include monitoring disk free space and managing the content on the volumes, and monitoring the successful execution of backups of disk volumes and storage snapshots. However, successful execution of data replication to DR sites is the responsibility of Microsoft.
 
 **Applications:** The SAP application instances or, in case of non-SAP applications, the application layer of those applications. Your responsibilities include deployment, administration, operations, and monitoring of those applications related to capacity planning of CPU resource consumption, memory consumption, Azure Storage consumption and network bandwidth consumption within Azure VNets, and from Azure VNets to SAP HANA on Azure (Large Instances).
 
@@ -215,7 +215,7 @@ Sizing for HANA Large Instances is no different than sizing for HANA in general.
 
 For green field implementations, SAP Quick Sizer is available to calculate memory requirements of the implementation of SAP software on top of HANA.
 
-Memory requirements for HANA will increase as data volume grows, so you will want to be aware of the memory consumption now and be able to predict what it will be in the future. Based on the memory requirements, you can then map your demand into one of the HANA Large Instance SKUs.
+Memory requirements for HANA are increasing as data volume grows, so you want to be aware of the memory consumption now and be able to predict what it is going to be in the future. Based on the memory requirements, you can then map your demand into one of the HANA Large Instance SKUs.
 
 ## Requirements
 
@@ -229,7 +229,7 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
 
 **Network Connectivity:**
 
-- Azure ExpressRoute between on-premises to Azure: Make sure to order at least a 1 Gbps connection from your ISP to connect your on-premises datacenter to Azure
+- Azure ExpressRoute between on-premises to Azure: To connect your on-premises datacenter to Azure, make sure to order at least a 1 Gbps connection from your ISP. 
 
 **Operating System:**
 
@@ -276,7 +276,7 @@ provides the ability for SAP HANA on Azure (Large Instances) to be registered an
 
 The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure Service Management through SAP recommended guidelines, documented in the [SAP HANA Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
 
-The HANA Large Instances of the Type I class usually come with four times the memory volume as storage volume. For the type II class of HANA Large Instance units, the storage is not going to be four times more. The units come with a volume, which is intended for storing HANA transaction log backups. Find more details in [How to install and configure SAP HANA (large instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+The HANA Large Instances of the Type I class come with four times the memory volume as storage volume. For the type II class of HANA Large Instance units, the storage is not going to be four times more. The units come with a volume, which is intended for storing HANA transaction log backups. Find more details in [How to install and configure SAP HANA (large instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 See the following table in terms of storage allocation. The table lists roughly the capacity for the different volumes provided with the different HANA Large Instance units.
 
@@ -285,13 +285,13 @@ See the following table in terms of storage allocation. The table lists roughly 
 | S72 | 1280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3328 GB | 768 GB |1280 GB | 768 GB |
 | S192 | 4608 GB | 1024 GB | 1536 GB | 1024 GB |
-| S192m | 11520 GB | 1536 GB | 1792 GB | 1536 GB |
-| S384 | 11520 GB | 1536 GB | 1792 GB | 1536 GB |
-| S384m | 12000 GB | 2050 GB | 2050 GB | 20450 GB |
-| S384xm | 16000 GB | 2050 GB | 2050 GB | 2050 GB |
-| S576 | 20000 GB | 3100 GB | 2050 GB | 3100 GB |
-| S768 | 28000 GB | 3100 GB | 2050 GB | 3100 GB |
-| S960 | 36000 GB | 4100 GB | 2050 GB | 4100 GB |
+| S192m | 11,520 GB | 1536 GB | 1792 GB | 1536 GB |
+| S384 | 11,520 GB | 1536 GB | 1792 GB | 1536 GB |
+| S384m | 12,000 GB | 2050 GB | 2050 GB | 20450 GB |
+| S384xm | 16,000 GB | 2050 GB | 2050 GB | 2050 GB |
+| S576 | 20,000 GB | 3100 GB | 2050 GB | 3100 GB |
+| S768 | 28,000 GB | 3100 GB | 2050 GB | 3100 GB |
+| S960 | 36,000 GB | 4100 GB | 2050 GB | 4100 GB |
 
 
 Actual deployed volumes may vary a bit based on deployment and tool that is used to show the volume sizes.
@@ -307,7 +307,7 @@ If you subdivide a HANA Large Instance SKU, a few examples of possible division 
 | 1536 | 3328 GB | 768 GB | 1280 GB | 768 GB |
 
 
-These sizes are rough volume numbers that can vary slightly based on deployment and tools used to look at the volumes. There also are other partition sizes thinkable, like 2.5 TB. These storage sizes would be calculated with a similar formula as used for the partitions above. The term 'partitions' does not indicate that the operating system, memory, or CPU resources is in any way partitioned. It just indicates storage partitions for the different HANA instances you might want to deploy on one single HANA Large Instance unit. 
+These sizes are rough volume numbers that can vary slightly based on deployment and tools used to look at the volumes. There also are other partition sizes thinkable, like 2.5 TB. These storage sizes would be calculated with a similar formula as used for the partitions above. The term 'partitions' does not indicate that the operating system, memory, or CPU resources are in any way partitioned. It just indicates storage partitions for the different HANA instances you might want to deploy on one single HANA Large Instance unit. 
 
 You as a customer might have need for more storage, you have the possibility to add storage to purchase additional storage in 1 TB units. This additional storage can be added as additional volume or can be used to extend one or more of the existing volumes. It is not possible to decrease the sizes of the volumes as originally deployed and mostly documented by the table(s) above. It is also not possible to change the names of the volumes or mount names. The storage volumes as described above are attached to the HANA Large Instance units as NFS4 volumes.
 
@@ -333,13 +333,13 @@ While a hybrid SAP landscape (with four or more different deployment scenarios) 
 Azure networking in the context of SAP systems deployed in Azure is not complicated. It is based on the following principles:
 
 - Azure Virtual Networks (VNets) need to be connected to the Azure ExpressRoute circuit that connects to on-premises network.
-- An ExpressRoute circuit connecting on-premise to Azure usually should have a bandwidth of 1 Gbps or higher. This minimal andwidth allows adequate bandwidth for transferring data between on-premises systems and systems running on Azure VMs (as well as connection to Azure systems from end users on-premises).
+- An ExpressRoute circuit connecting on-premise to Azure usually should have a bandwidth of 1 Gbps or higher. This minimal bandwidth allows adequate bandwidth for transferring data between on-premises systems and systems running on Azure VMs (as well as connection to Azure systems from end users on-premises).
 - All SAP systems in Azure need to be set up in Azure VNets to communicate with each other.
 - Active Directory and DNS hosted on-premises are extended into Azure through ExpressRoute from on-premise.
 
 
 > [!NOTE] 
-> From a billing point of view, only a single Azure subscription can be linked only to one single tenant in a Large Instance stamp in a specific Azure region, and conversely a single Large Instance stamp tenant can be linked only to one Azure subscription. This is not different to any other billable objects in Azure
+> From a billing point of view, only a single Azure subscription can be linked only to one single tenant in a Large Instance stamp in a specific Azure region, and conversely a single Large Instance stamp tenant can be linked only to one Azure subscription. This fact is not different to any other billable objects in Azure
 
 Deploying SAP HANA on Azure (Large Instances) in multiple different Azure regions, results in a separate tenant to be deployed in the Large Instance stamp. However, you can run both under the same Azure subscription as long as these instances are part of the same SAP landscape. 
 
@@ -375,7 +375,7 @@ The difference to SAP deployments in pure Azure, comes with the facts that:
 - The SAP application architecture is more sensitive to network latency than typical scenarios where data gets exchanged between on-premise and Azure.
 - The VNet gateway has at least two ExpressRoute connections, and both connections  share the maximum bandwidth for incoming data of the VNet gateway.
 
-The network latency experienced between Azure VMs and HANA Large instance units can be higher than a typical VM-to-VM network round-trip latency. Dependent on the Azure region, the values measured can exceed the 0.7 ms round-trip latency classified as below average in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E). Nevertheless customers deployed SAP HANA-based production SAP applications very successfully on SAP HANA Large Instances. The customers who deployed usually reported great improvements by running their SAP applications on SAP HANA using HANA Large Instance units. Nevertheless you should test your business processes thoroughly in Azure HANA Large Instances.
+The network latency experienced between Azure VMs and HANA Large instance units can be higher than a typical VM-to-VM network round-trip latency. Dependent on the Azure region, the values measured can exceed the 0.7 ms round-trip latency classified as below average in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E). Nevertheless customers deployed SAP HANA-based production SAP applications very successfully on SAP HANA Large Instances. The customers who deployed reported great improvements by running their SAP applications on SAP HANA using HANA Large Instance units. Nevertheless you should test your business processes thoroughly in Azure HANA Large Instances.
  
 In order to provide deterministic network latency between Azure VMs and HANA Large Instance, the choice of the Azure VNet Gateway SKU is essential. Unlike the traffic patterns between on-premise and Azure VMs, the traffic pattern between Azure VMs and HANA Large Instances can develop small but high bursts of requests and data volumes to be transmitted. In order to have such bursts handled well, we highly recommend the usage of the UltraPerformance Gateway SKU. For the Type II class of HANA Large Instance SKUs, the usage of the UltraPerformance gateway SKU as Azure VNet Gateway is mandatory.  
 
@@ -413,7 +413,7 @@ For a more scalable network architecture:
 
 ![Deploying SAP application layer over multiple Azure VNets](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, introduced unavoidable latency overhead that occurred during communication between the applications hosted in those Azure VNets. By default, the network traffic between Azure VMs located in different VNets route through the MSEE routers in this configuration. However, since September 2016 this routing can be optimized. The way to optimize and cut down the latency in communication between two VNets is by peering Azure VNets within the same region. Even if those VNets are in different subscriptions. Using Azure VNet peering, the communication between VMs in two different Azure VNets can use the Azure network backbone to directly communicate with each other. Thereby showing similar latency as if the VMs would be in the same VNet. Whereas, traffic addressing IP address ranges that are connected through the Azure VNet gateway is routed through the individual VNet gateway of the VNet. You can get details about Azure VNet peering in the article [VNet peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, introduced unavoidable latency overhead that occurred during communication between the applications hosted in those Azure VNets. By default, the network traffic between Azure VMs located in different VNets route through the MSEE routers in this configuration. However, since September 2016 this routing can be optimized. The way to optimize and cut down the latency in communication between two VNets is by peering Azure VNets within the same region. Even if those VNets are in different subscriptions. Using Azure VNet peering, the communication between VMs in two different Azure VNets can use the Azure network backbone to directly communicate with each other. Thereby showing similar latency as if the VMs would be in the same VNet. Whereas traffic, addressing IP address ranges that are connected through the Azure VNet gateway, is routed through the individual VNet gateway of the VNet. You can get details about Azure VNet peering in the article [VNet peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 
 ### Routing in Azure
@@ -428,7 +428,7 @@ There are two important network routing considerations for SAP HANA on Azure (La
 > If you need to connect to SAP HANA on Azure (Large Instances) in a _data warehouse_ scenario, where applications and/or end users need to connect to the SAP HANA database (running directly), another networking component must be used: a reverse-proxy to route data, to and from. For example, F5 BIG-IP, NGINX with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
 
 ### Internet connectivity of HANA Large Instances
-HANA Large Instances do NOT have direct internet connectivity. This is restricting your abilities to for example register the OS image directly with the OS vendor. Hence you might need to work with local SLES SMT server or RHEL Subscription Manager
+HANA Large Instances do NOT have direct internet connectivity. This is restricting your abilities to, for example register the OS image directly with the OS vendor. Hence you might need to work with local SLES SMT server or RHEL Subscription Manager
 
 ### Data encryption between Azure VMs and HANA Large Instances
 Data transferred between HANA Large Instances and Azure VMs is not encrypted. However, purely for the exchange between the HANA DBMS side and JDBC/ODBC based applications you can enable encryption of traffic. Reference [this documentation by SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)
