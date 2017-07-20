@@ -20,7 +20,7 @@ ms.author: robmcm
 # Buy a custom domain name for Azure Web Apps
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
-App Service domains (preview) are root domains that are managed directly in Azure, and make it easy to manage custom domains for [Azure Web Apps](app-service-web-overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure Web Apps.
+App Service domains (preview) are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure Web Apps](app-service-web-overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure Web Apps.
 
 [!INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -73,7 +73,7 @@ When you see the following notification, the scale operation is complete.
 ## Buy the domain
 
 ### Sign in to Azure
-Open the [Azure Portal](https://portal.azure.com/) and sign in with your Azure account.
+Open the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.
 
 ### Launch Buy domains
 In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
@@ -86,27 +86,27 @@ In the **Custom domains** page, click **Buy domains**.
 
 ### Configure the domain purchase
 
-In the **App Service Domain** page, in the **Search for domain** box, type the domain name you want to buy and type `Enter`. The suggested available domains will be shown just below the text box. Select one or more domains you want to buy. 
+In the **App Service Domain** page, in the **Search for domain** box, type the domain name you want to buy and type `Enter`. The suggested available domains are shown just below the text box. Select one or more domains you want to buy. 
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 Click the **Contact Information** and fill out the domain's contact information form. When finished, click **OK** to return to the App Service Domain page.
    
-It is very important that you fill out all required fields with as much accuracy as possible. In some cases, incorrect data for contact information will result in failure to purchase domains. 
+It is important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to purchase domains. 
 
 Next, select the desired options for your domain. See the following table for explanations:
 
 | Setting | Suggested Value | Description |
 |-|-|-|
 |Auto renew | **Enable** | Renews your App Service Domain automatically every year. Your credit card is charged the same purchase price at the time of renewal. |
-|Privacy protection | Enable | Opt-in to "Privacy protection" which is included in the purchase price _for free_ (except for top-level domains whose registry do not support privacy protection, such as _.co.in_, _.co.uk_, and so on). |
-| Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your web app can be accessed at the selected hostnames. If the web app is behind Azure Traffice Manager, you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
+|Privacy protection | Enable | Opt in to "Privacy protection", which is included in the purchase price _for free_ (except for top-level domains whose registry do not support privacy protection, such as _.co.in_, _.co.uk_, and so on). |
+| Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your web app can be accessed at the selected hostnames. If the web app is behind [Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
 
 ### Accept terms and purchase
 
 Click **Legal Terms**, then click **Buy**.
 
-Back in the **App Service Domain** page, click **OK**. While the operation is in progress, you will see the following notifications:
+Back in the **App Service Domain** page, click **OK**. While the operation is in progress, you see the following notifications:
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
 
@@ -114,7 +114,7 @@ Back in the **App Service Domain** page, click **OK**. While the operation is in
 
 ### Test the hostnames
 
-If you have assigned default hostnames to your web app, you will also see a success notification for each selected hostname, and also the selected hostnames in the **Custom domains** page, in the **Hostnames** section.  
+If you have assigned default hostnames to your web app, you also see a success notification for each selected hostname, and also the selected hostnames in the **Custom domains** page, in the **Hostnames** section.  
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
@@ -128,7 +128,7 @@ If you choose not to assign one or more default hostnames to your web app during
 
 You can also assign hostnames in the App Service Domain to any other web app, but it depends on whether the App Service Domain and the web app belong to the same subscription.
 
-- Different subscription: Map custom DNS records from the App Service Domain to the web app like an externally-purchased domain. For information on adding custom DNS names to an App Service Domain, see [Manage custom DNS records](#custom). To map an external-purchased domain to a web app, see [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md). 
+- Different subscription: Map custom DNS records from the App Service Domain to the web app like an externally purchased domain. For information on adding custom DNS names to an App Service Domain, see [Manage custom DNS records](#custom). To map an external purchased domain to a web app, see [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md). 
 - Same subscription: use the following steps.
 
 ### Launch add hostname
@@ -141,7 +141,7 @@ Make sure that your purchased domain is listed in the **App Service Domains** se
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 > [!NOTE]
-> All App Service Domains in the same subscription are shown in the web app's **Custom domains** page. If your domain is in the web app's subscription, but you cannot see it in the web app's **Custom domains** page try reopening the **Custom domains** page or refresh the webpage, or check the notification bell at the top of the Azure portal for progress or creation failures.
+> All App Service Domains in the same subscription are shown in the web app's **Custom domains** page. If your domain is in the web app's subscription, but you cannot see it in the web app's **Custom domains** page, try reopening the **Custom domains** page or refresh the webpage. Also, check the notification bell at the top of the Azure portal for progress or creation failures.
 >
 >
 
@@ -158,7 +158,7 @@ When finished, select **Validate**. The hostname record type is automatically se
 
 Select **Add hostname**.
 
-When the operation is complete, you will see a success notification for the assigned hostname.  
+When the operation is complete, you see a success notification for the assigned hostname.  
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
@@ -177,11 +177,11 @@ Navigate to the listed hostnames in the browser. In the example in the preceding
 
 ## Manage custom DNS records
 
-In Azure, DNS records for an App Service Domain is managed using [Azure DNS](https://azure.microsoft.com/en-us/services/dns/). This means that you can add, remove, and update DNS records just like you would for a domain you purchased from anywhere else.
+In Azure, DNS records for an App Service Domain are managed using [Azure DNS](https://azure.microsoft.com/en-us/services/dns/). You can add, remove, and update DNS records, just like for an externally purchased domain.
 
 ### Open App Service Domain
 
-In the Azure Portal, from the left menu, select **More Services** > **App Service Domains**.
+In the Azure portal, from the left menu, select **More Services** > **App Service Domains**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -201,7 +201,7 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 ### Open App Service Domain
 
-In the Azure Portal, from the left menu, select **More Services** > **App Service Domains**.
+In the Azure portal, from the left menu, select **More Services** > **App Service Domains**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
