@@ -33,7 +33,7 @@ This sample makes use of the following NuGet Packages:
 * [Xamarin Media Plugin](https://github.com/jamesmontemagno/MediaPlugin)
 * [Json.NET](https://github.com/JamesNK/Newtonsoft.Json)
 
-### Cognivite Services Used
+### Cognivite Services
 This sample utilizes the following Cognitive Services APIs:
 * [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) 
 * [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  
