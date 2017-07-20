@@ -30,16 +30,24 @@ This is the last of a three-part tutorial. In previous sections, [a container im
 
 ## Deploy the container using the Azure CLI
 
-The Azure CLI enables deployment of a container to Azure Container Instances in a single command. Since the container image is hosted in the private Azure Container Registry, you must include the credentials required to access it. If necessary, you can query them as shown:
+The Azure CLI enables deployment of a container to Azure Container Instances in a single command. Since the container image is hosted in the private Azure Container Registry, you must include the credentials required to access it. If necessary, you can query them as shown below.
+
+Container registry login server (update with your registry name):
 
 ```azurecli-interactive
-az acr credential show --name <acrName>
+az acr show --name <acrName> --query loginServer
+```
+
+Container registry password:
+
+```azurecli-interactive
+az acr credential show --name <acrName> --query passwords[0].value
 ```
 
 To deploy your container image from the container registry, run the following command:
 
 ```azurecli-interactive
-az container create --name aci-tutorial-app --image mycontainerregistry082.azurecr.io/aci-tutorial-app --image-registry-login-server mycontainerregistry082.azurecr.io --image-registry-username <acrUsername> --image-registry-password <acrPassword> --ip-address public -g myResourceGroup
+az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --image-registry-login-server <acrLoginServer> --image-registry-username <acrName> --image-registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
 Within a few seconds, you will receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
@@ -94,7 +102,6 @@ In this tutorial, you completed the process of deploying your containers to Azur
 > * Deploying the container from the Azure Container Registry using the Azure CLI
 > * Viewing the application in the browser
 > * Viewing the container logs
-
 
 <!-- LINKS -->
 [prepare-app]: ./container-instances-tutorial-prepare-app.md
