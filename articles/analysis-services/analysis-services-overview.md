@@ -35,9 +35,9 @@ Check out [this video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da2
 -->
 
 ## Built on SQL Server Analysis Services
-Azure Analysis Services is compatible with the same SQL Server Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 and 1400  compatibility levels. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported. 
+Azure Analysis Services is compatible with the same SQL Server Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 and 1400  compatibility levels. Partitions, row-level security, bi-directional relationships, and translations are all supported. In-memory and DirectQuery modes mean lightning fast queries over massive and complex datasets.
 
-Tabular models offer rapid development, highly customizable, and lightning fast queries over massive and complex datasets. For developers, tabular models  include the Tabular Object Model (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) namespace.
+Tabular models offer rapid development and are highly customizable. For developers, tabular models include the Tabular Object Model (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) namespace.
 
 New features in tabular 1400 models support Detail Rows, Object-level security, ragged hierarchies, a modern Get Data experience in SSDT for data connectivity, and many other enhancements. And because the underlying model metadata is the same, existing on-premises tabular model solutions can be easily migrated to the cloud.
 
@@ -61,7 +61,7 @@ Change tiers on-the fly in Azure portal or with the Set-​Azure​Rm​Analysis
 ## Scale resources
 Scale up, scale down, or pause your server. Use the Azure portal or have total control on-the-fly by using PowerShell. You only pay for what you use.
 
-When creating new servers, use the [New-​Azure​Rm​Analysis​Services​Server](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) cmdlet to set your plan. For existing servers, use [Set-​Azure​Rm​Analysis​Services​Server](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet to change your plan. Don't use your service all the time? No problem. You can pause by using the portal or with the [Suspend-​Azure​Rm​Analysis​Services​Server](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver) cmdlet. Start again with the
+When creating new servers, use the [New-​Azure​Rm​Analysis​Services​Server](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) cmdlet to set your plan. For existing servers, use [Set-​Azure​Rm​Analysis​Services​Server](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet to change your plan. Don't use your service all the time? You can pause by using the portal or with the [Suspend-​Azure​Rm​Analysis​Services​Server](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver) cmdlet. Start again with the
 [Resume-​Azure​Rm​Analysis​Services​Server](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver) cmdlet. You only pay for when your server is active.
 
 
@@ -82,7 +82,7 @@ Once you have a server created, you can create a tabular model right in Azure po
 ## Migrate existing tabular models
 If you already have existing on-premises SQL Server Analysis Services model solutions, you can migrate to Azure Analysis Services without significant changes. To migrate, you can use SSDT to deploy your model to your server. Or, in SSMS, you can use backup and restore or TMSL.
 
-If you have on-premises data sources, you  need to install and configure an [On-premises data gateway](analysis-services-gateway.md). If you have roles and role members already configured, your roles migrate, but you have to re-add role members by using SSMS or PowerShell.
+If you have on-premises data sources, you  need to install and configure an [On-premises data gateway](analysis-services-gateway.md). If you have roles and role members already configured, your roles migrate, but you have to readd role members by using SSMS or PowerShell.
 
 
 ## Data sources
