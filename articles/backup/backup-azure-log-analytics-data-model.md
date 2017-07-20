@@ -99,3 +99,33 @@ This table provides details about backup item associations with various entities
 | ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
 | ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
 | ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
+### Job
+This table provides details about job related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
+| BackupItemUniqueId_s |Text |Unique Id of the backup item to which this job belongs to |
+| SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
+| State_s |Text |Current state of the alert object for example, Active, Deleted |
+| BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this job belongs to |
+| OperationName |Text |This is the name of the current operation - Job |
+| Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
+| ProtectedServerUniqueId_s |Text |Unique Id of the protected to which this job belongs to |
+| VaultUniqueId_s |Text |Unique Id of the protected to which this job belongs to |
+| JobOperation_s |Text |Operation for which job is run for example, Backup, Restore, Configure Backup |
+| JobStatus_s |Text |Status of the finished job for example, Completed, Failed |
+| JobFailureCode_s |Text |Failure Code string because of which job failure happened |
+| JobStartDateTime_s |Date/Time |Date and time when job started running |
+| BackupStorageDestination_s |Text |Destination of backup storage for example, Cloud, Disk  |
+| JobDurationInSecs_s | Number |Total job duration in seconds |
+| DataTransferredInMB_s | Number |Data transferred in MB for this job|
+| JobUniqueId_g |Text |Unique Id to identify the job |
+| SourceSystem |Text |Source system of the current data - Azure |
+| ResourceId |Text |This is the resource id for which data is being collected, it shows Recovery Services vault resource id |
+| SubscriptionId |Text |This is the subscription id of the resource (RS vault) for which data is being collected |
+| ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
+| ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
+| ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
