@@ -3,7 +3,7 @@ title: What are Mobile Apps
 description: Learn what advantages does App Service bring to your enterprise mobile apps.
 services: app-service\mobile
 documentationcenter: ''
-author: dhei
+author: ggailey777
 manager: yochayk
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # <a name="getting-started"> </a>What is Mobile Apps?
