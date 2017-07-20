@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/24/2017
 ms.author: jeedes
 
 ---
@@ -118,28 +118,52 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-onit-tutorial/tutorial_onit_certificate.png) 
 
-5. Click **Save** button.
+5. Onit application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+
+	![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_onit_attribute.png) 
+
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+	
+	| Attribute Name | Attribute Value |
+	| ------------------- | -------------------- |
+	| email | user.mail |
+	
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_attribute_04.png)
+
+	![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_attribute_05.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Leave the **Namespace** blank.
+	
+	e. Click **Ok**.
+
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-onit-tutorial/tutorial_general_400.png)
 
-6. On the **Onit Configuration** section, click **Configure Onit** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Onit Configuration** section, click **Configure Onit** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Onit Configuration](./media/active-directory-saas-onit-tutorial/tutorial_onit_configure.png)
 
-7. In a different web browser window, log into your Onit company site as an administrator.
+9. In a different web browser window, log into your Onit company site as an administrator.
 
-8. In the menu on the top, click **Administration**.
+10. In the menu on the top, click **Administration**.
    
    ![Administration](./media/active-directory-saas-onit-tutorial/IC791174.png "Administration")
-9. Click **Edit Corporation**.
+11. Click **Edit Corporation**.
    
    ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791175.png "Edit Corporation")
    
-10. Click the **Security** tab.
+12. Click the **Security** tab.
     
     ![Edit Company Information](./media/active-directory-saas-onit-tutorial/IC791176.png "Edit Company Information")
 
-11. On the **Security** tab, perform the following steps:
+13. On the **Security** tab, perform the following steps:
 
 	![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
 
