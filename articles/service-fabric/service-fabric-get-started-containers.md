@@ -291,14 +291,14 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
 ```
 
 ## Configure resource governance
-[Resource governance](service-fabric-resource-governance.md) restricts the resources that the container can use on the host. The `ResourceGovernancePolicy` element, which is specified in the application manifest, is used to declare resource limits for a service code package. Resource limits can be set for the following resources: Memory, MemorySwap, CpuShares (CPU relative weight), MemoryReservationInMB, BlkioWeight (BlockIO relative weight).
+[Resource governance](service-fabric-resource-governance.md) restricts the resources that the container can use on the host. The `ResourceGovernancePolicy` element, which is specified in the application manifest, is used to declare resource limits for a service code package. Resource limits can be set for the following resources: Memory, MemorySwap, CpuShares (CPU relative weight), MemoryReservationInMB, BlkioWeight (BlockIO relative weight).  In this example, service package Guest1Pkg gets one core on the cluster nodes where it is placed.  Memory limits are absolute, so the code package is limited to 1024 MB of memory (and a soft-guarantee reservation of the same). Code packages (containers or processes) are not able to allocate more memory than this limit, and attempting to do so results in an out-of-memory exception. For resource limit enforcement to work, all code packages within a service package should have memory limits specified.
 
 ```xml
 <ServiceManifestImport>
   <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
   <Policies>
-    <ResourceGovernancePolicy CodePackageRef="FrontendService.Code" CpuShares="500"
-            MemoryInMB="1024" MemorySwapInMB="4084" MemoryReservationInMB="1024" />
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
   </Policies>
 </ServiceManifestImport>
 ```
@@ -404,6 +404,8 @@ yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZ
 NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
         <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
       </ContainerHostPolicies>
+      <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+      <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
