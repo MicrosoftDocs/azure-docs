@@ -10,7 +10,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 07/17/2017
 ms.author: cfreeman
 ---
 
@@ -39,4 +39,4 @@ The following illustration demonstrates the data the Funnels blade generates. Fr
 ![Funnels blade with data](./media/app-insights-understand-usage-patterns/funnel1.png)
 
 ## Next steps
-- Learn more about [usage analysis](app-insights-usage-overview.md). 
+- Learn more about [usage analysis](app-insights-usage-overview.md).

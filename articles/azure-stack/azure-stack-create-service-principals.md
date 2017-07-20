@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: shnatara
 
 ---
@@ -96,7 +96,7 @@ $servicePrincipal = New-ADGraphServicePrincipal`
 Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 
 ### Sign in through PowerShell
-Once you've assigned a role, you can sign in using the service principal with the following command:
+Once you've assigned a role, you can sign in to Azure Stack using the service principal with the following command:
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>"`
@@ -111,7 +111,7 @@ To access resources in your subscription, you must assign the application to a r
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 
-1. Navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **Subscriptions**. You could instead select a resource group or resource.
+1. In the Azure Stack portal, navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **Subscriptions**. You could instead select a resource group or resource.
 
 2. Select the particular subscription (resource group or resource) to assign the application to.
 

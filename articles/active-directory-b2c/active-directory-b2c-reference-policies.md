@@ -198,7 +198,7 @@ This policy describes the experiences that the consumers  go through during pass
 
 5. Select **Identity providers**, and then select **Reset password using email address**. Click **OK**.
 
-6. Select **Application claims**. Here you choose claims that you want returned in the tokens that are sent back to your application after a successful password reset experience. For example, select **User's Object ID**.
+6. Select **Application claims**. Here you choose claims that you want returned in the tokens that are sent back to your application after a successful password reset experience. For example, select **Display Name** and **User's Object ID**.
 
 7. Select **Create**. Note that the policy that was created appears as **B2C_1_SSPR** (the **B2C\_1\_** fragment is automatically added) in the **Password reset policies** blade.
 
