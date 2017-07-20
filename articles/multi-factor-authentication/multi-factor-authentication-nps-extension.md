@@ -17,7 +17,7 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ---
-# Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication - Public preview
+# Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 
 The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
 

@@ -4,7 +4,7 @@ description: Guidance to get started with using Azure Stack Storage development 
 services: azure-stack 
 author: xiaofmao
 ms.author: xiaofmao
-ms.date: 7/10/2017
+ms.date: 7/18/2017
 ms.topic: get-started-article
 ms.service: azure-stack
 
@@ -58,8 +58,8 @@ EndpointSuffix=local.azurestack.external;" />
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
 ```
-var blobSvc = azure.createBlobService(‘'myaccount', ‘mykey’,
-‘myaccount.blob.local.azurestack.external’);
+var blobSvc = azure.createBlobService('myaccount', 'mykey',
+'myaccount.blob.local.azurestack.external');
 ```
 
 ### Python

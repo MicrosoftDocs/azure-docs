@@ -30,7 +30,7 @@ Additional sources of information:
 ## Index
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster_v2) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns_v2) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster_v2) | [basket](#evaluate-basket) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -314,7 +314,7 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
 
-[evaluate autocluster](#evaluate-autocluster_v2) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns_v2) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster_v2) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | 
 
 #### evaluate autocluster (Deprecated)
      T | evaluate autocluster()
@@ -461,49 +461,14 @@ StormEvents
 
 **Additional information**
 
--  AutoCluster is largely based on the Seed-Expand algorithm from the following paper: [Algorithms for Telemetry Data Mining using Discrete Attributes](http://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1), full text link: [pdf](https://kusto.azurewebsites.net/docs/queryLanguage/images/queries/ICPRAM17telemetry.pdf). 
+-  AutoCluster is largely based on the Seed-Expand algorithm from the following paper: [Algorithms for Telemetry Data Mining using Discrete Attributes](http://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1). 
 
-
-#### evaluate basket (deprecated)
+<a name="evaluate-basket"></a>
+#### evaluate basket
 
      T | evaluate basket()
 
-**This version of `basket` is deprecated. Please use [basket_v2](#evaluate-basketv2).**
-
-**Returns**
-
-All patterns appearing in more than a specified fraction (default 0.05) of the events.
-
-**Arguments (all optional)**
-
-* `threshold=` *0.015<double<1* (default: 0.05) 
-  
-    Sets the minimal ratio of the rows to be considered frequent (patterns with smaller ratio will not be returned).
-  
-    Example: `T | evaluate basket("threshold=0.02")`
-* `weight_column=` *column_name*
-  
-    Considers each row in the input according to the specified weight (by default each row has a weight of '1'), common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
-  
-    Example: T | evaluate basket("weight_column=sample_Count")
-* `max_dims=` *1<int* (default: 5)
-  
-    Sets the maximal number of uncorrelated dimensions per basket, limited by default to decrease the query runtime.
-* `output=minimize` | `all` 
-  
-    The format of the results. The Count and Percent columns always appear in the results.
-  
-  * `minimize` - filters out columns with only '*' in the results.
-  * `all` - all the columns from the input are output.
-
-<a name="evaluate-basket"></a>
-#### evaluate basket_v2
-
-     T | evaluate basket_v2()
-
 Basket finds all frequent patterns of discrete attributes (dimensions) in the data and will return all frequent patterns that passed the frequency threshold in the original query. Basket is guaranteed to find all frequent patterns in the data but is not guaranteed to have polynomial run-time. The run-time of the query is linear in the number of rows but in some cases might be exponential in the number of columns (dimensions). Basket is based on the Apriori algorithm originally developed for basket analysis data mining. 
-
-Replaces the deprecated `evaluate basket` syntax.
 
 **Returns**
 
@@ -513,7 +478,7 @@ The first column is the segment Id. The next two columns are the count and perce
 
 **Arguments (all optional)**
 
-Example: `T | evaluate basket_v2([Threshold, WeightColumn, MaxDimensions, CustomWildcard, CustomWildcard, ...])`
+Example: `T | evaluate basket([Threshold, WeightColumn, MaxDimensions, CustomWildcard, CustomWildcard, ...])`
 
 All arguments are optional, but must be in the following order. To indicate that a default value should be used, use the tilde character '~' (see examples below).
 
@@ -521,22 +486,22 @@ All arguments are optional, but must be in the following order. To indicate that
   
     Sets the minimal ratio of the rows to be considered frequent (patterns with smaller ratio will not be returned).
   
-    Example: `T | evaluate basket_v2(0.02)`
-* Weight column *-column_name*
+    Example: `T | evaluate basket(0.02)`
+* Weight column *column_name*
   
     Considers each row in the input according to the specified weight (by default each row has a weight of '1'). The argument must be a name of a numeric column (e.g. int, long, real). A common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
   
-    Example: `T | evaluate basket_v2('~', sample_Count)`
+    Example: `T | evaluate basket('~', sample_Count)`
 * Max dimensions: 1 < *int* (default: 5)
   
     Sets the maximal number of uncorrelated dimensions per basket, limited by default to decrease the query runtime.
 
-    Example: `T | evaluate basket_v2('~', '~', 3)`
+    Example: `T | evaluate basket('~', '~', 3)`
 * Custom wildcard types: *any value per type*
   
     Sets the wildcard value for a specific type in the result table that will indicate that the current pattern doesn't have a restriction on this column. Default is null, for string default is an empty string. If the default is a viable value in the data, a different wildcard value should be used (e.g. *).
 
-    Example: `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
+    Example: `T | evaluate basket('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
 
 **Examples**
 
@@ -545,7 +510,7 @@ StormEvents
 | where monthofyear(StartTime) == 5
 | extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
 | project State, EventType, Damage, DamageCrops
-| evaluate basket_v2(0.2)
+| evaluate basket(0.2)
 ```
 Results
 
@@ -566,7 +531,7 @@ StormEvents
 | where monthofyear(StartTime) == 5
 | extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
 | project State, EventType, Damage, DamageCrops
-| evaluate basket_v2(0.2, '~', '~', '*', int(-1))
+| evaluate basket(0.2, '~', '~', '*', int(-1))
 ```
 Results
 
@@ -581,70 +546,15 @@ Results
 6|1310|22.3|\*|\*|YES|-1|
 7|1291|21.9|\*|Thunderstorm Wind|\*|-1|
 
-#### evaluate diffpatterns (Deprecated)
-**This version of the diffpatterns plugin is deprecated. Please use the new [diffpatterns](#evaluate-diffpatterns_v2) plugin syntax.**
-     requests | evaluate diffpatterns("split=success")
-
-Diffpatterns identifies the differences between two datasets of the same structure - for example, the request log at the time of an incident, and normal request logs. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
-
-**Syntax**
-
-`T | evaluate diffpatterns("split=` *BinaryColumn* `" [, arguments] )`
-
-**Returns**
-
-Diffpatterns returns a (usually small) set of patterns that capture different portions of the data in the two sets (i.e. a pattern capturing a large percentage of the rows in the first data set and low percentage of the rows in the second set). Each pattern is represented by a row in the results.
-
-The first four columns are the count and percentage of rows out of the original query that are captured by the pattern in each set, the fifth column is the difference (in absolute percentage points) between the two sets. The remaining columns are from the original query and their value is either a specific value from the column or * meaning variable values. 
-
-Note that the patterns are not distinct: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
-
-**Tips**
-
-* Use where and project in the input pipe to reduce the data to just what you're interested in.
-* When you find an interesting row, you might want to drill into it further by adding its specific values to your where filter.
-
-**Arguments**
-
-* `split=` *column name* (required)
-  
-    The column must have precisely two values. If necessary, create such a column:
-  
-    `requests | extend fault = toint(resultCode) >= 500` <br/>
-    `| evaluate diffpatterns("split=fault")`
-* `target=` *string*
-  
-    Tells the algorithm to only look for patterns which have higher percentage in the target data set, the target must be one of the two values of the split column.
-  
-    `requests | evaluate diffpatterns("split=success", "target=false")`
-* `threshold=` *0.015<double<1* (default: 0.05) 
-  
-    Sets the minimal pattern (ratio) difference between the two sets.
-  
-    `requests | evaluate diffpatterns("split=success", "threshold=0.04")`
-* `output=minimize | all`
-  
-    The format of the results. The Count and Percent columns always appear in the results. 
-  
-  * `minimize` - filters out columns with only '*' in the results
-  * `all` - all the columns from the input are output
-* `weight_column=` *column_name*
-  
-    Considers each row in the input according to the specified weight (by default each row has a weight of '1'). A common use of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
-  
-    `requests | evaluate autocluster("weight_column=itemCount")`
-
-<a name="evaluate-diffpatterns_v2"></a>
-#### evaluate diffpatterns_v2
-'T | evaluate diffpatterns_v2(splitColumn)`
+<a name="evaluate-diffpatterns"></a>
+#### evaluate diffpatterns
+`T | evaluate diffpatterns(splitColumn)`
 
 Diffpatterns compares two data sets of the same structure and finds patterns of discrete attributes (dimensions) that characterize differences between the two data sets. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. The Diffpatterns algorithm was developed by the Developer Analytics research team (KustoML@microsoft.com).
 
-This plugin replaces the deprecated diffpatterns plugin syntax.
-
 **Syntax**
 
-`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, arguments] )`
+`T | evaluate diffpatterns(SplitColumn, SplitValueA, SplitValueB [, arguments] )`
 
 **Returns**
 
@@ -660,7 +570,7 @@ When you find an interesting row, you might want to drill into it further by add
 
 **Required arguments**
 
-`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
+`T | evaluate diffpatterns(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
 
 - SplitColumn - *column_name* 
 
@@ -677,7 +587,7 @@ A string representation of one of the values in the SplitColumn that was specifi
 **Example**
 
 ```
-T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure")
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure")
 ```
 **Optional Arguments**
 
@@ -689,7 +599,7 @@ Considers each row in the input according to the specified weight (by default ea
 
 **Example**
 ```
-T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", sample_Count)
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", sample_Count)
 ```
 - Threshold - 0.015 < double < 1 [default: 0.05]
 
@@ -697,7 +607,7 @@ Sets the minimal pattern (ratio) difference between the two sets.
 
 **Example**
 ```
-T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", 0.04)
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", "~", 0.04)
 ```
 - MaxDimensions - 0 < int [default: unlimited]
 
@@ -705,7 +615,7 @@ Sets the maximal number of uncorrelated dimensions per result pattern, specifyin
 
 **Example**
 ```
-T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", 3)
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", "~", "~", 3)
 ```
 - CustomWildcard - *any_value_per_type*
 
@@ -713,7 +623,7 @@ Sets the wildcard value for a specific type in the result table that will indica
 
 **Example**
 ```
-T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))
 ```
 
 **Example**
@@ -722,7 +632,7 @@ StormEvents
 | where monthofyear(StartTime) == 5
 | extend Damage = iff(DamageCrops + DamageProperty > 0 , 1 , 0)
 | project State , EventType , Source , Damage, DamageCrops
-| evaluate diffpatterns_v2(Damage, "0", "1" )
+| evaluate diffpatterns(Damage, "0", "1" )
 ```
 **Results**
 
@@ -737,40 +647,6 @@ StormEvents
 6|655|279|14.32|21.3|6.98|||Law Enforcement||
 7|150|117|3.28|8.93|5.65||Flood|||
 8|362|176|7.91|13.44|5.52|||Emergency Manager||
-
-#### evaluate extractcolumns
-     exceptions | take 1000 | evaluate extractcolumns("details=json") 
-
-Extractcolumns is used to enrich a table with multiple simple columns that are dynamically extracted out of (semi) structured column(s) based on their type. Currently it supports json columns only, both dynamic and string serialization of jsons.
-
-* `max_columns=` *int* (default: 10) 
-  
-    The number of new added columns is dynamic and it can be very big (actually it’s the number of distinct keys in all json records) so we must limit it. The new columns are sorted in descending order based on their frequency and up to max_columns are added to the table.
-  
-    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
-* `min_percent=` *double* (default: 10.0) 
-  
-    Another way to limit new columns by ignoring columns whose frequency is lower than min_percent.
-  
-    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
-* `add_prefix=` *bool* (default: true) 
-  
-    If true the name of the complex column will be added as a prefix to the extracted columns names.
-* `prefix_delimiter=` *string* (default: "_") 
-  
-    If add_prefix=true this parameter defines the delimiter that will be used to concatenate the names of the new columns.
-  
-    `T | evaluate extractcolumns("json_column_name=json",` <br/>
-    `"add_prefix=true", "prefix_delimiter=@")`
-* `keep_original=` *bool* (default: false) 
-  
-    If true the original (json) columns will be kept in the output table.
-* `output=query | table` 
-  
-    The format of the results. 
-  
-  * `table` - The output is the same table as received minus the specified input columns plus new columns that were extracted from the input columns.
-  * `query` - The output is a string representing the query you would make to get the result as table. 
 
 ### extend operator
      T | extend duration = stopTime - startTime

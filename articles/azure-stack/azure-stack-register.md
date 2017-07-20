@@ -38,6 +38,7 @@ Before registering Azure Stack with Azure, you must have:
 If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/en-us/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
 
+
 ## Register Azure Stack Resource Provider
 > [!NOTE] 
 > This step only needs to be completed once in an Azure Stack environment
