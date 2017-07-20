@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/20/2017
 ms.author: jeedes
 
 ---
@@ -102,35 +102,41 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_samlbase.png)
 
-3. On the **Evernote Domain and URLs** section, perform the following steps:
+3. On the **Evernote Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
 
 	![Evernote Domain and URLs single sign-on information](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_url.png)
 
     In the **Identifier** textbox, type the URL: `https://www.evernote.com/saml2`
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+	![Evernote Domain and URLs single sign-on information](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_url1.png)
+
+    In the **Sign on URL** textbox, type the URL: `https://www.evernote.com/Login.action`	
+
+5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certificate.png) 
 
-5. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-evernote-tutorial/tutorial_general_400.png)
 
-6. On the **Evernote Configuration** section, click **Configure Evernote** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Evernote Configuration** section, click **Configure Evernote** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Evernote Configuration](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_configure.png) 
 
-7. In a different web browser window, log into your Evernote company site as an administrator.
+8. In a different web browser window, log into your Evernote company site as an administrator.
 
-8. Go to **'Admin Console'**
+9. Go to **'Admin Console'**
 
 	![Admin-Console](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-9. From the **'Admin Console'**, go to **‘Security’** and select **‘Single Sign-On’**
+10. From the **'Admin Console'**, go to **‘Security’** and select **‘Single Sign-On’**
 
 	![SSO-Setting](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_sso.png)
 
-10. Configure the following values:
+11. Configure the following values:
 
 	![Certificate-Setting](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certx.png)
 	
