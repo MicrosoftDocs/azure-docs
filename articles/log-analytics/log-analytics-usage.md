@@ -106,30 +106,34 @@ The *Data volume over time* chart shows the total volume of data sent and the co
 
 The *Data volume by solution* chart shows the volume of data that is sent by each solution and the solutions sending the most data. The chart at the top shows the total volume of data that is sent by each solution over time. This information allows you to identify whether a solution is sending more data, about the same amount of data, or less data over time. The list of solutions shows the 10 solutions sending the most data. 
 
+These two charts show all data. Some data is billable, and other data is free. To focus only on data that billable, modify the query on the search page to include `IsBillable=true`.  
+
 ![data volume charts](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
 Look at the *Data volume over time* chart. To see the solutions and data types that are sending the most data for a specific computer, click on the name of the computer. Click on the name of the first computer in the list.
 
 In the following screenshot, the *Log Management / Perf* data type is sending the most data for the computer. 
+
 ![data volume for a computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
-
-Next, go back to the *Usage* dashboard and look at the*Data volume by solution* chart. To see the computers sending the most data for a solution, click on the name of the solution in the list. Click on the name of the first solution in the list. 
+Next, go back to the *Usage* dashboard and look at the *Data volume by solution* chart. To see the computers sending the most data for a solution, click on the name of the solution in the list. Click on the name of the first solution in the list. 
 
 In the following screenshot, it confirms that the *acmetomcat* computer is sending the most data for the Log Management solution.
 
 ![data volume for a solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
+If needed, perform additional analysis to identify large volumes within a data type.
 
 Use the following steps to reduce the volume of logs collected:
 
-| Source of high data volume | How to reduce data volume |
-| -------------------------- | ------------------------- |
-| Security events            | Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Change the security audit policy to collect only needed events. <br>Review the most commonly collected security events with the following query: `Type=SecurityEvent || measure count() EventID` <br>In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [audit file system](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [audit kernel object](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [audit handle manipulation](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [audit removable storage](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
-| Performance counters       | Change [performance counter configuration](log-analytics-data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
-| Event logs                 | Change [event log configuration](log-analytics-data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
-| Syslog                     | Change [syslog configuration](log-analytics-data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
-| Solution data from computers that don't need the solution | Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
+| Source of high data volume | Additional Analytics      | How to reduce data volume |
+| -------------------------- | ------------------------- | ------------------------- |
+| Security events            | `Type=SecurityEvent \| measure count() by EventID` | Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [audit file system](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [audit kernel object](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [audit handle manipulation](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [audit removable storage](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
+| Log Management             | `Type=Usage Solution=LogManagement IsBillable=true \| measure count() by DataType` | Identify the data type, for example Performance counters, and use the guidance in the corresponding row of this table.
+| Performance counters       | `Type=Perf \| measure count() by CounterPath` <br> `Type=Perf \| measure count() by CounterName` | Change [performance counter configuration](log-analytics-data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
+| Event logs                 | `Type=Event \| measure count() by EventID` <br> `Type=Event \| measure count() by EventLog, EventLevelName` | Change [event log configuration](log-analytics-data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
+| Syslog                     | `Type=Syslog \| measure count() by Facility, SeverityLevel` <br> `Type=Syslog \| measure count() by ProcessName` | Change [syslog configuration](log-analytics-data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
+| Solution data from computers that don't need the solution |  | Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
 
 ### Check if there are more nodes than expected
 If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.
