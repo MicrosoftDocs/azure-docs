@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Audit activity reports in the Azure Active Directory portal | Microsoft Docs
 description: Introduction to the audit activity reports in the Azure Active Directory portal
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -181,5 +181,6 @@ You can filter this view further down to just **groups** or just **users**.
 
 
 ## Next steps
-See the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+
+For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).
 
