@@ -19,6 +19,8 @@
       href: container-instances-tutorial-deploy-app.md    
 - name: How-to guides
   items:
+    - name: Use side-care containers
+      href: container-instances-tutorial-multi-container.md
 - name: Reference
   items:
 - name: Resources

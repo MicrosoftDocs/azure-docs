@@ -3,7 +3,7 @@ title: Azure Container Instances tutorial - Deploy app | Microsoft Docs
 description: Azure Container Instances tutorial - Deploy app
 services: container-instances
 documentationcenter: ''
-author: seanmck
+author: neilpeterson
 manager: timlt
 editor: ''
 tags: 
@@ -16,18 +16,18 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
-ms.author: seanmck
+ms.author: nepeters
 ---
 
 # Deploy a container group
 
-Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This document walks through the creation of an Azure Resource Manager (ARM) template defining a multi-container group, and deploying it to Azure Container Instances.
+Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This document walks through running a multi-contianer group with an Azure Resource Manager (ARM) template.
 
 ## Configure the ARM template
 
 Create a file name `azuredeploy.json` and copy the following json template into it. 
 
-In this sample, a container group with two containers and a public IP address are defined. The first container of the group will run an internet facing application. The second container (the side-car) performs a simple looped http requests against the app to monitor for a http response.
+In this sample, a container group with two containers and a public IP address is defined. The first container of the group will run an internet facing application. The second container, the side-car, makes an HTTP request to the main web application via the group's local network. In a real application, the sidecar could be expanded to trigger an alert if it received a HTTP response code other than 200 OK. 
 
 ```json
 {
@@ -141,7 +141,7 @@ Server running...
 172.17.0.1 - - [17/Jul/2017:18:25:50 +0000] "GET /favicon.ico HTTP/1.1" 404 19
 ```
 
-To see the logs for the side-car container, run the same command specifying the second container.
+To see the logs for the side-car container, run the same command specifying the second container name.
 
 ```bash
 az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
@@ -163,7 +163,7 @@ Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
 Date: Mon, 17 Jul 2017 18:27:36 GMT
 ```
 
-As you can see, the sidecar is periodically making a HTTP request to the main web application via the group's local network to ensure that it is running. In a real application, the sidecar could be expanded to trigger an alert if it received a HTTP response code other than 200 OK. 
+As you can see, the sidecar is periodically making a HTTP request to the main web application via the group's local network to ensure that it is running.
 
 ## Next steps
 
