@@ -1,5 +1,5 @@
 ---
-title: Azure Container Instances and Container Orchestration | Azure Docs
+title: Azure Container Instances and Container Orchestration
 description: Understand how Azure Container Instances interact with container orchestrators
 services: container-service
 documentationcenter: ''
