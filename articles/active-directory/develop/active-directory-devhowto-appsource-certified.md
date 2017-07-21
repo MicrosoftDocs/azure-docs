@@ -19,26 +19,26 @@ ms.custom: aaddev
 
 ---
 # How to get AppSource Certified for Azure Active Directory
-[AppSource](https://appsource.microsoft.com/) is the premier destination to market and distribute your apps, content packs, and add-ins — all backed by a brand that billions of customers already know and trust.
+[Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try and manage line of business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
 
-To receive AppSource certification for Azure Active Directory, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the OpenID Connect or OAuth 2.0 protocols.
+To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the OpenID Connect or OAuth 2.0 protocols - integration via SAML protocol does not qualify for certification.
 
 ## Guides and code samples
 For code samples and guides for your platform, see the [Azure Active Directory developer's guide](./active-directory-developers-guide.md#get-started "Get Started with Azure AD for developers")
 
 ## Multi-tenant applications
-An application that accepts sign-ins from users from any company or organization that have Azure Active Directory without requiring a separate instance, configuration, or deployment is known as a *multi-tenant application* . AppSource recommends that applications implement multi-tenancy to enable the *single-click* customer-led trial experience.
+An application that accepts sign-ins from users from any company or organization that have Azure Active Directory without requiring a separate instance, configuration, or deployment is known as a *multi-tenant application*. AppSource recommends that applications implement multi-tenancy to enable the *single-click* free trial experience.
 
 For more information about multi-tenancy, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](./active-directory-devhowto-multi-tenant-overview.md).
 
-### Customer-led trial experience
+### Free Trial (Customer-led trial experience) 
 The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:
 
 <table >
 <tr>
     <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Free trial’ option</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource redirects user to a URL in your Web Site.</li><li>Your web site starts the single-sign-on process</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provided credentials to sign in</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource redirects user to a URL in your web site</li><li>Your web site starts the <i>single-sign-on</i> process automatically (on page load)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provides credentials to sign in</li></ul></td>
 </tr>
 <tr>
     <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>User gives consent for your application</li></ul></td>
@@ -47,19 +47,14 @@ The *customer-led trial* is the experience that AppSource recommends as it offer
 </tr>
 </table>
 
-### Partner-led trial experience
-The partner trial experience can be used when some manual or long-term operation need to happen to provision the user/ company by your application: for example, when your application need to provision virtual machines, database instances or operations that take much time to complete. In this case, your application receives the user information from the authentication request, provision the environment, and then, after setup is completed, user receives information on how to access the trial experience.
+### Request Trial (Partner-led trial experience)
+The *partner trial experience* can be used when a manual or a long-term operation need to happen to provision the user/ company to be able to access your application: for example, your application need to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the Request Trial button and fills out a form, AppSource sends you the user contact's information, then you provision the environment and send information to the user on how to access the trial experience.
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Request trial’ option</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>AppSource redirects user to a URL in your Web Site.</li><li>Your web site starts the single-sign-on process</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provided credentials to sign in</li></ul></td>
-</tr>
-<tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>User gives consent for your application</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step5.png" width="85%"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>Your application start provision user</li></ul></td>
-    <td valign="top" width="33%">Then:<br/><br/>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>User finds your application in AppSource web site</li><li>Selects ‘Request trial’ or ‘Request trial’ option</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Fills out a form with contact information</li></ul></td>
+     <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
@@ -74,14 +69,22 @@ The partner trial experience can be used when some manual or long-term operation
             <td>Contact user with trial info</td>
         </tr>
         </table><br/><br/>
-        <ul><li>Setup trial and contact user</li></ul>
+        <ul><li>You receive user's information and setup trial instance</li><li>You send user's an hyperlink to access your application</li></ul>
     </td>
+</tr>
+<tr>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>User accesses your application and complete the single-sign-on process</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>User gives consent for your application</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the free trial</li></ul></td>
+   
 </tr>
 </table>
 
-
+### More information
+See [this video](https://aka.ms/trialexperienceforwebapps) for more information about the AppSource trial experience. 
  
 ## Next Steps
+
 - For more information on building applications that support Azure Active Directory sign-ins, see [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
 
 - For information on how to list your SaaS application in AppSource, go see [AppSource Partner Information](https://appsource.microsoft.com/partners)
