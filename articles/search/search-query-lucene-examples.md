@@ -19,7 +19,7 @@ ms.author: liamca
 ---
 
 # Lucene query syntax examples for building queries in Azure Search
-When constructing queries for Azure Search, you can use either the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or the alternative [Lucene Query Parser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and reqular expression search.
+When constructing queries for Azure Search, you can use either the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or the alternative [Lucene Query Parser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and regular expression search.
 
 In this article, you can step through examples that display Lucene query syntax and results side by side. Examples run against a pre-loaded Search index in [JSFiddle](https://jsfiddle.net), an online code editor for testing script and HTML. Right-click on the query example URLs to open JSFiddle in a separate browser window.
 
