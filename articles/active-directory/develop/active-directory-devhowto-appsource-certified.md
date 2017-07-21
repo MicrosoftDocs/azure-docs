@@ -34,7 +34,7 @@ For more information about multi-tenancy, see: [How to sign in any Azure Active 
 ## AppSource trial experiences
 
 ### Free Trial (Customer-led trial experience) 
-The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:
+The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:<br/><br/>
 
 <table >
 <tr>
@@ -50,7 +50,7 @@ The *customer-led trial* is the experience that AppSource recommends as it offer
 </table>
 
 ### Request Trial (Partner-led trial experience)
-The *partner trial experience* can be used when a manual or a long-term operation needs to happen to provision the user/ company: for example, your application needs to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the *'Request Trial'* button and fills out a form, AppSource sends you the user's contact information. After receiving this information, you provision the environment and send the instructions to the user on how to access the trial experience.
+The *partner trial experience* can be used when a manual or a long-term operation needs to happen to provision the user/ company: for example, your application needs to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the *'Request Trial'* button and fills out a form, AppSource sends you the user's contact information. After receiving this information, you provision the environment and send the instructions to the user on how to access the trial experience:<br/><br/>
 
 <table valign="top">
 <tr>
