@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics query language cheat sheet | Microsoft Docs
-description: This article provides assistance on transitioning to the next generation query language for Log Analytics if you're already familiar with the legacy language.  Analytics.
+description: This article provides assistance on transitioning to the next generation query language for Log Analytics if you're already familiar with the legacy language.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: bwren
 
 ---

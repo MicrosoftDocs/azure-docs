@@ -12,12 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: bwren
 
 ---
 
-# Upgrade your Azure Log Analytics workspace to next generation log search (Public Preview)
+# Upgrade your Azure Log Analytics workspace to next generation log search
+
+> [!NOTE]
+> The next generation Log Analytics query language is currently in public preview.  Participation in the public preview is optional.  When the Azure Log Analytics next generation query language reaches general availability, then your workspace will be automatically upgraded.
+
 The next generation Log Analytics query language is almost here, and you can participate in the public preview.  This article describes the advantages of the next generation language and how to convert your workspace if you choose to join the preview.  If you don't join, then your workspace will continue to operate just like it always did, but it will be automatically converted when the next generation language reaches general availability sometime later this year.
 
 This article provides details on the next generation language and the upgrade process.

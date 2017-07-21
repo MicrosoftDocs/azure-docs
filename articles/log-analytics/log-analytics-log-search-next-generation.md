@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/21/2017
 ms.author: bwren
 
 ---
-# Understanding log searches in Log Analytics (next generation)
+# Understanding log searches in Log Analytics
 
 > [!NOTE]
-> This article describes log searches in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about it and get the procedure to upgrade your workspace at Upgrade your [Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
+> This article describes log searches in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
 >
 > If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md).
 

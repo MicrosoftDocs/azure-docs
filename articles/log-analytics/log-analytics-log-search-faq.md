@@ -12,12 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/21/2017
 ms.author: bwren
 
 ---
 
 # Log Analytics next generation log search frequently asked questions
+
+> [!NOTE]
+> This article answers questions the upgrade of your Log Analytics workspace to the next generation query language which is currently in public preview.  Participation in the public preview is optional.  
 
 This article provides frequently asked questions regarding the upgrade of [Log Analytics to the next generation query language](log-analytics-log-search-upgrade.md).
 

@@ -12,14 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/21/2017
 ms.author: bwren
 
 ---
 # Create log searches in Azure Log Analytics using the Log Search portal
 
 > [!NOTE]
-> This article uses the next generation Log Analytics query language which is currently in public preview.  You can learn more about the new language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).
+> This article describes the Log Search portal in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
+>
+> If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
 
 This article includes a tutorial that describes how to create log searches and analyze data stored in your Log Analytics workspace using the Log Search portal.  The tutorial includes running some simple queries to return different types of data and analyzing results.  It focuses on features in the Log Search portal for modifying the query rather than modifying it directly.  For details on directly editing the query, see the [Query Language reference](https://docs.loganalytics.io/queryLanguage/query_language.html).
 
