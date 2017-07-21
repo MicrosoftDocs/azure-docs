@@ -84,7 +84,7 @@ The following table lists the versions of HDInsight currently available, the cor
 | HDInsight Version | HDP Version | VM OS | High Availability | Release Date | Available on Azure portal | Support Expiration Date | Retirement Date |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |Yes |04/06/2017 |Yes | | |
-| HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |9/30/2016 |Yes |07/05/2017 |05/31/2018 |
+| HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |9/30/2016 |Yes |08/20/2017 |05/31/2018 |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |03/29/2016 |Yes |12/29/2016 |1/9/2018 |
 | HDI 3.3 |HDP 2.3 |Windows Server 2012R2 |Yes |12/02/2015 |Yes |06/27/2016 |07/31/2018 |
 | HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Yes |12/02/2015 |Yes |06/27/2016 |07/31/2017 |
