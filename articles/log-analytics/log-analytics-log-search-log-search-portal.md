@@ -74,7 +74,7 @@ The default time scope is **1 day**.  Change this value to **7 days**, and the t
 ## Filter results of the query
 On the left side of the screen is the filter pane which allows you to add filtering to the query without modifying it directly.  Several properties of the records returned are displayed with their top ten values with their record count.
 
-If you're working with **Events**, select the checkbox next to **Error** under **EVENTLEVELNAME**.   If you're working with **Syslog**, select the checkbox next to **err** under **SEVERITYLEVEL**.  This changes the query to one of the following to limit the results to error events.
+If you're working with **Event**, select the checkbox next to **Error** under **EVENTLEVELNAME**.   If you're working with **Syslog**, select the checkbox next to **err** under **SEVERITYLEVEL**.  This changes the query to one of the following to limit the results to error events.
 
 ```
 Event | where (EventLevelName == "Error")
@@ -89,7 +89,9 @@ Add properties to the filter pane by selecting **Add to filters** from the prope
 
 ![Add to filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-02a.png)
 
-You can set the same filter by selecting **Filter** from the property menu for a record with the value you want to filter.  Note that you only have the **Filter** option for properties with their name in blue.  These are *searchable* fields which are indexed for search conditions.  Fields in grey are *free text searchable* fields which only have the **Show references** option.  This returns records that have that value in any property.
+You can set the same filter by selecting **Filter** from the property menu for a record with the value you want to filter.  
+
+You only have the **Filter** option for properties with their name in blue.  These are *searchable* fields which are indexed for search conditions.  Fields in grey are *free text searchable* fields which only have the **Show references** option.  This option returns records that have that value in any property.
 
 ![Filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 

@@ -23,11 +23,9 @@ ms.author: bwren
 >
 > If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md).
 
-You require a log search to retrieve any data from Log Analytics.  Whether you're analyzing data in the portal, configuring an alert rule to be notified of a particular condition, or retrieving data using the Log Analytics API, you will use a log search to specify the data you want.
+You require a log search to retrieve any data from Log Analytics.  Whether you're analyzing data in the portal, configuring an alert rule to be notified of a particular condition, or retrieving data using the Log Analytics API, you will use a log search to specify the data you want.  This article describes how log searches are used in Log Analytics and provides concepts that should understand before creating one. See the [Next steps](#next-steps) section for details on creating and editing log searches and for references on the query language.
 
-This article describes how log searches are used in Log Analytics and provides concepts that you need to understand before creating one. See the [Next steps](#next-steps) section for details on editing log searches and for references on the query language.
-
-
+## Where log searches are used
 
 The different ways that you will use log searches in Log Analytics include the following:
 
