@@ -384,15 +384,16 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    service iptables stop
    ```
 
-7. Check available swap space. You need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You will need to edit `/etc/waagent.conf` and restart the VM in order for the changed settings to take effect. 
+7. Update configured swap space. Oracle Grid components need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You will need to edit `/etc/waagent.conf` and restart the WALinuxAgent service in order for the updated settings to take effect. Because it is a read only file, you will need to change file permissions to enable write access. 
 
    ```bash
+   sudo chmod 777 /etc/waagent.conf  
    vi /etc/waagent.conf
    ```
    
-   Search for `ResourceDisk.SwapSizeMB` and change the value to **8192**. You will need to press `insert` to enter insert mode, type in the value of **8192** and then press `esc` to return to command mode. To write the changes and quit the file, type `:wq` and press `enter`
+   Search for `ResourceDisk.SwapSizeMB` and change the value to **8192**. You will need to press `insert` to enter insert mode, type in the value of **8192** and then press `esc` to return to command mode. To write the changes and quit the file, type `:wq` and press `enter`.
    
-    We highly recommend that you always use `waagent` to configure swap space so that it's always created on the local ephemeral disk (temporary disk) for best performance. For more information, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
+    We highly recommend that you always use `WALinuxAgent` to configure swap space so that it's always created on the local ephemeral disk (temporary disk) for best performance. For more information on, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
 
 ## Prepare the client and VM to run x11
 This is an optional step exclusive to Windows machines. You can skip this step if you are using a Linux client or are using a machine that already has x11 set up.
