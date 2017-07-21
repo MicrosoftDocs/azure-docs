@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -170,8 +170,8 @@ az mysql server create \
     --name <mysql_server_name> \
     --resource-group myResourceGroup \
     --location "North Europe" \
-    --user adminuser \
-    --password MySQLAzure2017
+    --admin-user adminuser \
+    --admin-password MySQLAzure2017
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
