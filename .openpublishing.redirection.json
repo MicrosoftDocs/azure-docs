@@ -8318,6 +8318,16 @@
             "source_path": "articles/application-insights/app-insights-understand-usage-patterns.md",
             "redirect_url": "/azure/application-insights/usage-funnels",
             "redirect_document_id": false
-        }                                              
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-wad.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-lad.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-lad",
+            "redirect_document_id": false
+        }                                               
     ]
 }
