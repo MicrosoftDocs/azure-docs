@@ -24,10 +24,10 @@ The Azure Analysis Services Web designer (preview) feature in Azure portal provi
 
 Keep in-mind, the Web designer is **preview**. While new functionality is being added all the time, in preview, functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
 
-Before getting started, you'll need:
+Before getting started, you need:
 
 - An Azure Analysis Server at the Standard or Developer tier. New models created by using the Web designer are DirectQuery, supported only by these tiers.
-- An Azure SQL Database, Azure SQL Data Warehouse, or Power BI Desktop (.pbix) file as a datasource. At this time, new models created from Power BI Desktop files support only Azure SQL Database, Azure SQL Data Warehouse, Oracle, and Teradata data sources.
+- An Azure SQL Database, Azure SQL Data Warehouse, or Power BI Desktop (.pbix) file as a datasource. New models created from Power BI Desktop files support Azure SQL Database, Azure SQL Data Warehouse, Oracle, and Teradata data sources.
 - A SQL Server account and password for connecting to Azure SQL Database or Azure SQL Data Warehouse data sources.
 
 ## To create a new tabular model in Azure portal
@@ -48,11 +48,12 @@ Before getting started, you'll need:
 
      ![Connect dialog in Azure portal](./media/analysis-services-create-model-portal/aas-create-portal-connect.png)
 
-5. In **Tables and views**, select the tables to include in your model, and then click **Create**. Relationships will be created automatically between tables with a key pair.
+5. In **Tables and views**, select the tables to include in your model, and then click **Create**. Relationships are created automatically between tables with a key pair.
 
      ![Select tables and views](./media/analysis-services-create-model-portal/aas-create-portal-tables.png)
 
-Your new model will appear in your browser. From here, you can:   
+Your new model appears in your browser. From here, you can:   
+
 - Query model data by dragging fields to the query designer and adding filters.
 - Create new measures in tables.
 - Edit model metadata by using the json editor.
