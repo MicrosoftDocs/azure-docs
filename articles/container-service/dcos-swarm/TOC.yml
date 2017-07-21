@@ -1,4 +1,4 @@
-- name: ACS Documentation
+- name: ACS with DC/OS and Swarm
   href: ./index.yml
 - name: Overview
   items:
@@ -22,7 +22,7 @@
 - name: Concepts
   items:
   - name: Secure containers
-    href: ../container-service-security.md
+    href: container-service-security.md
 - name: How-to guides
   items:
   - name: Connect with an ACS cluster

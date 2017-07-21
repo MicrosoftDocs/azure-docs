@@ -1,4 +1,4 @@
-- name: ACS Documentation
+- name: ACS with Kubernetes
   href: ./index.yml
 - name: Overview
   items:
@@ -32,7 +32,7 @@
 - name: Concepts
   items:
   - name: Secure containers
-    href: ../container-service-security.md
+    href: container-service-security.md
   - name: Service principal - Kubernetes
     href: container-service-kubernetes-service-principal.md
 - name: How-to guides
