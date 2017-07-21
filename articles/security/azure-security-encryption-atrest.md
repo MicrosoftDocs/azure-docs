@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Encryption-at-Rest | Microsoft Docs
-description: This article provides an overview of Microsoft Azure security capabilities and general considerations for organizations that are migrating their assets to a cloud provider.
+description: This article provides an overview of Microsoft Azure data  encryption at-rest, the overall capabilities, and general considerations.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -47,7 +47,7 @@ Microsoft is committed to providing encryption at rest options across cloud serv
 
 As described previously, the goal of encryption at rest is that data that is persisted on disk is encrypted with a secret encryption key. To achieve that goal secure key creation, storage, access control and management of the encryption keys must be provided. Though details may vary, Azure services Encryption at Rest implementations can be described in terms of the below concepts which are then illustrated in the following diagram.
 
-Fig1
+[Components](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
 ### Azure Key Vault
 
@@ -99,11 +99,13 @@ The supported encryption models in Azure split into two main groups: “Client E
 
 Client Encryption model refers to encryption that is performed outside of the Resource Provider or Azure by the service or calling application. The encryption can be performed by the service application in Azure, or by an application running in the customer data center. In either case, when leveraging this encryption model, the Azure Resource Provider receives an encrypted blob of data without the ability to decrypt the data in any way or have access to the encryption keys. In this model, the key management is done by the calling service/application and is completely opaque to the Azure service.
 
-FIG2
+[Client](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
 ### Server-side encryption model
 
 Server-side Encryption models refer to encryption that is performed by the Azure service . In that model, the Resource Provider performs the encrypt and decrypt operations. For example, Azure Storage may receive data in plain text operations and will perform the encryption and decryption internally. The Resource Provider might use encryption keys that are managed by Microsoft or by the customer depending on the provided configuration. 
+
+[Server](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### Server-side encryption key management models
 
@@ -113,9 +115,8 @@ Each of the server-side encryption at rest models implies distinctive characteri
 
 For many customers, the essential requirement is to ensure that the data is encrypted whenever it is at rest. Server-side encryption using Service Managed Keys enables this model by allowing customers to mark the specific resource (Storage Account, SQL DB, etc.) for encryption and leaving all key management aspects such as key issuance, rotation and backup to Microsoft. Most Azure Services that support encryption at rest typically support this model of offloading the management of the encryption keys to Azure. The Azure resource provider creates the keys, places them in secure  storage, and retrieves them when needed. This means that the service has full access to the keys and the service has full control over the credential lifecycle management.
 
-FIG3
+[managed](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
- 
 Server-side encryption using service managed keys therefore quickly addresses the need to have encryption at rest with low overhead to the customer. When available a customer typically opens the Azure management portal for the target subscription and resource provider and checks a box indicating they would like the data to be encrypted. In some Resource Managers server-side encryption with service managed keys is on by default. 
 
 Server-side encryption with Microsoft managed keys does imply the service has full access to store and manages the keys. While some customers may want to manage the keys because they feel they can ensure greater security, the cost and risk associated with a custom key storage solution should be considered when evaluating this model. In many cases an organization may determine that resource constraints or risks of an on-premises solution may greater than the risk of cloud management of the encryption at rest keys.  However, this model might not be sufficient for organizations that have requirements to control the creation or lifecycle of the encryption keys or to have different personnel manage a service’s encryption keys than those managing the service (i.e. segregation of key management from service management).
@@ -243,10 +244,10 @@ Support for sever encryption is currently provided through the SQL feature calle
 
 Client-side encryption of SQL Azure data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
 
-|                                  |                |                     | Encryption Model             |                              |        |
+|                                  |                |                     | **Encryption Model**             |                              |        |
 |----------------------------------|----------------|---------------------|------------------------------|------------------------------|--------|
-|                                  |                |                     |                              |                              | Client |
-|                                  | Key Management | Service Managed Key | Customer ManagedIn Key Vault | Customer Managed On-premises |        |
+|                                  |                |                     |                              |                              | **Client** |
+|                                  | **Key Management** | **Service Managed Key** | **Customer Managed in Key Vault** | **Customer Managed On-premises** |        |
 | **Storage and Databases**            |                |                     |                              |                              |        |
 | Disk (IaaS)                      |                | -                   | Yes                          | Yes*                         | -      |
 | SQL Server (IaaS)                |                | Yes                 | Yes                          | Yes                          | Yes    |
