@@ -82,6 +82,7 @@
 ### [Classic deployment issues with creating a new VM](troubleshoot-deployment-new-vm.md)
 ### [Classic deployment issues with restarting or resizing an existing VM](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 ## [Reset RDP password](reset-rdp.md)
+## [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](/powershell/azure/overview)
