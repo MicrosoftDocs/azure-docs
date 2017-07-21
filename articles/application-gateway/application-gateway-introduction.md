@@ -99,3 +99,5 @@ For frequently asked questions about Application Gateway, see [Application Gatew
 After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway-portal.md) or you can [create an application gateway SSL offload](application-gateway-ssl-arm.md) to load-balance HTTPS connections.
 
 To learn how to create an application gateway using URL-based content routing, go to [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) for more information.
+
+To learn about some of the other key networking capabilities of Azure, see [Azure Networking]((../networking/networking-overview.md).
