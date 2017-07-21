@@ -41,9 +41,9 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
   },
   "variables": {
     "container1name": "aci-tutorial-app",
-    "container1image": "neilpeterson/nepetersv1",
+    "container1image": "seanmckenna/aci-tutorial-app:v1",
     "container2name": "aci-tutorial-sidecar",    
-    "container2image": "neilpeterson/kubectl-proxy-sidecar"
+    "container2image": "seanmckenna/aci-tutorial-sidecar"
   },
     "resources": [
       {
