@@ -32,8 +32,7 @@ The Azure CLI includes commands for creating and managing containers in Azure Co
 az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --image-registry-password myRegistryPassword --resource-group myresourcegroup
 ```
 
-> [!NOTE]
-> The `create` command also supports specifying the `image-registry-login-server` and `image-registry-username`. However, by default, the login server for the Azure Container Registry is simply *registryname*.azurecr.io and the username is *registryname*, so these values are inferred from the image name if not explicitly provided.
+The `create` command also supports specifying the `image-registry-login-server` and `image-registry-username`. However, by default, the login server for the Azure Container Registry is simply *registryname*.azurecr.io and the username is *registryname*, so these values are inferred from the image name if not explicitly provided.
 
 ## Using an Azure Resource Manager template
 
