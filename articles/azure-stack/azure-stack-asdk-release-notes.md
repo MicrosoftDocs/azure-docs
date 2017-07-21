@@ -78,7 +78,13 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
     ```PowerShell
       Set-AzureRmEnvironment AzureStack -GraphAudience https://graph.local.azurestack.external/
     ```
-    
+* You may receive the following error when registering your environment in Azure CLI:
+  
+  *Please ensure you have network connection. Error detail: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)".*  
+  
+  As a workaround, use PowerShell or the Portal to perform tasks.
+
+
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
 * The compute resource provider displays an unknown state.
