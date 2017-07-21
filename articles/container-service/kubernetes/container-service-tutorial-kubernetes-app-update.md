@@ -193,4 +193,4 @@ In this tutorial, we updated an application and rolled out this update to a Kube
 Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with OMS](./../container-service-tutorial-kubernetes-monitor.md)
+> [Monitor Kubernetes with OMS](container-service-tutorial-kubernetes-monitor.md)
