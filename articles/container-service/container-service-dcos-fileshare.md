@@ -153,4 +153,4 @@ In this tutorial an Azure file share was made available to a DC/OS cluster using
 Advance to the next tutorial to learn about integrating an Azure Container Registry with DC/OS in Azure.  
 
 > [!div class="nextstepaction"]
-> [Load balance applications](./container-service-dcos-acr.md)
+> [Load balance applications](dcos-swarm/container-service-dcos-acr.md)
