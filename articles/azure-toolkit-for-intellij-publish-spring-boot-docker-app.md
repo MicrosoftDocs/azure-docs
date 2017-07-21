@@ -20,7 +20,7 @@ ms.author: robmcm
 
 # Publish a Spring Boot app as a Docker container by using the Azure Toolkit for IntelliJ
 
-The [Spring Framework] is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot]. It provides a simplified approach for creating standalone Java applications.
+The [Spring Framework] is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating standalone Java applications.
 
 [Docker] is an open-source solution that helps developers automate the deployment, scaling, and management of their applications that are running in containers.
 
