@@ -37,6 +37,8 @@
     href: container-service-kubernetes-service-principal.md
 - name: How-to guides
   items:
+  - name: Kubernetes with Windows Quickstart
+    href: container-service-kubernetes-windows-walkthrough.md
   - name: Container management - Kubernetes UI
     href: container-service-kubernetes-ui.md
   - name: Deploy Helm charts
@@ -45,8 +47,6 @@
     href: container-service-kubernetes-jenkins.md
   - name: Use Draft with ACR and ACS
     href: container-service-draft-up.md
-  - name: Kubernetes with Windows Quickstart
-    href: container-service-kubernetes-windows-walkthrough.md
   - name: Connect with an ACS cluster
     href: container-service-connect.md
   - name: Scale an ACS cluster
