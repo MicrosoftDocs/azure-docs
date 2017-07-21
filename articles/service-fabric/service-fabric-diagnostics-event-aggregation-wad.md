@@ -187,6 +187,47 @@ To collect the events, modify the resource manager template to include
     }
 ```
 
+## Collect reverse proxy events
+
+Starting with the 5.7 release of Service Fabric, [reverse proxy](service-fabric-reverseproxy.md) events are available for collection.
+Reverse proxy emits events into two channels, one containing error events reflecting request processing failures and the other one containing verbose events about all the requests processed at the reverse proxy. 
+
+1. Collect error events: To view these events in Visual Studio's Diagnostic Event Viewer add "Microsoft-ServiceFabric:4:0x4000000000000010" to the list of ETW providers.
+To collect the events from Azure clusters, modify the resource manager template to include
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387920",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
+2. Collect all request processing events: In Visual Studio's Diagnostic Event Viewer, update the Microsoft-ServiceFabric entry in the ETW provider list to "Microsoft-ServiceFabric:4:0x4000000000000020".
+For Azure Service Fabric clusters, modify the resource manager template to include
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387936",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+> It is recommended to judiciously enable collecting events from this channel as this collects all traffic through the reverse proxy and can quickly consume storage capacity.
+
+For Azure Service Fabric clusters, the events from all the nodes will be collected and aggregated in the SystemEventTable.
+For detailed troubleshooting of the reverse proxy events, refer the [reverse proxy diagnostics guide](service-fabric-reverseproxy-diagnostics.md).
+
 ## Collect from new EventSource channels
 
 To update Diagnostics to collect logs from new EventSource channels that represent a new application that you're about to deploy, perform the same steps as previously described for the setup of Diagnostics for an existing cluster.
