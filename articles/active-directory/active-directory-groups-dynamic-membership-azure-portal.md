@@ -91,7 +91,7 @@ All Operators are listed below per precedence from lower to higher, operator in 
 
 All operators can be used with or without hyphen prefix.
 
-Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements
+Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements.
 For example:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
