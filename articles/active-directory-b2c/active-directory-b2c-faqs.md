@@ -104,7 +104,7 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 ### How do I delete my Azure AD B2C tenant?
 Follow these steps to delete your Azure AD B2C tenant:
 
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+1. Follow these steps to [navigate to B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
 1. Navigate to the **Applications**, **Identity providers**, and **All policies** blades and delete all the entries in each of them.
 1. Now sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 1. Navigate to the Active Directory extension on the left and click your B2C tenant.
