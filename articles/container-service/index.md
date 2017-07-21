@@ -25,7 +25,7 @@ Azure Container Service allows you to quickly deploy a production ready Kubernet
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtual-machines.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
