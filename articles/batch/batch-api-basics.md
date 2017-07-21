@@ -232,7 +232,12 @@ The optional *start task* executes on each node as that node joins the pool, and
 
 ### Application packages
 
-You can specify [application packages](#application-packages) to deploy to the compute nodes in the pool. Application packages provide simplified deployment and versioning of the applications that your tasks run. Application packages that you specify for a pool are installed on every node that joins that pool, and every time a node is rebooted or reimaged. Application packages are currently unsupported on Linux compute nodes.
+You can specify [application packages](#application-packages) to deploy to the compute nodes in the pool. Application packages provide simplified deployment and versioning of the applications that your tasks run. Application packages that you specify for a pool are installed on every node that joins that pool, and every time a node is rebooted or reimaged.
+
+> [!NOTE]
+> Application packages are supported on all Batch pools created after 5 July 2017. They are supported on Batch pools created between 10 March 2016 and 5 July 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages. For more information about using application packages to deploy your applications to your Batch nodes, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
+>
+>
 
 ### Network configuration
 
@@ -309,7 +314,7 @@ If you add or update the start task for an existing pool, you must reboot its co
 >[!NOTE]
 > The total size of a start task must be less than or equal to 32768 characters, including resource files and environment variables. To ensure that your start task meets this requirement, you can use one of two approaches:
 >
-> 1. You can use application packages to distribute applications or data across each node in your Batch pool. For more information about application packages, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
+> 1. You can use application packages to distribute applications or data across each node in your Batch pool. For more information about application packages, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 > 2. You can manually create a zipped archive containing your applications files. Upload your zipped archive to Azure Storage as a blob. Specify the zipped archive as a resource file for your start task. Before you run the command line for your start task, unzip the archive from the command line. 
 >
 >    To unzip the archive, you can use the archiving tool of your choice. You will need to include the tool that you use to unzip the archive as a resource file for the start task.
@@ -392,7 +397,7 @@ You can specify application packages at the pool and task level. When you specif
 
 Batch handles the details of working with Azure Storage to store your application packages and deploy them to compute nodes, so both your code and management overhead can be simplified.
 
-To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
+To find out more about the application package feature, check out [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 
 > [!NOTE]
 > If you add pool application packages to an *existing* pool, you must reboot its compute nodes for the application packages to be deployed to the nodes.

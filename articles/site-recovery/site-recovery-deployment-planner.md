@@ -556,6 +556,15 @@ To update the deployment planner, do the following:
 
 ## Version history
 
+### 1.3.1
+Updated: July 19, 2017
+
+Following new feature is added:
+
+* Added support for large disks (> 1TB) in report generation. Now you can use deployment planner to plan replication for virtual machines that have disk sizes greater than 1 TB (upto 4095 GB).
+Read more about [Large disk support in Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
+
+
 ### 1.3
 Updated: May 9, 2017
 

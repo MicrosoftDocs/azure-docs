@@ -74,7 +74,7 @@ See the following articles for detailed information about Data Management Gatewa
 
 ### What’s new
 
-- You can now store data source credentials locally. The credentials are encrypted. The data source credentials can be recovered and restored using the backup file that can be exported from the existing Gateway, all on premise.
+- You can now store data source credentials locally. The credentials are encrypted. The data source credentials can be recovered and restored using the backup file that can be exported from the existing Gateway, all on-premises.
 
 ### Enhancements-
 
