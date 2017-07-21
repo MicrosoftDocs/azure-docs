@@ -30,7 +30,7 @@ Helm has two components:
  
 ## Prerequisites
 
-* [Create a Kubernetes cluster](../container-service-kubernetes-walkthrough.md) in Azure Container Service
+* [Create a Kubernetes cluster](container-service-kubernetes-walkthrough.md) in Azure Container Service
 
 * [Install and configure `kubectl`](../container-service-connect.md) on a local computer
 

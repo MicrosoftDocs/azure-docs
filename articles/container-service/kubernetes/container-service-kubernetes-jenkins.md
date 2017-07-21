@@ -32,7 +32,7 @@ The basic steps detailed in this article are:
 
 ## Install a Kubernetes cluster
     
-Deploy the Kubernetes cluster in Azure Container Service using the following steps. Full documentation is located [here](../container-service-kubernetes-walkthrough.md).
+Deploy the Kubernetes cluster in Azure Container Service using the following steps. Full documentation is located [here](container-service-kubernetes-walkthrough.md).
 
 ### Step 1: Create a resource group
 ```azurecli

@@ -88,7 +88,7 @@ After you enter the command, wait for about 10 minutes for the cluster to be cre
 ![Image ACS create](media/container-service-create-acs-cluster-cli/cluster-create.png)
 
 > [!TIP]
-> The [Kubernetes walkthrough](container-service-kubernetes-walkthrough.md) shows how to use `az acs create` with default values to create a Kubernetes cluster.
+> The [Kubernetes walkthrough](kubernetes/container-service-kubernetes-walkthrough.md) shows how to use `az acs create` with default values to create a Kubernetes cluster.
 >
 
 ## Manage ACS clusters
@@ -140,4 +140,4 @@ Now that you have a functioning cluster, see these documents for connection and 
 * [Connect to an Azure Container Service cluster](container-service-connect.md)
 * [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
 * [Work with Azure Container Service and Docker Swarm](container-service-docker-swarm.md)
-* [Work with Azure Container Service and Kubernetes](container-service-kubernetes-walkthrough.md)
+* [Work with Azure Container Service and Kubernetes](kubernetes/container-service-kubernetes-walkthrough.md)

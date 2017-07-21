@@ -25,7 +25,7 @@ This article introduces load balancing in a Kubernetes cluster in Azure Containe
 You can set up a Kubernetes service to use [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) to manage external network (TCP) traffic. With additional configuration, load balancing and routing of HTTP or HTTPS traffic or more advanced scenarios are possible.
 
 ## Prerequisites
-* [Deploy a Kubernetes cluster](../container-service-kubernetes-walkthrough.md) in Azure Container Service
+* [Deploy a Kubernetes cluster](container-service-kubernetes-walkthrough.md) in Azure Container Service
 * [Connect your client](../container-service-connect.md) to your cluster
 
 ## Azure load balancer
@@ -37,7 +37,7 @@ When creating a Kubernetes service, you can automatically configure the Azure lo
  Following are two examples showing how to set the Kubernetes service `type` to `LoadBalancer`. (After trying the examples, delete the deployments if you no longer need them.)
 
 ### Example: Use the `kubectl expose` command 
-The [Kubernetes walkthrough](../container-service-kubernetes-walkthrough.md) includes an example of how to expose a service with the `kubectl expose` command and its `--type=LoadBalancer` flag. Here are the steps :
+The [Kubernetes walkthrough](container-service-kubernetes-walkthrough.md) includes an example of how to expose a service with the `kubectl expose` command and its `--type=LoadBalancer` flag. Here are the steps :
 
 1. Start a new container deployment. For example, the following command starts a new deployment called `mynginx`. The deployment consists of three containers based on the Docker image for the Nginx web server.
 

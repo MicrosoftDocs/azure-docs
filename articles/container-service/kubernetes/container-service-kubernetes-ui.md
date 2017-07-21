@@ -23,7 +23,7 @@ ms.author: bburns
 # Using the Kubernetes web UI with Azure Container Service
 
 ## Prerequisites
-This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](../container-service-kubernetes-walkthrough.md).
+This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
 It also assumes that you have the Azure CLI 2.0 and `kubectl` tools installed.
