@@ -125,8 +125,8 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
    2. In the **Spark Submission** dialog box, provide the following values, and then click **Submit**:
       
       * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
-      * Select an artifact from the Eclipse project, or select one from a hard drive.
-      * In the **Main class name** text box, enter the name of the object that you specified in the code.
+      * Select an artifact from the Eclipse project, or select one from a hard drive. the default value depends on the item you right-click from package explorer.
+      * In the **Main class name** dropdownlist, submission wizard displays all object names from you selected project. select one that you want to run object.
       * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
         
        ![Spark Submission dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
@@ -136,6 +136,18 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
       
 ## Access and manage HDInsight Spark clusters by using HDInsight Tools in Azure Toolkit for Eclipse
 You can perform various operations by using HDInsight Tools, including accessing the job output.
+
+### Access the job view
+1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then click **Jobs**.  
+       ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
+2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Click the name of the application for which you want to see more details.
+       ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
+3. Hover on job graph, it displays basic running job info. Click on job graph, you can see the stages graph and info which every job generate.
+       ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+
+4. Frequently-used log including Driver Stderr, Driver Stdout, Directory Info are listed in **Log** tab.
+       ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
+5. You can also open the Spark history UI and the YARN UI (at the application level) by clicking the respective hyplink at the top of the window.
 
 ### Access the storage container for the cluster
 1. In Azure Explorer, expand the **HDInsight** root node to see a list of HDInsight Spark clusters that are available.
@@ -202,7 +214,9 @@ If you have any suggestions or feedback, or if you encounter any problems when u
 
 ### Tools and extensions
 * [Use Azure Toolkit for IntelliJ to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
