@@ -28,9 +28,7 @@ Azure SQL Database supports encryption by performing real-time encryption and de
 Microsoft provides additional ways to encrypt enterprise data:
 
 -	Cell-level encryption to encrypt specific columns or even cells of data with different encryption keys.
-
 -	If you need a Hardware Security Module or central management of your encryption key hierarchy, consider using Azure Key Vault with SQL Server in an Azure VM.
-
 -	Always Encrypted (currently in preview) makes encryption transparent to applications and allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
 Azure SQL Database Auditing allows enterprises to record events to an audit login Azure Storage. SQL Database Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses.
@@ -42,13 +40,9 @@ This article walks through the basics of securing Microsoft Azure SQL Databases 
 This Azure Database Security Overview article focuses on the following areas:
 
 -	Protect data
-
 -	Access control
-
 -	Proactive monitoring
-
 -	Centralized security management
-
 -	Azure marketplace
 
 ## Protect data
@@ -58,15 +52,12 @@ SQL Database secures your data by providing encryption for data in motion using 
 In this section, we talk about:
 
 -	Encryption in motion
-
 -	Encryption at rest
-
 -	Encryption in use (Client)
 
 For other ways to encrypt your data, consider:
 
 -	[Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
-
 -	If you need a Hardware Security Module or central management of your encryption key hierarchy, consider using [Azure Key Vault with SQL Server in an Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
 
 ### Encryption in motion
@@ -114,9 +105,7 @@ Data protection begins with controlling access to your data. The datacenter host
 In this section, we talk about:
 
 -	Firewall and firewall rules
-
 -	Authentication
-
 -	Authorization
 
 #### Firewall and firewall rules
@@ -130,7 +119,6 @@ The [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) ser
 SQL database authentication refers to how you prove your identity when connecting to the database. SQL Database supports two types of authentication:
 
 -	**SQL Authentication:** A single login account is created when a logical SQL instance is created, called the SQL Database Subscriber Account. This account connects using [SQL Server authentication](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (user name and password). This account is an administrator on the logical server instance and on all user databases attached to that instance. The permissions of the Subscriber Account cannot be restricted. Only one of these accounts can exist.
-
 -	**Azure Active Directory Authentication:** [Azure Active Directory authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) is a mechanism of connecting to Microsoft Azure SQL Database and SQL Data Warehouse by using identities in Azure Active Directory (Azure AD). This enables you to centrally manage identities of database users.
 
 ![Authentication](./media/azure-databse-security-overview/azure-database-fig2.png)
@@ -149,7 +137,6 @@ SQL database authentication refers to how you prove your identity when connectin
 In this section, we talk about:
 
 -	Dynamic data masking
-
 -	Row-level security
 
 #### Dynamic data masking
@@ -195,7 +182,6 @@ SQL Database Auditing allows you to:
 There are two Auditing methods:
 
 -	**Blob auditing** - logs are written to Azure Blob Storage. This is a newer auditing method, which provides higher performance, supports higher granularity object-level auditing, and is more cost effective.
-
 -	**Table auditing** - logs are written to Azure Table Storage.
 
 ### Threat detection
@@ -214,13 +200,9 @@ Security officers or other designated administrators can get an immediate notifi
 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-database) helps you safeguard data in SQL Database by providing visibility into the security of all your servers and databases. With Security Center, you can:
 
 -	Define policies for SQL Database encryption and auditing.
-
 -	Monitor the security of SQL Database resources across all your subscriptions.
-
 -	Quickly identify and remediate security issues.
-
 -	Integrate alerts from [Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
-
 -	Security Center supports role-based access.
 
 ## Azure Marketplace
@@ -231,9 +213,6 @@ The Azure Marketplace combines Microsoft Azure partner ecosystems into a single,
 ## Next steps
 
 - Learn more about [Secure your Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
-
 - Learn more about [Azure Security Center and Azure SQL Database service](https://docs.microsoft.com/azure/security-center/security-center-sql-database).
-
 - To learn more about threat detection, see [SQL Database Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
-
 - To learn more, see [Improve SQL database performance](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 
