@@ -16,7 +16,7 @@ ms.date: 07/20/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
-ms.custom: it-pro;
+ms.custom: it-pro;oldportal
 
 ---
 # Administer your Azure AD directory
