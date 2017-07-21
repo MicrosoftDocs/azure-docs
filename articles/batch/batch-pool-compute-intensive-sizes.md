@@ -91,7 +91,7 @@ To configure a specialized VM size for your Batch pool, the Batch APIs and tools
   > The start task must run with elevated (admin) permissions, and it must wait for success.
   >
 
-* [Application package](batch-application-package.md) - Add a zipped installation package to your Batch account, and configure a package reference in the pool. This setting uploads and unzips the package on all nodes in the pool. If the package is an installer, create a start task command line to silently install the app on all pool nodes. Optionally, install the package when a task is scheduled to run on a node.
+* [Application package](batch-application-packages.md) - Add a zipped installation package to your Batch account, and configure a package reference in the pool. This setting uploads and unzips the package on all nodes in the pool. If the package is an installer, create a start task command line to silently install the app on all pool nodes. Optionally, install the package when a task is scheduled to run on a node.
 
 * [Custom pool image](batch-api-basics.md#pool) - Create a custom Windows or Linux VM image that contains drivers, software, or other settings required for the VM size. If you created your Batch account in the user subscription configuration, specify the custom image for your Batch pool. (Custom images are not supported in accounts in the Batch service configuration.) Custom images can only be used with pools in the virtual machine configuration.
 
