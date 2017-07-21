@@ -58,11 +58,11 @@ Detailed list of questions are present in [FAQ on Azure file-folder backup](back
 ## Azure VM backup
 Detailed list of questions are present in [FAQ on Azure VM backup](backup-azure-vm-backup-faq.md)
 
-## Back up VMware VCenter Servers to Azure
+## Back up VMware servers
 
-### Can I back up VMware Server to Azure?
+### Can I back up VMware vCenter servers to Azure?
 
-Yes. You can use Azure Backup Server to back up VMware VMs to Azure. For information on the supported VMware VMs, see the article, [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). For information on how to use Azure Backup Server to back up VMware VMs, see the article, [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).  
+Yes. You can use Azure Backup Server to back up VMware vCenter and ESXi to Azure. For information on the supported VMware version, see the article, [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). For step-by-step instructions, see [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
 
 
 ## Azure Backup Server and System Center Data Protection Manager
