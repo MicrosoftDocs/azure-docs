@@ -384,3 +384,22 @@ public ActionResult Claims()
 ```
 
 You can access any claim that your application receives in the same way.  A list of all the claims the app receives is available for you on the **Claims** page.
+
+## Run the sample app
+
+Finally, build the TaskService and TaskWebApp projects, set TaskWebApp as the StartUp Project in Visual Studio so that the web page menu items will display correctly, and run your app. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit the profile or reset the password. Sign out and sign up as a different user. Note that the information displayed on the **Claims** tab corresponds to the information that you configured on your policies.
+
+## Add social IDPs
+
+Currently, the app supports only user sign-up and sign-in by using **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other **identity providers** (IDPs) without changing any of your code.
+
+To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
+
+* [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
+* [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
+* [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
+* [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
+
+After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
+
+You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.
