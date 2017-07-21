@@ -1,6 +1,6 @@
 ---
-title: Azure Container Instances tutorial - Deploy app | Microsoft Docs
-description: Azure Container Instances tutorial - Deploy app
+title: Azure Container Instances - multi-container group | Azure Docs
+description: Azure Container Instances - multi-container group
 services: container-instances
 documentationcenter: ''
 author: neilpeterson
@@ -21,13 +21,17 @@ ms.author: nepeters
 
 # Deploy a container group
 
-Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This document walks through running a multi-contianer group with an Azure Resource Manager (ARM) template.
+Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process. 
 
-## Configure the ARM template
+This document walks through running a simple multi-container sidecar configuration using an Azure Resource Manager template.
 
-Create a file name `azuredeploy.json` and copy the following json template into it. 
+## Configure the template
 
-In this sample, a container group with two containers and a public IP address is defined. The first container of the group will run an internet facing application. The second container, the side-car, makes an HTTP request to the main web application via the group's local network. In a real application, the sidecar could be expanded to trigger an alert if it received a HTTP response code other than 200 OK. 
+Create a file named `azuredeploy.json` and copy the following json into it. 
+
+In this sample, a container group with two containers and a public IP address is defined. The first container of the group runs an internet facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network. 
+
+This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK. 
 
 ```json
 {
@@ -36,9 +40,10 @@ In this sample, a container group with two containers and a public IP address is
   "parameters": {
   },
   "variables": {
-    "containerGroupName": "myContainerGroup",
-    "image1": "neilpeterson/nepetersv1",
-    "image2": "neilpeterson/kubectl-proxy-sidecar"
+    "container1name": "aci-tutorial-app",
+    "container1image": "neilpeterson/nepetersv1",
+    "container2name": "aci-tutorial-sidecar",    
+    "container2image": "neilpeterson/kubectl-proxy-sidecar"
   },
     "resources": [
       {
@@ -49,9 +54,9 @@ In this sample, a container group with two containers and a public IP address is
         "properties": {
           "containers": [
             {
-              "name": "image1",
+              "name": "[variables('container1name')]",
               "properties": {
-                "image": "[variables('image1')]",
+                "image": "[variables('container1image')]",
                 "ports": [
                   {
                     "port": 80
@@ -60,9 +65,9 @@ In this sample, a container group with two containers and a public IP address is
               }
             },
             {
-              "name": "image2",
+              "name": "[variables('container2name')]",
               "properties": {
-                "image": "[variables('image2')]"
+                "image": "[variables('container2image')]"
               }
             }
           ],
@@ -88,7 +93,7 @@ In this sample, a container group with two containers and a public IP address is
   }
 ```
 
-To use a private container image registry, add an object to the json with the following format. A complete example can be seen in the [ACI GitHub Repo](https://github.com/Microsoft/azure-cseries-preview/blob/master/templates/201-privateregistry/azuredeploy.json).
+To use a private container image registry, add an object to the json document with the following format. A complete example can be seen in the [ACI GitHub Repo](https://github.com/Microsoft/azure-cseries-preview/blob/master/templates/201-privateregistry/azuredeploy.json).
 
 ```json
 "imageRegistryCredentials": [
@@ -114,11 +119,11 @@ Deploy the template with the [az group deployment create](/cli/azure/group/deplo
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Within a few seconds, you will receive an initial response from ARM. 
+Within a few seconds, you will receive an initial response from Azure. 
 
 ## View deployment state
 
-To view the state of the deployment, use the `az container show` command. This will return the provisioned public IP address over which the application can be accessed.
+To view the state of the deployment, use the `az container show` command. This returns the provisioned public IP address over which the application can be accessed.
 
 ```bash
 az container show --name myContainerGroup --resource-group myResourceGroup
@@ -163,11 +168,11 @@ Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
 Date: Mon, 17 Jul 2017 18:27:36 GMT
 ```
 
-As you can see, the sidecar is periodically making a HTTP request to the main web application via the group's local network to ensure that it is running.
+As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running.
 
 ## Next steps
 
 This document covered the steps needed for deploying a multi-container Azure container instance. For an end to end Azure Container Instances experience, see the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
-[Azure Container Instances ttorial]: ./container-instances-tutorial-prepare-app.md
+> [Azure Container Instances tutorial]: ./container-instances-tutorial-prepare-app.md
