@@ -98,7 +98,8 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Controller fixed IPs only |
-| `https://*.partners.extranet.microsoft.com/*` |Support package |Cloud-enabled network interfaces |
+| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/` <br> `https://dcodews.partners.extranet.microsoft.com/*`<br>`https://diagnostics.support.microsoft.com/`
+ |Support package |Cloud-enabled network interfaces |
 
 #### URL patterns for Azure Government portal
 
@@ -110,7 +111,8 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Controller fixed IPs only |
-| `https://*.partners.extranet.microsoft.com/*` |Support package |Cloud-enabled network interfaces |
+| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/` <br> `https://dcodews.partners.extranet.microsoft.com/*`<br>`https://diagnostics.support.microsoft.com/`
+ |Support package |Cloud-enabled network interfaces |
 
 ### Routing metric
 
