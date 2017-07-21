@@ -21,7 +21,7 @@ ms.author: kavyako
 Starting with the 5.7 release of Service Fabric, reverse proxy events are available for collection. 
 The events are available in two channels, one with only error events related to request processing failure at the reverse proxy and second channel containing verbose events with entries for both successful and failed requests.
 
-Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#Collect) to enable collecting events from these channels in local and Azure Service Fabric clusters.
+Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) to enable collecting events from these channels in local and Azure Service Fabric clusters.
 
 ## Troubleshooting guide
 Here are some examples on how to interpret the common failure logs that one can encounter:
@@ -34,12 +34,12 @@ The second event indicates that the request failed while forwarding to service, 
 
     The payload includes:
 
-    *  **traceId** : This GUID can be used to correlate all the events corresponding to a single request. In the below two events, the traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, implying they belong to the same request.
-    *  **requestUrl** : The URL (Reverse proxy URL) to which the request was sent.
-    *  **verb** : HTTP verb.
-    *  **remoteAddress** : Address of client sending the request.
-    *  **resolvedServiceUrl** : Service endpoint URL to which the incoming request was resolved. 
-    *  **errorDetails** : Additional information about the failure.
+    *  **traceId**: This GUID can be used to correlate all the events corresponding to a single request. In the below two events, the traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, implying they belong to the same request.
+    *  **requestUrl**: The URL (Reverse proxy URL) to which the request was sent.
+    *  **verb**: HTTP verb.
+    *  **remoteAddress**: Address of client sending the request.
+    *  **resolvedServiceUrl**: Service endpoint URL to which the incoming request was resolved. 
+    *  **errorDetails**: Additional information about the failure.
 
     ```
     {
@@ -82,8 +82,8 @@ The second event indicates that the request failed while forwarding to service, 
     
     Here is an example event where reverse proxy returns 404 since it failed to find the matching service endpoint.
     The payload  entries of interest here are:
-    *  **processRequestPhase** : Indicates the phase during request processing when the failure occurred, ***TryGetEndpoint*** i.e while trying to fetch the service endpoint to forward to. 
-    *  **errorDetails** : Lists the endpoint search criteria. Here you can see that the listenerName specified = **FrontEndListener** whereas the replica endpoint list only contains a listener with the name **OldListener**.
+    *  **processRequestPhase**: Indicates the phase during request processing when the failure occurred, ***TryGetEndpoint*** i.e while trying to fetch the service endpoint to forward to. 
+    *  **errorDetails**: Lists the endpoint search criteria. Here you can see that the listenerName specified = **FrontEndListener** whereas the replica endpoint list only contains a listener with the name **OldListener**.
     
     ```
     {
@@ -109,7 +109,7 @@ The second event indicates that the request failed while forwarding to service, 
     ```
 
 3. Request to the reverse proxy fails with a timeout error. 
-    The event logs will contain an event with the received request details (not shown here).
+    The event logs contain an event with the received request details (not shown here).
     The next event shows that the service responded with a 404 status code and reverse proxy initiates a re-resolve. 
 
     ```
@@ -131,7 +131,7 @@ The second event indicates that the request failed while forwarding to service, 
       }
     }
     ```
-    When collecting all the events, you will see a train of events showing every resolve and forward attempt.
+    When collecting all the events, you see a train of events showing every resolve and forward attempt.
     The last event in the series shows the request processing has failed with a timeout, along with the number of successful resolve attempts.
     ```
     {
@@ -150,9 +150,9 @@ The second event indicates that the request failed while forwarding to service, 
     }
     ```
     
-    If collection is enabled for critical/error events only, you will see one event with details about the timeout and the number of resolve attempts. 
+    If collection is enabled for critical/error events only, you see one event with details about the timeout and the number of resolve attempts. 
     
-    If the service intends to send a 404 status code back to the user, it should be accompanied by a "X-ServiceFabric" header. After fixing this, you wil see that reverse proxy forwards the status code back to the client.  
+    If the service intends to send a 404 status code back to the user, it should be accompanied by an "X-ServiceFabric" header. After fixing this, you will see that reverse proxy forwards the status code back to the client.  
 
 4. Cases when the client has disconnected the request.
 
@@ -175,7 +175,7 @@ The second event indicates that the request failed while forwarding to service, 
     }
     ```
 
-> Events related to websocket request processing are not currently logged. This will be added in the upcoming release.
+> Events related to websocket request processing are not currently logged. This will be added in the next release.
 
 ## Next steps
 * [Event aggregation and collection using Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) for enabling log collection in Azure clusters.
