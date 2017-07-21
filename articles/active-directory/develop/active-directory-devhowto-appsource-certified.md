@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 ---
 # How to get AppSource Certified for Azure Active Directory
-[Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try and manage line of business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
+[Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try, and manage line-of-business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
 
 To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the [OpenID Connect](./active-directory-protocols-openid-connect-code.md) or [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocols. SAML protocol is not accepted.
 
@@ -50,7 +50,7 @@ The *customer-led trial* is the experience that AppSource recommends as it offer
 </table>
 
 ### Request Trial (Partner-led trial experience)
-The *partner trial experience* can be used when a manual or a long-term operation need to happen to provision the user/ company to be able to access your application: for example, your application need to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the Request Trial button and fills out a form, AppSource sends you the user contact's information, then you provision the environment and send information to the user on how to access the trial experience.
+The *partner trial experience* can be used when a manual or a long-term operation needs to happen to provision the user/ company: for example, your application needs to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the *'Request Trial'* button and fills out a form, AppSource sends you the user's contact information. After receiving this information, you provision the environment and send the instructions to the user on how to access the trial experience.
 
 <table valign="top">
 <tr>
@@ -83,7 +83,7 @@ The *partner trial experience* can be used when a manual or a long-term operatio
 </table>
 
 ### More information
-See [this video](https://aka.ms/trialexperienceforwebapps) for more information about the AppSource trial experience. 
+For more information about the AppSource trial experience, see [this video](https://aka.ms/trialexperienceforwebapps). 
  
 ## Next Steps
 
