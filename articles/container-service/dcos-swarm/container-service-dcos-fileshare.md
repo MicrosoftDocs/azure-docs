@@ -27,7 +27,7 @@ This tutorial details how to create a file share in Azure and mount it on each a
 > * Create a file share
 > * Mount the share in the DC/OS cluster
 
-You need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./../scripts/container-service-cli-deploy-dcos.md) can create one for you.
+You need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) can create one for you.
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 

@@ -149,4 +149,4 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 Follow this link to see pre-built script samples for Container Service.
 
 > [!div class="nextstepaction"]
-> [Azure Container Service script samples](../cli-samples.md)
+> [Azure Container Service script samples](cli-samples.md)
