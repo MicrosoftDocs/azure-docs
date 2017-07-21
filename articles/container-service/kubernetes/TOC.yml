@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Container Service
-    href: ../dcos-swarm/container-service-intro.md
+    href: ../container-service-intro.md
 - name: Quickstarts
   expanded: true
   items:
@@ -28,11 +28,11 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: ../dcos-swarm/cli-samples.md
+    href: ../cli-samples.md
 - name: Concepts
   items:
   - name: Secure containers
-    href: ../dcos-swarm/container-service-security.md
+    href: ../container-service-security.md
   - name: Service principal - Kubernetes
     href: container-service-kubernetes-service-principal.md
 - name: How-to guides
@@ -72,7 +72,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: FAQ
-    href: ../dcos-swarm/container-service-faq.md
+    href: ../container-service-faq.md
   - name: Templates - ACS Engine
     href: https://github.com/Azure/acs-engine
   - name: Pricing
