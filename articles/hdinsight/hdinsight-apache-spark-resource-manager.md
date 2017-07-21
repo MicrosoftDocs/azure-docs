@@ -130,12 +130,12 @@ Since we use Spark dynamic allocation, the only resources that are consumed by t
 5. Repeat these steps on the other headnode as well.
 
 ## My Jupyter notebooks are not running as expected. How can I restart the service?
-1. Launch the Ambari Web UI as shown above. From the left navigation pane, click **Jupyter**, click **Service Actions**, and then click **Restart All**. This will start the Jupyter service on all the headnodes.
+Launch the Ambari Web UI as shown above. From the left navigation pane, click **Jupyter**, click **Service Actions**, and then click **Restart All**. This will start the Jupyter service on all the headnodes.
 
     ![Restart Jupyter](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
 
-## How do I know if I am running out of resource?
-1. Launch the Yarn UI as shown above. In Cluster Metrics table on top of the screen, check values of **Memory Used** and **Memory Total** columns. If the 2 values are very close, there might not be enough resources to start the next application. The same applies to the **VCores Used** and **VCores Total** columns. Also, in the main view, if there is an application stayed in **ACCEPTED** state and not transitioning into **RUNNING** nor **FAILED** state, this could also be an indication that it is not getting enough resources to start.
+## How do I know if I am running out of resources?
+Launch the Yarn UI as shown above. In Cluster Metrics table on top of the screen, check values of **Memory Used** and **Memory Total** columns. If the 2 values are very close, there might not be enough resources to start the next application. The same applies to the **VCores Used** and **VCores Total** columns. Also, in the main view, if there is an application stayed in **ACCEPTED** state and not transitioning into **RUNNING** nor **FAILED** state, this could also be an indication that it is not getting enough resources to start.
 
     ![Resource Limit](./media/hdinsight-apache-spark-resource-manager/resource-limit.png "Resource Limit")
 

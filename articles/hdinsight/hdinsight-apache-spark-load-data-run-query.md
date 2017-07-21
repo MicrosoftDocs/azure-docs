@@ -1,5 +1,5 @@
 ---
-title: Run interactive queries on an HDInsight Spark cluster | Microsoft Docs
+title: Run interactive queries on an Azure HDInsight Spark cluster | Microsoft Docs
 description: HDInsight Spark quickstart on how to create an Apache Spark cluster in HDInsight.
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
 services: hdinsight
