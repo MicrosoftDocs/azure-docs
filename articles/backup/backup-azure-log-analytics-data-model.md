@@ -259,3 +259,28 @@ This table provides details about storage related fields.
 | ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
 | ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
 | ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
+### Vault
+This table provides details about vault related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
+| SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
+| State_s |Text |Current state of the vault object for example, Active, Deleted |
+| OperationName |Text |This is the name of the current operation - Vault |
+| Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
+| VaultUniqueId_s |Text |Unique Id of the vault |
+| VaultName_s |Text |Name of the vault |
+| AzureDataCenter_s |Text |Data center where vault is located |
+| StorageReplicationType_s |Text |Type of storage replication for the vault for example, GeoRedundant |
+| SourceSystem |Text |Source system of the current data - Azure |
+| ResourceId |Text |This is the resource id for which data is being collected, it shows Recovery Services vault resource id |
+| SubscriptionId |Text |This is the subscription id of the resource (RS vault) for which data is being collected |
+| ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
+| ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
+| ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
+## Next steps
+Once you review the data model for creating Azure Backup reports, you can start [creating dashboard](../log-analytics/log-analytics-dashboards.md) in Log Analytics and OMS.
