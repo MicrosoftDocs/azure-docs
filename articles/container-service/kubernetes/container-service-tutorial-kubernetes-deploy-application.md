@@ -175,4 +175,4 @@ In this tutorial, the Azure vote application was deployed to an Azure Container 
 Advance to the next tutorial to learn about scaling both a Kubernetes application and the underlying Kubernetes infrastructure. 
 
 > [!div class="nextstepaction"]
-> [Scale Kubernetes application and infrastructure](./../container-service-tutorial-kubernetes-scale.md)
+> [Scale Kubernetes application and infrastructure](container-service-tutorial-kubernetes-scale.md)
