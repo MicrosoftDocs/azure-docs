@@ -11,11 +11,11 @@
   items:
   - name: Build and deploy a container
     items:
-    - name: Create container image
+    - name: 1 - Create container image
       href: container-instances-tutorial-prepare-app.md
-    - name: Create container registry
+    - name: 2 - Create container registry
       href: container-instances-tutorial-prepare-acr.md    
-    - name: Deploy app
+    - name: 3 - Deploy app
       href: container-instances-tutorial-deploy-app.md    
 - name: How-to guides
   items:

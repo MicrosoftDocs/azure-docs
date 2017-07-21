@@ -19,7 +19,7 @@ ms.date: 07/19/2017
 ms.author: seanmck
 ---
 
-# Deploy a container group
+# Deploy a container to Azure Container Instances
 
 This is the last of a three-part tutorial. In previous sections, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This section completes the tutorial by deploying the container to Azure Container Instances. Steps completed include:
 

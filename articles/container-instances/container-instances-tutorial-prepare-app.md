@@ -78,7 +78,7 @@ Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       66.7 MB
+aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
 ## Run the container locally
