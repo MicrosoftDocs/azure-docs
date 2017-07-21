@@ -196,3 +196,9 @@ To learn more about Database Threat Detection and how to enable it, please read 
 
 ## Conclusion
 Azure Database is a robust database platform, with a full range of security features that meet many organizational and regulatory compliance requirements. You can help protect data by controlling the physical access to your data, and using a variety of options for data security at the file-, column-, or row level with Transparent Data Encryption, Cell-Level Encryption, or Row-Level Security. Always Encrypted also enables operations against encrypted data, simplifying the process of application updates. In turn, access to auditing logs of SQL Database activity provides you with the information you need, allowing you to know how and when data is accessed.
+
+## Next steps
+- To learn more about firewall rules, see [Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure).
+
+- To learn about users and logins, see [Manage logins](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-manage-logins).
+- For a tutorial, see [Secure your Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-tutorial).
