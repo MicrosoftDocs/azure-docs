@@ -33,7 +33,7 @@ In subsequent tutorials, this application is scaled out, updated, and the Kubern
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images were uploaded to Azure Container Registry, and a Kubernetes cluster was created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./../container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, an application was packaged into container images, these images were uploaded to Azure Container Registry, and a Kubernetes cluster was created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](container-service-tutorial-kubernetes-prepare-app.md). 
 
 At minimum, this tutorial requires a Kubernetes cluster.
 

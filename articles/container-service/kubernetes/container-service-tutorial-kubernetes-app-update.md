@@ -37,7 +37,7 @@ In this tutorial, the sample Azure Vote app is updated. Tasks that you complete 
 
 In previous tutorials, we packaged an application into container images, uploaded the images to Azure Container Registry, and created a Kubernetes cluster. We then ran the application on the Kubernetes cluster. 
 
-If you haven't taken these steps, and want to try them now, return to [Tutorial 1 – Create container images](./../container-service-tutorial-kubernetes-prepare-app.md). 
+If you haven't taken these steps, and want to try them now, return to [Tutorial 1 – Create container images](container-service-tutorial-kubernetes-prepare-app.md). 
 
 At a minimum, this tutorial requires a Kubernetes cluster with a running application.
 

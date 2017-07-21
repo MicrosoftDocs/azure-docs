@@ -30,7 +30,7 @@ Kubernetes provides a distributed platform for running modern and containerized 
 
 ## Before you begin
 
-In previous tutorials, container images were created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./../container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, container images were created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](container-service-tutorial-kubernetes-prepare-app.md). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
