@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/20/2017
 ms.author: bwren
 
 ---
@@ -34,11 +34,20 @@ We understand that there’s pain in any transition, and we aren’t just changi
 - **Consistency with other applications.**  The next generation language and the Advanced Analytics Portal are already used for analytics in Application Insights.  Implementing it for Log Analytics provides consistency across Azure services.
 
 
+## When can I upgrade?
+The upgrade will be rolled out across all Azure regions so it may be available in some regions before others.  You'll know when your workspace is available to be upgraded when you see the purple banner across the top of your workspace inviting you to upgrade. 
+
+![Upgrade 1](media/log-analytics-log-search-upgrade/upgrade-01.png)
+
 ## What happens when I upgrade?
 When you convert your workspace, any saved searches, alert rules, and views that you’ve created with the View Designer are automatically converted to the next generation language.  Searches included in solutions are not automatically converted, but they’re instead converted on the fly when you open them.  This is completely transparent to you.
 
-### Can I go back?
-When you upgrade, a complete backup of your workspace is taken that includes a snapshot of all saved searches, alert rule, and views.  This allows you to restore your old workspace if you should later desire.  ( HOW? )
+## Can I go back after I upgrade?
+When you upgrade, a complete backup of your workspace is taken that includes a snapshot of all saved searches, alert rule, and views.  This allows you to restore your old workspace if you should later desire.
+
+To restore your legacy workspace, go to **Settings** in your workspace and then **Upgrade Summary**.  You can then select the option to **Restore legacy workspace**.  
+
+![Restore legacy](media/log-analytics-log-search-upgrade/restore-legacy.png)
 
 ## How do I perform the upgrade?
 You can upgrade your workspace when you see the purple banner at the top of the portal.  Note that you can only perform the upgrade from the OMS portal, although the converted workspace will also be available in the Azure portal after the upgrade is complete.

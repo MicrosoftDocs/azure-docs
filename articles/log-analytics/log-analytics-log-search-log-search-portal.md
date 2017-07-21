@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/19/2017
 ms.author: bwren
 
 ---
@@ -87,7 +87,7 @@ Add properties to the filter pane by selecting **Add to filters** from the prope
 
 ![Add to filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-02a.png)
 
-You can set the same filter by selecting **Filter** from the property menu for a record with the value you want to filter.
+You can set the same filter by selecting **Filter** from the property menu for a record with the value you want to filter.  Note that you only have the **Filter** option for properties with their name in blue.  These are *searchable* fields which are indexed for search conditions.  Fields in grey are *free text searchable* fields which only have the **Show references** option.  This returns records that have that value in any property.
 
 ![Filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
