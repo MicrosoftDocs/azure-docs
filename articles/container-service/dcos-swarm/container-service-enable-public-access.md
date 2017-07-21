@@ -20,7 +20,7 @@ ms.author: saudas
 
 ---
 # Enable public access to an Azure Container Service application
-Any DC/OS container in the ACS [public agent pool](../container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) is automatically exposed to the internet. By default, ports **80**, **443**, **8080** are opened, and any (public) container listening on those ports are accessible. This article shows you how to open more ports for your applications in Azure Container Service.
+Any DC/OS container in the ACS [public agent pool](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) is automatically exposed to the internet. By default, ports **80**, **443**, **8080** are opened, and any (public) container listening on those ports are accessible. This article shows you how to open more ports for your applications in Azure Container Service.
 
 ## Open a port (portal)
 First, we need to open the port we want.
@@ -83,5 +83,5 @@ Next, we need to add a security rule that routes traffic from our opened port th
 ## Next steps
 Learn about the difference between [public and private DC/OS agents](container-service-dcos-agents.md).
 
-Read more information about [managing your DC/OS containers](../container-service-mesos-marathon-ui.md).
+Read more information about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
 

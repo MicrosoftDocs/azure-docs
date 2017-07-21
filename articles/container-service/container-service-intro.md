@@ -69,7 +69,7 @@ By default, DC/OS running on Azure Container Service includes the Marathon orche
 Marathon is a cluster-wide init and control system for services in
 cgroups--or, in the case of Azure Container Service, Docker-formatted containers. Marathon provides a web UI from which you can deploy your applications. You can access this at a URL that looks something like
 `http://DNS_PREFIX.REGION.cloudapp.azure.com`
-where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [DC/OS container management through the Marathon web UI](container-service-mesos-marathon-ui.md).
+where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [DC/OS container management through the Marathon web UI](dcos-swarm/container-service-mesos-marathon-ui.md).
 
 ![Marathon Applications List](media/dcos/marathon-applications-list.png)
 
