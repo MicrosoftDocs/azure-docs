@@ -279,4 +279,4 @@ In this tutorial, you have learned about basic DC/OS management task including t
 Advance to the next tutorial to learn about load balancing application in DC/OS on Azure. 
 
 > [!div class="nextstepaction"]
-> [Load balance applications](../container-service-load-balancing.md)
+> [Load balance applications](container-service-load-balancing.md)

@@ -24,7 +24,7 @@ In this article, we demonstrate how to deploy the ELK (Elasticsearch, Logstash, 
 
 ## Prerequisites
 [Deploy](dcos-swarm/container-service-deployment.md) and [connect](container-service-connect.md) a DC/OS cluster configured by 
-Azure Container Service. Explore the DC/OS dashboard and Marathon services [here](container-service-mesos-marathon-ui.md). Also install the [Marathon Load Balancer](container-service-load-balancing.md).
+Azure Container Service. Explore the DC/OS dashboard and Marathon services [here](container-service-mesos-marathon-ui.md). Also install the [Marathon Load Balancer](dcos-swarm/container-service-load-balancing.md).
 
 
 ## ELK (Elasticsearch, Logstash, Kibana)
