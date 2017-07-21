@@ -24,8 +24,5 @@ The following table includes links to [Azure CLI](service-fabric-azure-cli-2-0.m
 
 | | |
 |-|-|
-| **Manage cluster** ||
-| [Add an application certificate](./scripts/)| Adds an application X.509 certificate to all nodes in a cluster. |
 | **Manage applications** ||
-| [Deploy an application](./scripts/)| Deploy an application to a cluster.|
 | [Remove an application](./scripts/cli-remove-application.md)| Remove an application from a cluster.|
