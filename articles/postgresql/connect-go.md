@@ -21,17 +21,65 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - Portal](quickstart-create-server-database-portal.md)
 - [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
-## Install Go and pq
-1. Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform.
-2. Make a folder for your project such as C:\Postgresql\. Using the command line, change directory into the project folder, such as `cd C:\Postgres\`.
-- Download the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) into your project folder by typing the command `go get github.com/lib/pq` while in same directory.
+## Install Go and pq connector
+Install [Go](https://golang.org/doc/install) and the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) on your own machine. Depending on your platform, follow the steps:
+
+### Windows
+1. [Download](https://golang.org/dl/) and install Go for Microsoft Windows according to the [installation instructions](https://golang.org/doc/install).
+2. Launch the command prompt from the start menu.
+3. Make a folder for your project such. `mkdir  %USERPROFILE%\go\src\postgresqlgo`.
+4. Change directory into the project folder, such as `cd %USERPROFILE%\go\src\postgresqlgo`.
+5. Set the environment variable for GOPATH to point to the source code directory. `set GOPATH=%USERPROFILE%\go`.
+6. Install the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) by running the `go get github.com/lib/pq` command.
+
+In summary, install Go, then run these commands in the command prompt:
+   ```cmd
+   mkdir  %USERPROFILE%\go\src\postgresqlgo
+   cd %USERPROFILE%\go\src\postgresqlgo
+   set GOPATH=%USERPROFILE%\go
+   go get github.com/lib/pq
+   ```
+
+### Linux (Ubuntu)
+1. Launch the Bash shell. 
+2. Install Go by running `sudo apt-get install golang-go`.
+3. Make a folder for your project in your home directory, such as `mkdir -p ~/go/src/postgresqlgo/`.
+4. Change directory into the folder, such as `cd ~/go/src/postgresqlgo/`.
+5. Set the GOPATH environment variable to point to a valid source directory, such as your current home directory's go folder. At the bash shell, run `export GOPATH=~/go` to add the go directory as the GOPATH for the current shell session.
+6. Install the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) by running the `go get github.com/lib/pq` command.
+
+In summary, run these bash commands:
+   ```bash
+   sudo apt-get install golang-go
+   mkdir -p ~/go/src/postgresqlgo/
+   cd ~/go/src/postgresqlgo/
+   export GOPATH=~/go/
+   go get github.com/lib/pq
+   ```
+
+### Apple macOS
+1. Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform. 
+2. Launch the Bash shell. 
+3. Make a folder for your project in your home directory, such as `mkdir -p ~/go/src/postgresqlgo/`.
+4. Change directory into the folder, such as `cd ~/go/src/postgresqlgo/`.
+5. Set the GOPATH environment variable to point to a valid source directory, such as your current home directory's go folder. At the bash shell, run `export GOPATH=~/go` to add the go directory as the GOPATH for the current shell session.
+6. Install the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) by running the `go get github.com/lib/pq` command.
+
+In summary, install Go, then run these bash commands:
+   ```bash
+   mkdir -p ~/go/src/postgresqlgo/
+   cd ~/go/src/postgresqlgo/
+   export GOPATH=~/go/
+   go get github.com/lib/pq
+   ```
 
 ## Build and run Go code 
 1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE) try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
 2. Paste the Golang code from the sections below into text files, and save into your project folder with file extension \*.go, such as Windows path `%USERPROFILE%\go\src\postgresqlgo\createtable.go` or Linux path `~/go/src/postgresqlgo/createtable.go`.
-3. Launch the command prompt or bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. On Linux `cd ~/go/src/postgresqlgo/`.
-4. Run the code by typing the command `go run createtable.go` to compile the application and run it. Some of the IDE editors mentioned offer debug and runtime capabilities without requiring shell commands.
-5. Alternatively, to build the code into a native application, `go build createtable.go`, then launch `createtable.exe` to run the application.
+3. Replace the `HOST`, `DATABASE`, `USER`, and `PASSWORD` parameter values in the code with your own values. 
+4. Launch the command prompt or bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. On Linux `cd ~/go/src/postgresqlgo/`. Some of the IDE environments mentioned offer debug and runtime capabilities without requiring shell commands.
+5. Run the code by typing the command `go run createtable.go` to compile the application and run it. 
+6. Alternatively, to build the code into a native application, `go build createtable.go`, then launch `createtable.exe` to run the application.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
@@ -49,7 +97,6 @@ Use the following code to connect and create a table using **CREATE TABLE** SQL 
 The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](http://godoc.org/github.com/lib/pq) as a driver to communicate with the Postgres server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
 
 The code calls method [sql.Open()](http://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) method several times to run several SQL commands. Each time a custom checkError() method to check if an error occurred and panic to exit if an error occurs.
-
 
 Replace the `HOST`, `DATABASE`, `USER`, and `PASSWORD` parameters with your own values. 
 
