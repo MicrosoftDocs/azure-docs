@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/07/2017
+ms.date: 07/20/2017
 ms.author: markscu
 
 ---
