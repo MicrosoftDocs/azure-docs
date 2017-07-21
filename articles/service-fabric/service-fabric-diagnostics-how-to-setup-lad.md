@@ -3,7 +3,7 @@ title: Collect logs by using Linux Azure Diagnostics | Microsoft Docs
 description: This article describes how to set up Azure Diagnostics to collect logs from a Service Fabric Linux cluster running in Azure.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/28/2017
-ms.author: subramar
+ms.author: ryanwi
 
 ---
 # Collect logs by using Azure Diagnostics

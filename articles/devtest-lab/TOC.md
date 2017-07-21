@@ -3,6 +3,7 @@
 ## [Concepts](devtest-lab-concepts.md)
 ## Scenarios
 ### [Use labs for developers](devtest-lab-developer-lab.md)
+### [Use labs for test environments](devtest-lab-test-env.md)
 ### [Use labs for training](devtest-lab-training-lab.md)
 
 # Get started
