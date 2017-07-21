@@ -39,7 +39,7 @@ The supported REST API version for Azure Stack Storage is 2015-04-05. It doesnâ€
 |Python     |0.30.0|PIP package:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Run: `pip install -v azure-storage==0.30.0)`<br><br>GitHub release:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Service instance declaration|
 |Ruby|0.12.1<br>Preview|RubyGems package:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>GitHub release:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Connection string setup|
 
-> [!IMPORTANT]
+> [!NOTE]
 > PHP details<br><br>
 >To install via Composer:
 >1. Create a file named `composer.json` in the root of the project with following code:<br>
@@ -110,7 +110,10 @@ EndpointSuffix=local.azurestack.external"));
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
 ```
-$connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;AccountName=<storage account name>;AccountKey=<storage account key>'
+$connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
+QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
+TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
+AccountName=<storage account name>;AccountKey=<storage account key>'
 ```
 
 ### Python
