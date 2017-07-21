@@ -5,6 +5,7 @@
 
 # Quickstarts
 ## [Create a server - portal](analysis-services-create-server.md)
+## [Create a model - portal (preview)](analysis-services-create-model-portal.md)
 ## [Deploy a model - SSDT](analysis-services-deploy.md)
 
 # Samples
