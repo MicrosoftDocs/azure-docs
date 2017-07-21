@@ -27,7 +27,7 @@ With change feed support, Azure Cosmos DB provides a sorted list of documents wi
 * Perform real-time (stream) processing on updates
 * Synchronize data with a cache, search engine, or data warehouse
 
-Changes in Azure Cosmos DB are persisted and can be processed asynchronously, and distributed across one or more consumers for parallel processing. Let's look at the APIs for change feed and how you can use them to build scalable real-time applications. This article shows how to work with spatial data with the Azure Cosmos DB DocumentDB API. 
+Changes in Azure Cosmos DB are persisted and can be processed asynchronously, and distributed across one or more consumers for parallel processing. Let's look at the APIs for change feed and how you can use them to build scalable real-time applications. This article shows how to work with change feed with the Azure Cosmos DB DocumentDB API. 
 
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
@@ -63,7 +63,7 @@ Azure Cosmos DB's change feed is enabled by default for all accounts, and does n
 
 ![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/changefeedvisual.png)
 
-In the following section, we describe how to access the change feed using the Azure Cosmos DB REST API and SDKs. For .NET applications, we recommend using the [Change feed processor library]() for processing events from the change feed.
+In the following section, we describe how to access the change feed using the Azure Cosmos DB REST API and SDKs. For .NET applications, we recommend using the [Change feed processor library](#"change-feed-processor") for processing events from the change feed.
 
 ## <a id="rest-apis"></a>Working with the REST API and SDK
 Azure Cosmos DB provides elastic containers of storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](partition-data.md) for scalability and performance. Azure Cosmos DB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change feed can be obtained by populating two new request headers to the DocumentDB `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
@@ -329,7 +329,7 @@ You can also filter the change feed using client side logic to selectively proce
     }
 
 ## <a id="change-feed-processor"></a>Cosmos DB Change Feed Processor Library
-The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) can help you easily distribute event processing from change feed across multiple consumers. The library is great for building change feed readers on the .NET platform. Some workflows that would be simplified by using this library include: 
+The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) can help you easily distribute event processing from change feed across multiple consumers. The library is great for building change feed readers on the .NET platform. Some workflows that would be simplified by using this library include: 
 
 * Pulling updates from change feed when data is stored across multiple partitions
 * Moving or replicating data from one collection to another
@@ -365,7 +365,7 @@ To further understand how these four elements of Change Feed Processor work toge
 ![Using the Azure Cosmos DB change feed processor host](./media/change-feed/changefeedprocessornew.png)
 
 ### Using Change Feed Processor Library 
-The following section uses building a data movement tool from a source collection to a destination collection as an example to explain how to use the Change Feed Processor Library. 
+The following section explains how to use the Change Feed Processor Library in the context of replicating changes from a source collection to a destination collection. Here, the source collection is the monitored collection in Change Feed Processor. 
 
 **Install and include the Change Feed Processor NuGet package** 
 
@@ -512,14 +512,11 @@ In the sample code, we use a factory class (DocumentFeedObserverFactory.cs) to c
 ```
 Over time, an equilibrium is established. This dynamic capability enables CPU-based auto-scaling to be applied to consumers for both scale-up and scale-down. If changes are available in Azure Cosmos DB at a faster rate than consumers can process, the CPU increase on consumers can be used to cause an auto-scale on worker instance count.
 
-In this article, we provided a walkthrough of Azure Cosmos DB's change feed support, and how to track changes made to Azure Cosmos DB data using the REST API and/or SDKs.
-
 **Current Limitations**
 * The number of hosts cannot be greater than the number of partitions (leases)
 * Delete operations are not currently surfaced on change feed (coming soon)
 
-In this article, we provided a walkthrough of Azure Cosmos DB's change feed support, and how to track changes made to Azure Cosmos DB data using the REST API and/or SDKs. 
-
 ## Next steps
+In this article, we provided a walkthrough of Azure Cosmos DB's change feed support, and how to track changes made to Azure Cosmos DB data using the REST API and/or SDKs. 
 * Try the [Azure Cosmos DB Change feed code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 * Get started coding with the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)
