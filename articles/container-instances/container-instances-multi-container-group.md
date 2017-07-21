@@ -41,9 +41,9 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
   },
   "variables": {
     "container1name": "aci-tutorial-app",
-    "container1image": "seanmckenna/aci-tutorial-app:v1",
+    "container1image": "microsoft/aci-tutorial-app:v1",
     "container2name": "aci-tutorial-sidecar",    
-    "container2image": "seanmckenna/aci-tutorial-sidecar"
+    "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
       {
@@ -115,7 +115,7 @@ az group create --name myResourceGroup --location westus
 
 Deploy the template with the [az group deployment create](/cli/azure/group/deployment#create) command.
 
-```bash
+```azurecli-interactive
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
@@ -125,15 +125,23 @@ Within a few seconds, you will receive an initial response from Azure.
 
 To view the state of the deployment, use the `az container show` command. This returns the provisioned public IP address over which the application can be accessed.
 
-```bash
-az container show --name myContainerGroup --resource-group myResourceGroup
+```azurecli-interactive
+az container show --name myContainerGroup --resource-group myResourceGroup -o table
+```
+
+Output:
+
+```azurecli
+Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
+----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
+myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  0 core/0 gb   Linux     westus
 ```
 
 ## View logs   
 
 View the log output of a container using the `az container logs` command. The `--container-name` argument specifies the container from which to pull logs. In this example, the first container is specified. 
 
-```bash
+```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
 ```
 
@@ -148,7 +156,7 @@ Server running...
 
 To see the logs for the side-car container, run the same command specifying the second container name.
 
-```bash
+```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
 ```
 
