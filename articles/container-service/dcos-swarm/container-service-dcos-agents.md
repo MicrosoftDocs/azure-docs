@@ -45,5 +45,5 @@ By default, **Marathon** deploys any new application to the *private* agent node
 ## Next steps
 * Read more about [managing your DC/OS containers](../container-service-mesos-marathon-ui.md).
 
-* Learn how to [open the firewall](../container-service-enable-public-access.md) provided by Azure to allow public access to your DC/OS containers.
+* Learn how to [open the firewall](container-service-enable-public-access.md) provided by Azure to allow public access to your DC/OS containers.
 

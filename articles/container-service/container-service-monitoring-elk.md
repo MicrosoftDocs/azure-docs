@@ -52,7 +52,7 @@ Once you click **Deploy changes**, your container restarts.
 
 If you want to verify that Kibana is registered as a service in the HAPROXY dashboard, you need to open port 9090 on the agent cluster as HAPROXY runs on port 9090.
 By default, we open ports 80, 8080, and 443 in the DC/OS agent cluster.
-Instructions to open a port and provide public assess are provided [here](container-service-enable-public-access.md).
+Instructions to open a port and provide public assess are provided [here](dcos-swarm/container-service-enable-public-access.md).
 
 To access the HAPROXY dashboard, open the Marathon-LB admin interface at:
 `http://$PUBLIC_NODE_IP_ADDRESS:9090/haproxy?stats`.
@@ -61,7 +61,7 @@ Once you navigate to the URL, you should see the HAPROXY dashboard as shown belo
 ![ELK6](./media/container-service-monitoring-elk/elk6.PNG)
 
 
-To access the Kibana dashboard, which is deployed on port 5601, you need to open port 5601. Follow instructions [here](container-service-enable-public-access.md). Then open the Kibana dashboard at:
+To access the Kibana dashboard, which is deployed on port 5601, you need to open port 5601. Follow instructions [here](dcos-swarm/container-service-enable-public-access.md). Then open the Kibana dashboard at:
 `http://localhost:5601`.
 
 ## Next steps

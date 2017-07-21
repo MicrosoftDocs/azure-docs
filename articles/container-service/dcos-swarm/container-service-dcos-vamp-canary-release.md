@@ -177,7 +177,7 @@ Vamp deployed the sava service on the DC/OS agent nodes, exposing a stable endpo
 
 2. **Update the network security group** for the public agents (the resource named **XXXX-agent-public-nsg-XXXX**) to allow traffic on port 9050.
 
-For detailed steps to complete these tasks using the Azure portal, see [Enable public access to an Azure Container Service application](../container-service-enable-public-access.md). Specify port 9050 for all port settings.
+For detailed steps to complete these tasks using the Azure portal, see [Enable public access to an Azure Container Service application](container-service-enable-public-access.md). Specify port 9050 for all port settings.
 
 
 Once everything has been created, go to the **Overview** blade of the DC/OS agent load balancer (the resource named **dcos-agent-lb-xxxx**). Find the **Public IP address**, and use the address to access sava at port 9050.
