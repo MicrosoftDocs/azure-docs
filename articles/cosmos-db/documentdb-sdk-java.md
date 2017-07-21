@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 
@@ -48,6 +48,10 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release Notes
+
+### <a name="1.12.0"/>1.12.0
+* Critical bug fixes to request processing during partition splits.
+* Fixed an issue with the Strong and BoundedStaleness consistency levels.
 
 ### <a name="1.11.0"/>1.11.0
 * Added support for Request Unit per Minute (RU/m) feature.
@@ -163,6 +167,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |July 11, 2017 |--- |
 | [1.11.0](#1.11.0) |May 10, 2017 |--- |
 | [1.10.0](#1.10.0) |March 11, 2017 |--- |
 | [1.9.6](#1.9.6) |February 21, 2017 |--- |
