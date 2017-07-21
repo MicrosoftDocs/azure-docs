@@ -85,7 +85,7 @@ This table provides details about backup item associations with various entities
 | EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Unique Id of the backup item |
 | SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
-| State_s |Text |Current state of the backup item object for example, Active, Deleted |
+| State_s |Text |Current state of the backup item association object for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this backup item belongs to |
 | OperationName |Text |This is the name of the current operation - BackupItemAssociation |
 | Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
@@ -108,7 +108,7 @@ This table provides details about job related fields.
 | EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Unique Id of the backup item to which this job belongs to |
 | SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
-| State_s |Text |Current state of the alert object for example, Active, Deleted |
+| State_s |Text |Current state of the job object for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this job belongs to |
 | OperationName |Text |This is the name of the current operation - Job |
 | Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
@@ -137,7 +137,7 @@ This table provides details about policy related fields.
 | --- | --- | --- |
 | EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
 | SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
-| State_s |Text |Current state of the alert object for example, Active, Deleted |
+| State_s |Text |Current state of the policy object for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this policy belongs to |
 | OperationName |Text |This is the name of the current operation - Policy |
 | Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
@@ -177,7 +177,7 @@ This table provides details about policy associations with various entities.
 | --- | --- | --- |
 | EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
 | SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
-| State_s |Text |Current state of the alert object for example, Active, Deleted |
+| State_s |Text |Current state of the policy object for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this policy belongs to |
 | OperationName |Text |This is the name of the current operation - PolicyAssociation |
 | Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
@@ -191,3 +191,27 @@ This table provides details about policy associations with various entities.
 | ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
 | ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
 
+### ProtectedServer
+This table provides details about protected server related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
+| ProtectedServerName_s |Text |Name of protected server |
+| SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
+| State_s |Text |Current state of the protected server object for example, Active, Deleted |
+| BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this protected server belongs to |
+| OperationName |Text |This is the name of the current operation - ProtectedServer |
+| Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
+| ProtectedServerUniqueId_s |Text |Unique Id of the protected server |
+| RegisteredContainerId_s |Text |Id of container registered for backup |
+| ProtectedServerType_s |Text |Type of protected server backed up for example, Windows |
+| ProtectedServerFriendlyName_s |Text |Friendly name of protected server |
+| AzureBackupAgentVersion_s |Text |Version number of Agent Backup Version |
+| SourceSystem |Text |Source system of the current data - Azure |
+| ResourceId |Text |This is the resource id for which data is being collected, it shows Recovery Services vault resource id |
+| SubscriptionId |Text |This is the subscription id of the resource (RS vault) for which data is being collected |
+| ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
+| ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
+| ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
