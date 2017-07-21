@@ -49,7 +49,7 @@ It takes about 20 minutes to do these steps.
 
 ## Add dependencies
 
-1. Under the `testAzureApp` folder, open the pom.xml file and add the build configuration to &lt;project&gt; to enable the building of your application:
+1. Under the `testAzureApp` folder, open the `pom.xml` file and add the build configuration to &lt;project&gt; to enable the building of your application:
 
     ```xml
     <build>
@@ -110,7 +110,7 @@ It takes about 20 minutes to do these steps.
     </dependency>
     ```
 
-3. Save the pom.xml file.
+3. Save the file.
 
 ## Create credentials
 
@@ -118,7 +118,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 ### Create the authorization file
 
-1. Create a file named *azureauth.properties* and add these properties to it:
+1. Create a file named `azureauth.properties` and add these properties to it:
 
     ```
     subscription=<subscription-id>
@@ -133,8 +133,8 @@ Before you start this step, make sure that you have access to an [Active Directo
 
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
 
-2. Save the azureauth.properties file.
-3. Set an environment variable AZURE_AUTH_LOCATION with the full path to the authentication file in your shell.
+2. Save the file.
+3. Set an environment variable named AZURE_AUTH_LOCATION in your shell with the full path to the authentication file.
 
 ### Create the management client
 
@@ -144,7 +144,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     package com.fabrikam.testAzureApp;
     ```
 
-2. Under the package statement, and these import statements :
+2. Under the package statement, add these import statements:
    
     ```java
     import com.microsoft.azure.management.Azure;
@@ -324,12 +324,17 @@ azure.virtualMachines.define("myVM")
 
 During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create code to automate repetitive or complex tasks.
 
+When you need to do anything with the VM, you need to get an instance of it. Add this code to the try block of the main method:
+
+```java
+VirtualMachine vm = azure.virtualMachines().getByResourceGroup(groupName, vmName);
+```
+
 ### Get information about the VM
 
 To get information about the virtual machine, add this code to the try block in the main method:
 
 ```java
-VirtualMachine vm = azure.virtualMachines().getByResourceGroup(groupName, vmName);
 System.out.println("hardwareProfile");
 System.out.println("    vmSize: " + vm.size());
 System.out.println("storageProfile");
@@ -445,20 +450,20 @@ input.nextLine();
 
 Because you are charged for resources used in Azure, it is always good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
-To delete the resource group, add this code to the try block in the main method:
+1. To delete the resource group, add this code to the try block in the main method:
    
 ```java
 System.out.println("Deleting resources...");
 azure.resourceGroups().deleteByName(groupName);
 ```
 
-4. Save the AzureApp.java file.
+2. Save the AzureApp.java file.
 
 ## Run the application
 
 It should take about five minutes for this console application to run completely from start to finish.
 
-1. To run the application, run this Maven command:
+1. To run the application, use this Maven command:
 
     ```
     mvn compile exec:java
