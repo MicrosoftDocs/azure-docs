@@ -34,9 +34,7 @@ In subsequent tutorials, you deploy the container from your private registry to 
 
 ## Before you begin
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Deploy Azure Container Registry
 
@@ -44,13 +42,13 @@ When deploying an Azure Container Registry, you first need a resource group. An 
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. In the following example, we use the name *mycontainerregistry082*.
 
-```azurecli-interactive
+```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
@@ -62,13 +60,13 @@ Once the container registry is created, you can query its login server and passw
 
 Container registry login server (update with your registry name):
 
-```azurecli-interactive
+```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
 Container registry password:
 
-```azurecli-interactive
+```azurecli
 az acr credential show --name <acrName> --query passwords[0].value
 ```
 
@@ -133,7 +131,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 
 To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
 
-```azurecli-interactive
+```azurecli
 az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
 ```
 
