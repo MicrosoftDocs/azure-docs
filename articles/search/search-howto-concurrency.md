@@ -14,61 +14,157 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: heidist
 
 ---
 # How to manage concurrency in Azure Search
 
-In a multi-user development environment, we recommend adding concurrency controls to avoid accidental overwrites of the same object. Azure Search supports an *optimistic concurrency model*. There are no locks on an object, but when two developers update the same object version, only the first save prevails.
+When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed by different components of your application concurrently. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search supports an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can craft responses that avoid accidental overwrites.
 
 > [!Tip]
 > Conceptual code in a [sample C# solution](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explains how concurrency control works in Azure Search. The code creates conditions that invoke concurrency control. Reading the code is probably sufficient for most developers, but if you want to run it, edit appsettings.json to add the service name and an admin api-key. Given a service URL of `http://myservice.search.windows.net`, the service name is `myservice`.
 
 ## How it works
 
-Optimistic concurrency is implemented through access condition checks in API calls writing to indexes, indexers, datasources, suggesters, and synonymMap resources. 
+Optimistic concurrency is implemented through access condition checks in API calls writing to indexes, indexers, datasources, and synonymMap resources. 
 
-All resources have an [*entity tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. By checking the ETag first, you can avoid concurrent updates in a typical workflow (get, modify locally, update) by ensuring the server object's ETag matches your local copy. 
+All resources have an [*entity tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. By checking the ETag first, you can avoid concurrent updates in a typical workflow (get, modify locally, update) by ensuring the resource's ETag matches your local copy. 
 
 + The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the request header.
-+ The .NET SDK sets the ETag through an accessCondition object, setting the [If-Match | If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) has an accessCondition object.
++ The .NET SDK sets the ETag through an accessCondition object, setting the [If-Match | If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) has an accessCondition object.
 
-If you implement concurrency management, version information changes with each resource update. Given two updates, the first one forces a new version, while the second one fails due to a version discrepancy, unless the updated resource is obtained first.
-
-A version discrepancy returns either HTTP 412 for REST calls, or an accessCondition failure if using the .NET SDK. 
+Every time you update a resource, its ETag changes automatically. When you implement concurrency management, all you're doing is putting a precondition on the update request that requires the remote resource to have the same ETag as the copy of the resource that you modified on the client. If a concurrent process has changed the remote resource already, the ETag will not match the precondition and the request will fail with HTTP 412. If you're using the .NET SDK, this manifests as a CloudException where the IsAccessConditionFailed() extension method returns true.
 
 > [!Note]
 > There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates. 
 
 ## Use cases
 
-The following code snippets demonstrate the concept of accessCondition checks on update and delete index operations. If the check fails, the operation fails.
+The following code demonstrates the concept of accessCondition checks on a variety of update operations:
 
-**Scenario 1: Fail an update if the index no longer exists**
++ Fail an update if the resource no longer exists
++ Fail an update if the resource version changes
 
-The accessCondition checks for an existing ETag on an index named "test". If the ETag does not exist, the index does not exist, causing the delete operation to fail as a result. 
+### Sample code from [DotNetETagsExplainer program](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
 
-        Console.WriteLine("Deleting index...\n");
-        serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
+```
+    class Program
+    {
+        // This sample shows how ETags work by performing conditional updates and deletes on an Azure Search index.
+        static void Main(string[] args)
+        {
+            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            IConfigurationRoot configuration = builder.Build();
 
-**Scenario 2: Fail the update if the version changed underneath you**
+            SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 
-The accessCondition checks for changes to the ETag on the local object to see if its identical to the server object. If the ETags are identical , the accessCondition is true and the index update succeeds. The following update succeeds if the ETag on the index is unchanged. 
+            Console.WriteLine("Deleting index...\n");
+            DeleteTestIndexIfExists(serviceClient);
 
-        indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
+            // Every top-level resource in Azure Search has an associated ETag that keeps track of which version of the
+            // resource you're working on. When you first create a resource such as an index, its ETag is empty.
+            Index index = DefineTestIndex();
+            Console.WriteLine($"Test index hasn't been created yet, so its ETag should be blank. ETag: '{index.ETag}'");
 
-        serviceClient.Indexes.CreateOrUpdate(indexForClient2, accessCondition: AccessCondition.IfNotChanged(indexForClient2));
+            // Once the resource exists in Azure Search, its ETag will be populated. Make sure to use the object returned
+            // by the SearchServiceClient! Otherwise, you will still have the old object with the blank ETag.
+            Console.WriteLine("Creating index...\n");
+            index = serviceClient.Indexes.Create(index);
 
+            Console.WriteLine($"Test index created; Its ETag should be populated. ETag: '{index.ETag}'");
+
+            // ETags let you do some useful things you couldn't do otherwise. For example, by using an If-Match condition,
+            // we can update an index using CreateOrUpdate and be guaranteed that the update will only succeed if the index
+            // already exists.
+            index.Fields.Add(new Field("name", AnalyzerName.EnMicrosoft));
+            index = serviceClient.Indexes.CreateOrUpdate(index, accessCondition: AccessCondition.GenerateIfExistsCondition());
+
+            Console.WriteLine($"Test index updated; Its ETag should have changed since it was created. ETag: '{index.ETag}'");
+
+            // More importantly, ETags protect you from concurrent updates to the same resource. If another client tries to
+            // update the resource, it will fail as long as all clients are using the right access conditions.
+            Index indexForClient1 = index;
+            Index indexForClient2 = serviceClient.Indexes.Get("test");
+
+            Console.WriteLine("Simulating concurrent update. To start, both clients see the same ETag.");
+            Console.WriteLine($"Client 1 ETag: '{indexForClient1.ETag}' Client 2 ETag: '{indexForClient2.ETag}'");
+
+            // Client 1 successfully updates the index.
+            indexForClient1.Fields.Add(new Field("a", DataType.Int32));
+            indexForClient1 = serviceClient.Indexes.CreateOrUpdate(indexForClient1, accessCondition: AccessCondition.IfNotChanged(indexForClient1));
+
+            Console.WriteLine($"Test index updated by client 1; ETag: '{indexForClient1.ETag}'");
+
+            // Client 2 tries to update the index, but fails, thanks to the ETag check.
+            try
+            {
+                indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
+                serviceClient.Indexes.CreateOrUpdate(indexForClient2, accessCondition: AccessCondition.IfNotChanged(indexForClient2));
+
+                Console.WriteLine("Whoops; This shouldn't happen. Getting this error means the AccessCondition did not fire.");
+                Environment.Exit(1);
+            }
+            catch (CloudException e) when (e.IsAccessConditionFailed())
+            {
+                Console.WriteLine("Client 2 failed to update the index, as expected.");
+            }
+
+            // You can also use access conditions with Delete operations. For example, you can implement an atomic version of
+            // the DeleteTestIndexIfExists method from this sample like this:
+            Console.WriteLine("Deleting index...\n");
+            serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
+
+            // This is slightly better than using the Exists method since it makes only one round trip to Azure Search instead
+            // of potentially two. It also avoids an extra Delete request in cases where the resource is deleted concurrently,
+            // but this doesn't matter much since resource deletion in Azure Search is idempotent.
+
+            // And we're done! Bye!
+            Console.WriteLine("Complete.  Press any key to end application...\n");
+            Console.ReadKey();
+        }
+
+        private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+        {
+            string searchServiceName = configuration["SearchServiceName"];
+            string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+            SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+            return serviceClient;
+        }
+
+        private static void DeleteTestIndexIfExists(SearchServiceClient serviceClient)
+        {
+            if (serviceClient.Indexes.Exists("test"))
+            {
+                serviceClient.Indexes.Delete("test");
+            }
+        }
+
+        private static Index DefineTestIndex() =>
+            new Index()
+            {
+                Name = "test",
+                Fields = new[] { new Field("id", DataType.String) { IsKey = true } }
+            };
+    }
+}
+```
 
 ## Design pattern
 
-A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieving a updated object and retrying your changes on the revised version. 
+A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieves an updated resource before attempting to re-apply the changes. 
 
 This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym (preview) C# tutorial for Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). 
 
-The snippet gets the "hotels" index, checks the object version on an update operation, throws an exception if the condition fails, and then retries the operation (up to three times), starting with index retrieval from the server.
+The snippet gets the "hotels" index, checks the object version on an update operation, throws an exception if the condition fails, and then retries the operation (up to three times), starting with index retrieval from the server to get the latest version.
 
+        private static Index AddSynonymMapsToFields(Index index)
+        {
+            index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
+            index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
+            return index;
+        }
 
         private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient serviceClient)
         {
@@ -97,7 +193,7 @@ The snippet gets the "hotels" index, checks the object version on an update oper
 
 ## Next steps
 
-Review the [synonyms C# sample](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) for more context in how to safely update an existing index.
+Review the [synonyms C# sample](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) for more context on how to safely update an existing index.
 
 Try modifying either of the following samples to include ETags or AccessCondition objects.
 
