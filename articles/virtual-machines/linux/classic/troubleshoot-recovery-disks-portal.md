@@ -23,6 +23,6 @@ ms.author: genli
 [!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
 
 ## Next steps
-If you are having issues connecting to your VM, see the[Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused](../troubleshoot-ssh-connection.md). 
+If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused](../troubleshoot-ssh-connection.md). 
 
 For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux virtual machine in Azure](../troubleshoot-app-connection.md).

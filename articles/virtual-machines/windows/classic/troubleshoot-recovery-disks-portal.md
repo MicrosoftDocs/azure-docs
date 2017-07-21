@@ -23,6 +23,6 @@ ms.author: genli
 [!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
 
 ## Next steps
-If you are having issues connecting to your VM, see the[Troubleshoot RDP connections to an Azure VM](../troubleshoot-rdp-connection.md). 
+If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](../troubleshoot-rdp-connection.md). 
 
 For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](../troubleshoot-app-connection.md).
