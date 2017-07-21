@@ -1,5 +1,6 @@
 ---
 title: Delete a Site Recovery vault
+description: Learn how to delete an Azure Site Recovery vault, based on the Site Recovery scenario.
 service: site-recovery
 documentationcenter: ''
 author: rajani-janaki-ram
@@ -17,7 +18,7 @@ ms.author: rajani-janaki-ram
 
 ---
 # Delete a Site Recovery vault
-Dependencies can prevent you from deleting an Azure Site Recovery vault. The actions you need to take vary based on the Site Recovery scenario: VMware to Azure, Hyper-V (with and without Virtual Machine Manager) to Azure, and Azure Backup. To delete a vault used in Azure Backup, see [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md).
+Dependencies can prevent you from deleting an Azure Site Recovery vault. The actions you need to take vary based on the Site Recovery scenario: VMware to Azure, Hyper-V (with and without System Center Virtual Machine Manager) to Azure, and Azure Backup. To delete a vault used in Azure Backup, see [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md).
 
 >[!Important]
 >If you're testing the product and aren't concerned about data loss, use the force delete method to rapidly remove the vault and all its dependencies.
@@ -26,7 +27,7 @@ Dependencies can prevent you from deleting an Azure Site Recovery vault. The act
 
 ## Use PowerShell to force delete the vault 
 
-To delete the Site Recovery vault even if there are protected items, follow these steps:
+To delete the Site Recovery vault even if there are protected items, use these commands:
 
     Login-AzureRmAccount
 
