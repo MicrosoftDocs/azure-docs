@@ -83,10 +83,11 @@ Get the connection information needed to connect to the Azure Database for MySQL
    
 
 ## Build and run Go code 
-1. Paste the Go code from the sections below into text files, and save into your project folder with file extension *.go, such as Windows path `%USERPROFILE%\go\src\mysqlgo\createtable.go` or Linux path `~/go/src/mysqlgo/createtable.go`.
-2. Launch the command prompt or bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\mysqlgo\`. On Linux `cd ~/go/src/mysqlgo/`.
-3. Run the code by typing the command `go run createtable.go` to compile the application and run it.
-4. Alternatively, to build the code into a native application, `go build createtable.go`, then launch `createtable.exe` to run the application.
+1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE) try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
+2. Paste the Go code from the sections below into text files, and save into your project folder with file extension \*.go, such as Windows path `%USERPROFILE%\go\src\mysqlgo\createtable.go` or Linux path `~/go/src/mysqlgo/createtable.go`.
+3. Launch the command prompt or bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\mysqlgo\`. On Linux `cd ~/go/src/mysqlgo/`.  Some of the IDE editors mentioned offer debug and runtime capabilities without requiring shell commands.
+4. Run the code by typing the command `go run createtable.go` to compile the application and run it. 
+5. Alternatively, to build the code into a native application, `go build createtable.go`, then launch `createtable.exe` to run the application.
 
 ## Connect, create table, and insert data
 Use the following code to connect to the server, create a table, and load the data using an **INSERT** SQL statement. 
