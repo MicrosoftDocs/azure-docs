@@ -1,6 +1,6 @@
 ---
 title: Create an Azure App Service Environment by using a Resource Manager template
-description: Explains how to create an external or ILB Azure App Service Environment by using a Resource Manager template
+description: Explains how to create an External or ILB Azure App Service Environment by using a Resource Manager template
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ---
-# Create an App Service Environment by using an Azure Resource Manager template
+# Create an ASE by using an Azure Resource Manager template
 
 ## Overview
 Azure App Service Environments (ASEs) can be created with an Internet-accessible endpoint or an endpoint on an internal address in the Azure virtual network. When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE with a public endpoint is called an External ASE. The ASE on an internal IP address is called an ILB ASE.  
@@ -25,7 +25,7 @@ An ASE can be created by using the Azure portal or an Azure Resource Manager tem
 When you create an ASE in the Azure portal, you can create your virtual network at the same time or choose a preexisting virtual network to deploy into. When you create an ASE from a template, you must start with: 
 
 * A Resource Manager virtual network.
-* A subnet in that virtual network. We recommend an ASE subnet size of /25 with 128 addresses to accomodate future growth. The size can't be changed after the ASE is created.
+* A subnet in that virtual network. We recommend an ASE subnet size of /25 with 128 addresses to accomodate future growth. After the ASE is create, you can't change the size.
 * The resource ID from your virtual network. You can get this information from the Azure portal under your virtual network properties.
 * The subscription you want to deploy into.
 * The location you want to deploy into.
@@ -40,9 +40,9 @@ To automate your ASE creation:
 
 
 ## Create the ASE
-An example Resource Manager template that creates an ASE, and its associated parameters file, are available on GitHub [here][quickstartasev2create].
+A Resource Manager template that creates an ASE and its associated parameters file is available [in an example][quickstartasev2create] on GitHub.
 
-If you want to make an ILB ASE, use the Resource Manager templates [here][quickstartilbasecreate]. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to creating both ILB ASEs, as well as External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE:
+If you want to make an ILB ASE, use the Resource Manager template [examples][quickstartilbasecreate]. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to creating ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE:
 
 * *interalLoadBalancingMode*: In most cases, set this to 3. This means HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, are bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. The HTTP/HTTPS traffic remains on the public VIP.
 
@@ -57,16 +57,15 @@ After the *azuredeploy.parameters.json* file is filled in, the ASE can then be c
 
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-It takes about an hour for the ASE to be created. Then the ASE shows up in the portal UX in the list of App Service Environments for the subscription that triggered the deployment.
+It takes about an hour for the ASE to be created. Then the ASE shows up in the portal UX in the list of ASEs for the subscription that triggered the deployment.
 
 ## Upload and configure the "default" SSL certificate
-An SSL certificate should be associated with the ASE as the "default" SSL certificate used to establish SSL connections to apps. For example, if the ASE's default DNS suffix is *internal-contoso.com*, a connection to *https://some-random-app.internal-contoso.com* requires an SSL certificate that's valid for **.internal-contoso.com*. 
+An SSL certificate should be associated with the ASE as the "default" SSL certificate used to establish SSL connections to apps. For example, if the ASE's default DNS suffix is *internal-contoso.com*, a connection to https://some-random-app.internal-contoso.com requires an SSL certificate that's valid for **.internal-contoso.com*. 
 
 You can obtain a valid SSL certificate by using internal CAs, purchasing a certificate from an external issuer, and by using a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
 
-* *Subject*: This attribute must be set to **.your-root-domain-here.com*.
-
-* *Subject Alternative Name*: This attribute must include both *.your-root-domain-here.com* and *.scm.your-root-domain-here.com*. The reason for the second entry is that SSL connections to the SCM/Kudu site associated with each app are made by using an address of the form *your-app-name.scm.your-root-domain-here.com*.
+* **Subject**: This attribute must be set to **.your-root-domain-here.com*.
+* **Subject Alternative Name**: This attribute must include both **.your-root-domain-here.com* and **.scm.your-root-domain-here.com*. The second entry is needed because SSL connections to the SCM/Kudu site associated with each app are made by using an address of the form *your-app-name.scm.your-root-domain-here.com*.
 
 With a valid SSL certificate in hand, two additional preparatory steps are needed. The SSL certificate needs to be converted/saved as a .pfx file. Remember that the .pfx file needs to include all intermediate and root certificates. It also needs to be secured with a password.
 
@@ -93,7 +92,7 @@ The PowerShell code for base64 encoding was adapted from the [PowerShell scripts
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-After the SSL certificate is successfully generated and converted to a base64 encoded string, you can use the example Resource Manager template on GitHub for [Configure the default SSL certificate][quickstartconfiguressl].
+After the SSL certificate is successfully generated and converted to a base64 encoded string, you can use the example Resource Manager template [Configure the default SSL certificate][quickstartconfiguressl] on GitHub.
 
 The parameters in the *azuredeploy.parameters.json* file are listed here:
 
@@ -140,16 +139,16 @@ After the *azuredeploy.parameters.json* file is filled in, the default SSL certi
 
 It takes roughly 40 minutes per ASE front-end to apply the change. For example, for a default-sized ASE that uses two front-ends, the template takes around one hour and 20 minutes to complete. While the template is running, the ASE can't scale.  
 
-After the template finishes, apps on the ILB ASE can be accessed over HTTPS and the connections are secured by using the default SSL certificate. The default SSL certificate is used when apps on the ILB ASE are addressed by using a combination of the application name plus the default host name. For example *https://mycustomapp.internal-contoso.com* uses the default SSL certificate for **.internal-contoso.com*.
+After the template finishes, apps on the ILB ASE can be accessed over HTTPS and the connections are secured by using the default SSL certificate. The default SSL certificate is used when apps on the ILB ASE are addressed by using a combination of the application name plus the default host name. For example, https://mycustomapp.internal-contoso.com uses the default SSL certificate for **.internal-contoso.com*.
 
 However, just like apps that run on the public multitenant service, developers also can configure custom host names for individual apps, and then configure unique SNI SSL certificate bindings for individual apps.
 
-## ASEv1 ##
+## App Service Environment v1 ##
 The App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2.
 
-In ASEv1, you need to manage all of the resources manually. That includes the front ends, workers, and, IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you need to first scale out the worker pool you want to host it in.
+In ASEv1, you need to manage all of the resources manually. That includes the front-ends, workers, and, IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you need to first scale out the worker pool you want to host it.
 
-ASEv1 uses a different pricing model from ASEv2. In ASEv1, you need to pay for each core allocated. That includes cores used for front ends or workers that are not hosting any workloads. In ASEv1, the default maximum scale size of an App Service Environment is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network as well as a Resource Manager virtual network. To learn more about ASEv1, see the [App Service Environment v1 introduction][ASEv1Intro].
+ASEv1 uses a different pricing model from ASEv2. In ASEv1, you need to pay for each core allocated. That includes cores used for front-ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front-ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
 
 To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE v1 with a Resource Manager template][ILBASEv1Template].
 
