@@ -28,7 +28,7 @@ ms.custom: H1Hack27Feb2017
 
 Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. This document walks you through deploying an Azure Container Service cluster by using the Azure portal or an Azure Resource Manager quickstart template. 
 
-You can also deploy an Azure Container Service cluster by using the [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) or the Azure Container Service APIs.
+You can also deploy an Azure Container Service cluster by using the [Azure CLI 2.0](dcos-swarm/container-service-create-acs-cluster-cli.md) or the Azure Container Service APIs.
 
 For background, see [Azure Container Service introduction](container-service-intro.md).
 
