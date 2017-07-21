@@ -14,7 +14,7 @@ ms.date: 06/29/2017
 ---
 
 # Azure Database for PostgreSQL: Use Go language to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using Go, but that you are new to working with Azure Database for PostgreSQL.
+This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using code written in the [Go](https://golang.org/) language (golang). It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using Go, but that you are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -22,14 +22,16 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## Install Go and pq
-- Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform.
-- Make a folder for your project such as C:\Postgresql\. Using the command line, change directory into the project folder, such as `cd C:\Postgres\`.
+1. Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform.
+2. Make a folder for your project such as C:\Postgresql\. Using the command line, change directory into the project folder, such as `cd C:\Postgres\`.
 - Download the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) into your project folder by typing the command `go get github.com/lib/pq` while in same directory.
 
 ## Build and run Go code 
-- Save the code into a text file with extension *.go, and save it in your project folder, such as `C:\postgres\read.go`.
-- To run the code, change directory into your project folder `cd postgres`, then type the command `go run read.go` to compile the application and run it.
-- To build the code into a native application, `go build read.go`, then launch read.exe to run the application.
+1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE) try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
+2. Paste the Golang code from the sections below into text files, and save into your project folder with file extension \*.go, such as Windows path `%USERPROFILE%\go\src\postgresqlgo\createtable.go` or Linux path `~/go/src/postgresqlgo/createtable.go`.
+3. Launch the command prompt or bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. On Linux `cd ~/go/src/postgresqlgo/`.
+4. Run the code by typing the command `go run createtable.go` to compile the application and run it. Some of the IDE editors mentioned offer debug and runtime capabilities without requiring shell commands.
+5. Alternatively, to build the code into a native application, `go build createtable.go`, then launch `createtable.exe` to run the application.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
