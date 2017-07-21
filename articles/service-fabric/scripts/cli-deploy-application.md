@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Deploy application to a cluster
 description: Azure CLI Script Sample - Deploy an application to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
-author: rwike77
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,8 +13,8 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
-ms.author: ryanwi
+ms.date: 07/21/2017
+ms.author: adegeo
 ms.custom: mvc
 ---
 
