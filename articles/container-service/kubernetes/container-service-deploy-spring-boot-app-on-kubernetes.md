@@ -295,7 +295,7 @@ For more information about using Spring Boot on Azure, see the following article
 
 * [Deploy a Spring Boot Application to the Azure App Service](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
 
-* [Running a Spring Boot Application on Linux in the Azure Container Service](../container-service-deploy-spring-boot-app-on-linux.md)
+* [Running a Spring Boot Application on Linux in the Azure Container Service](container-service-deploy-spring-boot-app-on-linux.md)
 
 ## Additional Resources
 
