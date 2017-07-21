@@ -25,7 +25,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/logos/logo_linux.svg
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
       text: Linux
       href: /azure/container-service/kubernetes/container-service-kubernetes-walkthrough
 - title: Step-by-Step Tutorials
