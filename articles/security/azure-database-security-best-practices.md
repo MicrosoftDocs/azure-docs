@@ -63,13 +63,9 @@ SQL Database supports two types of authentication, SQL Authentication and Azure 
 **SQL Authentication** is recommended in following cases:
 
 -	It allows SQL Azure to support environments with mixed operating systems, where all users are not authenticated by a Windows domain.
-
 -	Allows SQL Azure to support older applications and applications provided by third parties that require SQL Server Authentication.
-
 -	Allows users to connect from unknown or untrusted domains. For instance, an application where established customers connect with assigned SQL Server logins to receive the status of their orders.
-
 -	Allows SQL Azure to support Web-based applications where users create their own identities.
-
 -	Allows software developers to distribute their applications by using a complex permission hierarchy based on known, preset SQL Server logins.
 
 > [!Note]
@@ -78,43 +74,28 @@ SQL Database supports two types of authentication, SQL Authentication and Azure 
 If you use **SQL Authentication** you must:
 
 -	Manage the strong credentials yourself.
-
 -	Protect the credentials in the connection string.
-
 -	(Potentially) protect the credentials passed over the network from the Web server to the database. For more information see [how to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998300.aspx).
 
 **Azure Active Directory authentication** is a mechanism of connecting to Microsoft Azure SQL Database and [SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) by using identities in Azure Active Directory (Azure AD). With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
 
 -	It provides an alternative to SQL Server authentication.
-
 -	Helps stop the proliferation of user identities across database servers.
-
 -	Allows password rotation in a single place.
-
 -	Customers can manage database permissions using external (AAD) groups.
-
 -	It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
-
 -	Azure AD authentication uses contained database users to authenticate identities at the database level.
-
 -	Azure AD supports token-based authentication for applications connecting to SQL Database.
-
 -	Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
-
 -	Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-ssms-mfa-authentication).
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
 -	Create and populate Azure AD.
-
 -	Optional: Associate or change the active directory that is currently associated with your    Azure Subscription.
-
 -	Create an Azure Active Directory administrator for Azure SQL server or [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-
 - Configure your client computers.
-
 -	Create contained database users in your database mapped to Azure AD identities.
-
 -	Connect to your database by using Azure AD identities.
 
 You can find details information [here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication).
@@ -130,19 +111,14 @@ It’s important to understand that files related to [buffer pool extension (BPE
 Since an authorized user such as a security administrator or a database administrator can access the data even if the database is encrypted with TDE, you should also follow the recommendations below:
 
 -	Enable SQL authentication at the database level.
-
 -	Use Azure AD authentication using [RBAC roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is).
-
 -	Users and applications should use separate accounts to authenticate. This way you can limit the permissions granted to users and applications and reduce the risks of malicious activity.
-
 -	Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter), or you can create custom roles for your application to grant explicit permissions to selected database objects.
 
 For other ways to encrypt your data, consider:
 
 -	[Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
-
 -	Encryption in use using Always Encrypted: [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access).
-
 -	Using Row-level security: Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context). For more information, see [Row-Level security](https://msdn.microsoft.com/library/dn765131).
 
 ## Protect data in transit
