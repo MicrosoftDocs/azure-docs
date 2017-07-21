@@ -72,8 +72,8 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
     * Kafka on HDInsight version 3.6 (three worker nodes)
     * Storm on HDInsight version 3.6 (three worker nodes)
 
-    > [!WARNING]
-    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+  > [!WARNING]
+  > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
 2. Use the following guidance to populate the entries on the **Custom deployment** blade:
    
