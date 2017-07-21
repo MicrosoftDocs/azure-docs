@@ -17,7 +17,7 @@ ms.author: markscu
 
 # Use Azure Batch CLI Templates and File Transfer (Preview)
 
-Using the Azure CLI it is possible to run Batch jobs end-to-end with no code.
+Using the Azure CLI it is possible to run Batch jobs without writing code.
 
 Template files can be created and used with the Azure CLI that allow Batch
 pools, jobs, and tasks to be created. Job input files can be easily uploaded to
@@ -45,7 +45,7 @@ are added over what is possible with the JSON files:
     applications only needs to specify the values for the defined
     parameters.
 
--   Job task factories create the one or more tasks associated with a job,
+-   Job task factories create one or more tasks associated with a job,
     avoiding the need for many task definitions to be created and significantly
     simplifying job submission.
 
@@ -68,14 +68,14 @@ ffmpeg to transcode source video files to different resolutions.
 
 -   A job template is created. The user creating the template knows how ffmpeg
     needs to be invoked to transcode source video to a different resolution and
-    specifies the task command line; they also know that there will be a folder
+    specifies the task command line; they also know that there is a folder
     containing the source video files, with a task required per input file.
 
--   An end-user with a set of video files to transcode will first create a pool
+-   An end user with a set of video files to transcode first creates a pool
     using the pool template, specifying only the pool id and number of VMs
     required. They can then upload the source files to transcode. A job can then
     be submitted using the job template, specifying only the pool id and
-    location of the source files uploaded. The Batch job will be created, with
+    location of the source files uploaded. The Batch job is created, with
     one task per input file being generated. Finally, the transcoded output
     files can be download.
 
@@ -104,7 +104,7 @@ specifying a JSON file containing property names and values. For example:
 az batch pool create –-json-file AppPool.json
 ```
 
-Azure Batch templates are very similar to Azure Resource Manager templates, in functionality and
+Azure Batch templates are similar to Azure Resource Manager templates, in functionality and
 syntax. They are JSON files that contain item property names and values, but add
 the following main concepts:
 
@@ -134,7 +134,7 @@ the following main concepts:
     -   Some higher-level constructs are available in the template
         that are not yet
         available in the Batch APIs. For example, a task factory can be defined
-        in a job template that will create multiple tasks for the job using a
+        in a job template that creates multiple tasks for the job using a
         common task definition. These constructs avoid the need to code to
         dynamically create multiple JSON files, such as one file per task, as
         well as create script files to install applications via a package
@@ -219,7 +219,7 @@ the following higher-level constructs are supported by the job template:
 
 -   **Task factory**
 
-    -   Will create multiple tasks for a job from one task definition. Three
+    -   Creates multiple tasks for a job from one task definition. Three
         types of task factory are supported – parametric sweep, task per file,
         and task collection.
 
@@ -310,8 +310,7 @@ az batch job create --template job-ffmpeg.json
 
 ## File groups and file transfer
 
-In addition to the creation of pools, jobs, and tasks, the majority of jobs will
-require input files and produce output files; the input files may need to be
+In addition to the creation of pools, jobs, and tasks, the majority of jobs require input files and produce output files; the input files may need to be
 uploaded from a client and then copied onto a pool node or nodes; output files
 produced by tasks on a pool node need to be persisted and then downloaded to a
 client.
