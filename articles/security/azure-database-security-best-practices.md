@@ -28,11 +28,8 @@ In this article, we will discuss a collection of Azure database security best pr
 For each best practice, we’ll explain:
 
 -	What the best practice is
-
 -	Why you want to enable that best practice
-
 -	What might be the result if you fail to enable the best practice
-
 -	How you can learn to enable the best practice
 
 This Azure Database Security Best Practices article is based on a consensus opinion and Azure platform capabilities and feature sets as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
@@ -40,15 +37,10 @@ This Azure Database Security Best Practices article is based on a consensus opin
 Azure database security best practices discussed in this article include:
 
 -	Use firewall rules to restrict database access
-
 -	Enable database authentication
-
 -	Protect your data using encryption
-
 -	Protect data in transit
-
 -	Enable database auditing
-
 -	Enable database threat detection
 
 
@@ -199,6 +191,5 @@ Azure Database is a robust database platform, with a full range of security feat
 
 ## Next steps
 - To learn more about firewall rules, see [Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure).
-
 - To learn about users and logins, see [Manage logins](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-manage-logins).
 - For a tutorial, see [Secure your Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-tutorial).
