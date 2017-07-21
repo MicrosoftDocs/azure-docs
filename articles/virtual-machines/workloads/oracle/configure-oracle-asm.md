@@ -97,11 +97,11 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
 2. Run these additional commands to install Oracle ASM components:
 
    ```bash
-    yum list | grep oracleasm &&\
-    yum -y install kmod-oracleasm.x86_64 &&\
-    yum -y install oracleasm-support.x86_64 &&\
-    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm &&\
-    yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm &&\
+    yum list | grep oracleasm 
+    yum -y install kmod-oracleasm.x86_64 
+    yum -y install oracleasm-support.x86_64 
+    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
 
@@ -122,10 +122,10 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
 4. ASM requires specific users and roles in order to function correctly. The following commands will create the pre-requisite user accounts and groups: 
 
    ```bash
-    groupadd -g 54345 asmadmin &&\
-    groupadd -g 54346 asmdba &&\
-    groupadd -g 54347 asmoper &&\
-    useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid &&\
+    groupadd -g 54345 asmadmin 
+    groupadd -g 54346 asmdba 
+    groupadd -g 54347 asmoper 
+    useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid 
     usermod -g oinstall -G dba,asmdba,asmadmin oracle
    ```
 
@@ -144,7 +144,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
 6. Create a folder for user *grid* and change the owner:
 
    ```bash
-   mkdir /u01/app/grid &&\
+   mkdir /u01/app/grid 
    chown grid:oinstall /u01/app/grid
    ```
 
@@ -158,7 +158,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    /usr/sbin/oracleasm configure -i
    ```
 
-The output of this command should look similar to the following, stopping with prompts to be answered.
+   The output of this command should look similar to the following, stopping with prompts to be answered.
 
     ```bash
    Configuring the Oracle ASM library driver.
@@ -181,9 +181,9 @@ The output of this command should look similar to the following, stopping with p
    cat /proc/partitions
    ```
 
-The output of this command should look simiar to the following listing of available disks
+   The output of this command should look simiar to the following listing of available disks
 
-    ```bash
+   ```bash
    8       16   14680064 sdb
    8       17   14678976 sdb1
    8        0   52428800 sda
@@ -193,18 +193,18 @@ The output of this command should look simiar to the following listing of availa
    8       64   52428800 sde
    8       80   52428800 sdf
    8       32   52428800 sdc
-  11        0       1152 sr0
-    ```
+   11       0       1152 sr0
+   ```
 
 3. Format disk */dev/sdc* by running the following command and answering the prompts with *n* for new partition, *p* for primary partition, *1* to select the first partition, press `enter` for the default first cylinder, press `enter` for the default last cylinder and finally press *w* to write the changes to the partition table.  
 
    ```bash
    fdisk /dev/sdc
-    ```
+   ```
    
-Using the answers provided above, the output for the fdisk command should look like the following:
+   Using the answers provided above, the output for the fdisk command should look like the following:
 
-    ```bash
+   ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
    Changes will remain in memory only, until you decide to write them.
@@ -244,11 +244,11 @@ Using the answers provided above, the output for the fdisk command should look l
 
    ```bash
    cat /proc/partitions
-    ```
+   ```
 
-The output of the command should look like the following;
+   The output of the command should look like the following;
 
-    ```bash
+   ```bash
    major minor  #blocks  name
 
      8       16   14680064 sdb
@@ -264,19 +264,19 @@ The output of the command should look like the following;
      8        0   52428800 sda
      8        1     512000 sda1
      8        2   51915776 sda2
-     11        0    1048575 sr0
+     11       0    1048575 sr0
    ```
 
 6. Check the Oracle ASM service status and start the Oracle ASM service:
 
    ```bash
-   service oracleasm status &&\
+   service oracleasm status 
    service oracleasm start
-    ```
+   ```
 
-The output of the command should look like the following:
+   The output of the command should look like the following:
    
-    ```bash
+   ```bash
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
    Initializing the Oracle ASMLib driver:                     [  OK  ]
@@ -286,20 +286,20 @@ The output of the command should look like the following:
 7. Create Oracle ASM disks:
 
    ```bash
-    service oracleasm createdisk ASMSP /dev/sdc1 &&\
-    service oracleasm createdisk DATA /dev/sdd1 &&\
-    service oracleasm createdisk DATA1 /dev/sde1 &&\
-    service oracleasm createdisk FRA /dev/sdf1
+   service oracleasm createdisk ASMSP /dev/sdc1 
+   service oracleasm createdisk DATA /dev/sdd1 
+   service oracleasm createdisk DATA1 /dev/sde1 
+   service oracleasm createdisk FRA /dev/sdf1
    ```    
 
-The output of the command should look like the following:
+   The output of the command should look like the following:
 
-    ```bash
+   ```bash
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
    Marking disk "DATA" as an ASM disk:                        [  OK  ]
    Marking disk "DATA1" as an ASM disk:                       [  OK  ]
    Marking disk "FRA" as an ASM disk:                         [  OK  ]
-    ```
+   ```
 
 8. List Oracle ASM disks:
 
@@ -307,7 +307,7 @@ The output of the command should look like the following:
    service oracleasm listdisks
    ```   
 
-The output of the command should list off the following Oracle ASM disks:
+   The output of the command should list off the following Oracle ASM disks:
 
    ```bash
     ASMSP
@@ -318,26 +318,26 @@ The output of the command should list off the following Oracle ASM disks:
 
 9. Change the passwords for the root, oracle, and grid users. You will need to **make note of these new passwords** as you will be using them later during the installation.
 
-    ```bash
-    passwd oracle &&\
-    passwd grid &&\
-    passwd root
-    ```
+   ```bash
+   passwd oracle 
+   passwd grid 
+   passwd root
+   ```
 
 10. Change the folder permission:
 
-    ```bash
-    chmod -R 775 /opt &&\
-    chown grid:oinstall /opt &&\
-    chown oracle:oinstall /dev/sdc1 &&\
-    chown oracle:oinstall /dev/sdd1 &&\
-    chown oracle:oinstall /dev/sde1 &&\
-    chown oracle:oinstall /dev/sdf1 &&\
-    chmod 600 /dev/sdc1 &&\
-    chmod 600 /dev/sdd1 &&\
-    chmod 600 /dev/sde1 &&\
-    chmod 600 /dev/sdf1
-        ```
+   ```bash
+   chmod -R 775 /opt 
+   chown grid:oinstall /opt 
+   chown oracle:oinstall /dev/sdc1 
+   chown oracle:oinstall /dev/sdd1 
+   chown oracle:oinstall /dev/sde1 
+   chown oracle:oinstall /dev/sdf1 
+   chmod 600 /dev/sdc1 
+   chmod 600 /dev/sdd1 
+   chmod 600 /dev/sde1 
+   chmod 600 /dev/sdf1
+   ```
 
 ## Download and prepare Oracle Grid Infrastructure
 
@@ -350,49 +350,56 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
 2. After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM:
 
    ```bash
-   scp *.zip <publicIpAddress>:<folder>
+   scp *.zip <publicIpAddress>:.
    ```
 
-3. Move the .zip files to the /opt folder. Then, change the owner of the files:
+3. SSH back into your Oracle VM in Azure in order to move the .zip files into the /opt folder. Then, change the owner of the files:
 
    ```bash
-   # mv <folder>/*.zip /opt
-   # cd /opt
-   # chown grid:oinstall linuxamd64_12102_grid_1of2.zip
-   # chown grid:oinstall linuxamd64_12102_grid_2of2.zip
+   ssh <publicIPAddress>
+   mv ./*.zip /opt
+   cd /opt
+   chown grid:oinstall linuxamd64_12102_grid_1of2.zip
+   chown grid:oinstall linuxamd64_12102_grid_2of2.zip
    ```
 
 4. Unzip the files. (Install the Linux unzip tool if it's not already installed.)
    
    ```bash
-   # yum install unzip
-   # unzip linuxamd64_12102_grid_1of2.zip
-   # unzip linuxamd64_12102_grid_2of2.zip
+   yum install unzip
+   unzip linuxamd64_12102_grid_1of2.zip
+   unzip linuxamd64_12102_grid_2of2.zip
    ```
 
 5. Change permission:
    
    ```bash
-   # chown -R grid:oinstall /opt/grid
+   chown -R grid:oinstall /opt/grid
    ```
 
 6. Turn off the firewall:
    
    ```bash
-   # service iptables status
-   # service iptables stop
+   service iptables status
+   service iptables stop
    ```
 
-7. Check available swap space. You need at least 6.8 GB of swap space to install Grid. Linux Azure VMs don't have swap enabled and configured by default.
+7. Check available swap space. You need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You will need to edit `/etc/waagent.conf` and restart the VM in order for the changed settings to take effect. 
 
-We highly recommend that you use waagent to configure swap space so that it's always created on the ephemeral disk (temporary disk). For more information, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
+   ```bash
+   vi /etc/waagent.conf
+   ```
+   
+   Search for `ResourceDisk.SwapSizeMB` and change the value to **8192**. You will need to press `insert` to enter insert mode, type in the value of **8192** and then press `esc` to return to command mode. To write the changes and quit the file, type `:wq` and press `enter`
+   
+    We highly recommend that you always use `waagent` to configure swap space so that it's always created on the local ephemeral disk (temporary disk) for best performance. For more information, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
 
-## Prepare the client and VM to run x11 (for Windows clients only)
-This is an optional step. You can skip this step if you are using a Linux client or already have x11 set up.
+## Prepare the client and VM to run x11
+This is an optional step exclusive to Windows machines. You can skip this step if you are using a Linux client or are using a machine that already has x11 set up.
 
 1. [Download PuTTY](http://www.putty.org/) and [download Xming](https://xming.en.softonic.com/) to your Windows computer.
 
-2. After you install PuTTY, in the PuTTY folder (for example, C:\Program Files\PuTTY), run puttygen.exe (PuTTY Key Generator).
+2. After you install PuTTY, change into the PuTTY folder (for example, C:\Program Files\PuTTY), and run puttygen.exe in order to generate a key.
 
 3. In PuTTY Key Generator:
    
