@@ -33,6 +33,7 @@ The standard definition of orchestration includes the following tasks:
 - **Scheduling**: Given a container image and a resource request, find a suitable machine on which to run the container.
 - **Affinity/Anti-affinity**: Specify that a set of containers should run nearby each other (for performance) or sufficiently far apart (for availability).
 - **Health monitoring**: Watch for container failures and automatically reschedule them.
+- **Failover**: Keep track of what is running on each machine and reschedule containers from failed machines to healthy nodes.
 - **Scaling**: Add or remove container instances to match demand, either manually or automatically.
 - **Networking**: Provide an overlay network for coordinating containers to communicate across multiple host machines.
 - **Service discovery**: Enable containers to locate each other automatically even as they move between host machines and change IP addresses.
