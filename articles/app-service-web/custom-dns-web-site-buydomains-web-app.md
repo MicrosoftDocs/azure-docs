@@ -100,14 +100,14 @@ Next, select the desired options for your domain. See the following table for ex
 |-|-|-|
 |Auto renew | **Enable** | Renews your App Service Domain automatically every year. Your credit card is charged the same purchase price at the time of renewal. |
 |Privacy protection | Enable | Opt in to "Privacy protection", which is included in the purchase price _for free_ (except for top-level domains whose registry do not support privacy protection, such as _.co.in_, _.co.uk_, and so on). |
-| Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your web app can be accessed at the selected hostnames. If the web app is behind [Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
+| Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your web app can be accessed at the selected hostnames. If the web app is behind [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
 
 ### Accept terms and purchase
 
 Click **Legal Terms** to review the terms and the charges, then click **Buy**.
 
 > [!NOTE]
-> App Service Domains use Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/en-us/pricing/details/dns/).
+> App Service Domains use Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -184,7 +184,7 @@ Navigate to the listed hostnames in the browser. In the example in the preceding
 
 ## Manage custom DNS records
 
-In Azure, DNS records for an App Service Domain are managed using [Azure DNS](https://azure.microsoft.com/en-us/services/dns/). You can add, remove, and update DNS records, just like for an externally purchased domain.
+In Azure, DNS records for an App Service Domain are managed using [Azure DNS](https://azure.microsoft.com/services/dns/). You can add, remove, and update DNS records, just like for an externally purchased domain.
 
 ### Open App Service Domain
 
