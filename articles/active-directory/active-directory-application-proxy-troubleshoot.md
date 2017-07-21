@@ -1,4 +1,3 @@
-
 ---
 title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
@@ -6,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: harshja
 
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
@@ -14,10 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 07/21/2017
 ms.author: kgremban
-
-ms.custom: H1Hack27Feb2017
+ms.reviewer: harshja
+ms.custom: H1Hack27Feb2017; it-pro
 ---
 
 
@@ -42,29 +40,25 @@ If you change your path to include referenced content, but still need users to l
 
 Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 
-If registration fails during the Connector wizard installation, there are two ways to view the reason for the failure. Either look in the event log under **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**, or run the following Windows PowerShell command.
+If registration fails during the Connector wizard installation, there are two ways to view the reason for the failure. Either look in the event log under **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**, or run the following Windows PowerShell command:
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
 
-Once you find the Connector error from the event log, us this list of common errors to resolve the problem:
+Once you find the Connector error from the event log, use this list of common errors to resolve the problem:
 
-- **Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'One or more errors occurred.'**
+### Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'One or more errors occurred.'
 
-  If you closed the registration window without signing in to Azure AD, run the Connector wizard again and register the Connector.
+If you closed the registration window without signing in to Azure AD, run the Connector wizard again and register the Connector.
 
-  If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error. This error occurs when there is a networking error on your system. Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in [Application Proxy prerequisites](active-directory-application-proxy-enable.md).
+If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error. This error occurs when there is a networking error on your system. Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in [Application Proxy prerequisites](active-directory-application-proxy-enable.md).
 
-- **Connector registration failed: Make sure your computer is connected to the Internet. Error: 'There was no endpoint listening at https://connector.msappproxy.net:9090/register/RegisterConnector that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.'**
+### Clear error is presented in the registration window. Cannot proceed
 
-  If you sign in using your Azure AD username and password but then receive this error, it may be that all ports above 8081 are blocked. Make sure that the necessary ports are open. For more information, see [Application Proxy prerequisites](active-directory-application-proxy-enable.md).
+If you see this error and then the window closes, you entered the wrong username or password. Try again. 
 
-- **Clear error is presented in the registration window. Cannot proceed**
+### Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials and search by service principal URI has failed.
 
-  If you see this error and then the window closes it means that you entered the wrong username or password. Try again. 
-
-- **Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials and search by service principal URI has failed.** 
-
-  You are trying to sign in using a Microsoft Account and not a domain that is part of the organization ID of the directory you are trying to access. Make sure that the admin is part of the same domain name as the tenant domain, for example, if the Azure AD domain is contoso.com, the admin should be admin@contoso.com. 
+You are trying to sign in using a Microsoft Account and not a domain that is part of the organization ID of the directory you are trying to access. Make sure that the admin is part of the same domain name as the tenant domain, for example, if the Azure AD domain is contoso.com, the admin should be admin@contoso.com. 
 
 - **Failed to retrieve the current execution policy for running PowerShell scripts.** 
 
@@ -84,7 +78,7 @@ Once you find the Connector error from the event log, us this list of common err
 
 ## Kerberos errors
 
-This list covers the more common error that come from Kerberos setup and configuration, and includes suggestions for resolution.
+This list covers the more common errors that come from Kerberos setup and configuration, and includes suggestions for resolution.
 
 - **Failed to retrieve the current execution policy for running PowerShell scripts.** 
 
