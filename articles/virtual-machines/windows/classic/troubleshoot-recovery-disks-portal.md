@@ -40,8 +40,10 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 2. In the menu on the left, click **Virtual Machines (classic)**.
 3. Select the VM that has problem, select **Disks**, and then identify the name of the virtual hard disk. Click the virtual hard disk, check the **Location** of the virtual hard disk to identify the storage account that contains this virtual hard disk. In the following example, the string before “.blob.core.windows.net “ is the storage account name.
 
-    **https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd**
-
+    ```
+    https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
+    ```
+    
     ![The image about VM's location](./media/troubleshoot-recovery-disks-portal/vm-location.png)
 
 3. Right-click the VM and then select Delete. Make sure that the disks are not selected when you delete the VM.
