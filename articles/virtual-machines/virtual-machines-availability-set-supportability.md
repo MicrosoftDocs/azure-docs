@@ -1,6 +1,6 @@
 ---
-title: Supportability of adding Azure VM to an existing availability set | Microsoft Docs
-description: Supportability of adding Azure VM to an existing availability set.
+title: Supportability of adding Azure VMs to an existing availability set | Microsoft Docs
+description: Supportability of adding Azure VMs to an existing availability set.
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
@@ -17,28 +17,19 @@ ms.date: 7/15/2017
 ms.author: delhan
 
 ---
-# Supportability of adding Azure VM to an existing availability set
+# Supportability of adding Azure VMs to an existing availability set
 
-You may occasionally encounter limitations when you add new virtual machines (VM) to an existing availability set. The following chart details which VM series can you mix in the same Availability set.
+You may occasionally encounter limitations when you add new virtual machines (VMs) to an existing availability set. The following chart details which VM series you can mix in the same availability set.
 
-Here is supportability matrix to mix different type of VMs:
+Here is the supportability matrix to mix different types of VMs:
 
-|Series & Availability Set|Second VM|A|Av2|D|Dv2|Dv3|DS|DSv2|DSv3|F|Fs|H|G|GS|LS|NC|NV|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|First VM| Storage| | | | | |Premium|Premium|Premium| |Premium| | |Premium|Premium| | |
-|A| |OK|OK|OK|OK|??|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|
-|Av2| |OK|OK|OK|OK|OK|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|
-|D| |OK|OK|OK|OK|OK|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|
-|Dv2| |OK|OK|OK|OK|OK|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|
-|Dv3| |OK|OK|OK|OK|OK|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|
-|DS|Premium|NO|NO|NO|NO|NO|OK|OK|OK|NO|NO|NO|NO|NO|NO|NO|NO|
-|DSv2|Premium|NO|NO|NO|NO|NO|OK|OK|OK|NO|NO|NO|NO|NO|NO|NO|NO|
-|DSv3|Premium|NO|NO|NO|NO|NO|OK|OK|OK|NO|NO|NO|NO|NO|NO|NO|NO|
-|F| |NO|NO|NO|NO|NO|NO|NO|NO|OK|NO|NO|NO|NO|NO|NO|NO|
-|Fs|Premium|NO|NO|NO|NO|NO|NO|NO|NO|NO|OK|NO|NO|NO|NO|NO|NO|
-|H| |NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|OK|NO|NO|NO|NO|NO|
-|G| |NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|OK|NO|NO|NO|NO|
-|GS|Premium|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|OK|NO|NO|NO|
-|LS|Premium|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|OK|NO|NO|
-|NC| |NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|OK|NO|
-|NV| |NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|NO|OK|
+Series & Availability Set|Second VM|A|Av2|D|Dv2|Dv3|
+|---|---|---|---|---|---|---|
+|First VM|||||||
+|A||OK|OK|OK|OK|OK|
+|Av2||OK|OK|OK|OK|OK|
+|D||OK|OK|OK|OK|OK|
+|Dv2||OK|OK|OK|OK|OK|
+|Dv3||OK|OK|OK|OK|OK|
+
+All other series could not be in the same availability set because they require a specific hardware.
