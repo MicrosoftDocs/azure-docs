@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 
 ---
@@ -78,7 +78,7 @@ HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. F
     ![Selecting the Spark on HDInsight (Scala) project](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 3. In the **New HDInsight Scala Project** dialog box, provide the following values, and then click **Next**:
    * Enter a name for the project.
-   * In the **JRE** area, make sure that **Use an execution environment JRE** is set to **JavaSE-1.7**.
+   * In the **JRE** area, make sure that **Use an execution environment JRE** is set to **JavaSE-1.7** or above.
    * Make sure that Spark SDK is set to the location where you downloaded the SDK. The link to the download location is included in the [prerequisites](#prerequisites) earlier in this article. You can also download the SDK from the link included in the dialog box.
 
     ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
@@ -126,7 +126,7 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
       
       * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
       * Select an artifact from the Eclipse project, or select one from a hard drive. the default value depends on the item you right-click from package explorer.
-      * In the **Main class name** dropdownlist, submission wizard displays all object names from you selected project. select one that you want to run object.
+      * In the **Main class name** dropdownlist, submission wizard displays all object names from you selected project. select or input one that you want to run object. if you select artifact from hard disk, you need input main class name by yourself. 
       * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
         
        ![Spark Submission dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
