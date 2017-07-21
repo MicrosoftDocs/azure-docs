@@ -20,7 +20,7 @@ ms.author: danlep
 ---
 # Use RDMA-capable or GPU-enabled instances in Batch pools
 
-To run certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example, to run multi-instance [MPI workloads](batch-mpi.md), you can choose RDMA-capable A8, A9, or H-series sizes. These sizes connect to an InfiniBand network for inter-node communcation, which can accelerate MPI applications. Or for CUDA applications, you can choose N-series sizes that include NVIDIA Tesla GPU cards.
+To run certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example, to run multi-instance [MPI workloads](batch-mpi.md), you can choose RDMA-capable A8, A9, or H-series sizes. These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications. Or for CUDA applications, you can choose N-series sizes that include NVIDIA Tesla GPU cards.
 
 This article provides guidance and examples to use some of Azure's specialized sizes in Batch pools. For specs and background, see:
 
@@ -35,7 +35,7 @@ This article provides guidance and examples to use some of Azure's specialized s
 
     * If you created your Batch account in the **Batch service** configuration, you are limited by the [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas). By default, this quota is 20 cores.
 
-    * If you created the account in the **User subscription** configuration, your subscription limits the number of VM cores per region. See [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. Your subsciption also applies a regional quota to certain VM sizes, including HPC and GPU instances. In the user subscription configuration, no additional quotas apply to the Batch account. 
+    * If you created the account in the **User subscription** configuration, your subscription limits the number of VM cores per region. See [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. Your subscription also applies a regional quota to certain VM sizes, including HPC and GPU instances. In the user subscription configuration, no additional quotas apply to the Batch account. 
 
   You might need to increase one or more quotas when using a specialized VM size in Batch. To request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 
@@ -44,14 +44,14 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Dependencies
 
-The RDMA and GPU capabilties of compute-intensive sizes are supported only in certain operating systems. Depending on your operating system, you might need to install or configure additional driver or other software. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
+The RDMA and GPU capabilities of compute-intensive sizes are supported only in certain operating systems. Depending on your operating system, you might need to install or configure additional driver or other software. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
 
 
 ### Linux pools - Virtual machine configuration
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc,md#rdma-capable-instances) | RDMA | SUSE Linux Enterprise Server 12 HPC or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | SUSE Linux Enterprise Server 12 HPC or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
 | [NC series](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS.<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 8.0 drivers | N/A | 
 | [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.2 drivers | N/A |
 
@@ -63,7 +63,7 @@ The RDMA and GPU capabilties of compute-intensive sizes are supported only in ce
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc,md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
 | [NC series](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Windows Server 2016 or <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit 8.0 drivers| N/A | 
 | [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID 4.2 drivers | N/A |
 
@@ -75,7 +75,7 @@ The RDMA and GPU capabilties of compute-intensive sizes are supported only in ce
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc,md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012, or<br/>Windows Server 2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication,<br/> disable concurrent task execution |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012, or<br/>Windows Server 2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication,<br/> disable concurrent task execution |
 
 
 
@@ -129,7 +129,7 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA T
 
 1. Deploy an Azure NC6 VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with standard storage, and *without* managed disks.
 2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Deprovision the Linux agent, and then capture the Linux VM image using the Azure CLI 1.0 commands. For steps, see [Capture a Linux virtual machine running on Azure](../linux/capture-image-nodejs.md). Make a note of the image URI.
+3. Deprovision the Linux agent, and then capture the Linux VM image using the Azure CLI 1.0 commands. For steps, see [Capture a Linux virtual machine running on Azure](../virtual-machines/linux/capture-image-nodejs.md). Make a note of the image URI.
   > [!IMPORTANT]
   > Do not use Azure CLI 2.0 commands to capture the image for Azure Batch.
   >
