@@ -126,4 +126,4 @@ In this tutorial, you learned about load balancing in ACS with both the Marathon
 Advance to the next tutorial to learn about integrating Azure storage with DC/OS in Azure.
 
 > [!div class="nextstepaction"]
-> [Mount Azure File Share in DC/OS cluster](./container-service-dcos-fileshare.md)
+> [Mount Azure File Share in DC/OS cluster](dcos-swarm/container-service-dcos-fileshare.md)

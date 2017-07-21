@@ -82,7 +82,7 @@ The conventional way to push and pull image from a private registry is to first 
 
 ### Create shared storage
 
-This process uses an Azure file share that has been mounted on each node in the cluster. If you have not already set up shared storage, see [Setup a file share inside a DC/OS cluster](../container-service-dcos-fileshare.md).
+This process uses an Azure file share that has been mounted on each node in the cluster. If you have not already set up shared storage, see [Setup a file share inside a DC/OS cluster](container-service-dcos-fileshare.md).
 
 ### Configure ACR authentication
 
