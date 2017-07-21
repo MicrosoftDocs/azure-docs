@@ -62,7 +62,9 @@ For this example, modify one user and set their extensionAttribute1 to the value
 ![Screenshot showing how to set the user's extensionAttribute1](media/active-directory-licensing-group-advanced/user-set-extensionAttribute1.png)
 
 > [!WARNING]
-> Use caution when modifying an existing group’s membership rule. When a rule is changed, the membership of the group will be re-evaluated and users who no longer match the new rule will be removed (Users who still match the new rule will not be removed during this process). If the group has licenses assigned, those users will have their licenses removed during the process; users might experience loss of service, or in some cases, loss of data.
+> Use caution when modifying an existing group’s membership rule. When a rule is changed, the membership of the group will be re-evaluated and users who no longer match the new rule will be removed (users who still match the new rule will not be affected during this process). Those users will have their licenses removed during the process which may result in loss of service, or in some cases, loss of data.
+
+> If you have a large dynamic group you depend on for license assignment, consider validating any major changes on a smaller test group before applying them to the main group.
 
 ## Multiple groups and multiple licenses
 
