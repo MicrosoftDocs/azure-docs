@@ -12,13 +12,13 @@ keywords: ''
 ms.assetid: 
 ms.service: 
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 07/20/2017
 ms.author: seanmck
 ms.custom: 
 ---
 
-# Comparing Azure Container Instances with container orchestrators
+# Azure Container Instances and container orchestrators
 
