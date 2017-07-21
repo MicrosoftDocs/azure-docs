@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 07/21/2017
 ms.author: priyamo
 ms.custom: aaddev
+ms.reviewer: dastrock
 
 ---
 # How Azure Active Directory uses the SAML protocol
