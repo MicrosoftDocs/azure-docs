@@ -6,7 +6,7 @@ author: tracsman
 manager: rossort
 tags: azure-resource-manager
 
-ms.service: networking
+ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

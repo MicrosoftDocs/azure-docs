@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/20/2017
 ms.author: eugenesh
 ---
 
@@ -30,12 +30,12 @@ The blob indexer can extract text from the following document formats:
 * ZIP
 * EML
 * RTF
-* Plain text files
-* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) preview feature)
+* Plain text files (see [Indexing plain text](#IndexingPlainText))
+* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md))
 * CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
 
 > [!IMPORTANT]
-> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2015-02-28-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 >
 
@@ -337,11 +337,31 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 ## Indexing documents along with related data
 
-Your documents may have associated metadata - for example, the department that created the document - that's stored as structured data in one of the following locations.
--   In a separate data store, such as SQL Database or Azure Cosmos DB.
--   Directly attached to each document in Azure Blob Storage as custom metadata. (For more info, see [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
+You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts. 
 
-You can index the documents along with their metadata by assigning the same unique key value to each document and to its metadata, and by specifying the `mergeOrUpload` action for each indexer. For a detailed description of this solution, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+
+<a name="IndexingPlainText"></a>
+## Indexing plain text 
+
+If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using the **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration parameter: 
+
+	{
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## Content type-specific metadata properties
