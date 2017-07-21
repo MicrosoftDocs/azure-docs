@@ -62,7 +62,7 @@ You can modify the examples in this article by specifying a **fieldname:searchte
 
 Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct cities in the location field. Also, ensure the operator is capitalized as you see with NOT and AND.
 
-The field specified in **fieldname:searchterm** must be a searchable field. See [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/erest/api/searchservice/Create-Index) for details on how index attributes are used in field definitions.
+The field specified in **fieldname:searchterm** must be a searchable field. See [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
 
 **Example 2** -- Right-click the following query snippet This query searches for business titles with the term senior in them, but not junior:
 
