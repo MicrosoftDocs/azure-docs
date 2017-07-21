@@ -25,4 +25,5 @@ The following table includes links to [Azure CLI](service-fabric-azure-cli-2-0.m
 | | |
 |-|-|
 | **Manage applications** ||
+| [Deploy an application](./scripts/cli-deploy-application.md)| Deploy an application to a cluster.|
 | [Remove an application](./scripts/cli-remove-application.md)| Remove an application from a cluster.|
