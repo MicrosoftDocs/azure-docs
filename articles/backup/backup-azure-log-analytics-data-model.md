@@ -215,3 +215,24 @@ This table provides details about protected server related fields.
 | ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
 | ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
 | ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
+### ProtectedServerAssociation
+This table provides details about protected server related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
+| SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
+| State_s |Text |Current state of the protected server association object for example, Active, Deleted |
+| BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this protected server belongs to |
+| OperationName |Text |This is the name of the current operation - ProtectedServerAssociation |
+| Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
+| ProtectedServerUniqueId_s |Text |Unique Id of the protected server |
+| VaultUniqueId_s |Text |Unique Id of the vault to which this protected server belongs to |
+| SourceSystem |Text |Source system of the current data - Azure |
+| ResourceId |Text |This is the resource id for which data is being collected, it shows Recovery Services vault resource id |
+| SubscriptionId |Text |This is the subscription id of the resource (RS vault) for which data is being collected |
+| ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
+| ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
+| ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
