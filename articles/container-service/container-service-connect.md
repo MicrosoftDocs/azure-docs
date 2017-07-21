@@ -233,6 +233,6 @@ After you've configured the tunnel for Docker Swarm, open your Windows settings 
 Deploy and manage containers in your cluster:
 
 * [Work with Azure Container Service and Kubernetes](kubernetes/container-service-kubernetes-ui.md)
-* [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
+* [Work with Azure Container Service and DC/OS](dcos-swarm/container-service-mesos-marathon-rest.md)
 * [Work with the Azure Container Service and Docker Swarm](dcos-swarm/container-service-docker-swarm.md)
 

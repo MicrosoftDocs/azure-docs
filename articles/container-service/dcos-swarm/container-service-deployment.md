@@ -208,6 +208,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 Now that you have a functioning cluster, see these documents for connection and management details:
 
 * [Connect to an Azure Container Service cluster](../container-service-connect.md)
-* [Work with Azure Container Service and DC/OS](../container-service-mesos-marathon-rest.md)
+* [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
 * [Work with Azure Container Service and Docker Swarm](container-service-docker-swarm.md)
 * [Work with Azure Container Service and Kubernetes](../kubernetes/container-service-kubernetes-walkthrough.md)

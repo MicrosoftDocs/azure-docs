@@ -73,7 +73,7 @@ where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you
 
 ![Marathon Applications List](media/dcos/marathon-applications-list.png)
 
-You can also use the REST APIs for communicating with Marathon. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for Marathon. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [DC/OS container management through the Marathon REST API](container-service-mesos-marathon-rest.md).
+You can also use the REST APIs for communicating with Marathon. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for Marathon. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [DC/OS container management through the Marathon REST API](dcos-swarm/container-service-mesos-marathon-rest.md).
 
 ### Using Docker Swarm
 Docker Swarm provides native clustering for Docker. Because Docker Swarm

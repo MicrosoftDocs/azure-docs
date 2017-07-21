@@ -104,7 +104,7 @@ In this example, the application is running on a public agent node. You reach th
 
 
 ## Next steps
-* [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)
+* [Work with DC/OS and the Marathon API](dcos-swarm/container-service-mesos-marathon-rest.md)
 
 * Deep dive on the Azure Container Service with Mesos
 
