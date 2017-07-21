@@ -198,7 +198,7 @@ Resource Manager provides the following functions for working with strings:
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
 
-## Next Steps
+## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
