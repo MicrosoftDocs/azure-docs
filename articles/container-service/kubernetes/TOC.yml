@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Container Service
-    href: ../container-service-intro.md
+    href: container-service-intro-kubernetes.md
 - name: Quickstarts
   expanded: true
   items:
