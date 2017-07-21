@@ -1,4 +1,4 @@
-d# Overview
+# Overview
 ## [What is Azure Search?](search-what-is-azure-search.md)
 # Get Started
 ## [Choose a SKU](search-sku-tier.md)
