@@ -15,47 +15,73 @@ ms.author: babanisa
 
 Azure Event Grid has three types of authentication:
 
-* Event Subscriptions
-* Event Publishing
+* Event subscriptions
+* Event publishing
 * WebHook event delivery
 
 WebHook authentication is not available in the preview release.
 
-## Event Subscription Creation
+## Event subscription
 
-You subscribe to events through Azure Resource Manager operations. The resource provider for the published is extended to enable events.
+To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. The required resource differs based on whether you are subscribing to a system or user topic. Both types are described in this section.
 
 ### System topics (Azure service publishers)
 
-As the topic in this model is implicit in that it is the Resource Manager resource for which events are being enabled such as an Event Hub or a storage account as shown below: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+For system topics, you need permission on the resource publishing the event. The format of the resource is:
 
-Role-based access control (RBAC) is used on this publisher resource to check for the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the given resource. If a user is assigned to a role with this permission, they are able to create event subscriptions on the publisher resource. Each Azure resource provider can define roles that map this permission.
+```
+/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}
+```
+
+For example, to subscribe to a topic on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
+
+```
+/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct
+```
 
 ### User Topics
 
-For user topics, which are explicitly created, the resource is the actual Azure Event Grid topic resource as shown below with the same role permissions applied. `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+For user topics, you need permission on the Event Grid topic. The format of the resource is:
 
-## User Topic Publishing
+```
+/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}
+```
 
-User topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatibile with many existing webhook publishers. 
+For example, to subscribe to a user topic named mytopic, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
 
-You include the authentication value in the HTTP header. For SAS, use `aeg-sas-token` for the header value. For key authentication, use `aeg-sas-key` for the header value.
+```
+/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic
+```
+
+## User topic publishing
+
+User topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers. 
+
+You include the authentication value in the HTTP header. For SAS, use **aeg-sas-token** for the header value. For key authentication, use **aeg-sas-key** for the header value.
 
 ### Key authentication
 
 Key authentication is the simplest form of authentication. Use the format: `aeg-sas-key: <your key>`
 
-For example, you pass a key with: `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`
+For example, you pass a key with: 
+
+```
+aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
+```
 
 ### SAS Tokens
 
 SAS tokens for Event Grid include the resource, an expiration time, and a signature. The format of the SAS token is: `r={resource}&e={expiration}&s={signature}`.
 
-The resource is the path for the topic to which you are sending events. For example, a valid resource path is: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`. You generate the signature from a key.
+The resource is the path for the topic to which you are sending events. For example, a valid resource path is: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
-You include the token as an HTTP header called **aeg-sas-token**.
+You generate the signature from a key.
 
-`aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d` 
+For example, a valid **aeg-sas-token** value is:
+
+```http
+aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+``` 
 
 The following example creates a SAS token for use with Event Grid:
 
