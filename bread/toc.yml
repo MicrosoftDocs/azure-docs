@@ -135,10 +135,9 @@
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
     items: 
-    - name: DCOS and Swarm
+    - name: DC/OS and Swarm
       tocHref: /azure/container-service/dcos-swarm/
       topicHref: /azure/container-service/dcos-swarm/
-    items: 
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
