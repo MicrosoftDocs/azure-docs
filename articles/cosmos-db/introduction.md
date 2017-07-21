@@ -32,7 +32,7 @@ Any [web, mobile, gaming, and IoT applications](use-cases.md) that need to handl
 As a globally distributed database service, Azure Cosmos DB provides the following capabilities to help you build scalable, highly responsive applications:
 
 * **Turnkey global distribution**
-    * You can [distribute your data](distribute-data-globally.md) to any number of [Azure regions](https://azure.microsoft.com/en-us/regions/), with the [click of a button](tutorial-global-distribution-documentdb.md). This enables you to put your data where your users are, ensuring the lowest possible latency to your customers. 
+    * You can [distribute your data](distribute-data-globally.md) to any number of [Azure regions](https://azure.microsoft.com/regions/), with the [click of a button](tutorial-global-distribution-documentdb.md). This enables you to put your data where your users are, ensuring the lowest possible latency to your customers. 
     * Using Azure Cosmos DB's multi-homing APIs, the app always knows where the nearest region is and will send requests to the nearest data center. All of this is possible with no config changes, you set your write region and as many read regions as you want and the rest is handled for you.
 
 * **Multiple data models and popular APIs for accessing and querying data**
