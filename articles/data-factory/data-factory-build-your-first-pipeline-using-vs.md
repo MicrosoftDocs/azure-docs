@@ -97,12 +97,12 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
     {
         "name": "HDInsightOnDemandLinkedService",
         "properties": {
-	    "type": "HDInsightOnDemand",
+        "type": "HDInsightOnDemand",
             "typeProperties": {
-				"version": "3.5",
-            	"clusterSize": 1,
-            	"timeToLive": "00:05:00",
-            	"osType": "Linux",
+                "version": "3.5",
+                "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
                 "linkedServiceName": "AzureStorageLinkedService1"
             }
         }

@@ -111,17 +111,17 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
 	```JSON
     {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-			"version": "3.5",
-			"clusterSize": 1,
-			"timeToLive": "00:05:00",
-            "osType": "Linux",
-			"linkedServiceName": "AzureStorageLinkedService"
-		}
-      }
+        "name": "HDInsightOnDemandLinkedService",
+        "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+			    "version": "3.5",
+                "clusterSize": 1,
+			    "timeToLive": "00:05:00",
+                "osType": "Linux",
+			    "linkedServiceName": "AzureStorageLinkedService"
+            }
+        }
     }
 	```
 
