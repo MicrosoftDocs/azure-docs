@@ -15,188 +15,95 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: seanmck
 ---
 
-# Deploy a container group
+# Deploy a container to Azure Container Instances
 
-Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This tutorial walks through the creation of an Azure Resource Manager template defining a multi-container group and deploying it to Azure Container Instances. Steps completed include:
+This is the last of a three-part tutorial. In previous sections, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This section completes the tutorial by deploying the container to Azure Container Instances. Steps completed include:
 
 > [!div class="checklist"]
 > * Defining a container group using an Azure Resource Manager template
 > * Deploying the container group using the Azure CLI
 > * Viewing container logs
 
-## Configure the Azure Resource Manager template
+## Deploy the container using the Azure CLI
 
-The sample git repo that you cloned in [the first section][prepare-app] of this tutorial includes an Azure Resource Manager template and parameters file that you will use to deploy your container group to Azure Container Instances.
+The Azure CLI enables deployment of a container to Azure Container Instances in a single command. Since the container image is hosted in the private Azure Container Registry, you must include the credentials required to access it. If necessary, you can query them as shown below.
 
-Open `azuredeploy.json` to view the layout of the template. Pay particular attention to the `resources` section, which defines the container group, requests a public IP address for it, and provides a reference to the private Azure Container Registry where the container images are stored.
+Container registry login server (update with your registry name):
 
-```json
-"resources":[
-        {
-            "name": "aci-tutorial",
-            "type": "Microsoft.Container/containerGroups",
-            "apiVersion": "2017-04-01-preview",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "containers": [
-                    {
-                        "name": "aci-tutorial-app",
-                        "properties": {
-                            "image": "[concat(parameters('imageRegistry'), '/aci-tutorial-app:v1]",
-                            "ports": [
-                                {
-                                    "port": "80" 
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "name": "aci-tutorial-sidecar",
-                        "properties": {
-                            "image": "[concat(parameters('imageRegistry'), '/aci-tutorial-sidecar:v1]"                        
-                        }
-                    }
-                ],
-                "osType": "Linux",
-                "ipAddress": {
-                    "type": "Public",
-                    "ports": [
-                        {
-                            "protocol": "tcp",
-                            "port": "80" 
-                        }
-                    ]
-                 },
-                "imageRegistryCredentials": [
-                  {
-                    "server": "[parameters('imageRegistry')]",
-                    "username": "[parameters('imageRegistryUsername')]",
-                    "password": "[parameters('imageRegistryPassword')]"
-                  }
-                ]
-            }
-        }
-  ]
-
+```azurecli-interactive
+az acr show --name <acrName> --query loginServer
 ```
 
-The properties of the container registry are defined as template parameters in the `azuredeploy.parameters.json` file that is also available with the sample. Two parameters are required:
+Container registry password:
 
-|Value|How to find|
-|-----|-----------|
-|Image registry login server URI|`az acr show --name <acrName>`|
-|Azure Resource Manager ID of your Azure Key Vault|`az keyvault show --name <keyvaultName>`|
-
-
-An updated parameters file should look something like this:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "imageRegistry": {
-      "value": "acidemo.azurecr.io"
-    },
-    "imageRegistryUsername": {
-      "value": "aciregistryusername"
-    },
-    "imageRegistryPassword": {
-      "reference": {
-        "keyVault": {
-          "id": "/subscriptions/90c3d154-5f70-4d38-adea-9557ef27a699/resourceGroups/cseries-rg/providers/Microsoft.KeyVault/vaults/acikeyvault"
-        },
-        "secretName": "acrpassword"
-      }
-    }
-  }
-}
+```azurecli-interactive
+az acr credential show --name <acrName> --query passwords[0].value
 ```
 
-## Deploy the template
+To deploy your container image from the container registry with a resource request of 1 CPU core and 1GB of memory, run the following command:
 
-Deploy the template:
-
-```bash
-az group deployment create \
-  --name AciDeployment \
-  --resource-group myResourceGroup \
-  --template-file azuredeploy.json
-  --parameters @azuredeploy.parameters.json
+```azurecli-interactive
+az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --image-registry-login-server <acrLoginServer> --image-registry-username <acrName> --image-registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
 Within a few seconds, you will receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
 
-```bash
-az group deployment show -n AciDeployment -g myResourceGroup
+```azurecli-interactive
+az container show --name aci-tutorial-app -g myResourceGroup
 ```
 
-You can also view the state of your container group using:
+The output includes the public IP address that you can use to access the app in the browser.
 
-```bash
-az container show -n aci-tutorial -g myResourceGroup
+```json
+...
+"ipAddress": {
+      "ip": "13.88.176.27",
+      "ports": [
+        {
+          "port": 80,
+          "protocol": "TCP"
+        }
+      ]
+    }
+...
 ```
 
-Note the public IP address that has been provisioned for your container group.
 
 ## View the application and container logs
 
 Once the deployment succeeds, you can open your browser to the IP address shown in the output of `az container show`.
 
-You can also view the log output of the main application container and the sidecar.
+![Hello world app in the browser][aci-app-browser]
 
-Main app:
+You can also view the log output of the container:
 
-```bash
-az container logs --name aci-tutorial --container-name aci-tutorial-app -g myResourceGroup
+```azurecli-interactive
+az container logs --name aci-tutorial-app -g myResourceGroup
 ```
 
 Output:
 
 ```bash
-Server running...
-172.17.0.1 - - [17/Jul/2017:18:25:50 +0000] "GET / HTTP/1.1" 200 1663 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-172.17.0.1 - - [17/Jul/2017:18:25:50 +0000] "GET / HTTP/1.1" 200 1663
-172.17.0.1 - - [17/Jul/2017:18:25:50 +0000] "GET /favicon.ico HTTP/1.1" 404 19
+listening on port 80
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
-
-Sidecar:
-
-```bash
-az container logs --name aci-tutorial --container-name aci-tutorial-sidecar -g myResourceGroup
-```
-
-Output:
-
-```bash
-Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
-
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-HTTP/1.1 200 OK
-Accept-Ranges: bytes
-Content-Length: 1663
-Content-Type: text/html; charset=utf-8
-Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
-Date: Mon, 17 Jul 2017 18:27:36 GMT
-```
-
-As you can see, the sidecar is periodically making a HTTP request to the main web application via the group's local network to ensure that it is running. In a real application, the sidecar could be expanded to trigger an alert if it received a HTTP response code other than 200 OK. 
 
 ## Next steps
 
 In this tutorial, you completed the process of deploying your containers to Azure Container Instances. The following steps were completed:
 
 > [!div class="checklist"]
-> * Configuring an Azure Resource Manager template
-> * Deploying the containers to Azure Container Instances
-> * Viewing the container logs with the Azure CLI
-
+> * Deploying the container from the Azure Container Registry using the Azure CLI
+> * Viewing the application in the browser
+> * Viewing the container logs
 
 <!-- LINKS -->
 [prepare-app]: ./container-instances-tutorial-prepare-app.md
+
+<!-- IMAGES -->
+[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
