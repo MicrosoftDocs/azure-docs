@@ -20,10 +20,10 @@ ms.author: heidist
 ---
 # How to manage concurrency in Azure Search
 
-When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed by different components of your application concurrently. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search supports an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can craft responses that avoid accidental overwrites.
+When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search offers an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can craft responses that avoid accidental overwrites.
 
 > [!Tip]
-> Conceptual code in a [sample C# solution](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explains how concurrency control works in Azure Search. The code creates conditions that invoke concurrency control. Reading the code is probably sufficient for most developers, but if you want to run it, edit appsettings.json to add the service name and an admin api-key. Given a service URL of `http://myservice.search.windows.net`, the service name is `myservice`.
+> Conceptual code in a [sample C# solution](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explains how concurrency control works in Azure Search. The code creates conditions that invoke concurrency control. Reading the [code fragment below](#samplecode) is probably sufficient for most developers, but if you want to run it, edit appsettings.json to add the service name and an admin api-key. Given a service URL of `http://myservice.search.windows.net`, the service name is `myservice`.
 
 ## How it works
 
@@ -39,6 +39,7 @@ Every time you update a resource, its ETag changes automatically. When you imple
 > [!Note]
 > There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates. 
 
+<a name="samplecode"></a>
 ## Use cases and sample code
 
 The following code demonstrates accessCondition checks for key update operations:
