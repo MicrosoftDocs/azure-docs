@@ -81,7 +81,7 @@ Next, we need to add a security rule that routes traffic from our opened port th
    | Action |Allow or deny traffic that meets the criteria. |
 
 ## Next steps
-Learn about the difference between [public and private DC/OS agents](container-service-dcos-agents.md).
+Learn about the difference between [public and private DC/OS agents](dcos-swarm/container-service-dcos-agents.md).
 
 Read more information about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
 

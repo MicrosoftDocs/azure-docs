@@ -85,5 +85,5 @@ For more command options, run `az acs scale --help`.
 
 ## Next steps
 * See [more examples](dcos-swarm/container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 commands with Azure Container Service.
-* Learn more about [DC/OS agent pools](container-service-dcos-agents.md) in Azure Container Service.
+* Learn more about [DC/OS agent pools](dcos-swarm/container-service-dcos-agents.md) in Azure Container Service.
 
