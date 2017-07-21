@@ -20,7 +20,7 @@ ms.author: genli
 
 # Troubleshoot a Windows classic VM by attaching the OS disk to a recovery VM
 
-If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk () itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
+If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk () itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure portal to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
 
 ## Recovery process overview
 The troubleshooting process is as follows:
@@ -44,7 +44,7 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 
     ![The image about VM's location](./media/troubleshoot-recovery-disks-portal/vm-location.png)
 
-3. Right-click the VM and then select Delete. Make sure that you Keep the disks when you do this.
+3. Right-click the VM and then select Delete. Make sure that the disks are not selected when you delete the VM.
 4. Create a new recovery VM. This VM must be in the same region and resource group (Cloud Service) as the problem VM.
 5. Select the recovery VM, select **Disks** > **Attach Existing**.
 6. To select your existing virtual hard disk, click **VHD File**:
@@ -77,10 +77,8 @@ To create a VM from your original virtual hard disk, use [Azure classic portal](
 
 1. Sign into [Azure classic portal](https://manage.windowsazure.com).
 2. On the bottom of the portal, select **New** > **Compute** > **Virtual Machine** > **From Gallery**.
-
-3. In Choose an Image section, select **My disks**, and then select the original virtual hard disk. Check the location information. This is the region the VM will need to be deployed.  Select the next button.
-4. In the Virtual machine configuration section, type the VM name and select a size for the VM.
-
+3. In the **Choose an Image** section, select **My disks**, and then select the original virtual hard disk. Check the location information. This is the region that the VM will need to be deployed. Select the next button.
+4. In the **Virtual machine configuration** section, type the VM name and select a size for the VM.
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](../troubleshoot-rdp-connection.md). 
