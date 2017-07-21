@@ -2,9 +2,17 @@
 ## [What is Event Grid?](overview.md)
 
 # Quickstarts
-## [Trigger function from blob event]()
+## [Publish and subscribe to events]()
+
+# Tutorials
+## [Trigger actions for blob event]()
 ## [Trigger WebHook from VM event]()
-## [Trigger Logic App]()
+## [Routing events with user topics]()
+## [Multicasting events]()
+
+# Concepts
+## [Security & Authentication]()
+## [Event delivery and retry]()
 
 # Reference
 ## [Publisher schema](publisher-registration-schema.md)
