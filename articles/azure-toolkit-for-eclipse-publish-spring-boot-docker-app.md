@@ -102,7 +102,7 @@ The following steps walk you through cloning the Spring Boot Docker repository t
 
 ### Create a Maven project from your local repository
 
-The Spring Boot Docker repository contains a completed Maven project that you will use for this tutorial. 
+The Spring Boot Docker repository contains a completed Maven project, which you will use for this tutorial. 
 
 1. Click **File** > **Import**.
 
@@ -158,7 +158,7 @@ The Spring Boot Docker repository contains a completed Maven project that you wi
 
    a. Enter a custom Docker image name.
    
-   b. For **Artifact to deploy**, specify the path to the **gs-spring-boot-docker-0.1.0.jar** file that you just built.
+   b. For **Artifact to deploy**, specify the path to the **gs-spring-boot-docker-0.1.0.jar** file you just built.
 
    ![Specify Docker options][PU02]
 
