@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -91,8 +91,8 @@ This table provides details about backup item associations with various entities
 | Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | PolicyUniqueId_g |Text |Unique Id to identify the policy which backup item is associated to |
-| ProtectedServerUniqueId_s |Text |Unique Id of the protected to which this backup item belongs to |
-| VaultUniqueId_s |Text |Unique Id of the protected to which this backup item belongs to |
+| ProtectedServerUniqueId_s |Text |Unique Id of the protected server to which this backup item belongs to |
+| VaultUniqueId_s |Text |Unique Id of the vault to which this backup item belongs to |
 | SourceSystem |Text |Source system of the current data - Azure |
 | ResourceId |Text |This is the resource id for which data is being collected, it shows Recovery Services vault resource id |
 | SubscriptionId |Text |This is the subscription id of the resource (RS vault) for which data is being collected |
@@ -169,3 +169,25 @@ This table provides details about policy related fields.
 | ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
 | ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
 | ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
+### PolicyAssociation
+This table provides details about policy associations with various entities.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| EventName_s |Text |This is the name of this event, it is always AzureBackupCentralReport |
+| SchemaVersion_s |Text |This denotes current version of the schema, it is V1 |
+| State_s |Text |Current state of the alert object for example, Active, Deleted |
+| BackupManagementType_s |Text |Provider type for performing backup for example, IaaSVM, FileFolder to which this policy belongs to |
+| OperationName |Text |This is the name of the current operation - PolicyAssociation |
+| Category |Text |This is the category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
+| PolicyUniqueId_g |Text |Unique Id to identify the policy which backup item is associated to |
+| VaultUniqueId_s |Text |Unique Id of the vault to which this policy belongs to |
+| SourceSystem |Text |Source system of the current data - Azure |
+| ResourceId |Text |This is the resource id for which data is being collected, it shows Recovery Services vault resource id |
+| SubscriptionId |Text |This is the subscription id of the resource (RS vault) for which data is being collected |
+| ResourceGroup |Text |This is the resource group of the resource (RS vault) for which data is being collected |
+| ResourceProvider |Text |This denotes the resource provider for which data is being collected - Microsoft.RecoveryServices |
+| ResourceType |Text |This is the type of the resource for which data is being collected - Vaults |
+
