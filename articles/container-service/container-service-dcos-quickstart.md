@@ -175,4 +175,4 @@ az group delete --name myResourceGroup --no-wait
 In this quick start, you’ve deployed a DC/OS cluster and have run a simple Docker container on the cluster. To learn more about Azure Container Service, continue to the ACS tutorials.
 
 > [!div class="nextstepaction"]
-> [Manage an ACS DC/OS Cluster](container-service-dcos-manage-tutorial.md)
+> [Manage an ACS DC/OS Cluster](dcos-swarm/container-service-dcos-manage-tutorial.md)
