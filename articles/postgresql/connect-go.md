@@ -32,7 +32,7 @@ Install [Go](https://golang.org/doc/install) and the [Pure Go Postgres driver (p
 5. Set the environment variable for GOPATH to point to the source code directory. `set GOPATH=%USERPROFILE%\go`.
 6. Install the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) by running the `go get github.com/lib/pq` command.
 
-In summary, install Go, then run these commands in the command prompt:
+   In summary, install Go, then run these commands in the command prompt:
    ```cmd
    mkdir  %USERPROFILE%\go\src\postgresqlgo
    cd %USERPROFILE%\go\src\postgresqlgo
@@ -48,7 +48,7 @@ In summary, install Go, then run these commands in the command prompt:
 5. Set the GOPATH environment variable to point to a valid source directory, such as your current home directory's go folder. At the bash shell, run `export GOPATH=~/go` to add the go directory as the GOPATH for the current shell session.
 6. Install the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) by running the `go get github.com/lib/pq` command.
 
-In summary, run these bash commands:
+   In summary, run these bash commands:
    ```bash
    sudo apt-get install golang-go
    mkdir -p ~/go/src/postgresqlgo/
@@ -65,7 +65,7 @@ In summary, run these bash commands:
 5. Set the GOPATH environment variable to point to a valid source directory, such as your current home directory's go folder. At the bash shell, run `export GOPATH=~/go` to add the go directory as the GOPATH for the current shell session.
 6. Install the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) by running the `go get github.com/lib/pq` command.
 
-In summary, install Go, then run these bash commands:
+   In summary, install Go, then run these bash commands:
    ```bash
    mkdir -p ~/go/src/postgresqlgo/
    cd ~/go/src/postgresqlgo/
