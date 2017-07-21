@@ -41,7 +41,7 @@ The standard definition of orchestration includes the following tasks:
 
 ## Orchestration with Azure Container Instances: A layered approach
 
-Azure Container Instances enables a layered approach to orchestration, providing all of the scheduling and management capabilities required to run a single container, while allowing orchestrator platforms to manage multi-container tasks on top of it. 
+Azure Container Instances enables a layered approach to orchestration, providing all of the scheduling and management capabilities required to run a single container, while allowing orchestrator platforms to manage multi-container tasks on top of it.
 
 Because all of the underlying infrastructure for Container Instances is managed by Azure, an orchestrator platform does not need to concern itself with finding an appropriate host machine on which to run a single container. The elasticity of the cloud ensures that one is always available. Instead, the orchestrator can focus on the tasks that simplify the development mulit-container architectures, including scaling and coordinated upgrades.
 
@@ -57,6 +57,27 @@ Because they start quickly and bill by the second, an environment based exclusiv
 
 For long-running, stable workloads, orchestrating containers in a cluster of dedicated virtual machines will typically be cheaper than running the same containers with Container Instances. However, Container Instances offer a great solution for quickly expanding and contracting your overall capacity to deal with unexpected or short-lived spikes in usage. Rather than scaling out the number of virtual machines in your cluster, then deploying additional containers onto those machines, the orchestrator can simply schedule the additional containers using Container Instances and delete them when they're no longer needed.
 
+## Sample implementation: Azure Container Instances Connector for Kubernetes
+
+To demonstrate how container orchestration platforms can integrate with Azure Container Instances, we have started building a [sample connector for Kubernetes][aci-connector-k8s]. 
+
+The connector for Kubernetes mimics the [kubelet][kubelet-doc] by registering as a node with unlimited capacity and dispatching the creation of [pods][pod-doc] as container groups in Azure Container Instances. 
+
+![ACI Connector for Kubernetes][aci-connector-k8s-gif]
+
+Connectors for other orchestrators could be built that similarly integrated with platform primitives to combine the power of the orchestrator API with the speed and simplicity of managing containers in Azure Container Instances.
+
+> [!WARNING]
+> The ACI connector for Kubernetes is *experimental* and should not be used in production.
+
 ## Next steps
 
 Create your first container with Azure Container Instances using the [quick start guide](container-instances-quickstart.md).
+
+<!-- IMAGES -->
+[aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif
+
+<!-- LINKS -->
+[aci-connector-k8s]: https://github.com/azure/aci-connector-k8s
+[kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
+[pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
