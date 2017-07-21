@@ -116,7 +116,7 @@ To expose the NGINX server to the world with a public IP address, type the follo
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-With this command, Kubernetes creates a service and an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address for the service. 
+With this command, Kubernetes creates a service and an [Azure load balancer rule](kubernetes/container-service-kubernetes-load-balancing.md) with a public IP address for the service. 
 
 Run the following command to see the status of the service.
 
