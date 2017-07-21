@@ -1,18 +1,20 @@
 # Use infrastructure automation tools with your Linux virtual machines in Azure
-To create and manage virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. In Azure, there are many tools and solutions that allow you to automate complete infrastructure deployments and lifecycles. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the below approaches:
+To create and manage Azire virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
-    - Tools include [Ansible](#ansible), [Chef](#chef), and [Puppet](#puppet)
+    - Tools include [Ansible](#ansible), [Chef](#chef), and [Puppet](#puppet).
     - Tools specific to VM customization include [cloud-init](#cloud-init) for Linux VMs, [PowerShell Desired State Configuration (DSC)](#powershell-dsc), and the [Azure Custom Script Extension](#azure-custom-script-extension) for all Azure VMs.
+ 
 - Automate infrastructure management
     - Tools include [Packer](#packer) to automate custom VM image builds, and [Terraform](#terraform) to automate the infrastructure build process.
     - [Azure Automation](#azure-automation) can perform actions across your Azure and on-prem infrastructure.
+
 - Automate application deployment and delivery
     - Examples include [Visual Studio Team Services](#visual-studio-team-services) and [Jenkins](#jenkins)
 
 
 ## Ansible
-[Ansible](https://www.ansible.com/) uses an agent-less model that leans on SSH keys to authenticate and manage target machines. Configuration tasks are defined in runbooks, with a number of Ansible modules available to carry out specific tasks, including an Azure module. Ansible can both deploy and configure the infrastructure in Azure, and then configure and manage the VMs you deploy.
+[Ansible](https://www.ansible.com/) uses an agent-less model that typically uses SSH keys to authenticate and manage target machines. Configuration tasks are defined in runbooks, with a number of Ansible modules available to carry out specific tasks. Ansible can both deploy and configure the infrastructure in Azure, and then configure and manage the VMs you deploy.
 
 Learn how to:
 
@@ -57,9 +59,9 @@ Learn how to:
 
 
 ## PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the Open Management Infrastructure (OMI) server.
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
-Configurations define what to install on a machine, how to configure the host, and can be used to report on configuration compliance. A Local Configuration Manager (LCM) engine runs on each Windows taget node that processes requested actions based on pushed configurations. A pull server is a web service that runs on a central host to store the DSC configurations and associated resources. The pull server communicates with the LCM engine on each target host to provide the required configurations and report on compliance.
+DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations. A pull server is a web service that runs on a central host to store the DSC configurations and associated resources. The pull server communicates with the LCM engine on each target host to provide the required configurations and report on compliance.
 
 Learn how to:
 
@@ -69,9 +71,9 @@ Learn how to:
 
 
 ## Azure Custom Script Extension
-The Azure Custom Script Extension for [Linux](../articles/virtual-machines/linux/extensions-customscript.md) or [Windows](../articles/virtual-machines/windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension as you create a VM, or any time after the VM is in use. 
+The Azure Custom Script Extension for [Linux](../articles/virtual-machines/linux/extensions-customscript.md) or [Windows](../articles/virtual-machines/windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use. 
 
-Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM to install applications and configure as desired. Sensitive information such as passwords can be stored in a protected configuration and only decrypted inside the machine to secure credentials.
+Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM to install applications and configure as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration and only decrypted inside the VM.
 
 Learn how to:
 
@@ -80,7 +82,7 @@ Learn how to:
 
 
 ## Packer
-[Packer](https://www.packer.io) automates the build process to create a custom VM image in Azure. You use Packer to define the OS and run post-configuration scripts that customize the VM for your specific needs. Once configured, the VM is then captured as a Managed Disk image. Packer automates the process to create the source VM, network and storage resources, run configuration scripts, and then create the VM image.
+[Packer](https://www.packer.io) automates the build process when you create a custom VM image in Azure. You use Packer to define the OS and run post-configuration scripts that customize the VM for your specific needs. Once configured, the VM is then captured as a Managed Disk image. Packer automates the process to create the source VM, network and storage resources, run configuration scripts, and then create the VM image.
 
 Learn how to:
 
@@ -89,7 +91,7 @@ Learn how to:
 
 
 ## Terraform
-[Terraform](https://www.terraform.io) is an automation tool that allows you to define and create an entire Azure infrastructure with a single template format - HashiCorp Configuration Language (HCL). With Terraform, you can define templates that automate the process to deploy network, storage, and VM resources for a given application solution. You can use your existing Terraform templates for other platforms with Azure to ensure consistency and simplify the infrastructure deployment without needing to convert to an Azure Resource Manager template.
+[Terraform](https://www.terraform.io) is an automation tool that allows you to define and create an entire Azure infrastructure with a single template format language - the HashiCorp Configuration Language (HCL). With Terraform, you define templates that automate the process to create network, storage, and VM resources for a given application solution. You can use your existing Terraform templates for other platforms with Azure to ensure consistency and simplify the infrastructure deployment without needing to convert to an Azure Resource Manager template.
 
 Learn how to:
 
@@ -98,9 +100,9 @@ Learn how to:
 
 
 ## Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Unlike some of the other tools, Azure Automation targets existing resources rather than create an infrastructure. Azure Automation can run across both Linux and Windows VMs, as well as on-prem virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub, and can be run manually or on a defined schedule.
+[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, as well as on-prem virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub, and can be run manually or on a defined schedule.
 
-Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured, then ensure that configuration is applied and stays consistent. DSC runs on both Windows and Linux machines.
+Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured, then ensure that configuration is applied and stays consistent. Azure Automation DSC runs on both Windows and Linux machines.
 
 Learn how to:
 
@@ -110,7 +112,7 @@ Learn how to:
 
 
 ## Jenkins
-[Jenkins](https://www.jenkins.io) is a complete automation platform that allows you to build out infrastructure, deploy and test applications, and create automated pipelines for code delivery. There are hundreds of plugins to extend the core Jenkins platform, and can integrate with many other products and solutions through webhooks. You can manually install Jenkins on an Azure VM, run Jenkins from within a Docker container, or use a pre-built Azure Marketplace image.
+[Jenkins](https://www.jenkins.io) is a complete automation platform that allows you to build out infrastructure, deploy and test applications, and create automated pipelines for code delivery. There are hundreds of plugins to extend the core Jenkins platform, and you can also integrate with many other products and solutions through webhooks. You can manually install Jenkins on an Azure VM, run Jenkins from within a Docker container, or use a pre-built Azure Marketplace image.
 
 Learn how to:
 
