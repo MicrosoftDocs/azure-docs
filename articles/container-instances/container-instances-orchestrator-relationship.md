@@ -39,12 +39,13 @@ The standard definition of orchestration includes the following tasks:
 - **Service discovery**: Enable containers to locate each other automatically even as they move between host machines and change IP addresses.
 - **Coordinated application upgrades**: Manage container upgrades to avoid application down time and enable rollback if something goes wrong.
 
-
 ## Orchestration with Azure Container Instances: A layered approach
 
 Azure Container Instances enables a layered approach to orchestration, providing all of the scheduling and management capabilities required to run a single container, while allowing orchestrator platforms to manage multi-container tasks on top of it.
 
-Because all of the underlying infrastructure for Container Instances is managed by Azure, an orchestrator platform does not need to concern itself with finding an appropriate host machine on which to run a single container. The elasticity of the cloud ensures that one is always available. Instead, the orchestrator can focus on the tasks that simplify the development mulit-container architectures, including scaling and coordinated upgrades.
+Because all of the underlying infrastructure for Container Instances is managed by Azure, an orchestrator platform does not need to concern itself with finding an appropriate host machine on which to run a single container. The elasticity of the cloud ensures that one is always available. Instead, the orchestrator can focus on the tasks that simplify the development of mulit-container architectures, including scaling and coordinated upgrades.
+
+
 
 ## Potential scenarios
 
