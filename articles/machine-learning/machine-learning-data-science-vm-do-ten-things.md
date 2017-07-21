@@ -34,13 +34,13 @@ In this article we walk you through how to use your DSVM to perform various data
 10. Install additional tools on your virtual machine   
 
 > [!NOTE]
-> Additional usage charges will apply for many of the additional data storage and analytics services listed in this article. Please refer to the [Azure Pricing](https://azure.microsoft.com/pricing/) page for details.
+> Additional usage charges apply for many of the additional data storage and analytics services listed in this article. Please refer to the [Azure Pricing](https://azure.microsoft.com/pricing/) page for details.
 > 
 > 
 
 **Prerequisites**
 
-* You will need an Azure subscription. You can sign up for a free trial [here](https://azure.microsoft.com/free/).
+* You need an Azure subscription. You can sign up for a free trial [here](https://azure.microsoft.com/free/).
 * Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
 ## 1. Explore data and develop models using Microsoft R Server or Python
@@ -68,7 +68,7 @@ The Jupyter Notebook is a powerful environment that provides a browser-based "ID
 To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter Notebook. If it prompts you for a password, use instructions provided in the ***How to create a strong password on the Jupyter notebook server*** section of the 
 [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) topic to create a strong password to access the Jupyter notebook. 
 
-Once you have opened the notebook, you will see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
+Once you have opened the notebook, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
 
 * click on the notebook to see the code.
 * execute each cell by pressing **SHIFT-ENTER**.
@@ -241,7 +241,7 @@ GitHub is a code repository where you can find a lot of sample code and sources 
 
 The DSVM already comes loaded with client tools on both command line as well GUI to access GitHub repository. The command line tool to work with Git and GitHub is called Git Bash. Visual Studio installed on the DSVM has the Git extensions. You can find start-up icons for these tools on the start menu and the desktop.
 
-To download code from a GitHub repository you will use the ```git clone``` command. For example to download data science repository published by Microsoft into the current directory you can run the following command once you are in ```git-bash```.
+To download code from a GitHub repository you use the ```git clone``` command. For example to download data science repository published by Microsoft into the current directory you can run the following command once you are in ```git-bash```.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
@@ -361,7 +361,7 @@ Azure Data Lake Storage is a hyper-scale repository for big data analytics workl
 
 ![Azure_Data_Lake_Create_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
-* The  **Azure Data Lake Tools** in **Visual Studio** found at this  [link](https://www.microsoft.com/download/details.aspx?id=49504) is already installed on the Visual Studio Community Edition which is on the virtual machine. After starting Visual Studio and logging in your Azure subscription, you will see your Azure Data Analytics account and storage in the left panel of Visual Studio.
+* The  **Azure Data Lake Tools** in **Visual Studio** found at this  [link](https://www.microsoft.com/download/details.aspx?id=49504) is already installed on the Visual Studio Community Edition which is on the virtual machine. After starting Visual Studio and logging in your Azure subscription, you should see your Azure Data Analytics account and storage in the left panel of Visual Studio.
 
 ![Azure_Data_Lake_PlugIn_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
@@ -375,7 +375,7 @@ You can also build a data pipeline to productionize your data movement to or fro
 
 **Read data from Azure Blob to Data Lake: U-SQL**
 
-If your data resides in Azure Blob storage, you can directly read data from Azure storage blob in U-SQL query. Before composing your U-SQL query, make sure your blob storage account is linked to your Azure Data Lake. Go to **Azure portal**, find your Azure Data Lake Analytics dashboard, click **Add Data Source**, select storage type to **Azure Storage** and plug in your Azure Storage Account Name and Key. Then you will be able to reference the data stored in the storage account.
+If your data resides in Azure Blob storage, you can directly read data from Azure storage blob in U-SQL query. Before composing your U-SQL query, make sure your blob storage account is linked to your Azure Data Lake. Go to **Azure portal**, find your Azure Data Lake Analytics dashboard, click **Add Data Source**, select storage type to **Azure Storage** and plug in your Azure Storage Account Name and Key. Then you are able to reference the data stored in the storage account.
 
 ![Enter storage account and key](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
@@ -425,7 +425,7 @@ You may use the following U-SQL queries in Visual Studio:
 
 
 
-After your query is submitted to the server, a diagram showing the status of your job will be displayed.
+After your query is submitted to the server, a diagram showing the status of your job is displayed.
 
 ![Job status diagram](./media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)
 
@@ -456,11 +456,11 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 ![Link to storage account created with HDInsight cluster](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
 
-* You must enable **Remote Access** to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you will need them below.
+* You must enable **Remote Access** to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you need them below.
 
 ![Enable remote access](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Create an Azure Machine Learning workspace. Your Machine Learning Experiments will be stored in this Machine Learning workspace. Select the highlighted options in Portal as shown in the screenshot below.
+* Create an Azure Machine Learning workspace. Your Machine Learning Experiments are stored in this Machine Learning workspace. Select the highlighted options in Portal as shown in the screenshot below.
 
 ![Create an Azure Machine Learning workspace](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
 
@@ -685,7 +685,7 @@ Now let's prepare a down-sampled (1%) set of data for modeling. We can use this 
         """
         cursor.execute(queryString)
 
-        --- now insert contents of the join into the above internal table
+        --- now insert contents of the join into the preceding internal table
 
         queryString = """
         insert overwrite table nyctaxi_downsampled_dataset_testNEW
@@ -784,7 +784,7 @@ After a while, you can see the data has been loaded in Hadoop clusters:
 
 **Read data from HDI using Machine Learning: reader module**
 
-You may also use the **reader** module in Machine Learning Studio to access the database in Hadoop cluster. Plug in the credentials of your HDI clusters and Azure Storage Account and you will be able to build machine learning models using database in HDI clusters.
+You may also use the **reader** module in Machine Learning Studio to access the database in Hadoop cluster. Plug in the credentials of your HDI clusters and Azure Storage Account to enable build ing machine learning models using database in HDI clusters.
 
 ![Reader module properties](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
 
@@ -812,7 +812,7 @@ You need to do the following per-requisites steps to access Azure Cosmos DB from
 Once you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample* which contains python code to access DocumentDB and do some basic querying. You can learn more about Cosmos DB by visiting the service [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## 8. Build reports and dashboard using the Power BI Desktop
-Let us visualize the Volcano JSON file we saw in the Cosmos DB example above in Power BI to gain visual insights into the data. Detailed steps are available in the [Power BI article](../cosmos-db/powerbi-visualize.md). The high level steps are below :
+Let us visualize the Volcano JSON file that we saw in the preceding Cosmos DB example in Power BI to gain visual insights into the data. Detailed steps are available in the [Power BI article](../cosmos-db/powerbi-visualize.md). The high level steps are below :
 
 1. Open Power BI Desktop and do "Get Data". Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. You should see the JSON records imported as a list
@@ -822,7 +822,7 @@ Let us visualize the Volcano JSON file we saw in the Cosmos DB example above in 
 6. Add a new column to convert the list coordinate column into a comma separate LatLong column concatenating the two elements in the coordinate list field using the formula ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
 7. Finally convert the ```Elevation``` column to Decimal and select the **Close** and **Apply**.
 
-Instead of steps above, you can paste the following code that scripts out the steps above in the Advanced Editor in Power BI that allows you to write the data transformations in a query language.
+Instead of preceding steps, you can paste the following code that scripts out the steps used in the Advanced Editor in Power BI that allows you to write the data transformations in a query language.
 
     let
         Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
@@ -840,7 +840,7 @@ You now have the data in your Power BI data model. Your Power BI desktop should 
 
 ![Power BI desktop](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report. The end result will be a report that looks like the following.
+You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report. The end result is a report that looks like the following.
 
 ![Power BI Desktop Report View - Power BI connector](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
@@ -848,7 +848,7 @@ You can start building reports and visualizations using the data model. You can 
 You can scale up and down the DSVM to meet your project needs. If you don't need to use the VM in the evening or weekends, you can just shut down the VM from the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> You will incur compute charges if you use just the Operating system shutdown button on the VM.  
+> You incur compute charges if you use just the Operating system shutdown button on the VM.  
 > 
 > 
 
@@ -859,7 +859,7 @@ Similarly, if your need for VM processing capacity reduces (for example: you mov
 ![VM instance settings](./media/machine-learning-data-science-vm-do-ten-things/VMScaling.PNG)
 
 ## 10. Install additional tools on your virtual machine
-We have packaged several tools that we believe will be able to address many of the common data analytics needs and that should save you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.
+We have packaged several tools that we believe are able to address many of the common data analytics needs and that should save you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.
 
 You can leverage other Azure data and analytics services profiled in this article to enhance your analytics environment. We understand that in some cases your needs may require additional tools, including some proprietary third party tools. You have full administrative access on the virtual machine to install new tools you need. You can also install additional packages in Python and R that are not pre-installed. For Python you can use either ```conda``` or ```pip```. For R you can use the ```install.packages()``` in the R console or use the IDE and choose "**Packages** -> **Install Packages...**".
 

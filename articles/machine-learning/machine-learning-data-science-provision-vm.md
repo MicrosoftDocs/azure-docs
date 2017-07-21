@@ -93,15 +93,15 @@ Once the VM is created, you can remote desktop into it using the Admin account c
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are start menu tiles and desktop icons for many of the tools. 
 
 ## How to create a strong password for Jupyter and start the notebook server
-By default, the Jupyter notebook server is pre-configured but disabled on the VM until you set a Jupyter password. To create a strong password for the Jupyter notebook server installed on the machine, run the following command from a command-prompt on the Data Science Virtual Machine OR double click the desktop shortcut we have provided called **Jupyter Set Password & Start** from a local VM administrator account.
+By default, the Jupyter notebook server is pre-configured but disabled on the VM until you set a Jupyter password. To create a strong password for the Jupyter notebook server installed on the machine, run the following command from a command-prompt on the Data Science Virtual Machine OR double-click the desktop shortcut we have provided called **Jupyter Set Password & Start** from a local VM administrator account.
 
     C:\dsvm\tools\setup\JupyterSetPasswordAndStart.cmd
 
 Follow the messages and choose a strong password when prompted.
 
-The above script will create a password hash and store it in the Jupyter configuration file located at: **C:\ProgramData\jupyter\jupyter_notebook_config.py** under the parameter name ***c.NotebookApp.password***.
+The preceding script creates a password hash and store it in the Jupyter configuration file located at: **C:\ProgramData\jupyter\jupyter_notebook_config.py** under the parameter name ***c.NotebookApp.password***.
 
-The script will also enable and run the Jupyter server in the background. Jupyter server is created as a windows task in the WIndows Task Scheduler called **Start_IPython_Notebook**.  You may have to wait for a few seconds after setting the password before opening the notebook on your browser. See the section below titled **Jupyter Notebook** on how to access the Jupyter notebook server. 
+The script also enables and run the Jupyter server in the background. Jupyter server is created as a windows task in the WIndows Task Scheduler called **Start_IPython_Notebook**.  You may have to wait for a few seconds after setting the password before opening the notebook on your browser. See the section below titled **Jupyter Notebook** on how to access the Jupyter notebook server. 
 
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
