@@ -28,7 +28,7 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: ../cli-samples.md
+    href: cli-samples.md
 - name: Concepts
   items:
   - name: Secure containers

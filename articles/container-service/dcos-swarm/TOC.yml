@@ -19,10 +19,6 @@
     href: container-service-dcos-fileshare.md
   - name: 4 - Integrate with ACR
     href: container-service-dcos-acr.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: ../cli-samples.md
 - name: Concepts
   items:
   - name: Secure containers
