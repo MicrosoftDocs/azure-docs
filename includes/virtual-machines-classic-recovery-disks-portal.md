@@ -17,7 +17,7 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the menu on the left, click **Virtual Machines (classic)**.
 3. Select the VM that has problem, click **Disks**, and then identify the name of the virtual hard disk. 
-4. Select the OS disk, check the **Location** to identify the storage account that contains this virtual hard disk. In the following example, the string before ".blob.core.windows.net" is the storage account name.
+4. Select the OS virtual hard disk, check the **Location** to identify the storage account that contains this virtual hard disk. In the following example, the string before ".blob.core.windows.net" is the storage account name.
 
     ```
     https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
@@ -25,20 +25,19 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 
     ![The image about VM's location](./media/virtual-machines-classic-recovery-disks-portal/vm-location.png)
 
-3. Right-click the VM and then select **Delete**. Make sure that the disks are not selected when you delete the VM.
-4. Create a new recovery VM. This VM must be in the same region and resource group (Cloud Service) as the problem VM.
-5. Select the recovery VM, select **Disks** > **Attach Existing**.
-6. To select your existing virtual hard disk, click **VHD File**:
+5. Right-click the VM and then select **Delete**. Make sure that the disks are not selected when you delete the VM.
+5. Create a new recovery VM. This VM must be in the same region and resource group (Cloud Service) as the problem VM.
+7. Select the recovery VM, select **Disks** > **Attach Existing**.
+8. To select your existing virtual hard disk, click **VHD File**:
 
     ![Browse for existing VHD](./media/virtual-machines-classic-recovery-disks-portal/select-vhd-location.png)
 
-7. Select the storage account > VHD container > the virtual hard disk, click the **Select** button to confirm your choice.
+9. Select the storage account > VHD container > the virtual hard disk, click the **Select** button to confirm your choice.
 
     ![Select your existing VHD](./media/virtual-machines-classic-recovery-disks-portal/select-vhd.png)
 
-8. With your VHD now selected, select **OK** to attach the existing virtual hard disk.
-
-9. After a few seconds, the **Disks** pane for your VM lists your existing virtual hard disk connected as a data disk:
+10. With your VHD now selected, select **OK** to attach the existing virtual hard disk.
+11. After a few seconds, the **Disks** pane for your VM lists your existing virtual hard disk connected as a data disk:
 
     ![Existing virtual hard disk attached as a data disk](./media/virtual-machines-classic-recovery-disks-portal/attached-disk.png)
 
