@@ -21,15 +21,17 @@ ms.custom: aaddev
 # How to get AppSource Certified for Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try and manage line of business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
 
-To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the OpenID Connect or OAuth 2.0 protocols - integration via SAML protocol does not qualify for certification.
+To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the [OpenID Connect](./active-directory-protocols-openid-connect-code.md) or [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocols. SAML protocol is not accepted.
 
 ## Guides and code samples
-For code samples and guides for your platform, see the [Azure Active Directory developer's guide](./active-directory-developers-guide.md#get-started "Get Started with Azure AD for developers")
+For code samples and guides for your platform that uses Open ID Connect protocol, see the [Azure Active Directory developer's guide](./active-directory-developers-guide.md#get-started "Get Started with Azure AD for developers").
 
 ## Multi-tenant applications
 An application that accepts sign-ins from users from any company or organization that have Azure Active Directory without requiring a separate instance, configuration, or deployment is known as a *multi-tenant application*. AppSource recommends that applications implement multi-tenancy to enable the *single-click* free trial experience.
 
 For more information about multi-tenancy, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](./active-directory-devhowto-multi-tenant-overview.md).
+
+## AppSource trial experiences
 
 ### Free Trial (Customer-led trial experience) 
 The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:
@@ -69,7 +71,7 @@ The *partner trial experience* can be used when a manual or a long-term operatio
             <td>Contact user with trial info</td>
         </tr>
         </table><br/><br/>
-        <ul><li>You receive user's information and setup trial instance</li><li>You send user's an hyperlink to access your application</li></ul>
+        <ul><li>You receive user's information and setup trial instance</li><li>You send the hyperlink to access your application to the user</li></ul>
     </td>
 </tr>
 <tr>
