@@ -43,7 +43,7 @@ For background, see [Azure Container Service introduction](container-service-int
 
 * **SSH RSA public key**: When deploying through the portal or one of the Azure quickstart templates, you need to provide the public key for authentication against Azure Container Service virtual machines. To create Secure Shell (SSH) RSA keys, see the [OS X and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. 
 
-* **Service principal client ID and secret** (Kubernetes only): For more information and guidance to create an Azure Active Directory service principal, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+* **Service principal client ID and secret** (Kubernetes only): For more information and guidance to create an Azure Active Directory service principal, see [About the service principal for a Kubernetes cluster](kubernetes/container-service-kubernetes-service-principal.md).
 
 
 
@@ -73,7 +73,7 @@ For background, see [Azure Container Service introduction](container-service-int
     * **Master DNS name**: The prefix used to create a unique fully qualified domain name (FQDN) for the master. The master FQDN is of the form *prefix*mgmt.*location*.cloudapp.azure.com.
     * **User name**: The user name for an account on each of the Linux virtual machines in the cluster.
     * **SSH RSA public key**: Add the public key to be used for authentication against the Linux virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
-    * **Service principal**: If you selected the Kubernetes orchestrator, enter an Azure Active Directory **Service principal client ID** (also called the appId) and **Service principal client secret** (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+    * **Service principal**: If you selected the Kubernetes orchestrator, enter an Azure Active Directory **Service principal client ID** (also called the appId) and **Service principal client secret** (password). For more information, see [About the service principal for a Kubernetes cluster](kubernetes/container-service-kubernetes-service-principal.md).
     * **Master count**: The number of masters in the cluster.
     * **VM diagnostics**: For some orchestrators, you can enable VM diagnostics on the masters.
 

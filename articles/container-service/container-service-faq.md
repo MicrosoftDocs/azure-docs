@@ -57,7 +57,7 @@ If you use [Azure CLI 2.0 commands](container-service-create-acs-cluster-cli.md)
 
 ### How do I create a service principal for my Kubernetes cluster?
 
-An Azure Active Directory service principal ID and password are also needed to create a Kubernetes cluster in Azure Container Service. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+An Azure Active Directory service principal ID and password are also needed to create a Kubernetes cluster in Azure Container Service. For more information, see [About the service principal for a Kubernetes cluster](kubernetes/container-service-kubernetes-service-principal.md).
 
 
 If you use [Azure CLI 2.0 commands](container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
