@@ -35,7 +35,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > - At the moment it is not possible to create a device group based on owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
 
 ## To create an advanced rule
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a global administrator or a user account administrator.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
