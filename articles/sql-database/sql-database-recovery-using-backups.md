@@ -29,7 +29,15 @@ SQL Database provides these options for database recovery using [automated datab
 > You cannot overwrite an existing database during restore.
 >
 
-You can also use [automated database backups](sql-database-automated-backups.md) to create a [database copy](sql-database-copy.md) on any logical server in any region. 
+A restored database incurs an extra storage cost under the following conditions: 
+- Restore of P11–P15 to S3 or P1–P6 if the database max size is greater than 500 GB.
+- Restore of P1–P6 or PRS1–PRS6 to S3 if the database max size is greater than 250 GB.
+The extra cost is because the max size of the restored database is greater than the amount of storage included for the performance level, and any extra storage provisioned above the included amount is charged extra.  For pricing details of extra storage please see the SQL Database pricing webpage.  If the actual amount of space used is less than the amount of storage included, then this extra cost can be avoided by reducing the database max size to the included amount. For more information, see [Single database service tiers, performance levels, and storage amounts](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and [P11-P15 current limitations](sql-database-single-database-resources.md#current-limitations-of-p11-and-p15-databases-with-maxsize-greater-than-1-tb).  
+
+> [!NOTE]
+> [Automated database backups](sql-database-automated-backups.md) are used when you create a [database copy](sql-database-copy.md). 
+>
+
 
 ## Recovery time
 The recovery time to restore a database using automated database backups is impacted by several factors: 
