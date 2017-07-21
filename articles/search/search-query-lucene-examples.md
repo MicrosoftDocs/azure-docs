@@ -68,7 +68,7 @@ To do a fuzzy search, append the tilde "~" symbol at the end of a single word wi
 * [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
 > [!Note]
-> Fuzzy search query terms are not analyzed, which can be surprising if you expect the same level of processing as provided in full text search. Lexical analysis applies only to query types wtih complete terms – either a term query or a phrase query. Thus query types with incomplete terms – prefix query, wildcard query, regex query, fuzzy query - are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
+> Fuzzy queries are not [analyzed](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis applies only to query types with complete terms (either a term query or a phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
 >
 
 ## Proximity Search
@@ -86,7 +86,7 @@ Proximity searches are used to find terms that are near each other in a document
 
 In Lucene full syntax, The tilde (~) is used for both a phrase search and a single term search, and placement of the ~ determines which query is invoked. When ~ is specified at the end of a single term, the query a fuzzy search. When specified after a phrase, a proximity search is performed. 
 
-If ~ is within a term, such as "business~analyst", the character is not evaluated as an operator. In [full text search](search-lucene-query-architecture.md), the term is analyzed into two terms: business OR analyst. 
+If ~ is within a term, such as "business~analyst", the character is not evaluated as an operator. In this case, the query might be handled as a term or phrase query, all else being equal. For term or phrase queries, the query is probably [full text search](search-lucene-query-architecture.md) with lexical analysis where "business~analyst is analyzed into two terms: business OR analyst. 
 
 ## Term Boosting
 Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. This differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms. The following example helps illustrate the differences.
