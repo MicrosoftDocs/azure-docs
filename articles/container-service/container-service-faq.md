@@ -123,4 +123,4 @@ For more information, see [Connect to an Azure Container Service cluster](contai
 ## Next steps
 
 * [Learn more](container-service-intro.md) about Azure Container Service.
-* Deploy a container service cluster using the [portal](container-service-deployment.md) or [Azure CLI 2.0](dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Deploy a container service cluster using the [portal](dcos-swarm/container-service-deployment.md) or [Azure CLI 2.0](dcos-swarm/container-service-create-acs-cluster-cli.md).

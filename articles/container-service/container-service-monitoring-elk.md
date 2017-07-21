@@ -23,7 +23,7 @@ ms.author: saudas
 In this article, we demonstrate how to deploy the ELK (Elasticsearch, Logstash, Kibana) stack on a DC/OS cluster in Azure Container Service. 
 
 ## Prerequisites
-[Deploy](container-service-deployment.md) and [connect](container-service-connect.md) a DC/OS cluster configured by 
+[Deploy](dcos-swarm/container-service-deployment.md) and [connect](container-service-connect.md) a DC/OS cluster configured by 
 Azure Container Service. Explore the DC/OS dashboard and Marathon services [here](container-service-mesos-marathon-ui.md). Also install the [Marathon Load Balancer](container-service-load-balancing.md).
 
 

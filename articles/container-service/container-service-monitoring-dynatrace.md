@@ -30,7 +30,7 @@ The following figure shows the Dynatrace UI:
 ![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## Prerequisites 
-[Deploy](./container-service-deployment.md) and [connect](./container-service-connect.md) to a cluster configured by Azure Container Service. Explore the [Marathon UI](./container-service-mesos-marathon-ui.md). Go to [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) to set up a Dynatrace SaaS account.  
+[Deploy](dcos-swarm/container-service-deployment.md) and [connect](./container-service-connect.md) to a cluster configured by Azure Container Service. Explore the [Marathon UI](./container-service-mesos-marathon-ui.md). Go to [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) to set up a Dynatrace SaaS account.  
 
 ## Configure a Dynatrace deployment with Marathon
 These steps show you how to configure and deploy Dynatrace applications to your cluster with Marathon.

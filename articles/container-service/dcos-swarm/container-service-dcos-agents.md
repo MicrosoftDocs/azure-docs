@@ -33,7 +33,7 @@ For more information about DC/OS network security, see the [DC/OS documentation]
 
 The DC/OS agent pools In Azure Container Service are created as follows:
 
-* The **private pool** contains the number of agent nodes that you specify when you [deploy the DC/OS cluster](../container-service-deployment.md). 
+* The **private pool** contains the number of agent nodes that you specify when you [deploy the DC/OS cluster](container-service-deployment.md). 
 
 * The **public pool** initially contains a predetermined number of agent nodes. This pool is added automatically when the DC/OS cluster is provisioned.
 

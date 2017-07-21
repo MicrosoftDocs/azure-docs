@@ -28,7 +28,7 @@ While frameworks are available for many popular workloads, this document describ
 ## Prerequisites
 Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
-* [Deploy an Azure Container Service cluster](container-service-deployment.md)
+* [Deploy an Azure Container Service cluster](dcos-swarm/container-service-deployment.md)
 * [Connect to an Azure Container Service cluster](container-service-connect.md)
 
 > [!NOTE]

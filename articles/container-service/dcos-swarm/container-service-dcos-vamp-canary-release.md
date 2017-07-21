@@ -34,7 +34,7 @@ In this walkthrough, we set up Vamp on Azure Container Service with a DC/OS clus
 
 
 
-1. [Deploy a DC/OS cluster](../container-service-deployment.md) with one master and two agents of default size. 
+1. [Deploy a DC/OS cluster](container-service-deployment.md) with one master and two agents of default size. 
 
 2. [Create an SSH tunnel](../container-service-connect.md) to connect to the DC/OS cluster. This article assumes that you tunnel to the cluster on local port 80.
 

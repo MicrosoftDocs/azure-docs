@@ -27,7 +27,7 @@ In this article, we'll explain how to add an application or user-specific Marath
 Because this service will belong to a single user or team, they are free to configure it in any way that they desire. Also, Azure Container Service will ensure that the service continues to run. If the service fails, Azure Container Service will restart it for you. Most of the time you won't even notice it had downtime.
 
 ## Prerequisites
-[Deploy an instance of Azure Container Service](../container-service-deployment.md) with orchestrator type DC/OS and  [ensure that your client can connect to your cluster](../container-service-connect.md). Also, do the following steps.
+[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DC/OS and  [ensure that your client can connect to your cluster](../container-service-connect.md). Also, do the following steps.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]
 

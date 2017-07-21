@@ -26,7 +26,7 @@ DC/OS provides an environment for deploying and scaling clustered workloads, whi
 
 Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
-* [Deploying an Azure Container Service cluster](container-service-deployment.md)
+* [Deploying an Azure Container Service cluster](dcos-swarm/container-service-deployment.md)
 * [Connecting to an Azure Container Service cluster](container-service-connect.md)
 
 ## Access the DC/OS APIs

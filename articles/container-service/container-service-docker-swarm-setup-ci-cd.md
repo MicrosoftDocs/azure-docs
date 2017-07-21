@@ -45,7 +45,7 @@ Here is a brief explanation of the steps:
 
 Before starting this tutorial, you need to complete the following tasks:
 
-- [Create a Swarm cluster in Azure Container Service](container-service-deployment.md)
+- [Create a Swarm cluster in Azure Container Service](dcos-swarm/container-service-deployment.md)
 - [Connect with the Swarm cluster in Azure Container Service](container-service-connect.md)
 - [Create an Azure container registry](../container-registry/container-registry-get-started-portal.md)
 - [Have a Visual Studio Team Services account and team project created](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)

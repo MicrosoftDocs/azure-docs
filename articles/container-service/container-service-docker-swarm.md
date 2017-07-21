@@ -26,7 +26,7 @@ Docker Swarm provides an environment for deploying containerized workloads acros
 
 Prerequisites to the exercises in this document:
 
-[Create a Swarm cluster in Azure Container Service](container-service-deployment.md)
+[Create a Swarm cluster in Azure Container Service](dcos-swarm/container-service-deployment.md)
 
 [Connect with the Swarm cluster in Azure Container Service](container-service-connect.md)
 

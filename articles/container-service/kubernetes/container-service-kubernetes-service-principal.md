@@ -72,7 +72,7 @@ Highlighted are the **client ID** (`appId`) and the **client secret** (`password
 
 Provide the **client ID** (also called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. Make sure the service principal meets the requirements at the beginning this article.
 
-You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure portal](./../container-service-deployment.md), or other methods.
+You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure portal](../dcos-swarm/container-service-deployment.md), or other methods.
 
 >[!TIP] 
 >When specifying the **client ID**, be sure to use the `appId`, not the `ObjectId`, of the service principal.

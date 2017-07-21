@@ -32,7 +32,7 @@ and Docker Swarm, we recommend that you create a secure shell (SSH) tunnel from 
 
 ## Prerequisites
 
-* A Kubernetes, DC/OS, or Docker Swarm cluster [deployed in Azure Container Service](container-service-deployment.md).
+* A Kubernetes, DC/OS, or Docker Swarm cluster [deployed in Azure Container Service](dcos-swarm/container-service-deployment.md).
 * SSH RSA private key file, corresponding to the public key added to the cluster during deployment. These commands assume that the private SSH key is in `$HOME/.ssh/id_rsa` on your computer. See these 
 instructions for [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md)
 or [Windows](../virtual-machines/linux/ssh-from-windows.md)

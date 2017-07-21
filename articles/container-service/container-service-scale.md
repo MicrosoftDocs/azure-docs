@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Scale agent nodes in a Container Service cluster
-After [deploying an Azure Container Service cluster](container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
+After [deploying an Azure Container Service cluster](dcos-swarm/container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
 
 You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes cluster by using the Azure portal or the Azure CLI 2.0. 
 
