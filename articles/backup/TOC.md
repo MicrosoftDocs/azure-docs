@@ -17,7 +17,7 @@
 ### Back up VMs
 #### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
 #### [Back up encrypted virtual machines](backup-azure-vms-encryption.md)
-#### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
+#### [Back up Azure virtual machines](backup-azure-vms.md)
 ### Manage and monitor VMs
 #### [Manage Azure VM backups in Azure portal](backup-azure-manage-vms.md)
 #### [Monitor alerts for Azure VM backups in Azure portal](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Prepare DPM workloads in Azure portal](backup-azure-dpm-introduction.md)
 ### [Prepare DPM workloads in classic portal](backup-azure-dpm-introduction-classic.md)
 ### [Use System Center DPM to back up Exchange server](backup-azure-backup-exchange-server.md)
-### [Recover data in the Backup vault to an alternate DPM server](backup-azure-alternate-dpm-server.md)
+### [Recover data to an alternate DPM server](backup-azure-alternate-dpm-server.md)
 ### [Use DPM to back up SQL Server workloads](backup-azure-backup-sql.md)
 ### [Use DPM to back up a SharePoint farm](backup-azure-backup-sharepoint.md)
 
