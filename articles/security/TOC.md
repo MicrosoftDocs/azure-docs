@@ -12,6 +12,7 @@
 ### [Isolation in the public cloud](azure-isolation.md)
 ### [Security technical capabilities](azure-security-technical-capabilities.md)
 ### [Governance in Azure](governance-in-azure.md)
+### [Azure SQL Database](azure-database-security-overview.md)
 
 # Get Started
 ## [Getting started with Azure security](azure-security-getting-started.md)
