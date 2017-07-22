@@ -24,7 +24,7 @@ Azure provides stable and fast ways to connect from your on-premise network to A
 This document shows how you can easily and consistently test network latency and bandwidth between two hosts. This document also provides some advice on ways to look at the Azure network and help to isolate problem points. The PowerShell script and tools discussed require two hosts on the network (at either end of the link being tested). One host must be a Windows Server or Desktop, the other can be either Windows or Linux.
 
 >[!NOTE]
->The approach to troubleshooting, the tools, and methods used can be very personal. This document describes the approach and tools I often take. Your approach will probably differ and there's nothing wrong with that. However, if you don't have an established approach this document can get you started on the path to building your own methods, tools, and approach to troubleshooting network issues.
+>The approach to troubleshooting, the tools, and methods used are personal preferences. This document describes the approach and tools I often take. Your approach will probably differ and there's nothing wrong with different approaches to problem solving. However, if you don't have an established approach, this document can get you started on the path to building your own methods, tools, and preferences to troubleshooting network issues.
 >
 >
 
@@ -44,11 +44,11 @@ Looking at the diagram from right to left, let's discuss briefly each component:
  - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they are there and what affect they have on your traffic.
  - **VNet Gateway (ExpressRoute)** - Once peering (ExpressRoute) or VPN is enabled, there aren't many settings that can affect how or if traffic routes. If you have multiple ExpressRoute circuits or VPN tunnels connected to the same VNet Gateway, you should be aware of the connection weight settings as this setting affects connection preference and affects the path your traffic takes.
 
-At this point you're on the WAN portion of the link. This routing domain can be your service provider, your corporate WAN, or the Internet. Many hops, technologies, and companies involved with these links can make it somewhat difficult to troubleshoot. Often, you'll work to rule out both Azure and your Corporate Networks first before jumping into this collection of companies and hops.
+At this point, you're on the WAN portion of the link. This routing domain can be your service provider, your corporate WAN, or the Internet. Many hops, technologies, and companies involved with these links can make it somewhat difficult to troubleshoot. Often, you'll work to rule out both Azure and your Corporate Networks first before jumping into this collection of companies and hops.
 
 In the above diagram, on the far left is your corporate network. Depending on the size of your company, this routing domain can be a few network devices between you and the WAN or multiple layers of devices in a campus/enterprise network.
 
-Given the complexities of these three different high-level network environments, it's often optimal to start at the edges and try to show where performance is good, and where it degrades. This can help identify the problem network of the three and then focus your troubleshooting on that environment.
+Given the complexities of these three different high-level network environments, it's often optimal to start at the edges and try to show where performance is good, and where it degrades. This approach can help identify the problem network of the three and then focus your troubleshooting on that specific environment.
 
 ## Tools
 Most network issues can be analyzed and isolated using basic tools like ping and traceroute. It's rare that you need to go as deep as a packet analysis like Wireshark. To help with troubleshooting, the Azure Connectivity Toolkit (AzureCT) was developed to put some of these tools in an easy package. For performance testing, I like to use iPerf and PSPing. iPerf is a commonly used tool and runs on most OS, it's good for basic performances tests and is fairly easy to use. PSPing is a ping tool developed by SysInternals and is an easy way to perform ICMP and TCP pings in one also easy to use command. Both of these tools are lightweight and are "installed" simply by coping the files to a directory on the local windows host.
@@ -67,7 +67,7 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 	
 	```
 
-	This will download the PowerShell module and install it locally.
+	This command downloads the PowerShell module and install it locally.
 
 2. Install the supporting applications
 	```powershell
@@ -86,14 +86,14 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 This command runs a series of concurrent load and latency tests to help estimate the bandwidth capacity and latency of your network link.
 
 ## Troubleshooting
-If the performance test is not giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach will generally provide a faster path to resolution than jumping around and potentially needlessly doing the same testing multiple times.
+If the performance test is not giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach generally provides a faster path to resolution than jumping around and potentially needlessly doing the same testing multiple times.
 
 >[!NOTE]
 >The scenario here is a performance issue, not a connectivity issue. The steps would be different if traffic wasn't passing at all.
 >
 >
 
-First, challenge your assumptions. Is your expectation reasonable. For instance, if you have a 1 Gbps ExpressRoute circuit and 100 ms of latency it's unreasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.
+First, challenge your assumptions. Is your expectation reasonable. For instance, if you have a 1-Gbps ExpressRoute circuit and 100 ms of latency it's unreasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.
 
 Next I recommend starting at the edges between routing domains and try to isolate the problem to a single major routing domain; the Corporate Network, the WAN, or the Azure Network. People often blame the "black box" in the path, while blaming the block box is easy to do, it may significantly delay resolution especially if the problem is actually in an area that you have the ability to make changes. Make sure you do your due diligence before handing off to your service provider or ISP.
 
@@ -104,7 +104,7 @@ Now that you have a diagram, start to divide the network into segments and narro
 Also, don't forget to look at other layers of the OSI model. It's easy to focus on the network and layers 1 - 3 (Physical, Data, and Network layers) but the problems can also be up at Layer 7 in the application layer. Keep an open mind and verify assumptions.
 
 ## Advanced ExpressRoute Troubleshooting
-Isolating all Azure components can be a challenge if you're not sure where the edge of the cloud actually is. With ExpressRoute, it's a network component called the Microsoft Enterprise Edge. **For ExpressRoute**, the MSEE is the first point of contact into Microsoft's network, and the last hop leaving the Microsoft network. When you create a connection object between your VNet gateway and the ExpressRoute circuit, you're actually making a connection to the MSEE. Recognizing the MSEE is first or last hop (depending on which direction you're going) is crucial to isolating Azure Network problems to either prove the issue is in Azure or further downstream in the WAN or the Corporate Network. 
+If you're not sure where the edge of the cloud actually is, isolating the Azure components can be a challenge. When ExpressRoute is used, the edge is a network component called the Microsoft Enterprise Edge (MSEE). **When using ExpressRoute**, the MSEE is the first point of contact into Microsoft's network, and the last hop leaving the Microsoft network. When you create a connection object between your VNet gateway and the ExpressRoute circuit, you're actually making a connection to the MSEE. Recognizing the MSEE as the first or last hop (depending on which direction you're going) is crucial to isolating Azure Network problems to either prove the issue is in Azure or further downstream in the WAN or the Corporate Network. 
 
 [![2]][2]
 
@@ -126,7 +126,7 @@ If two VNets (VNets A and B in the diagram) are connected to the **same** Expres
 >
 
 ## The Problem is isolated, now what?
-The more you can isolate the problem the easier it is to fix, however often you reach the point where you can't go deeper or further with your troubleshooting. This point is when you should reach out for help. Who you ask will be dependent on the routing domain you isolated the issue to, or even better if you are able to narrow it down to a specific component.
+The more you can isolate the problem the easier it is to fix, however often you reach the point where you can't go deeper or further with your troubleshooting. This point is when you should reach out for help. Who you ask is dependent on the routing domain you isolated the issue to, or even better if you are able to narrow it down to a specific component.
 
 For corporate network issues, your internal IT department or service provider supporting your network (which may be the hardware manufacturer) may be able to help with device configuration or hardware repair.
 
@@ -137,7 +137,7 @@ With Azure, once you isolated the issue in as much detail as you're able, it's t
 ## References
 ### Latency/Bandwidth Expectations
 >[!TIP]
-> Geographic latency (miles or kilometers) between the end points you're testing is by far the largest component of latency. While there is equipment latency (physical and virtual components, number of hops, etc.) involved, geography has proven to be the largest component of overall latency when dealing with WAN connections. It's also important to note that the distance is the distance of the fiber run not the straight line or road map distance. This is incredibly hard to get with any accuracy. As a result, I generally use a city distance calculator on the internet and know that this method is a grossly inaccurate measure, but is enough to set a general expectation.
+> Geographic latency (miles or kilometers) between the end points you're testing is by far the largest component of latency. While there is equipment latency (physical and virtual components, number of hops, etc.) involved, geography has proven to be the largest component of overall latency when dealing with WAN connections. It's also important to note that the distance is the distance of the fiber run not the straight line or road map distance. This distance is incredibly hard to get with any accuracy. As a result, I generally use a city distance calculator on the internet and know that this method is a grossly inaccurate measure, but is enough to set a general expectation.
 >
 >
 
@@ -152,26 +152,26 @@ Test setup:
 	```powershell
 	Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
 	```
- - The "Max Bandwidth" data is from the 16 TCP flow load test with a 1Mb window size and the load flowing from the on-premises physical server (local, iPerf client in Seattle) up to the Azure VM (remote, iPerf server in the listed Azure region).
+ - The "Max Bandwidth" data is from the 16 TCP flow load test with a 1-Mb window size and the load flowing from the on-premises physical server (local, iPerf client in Seattle) up to the Azure VM (remote, iPerf server in the listed Azure region).
 
 ### Latency/Bandwidth Results
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Location|Azure<br/>Region|Estimated<br/>Distance (km)|Latency|1 Session<br/>Bandwidth|Maximum<br/>Bandwidth|
-| Seattle | West US 2        |    191km |   5ms | 262.0 Mbits/sec |  3.74 Gbits/sec | 21
-| Seattle | West US          |  1,094km |  18ms |  82.3 Mbits/sec |  3.70 Gbits/sec | 20
-| Seattle | Central US       |  2,357km |  40ms |  38.8 Mbits/sec |  2.55 Gbits/sec | 17
-| Seattle | South Central US |  2,877km |  51ms |  30.6 Mbits/sec |  2.49 Gbits/sec | 19
-| Seattle | North Central US |  2,792km |  55ms |  27.7 Mbits/sec |  2.19 Gbits/sec | 18
-| Seattle | East US 2        |  3,769km |  73ms |  21.3 Mbits/sec |  1.79 Gbits/sec | 16
-| Seattle | East US          |  3,699km |  74ms |  21.1 Mbits/sec |  1.78 Gbits/sec | 15
-| Seattle | Japan East       |  7,705km | 106ms |  14.6 Mbits/sec |  1.22 Gbits/sec | 28
-| Seattle | UK South         |  7,708km | 146ms |  10.6 Mbits/sec |   896 Mbits/sec | 24
-| Seattle | West Europe      |  7,834km | 153ms |  10.2 Mbits/sec |   761 Mbits/sec | 23
-| Seattle | Australia East   | 12,484km | 165ms |   9.4 Mbits/sec |   794 Mbits/sec | 26
-| Seattle | Southeast Asia   | 12,989km | 170ms |   9.2 Mbits/sec |   756 Mbits/sec | 25
-| Seattle | Brazil South     | 10,930km | 189ms |   8.2 Mbits/sec |   699 Mbits/sec | 22
-| Seattle | South India      | 12,918km | 202ms |   7.7 Mbits/sec |   634 Mbits/sec | 27
+| Seattle | West US 2        |    191 km |   5 ms | 262.0 Mbits/sec |  3.74 Gbits/sec | 21
+| Seattle | West US          |  1,094 km |  18 ms |  82.3 Mbits/sec |  3.70 Gbits/sec | 20
+| Seattle | Central US       |  2,357 km |  40 ms |  38.8 Mbits/sec |  2.55 Gbits/sec | 17
+| Seattle | South Central US |  2,877 km |  51 ms |  30.6 Mbits/sec |  2.49 Gbits/sec | 19
+| Seattle | North Central US |  2,792 km |  55 ms |  27.7 Mbits/sec |  2.19 Gbits/sec | 18
+| Seattle | East US 2        |  3,769 km |  73 ms |  21.3 Mbits/sec |  1.79 Gbits/sec | 16
+| Seattle | East US          |  3,699 km |  74 ms |  21.1 Mbits/sec |  1.78 Gbits/sec | 15
+| Seattle | Japan East       |  7,705 km | 106 ms |  14.6 Mbits/sec |  1.22 Gbits/sec | 28
+| Seattle | UK South         |  7,708 km | 146 ms |  10.6 Mbits/sec |   896 Mbits/sec | 24
+| Seattle | West Europe      |  7,834 km | 153 ms |  10.2 Mbits/sec |   761 Mbits/sec | 23
+| Seattle | Australia East   | 12,484 km | 165 ms |   9.4 Mbits/sec |   794 Mbits/sec | 26
+| Seattle | Southeast Asia   | 12,989 km | 170 ms |   9.2 Mbits/sec |   756 Mbits/sec | 25
+| Seattle | Brazil South     | 10,930 km | 189 ms |   8.2 Mbits/sec |   699 Mbits/sec | 22
+| Seattle | South India      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec | 27
 
 ## Next Steps
 1. Download the Azure Connectivity Toolkit from GitHub at [http://aka.ms/AzCT][ACT]
