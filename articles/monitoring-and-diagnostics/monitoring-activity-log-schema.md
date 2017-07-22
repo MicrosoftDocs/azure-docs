@@ -16,10 +16,10 @@ ms.author: johnkem
 
 ---
 # Activity Log Event Schema
-The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occured in Azure. This article describes the event schema per category of data.
+The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data.
 
 ## Administrative
-This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role based access control in a subscription.
+This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
 
 ### Sample event
 ```
@@ -314,7 +314,7 @@ The properties field will contain different values depending on the source of th
 | properties.RuleUri | Resource ID of the metric alert rule itself. |
 | properties.RuleName | The name of the metric alert rule. |
 | properties.RuleDescription | The description of the metric alert rule (as defined in the alert rule). |
-| properties.Threshold | The threshold value used in the evaulation of the metric alert rule. |
+| properties.Threshold | The threshold value used in the evaluation of the metric alert rule. |
 | properties.WindowSizeInMinutes | The window size used in the evaluation of the metric alert rule. |
 | properties.Aggregation | The aggregation type defined in the metric alert rule. |
 | properties.Operator | The conditional operator used in the evaluation of the metric alert rule. |
