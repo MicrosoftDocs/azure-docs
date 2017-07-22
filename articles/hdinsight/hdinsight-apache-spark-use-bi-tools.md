@@ -202,7 +202,5 @@ So far you learned how to create a cluster, create Spark data frames to query da
 
 > [!div class="nextstepaction"]
 > [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
-
-> [!div class="nextstepaction"]
 > [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
 
