@@ -1,5 +1,5 @@
 ---
-title: How to Create a Media Processor | Microsoft Docs
+title: How to Create a media processor using the Azure Media Services SDK for .NET| Microsoft Docs
 description: Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
@@ -27,12 +27,15 @@ ms.author: juliako
 ## Overview
 In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
 
-The following sections provide lists of media processors:
+## Azure media processors 
 
-* (Encoding media processors)[scenarios-and-availability.md#encoding-media-processors]
-* (Analytics media processors)[scenarios-and-availability.md#analytics-media-processors]
+The following topic provides lists of media processors:
+
+* [Encoding media processors](scenarios-and-availability.md#encoding-media-processors)
+* [Analytics media processors](scenarios-and-availability.md#analytics-media-processors)
 
 ## Get Media Processor
+
 The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically](media-services-dotnet-connect-programmatically.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
