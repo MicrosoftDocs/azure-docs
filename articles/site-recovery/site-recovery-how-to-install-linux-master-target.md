@@ -317,16 +317,16 @@ Use the following steps to create a retention disk:
 
 3. Run the following command to install the master target server and register the server with the configuration server.
 
-    ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
+ 	```
+	./install -q -d /usr/local/ASR -r MT -v VmWare
+	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
+	```
 
 	Example: 
 	
 	```
-	 /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
-	 ```
+	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+	```
 
 	Wait until the script finishes. If the master target registers sucessfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 
@@ -349,17 +349,15 @@ After the installation has finished, register the configuration server by using 
 
 2. Run the following command to install the master target server and register the server with the configuration server.
 
-    ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
+	```
+	./install -q -d /usr/local/ASR -r MT -v VmWare
+	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
+	```
+	Example: 
 
-	
-   Example: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
-    ```
+	```
+	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+	```
 
    Wait until the script finishes. If the master target is registered succesfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 
@@ -368,9 +366,9 @@ After the installation has finished, register the configuration server by using 
 
 Run the installer. It automatically detects that the agent is installed on the master target. To upgrade, select **Y**.  After the setup has been completed, check the version of the master target installed by using the following command.
 
-    ```
-    cat /usr/local/.vx_version
-    ```
+	```
+	cat /usr/local/.vx_version
+	```
 
 You can see that the **Version** field gives the version number of the master target.
 
