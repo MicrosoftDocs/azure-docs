@@ -451,7 +451,9 @@ The Input worksheet provides an overview of the profiled VMware environment.
 **VM Compatibility**: Values are **Yes** and **Yes**\*. **Yes**\* is for instances in which the VM is a fit for [Azure Premium Storage](https://aka.ms/premium-storage-workload). Here, the profiled high-churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
 * <128 GB is a P10.
 * 128 GB to 512 GB is a P20.
-* 512 GB to 1023 GB is a P30.
+* 512 GB to 1024 GB is a P30.
+* 1025 GB to 2048 GB is a P40.
+* 2049 GB to 4095 GB is a P50.
 
 If the workload characteristics of a disk put it in the P20 or P30 category, but the size maps it down to a lower premium storage disk type, the tool marks that VM as **Yes**\*. The tool also recommends that you either change the source disk size to fit into the recommended premium storage disk type or change the target disk type post-failover.
 
@@ -489,7 +491,8 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 
 **VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
 
-* Disk size is >1023 GB. Azure Storage currently does not support disk sizes greater than 1 TB.
+* Disk size is >4095 GB. Azure Storage currently does not support data disk sizes greater than 4095 GB.
+* OS disk is >2048 GB. Azure Storage currently does not support OS disk size greater than 2048 GB.
 * Boot type is EFI. Azure Site Recovery currently supports only BIOS boot type virtual machine.
 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
