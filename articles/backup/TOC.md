@@ -90,7 +90,7 @@
 # Concepts
 ## [Overview of Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
 ## [Upgrading a Backup vault to Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
+## [Delete a Recovery Services vault](backup-azure-delete-vault.md)
 ## [Role-Based Access Control](backup-rbac-rs-vault.md)
 ## [Security for hybrid backups](backup-azure-security-feature.md)
 ## [Configure Azure Backup reports](backup-azure-configure-reports.md)
