@@ -381,6 +381,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Supportability of adding Azure VM to an existing availability set
+      href: ../virtual-machines-availability-set-supportability.md
     - name: Reset Linux VM password
       href: virtual-machines-linux-reset-password.md
     - name: Understand a system reboot
