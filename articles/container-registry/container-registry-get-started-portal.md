@@ -25,8 +25,6 @@ Use the Azure portal to create a container registry and manage its settings. You
 
 For background and concepts, see [the overview](container-registry-intro.md).
 
-
-
 ## Create a container registry
 1. In the [Azure portal](https://portal.azure.com), click **+ New**.
 2. Search the marketplace for **Azure container registry**.

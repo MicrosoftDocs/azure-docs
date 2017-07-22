@@ -8,7 +8,7 @@
   manager: kavithag
 
   ms.assetid:
-  ms.service: <service per approved list>
+  ms.service: storage
   ms.workload: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
