@@ -143,7 +143,7 @@ the following main concepts:
     -   At some point, where applicable, these constructs may be added to the
         Batch service and available in the Batch APIs, UIs, etc.
 
-### Pool Templates
+### Pool templates
 
 In addition to the standard template capabilities of parameters and variables,
 the following higher-level constructs are supported by the pool template:
@@ -310,21 +310,11 @@ az batch job create --template job-ffmpeg.json
 
 ## File groups and file transfer
 
-In addition to the creation of pools, jobs, and tasks, the majority of jobs require input files and produce output files; the input files may need to be
-uploaded from a client and then copied onto a pool node or nodes; output files
-produced by tasks on a pool node need to be persisted and then downloaded to a
-client.
+Most jobs and tasks require input files and produce output files. Both input files and output files typically need to be transferred, either from the client to the node, or from the node to the client. The Azure Batch CLI extension abstracts away file transfer and utilizes the storage account that is created by default for each Batch account.
 
-The Azure Batch CLI extension abstracts away file transfer and utilizes the
-storage account that is created by default for each Batch account.
+A file group equates to a container that is created in the Azure storage account. The file group may have subfolders.
 
-The concept of a file group has been introduced, which equates to a container
-that is created in the Azure storage account. The file group can have
-subfolders.
-
-CLI commands are provided that allow files to be uploaded from client to a
-specified file group and will download files from the specified file group to a
-client.
+The Batch CLI extension provides commands for uploading files from client to a specified file group and downloading files from the specified file group to a client.
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -344,25 +334,9 @@ where the transcoded output files are copied to from the node running each task.
 ## Summary
 
 Template and file transfer support have currently been added only to the Azure CLI. The goal is to expand the audience that can use Batch to users
-who do not need to develop code using the Batch APIs, such as researchers, IT users, and so on. Without coding, users with knowledge of Azure, Batch, and the applications to be
-run by Batch can create templates for pool and job creation. With template parameters, users without detailed knowledge of Batch and the applications can use the templates.
+who do not need to develop code using the Batch APIs, such as researchers, IT users, and so on. Without coding, users with knowledge of Azure, Batch, and the applications to be run by Batch can create templates for pool and job creation. With template parameters, users without detailed knowledge of Batch and the applications can use the templates.
 
-Further capabilities may be added in the future depending on the feedback we receive. For example, template support and file transfer could also be made available in the Batch APIs, PowerShell, andportal UI.
-
--   UI could be provided to define templates, avoiding the need to author,
-    modify, store, and share JSON files.
-
--   Templates could be assigned an id, persisted by the Batch service, and
-    associated with the Batch account. UI, CLI, and API support would allow
-    templates to be created, updated, and deleted. Templates and parameters
-    values could be specified when creating pools or jobs, as an alternative to specifying
-    all property values required for creation. Pool and job creation UI would
-    dynamically generate UI to prompt for parameter values.
-
-Try out the Azure CLI and let us know your feedback and feature
-suggestions, either by using the comments for this article or the [Azure Batch
-MSDN
-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
+Try out the Batch extension for the Azure CLI and provide us with any feedback or suggestions, either in the comments for this article or via the [Azure Batch forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
 
 ## Next steps
 
