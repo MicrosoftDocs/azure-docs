@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 07/23/2017
 ms.author: mahi
 
 ---
@@ -269,7 +269,7 @@ $jobs = Get-AdlJob -Account $adla -Top 10
 
 ### List jobs based on the value of job property
 
-Using the `-State` parameter. The you can combine any of these values:
+Using the `-State` parameter. You can combine any of these values:
 
 * `Accepted`
 * `Compiling`
@@ -292,7 +292,7 @@ Get-AdlJob -Account $adla -State Ended
 Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 ```
 
-Use the `-Result` parameter is detect whether ended jobs completed successfully. It has these values:
+Use the `-Result` parameter to detect whether ended jobs completed successfully. It has these values:
 
 * Cancelled
 * Failed
