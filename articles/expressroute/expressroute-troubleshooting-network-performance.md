@@ -44,9 +44,9 @@ Looking at the diagram from right to left, let's discuss briefly each component:
  - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they are there and what affect they have on your traffic.
  - **VNet Gateway (ExpressRoute)** - Once peering (ExpressRoute) or VPN is enabled, there aren't many settings that can affect how or if traffic routes. If you have multiple ExpressRoute circuits or VPN tunnels connected to the same VNet Gateway, you should be aware of the connection weight settings as this setting affects connection preference and affects the path your traffic takes.
 
-At this point, you're on the WAN portion of the link. This routing domain can be your service provider, your corporate WAN, or the Internet. Many hops, technologies, and companies involved with these links can make it somewhat difficult to troubleshoot. Often, you'll work to rule out both Azure and your Corporate Networks first before jumping into this collection of companies and hops.
+At this point, you're on the WAN portion of the link. This routing domain can be your service provider, your corporate WAN, or the Internet. Many hops, technologies, and companies involved with these links can make it somewhat difficult to troubleshoot. Often, you work to rule out both Azure and your Corporate Networks first before jumping into this collection of companies and hops.
 
-In the above diagram, on the far left is your corporate network. Depending on the size of your company, this routing domain can be a few network devices between you and the WAN or multiple layers of devices in a campus/enterprise network.
+In the preceding diagram, on the far left is your corporate network. Depending on the size of your company, this routing domain can be a few network devices between you and the WAN or multiple layers of devices in a campus/enterprise network.
 
 Given the complexities of these three different high-level network environments, it's often optimal to start at the edges and try to show where performance is good, and where it degrades. This approach can help identify the problem network of the three and then focus your troubleshooting on that specific environment.
 
@@ -67,7 +67,7 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 	
 	```
 
-	This command downloads the PowerShell module and install it locally.
+	This command downloads the PowerShell module and installs it locally.
 
 2. Install the supporting applications
 	```powershell
@@ -149,13 +149,13 @@ Test setup:
  - A 10Gbps Premium ExpressRoute circuit in the location identified with Private Peering enabled.
  - An Azure VNet with an UltraPerformance gateway in the specified region.
  - A DS5v2 VM running Windows Server 2016 on the VNet.
- - All testing was using the AzureCT Get-LinkPerformance command with a 5-minute load test for each of the 6 test runs. For example:
+ - All testing was using the AzureCT Get-LinkPerformance command with a 5-minute load test for each of the six test runs. For example:
 
 	```powershell
 	Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
 	```
  - The data flow for each test had the load flowing from the on-premises physical server (iPerf client in Seattle) up to the Azure VM (iPerf server in the listed Azure region).
- - The "Latency" column data is from the No Load test (i.e. just a pure TCP latency test).
+ - The "Latency" column data is from the No Load test (a TCP latency test without iPerf running).
  - The "Max Bandwidth" column data is from the 16 TCP flow load test with a 1-Mb window size.
 
 ### Latency/Bandwidth Results
