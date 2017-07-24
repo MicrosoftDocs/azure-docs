@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 07/24/2017
 ms.author: magoedte
 ---
 
@@ -33,7 +33,7 @@ Runbook execution fails and the error returned is, "The job action 'Activate' ca
 There are several possible causes for the error: 
 
 1. The hybrid worker is behind a proxy or firewall
-2. The computer the hybrid worker is running on has less than the minimum hardware [requirements](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) 
+2. The computer the hybrid worker is running on has less than the minimum [hardware  requirements](automation-offering-get-started.md#hybrid-runbook-worker)  
 3. The runbooks cannot authenticate with local resources
 
 #### Cause 1: Hybrid Runbook Worker is behind proxy or firewall
@@ -51,7 +51,7 @@ First confirm the computer designated to run the Hybrid Runbook Worker feature m
 #### Cause 3: Runbooks cannot authenticate with local resources
 
 #### Solution
-Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*.  The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group.  Please review [Runbook permissions](automation-hybrid-runbook-worker.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.  
+Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*.  The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group.  Please review [Runbook permissions](automation-hrw-running-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.  
 
 ## Next steps
 
