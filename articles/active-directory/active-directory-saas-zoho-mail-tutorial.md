@@ -186,8 +186,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Zoho test user
 
-In order to enable Azure AD users to log into Zoho Mail, they must be provisioned into Zoho Mail.  
-In the case of Zoho Mail, provisioning is a manual task.
+In order to enable Azure AD users to log into Zoho Mail, they must be provisioned into Zoho Mail. In the case of Zoho Mail, provisioning is a manual task.
 
 > [!NOTE]
 > You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.
@@ -206,7 +205,11 @@ In the case of Zoho Mail, provisioning is a manual task.
    
     ![Add User](./media/active-directory-saas-zoho-mail-tutorial/ic789612.png "Add User")
    
-    a. Type the **First Name**, **Last Name**, **Email ID**, **Password** of a valid Azure Active Directory account you want to provision into the related textboxes.
+    a. In **First Name** textbox, type the first name of user like **Britta**.
+
+    a. In **Last Name** textbox, type the last name of user like **Simon**.
+
+    a. In **Password** textbox, enter password of user.
    
     b. Click **OK**.  
       
