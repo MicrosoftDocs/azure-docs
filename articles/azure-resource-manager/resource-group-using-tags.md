@@ -87,7 +87,7 @@ To add tags to a *resource without existing tags*, use:
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ``` 
 
-To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply those tags by using the new tags: 
+To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply the existing and new tags: 
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
