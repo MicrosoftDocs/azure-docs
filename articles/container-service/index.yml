@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Container Service Documentation - Tutorials, API Reference
+title: Container Service Documentation
 metadata:
   document_id: 
   title: Azure Container Service Documentation - Tutorials, API Reference | Microsoft Docs
@@ -17,7 +17,6 @@ metadata:
 abstract:
   description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
 sections:
-- title: Container Service Documentation
   items:
   - type: list
     style: cards
