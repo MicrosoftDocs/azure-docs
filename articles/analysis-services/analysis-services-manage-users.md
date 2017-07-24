@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/19/2016
+ms.date: 06/26/2016
 ms.author: owend
 
 ---
@@ -69,13 +69,15 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 
 ## Database roles
 
- Roles defined for a tabular model are database roles. That is, the roles contain members consisting of users or groups that have specific permissions that define the action those members can take on the model database. A database role is created as a separate object in the database, and applies only to the database in which that role is created.   
+ Roles defined for a tabular model are database roles. That is, the roles contain members consisting of Azure AD users and security groups that have specific permissions that define the action those members can take on a model database. A database role is created as a separate object in the database, and applies only to the database in which that role is created.   
   
  By default, when you create a new tabular model project, the model project does not have any roles. Roles can be defined by using the Role Manager dialog box in SSDT. When roles are defined during model project design, they are applied only to the model workspace database. When the model is deployed, the same roles are applied to the deployed model. After a model has been deployed, server and database administrators can manage roles and members by using SSMS. To learn more, see [Manage database roles and users](analysis-services-database-users.md).
   
 
 
 ## Next steps
-[Manage server administrators](analysis-services-server-admins.md)  
+
+[Manage access to resources with Azure Active Directory groups](../active-directory/active-directory-manage-groups.md)   
 [Manage database roles and users](analysis-services-database-users.md)  
+[Manage server administrators](analysis-services-server-admins.md)  
 [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)  

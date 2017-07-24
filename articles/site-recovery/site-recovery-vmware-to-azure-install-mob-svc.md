@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/11/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ---
 
@@ -59,8 +59,7 @@ Complete these prerequisite steps before you manually install Mobility Service o
 ## Install Mobility Service manually by using the GUI
 
 >[!IMPORTANT]
-> The GUI-based installation works only with Windows operating systems.
-> If you are using a Configuration Server to replicate Azure IaaS virtual machines from one Azure Subscription/Region to another then use the Command-line based installation method
+> If you are using a **Configuration Server** to replicate **Azure IaaS virtual machines** from one Azure Subscription/Region to another then **use the Command-line based installation** method
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 

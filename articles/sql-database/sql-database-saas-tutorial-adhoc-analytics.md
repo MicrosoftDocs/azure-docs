@@ -51,7 +51,7 @@ By distributing queries across the tenant databases, Elastic Query provides imme
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the WingtipSaaS GitHub repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Create ticket sales data
 
@@ -59,8 +59,7 @@ To run queries against a more interesting data set, create ticket sales data by 
 
 1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* script and set the following values:
    * **$DemoScenario** = 1, **Purchase tickets for events at all venues**.
-3. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad-hoc distributed queries* section, so wait for the ticket generator to complete if it's still running when you get to that exercise.
-
+2. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad-hoc distributed queries* section, so wait for the ticket generator to complete if it's still running when you get to that exercise.
 
 ## Explore the global views
 
@@ -69,8 +68,8 @@ The Wingtip SaaS application is built using a tenant-per-database model, so the 
 However, when querying across all databases, it's important that Elastic Query can treat the data as if it is part of a single logical database sharded by tenant. To achieve this, a set of 'global' views are added to the tenant database that project a tenant id into each of the tables that are queried globally. For example, the *VenueEvents* view adds a computed *VenueId* to the columns projected from the *Events* table. By defining the external table in the head database over *VenueEvents* (rather than the underlying *Events* table), Elastic Query is able to push down joins based on *VenueId* so they can be executed in parallel on each remote database (rather than on the head database). This dramatically reduces the amount of data that is returned, which results in a substantial increase in performance for many queries. These global views have been pre-created in all tenant databases (and in *basetenantdb*).
 
 1. Open SSMS and [connect to the tenants1-&lt;USER&gt; server](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
-1. Expand **Databases**, right-click **contosoconcerthall**, and select **New Query**.
-1. Run the following queries to explore the difference between the single-tenant tables and the global views:
+2. Expand **Databases**, right-click **contosoconcerthall**, and select **New Query**.
+3. Run the following queries to explore the difference between the single-tenant tables and the global views:
 
    ```T-SQL
    -- The base Venue table, that has no VenueId associated.
@@ -94,8 +93,8 @@ To examine the definition of the *Venues* view:
 
    ![views](media/sql-database-saas-tutorial-adhoc-analytics/views.png)
 
-1. Right-click **dbo.Venues**.
-1. Select **Script View as** > **CREATE To** > **New Query Editor Window**
+2. Right-click **dbo.Venues**.
+3. Select **Script View as** > **CREATE To** > **New Query Editor Window**
 
 Script any of the other *Venue* views to see how they add the *VenueId*.
 
@@ -106,7 +105,7 @@ This exercise deploys the *adhocanalytics* database. This is the head database t
 1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* in the *PowerShell ISE* and set the following values:
    * **$DemoScenario** = 2, **Deploy Ad-hoc analytics database**.
 
-1. Press **F5** to run the script and create the *adhocanalytics* database.
+2. Press **F5** to run the script and create the *adhocanalytics* database.
 
 In the next section, you add schema to the database so it can be used to run distributed queries.
 
@@ -115,8 +114,8 @@ In the next section, you add schema to the database so it can be used to run dis
 This exercise adds schema (the external data source and external table definitions) to the ad-hoc analytics database that enables querying across all tenant databases.
 
 1. Open SQL Server Management Studio, and connect to the Adhoc Analytics database you created in the previous step. The name of the database will be adhocanalytics.
-1. Open ...\Learning Modules\Operational Analytics\Adhoc Analytics\ *Initialize-AdhocAnalyticsDB.sql* in SSMS.
-1. Review the SQL script and note the following:
+2. Open ...\Learning Modules\Operational Analytics\Adhoc Analytics\ *Initialize-AdhocAnalyticsDB.sql* in SSMS.
+3. Review the SQL script and note the following:
 
    Elastic Query uses a database-scoped credential to access each of the tenant databases. This credential needs to be available in all the databases and should normally be granted the minimum rights required to enable these ad-hoc queries.
 
@@ -136,7 +135,7 @@ This exercise adds schema (the external data source and external table definitio
 
    If you include reference tables in this manner, be sure to update the table schema and data whenever you update the tenant databases.
 
-1. Press **F5** to run the script and initialize the *adhocanalytics* database. 
+4. Press **F5** to run the script and initialize the *adhocanalytics* database. 
 
 Now you can run distributed queries, and gather insights across all tenants!
 
@@ -149,9 +148,9 @@ When inspecting the execution plan, hover over the plan icons for details.
 Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when we defined the external data source, improves performance for many scenarios. Because each *VenueId* maps to a single database, filtering is easily done remotely, returning only the data we need.
 
 1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalyticsQueries.sql* in SSMS.
-1. Ensure you are connected to the **adhocanalytics** database.
-1. Select the **Query** menu and click **Include Actual Execution Plan**
-1. Highlight the *Which venues are currently registered?* query, and press **F5**.
+2. Ensure you are connected to the **adhocanalytics** database.
+3. Select the **Query** menu and click **Include Actual Execution Plan**
+4. Highlight the *Which venues are currently registered?* query, and press **F5**.
 
    The query returns the entire venue list, illustrating how quick and easy it is to query across all tenants and return data from each tenant.
 
@@ -159,7 +158,7 @@ Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when we d
 
    ![SELECT * FROM dbo.Venues](media/sql-database-saas-tutorial-adhoc-analytics/query1-plan.png)
 
-1. Select the next query, and press **F5**.
+5. Select the next query, and press **F5**.
 
    This query joins data from the tenant databases and the local *VenueTypes* table (local, as its a table in the *adhocanalytics* database).
 
@@ -167,7 +166,7 @@ Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when we d
 
    ![Join on remote and local data](media/sql-database-saas-tutorial-adhoc-analytics/query2-plan.png)
 
-1. Now select the *On which day were the most tickets sold?* query, and press **F5**.
+6. Now select the *On which day were the most tickets sold?* query, and press **F5**.
 
    This query does a bit more complex joining and aggregation. What's important to note is that most of the processing is done remotely, and once again, we bring back only the rows we need, returning just a single row for each venue's aggregate ticket sale count per day.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
+ms.date: 06/27/2017
 ms.author: tomfitz
 
 ---
@@ -26,8 +26,6 @@ There are two concepts to understand about policies:
 * policy assignment - you apply the policy definition to a scope (subscription or resource group)
 
 This topic focuses on policy definition. For information about policy assignment, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) or [Assign and manage policies through script](resource-manager-policy-create-assign.md).
-
-Azure provides some built-in policy definitions that may reduce the number of policies you have to define. If a built-in policy definition works for your scenario, use that definition when assigning to a scope.
 
 Policies are evaluated when creating and updating resources (PUT and PATCH operations).
 
@@ -45,6 +43,22 @@ To use policies, you must be authenticated through RBAC. Specifically, your acco
 * `Microsoft.Authorization/policyassignments/write` permission to assign a policy 
 
 These permissions are not included in the **Contributor** role.
+
+## Built-in policies
+
+Azure provides some built-in policy definitions that may reduce the number of policies you have to define. Before proceeding with policy definitions, you should consider whether a built-in policy already provides the definition you need. The built-in policy definitions are:
+
+* Allowed locations
+* Allowed resource types
+* Allowed storage account SKUs
+* Allowed virtual machine SKUs
+* Apply tag and default value
+* Enforce tag and value
+* Not allowed resource types
+* Require SQL Server version 12.0
+* Require storage account encryption
+
+You can assign any of these policies through the [portal](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell), or [Azure CLI](resource-manager-policy-create-assign.md#azure-cli).
 
 ## Policy definition structure
 You use JSON to create a policy definition. The policy definition contains elements for:
@@ -333,122 +347,10 @@ You use property aliases to access specific properties for a resource type.
 The following topics contain policy examples:
 
 * For examples of tag polices, see [Apply resource policies for tags](resource-manager-policy-tags.md).
+* For examples of naming and text patterns, see [Apply resource policies for names and text](resource-manager-policy-naming-convention.md).
 * For examples of storage policies, see [Apply resource policies to storage accounts](resource-manager-policy-storage.md).
 * For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
-### Allowed resource locations
-To specify which locations are allowed, see the example in the [Policy definition structure](#policy-definition-structure) section. To assign this policy definition, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
-
-### Not allowed resource locations
-To specify which locations are not allowed, use the following policy definition:
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "notAllowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that are not allowed when deploying resources",
-          "strongType": "location",
-          "displayName": "Not allowed locations"
-        }
-      }
-    },
-    "displayName": "Not allowed locations",
-    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "field": "location",
-        "in": "[parameters('notAllowedLocations')]"
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-  }
-}
-```
-
-### Allowed resource types
-The following example shows a policy that permits deployments for only the Microsoft.Resources, Microsoft.Compute, Microsoft.Storage, Microsoft.Network resource types. All others are denied:
-
-```json
-{
-  "if": {
-    "not": {
-      "anyOf": [
-        {
-          "field": "type",
-          "like": "Microsoft.Resources/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Compute/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Storage/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Network/*"
-        }
-      ]
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-### Set naming convention
-The following example shows the use of wildcard, which is supported by the **like** condition. The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "like": "namePrefix*nameSuffix"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-To specify that resource names match a pattern, use the match condition. The following example requires names to start with `contoso` and contain six additional letters:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "match": "contoso??????"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-To require a date pattern of two digits, dash, three letters, dash, and four digits, use:
-
-```json
-{
-  "if": {
-    "field": "tags.date",
-    "match": "##-???-####"
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
 
 ## Next steps
 * After defining a policy rule, assign it to a scope. To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md). To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](resource-manager-policy-create-assign.md).

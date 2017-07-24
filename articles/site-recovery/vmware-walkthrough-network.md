@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
+ms.date: 06/27/2017
 ms.author: raynew
 
 ---
@@ -25,7 +25,7 @@ This article summarizes network planning considerations when replicating on-prem
 Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## Connecting to replica VMs
+## Connect to replica VMs
 
 When planning your replication and failover strategy, one of the key questions is how to connect to the Azure VM after failover. There are a couple of choices when designing your network strategy for replica Azure VMs:
 
