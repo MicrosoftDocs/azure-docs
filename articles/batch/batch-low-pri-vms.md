@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 07/21/2017
 ms.author: markscu
 
 ---
@@ -245,6 +245,22 @@ VMs may occasionally be preempted; when this happens, Batch does the following:
     **Creating** and **Starting** states before they are available for task
     scheduling.
 -   Preemption counts are available as a metric in the Azure portal.
+
+## Metrics
+
+New metrics are available in the [Azure portal](https://portal.azure.com) for low-priority nodes. These metrics are:
+
+- Low-Priority Node Count
+- Low-Priority Core Count 
+- Preempted Node Count
+
+To view metrics in the Azure portal:
+
+1. Navigate to your Batch account in the portal, and view the settings for your Batch account.
+2. Select **Metrics** from the **Monitoring** section.
+3. Select the metrics you desire from the **Available Metrics** list.
+
+![Metrics for low-priority nodes](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## Next steps
 
