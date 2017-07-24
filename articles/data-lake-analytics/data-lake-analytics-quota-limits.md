@@ -34,7 +34,7 @@ Learn how to adjust and increase quota limits in Azure Data Lake Analytics (ADLA
 
 This is the maximum number of AUs that can run concurrently in your account. If your total running AUs across all jobs exceeds this limit, newer jobs are queued automatically. For example:
 
-* If you have only one job running with 250 AUs, when you submit a second job it will wait in the job queue until the first job is completed.
+* If you have only one job running with 250 AUs, when you submit a second job it will wait in the job queue until the first job completes.
 * If you already have five jobs running and each is using 50 AUs, when you submit a sixth job that needs 20 AUs it waits in the job queue until there are 20 AUs available.
 
 **Maximum number of concurrent U-SQL jobs per account:** 20
@@ -63,7 +63,7 @@ This is the maximum number of jobs that can run concurrently in your account. Ab
 
     ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. In the problem blade, please explain your requested increase limit with **Details** of why you need this extra capacity.
+5. In the problem blade, explain your requested increase limit with **Details** of why you need this extra capacity.
 
     ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
