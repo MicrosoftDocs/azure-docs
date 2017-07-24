@@ -209,7 +209,7 @@ In order to enable Azure AD users to log into Zoho Mail, they must be provisione
 
     b. In the **Last Name** textbox, type the last name of user like **Simon**.
 
-    C. In the **Email ID** textbox, type the email id of user like **brittasimon@contoso.com**.
+    c. In the **Email ID** textbox, type the email id of user like **brittasimon@contoso.com**.
 
     d. In the **Password** textbox, enter password of user.
    
