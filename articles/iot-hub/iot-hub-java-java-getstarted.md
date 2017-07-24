@@ -299,12 +299,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     mvn clean package -DskipTests
     ```
 
-<<<<<<< HEAD
 ## Create a device app
-=======
-## Create a simulated device app
-
->>>>>>> master
 In this section, you create a Java console app that simulates a device that sends device-to-cloud messages to an IoT hub.
 
 1. In the iot-java-get-started folder you created in the *Create a device identity* section, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
@@ -375,19 +370,10 @@ In this section, you create a Java console app that simulates a device that send
       }
     }
     ```
-<<<<<<< HEAD
 9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the device app. This method also notifies the main thread in the app when the message has been processed:
    
-    ```
-    private static class EventCallback implements IotHubEventCallback
-    {
-=======
-
-9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
-
     ```java
     private static class EventCallback implements IotHubEventCallback {
->>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -497,12 +483,7 @@ You are now ready to run the apps.
     ![Azure portal Usage tile showing number of messages sent to IoT Hub][43]
 
 ## Next steps
-<<<<<<< HEAD
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub. 
-=======
-
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub.
->>>>>>> master
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub.
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
