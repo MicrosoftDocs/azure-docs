@@ -1,5 +1,3 @@
-- name: Azure Container Service
-  href: ./index.md
 - name: Kubernetes
   href: kubernetes/container-service-kubernetes-walkthrough.md
 - name: DC/OS and Docker Swarm
