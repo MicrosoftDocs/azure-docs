@@ -78,7 +78,7 @@ HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. F
     ![Selecting the Spark on HDInsight (Scala) project](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 3. In the **New HDInsight Scala Project** dialog box, provide the following values, and then click **Next**:
    * Enter a name for the project.
-   * In the **JRE** area, make sure that **Use an execution environment JRE** is set to **JavaSE-1.7** or above.
+   * In the **JRE** area, make sure that **Use an execution environment JRE** is set to **JavaSE-1.7** or later.
    * Make sure that Spark SDK is set to the location where you downloaded the SDK. The link to the download location is included in the [prerequisites](#prerequisites) earlier in this article. You can also download the SDK from the link included in the dialog box.
 
     ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
@@ -125,8 +125,8 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
    2. In the **Spark Submission** dialog box, provide the following values, and then click **Submit**:
       
       * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
-      * Select an artifact from the Eclipse project, or select one from a hard drive. the default value depends on the item you right-click from package explorer.
-      * In the **Main class name** dropdownlist, submission wizard displays all object names from you selected project. select or input one that you want to run object. if you select artifact from hard disk, you need input main class name by yourself. 
+      * Select an artifact from the Eclipse project, or select one from a hard drive. The default value depends on the item you right-click from package explorer.
+      * In the **Main class name** dropdownlist, submission wizard displays all object names from your selected project. Select or input one that you want to run. If you select artifact from hard disk, you need input main class name by yourself. 
       * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
         
        ![Spark Submission dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
@@ -142,12 +142,12 @@ You can perform various operations by using HDInsight Tools, including accessing
        ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Click the name of the application for which you want to see more details.
        ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
-3. Hover on job graph, it displays basic running job info. Click on job graph, you can see the stages graph and info which every job generate.
+3. Hover on job graph, it displays basic running job info. Click on job graph, you can see the stages graph and info which every job generates.
        ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
 4. Frequently-used log including Driver Stderr, Driver Stdout, Directory Info are listed in **Log** tab.
        ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
-5. You can also open the Spark history UI and the YARN UI (at the application level) by clicking the respective hyplink at the top of the window.
+5. You can also open the Spark history UI and the YARN UI (at the application level) by clicking the respective hyperlink at the top of the window.
 
 ### Access the storage container for the cluster
 1. In Azure Explorer, expand the **HDInsight** root node to see a list of HDInsight Spark clusters that are available.
