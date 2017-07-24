@@ -77,7 +77,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
-7. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
+7. After installation completes, add the following to `/etc/nvidia/gridd.conf`:
  
   ```
   IgnoreSP=TRUE
@@ -135,7 +135,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
   ``` 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
-7. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
+7. After installation completes, add the following to `/etc/nvidia/gridd.conf`:
  
   ```
   IgnoreSP=TRUE
