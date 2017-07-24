@@ -40,7 +40,7 @@ There are several possible causes for the error:
 The computer the Hybrid Runbook Worker is running on is behind a firewall or proxy server and outbound network access may not be permitted or configured correctly.
 
 #### Solution
-Verify the computer has outbound access to *.cloudapp.net on ports 443, 9354, and 30000-30199. 
+Verify the computer has outbound access to *.azure-automation.net on port 443. 
 
 #### Cause 2: Computer has less than minimum hardware requirements
 Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer will become over utilized and cause runbook job delays or timeouts. 
