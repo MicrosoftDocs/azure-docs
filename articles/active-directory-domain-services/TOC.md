@@ -44,6 +44,7 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
+### [Enable the preview Azure portal experience](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
 
 # Related

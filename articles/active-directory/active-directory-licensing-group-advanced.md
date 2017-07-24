@@ -61,14 +61,10 @@ For this example, modify one user and set their extensionAttribute1 to the value
 
 ![Screenshot showing how to set the user's extensionAttribute1](media/active-directory-licensing-group-advanced/user-set-extensionAttribute1.png)
 
-### Modify a dynamic group membership rule
+> [!WARNING]
+> Use caution when modifying an existing group’s membership rule. When a rule is changed, the membership of the group will be re-evaluated and users who no longer match the new rule will be removed (users who still match the new rule will not be affected during this process). Those users will have their licenses removed during the process which may result in loss of service, or in some cases, loss of data.
 
-Use caution when modifying an existing group’s membership rule. When a rule is changed, all users are removed from the group. The rule is evaluated, and then users are added to the group based on the new conditions.
-
-If the group has licenses assigned, all users have those licenses removed during the process. New licenses are applied only after the new rule is evaluated and users are added back. Users might experience loss of service, or in some cases, loss of data.
-
-It's better not to change the membership rule on a group used for license assignment. Instead, create a group with a new membership rule and specify the same license settings as in the original group. Wait until all members are added and licenses are applied to all users. Only then should you delete the original group. This approach ensures a safe, staged transition to a new membership rule, without any loss of access or data for users.
-
+> If you have a large dynamic group you depend on for license assignment, consider validating any major changes on a smaller test group before applying them to the main group.
 
 ## Multiple groups and multiple licenses
 
@@ -148,6 +144,59 @@ You can use a PowerShell script to check if users have a license assigned direct
   ![Screenshot of the Get-Msolaccountsku cmdlet](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. Use the *AccountSkuId* value for the license you are interested in with [this PowerShell script](./active-directory-licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). This will produce a list of users who have this license with the information about how the license is assigned.
+
+## Use Audit logs to monitor group-based licensing activity
+
+You can use [Azure AD audit logs](./active-directory-reporting-activity-audit-logs.md#audit-logs) to see all activity related to group-based licensing, including:
+- who changed licenses on groups
+- when the system started processing a group license change, and when it finished
+- what license changes were made to a user as a result of a group license assignment.
+
+>[!NOTE]
+> Audit logs are available on most blades in the Azure Active Directory section of the portal. Depending on where you access them, filters may be pre-applied to only show activity relevant to the context of the blade. If you are not seeing the results you expect, examine [the filtering options](./active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) or access the unfiltered audit logs under [**Azure Active Directory > Activity > Audit logs**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+
+### Find out who modified a group license
+
+1. Set the **Activity** filter to *Set group license* and click **Apply**.
+2. The results include all cases of licenses being set or modified on groups.
+>[!TIP]
+> You can also type the name of the group in the *Target* filter to scope the results.
+
+3. Click an item in the list view to see the details of what has changed. Under *Modified Properties* both old and new values for the license assignment are listed.
+
+Here is an example of recent group license changes, with details:
+
+![Screenshot group license changes](media/active-directory-licensing-group-advanced/audit-group-license-change.png)
+
+### Find out when group changes started and finished processing
+
+When a license changes on a group, Azure AD will start applying the changes to all users.
+
+1. To see when groups started processing, set the **Activity** filter to *Start applying group based license to users*. Note that the actor for the operation is *Microsoft Azure AD Group-Based Licensing* - a system account that is used to execute all group license changes.
+>[!TIP]
+> Click an item in the list to see the *Modified Properties* field - it shows the license changes that were picked up for processing. This is useful if you made multiple changes to a group and you are not sure which one was processed.
+
+2. Similarly, to see when groups finished processing, use the filter value *Finish applying group based license to users*.
+>[!TIP]
+> In this case, the *Modified Properties* field contains a summary of the results - this is useful to quickly check if processing resulted in any errors. Sample output:
+> ```
+Modified Properties
+...
+Name : Result
+Old Value : []
+New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+> ```
+
+3. To see the complete log for how a group was processed, including all user changes, set the following filters:
+  - **Initiated By (Actor)**: "Microsoft Azure AD Group-Based Licensing"
+  - **Date Range** (optional): custom range for when you know a specific group started and finished processing
+
+This sample output shows the start of processing, all resulting user changes, and the finish of processing.
+
+![Screenshot group license changes](media/active-directory-licensing-group-advanced/audit-group-processing-log.png)
+
+>[!TIP]
+> Clicking items related to *Change user license* will show details for license changes applied to each individual user.
 
 ## Limitations and known issues
 

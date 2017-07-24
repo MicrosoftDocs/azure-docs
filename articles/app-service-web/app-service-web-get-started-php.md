@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/04/2017
+ms.date: 07/21/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -64,7 +64,7 @@ php -S localhost:8080
 
 Open a web browser, and navigate to the sample app at http://localhost:8080.
 
-You see the **Hello World** message from the sample app displayed in the page.
+You see the **Hello World!** message from the sample app displayed in the page.
 
 ![Sample app running locally](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 

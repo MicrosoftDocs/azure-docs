@@ -28,12 +28,15 @@
 ### [U-SQL R extensions](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
+### [U-SQL for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 
 ## Debug U-SQL programs
 ### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [Debug C# code in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Use Job Browser and Job View](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+### [Local run and local debug in VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [U-SQL Programmability Guide](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)

@@ -3,7 +3,7 @@ title: Configuration and management issues for Microsoft Azure Cloud Services FA
 description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: ''
 tags: top-support-issue
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/9/2017
-ms.author: v-six
+ms.date: 7/10/2017
+ms.author: genli
 
 ---
 # Configuration and management issues for Azure Cloud Services: Frequently asked questions (FAQs)

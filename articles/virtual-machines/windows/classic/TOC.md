@@ -43,6 +43,7 @@
 ### [Install and configure Trend Micro Deep Security as a Service](install-trend.md)
 ### [Configure an availability set](configure-availability.md)
 ### [Resize a Windows VM created in the classic deployment model](resize-vm.md)
+### [Maintenance](planned-maintenance-schedule.md)
 
 ## Manage
 ### [Migrate from Classic to Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -55,7 +56,6 @@
 ## Plan
 ### [About images](about-images.md)
 ### [Sizes for VMs](../../virtual-machines-windows-sizes.md)
-#### [About H-series and compute-intensive A-series VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Planned maintenance for Azure VMs](../../virtual-machines-windows-planned-maintenance.md)
 ### [Azure infrastructure services implementation guidelines](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [Submit jobs from on-premises to Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configure Oracle Data Guard for Azure](configure-oracle-data-guard.md)
-####[Configure Oracle GoldenGate for Azure](configure-oracle-goldengate.md)
-####[Miscellaneous considerations for images](oracle-considerations.md)
-####[List of Oracle VM images](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
