@@ -36,6 +36,9 @@ To complete this quickstart:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+> [!IMPORTANT]
+> The steps in this quickstart are intended to be executed using your local terminal experience. You can leverate Cloud Shell by using the **Try It** experience, or for any command which begins with `az`.
+
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Download the sample
