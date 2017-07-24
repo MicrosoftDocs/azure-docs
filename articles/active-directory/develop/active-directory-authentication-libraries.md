@@ -28,22 +28,17 @@ ADAL is available on a variety of platforms.
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
 | .NET Client, Windows Store, UWP, Xamarin iOS and Android |MSAL .NET 1.1.0-preview |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=active-directory%20msal) |[Reference](https://docs.microsoft.com/en-us/dotnet/api/?view=identityclient-1.1.0-preview) | 
-| JavaScript |MSAL .NET 1.1.0-preview |[GitHub](TBD) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=active-directory%20msal) | | 
-| iOS |MSAL .NET 1.1.0-preview |[GitHub](TBD) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=active-directory%20msal) | |
-| Android |MSAL .NET 1.1.0-preview |[GitHub](TBD) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=active-directory%20msal) | |
+| JavaScript |MSAL.js preview |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Samples](https://github.com/search?q=topic%3Ajavascript+msal+org%3AAzure-Samples&type=Repositories) | | 
+| iOS |MSAL .NET 1.1.0-preview |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [Samples](https://github.com/search?q=topic%3Aswift+msal+org%3AAzure-Samples&type=Repositories) | |
+| Android |MSAL .NET 1.1.0-preview |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Samples](https://github.com/search?q=topic%3Aandroid+msal+org%3AAzure-Samples&type=Repositories) | |
 | .NET Client, Windows Store, UWP, Xamarin iOS and Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Desktop App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Reference](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=identitymodelclientsad-3.13.9) | 
 | .NET Client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.2) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.2) | [Desktop App](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | | 
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Single Page App](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Reference](https://cocoapods.org/pods/ADAL)|
 | Android |ADAL |[The Central Repository](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
-<<<<<<< HEAD
 | Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
-
-=======
-| Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web App](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
 | Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) | | |
->>>>>>> db96339dcf43578594eb2429388e32ba10ce4573
 ### Server Libraries 
 
 | Platform | Library | Download | Source Code | Sample | Reference
