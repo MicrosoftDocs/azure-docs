@@ -1,6 +1,6 @@
 ---
-title: Use Azure Backup Server to protect a VMware server workload | Microsoft Docs
-description: Back up a VMware server to Azure or disk, with Azure Backup Server. Use this article to help protect your VMware workload.
+title: Back up VMware servers with Azure Backup Server | Microsoft Docs
+description: Use Azure Backup Server to back up a VMware vCenter/ESXi servers to Azure or disk. This article provides step=by-step instruction for backing up (or protecting) your VMware workloads.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/20/2017
+ms.date: 07/24/2017
 ms.author: markgal;
 
 ---
@@ -21,7 +21,7 @@ ms.author: markgal;
 
 This article explains how to configure Azure Backup Server to help protect VMware server workloads. This article assumes you already have Azure Backup Server installed. If you don't have Azure Backup Server installed, see [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-Azure Backup Server can back up, or help protect, VMware vCenter Server version 6.0 and 5.5.
+Azure Backup Server can back up, or help protect, VMware vCenter Server version 6.5, 6.0 and 5.5.
 
 
 ## Create a secure connection to the vCenter Server
