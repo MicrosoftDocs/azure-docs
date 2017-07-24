@@ -17,6 +17,7 @@ metadata:
 abstract:
   description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
 sections:
+- title:
   items:
   - type: list
     style: cards
