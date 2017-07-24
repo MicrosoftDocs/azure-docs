@@ -26,7 +26,7 @@ If needed, install the [Azure CLI](../service-fabric-azure-cli-2-0.md).
 
 ## Sample script
 
-[!code-cli[main](../../../cli_scripts/service-fabric/remove-application/remove-application.sh "Remove an application from a cluster")]
+[!code-sh[main](../../../cli_scripts/service-fabric/remove-application/remove-application.sh "Remove an application from a cluster")]
 
 ## Script explanation
 
