@@ -21,24 +21,22 @@ ms.author: nepeters
 
 # Deploy a Kubernetes cluster in Azure Container Service
 
-Kubernetes provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. This quick start details basic steps needed to deploy a Kubernetes cluster. Steps completed include:
+Kubernetes provides a distributed platform for containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part 3 of 7, an Azure Container Service Kubernetes cluster is deployed. Steps completed include:
 
 > [!div class="checklist"]
 > * Deploying a Kubernetes ACS cluster
 > * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
+In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Operations Management Suite is configured to monitor the Kubernetes cluster.
+
 ## Before you begin
 
-In previous tutorials, container images were created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](container-service-tutorial-kubernetes-prepare-app.md). 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md).
 
 ## Create Kubernetes cluster
 
-In the [previous tutorial](container-service-tutorial-kubernetes-prepare-acr.md), a resource group named *myResourceGroup* was created. If you have not done so, create this resource group now.
+In the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md), a resource group named *myResourceGroup* was created. If you have not done so, create this resource group now.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -46,13 +44,13 @@ az group create --name myResourceGroup --location eastus
 
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes. If they do not already exist, SSH keys are created. To use a specific set of keys in a non-default location, use the `--ssh-key-value` option.
+The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 
 ```
 
-After several minutes, the command completes, and returns information about the ACS deployment.
+After several minutes, the command completes, and returns json formatted information about the ACS deployment.
 
 ## Install the kubectl CLI
 
@@ -78,7 +76,7 @@ az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8SC
 
 To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
-```bash
+```azurecli-interactive
 kubectl get nodes
 ```
 
@@ -99,11 +97,11 @@ At tutorial competition, you have an ACS Kubernetes cluster ready for workloads.
 In this tutorial, an Azure Container Service Kubernetes cluster was deployed. The following steps were completed:
 
 > [!div class="checklist"]
-> * Deploying a Kubernetes ACS cluster
-> * Installation of the Kubernetes CLI (kubectl)
-> * Configuration of kubectl
+> * Deployed a Kubernetes ACS cluster
+> * Installed the Kubernetes CLI (kubectl)
+> * Configured kubectl
 
 Advance to the next tutorial to learn about running application on the cluster.
 
 > [!div class="nextstepaction"]
-> [Deploy application in Kubernetes](container-service-tutorial-kubernetes-deploy-application.md)
+> [Deploy application in Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)

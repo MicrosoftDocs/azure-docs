@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 07/26/2017
 ms.author: danlep
 ---
 
@@ -23,9 +23,9 @@ ms.author: danlep
 
 Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
 
-You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes cluster by using the Containers solution in [Operations Management Suite](../../operations-management-suite/operations-management-suite-overview.md), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
+You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes cluster by using the Containers solution in [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
 
-This tutorial covers the following tasks:
+This tutorial, part 7 of 7, covers the following tasks:
 
 > [!div class="checklist"]
 > * Get OMS Workspace settings
@@ -34,7 +34,7 @@ This tutorial covers the following tasks:
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 At minimum, this tutorial requires a Kubernetes cluster with Linux agent nodes, and an Operations Management Suite (OMS) account. If needed, sign up for a [free OMS trial](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
 
@@ -103,19 +103,19 @@ spec:
 
 Create the DaemonSet with the following command:
 
-```bash
+```azurecli-interactive
 kubectl create -f oms-daemonset.yaml
 ```
 
 To see that the DaemonSet is created, run:
 
-```bash
+```azurecli-interactive
 kubectl get daemonset
 ```
 
 Output is similar to the following:
 
-```bash
+```azurecli-interactive
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR   AGE
 omsagent   3         3         3         0            3           <none>          5m
 ```
@@ -124,17 +124,17 @@ After the agents are running, it takes several minutes for OMS to ingest and pro
 
 ## Access monitoring data
 
-View and analyze the OMS container monitoring data with the [Container solution](../../log-analytics/log-analytics-containers.md) in either the OMS portal or the Azure portal. 
+View and analyze the OMS container monitoring data with the [Container solution](../log-analytics/log-analytics-containers.md) in either the OMS portal or the Azure portal. 
 
 To install the Container solution using the [OMS portal](https://mms.microsoft.com), go to **Solutions Gallery**. Then add **Container Solution**. Alternatively, add the Containers solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. Click the tile for details including: container events, errors, status, image inventory, and CPU and memory usage. For more granular information, click a row on any tile, or perform a [log search](../../log-analytics/log-analytics-log-searches.md).
+In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. Click the tile for details including: container events, errors, status, image inventory, and CPU and memory usage. For more granular information, click a row on any tile, or perform a [log search](../log-analytics/log-analytics-log-searches.md).
 
 ![Containers dashboard in OMS portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
 Similarly, in the Azure portal, go to **Log Analytics** and select your workspace name. To see the **Containers** summary tile, click **Solutions** > **Containers**. To see details, click the tile.
 
-See the [Azure Log Analytics documentation](../../log-analytics/index.md) for detailed guidance on querying and analyzing monitoring data.
+See the [Azure Log Analytics documentation](../log-analytics/index.md) for detailed guidance on querying and analyzing monitoring data.
 
 ## Next steps
 
@@ -149,4 +149,4 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 Follow this link to see pre-built script samples for Container Service.
 
 > [!div class="nextstepaction"]
-> [Azure Container Service script samples](cli-samples.md)
+> [Azure Container Service script samples](./cli-samples.md)
