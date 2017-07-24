@@ -54,7 +54,7 @@ Create an Azure Container registry with the [az acr create](/cli/azure/acr#creat
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
 ```
 
-Throughout the rest of this tutorial, we use <acrname> as a placeholder for the container registry name that you chose.
+Throughout the rest of this tutorial, we use "acrname" as a placeholder for the container registry name that you chose.
 
 ## Get registry information 
 
