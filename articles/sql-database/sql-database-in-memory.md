@@ -123,11 +123,11 @@ If the query returns **1**, In-Memory OLTP is supported in this database.
 
 ### Columnstore indexes
 
-*Downgrading to Basic/Standard*: Columnstore indexes aren't supported in databases in the Standard or Basic tier. When you downgrade a database to Standard/Basic, columnstore indexes will become unavailable. If you use a clustered columnstore index, this means that the table as a whole becomes unavailable.
+*Downgrading to Basic or Standard*: Columnstore indexes are supported only on the Premium pricing tier, and not on the Standard or Basic tiers. When you downgrade your database to Standard or Basic, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to Premium, your columnstore index is immediately ready to be leveraged again.
 
-Before you downgrade the database to Standard/Basic, drop all clustered columnstore indexes.
+If you use a **clustered** columnstore index, the whole table becomes unavailable. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database below the Premium tier.
 
-*Downgrading to a lower Premium tier*: This will succeed as long as the database as a whole fits within the maximum database size for the target pricing tier or available storage in the elastic pool. There is no specific impact from the columnstore indexes.
+*Downgrading to a lower Premium tier*: This succeeds if the whole database fits within the maximum database size for the target pricing tier, or within the available storage in the elastic pool. There is no specific impact from the columnstore indexes.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
