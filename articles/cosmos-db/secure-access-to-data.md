@@ -178,5 +178,5 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 ## Next steps
 * To learn more about Cosmos DB database security, see [Cosmos DB: Database security](database-security.md).
-* To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](manage-account.md#keys).
 * To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).
