@@ -31,7 +31,7 @@ Prerequisites to the exercises in this document:
 [Connect with the Swarm cluster in Azure Container Service](container-service-connect.md)
 
 ## Deploy a new container
-To create a new container in the Docker Swarm, use the `docker run` command (ensuring that you have opened an SSH tunnel to the masters as per the prerequisites above). This example creates a container from the `yeasy/simple-web` image:
+To create a new container in the Docker Swarm, use the `docker run` command (ensuring that you have opened an SSH tunnel to the masters as per the prerequisites above). When you run `docker info` you should see a list of Swarm agents. If not, please follow all of the steps to [connect with the Swarm cluster](container-service-connect.md) and run it again. It is important that you export the `DOCKER_HOST` environment variable or pass it using the `-H` switch per the instructions. This example creates a container from the `yeasy/simple-web` image:
 
 ```bash
 user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
