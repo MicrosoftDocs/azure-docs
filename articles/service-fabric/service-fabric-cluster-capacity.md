@@ -72,7 +72,7 @@ This privilege is expressed in the following values:
 * Silver - The infrastructure Jobs can be paused for a duration of 10 minutes per UD and is available on all standard VMs of single core and above.
 * Bronze - No privileges. This is the default and is recommended if you are only running stateless workloads in your cluster.
 
-You get to choose durability level for each of your node-types.You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster. **You must maintain a minimum count of 5 nodes for any node-type that has a durability of Gold or silver**. 
+You get to choose durability level for each of your node-types.You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster.**You must maintain a minimum count of 5 nodes for any node-type that has a durability of Gold or silver**. 
 
 **Advantages of using Silver or Gold durability levels**
  
@@ -93,14 +93,13 @@ Use Silver or Gold durability for all node types that host stateful services you
 ### Operational Recommendations for the node type that you have set to silver or gold durability level.
 
 1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion.
-2. Adopt safer ways to make a VM SKU change (Scale up/down):
-
-This is not an operation you should be performing often, since it is not safe.  Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation. Here is the process you can follow to avoid common issues.
-	- For non-primary nodetypes: it is recommended that you create new Virtual Machine Scale Set, modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
-	- For the primary nodetype - Our recommendation is that you do not change VM SKU of the primary node type. If the reason for the new SKU is capacity, we recommend adding more instances or if possible, create a new cluster. If you have no choice, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than ten minutes (for Silver durability level).
+2. Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation and so should not be avoided if possible. Here is the process you can follow to avoid common issues.
+	- **For non-primary nodetypes:** It is recommended that you create new Virtual Machine Scale Set, modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
+	- **For the primary nodetype:** Our recommendation is that you do not change VM SKU of the primary node type. If the reason for the new SKU is capacity, we recommend adding more instances or if possible, create a new cluster. If you have no choice, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
 3. Maintain a minimum count of five nodes for any Virtual Machine Scale Set that has MR enabled
-4. Do not delete random VM instances, always use Virtual Machine Scale Set scale down. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to proper load balancing amongst the service instances/Service replicas.
-6. If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. 
+4. Do not delete random VM instances, always use Virtual Machine Scale Set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
+6. If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. Scaling down more than one instance at a time is not safe.
+7. If Scaling down a primary node type, you should never scale it down than the reliability tier. Read more on the reliability tier below.
 
 
 ## The reliability characteristics of the cluster
@@ -114,18 +113,33 @@ The reliability tier can take the following values:
 * Bronze - Run the System services with a target replica set count of 3
 
 > [!NOTE]
-> The reliability tier you choose determines the minimum number of nodes your primary node type must have. The reliability tier has no bearing on the max size of the cluster. So you can have a 20 node cluster, that is running at Bronze reliability.
+> The reliability tier you choose determines the minimum number of nodes your primary node type must have. 
 > 
 > 
 
- You can choose to update the reliability of your cluster from one tier to another. Doing this triggers the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+
+### Recommendations for the reliability tier.
+
+ When you increase or decrease the size of your cluster (the sum of VM instances in all node types) You must update the reliability of your cluster from one tier to another. Doing this triggers the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+
+Here is the recommendation on choosing the reliability tier.
+
+| **Cluster Size** | **Reliability Tier** |
+| --- | --- |
+| 1 |Do not specify the Reliability Tier parameter, the system will calculate it |
+| 3 |Bronze |
+| 5 or 6|Silver |
+| 7 or 8 |Gold |
+| 9 and up |Platinum |
+
+
 
 
 ## Primary node type - Capacity Guidance
 
 Here is the guidance for planning the primary node type capacity
 
-1. **Number of VM instances to run any production workload in Azure: ** You must specify a minimum Primary Node type size of 5.
+1. **Number of VM instances to run any production workload in Azure: ** You must specify a minimum Primary Node type size of 5. 
 2. **Number of VM instances to run test workloads in Azure** You can specify a minimum Primary Node type size of 1 or 3. The one node cluster, runs with a special configuration and so, scale out of that cluster is not supported. The one node cluster, has no reliability and so in your Resource Manager template, you have to remove/not specify that configuration (not setting the configuration value is not enough). If you set up the one node cluster set up via portal, then the configuration is automatically taken care of. 1 and 3 node clusters are not supported for running production workloads. 
 3. **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if the brain does not get enough oxygen, your body suffers. 
 
@@ -142,9 +156,9 @@ For production workloads
 
 ## Non-Primary node type - Capacity Guidance for stateful workloads
 
-Read the following for Workloads using Service fabric reliable collections or reliable Actors. Read more here [programming models here.](service-fabric-choose-framework.md)
+Read the following for Workloads using Service fabric reliable collections or reliable Actors. Read more on the supported [programming models here.](service-fabric-choose-framework.md)
 
-1. **Number of VM instances:** For production workloads that are stateful, it is recommended that you run them with a minimum and target replica count of 5. This means that in steady state you end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for the primary node type is a way to specify this setting for system services.
+1. **Number of VM instances:** For production workloads that are stateful, it is recommended that you run them with a minimum and target replica count of 5. This means that in steady state you end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for the primary node type is a way to specify this setting for system services. So the same consideration applies to your sateful services as well.
 
 So for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
 
