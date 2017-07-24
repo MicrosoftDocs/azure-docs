@@ -22,7 +22,7 @@ After the browser loads your *index.html*, click the *Call Microsoft Graph API* 
 
 
 ### Consent
-The very first time you sign in to your application, you will be presented with a consent screen similar to below, where you need to explicitly accept:
+The very first time you sign in to your application, you will be presented with a consent screen similar to below, where you need to accept:
 
  ![Consent screen](media/active-directory-singlepageapp-javascriptspa-test/javascriptspaconsent.png)
 
@@ -37,8 +37,8 @@ You will also see basic information about the token acquired in the *Access Toke
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the `user.read` scope to read the user's profile. This scope is automatically added by default in every application being registered on our registration portal. Some other APIs for Microsoft Graph as well as custom APIs for your backend server may require additional scopes. For example, for Microsoft Graph, the scope `Calendars.Read` is required to list the user’s calendars. In order to access the user’s calendar in a context of an application, you need to add the `Calendars.Read` delegated permission to the application registration’s information and then add the `Calendars.Read` scope to the `acquireTokenSilent` call. The user may be prompted for additional consents as you increase the number of scopes.
+The Microsoft Graph API requires the `user.read` scope to read the user's profile. This scope is automatically added by default in every application being registered on our registration portal. Some other APIs for Microsoft Graph as well as custom APIs for your backend server may require additional scopes. For example, for Microsoft Graph, the scope `Calendars.Read` is required to list the user’s calendars. In order to access the user’s calendar in the context of an application, you need to add the `Calendars.Read` delegated permission to the application registration’s information and then add the `Calendars.Read` scope to the `acquireTokenSilent` call. The user may be prompted for additional consents as you increase the number of scopes.
 
-If a backend API does not require a scope (not recommended), you can use the `clientId` as the scope in the `acquireTokenSilent` and/or `acquireTokenPopup` calls.
+If a backend API does not require a scope (not recommended), you can use the `clientId` as the scope in the `acquireTokenSilent` and/or `acquireTokenRedirect` calls.
 
 <!--end-collapse-->

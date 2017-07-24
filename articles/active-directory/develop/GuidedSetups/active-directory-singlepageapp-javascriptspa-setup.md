@@ -35,35 +35,38 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <title>JavaScript SPA Guided Setup</title>
-    </head>
-    <body style="margin: 40px">
-        <button id="callGraphButton" type="button" class="btn btn-primary" onclick="callGraphAPI()">Call Microsoft Graph API</button>
-        <div id="errorMessage" class="text-danger"></div>
-        <div class="hidden">
-            <h3>Graph API Call Response</h3>
-            <pre class="well" id="graphResponse"></pre>
-        </div>
-        <div class="hidden">
-            <h3>Access Token</h3>
-            <pre class="well" id="accessToken"></pre>
-        </div>
-        <div class="hidden">
-            <h3>ID Token Claims</h3>
-            <pre class="well" id="userInfo"></pre>
-        </div>
-        <button id="signOutButton" type="button" class="btn btn-primary hidden" onclick="signOut()">Sign out</button>
+<head>
+    <!-- bootstrap reference used for styling the page -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>JavaScript SPA Guided Setup</title>
+</head>
+<body style="margin: 40px">
+    <button id="callGraphButton" type="button" class="btn btn-primary" onclick="callGraphApi()">Call Microsoft Graph API</button>
+    <div id="errorMessage" class="text-danger"></div>
+    <div class="hidden">
+        <h3>Graph API Call Response</h3>
+        <pre class="well" id="graphResponse"></pre>
+    </div>
+    <div class="hidden">
+        <h3>Access Token</h3>
+        <pre class="well" id="accessToken"></pre>
+    </div>
+    <div class="hidden">
+        <h3>ID Token Claims</h3>
+        <pre class="well" id="userInfo"></pre>
+    </div>
+    <button id="signOutButton" type="button" class="btn btn-primary hidden" onclick="signOut()">Sign out</button>
 
-        <script src="//secure.aadcdn.microsoftonline-p.com/lib/0.1.1/js/msal.min.js"></script>
-        <script type="text/javascript" src="msalconfig.js"></script>
-    
-        <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+    <!-- This app uses cdn to reference msal.js (recommended). 
+         You can also download it from: https://github.com/AzureAD/microsoft-authentication-library-for-js -->
+    <script src="//secure.aadcdn.microsoftonline-p.com/lib/0.1.1/js/msal.min.js"></script>
 
-        <script type="text/javascript" src="app.js"></script>
-    </body>
+    <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+
+    <script type="text/javascript" src="msalconfig.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
 </html>
 ````
