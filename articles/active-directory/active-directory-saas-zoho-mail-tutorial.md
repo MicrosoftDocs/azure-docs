@@ -205,11 +205,11 @@ In order to enable Azure AD users to log into Zoho Mail, they must be provisione
    
     ![Add User](./media/active-directory-saas-zoho-mail-tutorial/ic789612.png "Add User")
    
-    a. In **First Name** textbox, type the first name of user like **Britta**.
+    a. In the **First Name** textbox, type the first name of user like **Britta**.
 
-    a. In **Last Name** textbox, type the last name of user like **Simon**.
+    a. In the **Last Name** textbox, type the last name of user like **Simon**.
 
-    a. In **Password** textbox, enter password of user.
+    a. In the **Password** textbox, enter password of user.
    
     b. Click **OK**.  
       
