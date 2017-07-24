@@ -251,6 +251,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for A
     ![Azure Backup Server Add Credential dialog box](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Click **Add** to add the new credential to Azure Backup Server. The new credential appears in the list in the **Manage Credentials** dialog box.
+    
     ![Azure Backup Server Manage Credentials dialog box](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. To close the **Manage Credentials** dialog box, click the **X** in the upper-right corner.
