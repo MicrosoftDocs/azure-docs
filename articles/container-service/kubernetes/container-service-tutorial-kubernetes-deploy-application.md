@@ -15,13 +15,13 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 07/25/2017
 ms.author: nepeters
 ---
 
 # Run applications in Kubernetes
 
-In this tutorial, part 4 of 7, a sample application is deployed into a Kubernetes cluster. Steps completed include:
+In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]
 > * Download Kubernetes manifest files
