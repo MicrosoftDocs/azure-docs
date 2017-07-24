@@ -65,7 +65,7 @@ The steps that you need are as follows:
 - Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
 >[!IMPORTANT]
->Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working till the time your Kerberos tickets expire and are re-issued by your on-premises Active Directory - this can be upto 12 hours.
+>Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working until the time your Kerberos tickets expire and are reissued by your on-premises Active Directory.
 
 ## How can I disable Seamless SSO?
 
