@@ -21,9 +21,9 @@ ms.author: ccompy
 
 An Azure App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in a customer’s Azure Virtual Network. It consists of:
 
-- **Front ends**: This is where HTTP/HTTPS terminates in an ASE.
-- **Workers**: These are the resources that host your apps.
-- **Database**: This database holds information that defines the environment.
+- **Front ends**: The front ends are where HTTP/HTTPS terminate in an ASE.
+- **Workers**: The workers are the resources that host your apps.
+- **Database**: The database holds information that defines the environment.
 - **Storage**: The storage is used to host the customer-published apps.
 
 > [!NOTE]

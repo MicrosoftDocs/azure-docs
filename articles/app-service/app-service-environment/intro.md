@@ -19,9 +19,9 @@ ms.author: ccompy
  
 ## Overview ##
 
-An Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIapps], and [Functions][Functions].
+An Azure App Service Environment (ASE) is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIapps], and [Functions][Functions].
 
-App Service Environments (ASEs) are appropriate for application workloads that require:
+ASEs are appropriate for application workloads that require:
 
 - Very high scale.
 - Isolation and secure network access.
@@ -45,7 +45,7 @@ Apps running on ASEs can have their access gated by upstream devices, such as we
 
 An ASE is dedicated exclusively to a single subscription and can host 100 instances. That can range from 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
 
-An ASE is composed of front-ends and workers. Front-ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front-ends are automatically added as the App Service plans in the ASE are scaled out.
+An ASE is composed of front ends and workers. Front ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front ends are automatically added as the App Service plans in the ASE are scaled out.
 
 Workers are roles that host customer apps. Workers are available in three fixed sizes:
 
@@ -53,7 +53,7 @@ Workers are roles that host customer apps. Workers are available in three fixed 
 * Two core/7 GB RAM
 * Four core/14 GB RAM
 
-Customers do not need to manage front-ends and workers. All infrastructure is automatically added as customers scale out their App Service plans. As App Service plans are created or scaled in an ASE, the required infrastructure is added or removed as appropriate.
+Customers do not need to manage front ends and workers. All infrastructure is automatically added as customers scale out their App Service plans. As App Service plans are created or scaled in an ASE, the required infrastructure is added or removed as appropriate.
 
 There is a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. In addition, there is a cost per App Service plan core. All apps hosted in an ASE are in the Isolated pricing SKU. For information on pricing for an ASE, see the [App Service pricing][Pricing] page and review the available options for ASEs.
 
@@ -73,9 +73,9 @@ For more information on how ASEs work with virtual networks and on-premises netw
 
 The App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2. 
 
-In ASEv1, you need to manage all of the resources manually. That includes the front-ends, workers, and IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you need to first scale out the worker pool where you want to host it.
+In ASEv1, you need to manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you need to first scale out the worker pool where you want to host it.
 
-ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each core allocated. That includes cores used for front-ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front-ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
+ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each core allocated. That includes cores used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

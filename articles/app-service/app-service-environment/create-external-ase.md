@@ -1,6 +1,6 @@
 ---
 title: Create an External Azure App Service Environment
-description: Explains how to create an Azure App Service Environment while creating an app or standalone
+description: Explains how to create an Azure App Service Environment while you create an app or standalone
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -17,7 +17,7 @@ ms.author: ccompy
 ---
 # Create an External App Service Environment #
 
-The Azure App Service Environment is a deployment of the Azure App Service into a subnet in your Azure virtual network. There are two ways to deploy an App Service Environment (ASE):
+The Azure App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in the Azure Virtual Network. There are two ways to deploy an ASE:
 
 - With a VIP on an external IP address, often called an External ASE.
 - With the VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB).
@@ -44,46 +44,46 @@ After you create your ASE, you can't change the following:
 There are three ways to create an ASE:
 
 - While you create an App Service plan, which creates the ASE and the App Service plan in one step.
-- From the standalone ASE creation UI, which creates an ASE with nothing in it. This method is a more advanced ASE creation UI experience and is where you go to create an ASE with an ILB.
+- When you create an ASE standalone, which creates an ASE with nothing in it. This method is a more advanced process to create an ASE, and you use it to create an ASE with an ILB.
 - From an Azure Resource Manager template. This method is for advanced users. For more information, see [Create an ASE from a template][MakeASEfromTemplate].
 
 An ASE created without an ILB has a public VIP. That means all HTTP traffic to the apps in the ASE hit an Internet-accessible IP address. An ASE with an ILB has an endpoint on a virtual network IP address. Those apps aren't exposed directly to the Internet.
 
 ## Create an ASE and an App Service plan together ##
 
-The App Service plan is a container of apps. When you create an app in the App Service, you always need to choose or create an App Service plan. The container model environments hold App Service plans, and App Service plans hold apps.
+The App Service plan is a container of apps. When you create an app in the App Service, you choose or create an App Service plan. The container model environments hold App Service plans, and App Service plans hold apps.
 
 To create an ASE while you create an App Service plan:
 
-1. In the [Azure portal](https://portal.azure.com/), click **New** > **Web + Mobile** > **Web App**.
+1. In the [Azure portal](https://portal.azure.com/), select **New** > **Web + Mobile** > **Web App**.
 
-    ![][1]
+    ![Web app creation][1]
 
 2. Select your subscription. If you have multiple subscriptions, use the same subscription that you used when you created the ASE.
 
 3. Select or create a resource group. With resource groups, you can manage related Azure resources as a unit. Resource groups also are useful when you establish Role-Based Access Control rules for your apps. For more information, see the [Azure Resource Manager overview][ARMOverview].
 
-4. Click the App Service plan, and then select **Create New**.
+4. Select the App Service plan, and then select **Create New**.
 
-    ![][2]
+    ![New App Service plan][2]
 
-5. In the **Location** drop-down list box, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
+5. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
-6. Click the **Pricing tier** UI, and select one of the **Isolated** pricing SKUs. If you select an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To open the ASE creation UI, click **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**.
+6. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**.
 
-    ![][3]
+    ![Pricing tier selection][3]
 
 7. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the subdomain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
 
-    ![][4]
+    ![New App Service plan name][4]
 
-8. Choose either **Create New** or **Select Existing**. The option to select an existing virtual network is available only if you have a virtual network in the selected region. If you select **Create New**, enter a name for the virtual network. A new Resource Manager virtual network with that name is created with the address space `192.168.250.0/23` in the selected region. If you select **Select Existing**, you need to:
+8. Select either **Create New** or **Select Existing**. The option to select an existing virtual network is available only if you have a virtual network in the selected region. If you select **Create New**, enter a name for the virtual network. A new Resource Manager virtual network with that name is created. It uses the address space `192.168.250.0/23` in the selected region. If you select **Select Existing**, you need to:
 
     a. Select the virtual network address block, if you have more than one.
 
     b. Enter a new subnet name.
 
-    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/25`, which has 128 addresses and can handle a maximum-sized ASE. We do not recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least 5 addresses, which leaves you with a maximum scaling of 11 instances in a `/28` subnet.
+    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/25`, which has 128 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least five addresses. In a `/28` subnet, you're left with a maximum scaling of 11 instances.
 
     d. Select the subnet IP range.
 
@@ -91,33 +91,33 @@ To create an ASE while you create an App Service plan:
 
 ## Create an ASE by itself ##
 
-The standalone ASE creation flow creates an ASE with nothing in it. An empty ASE still incurs a monthly charge for the infrastructure. Use this workflow to create an ASE with an ILB or to create an ASE in its own resource group. After you create your ASE, you can create apps in it by using the normal app creation experiences. Select your new ASE as the location.
+If you create an ASE standalone, it has nothing in it. An empty ASE still incurs a monthly charge for the infrastructure. Follow these steps to create an ASE with an ILB or to create an ASE in its own resource group. After you create your ASE, you can create apps in it by using the normal process. Select your new ASE as the location.
 
-To access the ASE creation UI, search the Azure Marketplace for **App Service Environment** or use **New** > **Web Mobile** > **App Service Environment**. To create an ASE by using the standalone creation experience:
+1. Search the Azure Marketplace for **App Service Environment**, or select **New** > **Web Mobile** > **App Service Environment**. 
 
-1. Enter the name of your ASE. This name is used for the apps created in the ASE. If the name is *mynewdemoase*, the subdomain name is *.mynewdemoase.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at *mytestapp.mynewdemoase.p.azurewebsites.net*. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of the name. If you use an ILB, your ASE name isn't used in your subdomain but is instead explicitly stated during ASE creation.
+2. Enter the name of your ASE. This name is used for the apps created in the ASE. If the name is *mynewdemoase*, the subdomain name is *.mynewdemoase.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at *mytestapp.mynewdemoase.p.azurewebsites.net*. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of the name. If you use an ILB, your ASE name isn't used in your subdomain but is instead explicitly stated during ASE creation.
 
-    ![][5]
+    ![ASE naming][5]
 
-2. Select your subscription. This subscription is also the one that all apps in the ASE use. You can't put your ASE in a virtual network that's in another subscription.
+3. Select your subscription. This subscription is also the one that all apps in the ASE use. You can't put your ASE in a virtual network that's in another subscription.
 
-3. Select or specify a new resource group. The resource group used for your ASE must be the same one that's used for your virtual network. If you select an existing virtual network, the resource group selection for your ASE is updated to reflect that of your virtual network.
+4. Select or specify a new resource group. The resource group used for your ASE must be the same one that's used for your virtual network. If you select an existing virtual network, the resource group selection for your ASE is updated to reflect that of your virtual network.
 
-    ![][6]
+    ![Resource group selection][6]
 
-4. Select your virtual network and location. You can create a new virtual network or select an existing virtual network. 
+5. Select your virtual network and location. You can create a new virtual network or select an existing virtual network. 
 
-    * If you select a new virtual network, you can specify a name and location. The new virtual network has the address range 192.168.250.0/23 and a subnet named **default** that's defined as 192.168.250.0/24. You can only select a Resource Manager virtual network. The **VIP Type** selection determines if your ASE can be directly accessed from the Internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service Environment][MakeILBASE]. 
+    * If you select a new virtual network, you can specify a name and location. The new virtual network has the address range 192.168.250.0/23 and a subnet named **default**. The subnet is defined as 192.168.250.0/24. You can only select a Resource Manager virtual network. The **VIP Type** selection determines if your ASE can be directly accessed from the Internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service Environment][MakeILBASE]. 
 
         * If you select an **External** VIP type, you can select how many external IP addresses the system is created with for IP-based SSL purposes. 
     
-        * If you select an **Internal** VIP type, you need to specify the subdomain that your ASE uses. ASEs can be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (for example, private addresses). To use a virtual network with a public address range, you create the virtual network ahead of time. 
+        * If you select an **Internal** VIP type, you must specify the subdomain that your ASE uses. ASEs can be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (for example, private addresses). To use a virtual network with a public address range, you create the virtual network ahead of time. 
     
     * If you select an existing virtual network, a new subnet is created when the ASE is created. *You can't use a pre-created subnet in the portal. You can create an ASE with an existing subnet if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service Environment from a template][MakeASEfromTemplate].
 
 ## App Service Environment v1 ##
 
-You can still create instances of the first version of the ASE feature (ASEv1). To reach that experience, search in the Marketplace for **App Service Environment v1.** The creation experience is the same as the standalone ASE creation experience. When finished, your ASEv1 is created with two front-ends and two workers. With ASEv1, you need to manage the front-ends and workers. They're not automatically added when you create your App Service plans. The front-ends act as the HTTP/HTTPS endpoints. They send traffic to the workers, which are the roles that host your apps. You can adjust the quantity after you create your ASE. 
+You can still create instances of the first version of the ASE feature (ASEv1). To start that process, search the Marketplace for **App Service Environment v1.** You create the ASE in the same way that you create the standalone ASE. When it's finished, your ASEv1 has two front ends and two workers. With ASEv1, you must manage the front ends and workers. They're not automatically added when you create your App Service plans. The front ends act as the HTTP/HTTPS endpoints. They send traffic to the workers, which are the roles that host your apps. You can adjust the quantity after you create your ASE. 
 
 To learn more about ASEv1, see [Introduction to the App Service Environment v1][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
 
