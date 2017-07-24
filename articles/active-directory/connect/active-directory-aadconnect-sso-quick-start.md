@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/24/2017
 ms.author: billmath
 ---
 
@@ -128,7 +128,7 @@ To test the scenario where the user doesn't have to enter the username or the pa
 - Sign into *https://myapps.microsoft.com/contoso.onmicrosoft.com* in a new private browser session. Replace "*contoso*" with your tenant's name.
 - Or sign into *https://myapps.microsoft.com/contoso.com* in a new private browser session. Replace "*contoso.com*" with a verified domain (not a federated domain) in your tenant.
 
-### Step 5: Roll over keys
+## Step 5: Roll over keys
 
 In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the AD forests on which you have enabled Seamless SSO. Learn more in detail [here](active-directory-aadconnect-sso-how-it-works.md). For improved security, it is recommended that  you frequently roll over the Kerberos decryption keys of these computer accounts.
 
