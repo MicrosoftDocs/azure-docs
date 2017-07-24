@@ -8328,6 +8328,11 @@
             "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-lad.md",
             "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-lad",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
+            "redirect_document_id": false
         }                                               
     ]
 }
