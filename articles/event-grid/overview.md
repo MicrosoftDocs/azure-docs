@@ -145,16 +145,6 @@ You can programmatically perform management operations with Event Grid REST API.
 * update subscriptions
 * delete subscriptions 
 
-## How much will Event Grid cost? 
-
-During preview, pricing and limitations are: 
-
-* $0.60 per million operations 
-* Operations are defined as any ingress, advanced match, delivery attempt, and management calls 
-* Customers get 100,000 free operations per month during 
-* Management operations are throttled to 10 per second 
-* 1000 Event Subscriptions per account
-
 ## Next steps
 
 * To learn about creating an Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).

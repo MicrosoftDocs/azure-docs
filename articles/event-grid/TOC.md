@@ -11,7 +11,7 @@
 ## [Multicasting events]()
 
 # Concepts
-## [Security & Authentication](security-authentication.md)
+## [Security and authentication](security-authentication.md)
 ## [Event delivery and retry]()
 
 # Reference

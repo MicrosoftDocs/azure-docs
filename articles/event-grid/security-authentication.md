@@ -39,7 +39,7 @@ For example, to subscribe to a topic on a storage account named **myacct**, you 
 /subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct
 ```
 
-### User Topics
+### User topics
 
 For user topics, you need permission on the Event Grid topic. The format of the resource is:
 
@@ -69,7 +69,7 @@ For example, you pass a key with:
 aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
-### SAS Tokens
+### SAS tokens
 
 SAS tokens for Event Grid include the resource, an expiration time, and a signature. The format of the SAS token is: `r={resource}&e={expiration}&s={signature}`.
 
@@ -106,3 +106,8 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
     }
 }
 ```
+
+## Next steps
+
+* For an introduction to Event Grid, see [What is Event Grid?](overview.md).
+* To learn about creating an Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
