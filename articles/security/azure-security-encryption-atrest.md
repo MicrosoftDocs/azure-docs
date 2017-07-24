@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2017
+ms.date: 07/24/2017
 ms.author: yurid
 
 ---
 # Azure Data Encryption-at-Rest
-There are multiple tools within Microsoft Azure to safeguard data according to your company’s security and compliance needs. This paper focuses on how data is protected at rest across Microsoft Azure, discuss the various components taking part in the data protection implementation, and review pros and cons of the different key management protection approaches. 
+There are multiple tools within Microsoft Azure to safeguard data according to your company’s security and compliance needs. This paper focuses on how data is protected at rest across Microsoft Azure, discusses the various components taking part in the data protection implementation, and reviews pros and cons of the different key management protection approaches. 
 
 Encryption at Rest is a common security requirement. A benefit of Microsoft Azure is that organizations can achieve Encryption at Rest without having the cost of implementation and management and the risk of a custom key management solution. Organizations have the option of letting Azure completely manage Encryption at Rest. Additionally, organizations have various options to closely manage encryption or encryption keys.
 
-## What is encryption at rest
+## What is encryption at rest?
 Encryption at Rest refers to the cryptographic encoding (encryption) of data when it is persisted. The Encryption at Rest designs in Azure use symmetric encryption to encrypt and decrypt large amounts of data quickly according to a simple conceptual model:
 
 - A symmetric encryption key is used to encrypt data as it is persisted 
 - The same encryption key is used to decrypt that data as it is readied for use in memory
 - Data may be partitioned, and different keys may be used for each partition
-- Keys must be stored in a secure location with access control policies limiting access to certain identities and logging key usage. Data encryption keys are often encrypted with asymmetric encryption to further limit access (discussed later in the *Key Hierarchy*, later in this article)
+- Keys must be stored in a secure location with access control policies limiting access to certain identities and logging key usage. Data encryption keys are often encrypted with asymmetric encryption to further limit access (discussed in the *Key Hierarchy*, later in this article)
 
 The above describes the common high-level elements of Encryption at Rest. In practice, key management and control scenarios, as well as scale and availability assurances, require additional constructs. Microsoft Azure Encryption at Rest concepts and components are described below.
 
@@ -103,7 +103,7 @@ Client Encryption model refers to encryption that is performed outside of the Re
 
 ### Server-side encryption model
 
-Server-side Encryption models refer to encryption that is performed by the Azure service . In that model, the Resource Provider performs the encrypt and decrypt operations. For example, Azure Storage may receive data in plain text operations and will perform the encryption and decryption internally. The Resource Provider might use encryption keys that are managed by Microsoft or by the customer depending on the provided configuration. 
+Server-side Encryption models refer to encryption that is performed by the Azure service. In that model, the Resource Provider performs the encrypt and decrypt operations. For example, Azure Storage may receive data in plain text operations and will perform the encryption and decryption internally. The Resource Provider might use encryption keys that are managed by Microsoft or by the customer depending on the provided configuration. 
 
 ![Server](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
@@ -230,7 +230,7 @@ Any customer using Azure Infrastructure as a Service (IaaS) features can achieve
 
 #### Azure storage
 
-Azure Blob, File, Tables [coming soon] and Queue [coming soon] storage supports encryption at rest for server-side encrypted scenarios as well as customer encrypted data (client-side encryption).
+Azure Blob, and File supports encryption at rest for server-side encrypted scenarios as well as customer encrypted data (client-side encryption).
 
 - Server-side: customers using Azure blob storage can enable encryption at rest on each Azure storage resource account. Once enabled server-side encryption is done transparently to the application. See [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption) for more information.
 - Client-side: client-side encryption of Azure Blobs is supported. When using client-side encryption customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. See [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) for more information.
