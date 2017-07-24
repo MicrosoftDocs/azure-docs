@@ -93,11 +93,28 @@ Use the following steps to provide relevant permissions to Azure Backup to acces
      ![Select key vault](./media/backup-azure-vms-encryption/select-key-vault.png)
      
 3. Click **Access policies** and then **Add new**.
+
+    ![Add access policy](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
+    
 4. Click **Select principal** and type **Backup Management Service** in the search bar. 
+
+    ![Search backup service](./media/backup-azure-vms-encryption/search-backup-service.png)
+    
 5. Select **Backup Management Service** and click Select button.
+
+    ![Select backup service](./media/backup-azure-vms-encryption/select-backup-service.png)
+    
 6. Select **Azure Backup** in Configure from template drop down. It pre-fills the required permissions in Key permissions and Secret permissions drop down. 
+
+    ![Select Azure backup](./media/backup-azure-vms-encryption/select-backup-template.png)
+    
 7. Click Ok. Notice that Backup Management Service gets added in Access Policies blade. 
+
+    ![Backup service access policy](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
+    
 8. Click **Save**. This will give the required permissions to Azure Backup.
+
+    ![Backup service access policy](./media/backup-azure-vms-encryption/save-access-policy.png)
 
 Once permissions are successfully provided, you can proceed with enabling backup for encrypted VMs.
 
