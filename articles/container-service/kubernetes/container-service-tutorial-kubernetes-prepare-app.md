@@ -15,20 +15,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 07/26/2017
 ms.author: nepeters
 ---
 
 # Create container images to be used with Azure Container Service
 
-In this tutorial, an application is prepared for Kubernetes. Steps completed include:  
+In this tutorial, part 1 of 7, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
 
 > [!div class="checklist"]
 > * Cloning application source from GitHub  
-> * Creating container images from application source
-> * Testing the images in a local Docker environment
+> * Creating a container image from the application source
+> * Testing the application in a local Docker environment
 
-In subsequent tutorials, these container images are uploaded to an Azure Container Registry, and then run in an Azure hosted Kubernetes cluster.
+Once completed, the following application is accessible in your local development environment.
+
+![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
+
+In subsequent tutorials, the container image is uploaded to an Azure Container Registry, and then run in an Azure hosted Kubernetes cluster.
 
 ## Before you begin
 
@@ -38,73 +42,42 @@ To complete this tutorial, you need a Docker development environment. Docker pro
 
 ## Get application code
 
-The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end database. 
+The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.  
 
 Use git to download a copy of the application to your development environment.
 
 ```bash
-git clone https://github.com/Azure-Samples/azure-voting-app.git
+git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Inside the application directory, pre-created Dockerfiles and Kubernetes manifest files can be found. These files are used to create assets throughout the tutorial set. 
+Inside the cloned directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used to create assets throughout the tutorial set. 
 
 ## Create container images
 
-To create a container image for the application front-end, use the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command.
+[Docker Compose](https://docs.docker.com/compose/) can be used to automate the build out of container images and the deployment of multi-container applications.
+
+Run the docker-compose.yaml file to create the container image, download the Redis image, and start the application.
 
 ```bash
-docker build ./azure-voting-app/azure-vote -t azure-vote-front
+docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up -d
 ```
 
-Repeat the command, this time for the back-end container image.
-
-```bash
-docker build ./azure-voting-app/azure-vote-mysql -t azure-vote-back
-```
-
-When completed, use the `docker images` command to see the created images. 
+When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
 
 ```bash
 docker images
 ```
 
-Output:
+Notice that three images have been downloaded or created. The *azure-vote-front* image contains the application. It was derived from the *nginx-flask* image. The Redis image was downloaded from Docker Hub.
 
 ```bash
-REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              c13c4f50ede1        39 seconds ago       716 MB
-azure-vote-back              latest              33fe5afc1885        About a minute ago   407 MB
-mysql                        latest              e799c7f9ae9c        4 weeks ago          407 MB
-tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
+REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
+azure-vote-front             latest     9cc914e25834        40 seconds ago      694MB
+redis                        latest     a1b99da73d05        7 days ago          106MB
+tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-## Test application
-
-Now that two container images have been created, test these images in your local development environment. 
-
-First, create a Docker network. This network is used for communication between the containers.  
-
-```bash
-docker network create azure-vote
-```
-
-Run an instance of the back-end container image using the `docker run` command.
-
-In this example, the mysql database file is stored inside the container. Once this application is moved to the Kubernete clusters, an external data volume is used to store the database file. Also, environment variables are being used to set MySQL credentials.
-
-```bash
-docker run -p 3306:3306 --name azure-vote-back -d --network azure-vote -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
-```
-
-Run an instance of the front-end container image.
-
-Environment variables are being used to configure the database connection information.
-
-```bash
-docker run -d -p 8080:80 --name azure-vote-front --network=azure-vote -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote -e MYSQL_HOST=azure-vote-back azure-vote-front
-```
-
-When complete, run `docker ps` to see the running containers.  
+Run the [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) command to see the running containers.
 
 ```bash
 docker ps
@@ -113,38 +86,34 @@ docker ps
 Output:
 
 ```bash
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                           NAMES
-3aa02e8ae965        azure-vote-front     "/usr/bin/supervisord"   59 seconds ago      Up 57 seconds       443/tcp, 0.0.0.0:8080->80/tcp   flaskmysqlvote_azure-vote-front_1
-5ae60b3ba181        azure-vote-backend   "docker-entrypoint..."   59 seconds ago      Up 58 seconds       0.0.0.0:3306->3306/tcp          azure-vote-back
+CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
+82411933e8f9        azure-vote-front  "/usr/bin/supervisord"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
+b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
-Browse to `http://localhost:8080` to see the running application. The application takes a few seconds to initialize. If an error is encountered, try again.
+## Test application locally
 
-![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/vote-app.png)
+Browse to http://localhost:8080 to see the running application.
+
+![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
 ## Clean up resources
 
-Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. These images are uploaded to an Azure Container Registry instance in the next tutorial.
+Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. The *azure-vote-front* image is uploaded to an Azure Container Registry instance in the next tutorial.
 
-Stop and delete the front-end container with the [docker rm](https://docs.docker.com/engine/reference/commandline/rm/) command. 
-
-```bash
-docker rm -f azure-vote-front
-```
-
-Stop and delete the back-end container with the [docker rm](https://docs.docker.com/engine/reference/commandline/rm/) command. 
+Run the following to stop the running containers.
 
 ```bash
-docker rm -f azure-vote-back
+docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
 ```
 
-Delete the network with the [docker network rm](https://docs.docker.com/engine/reference/commandline/network_rm/) command.
+Delete the stopped containers with the following command.
 
 ```bash
-docker network rm azure-vote
+docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
 ```
 
-At completion, you have two container images that make up the Azure Vote application.
+At completion, you have a container image that contains the Azure Vote application.
 
 ## Next steps
 
@@ -152,10 +121,10 @@ In this tutorial, an application was tested and container images created for the
 
 > [!div class="checklist"]
 > * Cloning the application source from GitHub  
-> * Creating container images from application source
-> * Testing the images in a local Docker environment
+> * Created a container image from application source
+> * Tested the application in a local Docker environment
 
 Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push images to Azure Container Registry](container-service-tutorial-kubernetes-prepare-acr.md)
+> [Push images to Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)

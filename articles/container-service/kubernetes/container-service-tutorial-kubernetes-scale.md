@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2017
+ms.date: 07/26/2017
 ms.author: danlep
 ---
 
@@ -23,32 +23,30 @@ ms.author: danlep
 
 If you've been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 
 
-In this tutorial, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of agent nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
+In this tutorial, part 5 of 7, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM agent nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
 
 > [!div class="checklist"]
 > * Manually scaling Kubernetes pods
 > * Configuring Autoscale pods running the app front end
 > * Scale the Kubernetes Azure agent nodes
 
+In subsequent tutorials, the Azure Vote application is updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
+
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 At minimum, this tutorial requires a Kubernetes cluster with a running application.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
 ## Manually scale pods
 
-The previous tutorial deployed the Azure Vote front-end and back-end each in a single pod. To verify, run the [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
+Thus far, the Azure Vote front-end and Redis instance have been deployed, each with a single replica. To verify, run the [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
-```bash
+```azurecli-interactive
 kubectl get pods
 ```
 
-Output is similar to the following:
+Output:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -56,15 +54,15 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command. This example increases the number to 5:
+Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command. This example increases the number to 5.
 
-```bash
+```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
 Run [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) to verify that Kubernetes is creating the pods. After a minute or so, the additional pods are running:
 
-```bash
+```azurecli-interactive
 kubectl get pods
 ```
 
@@ -82,9 +80,9 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## Autoscale pods
 
-Kubernetes supports [horizontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to adjust the number of pods in a deployment depending on CPU utilization or other metrics. 
+Kubernetes supports [horizontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. 
 
-To use the autoscaler, your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, each container requests 0.25 CPU, with a limit of 0.5 CPU. The settings look like:
+To use the autoscaler, your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container requests 0.25 CPU, with a limit of 0.5 CPU. The settings look like:
 
 ```YAML
 resources:
@@ -97,13 +95,13 @@ resources:
 The following example uses the [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) command to autoscale the number of pods in the `azure-vote-front` deployment. Here, if CPU utilization exceeds 50%, the autoscaler increases the pods to a maximum of 10.
 
 
-```bash
+```azurecli-interactive
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
 To see the status of the autoscaler, run the following command:
 
-```bash
+```azurecli-interactive
 kubectl get hpa
 ```
 
@@ -114,7 +112,7 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-After a few minutes with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to 3.
+After a few minutes, with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to 3.
 
 ## Scale the agents
 
@@ -155,5 +153,5 @@ In this tutorial, you used different scaling features in your Kubernetes cluster
 Advance to the next tutorial to learn about updating application in Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Update an application in Kubernetes](container-service-tutorial-kubernetes-app-update.md)
+> [Update an application in Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
 
