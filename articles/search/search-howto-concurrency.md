@@ -20,7 +20,7 @@ ms.author: heidist
 ---
 # How to manage concurrency in Azure Search
 
-When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search offers an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can craft responses that avoid accidental overwrites.
+When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search offers an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can craft requests that avoid accidental overwrites.
 
 > [!Tip]
 > Conceptual code in a [sample C# solution](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explains how concurrency control works in Azure Search. The code creates conditions that invoke concurrency control. Reading the [code fragment below](#samplecode) is probably sufficient for most developers, but if you want to run it, edit appsettings.json to add the service name and an admin api-key. Given a service URL of `http://myservice.search.windows.net`, the service name is `myservice`.
@@ -34,7 +34,7 @@ All resources have an [*entity tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_E
 + The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the request header.
 + The .NET SDK sets the ETag through an accessCondition object, setting the [If-Match | If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) has an accessCondition object.
 
-Every time you update a resource, its ETag changes automatically. When you implement concurrency management, all you're doing is putting a precondition on the update request that requires the remote resource to have the same ETag as the copy of the resource that you modified on the client. If a concurrent process has changed the remote resource already, the ETag will not match the precondition and the request will fail with HTTP 412. If you're using the .NET SDK, this manifests as a CloudException where the IsAccessConditionFailed() extension method returns true.
+Every time you update a resource, its ETag changes automatically. When you implement concurrency management, all you're doing is putting a precondition on the update request that requires the remote resource to have the same ETag as the copy of the resource that you modified on the client. If a concurrent process has changed the remote resource already, the ETag will not match the precondition and the request will fail with HTTP 412. If you're using the .NET SDK, this manifests as a `CloudException` where the `IsAccessConditionFailed()` extension method returns true.
 
 > [!Note]
 > There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates. 
@@ -104,7 +104,7 @@ static void Main(string[] args)
         serviceClient.Indexes.CreateOrUpdate(indexForClient2, 
             accessCondition: AccessCondition.IfNotChanged(indexForClient2));
 
-        Console.WriteLine("Whoops; This shouldn't happen. It means the AccessCondition did not fire.");
+        Console.WriteLine("Whoops; This shouldn't happen. The AccessCondition should have failed.");
         Environment.Exit(1);
         }
         catch (CloudException e) when (e.IsAccessConditionFailed())
@@ -162,13 +162,6 @@ This code snippet illustrates the addition of a synonymMap to an index that alre
 
 The snippet gets the "hotels" index, checks the object version on an update operation, throws an exception if the condition fails, and then retries the operation (up to three times), starting with index retrieval from the server to get the latest version.
 
-        private static Index AddSynonymMapsToFields(Index index)
-        {
-            index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-            index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
-            return index;
-        }
-
         private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient serviceClient)
         {
             int MaxNumTries = 3;
@@ -191,6 +184,13 @@ The snippet gets the "hotels" index, checks the object version on an update oper
                     Console.WriteLine($"Index update failed : {e.Message}. Attempt({i}/{MaxNumTries}).\n");
                 }
             }
+        }
+        
+        private static Index AddSynonymMapsToFields(Index index)
+        {
+            index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
+            index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
+            return index;
         }
 
 
