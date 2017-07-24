@@ -52,7 +52,7 @@ To install and configure a Hybrid Runbook Worker, there are two methods availabl
 ><br>
 >If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your OMS workspace is  automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups already defined in your Automation account.  The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.  
 
-Review the following information regarding the [hardware and software requirements](automation-offering-get-started.md#hybrid-runbook-worker) and [information for preparing your network](automation-offering-get-started.md#network-planning) before you begin deploying a Hybrid Runbook Worker.
+Review the following information regarding the [hardware and software requirements](automation-offering-get-started.md#hybrid-runbook-worker) and [information for preparing your network](automation-offering-get-started.md#network-planning) before you begin deploying a Hybrid Runbook Worker.  After you have successfully deployed a runbook worker, review [Running runbooks on a Hybrid Runbook Worker](automation-hrw-running-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.  
  
 ### Automated deployment
 
@@ -167,6 +167,5 @@ The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communica
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.  
 
 ## Next steps
-* 
 * To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).  
 * To understand the different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
