@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2017
+ms.date: 07/26/2017
 ms.author: seanmck
 ms.custom: 
 ---
 
 # Create your first container in Azure Container Instances
 
-Azure Container Instances makes it easy to create and manage containers in Azure. In this article, we will create a container in Azure and expose it to the internet with a public IP address, all in a single command. Within just a few minutes, you will see this in your browser:
+Azure Container Instances makes it easy to create and manage containers in Azure. In this quick start, you will create a container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few minutes, you will see this in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -49,13 +49,13 @@ az group create --name myResourceGroup --location eastus
 You can create a container by providing a name, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
-az container create --name myContainer --image microsoft/aci-helloworld -g acidemogroup --ip-address public 
+az container create --name myContainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
 ```
 
-Within a few seconds, you should get a response to your request. Initially,the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
+Within a few seconds, you should get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
 
 ```azurecli-interactive
-az container show myContainer -g acidemogroup
+az container show myContainer --resource-group myResourceGroup
 ```
 
 At the bottom of the output, you will see the container's provisioning state and its IP address:
@@ -85,7 +85,7 @@ Once the container moves to the **Succeeded** state, you can reach it in the bro
 You can pull the logs for the container you created using the `logs` command:
 
 ```azurecli-interactive
-az container logs --name myContainer -g acidemogroup
+az container logs --name myContainer --resource-group myResourceGroup
 ```
 
 Output:
@@ -101,7 +101,7 @@ listening on port 80
 When you are done with the container, you can remove it using the `delete` command:
 
 ```azurecli-interactive
-az container delete --name myContainer -g acidemogroup
+az container delete --name myContainer --resource-group myResourceGroup
 ```
 
 ## Next steps
@@ -116,5 +116,4 @@ All of the code for the container used in this quick start is available [on GitH
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 
 <!-- IMAGES -->
-
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
