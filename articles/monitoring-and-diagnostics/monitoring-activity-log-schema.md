@@ -1,5 +1,5 @@
 ---
-title: Activity Log Event Schema | Microsoft Docs
+title: Azure Activity Log Event Schema | Microsoft Docs
 description: Understand the event schema for data emitted into the Activity Log
 author: johnkemnetz
 manager: robb
