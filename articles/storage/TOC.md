@@ -127,6 +127,8 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitor and troubleshoot
+### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
+### [Backup and DR for IAAS disks](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
 ### [Troubleshoot Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
@@ -137,7 +139,6 @@
 #### [In a Resource Manager deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 #### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
 ### [Troubleshoot File storage](storage-troubleshoot-file-connection-problems.md)
-### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
 ### [AzCopy on Windows](storage-use-azcopy.md)
