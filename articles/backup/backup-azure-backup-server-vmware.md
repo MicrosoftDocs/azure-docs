@@ -94,7 +94,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     ![Certificate store folder](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
-10. On the **Completing the Certificate Import Wizard** page, verify that the certificate is in the desired folder, and then click **Finish** to complete the wizard.
+10. On the **Completing the Certificate Import Wizard** page, verify that the certificate is in the desired folder, and then click **Finish**.
 
     ![Verify certificate is in the proper folder](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -246,7 +246,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for A
 
 3. In the **Manage Credentials** dialog box, click **Add** to open the **Add Credential** dialog box.
 
-4. In the **Add Credential** dialog box, enter a name and a description for the new credential. Then specify the username and password. The *Contoso Vcenter credential* credential name is used to identify the credential in the next procedure. Use the same username and password that is used for the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, in **User name**, specify the domain.
+4. In the **Add Credential** dialog box, enter a name and a description for the new credential. Then specify the username and password. The name, *Contoso Vcenter credential* is used to identify the credential in the next procedure. Use the same username and password that is used for the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, in **User name**, specify the domain.
 
     ![Azure Backup Server Add Credential dialog box](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
