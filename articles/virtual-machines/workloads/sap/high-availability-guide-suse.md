@@ -1102,7 +1102,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   TODO: fix permission issue on /ERS02/exe
+   > [!NOTE]
+   > Please use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
+   > 
 
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
  
