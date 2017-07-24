@@ -15,7 +15,7 @@ ms.date: 07/20/2017
 ms.author: johnkem
 
 ---
-# Activity Log Event Schema
+# Azure Activity Log event schema
 The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data.
 
 ## Administrative
@@ -120,7 +120,7 @@ This category contains the record of all create, update, delete, and action oper
 | submissionTimestamp |Timestamp when the event became available for querying. |
 | subscriptionId |Azure Subscription Id. |
 
-## Service Health
+## Service health
 This category contains the record of any service health incidents that have occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Assisted Recovery, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
 
 ### Sample event
@@ -408,6 +408,6 @@ This category contains the record of any events related to the operation of the 
 | submissionTimestamp |Timestamp when the event became available for querying. |
 | subscriptionId |Azure Subscription Id. |
 
-## Next Steps
+## Next steps
 * [Learn more about the Activity Log (formerly Audit Logs)](monitoring-overview-activity-logs.md)
 * [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
