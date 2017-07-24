@@ -77,7 +77,7 @@ To run queries, we use sample data that is by default available in the storage a
 6. Create a dataframe and a temporary table (**hvac**) by running the following code. For this tutorial, we do not create all the columns in the temporary table as compared to the columns in the raw CSV data. 
 
 		# Create an RDD from sample data
-         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         # Create a schema for our data
         Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
