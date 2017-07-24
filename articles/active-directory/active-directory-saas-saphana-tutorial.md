@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/27/2017
 ms.author: jeedes
 
 ---
@@ -70,13 +70,9 @@ To configure the integration of SAP HANA into Azure AD, you need to add SAP HANA
 
 	![The New application button][3]
 
-4. In the search box, type **SAP HANA**.
+4. In the search box, type **SAP HANA**, select **SAP HANA** from result panel then click **Add** button to add the application. 
 
-	![results list](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_search.png)
-
-5. In the results panel, select **SAP HANA**, and then click **Add** button to add the application.
-
-	![results list](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_addfromgallery.png)
+	![The New application](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with SAP HANA based on a test user called "Britta Simon."
@@ -125,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	>[!Note]
 	>If certificate is not active then make it active by clicking the “Make new certificate active” checkbox in the Azure AD. 
 
-5. SAP HANA application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+5. SAP HANA application expects the SAML assertions in a specific format. The following screenshot shows an example for this. Here we have mapped the **User Identifier** with **ExtractMailPrefix()** function of **user.mail**. This gives the prefix value of email of the user which is the unique User ID. This is sent to the SAP HANA application in every successful response.
 
 	![Configure Single Sign-On](./media/active-directory-saas-saphana-tutorial/attribute.png)
 
