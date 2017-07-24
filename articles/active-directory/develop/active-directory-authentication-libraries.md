@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 ---
 # Azure Active Directory Authentication Libraries
-The Azure AD authentication Library (ADAL) enables client application developers to easily authenticate users to cloud or on-premises Active Directory (AD), and obtain access tokens for securing API calls. ADAL makes authentication easier for developers through features such as:
+The Azure Active Directory Authentication Library (ADAL) enables client application developers to easily authenticate users to cloud or on-premises Active Directory (AD), and obtain access tokens for securing API calls. ADAL makes authentication easier for developers through features such as:
  - support for asynchronous method calls
  - a configurable token cache that stores access tokens and refresh tokens
  - automatic token refresh when an access token expires and a refresh token is available
@@ -59,22 +59,25 @@ ADAL is available on a variety of platforms.
 
 
 ## Scenarios
-Here are three common scenarios in which ADAL can be used for authentication.  
 
-### Authenticating Users of a Client Application to a Remote Resource
-In this scenario, a developer has a client, such as a WPF application, that needs to access a remote resource secured by Azure AD, such as a web API. He has an Azure subscription, knows how to invoke the downstream web API, and knows the Azure AD tenant that the web API uses. As a result, he can use ADAL to facilitate authentication with Azure AD, either by fully delegating the authentication experience to ADAL or by explicitly handling user credentials. ADAL makes it easy to authenticate the user, obtain an access token and refresh token from Azure AD, and then use the access token to make requests to the web API.
+Here are three common scenarios in which ADAL can be used for authenticating a client that accesses a remote resource:  
+
+### Authenticating users of a native client application running on a device 
+
+In this scenario, a developer has a WPF client application, that needs to access a remote resource secured by Azure AD, such as a web API. He has an Azure subscription, knows how to invoke the downstream web API, and knows the Azure AD tenant that the web API uses. As a result, he can use ADAL to facilitate authentication with Azure AD, either by fully delegating the authentication experience to ADAL or by explicitly handling user credentials. ADAL makes it easy to authenticate the user, obtain an access token and refresh token from Azure AD, and then use the access token to make requests to the web API.
 
 For a code sample that demonstrates this scenario using authentication to Azure AD, see [Native Client WPF Application to Web API](https://github.com/azureadsamples/nativeclient-dotnet).
 
-### Authenticating a Server Application to a Remote Resource
-In this scenario, a developer has an application running on a server that needs to access a remote resource secured by Azure AD, such as a web API. He has an Azure subscription, knows how to invoke the downstream service, and knows the Azure AD tenant the web API uses. As a result, he can use ADAL to facilitate authentication with Azure AD by explicitly handling the application’s credentials. ADAL makes it easy to retrieve a token from Azure AD by using the application’s client credential and then use that token to make requests to the web API. ADAL also handles managing the lifetime of the access token by caching it and renewing it as necessary. For a code sample that demonstrates this scenario, see [Console Application to Web API](https://github.com/AzureADSamples/Daemon-DotNet).
+### Authenticating a confidential client application running on a web server
 
-### Authenticating a Server Application on Behalf of a User to Access a Remote Resource
-In this scenario, a developer has an application running on a server that needs to access a remote resource secured by Azure AD, such as a web API. The request also needs to be made on behalf of a user in Azure AD. He has an Azure subscription, knows how to invoke the downstream web API, and knows the Azure AD tenant the service uses. Once the user is authenticated to the web application, the application can get an authorization code for the user from Azure AD. The web application can then use ADAL to obtain an access token and refresh token on behalf of a user using the authorization code and client credentials associated with the application from Azure AD. Once the web application is in possession of the access token, it can call the web API until the token expires. When the token expires, the web application can use ADAL to get a new access token by using the refresh token that was previously received.
+In this scenario, a developer has an application running on a server that needs to access a remote resource secured by Azure AD, such as a web API. He has an Azure subscription, knows how to invoke the downstream service, and knows the Azure AD tenant the web API uses. As a result, he can use ADAL to facilitate authentication with Azure AD by explicitly handling the application’s credentials. ADAL makes it easy to retrieve a token from Azure AD by using the application’s client credential and then use that token to make requests to the web API. ADAL also handles managing the lifetime of the access token by caching it and renewing it as necessary. For a code sample that demonstrates this scenario, see [Daemon console Application to Web API](https://github.com/AzureADSamples/Daemon-DotNet).
+
+### Authenticating a confidential client application running on a server, on behalf of a user 
+
+In this scenario, a developer has an application running on a server that needs to access a remote resource secured by Azure AD, such as a web API. The request also needs to be made on behalf of an Azure AD user. He has an Azure subscription, knows how to invoke the downstream web API, and knows the Azure AD tenant the service uses. Once the user is authenticated to the web application, the application can get an authorization code for the user from Azure AD. The web application can then use ADAL to obtain an access token and refresh token on behalf of a user using the authorization code and client credentials associated with the application from Azure AD. Once the web application is in possession of the access token, it can call the web API until the token expires. When the token expires, the web application can use ADAL to get a new access token by using the refresh token that was previously received. For a code sample that demonstrates this scenario, see [Native client to Web API to Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## See Also
-[The Azure Active Directory developer's guide](active-directory-developers-guide.md)
 
-[Authentication scenarios for Azure Active directory](active-directory-authentication-scenarios.md)
-
-[Azure Active Directory code samples](active-directory-code-samples.md)
+- [The Azure Active Directory developer's guide](active-directory-developers-guide.md)
+- [Authentication scenarios for Azure Active directory](active-directory-authentication-scenarios.md)
+- [Azure Active Directory code samples](active-directory-code-samples.md)
