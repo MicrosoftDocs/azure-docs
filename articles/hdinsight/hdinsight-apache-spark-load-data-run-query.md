@@ -1,5 +1,5 @@
 ---
-title: Run interactive queries on an HDInsight Spark cluster | Microsoft Docs
+title: Run interactive queries on an Azure HDInsight Spark cluster | Microsoft Docs
 description: HDInsight Spark quickstart on how to create an Apache Spark cluster in HDInsight.
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
 services: hdinsight
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 
 ---
@@ -110,7 +110,10 @@ To run queries, we use sample data that is by default available in the storage a
 
 ## Next step
 
-In this article you learned how to run interactive queries in Spark using Jupyter notebook. The data you registered in Spark can now be pulled into a BI analytics tool such as Power BI and Tableau. See [Spark BI using data visualization tools with Azure HDInsight](hdinsight-apache-spark-use-bi-tools.md).
+In this article you learned how to run interactive queries in Spark using Jupyter notebook. Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI and Tableau. 
+
+> [!div class="nextstepaction"]
+>[Spark BI using data visualization tools with Azure HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
 
 
