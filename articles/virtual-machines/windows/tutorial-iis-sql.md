@@ -1,6 +1,6 @@
 ---
-title: Create a Windows VM running a web app with IIS and SQL Azure | Microsoft Docs
-description: Tutorial - create a web app that will run on a VM using IIS and SQL.
+title: Create a Windows VM running a .Net Core app with IIS and SQL Azure | Microsoft Docs
+description: Tutorial - create a two-tier .Net Core app that will run on a VM using IIS and SQL.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -14,16 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Tutorial IIS SQL Web app
+# Tutorial IIS SQL .Net Core 
 
-In this tutorial, we will do epic stuff.
+In this tutorial, we will build a two-tier demo music store .Net Core application that runs on a Windows Azure VM and connects to an Azure SQL database.
+
+> [!div class="checklist"]
+> * Create a VM
+> * Create an inbound port 80 rule for web traffic 
+> * Configure
 
 
+## Configure the VM
+Create a .ps1 file that contains the following script
+
+```powershell
 Param (
     [string]$user,
     [string]$password,
@@ -41,8 +50,8 @@ New-Item -ItemType Directory c:\music
 Install-WindowsFeature web-server -IncludeManagementTools
 
 # install dot.net core sdk
-Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkID=809122 -outfile c:\temp\DotNetCore.1.0.0-SDK.Preview2-x64.exe
-Start-Process c:\temp\DotNetCore.1.0.0-SDK.Preview2-x64.exe -ArgumentList '/quiet' -Wait
+Invoke-WebRequest https://go.microsoft.com/fwlink/?linkid=848827 -outfile c:\temp\dotnet-dev-win-x64.1.0.4.exe
+Start-Process c:\temp\dotnet-dev-win-x64.1.0.4.exe -ArgumentList '/quiet' -Wait
 Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkId=817246 -outfile c:\temp\DotNetCore.WindowsHosting.exe
 Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
 
@@ -61,5 +70,14 @@ Remove-WebSite -Name "Default Web Site"
 Set-ItemProperty IIS:\AppPools\DefaultAppPool\ managedRuntimeVersion ""
 New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool DefaultAppPool
 & iisreset
+```
 
+
+## Next steps
+
+In this tutorial, you created a two-tier .Net Core sample music store application. You learned how to:
+
+> [!div class="checklist"]
+> * Create a VM
+> * Configure 
 
