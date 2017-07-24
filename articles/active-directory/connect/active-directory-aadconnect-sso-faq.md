@@ -51,18 +51,18 @@ The steps that you need are as follows:
 
 1. Get list of AD forests where Seamless SSO has been enabled
 
-a. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-b. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-c. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-d. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-e. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your Azure AD tenant administrator credentials.
-f. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+- First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
+- Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+- Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+- Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+- In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your Azure AD tenant administrator credentials.
+- Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 2. Update the Kerberos decryption key on each AD forest that it was set it up on
 
-a. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
-b. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACCT` computer account in this specific AD forest and updates it in Azure AD.
-c. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
+- Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+- Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACCT` computer account in this specific AD forest and updates it in Azure AD.
+- Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
 >[!IMPORTANT]
 >Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working till the time your Kerberos tickets expire and are re-issued by your on-premises Active Directory - this can be upto 12 hours.
@@ -81,12 +81,12 @@ The manual steps that you need are as follows:
 
 1. Get list of AD forests where Seamless SSO has been enabled
 
-a. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-b. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-c. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-d. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-e. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your Azure AD tenant administrator credentials.
-f. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+- First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
+- Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+- Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+- Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+- In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your Azure AD tenant administrator credentials.
+- Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 2. Manually delete the `AZUREADSSOACCT` computer account from each AD forest that you see listed.
 
