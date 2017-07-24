@@ -2,10 +2,10 @@
  :allowed-filename-matches ["articles" "includes"]
 
  :template-header
-   "
+"
 ## Acrolinx Scorecards
 
-Click the scorecard links for each article to review the Acrolinx feedback on grammar, spelling, punctuation, writing style, and terminology:
+Click the scorecard links for each article to review the Acrolinx feedback on grammar, spelling, punctuation, writing style, and terminology: 
 | Article | Score | Issues | Scorecard |
 | ------- | ----- | ------ | --------- |
 "
