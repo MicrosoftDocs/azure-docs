@@ -36,17 +36,10 @@ To complete this quickstart:
 
 ## Download the sample locally
 
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
-```
-
-You use this terminal window to run all the commands in this quickstart.
-
-Change to the directory that contains the sample code.
-
-```bash
 cd php-docs-hello-world
 ```
 
