@@ -2,6 +2,9 @@
 
 #### To complete the minimum StorSimple device setup
 
+   > [!NOTE]
+   > You cannot change the device name once the minimum device setup is completed.
+   
 1. From the tabular listing of devices in the **Devices** blade, select and click your device. The device is in a **Ready to set up** state. The **Configure device** blade opens up.
 
      ![StorSimple minimum device setup network interfaces](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -25,9 +28,6 @@
 1. Click **OK**. The device configuration starts. When the device configuration is complete, you are notified. The device status changes to **Online** in the **Devices** blade.
 
     ![StorSimple minimum device setup network interfaces](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > You can modify all the other device settings at any time by accessing the **Device Settings** blade.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

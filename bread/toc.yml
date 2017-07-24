@@ -243,9 +243,9 @@
   - name: Resiliency
     tocHref: /azure/resiliency/
     topicHref: /azure/resiliency/
-  - name: Resource Health
-    tocHref: /azure/resource-health/
-    topicHref: /azure/resource-health/
+  - name: Service Health
+    tocHref: /azure/service-health/
+    topicHref: /azure/service-health/
   - name: Scheduler
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/
@@ -312,14 +312,14 @@
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/
         items:
-          - name: Classic Deployment
+          - name: Linux classic deployments
             tocHref: /azure/virtual-machines/linux/classic/
             topicHref: /azure/virtual-machines/linux/classic/
       - name: Windows
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/
         items:
-          - name: Classic Deployment
+          - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
   - name: Virtual Network
