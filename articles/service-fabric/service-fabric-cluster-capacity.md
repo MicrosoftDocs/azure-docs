@@ -139,8 +139,8 @@ Here is the recommendation on choosing the reliability tier.
 
 Here is the guidance for planning the primary node type capacity
 
-1. **Number of VM instances to run any production workload in Azure: ** You must specify a minimum Primary Node type size of 5. 
-2. **Number of VM instances to run test workloads in Azure** You can specify a minimum Primary Node type size of 1 or 3. The one node cluster, runs with a special configuration and so, scale out of that cluster is not supported. The one node cluster, has no reliability and so in your Resource Manager template, you have to remove/not specify that configuration (not setting the configuration value is not enough). If you set up the one node cluster set up via portal, then the configuration is automatically taken care of. 1 and 3 node clusters are not supported for running production workloads. 
+1. **Number of VM instances to run any production workload in Azure:** You must specify a minimum Primary Node type size of 5. 
+2. **Number of VM instances to run test workloads in Azure** You can specify a minimum primary node type size of 1 or 3. The one node cluster, runs with a special configuration and so, scale out of that cluster is not supported. The one node cluster, has no reliability and so in your Resource Manager template, you have to remove/not specify that configuration (not setting the configuration value is not enough). If you set up the one node cluster set up via portal, then the configuration is automatically taken care of. 1 and 3 node clusters are not supported for running production workloads. 
 3. **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if the brain does not get enough oxygen, your body suffers. 
 
 Since the capacity needs of a cluster is determined by workload you plan to run in the cluster, we cannot provide you with qualitative guidance for your specific workload, however here is the broad guidance to help you get started
@@ -158,11 +158,13 @@ For production workloads
 
 This guidance is for stateful Workloads using Service fabric [reliable collections or reliable Actors](service-fabric-choose-framework.md) that you are running in the non-primary node type.
 
-1. **Number of VM instances:** For production workloads that are stateful, it is recommended that you run them with a minimum and target replica count of 5. This means that in steady state you end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for the primary node type is a way to specify this setting for system services. So the same consideration applies to your sateful services as well.
+
+**Number of VM instances:** For production workloads that are stateful, it is recommended that you run them with a minimum and target replica count of 5. This means that in steady state you end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for the primary node type is a way to specify this setting for system services. So the same consideration applies to your sateful services as well.
 
 So for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
 
-2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is determined by workload you plan to run in the cluster, so we cannot provide you with qualitative guidance for your specific workload, however here is the broad guidance to help you get started
+
+**VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is determined by workload you plan to run in the cluster, so we cannot provide you with qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
 
