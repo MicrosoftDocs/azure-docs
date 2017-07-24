@@ -17,7 +17,11 @@ ms.date: 07/22/2017
 ms.author: magoedte
 ---
 
-## Starting runbooks on Hybrid Runbook Worker
+# Running runbooks on Hybrid Runbook Worker
+There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly though since runbooks for Hybrid Runbook Worker typically manage local resources in your data center, while runbooks in Azure Automation typically manage resources in the Azure cloud.
+
+You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
+
 [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) describes different methods for starting a runbook.  Hybrid Runbook Worker adds a **RunOn** option where you can specify the name of a Hybrid Runbook Worker Group.  If a group is specified, then the runbook is retrieved and run by of the workers in that group.  If this option is not specified, then it is run in Azure Automation as normal.
 
 When you start a runbook in the Azure portal, you are presented with a **Run on** option where you can select **Azure** or **Hybrid Worker**.  If you select **Hybrid Worker**, then you can select the group from a dropdown.
@@ -140,14 +144,13 @@ The following PowerShell runbook, *Export-RunAsCertificateToHybridWorker*, expor
 
 Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension.  Import it into your Automation account and edit the runbook, changing the value of the variable `$Password` with your own password.  Publish and then run the runbook targeting the Hybrid Worker group that run and authenticate runbooks using the Run As account.  The job stream reports the attempt to import the certificate into the local machine store, and follows with multiple lines depending on how many Automation accounts are defined in your subscription and if authentication is successful.  
 
-## Creating runbooks for Hybrid Runbook Worker
-There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly though since runbooks for Hybrid Runbook Worker typically manage local resources in your data center, while runbooks in Azure Automation typically manage resources in the Azure cloud.
-
-You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
-
 ## Troubleshooting runbooks on Hybrid Runbook Worker
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Hybrid worker also records errors and events in the Windows event log under **Application and Services Logs\Microsoft-SMA\Operational**.  Events related to runbooks executed on the worker are written to **Application and Services Logs\Microsoft-Automation\Operational**.  The **Microsoft-SMA** log includes many more events related to the runbook job pushed to the worker and the processing of the runbook.  While the **Microsoft-Automation** event log does not have many events with details assisting with the troubleshooting of runbook execution, you will at least find the results of the runbook job.  
 
 [Runbook output and messages](automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud.  You can also enable the Verbose and Progress streams the same way you would for other runbooks.  
 
 If your runbooks are not completing successfully and the job summary shows a status of **Suspended**, please review the troubleshooting article [Hybrid Runbook Worker: A runbook job terminates with a status of Suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md).   
+
+## Next steps
+* To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).  
+* To understand the different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)

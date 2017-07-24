@@ -167,5 +167,4 @@ The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communica
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.  
 
 ## Next steps
-* To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).  
-* To understand the different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
+Review [running runbooks on a Hybrid Runbook Worker](automation-hrw-running-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
