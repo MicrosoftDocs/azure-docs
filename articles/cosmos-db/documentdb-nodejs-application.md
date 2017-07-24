@@ -490,6 +490,8 @@ Now let’s turn our attention to building the user interface so a user can actu
              .form-group
                label(for="category") Item Category:
                input.form-control(name="category", type="textbox")
+             br
+             button.btn(type="submit") Add item
    
 
     This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
