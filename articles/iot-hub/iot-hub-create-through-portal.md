@@ -38,6 +38,8 @@ You can create an IoT hub using the following methods:
 ### Choose the name of the IoT hub
 To create an IoT hub, you must name the IoT hub. This name must be unique across the IoT hubs. No duplication of hubs is allowed on the solution back end, so it is recommended that this hub is named as uniquely as possible.
 
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 ### Choose the pricing tier
 You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and **Standard S3**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
 
