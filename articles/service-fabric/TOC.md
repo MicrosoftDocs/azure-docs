@@ -16,7 +16,8 @@
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Samples
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Azure CLI](samples-cli.md)
 # Concepts
 ## [Understand microservices](service-fabric-overview-microservices.md)
 ## [Big picture](service-fabric-content-roadmap.md)
@@ -290,7 +291,8 @@
 ## Monitor and diagnose
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
-#### [Generate infrastructure level events](service-fabric-diagnostics-event-generation-infra.md)
+#### [Generate platform level events](service-fabric-diagnostics-event-generation-infra.md)
+##### [Operational channel](service-fabric-diagnostics-event-generation-operational.md)
 ##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
 ##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
@@ -317,7 +319,7 @@
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
-## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
+## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resources
