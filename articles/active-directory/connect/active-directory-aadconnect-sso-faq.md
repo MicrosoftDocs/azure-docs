@@ -47,7 +47,7 @@ It is important to frequently roll over the Kerberos decryption key of the `AZUR
 >[!IMPORTANT]
 >We highly recommend that you roll over the Kerberos decryption key at least every 30 days.
 
-The steps that you need are as follows:
+Follow these steps on the on-premises server where you are running Azure AD Connect:
 
 ### Step 1. Get list of AD forests where Seamless SSO has been enabled
 
@@ -55,7 +55,7 @@ The steps that you need are as follows:
 2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-5. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your Azure AD tenant administrator credentials.
+5. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
 6. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 2. Update the Kerberos decryption key on each AD forest that it was set it up on
@@ -65,7 +65,7 @@ The steps that you need are as follows:
 3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
 >[!IMPORTANT]
->Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working until the time your Kerberos tickets expire and are reissued by your on-premises Active Directory.
+>Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working until the time your users' Kerberos tickets expire and are reissued by your on-premises Active Directory.
 
 ## How can I disable Seamless SSO?
 
@@ -77,7 +77,7 @@ However, you see a message on screen that reads as follows:
 
 "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
 
-The manual steps that you need are as follows:
+To complete the process, follow these manual steps on the on-premises server where you are running Azure AD Connect:
 
 ### Step 1. Get list of AD forests where Seamless SSO has been enabled
 
@@ -85,7 +85,7 @@ The manual steps that you need are as follows:
 2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-5. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your Azure AD tenant administrator credentials.
+5. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
 6. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 2. Manually delete the `AZUREADSSOACCT` computer account from each AD forest that you see listed.
