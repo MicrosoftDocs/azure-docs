@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2017
+ms.date: 07/24/2017
 ms.author: seanmck
 ms.custom: 
 ---
@@ -65,7 +65,7 @@ To demonstrate how container orchestration platforms can integrate with Azure Co
 
 The connector for Kubernetes mimics the [kubelet][kubelet-doc] by registering as a node with unlimited capacity and dispatching the creation of [pods][pod-doc] as container groups in Azure Container Instances. 
 
-![ACI Connector for Kubernetes][aci-connector-k8s-gif]
+<!-- ![ACI Connector for Kubernetes][aci-connector-k8s-gif] -->
 
 Connectors for other orchestrators could be built that similarly integrated with platform primitives to combine the power of the orchestrator API with the speed and simplicity of managing containers in Azure Container Instances.
 
