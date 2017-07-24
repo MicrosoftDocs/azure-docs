@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2017
+ms.date: 07/27/2017
 ms.author: jeedes
 
 ---
@@ -263,7 +263,7 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
     
     f. In the **Nick Name** textbox, type a **nick name** of user **Simon**.
     
-    g. Select **Role**, **User License, and **Profile**.
+    g. Select **Role**, **User License**, and **Profile**.
 	
 	h. Click **Save**.  
       
