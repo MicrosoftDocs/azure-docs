@@ -15,20 +15,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2017
+ms.date: 07/20/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
 
 # Deploy Kubernetes cluster for Linux containers
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](../container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Linux container.
+In this quick start, a Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet.
+
+![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+
+This quick start assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation]( https://kubernetes.io/docs/home/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
@@ -40,114 +44,180 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
+Output:
+
+```json
+{
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "myResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
+
 ## Create Kubernetes cluster
-Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-The following example creates a cluster named *myK8sCluster* with one Linux master node and two Linux agent nodes. This example creates SSH keys if they don't already exist in the default locations. To use a specific set of keys, use the `--ssh-key-value` option. Update the cluster name to something appropriate to your environment. 
-
-
+Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes \
-    --resource-group myResourceGroup \
-    --name=myK8sCluster \
-    --generate-ssh-keys 
+az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8sCluster --generate-ssh-keys 
 ```
 
-After several minutes, the command completes, and shows you information about your deployment.
+After several minutes, the command completes and returns json formatted information about the cluster. 
 
-## Install kubectl
+## Connect to the cluster
 
-To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
+To manage a Kubernetes cluster, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
 
-The following Azure CLI example installs `kubectl` to your system. If you are running the Azure CLI on macOS or Linux, you might need to run the command with `sudo`.
-
-```azurecli-interactive 
-az acs kubernetes install-cli 
-```
-
-## Connect with kubectl
-
-To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
-downloads the cluster configuration for your Kubernetes cluster.
+To configure kubectl to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-To verify the connection to your cluster from your machine, try running:
+To verify the connection to your cluster, use the [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command to return a list of the cluster nodes.
 
 ```azurecli-interactive
 kubectl get nodes
 ```
 
-`kubectl` lists the master and agent nodes.
+Output:
 
-```azurecli-interactive
+```bash
 NAME                    STATUS                     AGE       VERSION
-k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
-k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
-k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
-
+k8s-agent-14ad53a1-0    Ready                      10m       v1.6.6
+k8s-agent-14ad53a1-1    Ready                      10m       v1.6.6
+k8s-agent-14ad53a1-2    Ready                      10m       v1.6.6
+k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 ```
 
+## Run the application
 
-## Deploy an NGINX container
+A Kubernetes manifest file defines a desired state for the cluster, including things like what container images should be running. For this example, a manifest is used to create all object needed to run the Azure Vote application. 
 
-You can run a Docker container inside a Kubernetes *pod*, which contains one or more containers. 
+Create a file named `azure-vote.yaml` and copy into it the following YAML.
 
-The following command starts the NGINX Docker container in a Kubernetes pod on one of the nodes. In this case, the container runs the NGINX web server pulled from an image in [Docker Hub](https://hub.docker.com/_/nginx/).
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      containers:
+      - name: azure-vote-back
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-back
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: azure-vote-back
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-front
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-vote-front
+    spec:
+      containers:
+      - name: azure-vote-front
+        image: microsoft/azure-vote-front:redis-v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: REDIS
+          value: "azure-vote-back"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+```
+
+Use the [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) command to run the application.
 
 ```azurecli-interactive
-kubectl run nginx --image nginx
+kubectl create -f azure-vote.yaml
 ```
-To see that the container is running, run:
+
+Output:
+
+```bash
+deployment "azure-vote-back" created
+service "azure-vote-back" created
+deployment "azure-vote-front" created
+service "azure-vote-front" created
+```
+
+## Test the application
+
+As the application is run, a [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) is created that exposes the application front-end to the internet. This process can take a few minutes to complete. 
+
+To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get pods
+kubectl get service azure-vote-front --watch
 ```
 
-## View the NGINX welcome page
-To expose the NGINX server to the world with a public IP address, type the following command:
-
-```azurecli-interactive
-kubectl expose deployments nginx --port=80 --type=LoadBalancer
-```
-
-With this command, Kubernetes creates a service and an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address for the service. 
-
-Run the following command to see the status of the service.
-
-```azurecli-interactive
-kubectl get svc
-```
-
-Initially the IP address appears as `pending`. After a few minutes, the external IP address of the service is set:
+Initially the **EXTERNAL-IP** for the *azure-vote-front* service appears as *pending*. Once the EXTERNAL-IP address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process. 
   
-```azurecli-interactive
-NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
-kubernetes   10.0.0.1       <none>          443/TCP        21h       
-nginx        10.0.111.25    52.179.3.96     80/TCP         22m
+```bash
+azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
+azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-You can use a web browser of your choice to see the default NGINX welcome page at the external IP address:
+You can now browse to the external IP address to see the Azure Vote App.
 
-![Image of browsing to Nginx](./media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
-
+![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)  
 
 ## Delete cluster
 When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive 
-az group delete --name myResourceGroup
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
+## Get the code
+
+In this quick start, pre-created container images have been used to create a Kubernetes deployment. The related application code, Dockerfile, and Kubernetes manifest file are available on GitHub.
+
+[Azure Vote application with Redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## Next steps
 
-In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an NGINX container. To learn more about Azure Container Service, continue to the Kubernetes cluster tutorial.
+In this quick start, you deployed a Kubernetes cluster and deployed a multi-container application to it. 
+
+To learn more about Azure Container Service, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage an ACS Kubernetes cluster](container-service-tutorial-kubernetes-prepare-app.md)
+> [Manage an ACS Kubernetes cluster](./container-service-tutorial-kubernetes-prepare-app.md)
