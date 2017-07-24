@@ -2,7 +2,7 @@
 title: Create and Manage Action Groups in Azure Portal | Microsoft Docs
 description:
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

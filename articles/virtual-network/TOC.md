@@ -44,7 +44,11 @@
 ##### [PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI](virtual-network-create-udr-classic-cli.md)
 
-### [Virtual network peering](virtual-network-create-peering.md)
+### Virtual network peering
+#### [Same deployment model - same subscription](virtual-network-create-peering.md)
+#### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
+#### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
+#### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address
