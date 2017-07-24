@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 07/25/2017
 ms.author: nepeters
 ---
 
 # Create container images to be used with Azure Container Service
 
-In this tutorial, part 1 of 7, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
+In this tutorial, part one of seven, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
 
 > [!div class="checklist"]
 > * Cloning application source from GitHub  

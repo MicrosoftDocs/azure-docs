@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 07/25/2017
 ms.author: nepeters
 ---
 
 # Deploy and use Azure Container Registry
 
-Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial, part 2 of 7, walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
+Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial, part two of seven, walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry (ACR) instance
@@ -48,26 +48,28 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. Using the following example, update the name with some random characters.
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. In the following example, we use the name myContainerRegistry007.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
 ```
 
+Throughout the rest of this tutorial, we use <acrname> as a placeholder for the container registry name that you chose.
+
 ## Get registry information 
 
 Once the ACR instance has been created, the name, login server name, and authentication password are needed. The following code returns each of these values. Note each value down, they are referenced throughout this tutorial.  
 
-ACR Name and Login Server:
+Container registry login server (update with your registry name):
 
 ```azurecli-interactive
-az acr list --resource-group myResourceGroup --query "[].{acrName:name,acrLoginServer:loginServer}" --output table
+az acr show --name <acrName> --query loginServer
 ```
 
-ACR Password - update with the ACR name.
+Container registry password:
 
 ```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value -o tsv
+az acr credential show --name <acrName> --query passwords[0].value
 ```
 
 ## Container registry login

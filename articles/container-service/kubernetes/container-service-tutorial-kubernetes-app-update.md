@@ -23,7 +23,7 @@ ms.author: nepeters
 
 After you deploy an application in Kubernetes, it can be updated by specifying a new container image or image version. When you update an application, the update rollout is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update, and provides a rollback mechanism if a deployment failure occurs. 
 
-In this tutorial, part 6 of 7, the sample Azure Vote app is updated. Tasks that you complete include:
+In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks that you complete include:
 
 > [!div class="checklist"]
 > * Updating the front-end application code
