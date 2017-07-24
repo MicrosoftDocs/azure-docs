@@ -23,7 +23,7 @@ ms.author: danlep
 
 Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
 
-You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes cluster by using the Containers solution in [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
+You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes cluster by using the Containers solution in [Operations Management Suite](../../operations-management-suite/operations-management-suite-overview.md), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
 
 This tutorial, part 7 of 7, covers the following tasks:
 
@@ -124,11 +124,11 @@ After the agents are running, it takes several minutes for OMS to ingest and pro
 
 ## Access monitoring data
 
-View and analyze the OMS container monitoring data with the [Container solution](../log-analytics/log-analytics-containers.md) in either the OMS portal or the Azure portal. 
+View and analyze the OMS container monitoring data with the [Container solution](../../log-analytics/log-analytics-containers.md) in either the OMS portal or the Azure portal. 
 
 To install the Container solution using the [OMS portal](https://mms.microsoft.com), go to **Solutions Gallery**. Then add **Container Solution**. Alternatively, add the Containers solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. Click the tile for details including: container events, errors, status, image inventory, and CPU and memory usage. For more granular information, click a row on any tile, or perform a [log search](../log-analytics/log-analytics-log-searches.md).
+In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. Click the tile for details including: container events, errors, status, image inventory, and CPU and memory usage. For more granular information, click a row on any tile, or perform a [log search](../../log-analytics/log-analytics-log-searches.md).
 
 ![Containers dashboard in OMS portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
