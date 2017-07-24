@@ -21,7 +21,7 @@ ms.author: TomSh
 
 # Azure database security best practices
 
-Security is a top concern when managing databases, and it has always been a priority for Azure SQL Database. Your databases can be tightly secured to help satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1, among others. A current list of security compliance certifications is available at the [Microsoft Trust Center site](http://azure.microsoft.com/en-us/support/trust-center/services/). You also can choose to place your databases in specific Azure datacenters based on regulatory requirements.
+Security is a top concern when managing databases, and it has always been a priority for Azure SQL Database. Your databases can be tightly secured to help satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1, among others. A current list of security compliance certifications is available at the [Microsoft Trust Center site](http://azure.microsoft.com/support/trust-center/services/). You also can choose to place your databases in specific Azure datacenters based on regulatory requirements.
 
 In this article, we will discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
 
@@ -52,10 +52,10 @@ Microsoft Azure SQL Database provides a relational database service for Azure an
 
 The Azure SQL Database service is only available through TCP port 1433. To access a SQL Database from your computer, ensure that your client computer firewall allows outgoing TCP communication on TCP port 1433. If not needed for other applications, block inbound connections on TCP port 1433 using firewall rules.
 
-As part of the connection process, connections from Azure virtual machines are redirected to a different IP address and port, unique for each worker role. The port number is in the range from 11000 to 11999. For more information about TCP ports, see [Ports beyond 1433 for ADO.NET 4.5 and SQL Database2](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12).
+As part of the connection process, connections from Azure virtual machines are redirected to a different IP address and port, unique for each worker role. The port number is in the range from 11000 to 11999. For more information about TCP ports, see [Ports beyond 1433 for ADO.NET 4.5 and SQL Database2](https://docs.microsoft.com/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12).
 
 > [!Note]
-> For more information about firewall rules in SQL Database, see [SQL Database firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure).
+> For more information about firewall rules in SQL Database, see [SQL Database firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
 ## Enable database authentication
 SQL Database supports two types of authentication, SQL Authentication and Azure Active Directory Authentication (Azure AD Authentication).
@@ -75,9 +75,9 @@ If you use **SQL Authentication** you must:
 
 -	Manage the strong credentials yourself.
 -	Protect the credentials in the connection string.
--	(Potentially) protect the credentials passed over the network from the Web server to the database. For more information see [how to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998300.aspx).
+-	(Potentially) protect the credentials passed over the network from the Web server to the database. For more information see [how to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
 
-**Azure Active Directory authentication** is a mechanism of connecting to Microsoft Azure SQL Database and [SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) by using identities in Azure Active Directory (Azure AD). With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
+**Azure Active Directory authentication** is a mechanism of connecting to Microsoft Azure SQL Database and [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) by using identities in Azure Active Directory (Azure AD). With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
 
 -	It provides an alternative to SQL Server authentication.
 -	Helps stop the proliferation of user identities across database servers.
@@ -87,7 +87,7 @@ If you use **SQL Authentication** you must:
 -	Azure AD authentication uses contained database users to authenticate identities at the database level.
 -	Azure AD supports token-based authentication for applications connecting to SQL Database.
 -	Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
--	Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-ssms-mfa-authentication).
+-	Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication).
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
@@ -98,7 +98,7 @@ The configuration steps include the following procedures to configure and use Az
 -	Create contained database users in your database mapped to Azure AD identities.
 -	Connect to your database by using Azure AD identities.
 
-You can find details information [here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication).
+You can find details information [here](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
 
 ## Protect your data using encryption
 
@@ -106,12 +106,12 @@ You can find details information [here](https://docs.microsoft.com/en-us/azure/s
 
 Even when the entire storage is encrypted, it is very important to also encrypt your database itself. This is an implementation of the defense in depth approach for data protection. If you are using Azure SQL Database and wish to protect sensitive data such as credit card or social security numbers, you can encrypt databases with FIPS 140-2 validated 256 bit AES encryption which meets the requirements of many industry standards (e.g., HIPAA, PCI).
 
-It’s important to understand that files related to [buffer pool extension (BPE)](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/buffer-pool-extension) are not encrypted when a database is encrypted using TDE. You must use file system level encryption tools like [BitLocker](https://technet.microsoft.com/en-us/library/cc732774) or the [Encrypting File System (EFS)](https://technet.microsoft.com/library/cc700811.aspx) for BPE related files.
+It’s important to understand that files related to [buffer pool extension (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) are not encrypted when a database is encrypted using TDE. You must use file system level encryption tools like [BitLocker](https://technet.microsoft.com/library/cc732774) or the [Encrypting File System (EFS)](https://technet.microsoft.com/library/cc700811.aspx) for BPE related files.
 
 Since an authorized user such as a security administrator or a database administrator can access the data even if the database is encrypted with TDE, you should also follow the recommendations below:
 
 -	Enable SQL authentication at the database level.
--	Use Azure AD authentication using [RBAC roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is).
+-	Use Azure AD authentication using [RBAC roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
 -	Users and applications should use separate accounts to authenticate. This way you can limit the permissions granted to users and applications and reduce the risks of malicious activity.
 -	Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter), or you can create custom roles for your application to grant explicit permissions to selected database objects.
 
@@ -126,9 +126,9 @@ Protecting data in transit should be essential part of your data protection stra
 
 For data moving between your on-premises infrastructure and Azure, you should consider appropriate safeguards such as HTTPS or VPN.
 
-For organizations that need to secure access from multiple workstations located on-premises to Azure, use [Azure site-to-site VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-site-to-site-create).
+For organizations that need to secure access from multiple workstations located on-premises to Azure, use [Azure site-to-site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
 
-For organizations that need to secure access from individual workstations located on-premises or off-premises to Azure, consider using [Point-to-Site VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+For organizations that need to secure access from individual workstations located on-premises or off-premises to Azure, consider using [Point-to-Site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
 Larger data sets can be moved over a dedicated high-speed WAN link such as [ExpressRoute](https://azure.microsoft.com/services/expressroute/). If you choose to use ExpressRoute, you can also encrypt the data at the application-level using [SSL/TLS](https://support.microsoft.com/kb/257591) or other protocols for added protection.
 
@@ -143,29 +143,29 @@ Auditing an instance of the SQL Server Database Engine or an individual database
 
 There are several levels of auditing for SQL Server, depending on government or standards requirements for your installation. SQL Server Audit provides the tools and processes you must have to enable, store, and view audits on various server and database objects.
 
-[Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) tracks database events and writes them to an audit log in your Azure Storage account.
+[Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) tracks database events and writes them to an audit log in your Azure Storage account.
 
 Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
 Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance.
 
-To learn more about database auditing and how to enable it, please read the article [Enable auditing and threat detection on SQL servers in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-auditing-on-sql-servers).
+To learn more about database auditing and how to enable it, please read the article [Enable auditing and threat detection on SQL servers in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
 
 ## Enable database threat detection
 SQL Threat Detection enables you to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. You will receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. SQL Threat Detection alerts provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.
 
 For example, SQL injection is one of the common Web application security issues on the Internet, used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, breaching or modifying data in the database.
 
-To learn about how to set up threat detection for your database in the Azure portal see, [SQL Database Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection).
+To learn about how to set up threat detection for your database in the Azure portal see, [SQL Database Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 
-In addition, SQL Threat Detection integrates alerts with [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). We invite you to try it out for 60 days for free.
+In addition, SQL Threat Detection integrates alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). We invite you to try it out for 60 days for free.
 
-To learn more about Database Threat Detection and how to enable it, please read the article [Enable auditing and threat detection on SQL servers in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-auditing-on-sql-servers).
+To learn more about Database Threat Detection and how to enable it, please read the article [Enable auditing and threat detection on SQL servers in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
 
 ## Conclusion
 Azure Database is a robust database platform, with a full range of security features that meet many organizational and regulatory compliance requirements. You can help protect data by controlling the physical access to your data, and using a variety of options for data security at the file-, column-, or row level with Transparent Data Encryption, Cell-Level Encryption, or Row-Level Security. Always Encrypted also enables operations against encrypted data, simplifying the process of application updates. In turn, access to auditing logs of SQL Database activity provides you with the information you need, allowing you to know how and when data is accessed.
 
 ## Next steps
-- To learn more about firewall rules, see [Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure).
-- To learn about users and logins, see [Manage logins](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-manage-logins).
-- For a tutorial, see [Secure your Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-tutorial).
+- To learn more about firewall rules, see [Firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+- To learn about users and logins, see [Manage logins](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- For a tutorial, see [Secure your Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
