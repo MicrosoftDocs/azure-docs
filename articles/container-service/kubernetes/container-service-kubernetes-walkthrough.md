@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2017
+ms.date: 07/25/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
