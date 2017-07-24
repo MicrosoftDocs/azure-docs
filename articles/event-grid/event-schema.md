@@ -68,5 +68,5 @@ The array can contain multiple events objects. 
 
 ## Next steps
 
-* For an introduction to Event Grid, see [What is Event Grid?](overview.md).
+* For an introduction to Event Grid, see [What is Event Grid?](overview.md)
 * To learn about creating an Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
