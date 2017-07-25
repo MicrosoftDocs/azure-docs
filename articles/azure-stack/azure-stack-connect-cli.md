@@ -105,7 +105,7 @@ Use the following steps to connect to Azure Stack:
 
 4. Set the active environment and sign in by using the following commands:
 
-   a. For the **administrative** environment, use:
+   a. For the **cloud administrative** environment, use:
 
    ```azurecli
    az cloud set \
