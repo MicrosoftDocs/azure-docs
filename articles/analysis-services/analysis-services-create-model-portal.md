@@ -67,6 +67,6 @@ Your new model appears in your browser. From here, you can:
 
 ## Next steps 
 [Manage database roles and users](analysis-services-database-users.md)  
-[IConnect with Excel](analysis-services-connect-excel.md)  
+[Connect with Excel](analysis-services-connect-excel.md)  
 
 
