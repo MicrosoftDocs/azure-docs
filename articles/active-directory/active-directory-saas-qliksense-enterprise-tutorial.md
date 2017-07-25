@@ -107,15 +107,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Qlik Sense Enterprise Domain and URLs single sign-on information](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
-
-	b. In the **Identifier** textbox, type a URL using the following pattern:
+    
+    > [!NOTE]
+    > Note the trailing slash at the end of this URI. It is required.
+    
+    b. In the **Identifier** textbox, type a URL using the following pattern:
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qliksense.com`|
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Which are explained later in this tutorial or contact [Qlik Sense Enterprise Client support team](https://www.qlik.com/us/services/support) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier, Which are explained later in this tutorial or contact [Qlik Sense Enterprise Client support team](https://www.qlik.com/us/services/support) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
