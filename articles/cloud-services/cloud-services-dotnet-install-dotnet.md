@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 07/24/2017
 ms.author: adegeo
 ---
 
 # Install .NET on a Cloud Service Role
-This article describes how to install different versions of .NET framework on Cloud Service Web and Worker Roles than what comes with the Guest OS. For example, you can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4 which does not come with any version of .NET 4.6. For the latest information on Guest OS releases see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md).
+This article describes how to install different versions of .NET framework on Cloud Service Web and Worker Roles than what comes with the Guest OS. For example, you can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4, which does not come with any version of .NET 4.6. For the latest information on Guest OS releases see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md).
 
 >[!NOTE]
 >Guest OS 5 includes .NET 4.6
@@ -30,12 +30,15 @@ The process of installing .NET on your web and worker roles involves including t
 
 ## Add the .NET installer to your project
 * Download the the web installer for the .NET framework you want to install
+  * [.NET 4.7 Web Installer](http://go.microsoft.com/fwlink/?LinkId=825298)
   * [.NET 4.6.1 Web Installer](http://go.microsoft.com/fwlink/?LinkId=671729)
+
 * For a Web Role
-  1. In **Solution Explorer**, under In **Roles** in the cloud service project right click on your role and select **Add>New Folder**. Create a folder named *bin*
-  2. Right click on the **bin** folder and select **Add>Existing Item**. Select the .NET installer and add it to the bin folder.
+  1. In **Solution Explorer**, under In **Roles** in the cloud service project right click on your role and select **Add > New Folder**. Create a folder named *bin*
+  2. Right click on the **bin** folder and select **Add > Existing Item**. Select the .NET installer and add it to the bin folder.
+  
 * For a Worker Role
-  1. Right click on your role and select **Add>Existing Item**. Select the .NET installer and add it to the role. 
+  1. Right click on your role and select **Add > Existing Item**. Select the .NET installer and add it to the role. 
 
 Files added this way to the Role Content Folder will automatically be added to the cloud service package and deployed to a consistent location on the virtual machine. Repeat this process for all web and worker roles in your Cloud Service so all roles have a copy of the installer.
 
@@ -86,42 +89,48 @@ Startup tasks allow you to perform operations before a role starts. Installing t
     REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-    set netfx="NDP461"
-   
+    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
+    set netfx="NDP47"
+
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
     set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
     set "log=install.cmd started %timestamp%."
-   
+
     REM ***** Exit script if running in Emulator *****
     if %ComputeEmulatorRunning%=="true" goto exit
-   
+
     REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
     set TEMP=%PathToNETFXInstall%
-   
+
     REM ***** Setup .NET filenames and registry keys *****
+    if %netfx%=="NDP47" goto NDP47
     if %netfx%=="NDP462" goto NDP462
     if %netfx%=="NDP461" goto NDP461
     if %netfx%=="NDP46" goto NDP46
         set "netfxinstallfile=NDP452-KB2901954-Web.exe"
         set netfxregkey="0x5cbf5"
         goto logtimestamp
-   
+
     :NDP46
     set "netfxinstallfile=NDP46-KB3045560-Web.exe"
     set netfxregkey="0x6004f"
     goto logtimestamp
-   
+
     :NDP461
     set "netfxinstallfile=NDP461-KB3102438-Web.exe"
     set netfxregkey="0x6040e"
     goto logtimestamp
-   
+
     :NDP462
     set "netfxinstallfile=NDP462-KB3151802-Web.exe"
     set netfxregkey="0x60632"
-   
+
+    :NPD47
+    set "netfxinstallfile=NDP47-KB3186500-Web.exe"
+    set netfxregkey="0x707FE"
+
     :logtimestamp
     REM ***** Setup LogFile with timestamp *****
     md "%PathToNETFXInstall%\log"
@@ -131,7 +140,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
     echo Logfile generated at: %startuptasklog% >> %startuptasklog%
     echo TMP set to: %TMP% >> %startuptasklog%
     echo TEMP set to: %TEMP% >> %startuptasklog%
-   
+
     REM ***** Check if .NET is installed *****
     echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
     set /A netfxregkeydecimal=%netfxregkey%
@@ -139,7 +148,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
     FOR /F "usebackq skip=2 tokens=1,2*" %%A in (`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release 2^>nul`) do @set /A foundkey=%%C
     echo Minimum required key: %netfxregkeydecimal% -- found key: %foundkey% >> %startuptasklog%
     if %foundkey% GEQ %netfxregkeydecimal% goto installed
-   
+
     REM ***** Installing .NET *****
     echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService Startup Task" >> %startuptasklog%
     start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >> %startuptasklog% 2>>&1
@@ -148,17 +157,17 @@ Startup tasks allow you to perform operations before a role starts. Installing t
         if %ERRORLEVEL%== 3010 goto restart
         if %ERRORLEVEL%== 1641 goto restart
         echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-   
+
     :restart
     echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
     EXIT /B %ERRORLEVEL%
-   
+
     :installed
     echo .NET (%netfx%) is installed >> %startuptasklog%
-   
+
     :end
     echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
-   
+
     :exit
     EXIT /B 0
     ```
