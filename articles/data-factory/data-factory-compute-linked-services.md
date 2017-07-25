@@ -79,7 +79,7 @@ This impacts existing Azure Data Factories that have Activities running against 
 
   **Recommendations:** 
   * Before **07/15/2017**, perform tests to ensure the compatibility of the Activities that reference this Linked Services to [the latest supported HDInsight version](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) with information documented in [Hadoop components available with different HDInsight versions](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) and [Hortonworks release notes associated with HDInsight versions](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
-  * After **07/15/2017**, make sure you explicitly specify osType an Version values if you would like to overide the default settings. 
+  * After **07/15/2017**, make sure you explicitly specify osType and version values if you would like to override the default settings. 
 
 >[!Note]
 >Currently Azure Data Factory does not support HDInsight clusters using Azure Data Lake Store as primary store. Use Azure Storage as primary store for HDInsight clusters. 
