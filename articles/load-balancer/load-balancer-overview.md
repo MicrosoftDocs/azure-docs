@@ -115,11 +115,17 @@ You can assign more than one load-balanced public IP address to a set of virtual
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
+## Limitations
+
+Load Balancer backend pools can contain any VM SKU except Basic tier.
+
 ## Next steps
 
-[Internet-facing load balancer overview](load-balancer-internet-overview.md)
+- Learn more about [Internet-facing load balancer](load-balancer-internet-overview.md)
 
-[Internal load balancer overview](load-balancer-internal-overview.md)
+- Learn more about [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+- Create an [Internet-facing load balancer](load-balancer-get-started-internet-portal.md)
+
+- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure
 

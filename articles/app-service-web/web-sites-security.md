@@ -35,7 +35,7 @@ through vigorous compliance and checks on a continuous basis to make sure that:
 * All communication between your App Service app and external resources, such as PowerShell management, command-line interface, Azure SDKs, REST APIs, and hybrid connections, are properly encrypted.
 * 24-hour threat management protects App Service resources from malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats. 
 
-For more information on infrastructure and platform security in Azure, see [Azure Trust Center](/support/trust-center/security/).
+For more information on infrastructure and platform security in Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
 #### Application security
 While Azure is responsible for securing the infrastructure and platform that your application runs on, it is your responsibility to secure your application itself. In other words, you need to develop, deploy, and manage your

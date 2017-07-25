@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2017
+ms.date: 6/29/2017
 ms.author: mcoskun
 
 ---
@@ -62,7 +62,7 @@ Backups can be made only from primary replicas, and they require write status to
 
 As shown below, **BackupAsync** takes in a **BackupDescription** object, where one can specify a full or incremental backup, as well as a callback function, **Func<< BackupInfo, CancellationToken, Task<bool>>>** which is invoked when the backup folder has been created locally and is ready to be moved out to some external storage.
 
-```C#
+```csharp
 
 BackupDescription myBackupDescription = new BackupDescription(backupOption.Incremental,this.BackupCallbackAsync);
 
@@ -84,7 +84,7 @@ For more information, see [Reliable Services Configuration](service-fabric-relia
 
 The following code demonstrates how the **BackupCallbackAsync** method can be used to upload the backup to Azure Storage:
 
-```C#
+```csharp
 private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
 {
     var backupId = Guid.NewGuid();
@@ -124,8 +124,7 @@ The service author needs to perform the following to recover:
 
 Following is an example implementation of the **OnDataLossAsync** method:
 
-```C#
-
+```csharp
 protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, CancellationToken cancellationToken)
 {
     var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
@@ -148,7 +147,6 @@ For example, if it contains the full backup, the first incremental and the third
 > [!NOTE]
 > The RestorePolicy is set to Safe by default.  This means that the **RestoreAsync** API will fail with ArgumentException if it detects that the backup folder contains a state that is older than or equal to the state contained in this replica.  **RestorePolicy.Force** can be used to skip this safety check. This is specified as part of **RestoreDescription**.
 > 
-> 
 
 ## Deleted or lost service
 If a service is removed, you must first re-create the service before the data can be restored.  It is important to create the service with the same configuration, e.g., partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (**OnDataLossAsync** above) has to be invoked on every partition of this service. One way of achieving this is by using **[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)** on every partition.  
@@ -157,7 +155,6 @@ From this point, implementation is the same as the above scenario. Each partitio
 
 > [!NOTE]
 > It is not recommended to use **FabricClient.ServiceManager.InvokeDataLossAsync** on each partition to restore the entire service, since that may corrupt your cluster state.
-> 
 > 
 
 ## Replication of corrupt application data
@@ -174,15 +171,12 @@ Note that:
 * When you restore, there is a chance that the backup being restored is older than the state of the partition before the data was lost. Because of this, you should restore only as a last resort to recover as much data as possible.
 * The string that represents the backup folder path and the paths of files inside the backup folder can be greater than 255 characters, depending on the FabricDataRoot path and Application Type name's length. This can cause some .NET methods, like **Directory.Move**, to throw the **PathTooLongException** exception. One workaround is to directly call kernel32 APIs, like **CopyFile**.
 
-
-
-
 ## Backup and restore Reliable Actors
 
 
 Reliable Actors Framework is built on top of Reliable Services. The ActorService which hosts the actor(s) is a stateful reliable service. Hence, all the backup and restore functionality available in Reliable Services is also available to Reliable Actors (except behaviors that are state provider specific). Since backups will be taken on a per-partition basis, states for all actors in that partition will be backed up (and restoration is similar and will happen on a per-partition basis). To perform backup/restore, the service owner should create a custom actor service class that derives from ActorService class and then do backup/restore similar to Reliable Services as described above in previous sections.
 
-```
+```csharp
 class MyCustomActorService : ActorService
 {
      public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
@@ -198,14 +192,14 @@ class MyCustomActorService : ActorService
 
 When you create a custom actor service class, you need to register that as well when registering the actor.
 
-```
+```csharp
 ActorRuntime.RegisterActorAsync<MyActor>(
    (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
 The default state provider for Reliable Actors is **KvsActorStateProvider**. Incremental backup is not enabled by default for **KvsActorStateProvider**. You can enable incremental backup by creating **KvsActorStateProvider** with the appropriate setting in its constructor and then passing it to ActorService constructor as shown in following code snippet:
 
-```
+```csharp
 class MyCustomActorService : ActorService
 {
      public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)

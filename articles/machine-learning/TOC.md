@@ -193,6 +193,10 @@
 ### [Collections](machine-learning-gallery-collections.md)
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
 
+## Cortana Intelligence Partner Solutions
+### [Cortana Intelligence publishing guide](cortana-intelligence-appsource-publishing-guide.md)
+### [Cortana Intelligence solution evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
 ### APIs
 #### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)

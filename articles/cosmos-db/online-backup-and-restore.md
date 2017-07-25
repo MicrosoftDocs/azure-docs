@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/23/2017
 ms.author: raprasa
 
 ---
@@ -46,8 +46,9 @@ The following image illustrates periodic full backups of all Cosmos DB entities 
 ![Periodic full backups of all Cosmos DB entities in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
 
 ## Retention period for a given snapshot
-As described above, we periodically take snapshots of your data and per our compliance regulations, we retain the latest snapshot up to 90 days before it eventually gets purged. If a container or account is deleted, Cosmos DB stores the last backup for 90 days.
+As described above, we take snapshots of your data every 4 hours and retain the last two snapshots for 30 days. Per our compliance regulations, snapshots are purged after 90 days.
 
+If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups. 
 
 ## Restore database from the online backup
 In case you accidentally delete your data, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.

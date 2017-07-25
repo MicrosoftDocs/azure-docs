@@ -33,7 +33,7 @@ Here are the topics to be covered in this article:
   In this section, we'll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
 * [Encryption in Transit](#encryption-in-transit)
 
-  This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure File Shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
+  This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure File shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
 * [Encryption at Rest](#encryption-at-rest)
 
   We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
@@ -103,7 +103,7 @@ Here are the main points that you need to know about using RBAC to access the ma
   This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
 
 ### Managing Your Storage Account Keys
-Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account, e.g. blobs, entities within a table, queue messages, and files on an Azure Files share. Controlling access to the storage account keys controls access to the data plane for that storage account.
+Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account, e.g. blobs, entities within a table, queue messages, and files on an Azure File share. Controlling access to the storage account keys controls access to the data plane for that storage account.
 
 Each storage account has two keys referred to as "Key 1" and "Key 2" in the [Azure portal](http://portal.azure.com/) and in the PowerShell cmdlets. These can be regenerated manually using one of several methods, including, but not limited to using the [Azure portal](https://portal.azure.com/), PowerShell, the Azure CLI, or programmatically using the .NET Storage Client Library or the Azure Storage Services REST API.
 
@@ -263,23 +263,23 @@ To have a secure communication channel, you should always use HTTPS when calling
 
 You can enforce the use of HTTPS when calling the REST APIs to access objects in storage accounts by enabling [Secure transfer required](storage-require-secure-transfer.md) for the storage account. Connections using HTTP will be refused once this is enabled.
 
-### Using encryption during transit with Azure File Shares
-Azure File Storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop.
+### Using encryption during transit with Azure File shares
+Azure File storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop.
 
-Note that while Azure File Shares can be used with Unix, the Linux SMB client does not yet support encryption, so access is only allowed within an Azure region. Encryption support for Linux is on the roadmap of Linux developers responsible for SMB functionality. When they add encryption, you will have the same ability for accessing an Azure File Share on Linux as you do for Windows.
+Note that while Azure File shares can be used with Unix, the Linux SMB client does not yet support encryption, so access is only allowed within an Azure region. Encryption support for Linux is on the roadmap of Linux developers responsible for SMB functionality. When they add encryption, you will have the same ability for accessing an Azure File share on Linux as you do for Windows.
 
 You can enforce the use of encryption with the Azure Files service by enabling [Secure transfer required](storage-require-secure-transfer.md) for the storage account. If using the REST APIs, HTTPs is required. For SMB, only SMB connections that support encryption will connect successfully.
 
 #### Resources
-* [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
+* [How to use Azure File storage with Linux](storage-how-to-use-files-linux.md)
 
-  This article shows how to mount an Azure File Share on a Linux system and upload/download files.
+  This article shows how to mount an Azure File share on a Linux system and upload/download files.
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
   This article gives an overview of Azure File shares and how to mount and use them using PowerShell and .NET.
-* [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 
-  This article announces the general availability of Azure File Storage and provides technical details about the SMB 3.0 encryption.
+  This article announces the general availability of Azure File storage and provides technical details about the SMB 3.0 encryption.
 
 ### Using Client-side encryption to secure data that you send to storage
 Another option that helps you ensure that your data is secure while being transferred between a client application and Storage is Client-side Encryption. The data is encrypted before being transferred into Azure Storage. When retrieving the data from Azure Storage, the data is decrypted after it is received on the client side. Even though the data is encrypted going across the wire, we recommend that you also use HTTPS, as it has data integrity checks built in which help mitigate network errors affecting the integrity of the data.
@@ -346,7 +346,7 @@ The solution does not support the following scenarios, features, and technology 
 * Disabling encryption on an OS drive for Linux IaaS VMs
 * IaaS VMs that are created by using the classic VM creation method
 * Integration with your on-premises Key Management Service
-* Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
+* Azure File storage (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
 
 
 > [!NOTE]
