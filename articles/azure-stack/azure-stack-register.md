@@ -55,7 +55,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
 ```
 
 
-## Register Azure Stck with Azure
+## Register Azure Stack with Azure
 
 > [!NOTE]
 >All these steps must be completed on the host computer.
