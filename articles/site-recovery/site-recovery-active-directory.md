@@ -1,4 +1,4 @@
-7---
+---
 title: Protect Active Directory and DNS with Azure Site Recovery | Microsoft Docs
 description: This article describes how to implement a disaster recovery solution for Active Directory using Azure Site Recovery.
 services: site-recovery

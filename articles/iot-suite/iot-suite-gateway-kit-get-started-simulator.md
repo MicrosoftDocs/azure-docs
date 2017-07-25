@@ -103,7 +103,7 @@ args": [
   {
     "macAddress": "AA:BB:CC:DD:EE:FF",
     "deviceId": "<<Azure IoT Hub Device ID>>",
-    "deviceKey": "<<Azure IoT Hub Device Key>>>"
+    "deviceKey": "<<Azure IoT Hub Device Key>>"
   },
   {
     "macAddress": "AA:BB:CC:DD:EE:FF",
