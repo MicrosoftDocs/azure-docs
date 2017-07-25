@@ -66,6 +66,7 @@
 ## Troubleshoot
 ### [VM deployments](troubleshoot-deployment-new-vm.md)
 ### [Restart or resize a VM](restart-resize-error-troubleshooting.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](/powershell/azure/overview)

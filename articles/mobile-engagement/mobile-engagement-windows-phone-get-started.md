@@ -24,6 +24,9 @@ This topic shows you how to use Azure Mobile Engagement to understand your app u
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Windows Phone Silverlight app that collects basic data and receives push notifications using Microsoft Push Notification Service (MPNS).
 
 > [!NOTE]
+> Windows Phone 8.1 and prior version projects are not supported in Visual Studio 2017.  For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+
+> [!NOTE]
 > If you are targeting Windows Phone 8.1 (non-Silverlight), refer to the [Windows Universal tutorial](mobile-engagement-windows-store-dotnet-get-started.md).
 > 
 > 
