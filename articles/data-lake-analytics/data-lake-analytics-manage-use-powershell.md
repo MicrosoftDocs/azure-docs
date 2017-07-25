@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 07/23/2017
 ms.author: mahi
 
 ---
@@ -124,8 +124,6 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg
 
 ## Managing firewall rules
 
-### Add or remove firewall rules
-
 List firewall rules.
 
 ```powershell
@@ -154,13 +152,7 @@ Remove a firewall rule.
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
 
-### Enable or disable firewall rules
 
-Enable firewall rules.
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
-```
 
 Allow Azure IP addresses.
 
@@ -168,9 +160,8 @@ Allow Azure IP addresses.
 Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
 ```
 
-Disable firewall rules.
-
 ```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
 Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 ```
 
@@ -191,26 +182,22 @@ $adla_acct = Get-AdlAnalyticsAccount -Name $adla
 $dataLakeStoreName = $adla_acct.DefaultDataLakeAccount
 ```
 
-Alternatively, if you are enumerating the list of data sources. You can find the default Data Lake Store account using the following pattern:
+You can find the default Data Lake Store account by filtering the list of datasources by the `IsDefault` property:
 
 ```powershell
 Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault } 
 ```
 
-### Add data sources
-
-Add an additional Storage (Blob) account.
+### Add a data source
 
 ```powershell
+
+# Add an additional Storage (Blob) account.
 $AzureStorageAccountName = "<AzureStorageAccountName>"
 $AzureStorageAccountKey = "<AzureStorageAccountKey>"
-
 Add-AdlAnalyticsDataSource -Account $adla -Blob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
-```
 
-Add an additional Data Lake Store account.
-
-```powershell
+# Add an additional Data Lake Store account.
 $AzureDataLakeStoreName = "<AzureDataLakeStoreAccountName"
 Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName 
 ```
@@ -228,11 +215,9 @@ Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "DataLakeStore
 Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
 ```
 
-## Managing jobs
+## Submit U-SQL jobs
 
-### Submit a U-SQL job
-
-Submit a string as a U-SQL script.
+### Submit a string as a U-SQL script
 
 ```powershell
 $script = @"
@@ -254,7 +239,7 @@ Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
 
-Submit a file as a U-SQL script.
+### Submit a file as a U-SQL script
 
 ```powershell
 $scriptpath = "d:\test.usql"
@@ -262,13 +247,16 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 ```
 
-### List jobs
+## List jobs in an account
 
-List all the jobs in the account. The output includes the currently running jobs and those jobs that have recently completed.
+### List all the jobs in the account. 
+
+The output includes the currently running jobs and those jobs that have recently completed.
 
 ```powershell
 Get-AdlJob -Account $adla
 ```
+
 
 ### List a specific number of jobs
 
@@ -278,44 +266,83 @@ By default the list of jobs is sorted on submit time. So the most recently submi
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
 
+
 ### List jobs based on the value of job property
 
-List  jobs submitted in the last day.
+Using the `-State` parameter. You can combine any of these values:
 
-```
-$d = [DateTime]::Now.AddDays(-1)
-Get-AdlJob -Account $adla -SubmittedAfter $d
-```
-
-List jobs submitted in the last five days and that successfully completed.
-
-```
-$d = (Get-Date).AddDays(-5)
-Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
-```
-
-List Successful jobs.
-
-```
-Get-AdlJob -Account $adla -State Ended -Result Succeeded
-```
-
-List Failed jobs.
+* `Accepted`
+* `Compiling`
+* `Ended`
+* `New`
+* `Paused`
+* `Queued`
+* `Running`
+* `Scheduling`
+* `Start`
 
 ```powershell
+# List the running jobs
+Get-AdlJob -Account $adla -State Running
+
+# List the jobs that have completed
+Get-AdlJob -Account $adla -State Ended
+
+# List the jobs that have not started yet
+Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
+```
+
+Use the `-Result` parameter to detect whether ended jobs completed successfully. It has these values:
+
+* Cancelled
+* Failed
+* None
+* Succeeded
+
+``` powershell
+# List Successful jobs.
+Get-AdlJob -Account $adla -State Ended -Result Succeeded
+
+# List Failed jobs.
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
-List all failed jobs submitted by "joe@contoso.com" within the past seven days.
+
+The `-Submitter` parameter helps you identify who submitted a job.
 
 ```powershell
+Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
+```
+
+The `-SubmittedAfter` is useful in filtering to a time range.
+
+
+```powershell
+# List  jobs submitted in the last day.
+$d = [DateTime]::Now.AddDays(-1)
+Get-AdlJob -Account $adla -SubmittedAfter $d
+
+# List  jobs submitted in the last seven day.
+$d = [DateTime]::Now.AddDays(-7)
+Get-AdlJob -Account $adla -SubmittedAfter $d
+```
+
+### Common scenarios for listing jobs
+
+
+```
+# List jobs submitted in the last five days and that successfully completed.
+$d = (Get-Date).AddDays(-5)
+Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
+
+# List all failed jobs submitted by "joe@contoso.com" within the past seven days.
 Get-AdlJob -Account $adla `
     -Submitter "joe@contoso.com" `
     -SubmittedAfter (Get-Date).AddDays(-7) `
     -Result Failed
 ```
 
-### Filtering a list of jobs
+## Filtering a list of jobs
 
 Once you have a list of jobs in your current PowerShell session. You can use normal PowerShell cmdlets to filter the list.
 
@@ -382,7 +409,9 @@ $jobs = Get-AdlJob -Account $adla -Top 10
 $jobs = $jobs | %{ annotate_job( $_ ) }
 ```
 
-### Get information about a job
+## Get information about a job
+
+### Get job status
 
 Get the status of a specific job.
 
@@ -390,11 +419,6 @@ Get the status of a specific job.
 Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
-Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the `Wait-AdlJob` cmdlet to wait for the job to end.
-
-```powershell
-Wait-AdlJob -Account $adla -JobId $job.JobId
-```
 
 ### Examine the job outputs
 
@@ -404,16 +428,27 @@ After the job has ended, check if the output file exists by listing the files in
 Get-AdlStoreChildItem -Account $adls -Path "/"
 ```
 
-Check for the existence of a file.
-
-```powershell
-Test-AdlStoreItem -Account $adls -Path "/data.csv"
-```
+## Managing running jobs
 
 ### Cancel a job
 
 ```powershell
 Stop-AdlJob -Account $adls -JobID $jobID
+```
+
+### Waiting for a job to finish
+
+Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the `Wait-AdlJob` cmdlet to wait for the job to end.
+
+```powershell
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
+
+
+## Check for the existence of a file.
+
+```powershell
+Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
 ## Uploading and downloading
@@ -446,10 +481,10 @@ Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recu
 > If the upload or download process is interrupted, you can attempt to resume the process by running the cmdlet again with the ``-Resume`` flag.
 
 ## Manage catalog items
+
 The U-SQL catalog is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake. For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
 
 ### List items in the U-SQL catalog
-
 
 ```powershell
 # List U-SQL databases

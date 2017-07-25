@@ -60,6 +60,7 @@
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
+### [Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook](automation-deploy-template-runbook.md)
 ## Solutions
 ### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)

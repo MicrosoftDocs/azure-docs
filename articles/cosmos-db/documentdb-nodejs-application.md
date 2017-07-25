@@ -453,45 +453,46 @@ Now let’s turn our attention to building the user interface so a user can actu
     Save and close this **layout.jade** file.
 
 3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
-
-    ```
-    extends layout
-    block content
-      h1 #{title}
-      br
-    
-      form(action="/completetask", method="post")
-        table.table.table-striped.table-bordered
-          tr
-            td Name
-            td Category
-            td Date
-            td Complete
-          if (typeof tasks === "undefined")
-            tr
-              td
-          else
-            each task in tasks
-              tr
-                td #{task.name}
-                td #{task.category}
-                - var date  = new Date(task.date);
-                - var day   = date.getDate();
-                - var month = date.getMonth() + 1;
-                - var year  = date.getFullYear();
-                td #{month + "/" + day + "/" + year}
-                td
-                  input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-        button.btn(type="submit") Update tasks
-      hr
-      form.well(action="/addtask", method="post")
-        label Item Name:
-        input(name="name", type="textbox")
-        label Item Category:
-        input(name="category", type="textbox")
-        br
-        button.btn(type="submit") Add item
-    ```
+   
+        extends layout
+        block content
+           h1 #{title}
+           br
+        
+           form(action="/completetask", method="post")
+             table.table.table-striped.table-bordered
+               tr
+                 td Name
+                 td Category
+                 td Date
+                 td Complete
+               if (typeof tasks === "undefined")
+                 tr
+                   td
+               else
+                 each task in tasks
+                   tr
+                     td #{task.name}
+                     td #{task.category}
+                     - var date  = new Date(task.date);
+                     - var day   = date.getDate();
+                     - var month = date.getMonth() + 1;
+                     - var year  = date.getFullYear();
+                     td #{month + "/" + day + "/" + year}
+                     td
+                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+             button.btn.btn-primary(type="submit") Update tasks
+           hr
+           form.well(action="/addtask", method="post")
+             .form-group
+               label(for="name") Item Name:
+               input.form-control(name="name", type="textbox")
+             .form-group
+               label(for="category") Item Category:
+               input.form-control(name="category", type="textbox")
+             br
+             button.btn(type="submit") Add item
+   
 
     This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
    
@@ -502,27 +503,6 @@ Now let’s turn our attention to building the user interface so a user can actu
     The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
 
     This should be all that we need for our application to work.
-4. Open the **style.css** file in **public\stylesheets** directory and replace the code with the following:
-   
-        body {
-          padding: 50px;
-          font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        }
-        a {
-          color: #00B7FF;
-        }
-        .well label {
-          display: block;
-        }
-        .well input {
-          margin-bottom: 5px;
-        }
-        .btn {
-          margin-top: 5px;
-          border: outset 1px #C8C8C8;
-        }
-   
-    Save and close this **style.css** file.
 
 ## <a name="_Toc395783181"></a>Step 6: Run your application locally
 1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:
