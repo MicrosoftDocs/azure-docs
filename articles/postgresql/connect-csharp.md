@@ -29,8 +29,8 @@ You also need to:
 ## Install Visual Studio and .NET
 The steps in this section assume that you are familiar with developing using .NET.
 
-### **Windows .NET framework and .NET core**
-Visual Studio 2017 Community is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
+### **Windows .NET framework and .NET Core**
+Visual Studio 2017 Community is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET Core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
 
 1. Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Run the installer and follow the installation prompts to complete the installation.
