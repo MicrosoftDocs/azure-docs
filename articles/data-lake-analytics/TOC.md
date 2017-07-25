@@ -18,6 +18,7 @@
 ### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
+### [Adjust quota limits](data-lake-analytics-quota-limits.md)
 
 ## Develop U-SQL programs
 ### [U-SQL basics](data-lake-analytics-u-sql-get-started.md)
