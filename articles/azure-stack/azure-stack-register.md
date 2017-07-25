@@ -41,7 +41,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 
 ## Register Azure Stack resource provider in Azure
 > [!NOTE] 
-> This step only needs to be completed once in an Azure Stack environment
+> This step only needs to be completed once in an Azure Stack environment.
 >
 
 1. Start Powershell ISE as an administrator.
