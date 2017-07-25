@@ -55,4 +55,4 @@ After reading this article, post any comments at the bottom, or ask technical qu
 
 ## Next steps
 
-Go to [Step 6: Prepare VMM](vmm-to-azure-walkthrough-prepare-vmm-hyper-v.md)
+Go to [Step 6: Prepare VMM](vmm-to-azure-walkthrough-vmm-hyper-v.md)
