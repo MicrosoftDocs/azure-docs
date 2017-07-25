@@ -378,6 +378,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Batch</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/container-instances.png" alt="" />
+                                                <p>Container Instances</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Enterprise Integration</h3>
                                     <ul>
@@ -1789,6 +1795,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
                                                     <p>Run compute jobs using containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/container-instances/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/container-instances.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Container Instances</h3>
+                                                    <p>The fastest and simplest way to run a container in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
