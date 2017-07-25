@@ -1,6 +1,6 @@
 ---
-title: Review the architecture for Hyper-V replication (without System Center VMM) to Azure with Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of components and architecture used when replicating on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
+title: Review the architecture for Hyper-V replication (with System Center VMM) to Azure with Azure Site Recovery | Microsoft Docs
+description: This article provides an overview of components and architecture used when replicating on-premises Hyper-V VMs in VMM clouds to Azure, with the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 07/24/2017
 ms.author: raynew
 ---
 
 
-# Step 1: Review the architecture for Hyper-V replication to Azure
+# Step 1: Review the architecture
 
 
-This article describes the components and processes involved when replicating on-premises Hyper-V virtual machines (that aren't managed by System Center VMM), to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
+This article describes the components and processes used when replicating on-premises Hyper-V virtual machines in System Center Virtual Machine Manager (VMM) clouds, to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 Post any comments at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -29,26 +29,29 @@ Post any comments at the bottom of this article, or in the [Azure Recovery Servi
 
 ## Architectural components
 
-There are a number of components involved when replicating Hyper-V VMs to Azure without VMM.
+There are a number of components involved when replicating Hyper-V VMs in VMM clouds to Azure.
 
-**Component** | **Location** | **Details**
+**Component** | **Requirement** | **Details**
 --- | --- | ---
 **Azure** | In Azure you need a Microsoft Azure account, an Azure storage account, and a Azure network. | Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover from your on-premises site occurs.<br/><br/> The Azure VMs connect to the Azure virtual network when they're created.
-**Hyper-V** | Hyper-V hosts and clusters are gathered into Hyper-V sites. The Azure Site Recovery Provider and Recovery Services agent is installed on each Hyper-V host. | The Provider orchestrates replication with Site Recovery over the internet. The Recovery Services agent handles data replication.<br/><br/> Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
-**Hyper-V VMs** | You need one or more VMs running on a Hyper-V host server. | Nothing needs to explicitly installed on VMs.
+**VMM server** | The VMM server has one or more clouds containing Hyper-V hosts. | On the VMM server you install the Site Recovery Provider to orchestrate replication with Site Recovery, and register the server in the Recovery Services vault.
+**Hyper-V host** | One or more Hyper-V hosts/clusters managed by VMM. |  You install the Recovery Services agent on each host or cluster member.
+**Hyper-V VMs** | One or VMs running on a Hyper-V host server. | Nothing needs to explicitly installed on VMs.
+**Networking** |Logical and VM networks set up on the VMM server. A VM network should be linked to a logical network that's associated with the cloud. | VM networks are mapped to Azure virtual networks, so that Azure VMs are located in a network when they're created after failover.
 
 Learn about the deployment prerequisites and requirements for each of these components in the [support matrix](site-recovery-support-matrix-to-azure.md).
 
-**Figure 1: Hyper-V site to Azure replication**
 
-![Components](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
+**Figure 1: Replicate VMs on Hyper-V hosts in VMM clouds to Azure**
+
+![Components](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## Replication process
 
 **Figure 2: Replication and recovery process for Hyper-V replication to Azure**
 
-![workflow](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
+![workflow](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### Enable protection
 
@@ -56,7 +59,9 @@ Learn about the deployment prerequisites and requirements for each of these comp
 2. The job checks that the machine complies with prerequisites, before invoking the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), to set up replication with the settings you've configured.
 3. The job starts initial replication by invoking the [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) method, to initialize a full VM replication, and send the VM's virtual disks to Azure.
 4. You can monitor the job in the **Jobs** tab.
- 
+        ![Jobs list](media/vmm-to-azure-walkthrough-architecture/image1.png)
+        ![Enable protection drill down](media/vmm-to-azure-walkthrough-architecture/image2.png)
+
 ### Replicate the initial data
 
 1. A [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) snapshot is taken when initial replication is triggered.
@@ -69,6 +74,7 @@ Learn about the deployment prerequisites and requirements for each of these comp
 ### Finalize protection
 
 1. After the initial replication finishes, the **Finalize protection on the virtual machine** job configures network and other post-replication settings, so that the virtual machine is protected.
+    ![Finalize protection job](media/vmm-to-azure-walkthrough-architecture/image3.png)
 2. If you're replicating to Azure, you might need to tweak the settings for the virtual machine so that it's ready for failover. At this point you can run a test failover to check everything is working as expected.
 
 ### Replicate the delta
@@ -83,7 +89,7 @@ Learn about the deployment prerequisites and requirements for each of these comp
 2.  Resynchronization minimizes the amount of data sent by computing checksums of the source and target virtual machines, and sending only the delta data. Resynchronization uses a fixed-block chunking algorithm where source and target files are divided into fixed chunks. Checksums for each chunk are generated and then compared to determine which blocks from the source need to be applied to the target.
 3. After resynchronization finishes, normal delta replication should resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually. For example, you can resume resynchronization if a network outage or another outage occurs. To do this, select the VM in the portal > **Resynchronize**.
 
-    ![Manual resynchronization](./media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Manual resynchronization](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
 
 ### Retry logic
@@ -110,4 +116,4 @@ If a replication error occurs, there's a built-in retry. This logic can be class
 
 ## Next steps
 
-Go to [Step 2: Review the deployment prerequisites](hyper-v-site-walkthrough-prerequisites.md)
+Go to [Step 2: Review the deployment prerequisites](vmm-to-azure-walkthrough-prerequisites.md)
