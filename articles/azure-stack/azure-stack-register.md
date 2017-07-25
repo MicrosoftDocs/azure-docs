@@ -45,7 +45,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 >
 
 1. Start Powershell ISE as an administrator.
-2. Login to the Azure account that is an owner of the Azure subscription with -EnvironmentName parameter set to "AzureCloud".
+2. Log in to the Azure account that is an owner of the Azure subscription with -EnvironmentName parameter set to "AzureCloud".
 3. Register the Azure resource provider "Microsoft.AzureStack".
 
 Example: 
