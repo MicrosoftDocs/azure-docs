@@ -1,8 +1,8 @@
-## Create an application
+## Register your application
 
 There are multiple ways to create an application, please select one of them:
 
-### Create an application (Express mode)
+### Register your application (Express mode)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 
 1.	Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure)
@@ -10,7 +10,7 @@ Now you need to register your application in the *Microsoft Application Registra
 3.	Make sure the option for *Guided Setup* is checked
 4.	Follow the instructions to obtain the application ID and paste it into your code
 
-### Create an application (Advanced mode)
+### Register your application (Advanced mode)
 
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
