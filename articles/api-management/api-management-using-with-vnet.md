@@ -102,7 +102,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inbound |TCP |Client communication to API Management |INTERNET / VIRTUAL_NETWORK |External |
 | * / 3443 |Inbound |TCP |Management endpoint for Azure portal and Powershell |INTERNET / VIRTUAL_NETWORK |External & Internal |
-| * / 80, 443 |Outbound |TCP |Dependency on Azure Storage and Azure Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
+| * / 80, 443 |Outbound |TCP |Dependency on Azure Storage, Azure Service Bus, and Azure Active Directory (where applicable)   |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / 1433 |Outbound |TCP |Dependency on Azure SQL |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / 11000 - 11999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / 14000 - 14999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
