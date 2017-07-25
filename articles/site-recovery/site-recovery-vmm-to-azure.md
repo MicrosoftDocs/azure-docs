@@ -163,7 +163,7 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 
 	> [!NOTE]
 	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using the data
-	> encryption option provided by Azure Site Recovery. The encryption capability provided by Azure can be turned on for a storage  	 > account and helps achieve better performance as the encryption/decryption is handled by Azure storage.
+	> encryption option provided by Azure Site Recovery. The encryption capability provided by Azure can be turned on for a storage	 	 > account and helps achieve better performance as the encryption/decryption is handled by Azure storage.
 	> [Learn more about Storage service encryption from Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 	
 8. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration, specify the VMM cluster role name.
@@ -437,8 +437,10 @@ Where:
 	> [!NOTE]
 	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using 
 	> the encryption option (EncryptionEnabled option) provided by Azure Site Recovery. The encryption capability provided by Azure 
-	> can be turned on for a storage account and helps achieve better performance as the encryption/decryption is done by Azure  storage.
+	> can be turned on for a storage account and helps achieve better performance as the encryption/decryption is done by Azure  
+	> storage.
 	> [Learn more about Storage service encryption in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+	
 * **/proxyAddress**: Optional parameter that specifies the address of the proxy server.
 * **/proxyport**: Optional parameter that specifies the port of the proxy server.
 * **/proxyUsername**: Optional parameter that specifies the proxy user name (if proxy requires authentication).
