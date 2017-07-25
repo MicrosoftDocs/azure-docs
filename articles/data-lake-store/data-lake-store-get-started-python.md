@@ -135,7 +135,7 @@ Use this to authenticate with Azure AD for filesystem operations (create folder,
 
 ### Multi-factor authentication for account management
 
-Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with an existing Azure AD "Web App" application.
+Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with a user account that requires multi-factor authentication.
 
 	authority_host_url = "https://login.microsoftonline.com"
 	tenant = "FILL-IN-HERE"
@@ -152,7 +152,7 @@ Use this to authenticate with Azure AD for account management operations (create
 
 ### Multi-factor authentication for filesystem management
 
-Use this to authenticate with Azure AD for filesystem operations (create folder, upload file, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with an existing Azure AD "Web App" application.
+Use this to authenticate with Azure AD for filesystem operations (create folder, upload file, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with a user account that requires multi-factor authentication.
 
 	token = lib.auth(tenant_id='FILL-IN-HERE')
 
