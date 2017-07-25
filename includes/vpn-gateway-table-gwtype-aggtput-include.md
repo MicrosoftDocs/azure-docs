@@ -8,7 +8,7 @@ Azure offers the following VPN gateway SKUs:
 |**Basic** | Max. 10                         | Max. 128               | 100 Mbps                    | 
 |          |                                 |                        |                             | 
 
-- Aggregate Benchmark Throughput is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
+- Aggregate Throughput Benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
 
 - Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
 
