@@ -20,12 +20,6 @@ ms.author: sstein
 
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
-<!--
-Old Title on MSDN:  Error Messages (Azure SQL Database)
-ShortId on MSDN:  ff394106.aspx
-Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
--->
-
 
 This article lists SQL error codes for SQL Database client applications, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, elastic pool, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
 
@@ -39,8 +33,8 @@ If your client program has retry logic, it can try to reestablish a connection a
 
 Transient fault errors typically manifest as one of the following error messages from your client programs:
 
-* Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>
-* Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>. (Microsoft SQL Server, Error: 40613)
+* Database (db_name) on server (Azure_instance) is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of (session_id)
+* Database (db_name) on server (Azure_instance) is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of (session_id). (Microsoft SQL Server, Error: 40613)
 * An existing connection was forcibly closed by the remote host.
 * System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
 
@@ -103,8 +97,8 @@ Related topics:
 | 40549 |16 |Session is terminated because you have a long-running transaction. Try shortening your transaction. |
 | 40550 |16 |The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction. |
 | 40551 |16 |The session has been terminated because of excessive `TEMPDB` usage. Try modifying your query to reduce the temporary table space usage.<br/><br/>If you are using temporary objects, conserve space in the `TEMPDB` database by dropping temporary objects after they are no longer needed by the session. |
-| 40552 |16 |The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.<br/><br/>*Tip:* If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. If you are rebuilding an index with the `ALTER INDEX` statement, try using the `REBUILD WITH ONLINE = ON` option. |
-| 40553 |16 |The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>*Tip:* Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code reduces the memory requirements of your query. |
+| 40552 |16 |The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.<br/><br/>If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. If you are rebuilding an index with the `ALTER INDEX` statement, try using the `REBUILD WITH ONLINE = ON` option. |
+| 40553 |16 |The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code reduces the memory requirements of your query. |
 
 ## Elastic pool errors
 The following errors are related to creating and using elastic pools:
@@ -144,7 +138,7 @@ The following errors do not fall into any previous categories.
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
-| 15006 |16 |<AdministratorLogin> is not a valid name because it contains invalid characters. |
+| 15006 |16 |(AdministratorLogin) is not a valid name because it contains invalid characters. |
 | 18452 |14 |Login failed. The login is from an untrusted domain and cannot be used with Windows authentication.%.&#x2a;ls (Windows logins are not supported in this version of SQL Server.) |
 | 18456 |14 |Login failed for user '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(The login failed for user "%.&#x2a;ls". The password change failed. Password change during login is not supported in this version of SQL Server.) |
 | 18470 |14 |Login failed for user '%.&#x2a;ls'. Reason: The account is disabled.%.&#x2a;ls |
@@ -181,7 +175,7 @@ The following errors do not fall into any previous categories.
 | 40611 |16 |Servers can have at most 128 firewall rules defined. |
 | 40614 |16 |Start IP address of firewall rule cannot exceed End IP address. |
 | 40615 |16 |Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.  To enable access, use the SQL Database Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. |
-| 40617 |16 |The firewall rule name that starts with <rule name> is too long. Maximum length is 128. |
+| 40617 |16 |The firewall rule name that starts with (rule name) is too long. Maximum length is 128. |
 | 40618 |16 |The firewall rule name cannot be empty. |
 | 40620 |16 |The login failed for user "%.&#x2a;ls". The password change failed. Password change during login is not supported in this version of SQL Server. |
 | 40627 |20 |Operation on server '{0}' and database '{1}' is in progress. Please wait a few minutes before trying again. |
@@ -189,21 +183,21 @@ The following errors do not fall into any previous categories.
 | 40631 |16 |The password that you specified is too long. The password should have no more than 128 characters. |
 | 40632 |16 |Password validation failed. The password does not meet policy requirements because it is not complex enough. |
 | 40636 |16 |Cannot use a reserved database name '%.&#x2a;ls' in this operation. |
-| 40638 |16 |Invalid subscription id <subscription-id>. Subscription does not exist. |
-| 40639 |16 |Request does not conform to schema: <schema error>. |
+| 40638 |16 |Invalid subscription id (subscription-id). Subscription does not exist. |
+| 40639 |16 |Request does not conform to schema: (schema error). |
 | 40640 |20 |The server encountered an unexpected exception. |
 | 40641 |16 |The specified location is invalid. |
 | 40642 |17 |The server is currently too busy. Please try again later. |
 | 40643 |16 |The specified x-ms-version header value is invalid. |
 | 40644 |14 |Failed to authorize access to the specified subscription. |
-| 40645 |16 |Servername <servername> cannot be empty or null. It can only be made up of lowercase letters 'a'-'z', the numbers 0-9 and the hyphen. The hyphen may not lead or trail in the name. |
+| 40645 |16 |Servername (servername) cannot be empty or null. It can only be made up of lowercase letters 'a'-'z', the numbers 0-9 and the hyphen. The hyphen may not lead or trail in the name. |
 | 40646 |16 |Subscription ID cannot be empty. |
-| 40647 |16 |Subscription <subscription-id does not have server servername. |
+| 40647 |16 |Subscription (subscription-id) does not have server (servername). |
 | 40648 |17 |Too many requests have been performed. Please retry later. |
 | 40649 |16 |Invalid content-type is specified. Only application/xml is supported. |
-| 40650 |16 |Subscription <subscription-id> does not exist or is not ready for the operation. |
-| 40651 |16 |Failed to create server because the subscription <subscription-id> is disabled. |
-| 40652 |16 |Cannot move or create server. Subscription <subscription-id> will exceed server quota. |
+| 40650 |16 |Subscription (subscription-id) does not exist or is not ready for the operation. |
+| 40651 |16 |Failed to create server because the subscription (subscription-id) is disabled. |
+| 40652 |16 |Cannot move or create server. Subscription (subscription-id) will exceed server quota. |
 | 40671 |17 |Communication failure between the gateway and the management service. Please retry later. |
 | 40852 |16 |Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net. |
 | 45168 |16 |The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later. |

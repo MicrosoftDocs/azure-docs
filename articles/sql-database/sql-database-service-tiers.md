@@ -70,9 +70,9 @@ To decide on a service tier, start by determining the minimum database features 
 | **Service tier limits for elastic pools** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Maximum elastic pool size | 156 GB | 4 TB | 4 TB* | 1 TB |
-| Maximum database size in an elastic pool | 2 GB | 1 TB | 1 TB | 1 TB |
-| Maximum number of databases per pool | 500  | 500 | 100 | 100 |
-| Maximum DTUs per database in an elastic pool | 5 | 3000 | 4000 | 1000 |
+| Maximum database size  | 2 GB | 1 TB | 1 TB | 1 TB |
+| Maximum number of databases  | 500  | 500 | 100 | 100 |
+| Maximum DTUs per database | 5 | 3000 | 4000 | 1000 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
