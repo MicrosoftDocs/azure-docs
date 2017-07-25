@@ -49,7 +49,7 @@ The normal app access ports are:
 |  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
 |  Visual Studio remote debugging  |  User configurable |  4016, 4018, 4020, 4022 |
 
-This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, those are the ports you hit on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an impact to some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
+This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an impact to some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
 
 ## ASE dependencies ##
 
@@ -131,7 +131,7 @@ When an app has its own IP-based SSL address, the ASE reserves two ports to map 
 
 [Network Security Groups][NSGs] provide the ability to control network access within a virtual network. When you use the portal, there's an implicit deny rule at the lowest priority to deny everything. What you build are your allow rules.
 
-In an ASE, you don't have access to the VMs used to host the ASE itself. They're in a Microsoft managed subscription. If you want to restrict access to the apps on the ASE, set NSGs on the ASE subnet. In doing so, pay careful attention to the ASE dependencies. If you block any dependencies, the ASE stops working.
+In an ASE, you don't have access to the VMs used to host the ASE itself. They're in a Microsoft-managed subscription. If you want to restrict access to the apps on the ASE, set NSGs on the ASE subnet. In doing so, pay careful attention to the ASE dependencies. If you block any dependencies, the ASE stops working.
 
 NSGs can be configured through the Azure portal or via PowerShell. The information here shows the Azure portal. You create and manage NSGs in the portal as a top-level resource under **Networking**.
 

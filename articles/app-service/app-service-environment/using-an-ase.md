@@ -90,7 +90,7 @@ In an ASEv1, you need to allocate the IP addresses as resources before you can u
 
 In an ASEv2, when you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. In addition, the front ends automatically scale out at a rate of one front end for every 15 instances in your App Service plans. For example, if you have 15 instances, then you have three front ends. If you scale to 30 instances, then you have four front ends, and so on.
 
-This amount of front ends should be more than enough for most scenarios. However, you can scale out at a faster rate. You can change the ratio to as low as one front end for every five instances. There is a charge for changing the ratio. For more information, see [Azure App Service pricing][Pricing].
+This number of front ends should be more than enough for most scenarios. However, you can scale out at a faster rate. You can change the ratio to as low as one front end for every five instances. There is a charge for changing the ratio. For more information, see [Azure App Service pricing][Pricing].
 
 Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default Front-end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
 
@@ -120,7 +120,7 @@ As with the multitenant App Service, in an ASE you can publish with:
 
 With an External ASE, these publishing options all behave the same. For more information, see [Deployment in Azure App Service][AppDeploy]. 
 
-The major difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you won't be able to publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
+The major difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you can't publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
 
 Internet-based CI systems, such as GitHub and Visual Studio Team Services, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
 

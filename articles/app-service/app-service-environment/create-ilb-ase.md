@@ -58,10 +58,10 @@ To create an ILB ASE:
 
 4. Select or create a virtual network.
 
-5. If you select a virtual network, create a subnet. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. You can't use a subnet size of `/29` or smaller. Infrastructure needs use up at least five addresses. In a `/28` subnet size, a maximum scaling of 11 instances is left. Use a `/24` with 256 addresses:
+5. If you select a virtual network, create a subnet. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. You can't use a subnet size of `/29` or smaller. Infrastructure needs use up at least five addresses. In a `/28` subnet size, a maximum scaling of 11 instances is left. Use a `/24` with 256 addresses if you need to:
 
-	* If you might need to go beyond the default maximum of 100 instances in your App Service plans someday.
-	* You need to scale near 100 but with more rapid front-end scaling.
+	* Go beyond the default maximum of 100 instances in your App Service plans.
+	* Scale near 100 but with more rapid front-end scaling.
 
 6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
@@ -125,7 +125,7 @@ After you create your ASE, the domain name shows the domain you specified. A new
 
 2. Convert/save the SSL certificate as a .pfx file. The .pfx file must include all intermediate and root certificates. Secure it with a password.
 
-3. Create your own certificate by using the following PowerShell commands. Be sure to use your ILB ASE domain name instead of *internal.contoso.com*: 
+3. Create your own certificate by using the PowerShell commands here. Be sure to use your ILB ASE domain name instead of *internal.contoso.com*: 
 
 	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
 	
