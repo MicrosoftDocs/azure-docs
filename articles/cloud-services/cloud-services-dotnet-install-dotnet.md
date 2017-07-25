@@ -18,7 +18,7 @@ ms.author: adegeo
 ---
 
 # Install .NET on a Cloud Service Role
-This article describes how to install different versions of .NET framework on Cloud Service Web and Worker Roles than what comes with the Guest OS. For example, you can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4, which does not come with any version of .NET 4.6. For the latest information on Guest OS releases see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md).
+This article describes how to install different versions of .NET framework on Cloud Service Web and Worker Roles than what comes with the Guest OS. For example, you can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4, which does not come with any version of .NET 4.6. For the latest information on Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md).
 
 >[!NOTE]
 >Guest OS 5 includes .NET 4.6
@@ -29,7 +29,7 @@ This article describes how to install different versions of .NET framework on Cl
 The process of installing .NET on your web and worker roles involves including the .NET installer package as part of your Cloud Project and launching the installer as part of the role's startup tasks.  
 
 ## Add the .NET installer to your project
-* Download the the web installer for the .NET framework you want to install
+* Download the web installer for the .NET framework you want to install
   * [.NET 4.7 Web Installer](http://go.microsoft.com/fwlink/?LinkId=825298)
   * [.NET 4.6.1 Web Installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 
@@ -40,7 +40,7 @@ The process of installing .NET on your web and worker roles involves including t
 * For a Worker Role
   1. Right click on your role and select **Add > Existing Item**. Select the .NET installer and add it to the role. 
 
-Files added this way to the Role Content Folder will automatically be added to the cloud service package and deployed to a consistent location on the virtual machine. Repeat this process for all web and worker roles in your Cloud Service so all roles have a copy of the installer.
+Files added this way to the Role Content Folder are automatically be added to the cloud service package and deployed to a consistent location on the virtual machine. Repeat this process for all web and worker roles in your Cloud Service so all roles have a copy of the installer.
 
 > [!NOTE]
 > You should install .NET 4.6.1 on your Cloud Service role even if your application targets .NET 4.6. The Azure Guest OS includes updates [3098779](https://support.microsoft.com/kb/3098779) and [3097997](https://support.microsoft.com/kb/3097997). Installing .NET 4.6 on top of these updates may cause issues when running your .NET applications, so you should directly install .NET 4.6.1 instead of .NET 4.6. For more information, see [KB 3118750](https://support.microsoft.com/kb/3118750).
@@ -50,7 +50,7 @@ Files added this way to the Role Content Folder will automatically be added to t
 ![Role Contents with installer files][1]
 
 ## Define startup tasks for your roles
-Startup tasks allow you to perform operations before a role starts. Installing the .NET Framework as part of the startup task will ensure that the framework is installed before any of your application code is run. For more information on startup tasks see: [Run Startup Tasks in Azure](cloud-services-startup-tasks.md). 
+Startup tasks allow you to perform operations before a role starts. Installing the .NET Framework as part of the startup task ensures that the framework is installed before any of your application code is run. For more information on startup tasks, see: [Run Startup Tasks in Azure](cloud-services-startup-tasks.md). 
 
 1. Add the following to the *ServiceDefinition.csdef* file under the **WebRole** or **WorkerRole** node for all roles:
    
@@ -72,15 +72,17 @@ Startup tasks allow you to perform operations before a role starts. Installing t
     </Startup>
     ```
    
-    The above configuration will run the console command *install.cmd* with administrator privileges so it can install the .NET framework. The configuration also creates a LocalStorage with the name *NETFXInstall*. The startup script will set the temp folder to use this local storage resource so that the .NET framework installer will be downloaded and installed from this resource. It is important to set the size of this resource to at least 1024MB to ensure the framework will install correctly. For more information about startup tasks see: [Common Cloud Service startup tasks](cloud-services-startup-tasks-common.md) 
-2. Create a file **install.cmd** and add it to all roles by right click on the role and selecting **Add>Existing Item...**. So all roles should now have the .NET installer file as well as the install.cmd file.
+    The preceding configuration runs the console command *install.cmd* with administrator privileges to install the .NET framework. The configuration also creates a *LocalStorage* with the name *NETFXInstall*. The startup script sets the temp folder to use this local storage resource. It is important to set the size of this resource to at least 1024 MB to ensure the framework installs correctly. For more information about startup tasks, see [Common Cloud Service startup tasks](cloud-services-startup-tasks-common.md) 
+
+2. Create a file **install.cmd** and add it to all roles by right click on the role and selecting **Add > Existing Item...**. So all roles should now have the .NET installer file as well as the install.cmd file.
    
-    ![Role Contents with all files][2]
+   ![Role Contents with all files][2]
    
    > [!NOTE]
-   > Use a simple text editor like notepad to create this file. If you use Visual Studio to create a text file and then rename it to '.cmd' the file may still contain a UTF-8 Byte Order Mark and running the first line of the script will result in an error. If you were to use Visual Studio to create the file leave add a REM (Remark) to the first line of the file so that it is ignored when run. 
+   > Use a basic text editor like notepad to create this file. If you use Visual Studio to create a text file and then rename it to '.cmd', the file may still contain a UTF-8 Byte Order Mark and running the first line of the script will result in an error. Make sure the first line of the file is a REM command, this may skip the UTF-8 Byte Order Mark processing. 
    > 
    > 
+
 3. Add the following script to the **install.cmd** file:
    
     ```cmd
@@ -180,9 +182,9 @@ Startup tasks allow you to perform operations before a role starts. Installing t
    > 
 
 ## Configure diagnostics to transfer the startup task logs to blob storage
-To simplify troubleshooting any install issues you can configure Azure Diagnostics to transfer any log files generated by the startup script or the .NET installer to blob storage. With this approach you can view the logs by simply downloading the log files from blob storage rather than having to remote desktop into the role.
+To simplify troubleshooting any install issues you can configure Azure Diagnostics to transfer any log files generated by the startup script or the .NET installer to blob storage. With this approach, you can view the logs by simply downloading the log files from blob storage rather than having to remote desktop into the role.
 
-To configure diagnostics open the *diagnostics.wadcfgx* and add the following under the **Directories** node: 
+To configure diagnostics, open the *diagnostics.wadcfgx* and add the following under the **Directories** node: 
 
 ```xml 
 <DataSources>
@@ -192,10 +194,10 @@ To configure diagnostics open the *diagnostics.wadcfgx* and add the following un
 </DataSources>
 ```
 
-This will configure azure diagnostics to transfer all files in the *log* directory under the *NETFXInstall* resource to the diagnostics storage account in the *netfx-install* blob container.
+This xml configures azure diagnostics to transfer all files in the *log* directory under the *NETFXInstall* resource to the diagnostics storage account in the *netfx-install* blob container.
 
 ## Deploying your service
-When you deploy your service the startup tasks will run and install the .NET framework if it is not already installed. Your roles will be in the busy state while the framework is installing and may even restart if the framework install requires it. 
+When you deploy your service, the startup tasks install the .NET framework if it is not already installed. Your roles are in the *busy* state while the framework is installing, and may even restart if the framework install requires it. 
 
 ## Additional Resources
 * [Installing the .NET Framework][Installing the .NET Framework]
