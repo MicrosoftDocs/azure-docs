@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/27/2017
 ms.author: jeedes
 
 ---
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [OfficeSpace Software Client support team](mailto:support@officespacesoftware.com) to get these values. 
 
-4. OfficeSpace Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+4. OfficeSpace Software application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure attribute](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_attribute.png)
 
@@ -138,7 +138,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**
  
-6. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value from certificate.
+6. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of the certificate.
 
 	![The Certificate download link](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_certificate.png) 
 
@@ -150,7 +150,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![OfficeSpace Software Configuration](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_configure.png) 
 
-9. In a different web browser window, log in to your OfficeSpace Software tenant as an administrator.
+9. In a different web browser window, log into your OfficeSpace Software tenant as an administrator.
 
 10. Go to **Settings** and click **Connectors**.
 
@@ -164,11 +164,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 
-	a. In the **Logout provider url** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+	a. In the **Logout provider url** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
 
-	b. In the **Client idp target url** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+	b. In the **Client idp target url** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-	c. Paste the **Thumbprint** value from the downloaded certificate, and then paste it into the **Client idp cert fingerprint** textbox. 
+	c. Paste the **Thumbprint** value which you have copied from Azure portal, into the **Client IDP certificate fingerprint** textbox. 
 
 	d. Click **Save Settings**.
 
@@ -213,7 +213,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in OfficeSpace Software. OfficeSpace Software supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user is created during an attempt to access OfficeSpace Software if it doesn't exist yet.
+There is no action item for you in this section. A new user will be created during an attempt to access OfficeSpace Software if it doesn't exist yet.
 
 > [!NOTE]
 > If you need to create an user manually, you need to Contact [OfficeSpace Software support team](mailto:support@officespacesoftware.com).
