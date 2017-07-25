@@ -3,8 +3,8 @@ title: Analyze Website logs using Azure Data Lake Analytics | Microsoft Docs
 description: 'Learn how to analyze website logs using Data Lake Analytics. '
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
+ms.author: saveenr
 
 ---
-# Tutorial: Analyze Website logs using Azure Data Lake Analytics
+# Analyze Website logs using Azure Data Lake Analytics
 Learn how to analyze website logs using Data Lake Analytics, especially on finding out which referrers ran into errors when they tried to visit the website.
 
-## Prerequisites:
+## Prerequisites
 * **Visual Studio 2015 or Visual Studio 2013**.
 * **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -177,9 +177,3 @@ To get started with Data Lake Analytics using different tools, see:
 * [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 * [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-
-To see more development topics:
-
-* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-* [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)

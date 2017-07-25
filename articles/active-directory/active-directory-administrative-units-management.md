@@ -13,8 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/20/2017
 ms.author: curtand
+
+ms.reviewer: elkuzmen
+ms.custom: oldportal;it-pro;
 
 ---
 # Administrative units management in Azure AD - Public Preview
@@ -30,9 +33,9 @@ This is useful in organizations with independent divisions, for example, a large
 From the central administrator’s point of view, an administrative unit is a directory object that can be created and populated with resources. **In this preview release, these resources can be only users.** Once created and populated, the administrative unit can be used as a scope to restrict the granted permission only over resources contained in the administrative unit.
 
 ## Managing administrative units
-In this preview release, you can create and manage administrative units using the Azure Active Directory Module for Windows PowerShell cmdlets. To learn more about how to do that, please see [Working with Administrative Units](https://docs.microsoft.com/en-us/powershell/azure/working-with-administrative-units?view=azureadps-2.0)
+In this preview release, you can create and manage administrative units using the Azure Active Directory Module for Windows PowerShell cmdlets. To learn more about how to do that, see [Working with Administrative Units](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-For more information on software requirements and installing the Azure AD module, and for information on the Azure AD Module cmdlets for managing administrative units, including syntax, parameter descriptions, and examples, see [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+For more information on software requirements and installing the Azure AD module, and for information on the Azure AD Module cmdlets for managing administrative units, including syntax, parameter descriptions, and examples, see [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## Next steps
 [Azure Active Directory editions](active-directory-editions.md)

@@ -2,7 +2,7 @@
 title: Archive Azure Diagnostic Logs | Microsoft Docs
 description: Learn how to archive your Azure Diagnostic Logs for long-term retention in a storage account.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

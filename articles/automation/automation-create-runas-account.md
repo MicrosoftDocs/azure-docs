@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/01/2017
+ms.date: 06/29/2017
 ms.author: magoedte
 ---
 
@@ -37,6 +37,14 @@ To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountN
 2. On the **All settings** blade, under **Account Settings**, select **Properties**. 
 3. Note the values on the **Properties** blade.<br><br> ![The Automation account "Properties" blade](media/automation-create-runas-account/automation-account-properties.png)  
 
+### Required permissions to update your Automation account
+To update an Automation account, you must have the following specific privileges and permissions required to complete this topic.   
+ 
+* Your AD user account needs to be added to a role with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
+* Non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) if the App registrations setting is set to **Yes**.  If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD. 
+
+If you are not a member of the subscription’s Active Directory instance before you are added to the global administrator/co-administrator role of the subscription, you are added to Active Directory as a guest. In this situation, you receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
+
 ## Create Run As account from the portal
 In this section, perform the following steps to update your Azure Automation account from  the Azure portal.  You create the Run As and Classic Run As accounts individually, and if you don't need to manage resources in the classic Azure portal, you can just create the Azure Run As account.  
 
@@ -52,7 +60,6 @@ The process creates the following items in your Automation account.
 
 * Creates an Automation certificate asset named *AzureClassicRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
 * Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.
-
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 2. From the Automation account blade, select **Run As Accounts** under the section **Account Settings**.  

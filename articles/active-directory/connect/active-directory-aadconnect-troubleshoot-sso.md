@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/24/2017
 ms.author: billmath
 ---
 
@@ -60,7 +60,7 @@ Use the following checklist to troubleshoot Seamless SSO issues:
 - Ensure that the device's time is synchronized with the Active Directory's and the Domain Controllers' time and is within five minutes of each other.
 - List existing Kerberos tickets on the device using the **klist** command from a command prompt. Check if tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. You may have  different settings in your Active Directory.
 - Purge existing Kerberos tickets from the device using the **klist purge** command, and try again.
-- Review the console logs of the browser (under "Developer Tools") to help determine JavaScript-related or other potential issues.
+- To determine if there are JavaScript-related issues, review the console logs of the browser (under "Developer Tools").
 - Review the [Domain Controller logs](#domain-controller-logs) as well.
 
 ### Domain Controller logs
@@ -77,7 +77,7 @@ If success auditing is enabled on your Domain Controller, then every time a user
 
 ## Manual reset of Azure AD Seamless SSO
 
-If troubleshooting didn't help, use the following steps to manually reset the feature on your tenant:
+If troubleshooting didn't help, you can manually reset the feature on your tenant. Follow these steps on the on-premises server where you are running Azure AD Connect:
 
 ### Step 1: Import the Seamless SSO PowerShell module
 
@@ -88,7 +88,7 @@ If troubleshooting didn't help, use the following steps to manually reset the fe
 
 ### Step 2: Get the list of AD forests on which Seamless SSO has been enabled
 
-1. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your Azure AD tenant administrator credentials.
+1. Run PowerShell as Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your tenant's Global Administrator credentials.
 2. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 3: Disable Seamless SSO for each AD forest that it was set it up on
@@ -104,4 +104,4 @@ If troubleshooting didn't help, use the following steps to manually reset the fe
 
 ### Step 5. Enable the feature on your tenant
 
-1. Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.
+Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.

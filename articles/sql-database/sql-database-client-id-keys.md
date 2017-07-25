@@ -1,5 +1,5 @@
 ---
-title: Get the required values for authenticating an application to access SQL Database from code | Microsoft Docs
+title: Get values for app authentication - Azure SQL Database | Microsoft Docs
 description: Create a service principal for accessing SQL Database from code.
 services: sql-database
 documentationcenter: ''

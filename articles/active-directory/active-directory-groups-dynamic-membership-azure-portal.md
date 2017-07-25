@@ -21,10 +21,21 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Create attribute-based rules for dynamic group membership in Azure Active Directory
-In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules.
+In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices.
 
-## To create the advanced rule
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
+
+> [!NOTE]
+> - You can set up a rule for dynamic membership on security groups or Office 365 groups.
+>
+> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group.
+>
+> - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
+
+> - At the moment it is not possible to create a device group based on owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
+
+## To create an advanced rule
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a global administrator or a user account administrator.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
@@ -91,7 +102,7 @@ All Operators are listed below per precedence from lower to higher, operator in 
 
 All operators can be used with or without hyphen prefix.
 
-Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements
+Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements.
 For example:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
@@ -152,7 +163,7 @@ Allowed operators
 | --- | --- | --- |
 | city |Any string value or $null |(user.city -eq "value") |
 | country |Any string value or $null |(user.country -eq "value") |
-| CompanyName | Any string value or $null | (user.CompanyName -eq "value") |
+| companyName | Any string value or $null | (user.companyName -eq "value") |
 | department |Any string value or $null |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Any string value or $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -195,7 +206,7 @@ Allowed operators
 
 | Properties | Values | Usage |
 | --- | --- | --- |
-| assigendPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
 Multi-value properties are collections of objects of the same type. You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively. For example:
 
@@ -229,32 +240,38 @@ is equivalent to
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
 
-Extension attributes are synced from on premise Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
+Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
 An example of a rule that uses an extension attribute would be
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Custom Attributes are synced from on premise Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
+Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
 An example of a rule that uses a custom attribute is
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
 The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
 
-## Direct Reports Rule
-You can now populate members in a group based on the manager attribute of a user.
+## "Direct Reports" Rule
+You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership will be adjusted automatically.
 
-**To configure a group as a “Manager” group**
+> [!NOTE]
+> 1. For the rule to work, make sure the **Manager ID** property is set correctly on users in your tenant. You can check the current value for a user on their **Profile tab**.
+> 2. This rule only supports **direct** reports. It is currently not possible to create a group for a nested hierarchy, e.g. a group that includes direct reports and their reports.
 
-1. Follow steps 1-5 in [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
+**To configure the group**
+
+1. Follow steps 1-5 from section [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
 2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
 
-    Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
+    *Direct Reports for "{obectID_of_manager}"*
+
+    An example of a valid rule:
 ```
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 ```
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
-3. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. After saving the rule, all users with the specified Manager ID value will be added to the group.
 
 ## Using attributes to create rules for device objects
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:

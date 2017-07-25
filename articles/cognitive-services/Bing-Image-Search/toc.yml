@@ -31,6 +31,8 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
   - name: Try it!

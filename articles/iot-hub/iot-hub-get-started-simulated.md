@@ -1,6 +1,6 @@
 ---
 title: 'Get started connecting simulated devices to Azure IoT Hub | Microsoft Docs'
-description: 'Learn how to create simulated IoT devices and connect them to Azure IoT Hub. Your devices can send telemtry to IoT Hub and Iot Hub can monitor and manage your devices.'
+description: 'Learn how to create simulated IoT devices and connect them to Azure IoT Hub. Your devices can send telemetry to IoT Hub and Iot Hub can monitor and manage your devices.'
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts

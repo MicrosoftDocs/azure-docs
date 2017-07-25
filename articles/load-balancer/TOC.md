@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
 ## [Internet Load Balancer](load-balancer-internet-overview.md)
 ## [Internal Load Balancer](load-balancer-internal-overview.md)
@@ -67,5 +67,6 @@
 ## [DNS](/azure/dns/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)

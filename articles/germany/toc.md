@@ -30,7 +30,8 @@
 ### [Internet of Things (IoT)](germany-services-iot.md)
 
 # Resources
+## [Azure Germany website](https://azure.microsoft.com/overview/clouds/germany/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Blog](https://blogs.msdn.microsoft.com/azuregermany/)
 ## [Pricing](https://azure.microsoft.com/pricing/)
 ## [Trial](https://azure.microsoft.com/free/germany)
-## [Blog](https://blogs.msdn.microsoft.com/azuregermany/)
-## [Azure Germany website](https://azure.microsoft.com/overview/clouds/germany/)

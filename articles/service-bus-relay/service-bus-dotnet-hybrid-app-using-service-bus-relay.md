@@ -234,7 +234,7 @@ In this section you will build a simple ASP.NET application that displays data r
     ![][18]
 
 7. Back in the **New ASP.NET Web Application** dialog, click **OK** to create the MVC app.
-8. Now you must configure Azure resources for a new web app. Follow all the steps in [Publish to Azure](../app-service-web/app-service-web-get-started-dotnet.md#publish-to-azure). Then, return to this tutorial and proceed to the next step.
+8. Now you must configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service-web/app-service-web-get-started-dotnet.md). Then, return to this tutorial and proceed to the next step.
 10. In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
@@ -428,6 +428,7 @@ The next step is to republish the Azure Web app **ProductsPortal** frontend. Do 
 3. Close the browser window to stop the running application.
 
 ### Set ProductsPortal as web app
+
 Before running the application in the cloud, you must ensure that **ProductsPortal** is launched from within Visual Studio as a web app.
 
 1. In Visual Studio, right-click the **ProductsPortal** project and then click **Properties**.

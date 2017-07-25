@@ -90,7 +90,7 @@ You need to make sure your existing alert rule settings are updated to map to th
 For more information about database alert rules, see [Receive Alert Notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) and [Track Service Health](../monitoring-and-diagnostics/insights-service-health.md).
 
 ### Enable auditing
-If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator that auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.windows.net. For more information, see [Database auditing](sql-database-auditing.md).
+If auditing is required to access your database, you need to enable Auditing after the database recovery. For more information, see [Database auditing](sql-database-auditing.md).
 
 ## Next steps
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)

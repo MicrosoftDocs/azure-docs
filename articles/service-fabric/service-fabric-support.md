@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/02/2017
+ms.date: 06/15/2017
 ms.author: pkc
 
 ---
@@ -38,11 +38,11 @@ Learn more about:
 
 ## Report production or live-site issues or request paid support for standalone Service Fabric clusters
 
-For reporting live-site issues on your Service Fabric cluster deployed on premise or on other clouds, open a ticket for professional support on [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
+For reporting live-site issues on your Service Fabric cluster deployed on-premises or on other clouds, open a ticket for professional support on [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:
 
-- [Professional Support from Microsoft for on-premise](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+- [Professional Support from Microsoft for on-premises](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 
@@ -79,7 +79,7 @@ Here are the list of the Service Fabric versions that are supported and their su
 | All cluster versions prior to 5.3.121 |Less than or equal to version  2.3 |January 20, 2017 |
 | 5.3.* |Less than or equal to version  2.3 |February 24, 2017 |
 | 5.4.* |Less than or equal to version  2.4 |May 10,2017     |
-| 5.5.* |Less than or equal to version  2.5 |July 10,2017    |
+| 5.5.* |Less than or equal to version  2.5 |August 10,2017    |
 | 5.6.* |Less than or equal to version  2.6 |Current version and so no end date
 
 <a id="previewversion"></a>

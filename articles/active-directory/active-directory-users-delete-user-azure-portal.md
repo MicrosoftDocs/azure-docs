@@ -14,10 +14,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/27/2017
 ms.author: curtand;jeffsta
+ms.reviewer: jeffsta
 
 ---
+
 # Delete a user from a directory in Azure Active Directory
 This article explains how to delete a user from a directory in Azure Active Directory (Azure AD). For information about adding new users to your organization, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md).
 

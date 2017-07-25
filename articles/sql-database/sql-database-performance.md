@@ -29,18 +29,18 @@ In the "Support + troubleshooting" section, you can use the following pages:
 
 
 1. [Performance overview](#performance-overview) to monitor performance of your database. 
-2. [Performance recommendations](#sql-database-advisor) to find performance recommendations that can improve performance of your workload.
+2. [Performance recommendations](#performance-recommendations) to find performance recommendations that can improve performance of your workload.
 3. [Query Performance Insight](#query-performance-insight) to find top resource consuming queries.
-4. [Automatic tuning](#sql-database-automatic-tuning) to let Azure SQL Database automatically optimize your database.
+4. [Automatic tuning](#automatic-tuning) to let Azure SQL Database automatically optimize your database.
 
 ## Performance Overview
 This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
 
 ![Performance](./media/sql-database-performance/performance.png)
 
-* The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendations](#sql-database-advisor)**. 
+* The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendations](#performance-recommendations)**. 
 * The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
-* The **Auto-tuning** tile shows the auto-tuning configuration for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
+* The **Auto-tuning** tile shows the [auto-tuning configuration](sql-database-automatic-tuning-enable.md) for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
 * The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **[Query Performance Insight](#query-performance-insight)**.
 
 ## Performance recommendations

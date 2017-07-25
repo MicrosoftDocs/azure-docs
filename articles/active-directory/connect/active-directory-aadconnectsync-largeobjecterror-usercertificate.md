@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 07/13/2017
 ms.author: billmath
 
 ---
@@ -35,6 +35,8 @@ To obtain the list of objects in your tenant with LargeObject errors, use one of
  
 ## Mitigation options
 Until the LargeObject error is resolved, other attribute changes to the same object cannot be exported to Azure AD. To resolve the error, you can consider the following options:
+
+ * Upgrade Azure AD Connect to build 1.1.524.0 or after. In Azure AD Connect build 1.1.524.0, the out-of-box synchronization rules have been updated to not export attributes userCertificate and userSMIMECertificate if the attributes have more than 15 values. For details on how to upgrade Azure AD Connect, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Implement an **outbound sync rule** in Azure AD Connect that exports a **null value instead of the actual values for objects with more than 15 certificate values**. This option is suitable if you do not require any of the certificate values to be exported to Azure AD for objects with more than 15 values. For details on how to implement this sync rule, refer to next section [Implementing sync rule to limit export of userCertificate attribute](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
