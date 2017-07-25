@@ -19,6 +19,7 @@ ms.author: cynthn
 
 ---
 
+
 # Move a Windows VM from Amazon Web Services (AWS) to Azure using PowerShell
 
 If you are evaluating Azure virtual machines for hosting your workloads, you can export an existing Amazon Web Services (AWS) EC2 Windows VM instance then upload the virtual hard disk (VHD) to Azure. Once the VHD is uploaded, you can create a new VM in Azure from the VHD. 
