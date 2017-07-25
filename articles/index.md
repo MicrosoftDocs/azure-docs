@@ -378,6 +378,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Batch</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/container-instances.png" alt="" />
+                                                <p>Container Instances</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Enterprise Integration</h3>
                                     <ul>
