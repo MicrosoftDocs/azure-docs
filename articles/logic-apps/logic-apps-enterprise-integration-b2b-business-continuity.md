@@ -284,7 +284,7 @@ or **Second** with an interval.
 
    ![New step, Add an action](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
-6. Search on **AS2**, and select **AS2 - Add or update a MIC**.  
+6. Search on **AS2**, and select **AS2 - Add or update MIC contents**.  
 
    ![MIC addition or update](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
