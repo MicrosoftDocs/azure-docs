@@ -3,7 +3,7 @@ title: Upgrading to Version 2 of the Text Analytics API | Microsoft Docs
 description: Azure Machine Learning Text Analytics - Upgrade to Version 2
 services: cognitive-services
 documentationcenter: ''
-author: onewth
+author: LuisCabrer
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: onewth
+ms.author: luisca
 
 ---
 # Upgrading to Version 2 of the Text Analytics API

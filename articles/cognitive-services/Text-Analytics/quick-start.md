@@ -1,24 +1,24 @@
 ---
 title: 'Azure Text Analytics Quick Start | Microsoft Docs'
-description: Get information to help you quickly get started using the Text Analytics API in Cognitive Services.
+description: Get started using the Text Analytics API in Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
-author: onewth
+author: LuisCabrer
 manager: jhubbard
 editor: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 05/16/2017
-ms.author: onewth
+ms.date: 07/24/2017
+ms.author: luisca
 
 ---
-# Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics, and language
+# Get started with the Text Analytics APIs to detect sentiment, key phrases, and language
 <a name="HOLTop"></a>
 
 This document describes how to onboard your service or application to use the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711).
-You can use these APIs to detect sentiment, key phrases, topics, and language from your text. [Visit the product page to see an interactive demo of the APIs.](//go.microsoft.com/fwlink/?LinkID=759712)
+You can use these APIs to detect sentiment, key phrases, and language from your text. [Visit the product page to see an interactive demo of the APIs.](//go.microsoft.com/fwlink/?LinkID=759712)
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -26,7 +26,6 @@ By the end of this tutorial, you will be able to programmatically detect:
 
 * **Sentiment** - Is text positive or negative?
 * **Key phrases** - What are people discussing in a single article?
-* **Topics** - What are people discussing across many articles?
 * **Languages** - What language is text written in?
 
 <a name="Overview"></a>
@@ -38,7 +37,7 @@ For these tasks, you need an editor and call the RESTful endpoints in your langu
 
 Let's get started!
 
-## Task 1 - Signing up for the Text Analytics APIs
+## Task 1 - Sign up for the Text Analytics APIs
 In this task, you will sign up for the text analytics service.
 
 1. Navigate to **Cognitive Services** in the [Azure portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
