@@ -35,7 +35,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 Use the following steps to connect to Azure Stack:
 
-1. If your Azure Stack deployment doesn't contain a certificate that is issued by a publicly trusted certificate authority, you should add a root certificate to the development kit's trusted root certificate authorities. Use the following script to add the certificate:
+1. If your Azure Stack deployment doesn't contain a certificate that is issued by a publicly trusted certificate authority, you should add the root certificate to the Python certifi package store. If you are using CLI from a Windows based OS, use the following script to add the certificate:
 
    ```powershell
     $label = "AzureStackSelfSignedRootCert"
@@ -97,23 +97,13 @@ Use the following steps to connect to Azure Stack:
      --suffix-keyvault-dns ".vault.local.azurestack.external"
    ```
 
-3. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
-
-   ```azurecli
-   az cloud update \
-     --profile 2017-03-09-profile
-   ```
-
-4. Set the active environment and sign in by using the following commands:
+3. Set the active environment by using the following commands:
 
    a. For the **cloud administrative** environment, use:
 
    ```azurecli
    az cloud set \
      -n AzureStackAdmin
-
-   az login \
-     -u <Active directory global administrator account. For example: username@<aadtenant>.onmicrosoft.com>
    ```
 
    b. For the **user** environment, use:
@@ -121,7 +111,28 @@ Use the following steps to connect to Azure Stack:
    ```azurecli
    az cloud set \
      -n AzureStackUser
+   ```
 
+
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
+
+   ```azurecli
+   az cloud update \
+     --profile 2017-03-09-profile
+   ```
+
+4. Sign in to your Azure Stack environment by using the following commands:
+
+   a. For the **cloud administrative** environment, use:
+
+   ```azurecli
+   az login \
+     -u <Active directory global administrator account. For example: username@<aadtenant>.onmicrosoft.com>
+   ```
+
+   b. For the **user** environment, use:
+
+   ```azurecli
    az login \
      -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
    ```
