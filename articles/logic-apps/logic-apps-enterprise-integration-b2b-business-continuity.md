@@ -296,7 +296,11 @@ and choose **Create**.
 
    ![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
-8. Select the dynamic content fields that you want, and save the logic app.   
+8. Switch to raw inputs by clicking on the icon in upper right corner
+
+   ![Switch to raw inputs](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2rawinputs.png)
+
+9. Select Body from the dynamic content picker, and save the logic app.   
 
    ![Dynamic content](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 
