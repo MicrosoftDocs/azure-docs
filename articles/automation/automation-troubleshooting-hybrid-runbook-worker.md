@@ -21,7 +21,7 @@ ms.author: magoedte
 
 This article provides help troubleshooting errors you might experience with Automation Hybrid Runbook Workers and suggests possible solutions to resolve them.
 
-## Hybrid Runbook Worker: A runbook job terminates with a status of Suspended
+## A runbook job terminates with a status of Suspended
 
 Your runbook is suspended shortly after attempting to execute it three times. There are conditions which may interrupt the runbook from completing successfully and the related error message does not include any additional information indicating why. This article provides troubleshooting steps for issues related to the Hybrid Runbook Worker runbook execution failures.
 
