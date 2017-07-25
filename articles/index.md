@@ -380,7 +380,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/container-instances/">
-                                                <img src="media/index/container-instances.png" alt="" />
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
                                                 <p>Container Instances</p>
                                             </a>
                                         </li>
