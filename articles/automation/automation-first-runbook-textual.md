@@ -31,10 +31,10 @@ ms.author: magoedte;bwren
 This tutorial walks you through the creation of a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. We start with a simple runbook that we test and publish while explaining how to track the status of the runbook job. Then we modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Lastly we make the runbook more robust by adding runbook parameters.
 
 ## Prerequisites
-To complete this tutorial, you will need the following:
+To complete this tutorial, you need the following:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
-* [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* [Automation account](automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. We stop and start this machine so it should not be a production VM.
 
 ## Step 1 - Create new runbook
