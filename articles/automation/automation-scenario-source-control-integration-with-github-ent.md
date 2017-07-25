@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 07/25/2017
 ms.author: magoedte
 ---
 
@@ -71,7 +71,7 @@ If you do not have a Hybrid Runbook Worker already deployed in your data center,
 
     This will export a certificate to the hybrid worker so that runbooks on the worker can authenticate with Azure using the Run As connection in order to manage Azure resources (in particular for this scenario - import runbooks to the Automation account).
 
-4. From your Automation account, select the Hybrid worker group created earlier and [specify a RunAs account](automation-hybrid-runbook-worker.md#runas-account) for the for the Hybrid worker group, and chose the credential asset you just or already have created.  This assures that the Sync runbook can run Git commands. 
+4. From your Automation account, select the Hybrid worker group created earlier and [specify a RunAs account](automation-hrw-run-runbooks.md#runas-account) for the for the Hybrid worker group, and chose the credential asset you just or already have created.  This assures that the Sync runbook can run Git commands. 
 5. Start the runbook **Sync-LocalGitFolderToAutomationAccount**, provide the following required input parameter values and in the **Start Runbook** blade, under the option **Run settings** select the option **Hybrid Worker** and in the drop-down list select the Hybrid worker group you created earlier for this scenario:
 	* *ResourceGroup* - the name of your resource group associated with your Automation account
 	* *AutomationAccountName* - the name of your Automation account
