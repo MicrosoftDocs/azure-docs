@@ -1,9 +1,24 @@
 - name: Text Analytics Documentation
   href: ../index.md
 - name: Overview
-  href: overview.md
-- name: Quick Start Guide
-  href: quick-start.md
+  items:
+  - name: What is Text Analytics
+    href: overview.md
+  - name: How to use it
+- name: Quickstart
+  items:
+  - name: Interactive demo
+  - name: REST API quickstart
+    href: quick-start.md
+  - name: SDK quickstart
+- name: Concepts
+  items:
+   - name: Models and algorithms
+   - name: Privacy and protections
+- name: How-to guides
+  items:
+   - name: Data submission
+   - name: Sentiment analysis
 - name: Reference
   items: 
   - name: API Reference content
