@@ -18,15 +18,15 @@ ms.custom: it-pro
 ms.reviewer: jeedes
 
 ---
-# List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
+# SaaS application integration with Azure Active Directory
 
-To help integrate your cloud enabled [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications with Azure Active Directory, we have developed a collection of tutorials that walk you through configuration. 
+To help integrate your cloud enabled [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications with Azure Active Directory, we have developed a collection of tutorials that walk you through configuration.
 
 Where we have user provisioning guidance we have included an application tutorial for user provisioning in the right column next to the application tutorial.
 
 For the comprehensive list of SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
-## List of Tutorials
+## SaaS Tutorials
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
