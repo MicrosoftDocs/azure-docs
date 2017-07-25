@@ -35,7 +35,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 Use the following steps to connect to Azure Stack:
 
-1. If your Azure Stack deployment doesn't contain a certificate that is issued by a publicly trusted certificate authority, you should add the root certificate to the Python certifi package store. If you are using CLI from a Windows based OS, use the following script to add the certificate:
+1. If your Azure Stack deployment doesn't contain a certificate that is issued by a publicly trusted certificate authority, you should add the root certificate to the Python certifi package store. If you are using CLI from a Windows-based OS, use the following script to add the certificate:
 
    ```powershell
     $label = "AzureStackSelfSignedRootCert"
@@ -70,10 +70,10 @@ Use the following steps to connect to Azure Stack:
     $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
     $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
 
-    Write-Host "Adding the certificate content to python cert store"
+    Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-    Write-Host "Python Cert store got updated for allowing the azure stack CA root certificate" 
+    Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate" 
    ```
 
 2. Register your Azure Stack environment by running the following command:
@@ -121,7 +121,7 @@ Use the following steps to connect to Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-4. Sign in to your Azure Stack environment by using the following commands:
+5. Sign in to your Azure Stack environment by using the following commands:
 
    a. For the **cloud administrative** environment, use:
 
