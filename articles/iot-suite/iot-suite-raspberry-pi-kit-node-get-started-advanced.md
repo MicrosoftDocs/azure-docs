@@ -127,7 +127,7 @@ Press **Ctrl-C** to exit the program at any time.
 
 1. On the **Invoke Method** page, choose **InitiateFirmwareUpdate** in the **Method** dropdown.
 
-1. In the **FWPackageURI** field, enter **https://raw.githubusercontent.com/IoTChinaTeam/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. This file contains the implementation of version 2.0 of the firmware.
+1. In the **FWPackageURI** field, enter **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. This file contains the implementation of version 2.0 of the firmware.
 
 1. Choose **InvokeMethod**. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard. It then starts the firmware update process by downloading the new version of the firmware:
 
