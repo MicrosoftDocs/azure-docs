@@ -34,8 +34,8 @@ Before you run a test failover we recommend that you verify the VM properties, a
 - Managed disks are created and attached to the VM only when a failover to Azure occurs. When you enable protection, data from on-premises VMs replicates to storage accounts.
 - Managed disks can be created only for VMs that are deployed using the Resource manager deployment model.
 - Failback from Azure to an on-premises Hyper-V environment is not currently supported for machines with managed disks. You should only set **Use managed disks** to **Yes** if you're doing a migration only (failover to Azure without failback)
-- With this setting enabled, only availability sets in Resource Groups that have **Use managed disks** enabled can be selected. VMs with managed disks must be in availability sets with **Use managed disks** set to **Yes**. If the setting isn't enabled for VMs, then only availability sets in Resource Groups without managed disks enabled can be selected. [Learn more](../virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
-- - If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](../storage/storage-managed-disks-overview#managed-disks-and-encryption).
+- With this setting enabled, only availability sets in Resource Groups that have **Use managed disks** enabled can be selected. VMs with managed disks must be in availability sets with **Use managed disks** set to **Yes**. If the setting isn't enabled for VMs, then only availability sets in Resource Groups without managed disks enabled can be selected. [Learn more](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+- - If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](../storage/storage-managed-disks-overview#managed-disks-and-encryption.md).
 
  
 ## Network considerations
@@ -55,7 +55,7 @@ We recommend that you verify the properties of the source machine before you run
 
 1. In **Protected Items**, click **Replicated Items**, and click the VM.
 
-    ![Enable replication](./media/vmm-to-azure-walkthrough-walkthrough-test-failover/test-failover1.png)
+    ![Enable replication](./media/vmm-to-azure-walkthrough-test-failover/test-failover1.png)
 2. In the **Replicated item** pane, you can see a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
 
     ![Enable replication](./media/vmm-to-azure-walkthrough-test-failover/test-failover2.png)
