@@ -12,12 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/22/2017
 ms.author: bwren
 
 ---
 
-# Upgrade your Azure Log Analytics workspace to next generation log search (Public Preview)
+# Upgrade your Azure Log Analytics workspace to next generation log search
+
+> [!NOTE]
+> The next generation Log Analytics query language is currently in public preview.  Participation in the public preview is optional.  When the Azure Log Analytics next generation query language reaches general availability, then your workspace will be automatically upgraded.
+
 The next generation Log Analytics query language is almost here, and you can participate in the public preview.  This article describes the advantages of the next generation language and how to convert your workspace if you choose to join the preview.  If you don't join, then your workspace will continue to operate just like it always did, but it will be automatically converted when the next generation language reaches general availability sometime later this year.
 
 This article provides details on the next generation language and the upgrade process.
@@ -52,10 +56,10 @@ To restore your legacy workspace, go to **Settings** in your workspace and then 
 ## How do I perform the upgrade?
 You can upgrade your workspace when you see the purple banner at the top of the portal.  Note that you can only perform the upgrade from the OMS portal, although the converted workspace will also be available in the Azure portal after the upgrade is complete.
 
-1.	Start the upgrade process by clicking on the purple banner that says **Learn more and upgrade**.<br>![Upgrade 1](media/log-analytics-log-search-upgrade/upgrade-01.png)<br>
-2.	Read through the additional information about the upgrade on the upgrade information page.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-02.png)<br>
-3.	Click **Upgrade Now** to start the upgrade.<br>![Upgrade 3](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>A notification box in the upper right corner shows the status.<br>![Upgrade 4](media/log-analytics-log-search-upgrade/upgrade-04.png)
-4.	That’s it!  Go over to the Log Search page to have a look at your upgraded workspace.<br>![Upgrade 5](media/log-analytics-log-search-upgrade/upgrade-05.png)<br>
+1.	Start the upgrade process by clicking on the purple banner that says **Learn more and upgrade**.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-02.png)<br>
+2.	Read through the additional information about the upgrade on the upgrade information page.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
+3.	Click **Upgrade Now** to start the upgrade.<br>![Upgrade 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>A notification box in the upper right corner shows the status.<br>![Upgrade 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
+4.	That’s it!  Go over to the Log Search page to have a look at your upgraded workspace.<br>![Upgrade 6](media/log-analytics-log-search-upgrade/upgrade-06.png)<br>
 
 ## How do I learn the new language?
 Since it's used by multiple services we've created an [external site to host the documentation](https://docs-analytics-eus.azurewebsites.net/) for the next generation language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) and access the language reference at [Log Analytics query langauge](https://docs.loganalytics.io/queryLanguage/query_language.html).  

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/21/2017
 ms.author: bwren
 
 ---
 # Portals for creating and editing log queries in Azure Log Analytics
 
 > [!NOTE]
-> This article describes log searches in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about it and get the procedure to upgrade your workspace at Upgrade your [Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
+> This article describes portals in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
 >
-> If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md).
+> If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
 
 You use log searches in a variety of places throughout Log Analytics to retrieve data from the workspace.  For actually creating and editing queries in addition to working interactively with returned data though, you have two options that are described below.  
 
@@ -39,7 +39,7 @@ The Advanced Analytics portal is a dedicated portal that provides advanced funct
 ![Advanced Analytics portal](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-Because of its advanced features, it's a common scenario to edit queries in the Advanced Analytics console and then copy and paste them elsewhere such as the Log Search portal or View Designer.  Because the Advanced Analytics portal supports queries with multiple lines though, you need to take the following into consideration when copying a query from this portal.
+Because of its advanced features, you'll usually use the Advanced Analytics portal as your primary tool for creating and editing queries.  Once you've determined that the query works as expected, then you'll copy and paste it elsewhere such as the Log Search portal or View Designer.  Because the Advanced Analytics portal supports queries with multiple lines though, you need to take the following into consideration when copying a query from this portal.
 
 - Comments must be removed from the query before it's copied and pasted into another location.  You can comment a line by preceding it with two slashes (//).  When you paste a multiple line query into a single line, line breaks are removed.  If comments are included, all characters after the first comment are considered part of the comment.
 

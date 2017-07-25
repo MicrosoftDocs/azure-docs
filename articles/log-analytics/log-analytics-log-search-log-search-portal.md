@@ -12,14 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/21/2017
 ms.author: bwren
 
 ---
 # Create log searches in Azure Log Analytics using the Log Search portal
 
 > [!NOTE]
-> This article uses the next generation Log Analytics query language which is currently in public preview.  You can learn more about the new language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).
+> This article describes the Log Search portal in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
+>
+> If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
 
 This article includes a tutorial that describes how to create log searches and analyze data stored in your Log Analytics workspace using the Log Search portal.  The tutorial includes running some simple queries to return different types of data and analyzing results.  It focuses on features in the Log Search portal for modifying the query rather than modifying it directly.  For details on directly editing the query, see the [Query Language reference](https://docs.loganalytics.io/queryLanguage/query_language.html).
 
@@ -72,7 +74,7 @@ The default time scope is **1 day**.  Change this value to **7 days**, and the t
 ## Filter results of the query
 On the left side of the screen is the filter pane which allows you to add filtering to the query without modifying it directly.  Several properties of the records returned are displayed with their top ten values with their record count.
 
-If you're working with **Events**, select the checkbox next to **Error** under **EVENTLEVELNAME**.   If you're working with **Syslog**, select the checkbox next to **err** under **SEVERITYLEVEL**.  This changes the query to one of the following to limit the results to error events.
+If you're working with **Event**, select the checkbox next to **Error** under **EVENTLEVELNAME**.   If you're working with **Syslog**, select the checkbox next to **err** under **SEVERITYLEVEL**.  This changes the query to one of the following to limit the results to error events.
 
 ```
 Event | where (EventLevelName == "Error")
@@ -87,7 +89,9 @@ Add properties to the filter pane by selecting **Add to filters** from the prope
 
 ![Add to filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-02a.png)
 
-You can set the same filter by selecting **Filter** from the property menu for a record with the value you want to filter.  Note that you only have the **Filter** option for properties with their name in blue.  These are *searchable* fields which are indexed for search conditions.  Fields in grey are *free text searchable* fields which only have the **Show references** option.  This returns records that have that value in any property.
+You can set the same filter by selecting **Filter** from the property menu for a record with the value you want to filter.  
+
+You only have the **Filter** option for properties with their name in blue.  These are *searchable* fields which are indexed for search conditions.  Fields in grey are *free text searchable* fields which only have the **Show references** option.  This option returns records that have that value in any property.
 
 ![Filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 

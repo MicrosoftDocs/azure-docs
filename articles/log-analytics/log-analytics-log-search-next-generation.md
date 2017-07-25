@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/21/2017
 ms.author: bwren
 
 ---
-# Understanding log searches in Log Analytics (next generation)
+# Understanding log searches in Log Analytics
 
 > [!NOTE]
-> This article describes log searches in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about it and get the procedure to upgrade your workspace at Upgrade your [Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
+> This article describes log searches in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
 >
 > If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md).
 
-You require a log search to retrieve any data from Log Analytics.  Whether you're analyzing data in the portal, configuring an alert rule to be notified of a particular condition, or retrieving data using the Log Analytics API, you will use a log search to specify the data you want.
+You require a log search to retrieve any data from Log Analytics.  Whether you're analyzing data in the portal, configuring an alert rule to be notified of a particular condition, or retrieving data using the Log Analytics API, you will use a log search to specify the data you want.  This article describes how log searches are used in Log Analytics and provides concepts that should understand before creating one. See the [Next steps](#next-steps) section for details on creating and editing log searches and for references on the query language.
 
-This article describes how log searches are used in Log Analytics and provides concepts that you need to understand before creating one. See the [Next steps](#next-steps) section for details on editing log searches and for references on the query language.
-
-
+## Where log searches are used
 
 The different ways that you will use log searches in Log Analytics include the following:
 

@@ -12,12 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/24/2017
 ms.author: bwren
 
 ---
 
 # Log Analytics next generation log search frequently asked questions
+
+> [!NOTE]
+> This article answers questions the upgrade of your Log Analytics workspace to the next generation query language which is currently in public preview.  Participation in the public preview is optional.  
 
 This article provides frequently asked questions regarding the upgrade of [Log Analytics to the next generation query language](log-analytics-log-search-upgrade.md).
 
@@ -56,8 +59,8 @@ No, your alert rules are automatically converted to the new search language duri
   
 ## Power BI
 
-### What changes are planned for PowerBI integration?
-We’ve been reviewing the feedback from the preview of the PowerBI functionality, and are working to align the PowerBI integration with the functionality provided by Application Insights.  These changes will add the ability for Log Analytics queries to generate datasets in PowerBI desktop, and provide more choices in the way data is presented. Using PowerBI desktop it is possible to publish to PowerBI online and make it available to multiple people within your organization.
+### Does anything change with PowerBI integration?
+Yes.  Once your workspace has been upgraded then the process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled.  After upgrade, Azure Log Analytics uses the same platform as Application Insights, and you use the same process to export Log Analytics queries to Power BI as [the process to export Application Insights queries to Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries). 
 
 
 
