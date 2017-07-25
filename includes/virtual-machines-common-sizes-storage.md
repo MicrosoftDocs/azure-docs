@@ -1,5 +1,5 @@
 
-The Ls-series is optimized for workloads that require low latency local storage, like NoSQL databases including Cassandra, MongoDB, Cloudera, and Redis. The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.  
+The Ls-series is optimized for workloads that require low latency local storage, like NoSQL databases including Cassandra, MongoDB, Cloudera, and Redis. The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). The Ls-series gets the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.  
 
 ## Ls-series
 
@@ -13,7 +13,7 @@ ACU: 180-240
 | Standard_L32s* | 32 | 256  | 5,630 | 64             | NA / NA (0)          | 40,000 / 1,000                            | 8 / 20000 | 
  
 
-The maximum disk throughput (IOPS or MBps) possible with a Ls-series VM may be limited by the number, size, and striping of any attached disks. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md). 
+The maximum disk throughput  possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md). 
 
 *Instance is isolated to hardware dedicated to a single customer.
 
