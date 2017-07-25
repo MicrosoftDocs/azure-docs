@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 07/25/2017
 ms.author: yurid
 
 ---
@@ -269,8 +269,8 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 | Power BI                         |                | Yes                 | -                            | -                            | -      |
 | **IoT Services**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Yes    |
-| Service Bus                      |                | Jun-17              | -                            | -                            | Yes    |
-| Event Hubs                       |                | Jun-17              | -                            | -                            | -      |
+| Service Bus                      |                | -              | -                            | -                            | Yes    |
+| Event Hubs                       |                | -             | -                            | -                            | -      |
 
 
 ## Conclusion
