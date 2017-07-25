@@ -70,7 +70,7 @@ To configure the integration of Symantec Web Security Service (WSS) into Azure A
 
 4. In the search box, type **Symantec Web Security Service (WSS)**, select **Symantec Web Security Service (WSS)** from result panel then click **Add** button to add the application.
 
-	![Symantec Web Security Service (WSS) in the results list](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_symantecwebsecurityservicewss_addfromgallery.png)
+	![Symantec Web Security Service (WSS) in the results list](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -100,11 +100,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_symantecwebsecurityservicewss_samlbase.png)
+	![Single sign-on dialog box](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_samlbase.png)
 
 3. On the **Symantec Web Security Service (WSS) Domain and URLs** section, perform the following steps:
 
-	![Symantec Web Security Service (WSS) Domain and URLs single sign-on information](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_symantecwebsecurityservicewss_url.png)
+	![Symantec Web Security Service (WSS) Domain and URLs single sign-on information](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_url.png)
 
     a. In the **Identifier** textbox, type the URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
 
@@ -115,11 +115,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_symantecwebsecurityservicewss_certificate.png) 
+	![The Certificate download link](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_400.png)
+	![Configure Single Sign-On Save button](./media/active-directory-saas-symantec-tutorial/tutorial_general_400.png)
 	
 6. To configure single sign-on on **Symantec Web Security Service (WSS)** side, you need to send the downloaded **Metadata XML** to [Symantec Web Security Service (WSS) support team](https://www.symantec.com/contact-us).
 
@@ -136,19 +136,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
 
-    ![The Azure Active Directory button](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/create_aaduser_01.png)
+    ![The Azure Active Directory button](./media/active-directory-saas-symantec-tutorial/create_aaduser_01.png)
 
 2. To display the list of users, go to **Users and groups**, and then click **All users**.
 
-    ![The "Users and groups" and "All users" links](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/create_aaduser_02.png)
+    ![The "Users and groups" and "All users" links](./media/active-directory-saas-symantec-tutorial/create_aaduser_02.png)
 
 3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
-    ![The Add button](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/create_aaduser_03.png)
+    ![The Add button](./media/active-directory-saas-symantec-tutorial/create_aaduser_03.png)
 
 4. In the **User** dialog box, perform the following steps:
 
-    ![The User dialog box](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/create_aaduser_04.png)
+    ![The User dialog box](./media/active-directory-saas-symantec-tutorial/create_aaduser_04.png)
 
     a. In the **Name** box, type **BrittaSimon**.
 
@@ -179,7 +179,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Symantec Web Security Service (WSS)**.
 
-	![The Symantec Web Security Service (WSS) link in the Applications list](./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_symantecwebsecurityservicewss_app.png)  
+	![The Symantec Web Security Service (WSS) link in the Applications list](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -209,15 +209,15 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-symantecwebsecurityservice(wss)-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_203.png
 
