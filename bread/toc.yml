@@ -131,6 +131,9 @@
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
+  - name: Container Instances
+    tocHref: /azure/container-instances/
+    topicHref: /azure/container-instances/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
