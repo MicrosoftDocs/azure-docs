@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/26/2017
 ms.author: jeedes
 
 ---
@@ -108,10 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<hostname>.qliksense.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern:
+    | |
+    |--|
+    | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
+    | `https://<Qlik Sense Fully Qualifed Hostname>.qliksense.com`|
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Qlik Sense Enterprise Client support team](http://www.qlik.com/us/try-or-buy/buy-now) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Which are explained later in this tutorial or contact [Qlik Sense Enterprise Client support team](https://www.qlik.com/us/services/support) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -121,20 +125,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_400.png)
 
-6. On the **Qlik Sense Enterprise Configuration** section, click **Configure Qlik Sense Enterprise** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Qlik Sense Enterprise Configuration](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_configure.png) 
-
-7. Prepare the Federation Metadata XML file so that you can upload that to Qlik Sense server.
+6. Prepare the Federation Metadata XML file so that you can upload that to Qlik Sense server.
    
     > [!NOTE]
     > Before uploading the IdP metadata to the Qlik Sense server, the file needs to be edited to remove information to ensure proper operation between Azure AD and Qlik Sense server.
-    > 
-    > 
-   
+    
     ![QlikSense][qs24]
    
-    a. Open the FederationMetaData.xml file which you have downloaded from Azure portal in a text editor.
+    a. Open the FederationMetaData.xml file, which you have downloaded from Azure portal in a text editor.
    
     b. Search for the value **RoleDescriptor**.  There are four entries (two pairs of opening and closing element tags).
    
@@ -142,21 +140,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     d. Save the file and keep it nearby for use later in this document.
 
-8. Navigate to the Qlik Sense Qlik Management Console (QMC) as a user who can create virtual proxy configurations.
+7. Navigate to the Qlik Sense Qlik Management Console (QMC) as a user who can create virtual proxy configurations.
 
-9. In the QMC, click on the **Virtual Proxies** menu item.
+8. In the QMC, click on the **Virtual Proxies** menu item.
    
     ![QlikSense][qs6] 
 
-10. At the bottom of the screen, click the **Create new** button.
+9. At the bottom of the screen, click the **Create new** button.
    
     ![QlikSense][qs7]
 
-11. The Virtual proxy edit screen appears.  On the right side of the screen is a menu for making configuration options visible.
+10. The Virtual proxy edit screen appears.  On the right side of the screen is a menu for making configuration options visible.
    
     ![QlikSense][qs9]
 
-12. With the Identification menu option checked, enter the identifying information for the Azure virtual proxy configuration.
+11. With the Identification menu option checked, enter the identifying information for the Azure virtual proxy configuration.
     
     ![QlikSense][qs8]  
     
@@ -168,13 +166,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     d. The **Session cookie header name** is the cookie name storing the session identifier for the Qlik Sense session a user receives after successful authentication.  This name must be unique.
 
-13. Click on the Authentication menu option to make it visible.  The Authentication screen appears.
+12. Click on the Authentication menu option to make it visible.  The Authentication screen appears.
     
     ![QlikSense][qs10]
     
     a. The **Anonymous access mode** drop down determines if anonymous users may access Qlik Sense through the virtual proxy.  The default option is No anonymous user.
     
-    b. The **Authentication method** drop down determines the authentication scheme the virtual proxy will use.  Select SAML from the drop down list.  More options appear as a result.
+    b. The **Authentication method** drop-down determines the authentication scheme the virtual proxy will use.  Select SAML from the drop-down list.  More options appear as a result.
     
     c. In the **SAML host URI field**, input the hostname users enter to access Qlik Sense through this SAML virtual proxy.  The hostname is the uri of the Qlik Sense server.
     
@@ -190,55 +188,55 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     i. The SAML attribute mapping section allows for additional attributes like groups to be sent to Qlik Sense for use in security rules.
 
-14. Click on the **Load balancing** menu option to make it visible.  The Load Balancing screen appears.
+13. Click on the **LOAD BALANCING** menu option to make it visible.  The Load Balancing screen appears.
     
     ![QlikSense][qs11]
 
-15. Click on the **Add new server node** button, select engine node or nodes Qlik Sense will send sessions to for load balancing purposes, and click the **Add** button.
+14. Click on the **Add new server node** button, select engine node or nodes Qlik Sense will send sessions to for load balancing purposes, and click the **Add** button.
     
     ![QlikSense][qs12]
 
-16. Click on the Advanced menu option to make it visible. The Advanced screen appears.
+15. Click on the Advanced menu option to make it visible. The Advanced screen appears.
     
     ![QlikSense][qs13]
     
     The Host white list identifies hostnames that are accepted when connecting to the Qlik Sense server.  **Enter the hostname users will specify when connecting to Qlik Sense server.** The hostname is the same value as the SAML host uri without the https://.
 
-17. Click the **Apply** button.
+16. Click the **Apply** button.
     
     ![QlikSense][qs14]
 
-18. Click OK to accept the warning message that states proxies linked to the virtual proxy will be restarted.
+17. Click OK to accept the warning message that states proxies linked to the virtual proxy will be restarted.
     
     ![QlikSense][qs15]
 
-19. On the right side of the screen, the Associated items menu appears.  Click on the **Proxies** menu option.
+18. On the right side of the screen, the Associated items menu appears.  Click on the **Proxies** menu option.
     
     ![QlikSense][qs16]
 
-20. The proxy screen appears.  Click the **Link** button at the bottom to link a proxy to the virtual proxy.
+19. The proxy screen appears.  Click the **Link** button at the bottom to link a proxy to the virtual proxy.
     
     ![QlikSense][qs17]
 
-21. Select the proxy node that will support this virtual proxy connection and click the **Link** button.  After linking, the proxy will be listed under associated proxies.
+20. Select the proxy node that will support this virtual proxy connection and click the **Link** button.  After linking, the proxy will be listed under associated proxies.
     
     ![QlikSense][qs18]
   
     ![QlikSense][qs19]
 
-22. After about five to ten seconds, the Refresh QMC message will appear.  Click the **Refresh QMC** button.
+21. After about five to ten seconds, the Refresh QMC message will appear.  Click the **Refresh QMC** button.
     
     ![QlikSense][qs20]
 
-23. When the QMC refreshes, click on the **Virtual proxies** menu item. The new SAML virtual proxy entry is listed in the table on the screen.  Single click on the virtual proxy entry.
+22. When the QMC refreshes, click on the **Virtual proxies** menu item. The new SAML virtual proxy entry is listed in the table on the screen.  Single click on the virtual proxy entry.
     
     ![QlikSense][qs51]
 
-24. At the bottom of the screen, the Download SP metadata button will activate.  Click the **Download SP metadata** button to save the metadata to a file.
+23. At the bottom of the screen, the Download SP metadata button will activate.  Click the **Download SP metadata** button to save the metadata to a file.
     
     ![QlikSense][qs52]
 
-25. Open the sp metadata file.  Observe the **entityID** entry and the **AssertionConsumerService** entry.  These values are equivalent to the **Identifier** and the **Sign on URL** in the Azure AD application configuration. If they are not matching, then you should replace them in the Azure AD App configuration wizard.
+24. Open the sp metadata file.  Observe the **entityID** entry and the **AssertionConsumerService** entry.  These values are equivalent to the **Identifier** and the **Sign on URL** in the Azure AD application configuration. Paste these values in the **Qlik Sense Enterprise Domain and URLs** section in the Azure AD application configuration if they are not matching, then you should replace them in the Azure AD App configuration wizard.
     
     ![QlikSense][qs53]
 
@@ -279,7 +277,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Qlik Sense Enterprise test user
 
-In this section, you create a user called Britta Simon in Qlik Sense Enterprise. Work with [Qlik Sense Enterprise Client support team](http://www.qlik.com/us/try-or-buy/buy-now) to add the users in the Qlik Sense Enterprise platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Qlik Sense Enterprise. Work with [Qlik Sense Enterprise Client support team](https://www.qlik.com/us/services/support) to add the users in the Qlik Sense Enterprise platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -355,3 +353,4 @@ When you click the Qlik Sense Enterprise tile in the Access Panel, you should ge
 [qs51]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_51.png
 [qs52]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_52.png
 [qs53]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_53.png
+
