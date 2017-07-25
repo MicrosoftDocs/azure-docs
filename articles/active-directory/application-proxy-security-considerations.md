@@ -12,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/21/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro
 ---
 
 # Security considerations for accessing apps remotely with Azure AD Application Proxy
@@ -33,7 +34,7 @@ Azure AD Application Proxy offers the following security benefits:
 
 **Conditional access:** Apply richer policy controls before connections to your network are established.
 
-* With [conditional access](active-directory-conditional-access-azuread-connected-apps.md) you can define restrictions on what traffic is allowed to access your back-end applications, based on location, strength of authentication, and user risk profile.
+* With [conditional access](active-directory-conditional-access-azuread-connected-apps.md), you can define restrictions on what traffic is allowed to access your back-end applications, based on location, strength of authentication, and user risk profile.
 
 **Traffic termination:** All traffic is terminated in the cloud.
 
@@ -41,7 +42,7 @@ Azure AD Application Proxy offers the following security benefits:
 
 **All access is outbound:** You don't need to open inbound connections to the corporate network.
 
-* Azure AD connectors maintain outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario resulted in the need for many additional investment in web application firewall (WAF) products to analyze traffic and offer addition protections to the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
+* Azure AD connectors maintain outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario resulted in the need for many additional investments in web application firewall (WAF) products to analyze traffic and offer addition protections to the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
 
 **Security analytics and machine language-based intelligence:** Get cutting-edge security protection.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: sdanie
 
 ---
@@ -92,8 +92,6 @@ Click **Diagnose and solve problems** to be provided with common issues and stra
 ## Settings
 The **Settings** section allows you to access and configure the following settings for your cache.
 
-![Settings](./media/cache-configure/redis-cache-general-settings.png)
-
 * [Access keys](#access-keys)
 * [Advanced settings](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
@@ -101,6 +99,7 @@ The **Settings** section allows you to access and configure the following settin
 * [Redis cluster size](#cluster-size)
 * [Redis data persistence](#redis-data-persistence)
 * [Schedule updates](#schedule-updates)
+* [Geo-replication](#geo-replication)
 * [Virtual Network](#virtual-network)
 * [Firewall](#firewall)
 * [Properties](#properties)
@@ -118,7 +117,7 @@ Click **Access keys** to view or regenerate the access keys for your cache. Thes
 The following settings are configured on the **Advanced settings** blade.
 
 * [Access Ports](#access-ports)
-* [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
+* [Memory policies](#memory-policies)
 * [Keyspace notifications (advanced settings)](#keyspace-notifications-advanced-settings)
 
 #### Access Ports
@@ -126,12 +125,13 @@ By default, non-SSL access is disabled for new caches. To enable the non-SSL por
 
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
-#### Maxmemory-policy and maxmemory-reserved
-The **Maxmemory policy** and **maxmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
+<a name="maxmemory-policy-and-maxmemory-reserved"></a>
+#### Memory policies
+The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache.
 
 ![Redis Cache Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
-**Maxmemory policy** allows you to choose from the following eviction policies:
+**Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
 * `volatile-lru` - this is the default.
 * `allkeys-lru`
@@ -144,8 +144,12 @@ For more information about `maxmemory` policies, see [Eviction policies](http://
 
 The **maxmemory-reserved** setting configures the amount of memory in MB that is reserved for non-cache operations such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that are write heavy. When memory is reserved for such operations, it is unavailable for storage of cached data.
 
+The **maxfragmentationmemory-reserved** setting configures the amount of memory in MB that is reserved to accommodate for memory fragmentation. Setting this value allows you to have a more consistent Redis server experience when the cache is full or close to full and the fragmentation ratio is also high. When memory is reserved for such operations, it is unavailable for storage of cached data.
+
+One thing to consider when choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**) is how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53 GB cache with 49 GB of data, then change the reservation value to 8 GB, this will drop the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+
 > [!IMPORTANT]
-> The **maxmemory-reserved** setting is only available for Standard and Premium caches.
+> The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are only available for Standard and Premium caches.
 > 
 > 
 
@@ -408,7 +412,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 | --- | --- | --- |
 | `databases` |16 |The default number of databases is 16 but you can configure a different number based on the pricing tier.<sup>1</sup> The default database is DB 0, you can select a different one on a per-connection basis using `connection.GetDatabase(dbid)` where `dbid` is a number between `0` and `databases - 1`. |
 | `maxclients` |Depends on the pricing tier<sup>2</sup> |This is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
-| `maxmemory-policy` |`volatile-lru` |Maxmemory policy is the setting for how Redis selects what to remove when `maxmemory` (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved). |
+| `maxmemory-policy` |`volatile-lru` |Maxmemory policy is the setting for how Redis selects what to remove when `maxmemory` (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
 | `lua-event-limit` |500 |Max size of script event queue. |

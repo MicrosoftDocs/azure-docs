@@ -21,15 +21,15 @@ ms.author: echuvyrov
 # Create basic infrastructure in Azure by using Terraform
 This article describes the steps you need to take to provision a virtual machine, together with underlying infrastructure, into Azure. You will learn how to write Terraform scripts and how to visualize the changes before you make them in your cloud infrastructure. You also will learn how to create infrastructure in Azure by using Terraform.
 
-To get started, create a file called \_terraform_azure101.tf_ in your text editor of choice (Visual Studio Code/Sublime/Vim/etc.). The exact name of the file isn't important because Terraform accepts the folder name as a parameter: all scripts in the folder get executed. Paste the following code in the new file:
+To get started, create a file called \terraform_azure101.tf in your text editor of choice (Visual Studio Code/Sublime/Vim/etc.). The exact name of the file isn't important because Terraform accepts the folder name as a parameter: all scripts in the folder get executed. Paste the following code in the new file:
 
 ~~~~
 # Configure the Microsoft Azure Provider
 # NOTE: if you defined these values as environment variables, you do not have to include this block
 provider "azurerm" {
   subscription_id = "your_subscription_id_from_script_execution"
-  client_id       = "your_client_id_from_script_execution"
-  client_secret   = "your_client_secret_from_script_execution"
+  client_id       = "your_appId_from_script_execution"
+  client_secret   = "your_password_from_script_execution"
   tenant_id       = "your_tenant_id_from_script_execution"
 }
 
@@ -39,12 +39,16 @@ resource "azurerm_resource_group" "helloterraform" {
     location = "West US"
 }
 ~~~~
-In the `provider` section of the script, you tell Terraform to use an Azure provider to provision resources in the script. To get values for subscription_id, client_id, client_secret, and tenant_id, see the [Install and configure Terraform](terraform-install-configure.md) guide. If you have created environment variables for the values in this block, you don't need to include it. 
+In the `provider` section of the script, you tell Terraform to use an Azure provider to provision resources in the script. To get values for subscription_id, appId, password, and tenant_id, see the [Install and configure Terraform](terraform-install-configure.md) guide. If you have created environment variables for the values in this block, you don't need to include it. 
 
 The `azurerm_resource_group` resource instructs Terraform to create a new resource group. You can see more resource types that are available in Terraform later in this article.
 
 ## Execute the script
 After you save the script, exit to the console/command line, and type the following:
+```
+terraform init
+```
+to initialize Terraform provider for Azure. Then type the following:
 ```
 terraform plan terraformscripts
 ```

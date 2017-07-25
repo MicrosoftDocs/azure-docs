@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/20/2017
+ms.date: 7/24/2017
 ms.author: xiaofmao
 
 ---
@@ -27,11 +27,13 @@ If you haven't installed Storage Explorer yet, [download](http://www.storageexpl
 
 After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 
-## Connect to an Azure Stack subscription
+## Prepare an Azure Stack subscription
 
 You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-with-vpn).
 
-For Azure Stack Development Kit, you need to export the Azure Stack authority root certificate. To do so:
+For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+
+### To export and then import the Azure Stack certificate
 
 1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 
@@ -45,7 +47,7 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
 4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
 
-    The exported certificate will be used in the next step.   
+    The exported certificate will be used in the next step.
 5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
 
 6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
@@ -54,7 +56,12 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
     ![Import the certificate into Storage Explorer (Preview)][27]
 
-6. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
+Now you are ready to connect Storage Explorer to an Azure Stack subscription.
+
+### To connect an Azure Stack subscription
+
+
+1. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
     ![Ensure Target Azure Stack is selected][28]
 
@@ -95,8 +102,8 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
     * **ARM resource id**: Use the same value as **Sign in resource id**.
     * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
 
-        * For cloud operator: https://adminmanagement.local.azurestack.external   
-        * For tenant: https://management.local.azurestack.external
+        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
+        * For tenant:<br> https://management.local.azurestack.external
  
     * **Tenant Ids**: Optional. The value is given only when the directory must be specified.
 
