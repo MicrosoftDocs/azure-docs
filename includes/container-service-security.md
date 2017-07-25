@@ -39,7 +39,7 @@ It is also critical to understand that containers share the kernel and the resou
 
 ## Orchestrator considerations
 
-Each orchestrator available in Azure Container Service has its own security considerations. For example, you should limit direct SSH access to orchestrator nodes in Container Service. Instead, you should use each orchestrator's UI or command-line tools (such as `kubectl` for Kubernetes) to manage the container environment without accessing the hosts. For more information, see [Make a remote connection to a Kubernetes, DC/OS, or Docker Swarm cluster](container-service-connect.md).
+Each orchestrator available in Azure Container Service has its own security considerations. For example, you should limit direct SSH access to orchestrator nodes in Container Service. Instead, you should use each orchestrator's UI or command-line tools (such as `kubectl` for Kubernetes) to manage the container environment without accessing the hosts. For more information, see [Make a remote connection to a Kubernetes, DC/OS, or Docker Swarm cluster](../articles/container-service/kubernetes/container-service-connect.md).
 
 For additional orchestrator-specific security information, see the following resources:
 
