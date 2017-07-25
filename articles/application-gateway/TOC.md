@@ -40,6 +40,8 @@
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configure redirection
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configure web apps as backend pool members
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
