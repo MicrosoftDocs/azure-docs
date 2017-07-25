@@ -17,7 +17,7 @@ ms.author: gwallace
 
 # Use Azure DNS to provide custom domain settings for an Azure service
 
-You can use Azure DNS to provide DNS for a custom domain for any of your Azure resources that support custom domains or has a fully qualified domain name (FQDN). For example, you are creating an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN.
+Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 Navigate back to your function app, click **Platform features**, and under **NETWORKING** click **Custom domains**, then under **Hostnames** click **+ Add hostname**.
 
-On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record was able to be found the **Add hostname** button appears. Click **Add hostname** to add the alias.
+On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record was able to be found, the **Add hostname** button appears. Click **Add hostname** to add the alias.
 
 ![function apps add host name blade](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -65,14 +65,14 @@ On the **Add hostname** blade, enter the CNAME record in the **hostname** text f
 
 Navigate to **Internet of Things** > **IoT Hub** and select your IoT hub. On the **Overview** blade, note the FQDN of the IoT hub.
 
-![iot hub blade](./media/dns-custom-domain/iot.png)
+![IoT hub blade](./media/dns-custom-domain/iot.png)
 
 Next, navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
 
 
 |Property  |Value  |Description  |
 |---------|---------|---------|
-|Name     | myiothub        | This along with the domain name label is the FQDN for the IoT hub..        |
+|Name     | myiothub        | This value along with the domain name label is the FQDN for the IoT hub.        |
 |Type     | CNAME        | Use a CNAME record is using an alias.
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
@@ -91,13 +91,13 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 |Property  |Value  |Description  |
 |---------|---------|---------|
-|Name     | mywebserver        | This along with the domain name label is the FQDN for the custom domain name.        |
+|Name     | mywebserver        | This value along with the domain name label is the FQDN for the custom domain name.        |
 |Type     | A        | Use an A record as the resource is an IP address.        |
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
 |IP Address     | <your ip address>       | The public IP address.|
 
-![create an a record](./media/dns-custom-domain/arecord.png)
+![create an A record](./media/dns-custom-domain/arecord.png)
 
 Once the A record is created, run `nslookup` to validate the record resolves.
 
@@ -107,7 +107,7 @@ Once the A record is created, run `nslookup` to validate the record resolves.
 
 The following steps take you through configuring a custom domain for an app service web app.
 
-Navigate to **Web & Mobile** > **App Service** and select the resource you are configuring a custom domain name for and click **Custom domains**.
+Navigate to **Web & Mobile** > **App Service** and select the resource you are configuring a custom domain name, and click **Custom domains**.
 
 Note the current url on the **Custom domains** blade, this address is used as the alias for the DNS record created.
 
@@ -118,16 +118,16 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 |Property  |Value  |Description  |
 |---------|---------|---------|
-|Name     | mywebserver        | This along with the domain name label is the FQDN for the custom domain name.        |
-|Type     | CNAME        | Use a CNAME record is using an alias. An A record would be used if the resource used an IP address.        |
+|Name     | mywebserver        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Type     | CNAME        | Use a CNAME record is using an alias. If the resource used an IP address, an A record would be used.        |
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
 |Alias     | webserver.azurewebsites.net        | The DNS name you are creating the alias for, in this example it is the webserver.azurewebsites.net DNS name provided by default to the web app.        |
 
 
-![create cname record](./media/dns-custom-domain/createcnamerecord.png)
+![create a CNAME record](./media/dns-custom-domain/createcnamerecord.png)
 
-Navigate back to your app service that is configured for the custom domain name and click **Custom domains**, then click **Hostnames**. To add the CNAME record you created, click **+ Add hostname**.
+Navigate back to the app service that is configured for the custom domain name. Click **Custom domains**, then click **Hostnames**. To add the CNAME record you created, click **+ Add hostname**.
 
 ![figure 1](./media/dns-custom-domain/figure1.png)
 
@@ -141,7 +141,7 @@ To learn more about mapping a custom domain to App Service, visit [Map an existi
 
 The following steps take you through configuring a CNAME record for a blob storage account using the asverify method. This method ensures there is no downtime.
 
-Navigate to **Storage** > **Storage Accounts**, select your storage account, and click **Custom domain**. Notate the FQDN under step 2, this is used to create the first CNAME record
+Navigate to **Storage** > **Storage Accounts**, select your storage account, and click **Custom domain**. Notate the FQDN under step 2, this value is used to create the first CNAME record
 
 ![blob storage custom domain](./media/dns-custom-domain/blobcustomdomain.png)
 
@@ -150,13 +150,13 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 |Property  |Value  |Description  |
 |---------|---------|---------|
-|Name     | asverify.mystorageaccount        | This along with the domain name label is the FQDN for the custom domain name.        |
+|Name     | asverify.mystorageaccount        | This value along with the domain name label is the FQDN for the custom domain name.        |
 |Type     | CNAME        | Use a CNAME record is using an alias.        |
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | The DNS name you are creating the alias for, in this example it is the asverify.adatumfunctiona9ed.blob.core.windows.net DNS name provided by default to the storage account.        |
 
-Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation, and click **Save**. Once this step is complete return to your DNS zone and create a CNAME record without the asverify prefix.  After that point you are safe to delete the CNAME record with the cdnverify prefix.
+Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation, and click **Save**. Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
 
 ![blob storage custom domain](./media/dns-custom-domain/indirectvalidate.png)
 
@@ -170,7 +170,7 @@ The following steps take you through configuring a CNAME record for a CDN endpoi
 
 Navigate to **Networking** > **CDN Profiles**, select your CDN profile, and click **Endpoints** under **General**.
 
-Select the endpoint you are working with and click **+ Custom domain**. Note the **Endpoint hostname** as this is the record to point the CNAME record to.
+Select the endpoint you are working with and click **+ Custom domain**. Note the **Endpoint hostname** as this value is the record that the CNAME record points to.
 
 ![CDN custom domain](./media/dns-custom-domain/endpointcustomdomain.png)
 
@@ -178,7 +178,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 |Property  |Value  |Description  |
 |---------|---------|---------|
-|Name     | cdnverify.mycdnendpoint        | This along with the domain name label is the FQDN for the custom domain name.        |
+|Name     | cdnverify.mycdnendpoint        | This value along with the domain name label is the FQDN for the custom domain name.        |
 |Type     | CNAME        | Use a CNAME record is using an alias.        |
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
