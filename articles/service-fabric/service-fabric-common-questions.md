@@ -24,11 +24,18 @@ There are many commonly asked questions about what Service Fabric can do and how
 
 ## Cluster setup and management
 
-### Can I create a cluster that spans multiple Azure regions?
+### Can I create a cluster that spans multiple Azure regions or my own datacenters?
 
-Not today, but this is a common request that we continue to investigate.
+Yes. 
 
-The core Service Fabric clustering technology knows nothing about Azure regions and can be used to combine machines running anywhere in the world, so long as they have network connectivity to each other. However, the Service Fabric cluster resource in Azure is regional, as are the virtual machine scale sets that the cluster is built on. In addition, there is an inherent challenge in delivering strongly consistent data replication between machines spread far apart. We want to ensure that performance is predictable and acceptable before supporting cross-regional clusters.
+The core Service Fabric clustering technology can be used to combine machines running anywhere in the world, so long as they have network connectivity to each other. However, building and running such a cluster can be complicated.
+
+If you are interested in this scenario we encourage you to get in contact either through the [Service Fabric Github Issues List](https://github.com/azure/service-fabric-issues) or through your support representative who can put you in touch with the Service Fabric team for additional guidance. We are working to provide additional clarity, guidance, and recommendations for this scenario. 
+
+Some things to consider: 
+
+1. The Service Fabric cluster resource in Azure is regional today, as are the virtual machine scale sets that the cluster is built on.  This means that in the event of a regional failure you may lose the ability to manage the cluster via ARM or the Azure Portal (even though the cluster remains running and you'd be able to interact with it directly). In addition, Azure today does not offer the ability to have a single virtual network that is usable across regions. This complicates the topology of the cluster by requiring either [Public IP Addresses for each VM in the VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) or [Azure VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V). These networking choices will have different impacts on costs, performance, and to some degree application design, so careful analysis and planning is required before standing up such an environment.
+2. The maintenance, management, and monitoring of these machines can become complicated, especially when spanned across _types_ of environments (i.e. between different cloud providers or between on-premises resources and Azure). Care must be taken to ensure that upgrades, monitoring, management, and diagnostics are understood for both the cluster and the applications before running production workloads in such an environment. If you already have lots of experience solving these problems in Azure or within your own datacenters, then it is likely that those same solutions can be applied when building out or running your Service Fabric cluster. 
 
 ### Do Service Fabric nodes automatically receive OS updates?
 

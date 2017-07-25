@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 07/28/2017
 ms.author: masnider
 
 ---
 # Placement policies for service fabric services
-There are many different additional rules that you may need to configure in some rare scenarios. Some examples of those scenarios are:
+Placement policies are additional rules that can be used to govern service placement in some specific, less-common scenarios. Some examples of those scenarios are:
 * If your Service Fabric cluster is spanned across a geographic distance, such as multiple on-premises datacenters or across Azure regions
-* If your environment spans multiple areas of geopolitical control (or some other case where you have legal or policy boundaries you care about
+* If your environment spans multiple areas of geopolitical control (or some other case where you have legal or policy boundaries you care about)
 * There are actual performance/latency considerations due to communication in the cluster traveling large distances or transiting certain slower or less reliable networks.
+* There's a desire to keep certain workloads collocated as a best effort, either with other workloads or with customers
 
-In these types of situations, it may be important for a given service to always run or never run in certain regions. Similarly it may be important to try to place the Primary in a certain region to minimize end-user latency.
+Most of these requirements align with the physical layout of the cluster, represented as the fault domains of the cluster. 
 
-The advanced placement policies are:
+The advanced placement policies that help address these scenarios are:
 
 1. Invalid domains
 2. Required domains
@@ -35,7 +36,7 @@ The advanced placement policies are:
 Most of the following controls could be configured via node properties and placement constraints, but some are more complicated. To make things simpler, the Service Fabric Cluster Resource Manager provides these additional placement policies. Like with other placement constraints, placement policies can be configured on a per-named service instance basis and updated dynamically.
 
 ## Specifying invalid domains
-The InvalidDomain placement policy allows you to specify that a particular Fault Domain is invalid for this workload. This policy ensures that a particular service never runs in a particular area, for example for geopolitical or corporate policy reasons. Multiple invalid domains may be specified via separate policies.
+The **InvalidDomain** placement policy allows you to specify that a particular Fault Domain is invalid for a specific service. This policy ensures that a particular service never runs in a particular area, for example for geopolitical or corporate policy reasons. Multiple invalid domains may be specified via separate policies.
 
 <center>
 ![Invalid Domain Example][Image1]
@@ -52,10 +53,10 @@ serviceDescription.PlacementPolicies.Add(invalidDomain);
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
 ```
 ## Specifying required domains
-The required domain placement policy requires that all the stateful replicas or stateless service instances for the service be present in the specified domain. Multiple required domains can be specified via separate policies.
+The required domain placement policy requires that the service be present only in the specified domain. Multiple required domains can be specified via separate policies.
 
 <center>
 ![Required Domain Example][Image2]
@@ -72,11 +73,11 @@ serviceDescription.PlacementPolicies.Add(requiredDomain);
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
 ```
 
-## Specifying a preferred domain for the primary replicas
-The Preferred Primary Domain is an interesting control, since it allows selection of the fault domain in which the Primary should be placed if it is possible to do so. The Primary ends up in this domain when everything is healthy. If the domain or the Primary replica fails or is shut down for some reason, the Primary is migrated to some other location. If this new location isn't in the preferred domain, the Cluster Resource Manager moves it back to the preferred domain as soon as possible. Naturally this setting only makes sense for stateful services. This policy is most useful in clusters that are spanned across Azure regions or multiple datacenters but would prefer that the Primary replicas be placed in a certain location. Keeping Primaries close to their users helps provide lower latency, especially for reads.
+## Specifying a preferred domain for the primary replicas of a stateful service
+The Preferred Primary Domain is an interesting and useful control, especially in clusters that span large distances. It allows selection of the fault domain in which the Primary should be placed if it is possible to do so. The Primary ends up in this domain when everything is healthy. If the domain or the Primary replica fails or is shut down for some reason, the Primary may be migrated to some other location. If this new location isn't in the preferred domain, the Cluster Resource Manager moves it back to the preferred domain as soon as possible. Naturally this setting only makes sense for stateful services. This policy is most useful in clusters that are spanned across Azure regions or multiple datacenters but would prefer that the Primary replicas be placed in a certain location. Keeping Primaries close to their users helps provide lower latency, especially for reads, which by default are handled by Primaries.
 
 <center>
 ![Preferred Primary Domains and Failover][Image3]
@@ -91,7 +92,7 @@ serviceDescription.PlacementPolicies.Add(invalidDomain);
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
 ```
 
 ## Requiring replicas to be distributed among all domains and disallowing packing
@@ -113,10 +114,10 @@ serviceDescription.PlacementPolicies.Add(distributeDomain);
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
 ```
 
-Now, would it be possible to use these configurations for services in a cluster that was not geographically spanned? Sure you could! But there’s not a great reason too. The required, invalid, and preferred domain configurations should be avoided unless you’re actually running a cluster that spans geographic distances. It doesn't make any sense to try to force a given workload to run in a single rack, or to prefer some segment of your local cluster over another. Different hardware configurations should be spread across domains and those handled via normal placement constraints and node properties.
+Now, would it be possible to use these configurations for services in a cluster that was not geographically spanned? You could, but there’s not a great reason too. The required, invalid, and preferred domain configurations should be avoided unless you’re actually running a cluster that spans geographic distances or policy boundaries. It doesn't make any sense to try to force a given workload to run in a single rack, or to prefer some segment of your local cluster over another. Different hardware configurations should be spread across fault domains and handled via normal placement constraints and node properties.
 
 ## Next steps
 * For more information about the other options available for configuring services, go [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)

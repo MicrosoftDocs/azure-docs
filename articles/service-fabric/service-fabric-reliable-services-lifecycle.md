@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: masnider;
+ms.date: 07/20/2017
+ms.author: masnider
 ---
 
 # Reliable services lifecycle overview
@@ -100,6 +100,14 @@ Similarly, Service Fabric needs this replica to start listening for messages on 
     - `StatefulServiceBase.CreateServiceReplicaListeners()` is invoked and any returned listeners are Opened (`ICommunicationListener.OpenAsync()` is called on each listener)
     - The service's RunAsync method (`StatefulServiceBase.RunAsync()`) is called
 4. Once all the replica listener's `OpenAsync()` calls complete and `RunAsync()` has been started (or these steps were skipped because this is a secondary), `StatefulServiceBase.OnChangeRoleAsync()` is called. (This is uncommonly overridden in the service.)
+
+### Common issues during stateful service shutdown and primary demotion
+Service Fabric will change the Primary of a stateful service for a variety of reasons. The most common are [cluster rebalancing](./service-fabric-cluster-resource-manager-balancing.md) and [application upgrade](./service-fabric-application-upgrade.md). During these operations (as well as during normal service shutdown, like you'd see if the service was deleted), it is important that the service respect the `CancellationToken`. Services that do not handle cancellation cleanly will experience a variety of issues in this path, particularly that these operations will be slow since Service Fabric will be waiting for the services to gracefully stop. This can ultimately lead to failed upgrades that time out and roll back, or imbalanced clusters with nodes that get hot and can't be rebalanced since it takes too long to move a given workload elsewhere. 
+
+Since the services are stateful it is also likely that they are using the [Reliable Collections](./service-fabric-reliable-services-reliable-collections.md).  In Service Fabric, when a Primary is getting demoted, one of the first things that happens is that write (and sometimes read) access to the underlying state is revoked. This leads to a second set of issues that can impact the service lifecycle, since the collections will return different Exceptions based on the timing and the exact conditions under which the service is being moved. These exceptions should be handled correctly. In general Exceptions thrown by Service Fabric fall into permanent [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) and transient [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet). Generally permanent exceptions should be logged and thrown, while the transient exceptions may be retried based on some application specific retry logic.
+
+Handling the exceptions that come from use of the ReliableCollections in conjunction with service lifecycle events is an important part of testing and validating a Reliable Service. The recommendation is always to run your service under load while performing upgrades and [chaos testing](./service-fabric-controlled-chaos.md) before ever deploying to production. These basic steps will help ensure that your service is correctly implemented and handles lifecycle events correctly.
+
 
 ## Notes on service lifecycle
 * Both the `RunAsync()` method and the `CreateServiceReplicaListeners/CreateServiceInstanceListeners` calls are optional. A service may have one of them, both, or neither. For example, if the service does all its work in response to user calls, there is no need for it to implement `RunAsync()`. Only the communication listeners and their associated code are necessary. Similarly, creating and returning communication listeners is optional, as the service may have only background work to do, and so only needs to implement `RunAsync()`

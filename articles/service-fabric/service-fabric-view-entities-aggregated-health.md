@@ -32,7 +32,7 @@ To demonstrate these options, let's use a local cluster with five nodes. Next to
 
 ```xml
 <Service Name="WordCountService">
-    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="2">
+    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="3">
       <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
     </StatefulService>
 </Service>
