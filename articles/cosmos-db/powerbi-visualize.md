@@ -21,30 +21,30 @@ ms.author: mimig
 # Power BI tutorial for Azure Cosmos DB: Visualize data using the Power BI connector
 [PowerBI.com](https://powerbi.microsoft.com/) is an online service where you can create and share dashboards and reports with data that's important to you and your organization.  Power BI Desktop is a dedicated report authoring tool that enables you to retrieve data from various data sources, merge and transform the data, create powerful reports and visualizations, and publish the reports to Power BI.  With the latest version of Power BI Desktop, you can now connect to your Cosmos DB account via the Cosmos DB connector for Power BI.   
 
-In this Power BI tutorial, we walk through the steps to connect to an Cosmos DB account in Power BI Desktop, navigate to a collection where we want to extract the data using the Navigator, transform JSON data into tabular format using Power BI Desktop Query Editor, and build and publish a report to PowerBI.com.
+In this Power BI tutorial, we walk through the steps to connect to a Cosmos DB account in Power BI Desktop, navigate to a collection where we want to extract the data using the Navigator, transform JSON data into tabular format using Power BI Desktop Query Editor, and build and publish a report to PowerBI.com.
 
 After completing this Power BI tutorial, you'll be able to answer the following questions:  
 
 * How can I build reports with data from Cosmos DB using Power BI Desktop?
-* How can I connect to an Cosmos DB account in Power BI Desktop?
+* How can I connect to a Cosmos DB account in Power BI Desktop?
 * How can I retrieve data from a collection in Power BI Desktop?
 * How can I transform nested JSON data in Power BI Desktop?
 * How can I publish and share my reports in PowerBI.com?
 
 ## Prerequisites
-Before following the instructions in this Power BI tutorial, ensure that you have the following:
+Before following the instructions in this Power BI tutorial, ensure that you have access to the following resources:
 
 * [The latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Access to our demo account or data in your Cosmos DB account.
-  * The demo account is populated with the volcano data shown in this tutorial. This demo account is not bound by any SLAs and is meant for demonstration purposes only.  We reserve the right to make modifications to this demo account including but not limited to, terminating the account, changing the key, restricting access, changing and delete the data, at any time without advance notice or reason.
+  * The demo account is populated with the volcano data shown in this tutorial. This demo account is not bound by any SLAs and is meant for demonstration purposes only.  We reserve the right to make modifications to this demo account including but not limited to, terminating the account, changing the key, restricting access, changing, and delete the data, at any time without advance notice or reason.
     * URL: https://analytics.documents.azure.com
     * Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * Or, to create your own account, see [Create an Azure Cosmos DB database account using the Azure portal](https://azure.microsoft.com/documentation/articles/create-account/). Then, to get sample volcano data that's similar to what's used in this tutorial (but does not contain the GeoJSON blocks), see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [Azure Cosmos DB data migration tool](import-data.md).
 
-To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, please visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
+To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## Let's get started
-In this tutorial, let's imagine that you are a geologist studying volcanoes around the world.  The volcano data is stored in an Cosmos DB account and the JSON documents look like the one below.
+In this tutorial, let's imagine that you are a geologist studying volcanoes around the world.  The volcano data is stored in a Cosmos DB account and the JSON documents look like the following sample document.
 
     {
         "Volcano Name": "Rainier",
@@ -63,7 +63,7 @@ In this tutorial, let's imagine that you are a geologist studying volcanoes arou
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-You want to retrieve the volcano data from the Cosmos DB account and visualize data in an interactive Power BI report like the one below.
+You want to retrieve the volcano data from the Cosmos DB account and visualize data in an interactive Power BI report like the following report.
 
 ![By completing this Power BI tutorial with the Power BI connector, you'll be able to visualize data with the Power BI Desktop volcano report](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -86,7 +86,7 @@ Ready to give it a try? Let's get started.
     Leave the database name, collection name, and SQL statement blank as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Desktop Connect Window](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-8. If you are connecting to this endpoint for the first time, you will be prompted for the account key. For your own account, retrieve the key from the **Primary Key** box in the **[Read-only Keys](manage-account.md#keys)** blade of the Azure portal. For the demo account, the key is `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Enter the appropriate key and then click **Connect**.
+8. If you are connecting to this endpoint for the first time, you are prompted for the account key. For your own account, retrieve the key from the **Primary Key** box in the **[Read-only Keys](manage-account.md#keys)** blade of the Azure portal. For the demo account, the key is `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Enter the appropriate key and then click **Connect**.
    
     We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the [Keys](manage-account.md#keys) blade of the Azure portal or you can use the demo account information provided above.
    
