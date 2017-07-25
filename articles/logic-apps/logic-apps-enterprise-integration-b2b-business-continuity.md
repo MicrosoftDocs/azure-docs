@@ -127,8 +127,8 @@ Business continuity for EDI X12 documents is based on control numbers:
 
 **Prerequisites**
 
-Select the duplicate check settings in the X12 agreement's 
-Receive Settings to enable disaster recovery for inbound messages.
+To enable disaster recovery for inbound messages, 
+select the duplicate check settings in the X12 agreement's Receive Settings.
 
 ![Select duplicate check settings](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
@@ -190,7 +190,8 @@ Business continuity for EDI EDIFACT documents is based on control numbers.
 
 **Prerequisites**
 
-Select the duplicate check settings in your EDIFACT agreement's Receive Settings to enable disaster recovery for inbound messages.
+To enable disaster recovery for inbound messages, 
+select the duplicate check settings in your EDIFACT agreement's Receive Settings.
 
 ![Select duplicate check settings](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
@@ -263,7 +264,7 @@ in the secondary region.
 
 2. Search on **AS2**, and select **AS2 - When a MIC value is created**.   
 
-   ![Searh for AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
+   ![Search for AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
    A trigger prompts you to establish a connection to an integration account. 
    The trigger should be connected to a primary region integration account. 
