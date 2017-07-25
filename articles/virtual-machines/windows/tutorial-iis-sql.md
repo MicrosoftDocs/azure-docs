@@ -212,7 +212,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 # Create the virtual network
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName $resourcegroupname `
-  -Location EastUS `
+  -Location $location `
   -Name myVnet `
   -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
@@ -238,7 +238,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
 # Create the network security group
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName $resourcegroupname `
-  -Location EastUS `
+  -Location $location `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRule
 
@@ -261,7 +261,7 @@ for ($i=1; $i -le 3; $i++)
    New-AzureRmNetworkInterface `
      -ResourceGroupName $resourcegroupname `
      -Name myNic$i `
-     -Location EastUS `
+     -Location $location `
      -Subnet $vnet.Subnets[0] `
      -LoadBalancerBackendAddressPool $lb.BackendAddressPools[0]
 }
@@ -276,7 +276,7 @@ Create an availability set with [New-AzureRmAvailabilitySet](/powershell/module/
 $availabilitySet = New-AzureRmAvailabilitySet `
   -ResourceGroupName $resourcegroupname `
   -Name myAvailabilitySet `
-  -Location EastUS `
+  -Location $location `
   -Managed `
   -PlatformFaultDomainCount 3 `
   -PlatformUpdateDomainCount 2
@@ -322,7 +322,7 @@ for ($i=1; $i -le 3; $i++)
   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
   New-AzureRmVM `
     -ResourceGroupName $resourcegroupname `
-    -Location EastUS `
+    -Location $location `
     -VM $vm
 }
 ```
