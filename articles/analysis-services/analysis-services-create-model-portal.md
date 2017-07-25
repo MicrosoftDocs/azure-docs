@@ -1,5 +1,5 @@
 ---
-title: Create a tabular model by uing the Web designer | Microsoft Docs
+title: Create a tabular model by using the Azure Analysis Services Web designer | Microsoft Docs
 description: Learn how to create an Azure Analysis Services tabular model by using the Web designer in Azure portal.
 services: analysis-services
 documentationcenter: ''
@@ -14,23 +14,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/21/2016
+ms.date: 07/25/2017
 ms.author: owend
 
 ---
-# Create a model - portal
+# Create a model in Azure portal
 
 The Azure Analysis Services Web designer (preview) feature in Azure portal provides a quick and easy way to create and edit tabular models and query model data right in your browser. 
 
-Keep in-mind, the Web designer is **preview**. While new functionality is being added all the time, in preview, functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
+Keep in mind, the Web designer is **preview**. While new functionality is being added all the time, in preview, functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
 
-Before getting started, you need:
+## Prerequisites
 
-- An Azure Analysis Server at the Standard or Developer tier. New models created by using the Web designer are DirectQuery, supported only by these tiers.
+- An Azure Analysis Services server at the Standard or Developer tier. New models created by using the Web designer are DirectQuery, supported only by these tiers.
 - An Azure SQL Database, Azure SQL Data Warehouse, or Power BI Desktop (.pbix) file as a datasource. New models created from Power BI Desktop files support Azure SQL Database, Azure SQL Data Warehouse, Oracle, and Teradata data sources.
 - A SQL Server account and password for connecting to Azure SQL Database or Azure SQL Data Warehouse data sources.
 
-## To create a new tabular model in Azure portal
+## To create a new tabular model
 
 1. In your server's **Overview** blade > **Web designer**, click **Open**.
 
@@ -66,7 +66,7 @@ Your new model appears in your browser. From here, you can:
 
 
 ## Next steps 
-[Create a server](analysis-services-create-server.md)  
-[On-premises data gateway](analysis-services-gateway.md)  
+[Manage database roles and users](analysis-services-database-users.md)  
+[IConnect with Excel](analysis-services-connect-excel.md)  
 
 
