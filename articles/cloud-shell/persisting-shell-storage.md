@@ -28,14 +28,14 @@ On initial start, Cloud Shell prompts to associate a new or existing file share 
 
 When using basic settings and only selecting a subscription, three resources are created on your behalf in a supported region nearest to you:
 1. Resource Group named: `cloud-shell-storage-<region>`
-2. Storage Account named: `cs-uniqueGuid`
+2. Storage Account named: `cs<uniqueGuid>`
 3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
 This file share will mount as `clouddrive` under your $Home directory. This file share is also used to store a 5-GB image created for you that automatically updates and persists your $Home directory. This is a one-time action and automatically mounts for subsequent sessions.
 
 ### Use existing resources
 ![](media/advanced-storage.png)
-An advanced option is also provided allowing you to associate an existing resources. When presented with the storage setup prompt, select "Show advanced settings" to see additional options. Existing file shares will receive a 5-GB user image to persist your $Home directory. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally redundant storage accounts.
+An advanced option is also provided allowing you to associate an existing resources. When presented with the storage setup prompt, select "Show advanced settings" to see additional options. Existing file shares will receive a 5-GB user image to persist your $Home directory. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally-redundant storage accounts.
 
 ### Restrict resource creation with an Azure resource policy
 Storage accounts created by Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you would like to disallow users from creating storage accounts through Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) triggered by this specific tag.
@@ -106,7 +106,7 @@ To discover which file share is mounted as `clouddrive`:
 
 Run `df` 
 
-The filepath to clouddrive will show your storage account name and file share in the url.
+The filepath to clouddrive will show your storage account name and file share in the URL.
 
 `//storageaccountname.file.core.windows.net/filesharename`
 
