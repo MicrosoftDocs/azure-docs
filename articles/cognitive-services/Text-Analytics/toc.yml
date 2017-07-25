@@ -2,9 +2,9 @@
   href: ../index.md
 - name: Overview
   items:
-  - name: What is Text Analytics
+  - name: What is Text Analytics?
     href: overview.md
-  - name: How to use it
+  - name: How to use Text Analytics
 - name: Quickstart
   items:
   - name: Interactive demo
@@ -14,9 +14,10 @@
 - name: Concepts
   items:
    - name: Models and algorithms
-   - name: Privacy and protections
+   - name: Privacy and protection
 - name: How-to guides
   items:
+   - name: Sign up
    - name: Data submission
    - name: Sentiment analysis
 - name: Reference

@@ -18,17 +18,17 @@ ms.author: luisca
 
 ---
 # Upgrading to Version 2 of the Text Analytics API
-This guide will take you through the process of upgrading your code from using the [first version of the API](../machine-learning/machine-learning-apps-text-analytics.md) to using the second version. 
+This guide takes you through the process of upgrading your code from using the [first version of the API](../machine-learning/machine-learning-apps-text-analytics.md) to using the second version. 
 
 If you have not used the API and would like to learn more, you can **[learn more about the API here](//go.microsoft.com/fwlink/?LinkID=759711)** or **[follow the Quick Start Guide](//go.microsoft.com/fwlink/?LinkID=760860)**. For technical reference, refer to the **[API Definition](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
 ### Part 1. Get a new key
-First, you will need to get a new API key from the **Azure Portal**:
+First, get a new API key from the **Azure portal**:
 
-1. Navigate to the Text Analytics service through the [Cortana Intelligence Gallery](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
-2. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
-3. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
-4. After you sign up for Text Analytics, you'll be given an **API Key**. Copy this key, as you'll need it when using the API services.
+1. Navigate to the Text Analytics service through the [Cortana Intelligence Gallery](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Here, you can find links to the documentation and code samples.
+2. Click **Sign Up** to do go the Azure portal, where you can sign up for the service.
+3. Select a plan. For learning purposes, select the **free tier for 5,000 transactions/month**. Sign up requires an Azure subscription. 
+4. After you sign up for Text Analytics, you are given an **API Key**. Copy this key so that you can include it in hearders in the next step.
 
 ### Part 2. Update the headers
 Update the submitted header values as shown below. Note that the account key is no longer encoded.
@@ -66,7 +66,7 @@ GET endpoints have now been deprecated, so all input should be submitted as a PO
 | Languages |```GetLanguage``` |```GetLanguageBatch``` |```languages``` |
 
 #### Input formats
-Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly. Inputs are not case sensitive.
+Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly. Inputs are not case-sensitive.
 
 **Version 1 (batch)**
 
@@ -234,7 +234,7 @@ Previously, when the job finished, you would receive the following JSON output, 
 
 **Version 2 (POST)**
 
-The response will now include a header value as follows, where `operation-location` is used as the endpoint to poll for the results:
+Now the response includes a header value as follows, where `operation-location` is used as the endpoint to poll for the results:
 
     'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
@@ -262,7 +262,7 @@ The response will now include a header value as follows, where `operation-locati
 
 As before, **periodically poll the output** (the suggested period is every minute) until the output is returned. 
 
-When the topics API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
+When the topics API has finished, a status reading `succeeded` is returned. Output results are in the format shown below:
 
     {
         "status": "succeeded",
