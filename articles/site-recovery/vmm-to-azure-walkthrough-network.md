@@ -20,7 +20,7 @@ ms.author: raynew
 
 # Step 4: Plan networking for Hyper-V (with VMM) to Azure replication
 
-After performing [capacity planning](vmm-to-azuree-walkthrough-capacity.md) (if you're doing a full deployment), read this article to learn about network planning considerations when replicating on-premises Hyper-V VMs in System Center Virtual Machine Manager (VMM) clouds to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service.
+After performing [capacity planning](vmm-to-azure-walkthrough-capacity.md) (if you're doing a full deployment), read this article to learn about network planning considerations when replicating on-premises Hyper-V VMs in System Center Virtual Machine Manager (VMM) clouds to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
