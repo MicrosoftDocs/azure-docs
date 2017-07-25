@@ -18,7 +18,6 @@ abstract:
 sections:
 - title:
   items:
-  - type: paragraph
     text: Kubernetes on Azure Container Service documentation
     href: /azure/container-service/kubernetes
 - title: 5-Minute Quickstarts
