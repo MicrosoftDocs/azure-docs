@@ -380,7 +380,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/container-instances/">
-                                                <img src="media/index/container-instances.png" alt="" />
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
                                                 <p>Container Instances</p>
                                             </a>
                                         </li>
@@ -1745,18 +1745,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/">
+                                <a href="/azure/container-instances/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>Quickly run containerized applications</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1802,18 +1802,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-instances/">
+                                <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/container-instances.png" alt="" />
+                                                        <img src="media/index/Fabric.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Container Instances</h3>
-                                                    <p>The fastest and simplest way to run a container in Azure</p>
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
                                                 </div>
                                             </div>
                                         </div>
