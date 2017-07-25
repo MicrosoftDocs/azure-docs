@@ -46,7 +46,7 @@ The service can be used to detect which language the input text is written in. 1
 | English     | `en` | ✔ | ✔ | ✔ |
 | Spanish     | `es` | ✔ | ✔ |   |
 | Finnish     | `fi` | ✔ \* |  |   |
-| French      | `fr` | ✔ |  |   |
+| French      | `fr` | ✔ | ✔ \* |   |
 | Japanese    | `ja` |  | ✔ |   |
 | Italian     | `it` | ✔ \* |  |   |
 | Dutch       | `nl` | ✔ \* |  |   |

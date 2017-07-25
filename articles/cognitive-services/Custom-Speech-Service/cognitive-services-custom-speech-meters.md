@@ -17,16 +17,7 @@ ms.author: panosper
 Welcome to Microsoft's Custom Speech Service. Custom Speech Service is a cloud-based service that provides users with the ability to customize speech models for Speech-to-Text transcription.
 To use the Custom Speech Service refer to the [Custom Speech Service Portal](https://cris.ai).
 
-The current pricing meters are the following:
-
-| Free Tier **F0** | Paying Tier **S2** |
-| ----- | ----- |
-|1 Model Deployment (no Scale Units) | Model Deployment $40/model/month |
-| Free Adaptation (3 hours max) | Free Adaptation |
-| 2 hours of free requests per month | 2 hours free then $1.40/hour |
-| 2 hours of testing per month |2 hours free then $1.40/hour |
-| 1 concurrent request | $200/scale unit*/month |
-| | $30/model/month (no trace) |
+The current pricing meters are listed on [the pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/).
 
 ## Tiers explained
 We propose to use the free tier (F0) for testing and prototype only.

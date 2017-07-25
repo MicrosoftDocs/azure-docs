@@ -59,8 +59,9 @@
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
 
 # Reference
-## [List of supported metrics](monitoring-supported-metrics.md)
 ## [Sources of monitoring data](monitoring-data-sources.md)
+## [List of supported metrics](monitoring-supported-metrics.md)
+## [Activity Log event schema](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
