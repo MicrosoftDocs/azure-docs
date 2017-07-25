@@ -22,13 +22,13 @@ ms.author: omidm
 
 Learn how to adjust and increase quota limits in Azure Data Lake Analytics (ADLA) accounts. Knowing these limits may help you understand your U-SQL job behavior. All quota limits are soft, so you can increase the maximum limits by reaching out to us.
 
-## Azure Subscriptions limits
+## Azure subscriptions limits
 
 **Maximum number of ADLA accounts per subscription:**  5
 
  This is the maximum number of ADLA accounts you can create per subscription. If you try to create a sixth ADLA account, you will get an error "You have reached the maximum number of Data Lake Analytics accounts allowed (5) in region under subscription name". In this case, either delete any unused ADLA accounts, or reach out to us by [opening a support ticket](#increase-maximum-quota-limits).
 
-## ADLA Account limits
+## ADLA account limits
 
 **Maximum number of Analytics Units (AUs) per account:** 250
 
@@ -41,7 +41,7 @@ This is the maximum number of AUs that can run concurrently in your account. If 
 
 This is the maximum number of jobs that can run concurrently in your account. Above this value, newer jobs are queued automatically.
 
-## Adjust ADLA Quota limits per account
+## Adjust ADLA quota limits per account
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Choose an existing ADLA account.
