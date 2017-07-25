@@ -1,6 +1,6 @@
 ---
 title: 'Connect to Azure Database for PostgreSQL from C# | Microsoft Docs'
-description: This quickstart provides a C# (.Net) code sample you can use to connect and query data from Azure Database for PostgreSQL.
+description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -22,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
 
 You also need to:
-- Install [.Net Framework](https://www.microsoft.com/net/download)
+- Install [.NET Framework](https://www.microsoft.com/net/download)
 - Install [Visual Studio](https://www.visualstudio.com/downloads/)
 - Install [Npgsql](http://www.npgsql.org/doc/index.html) 
 
@@ -60,7 +60,7 @@ sudo apt-get install dotnet-dev-1.0.1
 ```
 
 ## Install Npgsql references into your Visual Studio solution
-To connect from the C# application to PostgreSQL, use the open source ADO.Net library called Npgsql. NuGet helps download and manage the references easily.
+To connect from the C# application to PostgreSQL, use the open source ADO.NET library called Npgsql. NuGet helps download and manage the references easily.
 
 1. Create a new C# solution, or open an existing one: 
    - Within Visual Studio, create a solution, by clicking File menu **New** > **Project**.
