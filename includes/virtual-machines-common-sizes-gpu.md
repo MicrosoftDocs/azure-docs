@@ -1,3 +1,4 @@
+
 The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations. 
 
 
@@ -7,7 +8,7 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 ## NV instances
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
+| Size | vCPU | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |380 | 1 | 8 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 |
@@ -17,7 +18,7 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 ## NC instances
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
+| Size | vCPU | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 380 | 1 | 8 |
 | Standard_NC12 |12 |112 | 680 | 2 | 16 |
