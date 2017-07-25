@@ -44,7 +44,7 @@ Changing the quantity or size is called a scale operation.  Only one scale opera
 
 * An ASE starts with two P2s, which is sufficient for dev/test workloads and low-level production workloads. We strongly recommend P3s for moderate to heavy production workloads.
 * For moderate to heavy production workloads, we recommend that you have at least four P3s to ensure there are sufficient front ends running when scheduled maintenance occurs. Scheduled maintenance activities will bring down one front end at a time. This reduces overall available front-end capacity during maintenance activities.
-* You can't instantly add a new front-end instance. They can take up to an hour to provision.
+* Front ends can take up to an hour to provision. 
 * For further scale fine-tuning, you should monitor the CPU percentage, Memory percentage and Active Requests metrics for the front-end pool. If the CPU or Memory percentages are above 70 percent when running P3s, add more front ends. If the Active Requests value averages out to 15,000 to 20,000 requests per front end, you should also add more front ends. The overall goal is to keep CPU and Memory percentages below 70%, and Active Requests averaging out to below 15,000 requests per front end when you're running P3s.  
 
 **Workers**: The workers are where your apps actually run. When you scale up your App Service plans, that uses up workers in the associated worker pool.
