@@ -1,3 +1,5 @@
+- name: Container Instances
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Container Instances
