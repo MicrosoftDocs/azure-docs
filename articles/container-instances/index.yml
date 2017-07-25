@@ -37,9 +37,4 @@ sections:
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Create container image</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Create container registry</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Deploy app</a>
-- title: Resources
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items: 
+
