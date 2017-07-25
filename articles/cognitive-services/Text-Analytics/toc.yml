@@ -2,24 +2,25 @@
   href: ../index.md
 - name: Overview
   items:
-  - name: What is Text Analytics?
+  - name: What is Text Analytics
     href: overview.md
-  - name: How to use Text Analytics
-- name: Quickstart
+  - name: How to use the API
+- name: Quickstarts
   items:
   - name: Interactive demo
-  - name: REST API quickstart
+  - name: Sign up
+  - name: REST API
     href: quick-start.md
-  - name: SDK quickstart
+  - name: Windows SDK
 - name: Concepts
   items:
    - name: Models and algorithms
-   - name: Privacy and protection
+   - name: Data privacy and retention
 - name: How-to guides
   items:
-   - name: Sign up
    - name: Data submission
-   - name: Sentiment analysis
+   - name: Sentiment analysis 
+   - name: Keyword detection for searh optimization
 - name: Reference
   items: 
   - name: API Reference content
