@@ -26,7 +26,7 @@ This article shows you how to create an ILB ASE. For an overview on the ASE, see
 
 ## Overview ##
 
-An ASE can be deployed with an Internet-accessible endpoint or with an IP address in your virtual network. To set the IP address to a virtual network address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide:
+You can deploy an ASE with an Internet-accessible endpoint or with an IP address in your virtual network. To set the IP address to a virtual network address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide:
 
 -   Your own domain that you use when you create your apps.
 -   The certificate used for HTTPS.
@@ -65,20 +65,20 @@ To create an ILB ASE:
 
 6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
-7. Enter a domain name. This is the domain used for apps created in this ASE. There are some restrictions. It can't be:
+7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
 	- net
     - azurewebsites.net
     - p.azurewebsites.net
     - &lt;asename&gt;.p.azurewebsites.net
 
-	 You can't have overlap between the custom domain name used for apps and the domain name used by your ASE. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
+   The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
 	- www.contoso.com
 	- abcd.def.contoso.com
 	- abcd.contoso.com
 
-	If you know the custom domain names for your apps, choose a domain name that won’t have a conflict when you create your ILB ASE. In this example, it might be something like _contoso-internal.com_.
+   If you know the custom domain names for your apps, choose a domain name that won’t have a conflict when you create your ILB ASE. In this example, it might be something like _contoso-internal.com_.
 
 8. Select **OK**, and then select **Create**.
 
@@ -118,14 +118,14 @@ After you create your ASE, the domain name shows the domain you specified. A new
 
 ![ILB ASE domain name][3]
 
-To obtain a valid SSL certificate, use internal certificate authorities, purchase a certificate from an external issuer, or use a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
+1. Obtain a valid SSL certificate. Use internal certificate authorities, purchase a certificate from an external issuer, or use a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
 
--   **Subject**: This attribute must be set to _\*.your-root-domain-here_.
--   **Subject Alternative Name**: This attribute must include both _\*.your-root-domain-here_ and _\*.scm.your-root-domain-here_. SSL connections to the SCM/Kudu site associated with each app use an address of the form _your-app-name.scm.your-root-domain-here_.
+	* **Subject**: This attribute must be set to _\*.your-root-domain-here_.
+	* **Subject Alternative Name**: This attribute must include both _\*.your-root-domain-here_ and _\*.scm.your-root-domain-here_. SSL connections to the SCM/Kudu site associated with each app use an address of the form _your-app-name.scm.your-root-domain-here_.
 
-With a valid SSL certificate in hand, two additional preparatory steps are needed. The SSL certificate needs to be converted/saved as a .pfx file. Remember that the .pfx file needs to include all intermediate and root certificates. It also needs to be secured with a password.
+2. Convert/save the SSL certificate as a .pfx file. The .pfx file must include all intermediate and root certificates. Secure it with a password.
 
-To create your own certificate by using PowerShell, use the following commands. Be sure to use your ILB ASE domain name instead of *internal.contoso.com*. 
+3. Create your own certificate by using the following PowerShell commands. Be sure to use your ILB ASE domain name instead of *internal.contoso.com*: 
 
 	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
 	
@@ -135,9 +135,9 @@ To create your own certificate by using PowerShell, use the following commands. 
 	$fileName = "exportedcert.pfx" 
 	Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
 
-The certificate that these PowerShell commands generate is flagged by browsers. This notification happens because the certificate wasn't created by a certificate authority that's in your browser's chain of trust. To get a certificate that your browser trusts, procure it from a commercial certificate authority in your browser's chain of trust. 
+	The certificate that these PowerShell commands generate is flagged by browsers. You're notified because the certificate wasn't created by a certificate authority that's in your browser's chain of trust. To get a certificate that your browser trusts, procure it from a commercial certificate authority in your browser's chain of trust. 
 
-![Set ILB certificate][4]
+	![Set ILB certificate][4]
 
 To upload your own certificates and test access:
 
@@ -152,7 +152,7 @@ To upload your own certificates and test access:
 5. Create a VM if you don't have one in that virtual network.
 
 	> [!NOTE] 
-	> Don't create this VM in the same subnet as the ASE. Otherwise, it will break your setup.
+	> Don't create this VM in the same subnet as the ASE. Otherwise, it breaks your setup.
 	>
 	>
 
@@ -189,7 +189,7 @@ If your ILB ASE domain is used for multiple things outside of this ASE, you migh
 
 For every app that's created, there are two endpoints. In an ILB ASE, you have *&lt;app name>.&lt;ILB ASE Domain>* and *&lt;app name>.scm.&lt;ILB ASE Domain>*. 
 
-The SCM site name takes you to the Kudu console, called the **Advanced Portal**, within the Azure portal. The Kudu console lets you view environment variables, explore the disk, use a console, and much more. For more information, see [Kudu console for Azure App Service][Kudu]. 
+The SCM site name takes you to the Kudu console, called the **Advanced portal**, within the Azure portal. The Kudu console lets you view environment variables, explore the disk, use a console, and much more. For more information, see [Kudu console for Azure App Service][Kudu]. 
 
 In the multitenant App Service and in an External ASE, there's single sign-on between the Azure portal and the Kudu console. For the ILB ASE, however, you need to use your publishing credentials to sign into the Kudu console.
 
@@ -199,7 +199,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 ## Couple an ILB ASE with a WAF device ##
 
-Azure App Service provides many security measures that protect the system and help to determine if an app is hacked. The best protection for a web application is to couple a hosting platform, such as the Azure App Service, with a web application firewall (WAF). Because the ILB ASE has a network-isolated application endpoint, it's appropriate for such a use.
+Azure App Service provides many security measures that protect the system. They also help to determine whether an app is hacked. The best protection for a web application is to couple a hosting platform, such as the Azure App Service, with a web application firewall (WAF). Because the ILB ASE has a network-isolated application endpoint, it's appropriate for such a use.
 
 To learn more about how to configure your ILB ASE with a WAF device, see [Configure a web application firewall with your App Service Environment][ASEWAF]. This article shows how to use a Barracuda virtual appliance with your ASE. Another option is to use the Azure Application Gateway. The Application Gateway uses the OWASP core rules to secure any applications placed behind it. For more information about the Application Gateway, see [Introduction to the Azure Web Application Firewall][AppGW].
 
@@ -208,9 +208,8 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 All articles and how-to instructions for ASEs are available in
 the [README for Application Service Environments][ASEReadme].
 
-To get started with ASEs, see [Introduction to App Service Environments][Intro].
-
-For more information about the Azure App Service platform, see [Azure App Service](http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/).
+* To get started with ASEs, see [Introduction to App Service Environments][Intro].
+* For more information about the Azure App Service platform, see [Azure App Service](http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/).
  
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

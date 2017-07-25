@@ -48,7 +48,7 @@ If you want to make an ILB ASE, use the Resource Manager template [examples][qui
 * *dnsSuffix*: This parameter defines the default root domain that's assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. Because an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to be resolvable and accessible only within Contoso's virtual network. 
 * *ipSslAddressCount*: This parameter automatically defaults to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address. There are no explicit IP-SSL addresses for an ILB ASE. Hence, the IP-SSL address pool for an ILB ASE must be set to zero. Otherwise, a provisioning error occurs. 
 
-After the *azuredeploy.parameters.json* file is filled in, the ASE can then be created by using the following PowerShell code snippet. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name.
+After the *azuredeploy.parameters.json* file is filled in, create the ASE by using the following PowerShell code snippet. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
@@ -69,12 +69,12 @@ With a valid SSL certificate in hand, two additional preparatory steps are neede
 
 The .pfx file needs to be converted into a base64 string because the SSL certificate is uploaded by using a Resource Manager template. Because Resource Manager templates are text files, the .pfx file must be converted into a base64 string. This way it can be included as a parameter of the template.
 
-The following PowerShell code snippet shows an example of:
+The following PowerShell code snippet shows an example of how to:
 
-* Generating a self-signed certificate.
-* Exporting the certificate as a .pfx file.
-* Converting the .pfx file into a base64-string.
-* Saving the base64-encoded string to a separate file. 
+* Generate a self-signed certificate.
+* Export the certificate as a .pfx file.
+* Convert the .pfx file into a base64-string.
+* Save the base64-encoded string to a separate file. 
 
 The PowerShell code for base64 encoding was adapted from the [PowerShell scripts blog][examplebase64encoding].
 
@@ -128,7 +128,7 @@ An abbreviated example of *azuredeploy.parameters.json* is shown here:
          }
     }
 
-After the *azuredeploy.parameters.json* file is filled in, the default SSL certificate can be configured by using the following PowerShell code snippet. Change the file paths to match where the Resource Manager template files are located on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name.
+After the *azuredeploy.parameters.json* file is filled in, configure the default SSL certificate by using the following PowerShell code snippet. Change the file paths to match where the Resource Manager template files are located on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
@@ -137,7 +137,7 @@ After the *azuredeploy.parameters.json* file is filled in, the default SSL certi
 
 It takes roughly 40 minutes per ASE front end to apply the change. For example, for a default-sized ASE that uses two front ends, the template takes around one hour and 20 minutes to complete. While the template is running, the ASE can't scale.  
 
-After the template finishes, apps on the ILB ASE can be accessed over HTTPS and the connections are secured by using the default SSL certificate. The default SSL certificate is used when apps on the ILB ASE are addressed by using a combination of the application name plus the default host name. For example, https://mycustomapp.internal-contoso.com uses the default SSL certificate for **.internal-contoso.com*.
+After the template finishes, apps on the ILB ASE are accessed over HTTPS and the connections are secured by using the default SSL certificate. The default SSL certificate is used when apps on the ILB ASE are addressed by using a combination of the application name plus the default host name. For example, https://mycustomapp.internal-contoso.com uses the default SSL certificate for **.internal-contoso.com*.
 
 However, just like apps that run on the public multitenant service, developers can configure custom host names for individual apps. They also can configure unique SNI SSL certificate bindings for individual apps.
 

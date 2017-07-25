@@ -31,7 +31,7 @@ An Azure App Service Environment (ASE) is a deployment of the Azure App Service 
 >
 >
 
-You can deploy an ASE (both ASEv1 and ASEv2) with an external VIP for app access or an internal VIP for app access. The deployment with an external VIP is commonly called an External ASE. The internal version is called the ILB ASE because it uses an internal load balancer (ILB). To learn more about the ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
+You can deploy an ASE (ASEv1 and ASEv2) with an external or internal VIP for app access. The deployment with an external VIP is commonly called an External ASE. The internal version is called the ILB ASE because it uses an internal load balancer (ILB). To learn more about the ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
 ## Create a web app in an ASE ##
 
@@ -88,9 +88,9 @@ In an ASEv1, you need to allocate the IP addresses as resources before you can u
 
 ## Front-end scaling ##
 
-In an ASEv2, when you scale out your App Service plans, workers are automatically added to support them. In addition to the two front ends that every ASE is created with, the front ends are also automatically scaled out at a rate of one front end for every 15 instances in your App Service plans. For example, if you have 15 instances, then you have three front ends. If you scale to 30 instances, then you have four front ends, and so on.
+In an ASEv2, when you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. In addition, the front ends automatically scale out at a rate of one front end for every 15 instances in your App Service plans. For example, if you have 15 instances, then you have three front ends. If you scale to 30 instances, then you have four front ends, and so on.
 
-This amount of front ends should be more than enough for most scenarios. If you need to scale out at a faster rate, you can change the ratio to as low as one front end for every five instances in your App Service plans. There is a charge for changing the ratio. For more information, see [Azure App Service pricing][Pricing].
+This amount of front ends should be more than enough for most scenarios. However, you can scale out at a faster rate. You can change the ratio to as low as one front end for every five instances. There is a charge for changing the ratio. For more information, see [Azure App Service pricing][Pricing].
 
 Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default Front-end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
 
@@ -110,9 +110,9 @@ In an ILB ASE, you determine the domain at deployment time. For more information
 
 ## Publishing ##
 
-Just as with the multitenant App Service, in an ASE you can publish with:
+As with the multitenant App Service, in an ASE you can publish with:
 
-- Web deploy.
+- Web deployment.
 - FTP.
 - Continuous integration.
 - Drag and drop in the Kudu console.
@@ -120,7 +120,7 @@ Just as with the multitenant App Service, in an ASE you can publish with:
 
 With an External ASE, these publishing options all behave the same. For more information, see [Deployment in Azure App Service][AppDeploy]. 
 
-The big difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you won't be able to publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
+The major difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you won't be able to publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
 
 Internet-based CI systems, such as GitHub and Visual Studio Team Services, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
 
@@ -130,7 +130,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 With ASEv2, a new pricing SKU called **Isolated** is used only with ASEv2. All App Service plans that are hosted in and ASEv2 are in the Isolated pricing SKU. In addition to the price for your App Service plans, there is a flat fee for ASE itself. This price doesn't change with the size of your ASE. 
 
-The other potential fees are for adjusting the front-end scale ratio or front-end size. If you adjust the scale ratio so that front ends are added more quickly, you pay for any additional cores that aren't automatically added to the system. Likewise, if you select a larger size for the front ends, you pay for any cores that aren't automatically allocated. For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 ASP instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
+The other potential fees are for adjusting the front-end scale ratio or front-end size. You can adjust the scale ratio to add front ends more quickly. However, you pay for any additional cores that aren't automatically added to the system. Likewise, if you select a larger size for the front ends, you pay for any cores that aren't automatically allocated. For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 ASP instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
 
 For more information, see [Azure App Service pricing][Pricing].
 

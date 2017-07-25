@@ -105,13 +105,13 @@ If you create an ASE standalone, it has nothing in it. An empty ASE still incurs
 
     ![Resource group selection][6]
 
-5. Select your virtual network and location. You can create a new virtual network or select an existing virtual network. 
+5. Select your virtual network and location. You can create a new virtual network or select an existing virtual network: 
 
     * If you select a new virtual network, you can specify a name and location. The new virtual network has the address range 192.168.250.0/23 and a subnet named **default**. The subnet is defined as 192.168.250.0/24. You can only select a Resource Manager virtual network. The **VIP Type** selection determines if your ASE can be directly accessed from the Internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service Environment][MakeILBASE]. 
 
         * If you select an **External** VIP type, you can select how many external IP addresses the system is created with for IP-based SSL purposes. 
     
-        * If you select an **Internal** VIP type, you must specify the subdomain that your ASE uses. ASEs can be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (for example, private addresses). To use a virtual network with a public address range, you create the virtual network ahead of time. 
+        * If you select an **Internal** VIP type, you must specify the subdomain that your ASE uses. You can deploy an ASE into a virtual network that uses public address ranges. You can also deploy an ASE into a virtual network that uses RFC 1918 address spaces, for example, private addresses. To use a virtual network with a public address range, you create the virtual network ahead of time. 
     
     * If you select an existing virtual network, a new subnet is created when the ASE is created. *You can't use a pre-created subnet in the portal. You can create an ASE with an existing subnet if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service Environment from a template][MakeASEfromTemplate].
 

@@ -27,23 +27,20 @@ ASEs are appropriate for application workloads that require:
 - Isolation and secure network access.
 - High memory utilization.
 
-Customers can create multiple ASEs within a single Azure region or across multiple Azure regions. This makes ASEs ideal for horizontally scaling stateless application tiers in support of high RPS workloads.
+Customers can create multiple ASEs within a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless application tiers in support of high RPS workloads.
 
 ASEs are isolated to running only a single customer's applications and are always deployed into a virtual network. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
 
-All articles and how-to instructions about ASEs are available in the [README for Application Service Environments][ASEReadme].
+All articles and how-to instructions about ASEs are available in the [README for Application Service Environments][ASEReadme]:
 
-For an overview of how ASEs enable high scale and secure network access, see the [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) on ASEs.
-
-For an in-depth discussion on horizontal scaling by using multiple ASEs, see the article on how to set up a [geo-distributed app footprint](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
-
-To see how the security architecture shown in the AzureCon Deep Dive was configured, see the article on how to implement a [layered security architecture](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) with ASEs.
-
-Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAF). For more information on this scenario, see [Configure a WAF for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
+* ASEs can enable high scale and secure network access. For more information, see the [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) on ASEs.
+* Multiple ASEs can be used to scale horizontally. For more information, see how to set up a [geo-distributed app footprint](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
+* ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. For more information, see how to implement a [layered security architecture](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) with ASEs.
+* Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAF). For more information, see [Configure a WAF for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
 
 ## Dedicated environment ##
 
-An ASE is dedicated exclusively to a single subscription and can host 100 instances. That can range from 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
+An ASE is dedicated exclusively to a single subscription and can host 100 instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
 
 An ASE is composed of front ends and workers. Front ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front ends are automatically added as the App Service plans in the ASE are scaled out.
 
@@ -65,7 +62,7 @@ An ASE can be either Internet-facing with a public IP address or internal-facing
 
 [Network Security Groups][NSGs] restrict inbound network communications to the subnet where an ASE resides. You can use NSGs to run apps behind upstream devices and services such as WAFs and network SaaS providers.
 
-Apps also frequently need to access corporate resources such as internal databases and web services. If the ASE is deployed in a virtual network that has a VPN connection to the on-premises network, the apps in the ASE can access the on-premises resources. This is true regardless of whether the VPN is a [site-to-site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) or [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN.
+Apps also frequently need to access corporate resources such as internal databases and web services. If you deploy the ASE in a virtual network that has a VPN connection to the on-premises network, the apps in the ASE can access the on-premises resources. This capability is true regardless of whether the VPN is a [site-to-site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) or [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN.
 
 For more information on how ASEs work with virtual networks and on-premises networks, see [App Service Environment network considerations][ASENetwork].
 
