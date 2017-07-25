@@ -113,7 +113,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSL Mode=Prefer; Trust Server Certificate=true",
                     Host,
                     User,
                     DBname,
