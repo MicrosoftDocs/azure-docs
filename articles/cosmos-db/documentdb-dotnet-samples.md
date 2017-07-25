@@ -18,7 +18,7 @@ ms.date: 02/22/2017
 ms.author: rnagpal
 
 ---
-# DocumentDB .NET examples
+# Azure Cosmos DB: .NET examples for the DocumentDB API
 > [!div class="op_single_selector"]
 > * [.NET Examples](documentdb-dotnet-samples.md)
 > * [Node.js Examples](documentdb-nodejs-samples.md)
@@ -96,7 +96,7 @@ The [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977
 | [Use range indexes on strings](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) |
 | [Perform an index transform](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464) |[ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx) |
 
-For more information about indexing, see [DocumentDB indexing policies](indexing-policies.md).
+For more information about indexing, see [Azure Cosmos DB indexing policies](indexing-policies.md).
 
 ## Geospatial examples
 The geospatial sample file, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), shows how to do the following tasks.  
@@ -132,7 +132,7 @@ The query document file, [azure-documentdb-dotnet/samples/code-samples/Queries/P
 | [Query partitioned collections in parallel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Query with Order by for partitioned collections](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 
-For more information about writing queries, see [SQL query within DocumentDB](documentdb-sql-query.md).
+For more information about writing queries, see [SQL query within Azure Cosmos DB](documentdb-sql-query.md).
 
 ## Server-side programming examples
 The server-side programming file, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), shows how to do the following tasks.
