@@ -433,10 +433,11 @@ Where:
 * **/Credentials**: Mandatory parameter that specifies where the registration key file is located.  
 * **/FriendlyName**: Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
 * * **/EncryptionEnabled**: Optional parameter when you're replicating Hyper-V VMs in VMM clouds to Azure. Specify if you want to encrypt virtual machines in Azure (at rest encryption). Ensure that the name of the file has a **.pfx** extension. Encryption is off by default.
+
 	> [!NOTE]
 	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using 
 	> the encryption option (EncryptionEnabled option) provided by Azure Site Recovery. The encryption capability provided by Azure 
-	> can be turned on for a storage account and helps achieve better performance as the encryption/decryption is done by Azure storage.
+	> can be turned on for a storage account and helps achieve better performance as the encryption/decryption is done by Azure  storage.
 	> [Learn more about Storage service encryption in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 * **/proxyAddress**: Optional parameter that specifies the address of the proxy server.
 * **/proxyport**: Optional parameter that specifies the port of the proxy server.
