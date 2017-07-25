@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
 
 ---
@@ -73,7 +73,7 @@ The solution dashboard enables you to manage the deployed solution. It is a hier
 
     ![Launch the preconfigured solution][img-launch-solution]
 
-1. By default, the solution portal shows the *dashboard*. Use the menu on the left-hand side of the page to navigate to other areas of the portal.
+1. By default, the solution portal shows the *dashboard*. To navigate to other areas of the portal, use the menu on the left-hand side of the page.
 
     ![Connected factory preconfigured solution dashboard][cf-img-menu]
 
@@ -105,21 +105,21 @@ The *Factories* panel shows you the geographical location of all the factories i
 
 ## View map
 
-If your subscription has access to the Bing Maps API, the *Factories* map shows you the geographical location and status of all the factories in the solution. Click the locations displayed on the map to drill into the location details.
+If your subscription has access to the Bing Maps API, the *Factories* map shows you the geographical location and status of all the factories in the solution. To drill into the location details, click the locations displayed on the map.
 
 ![Connected factory preconfigured solution map][cf-img-map]
 
 ## View alerts
 
-The **Alert** history panel shows you the alerts that are being generated due to a reported value or a calculated OEE/KPI value exceeding its configured threshold. This panel displays alerts at each level of the hierarchy, from the station level view to the global view. The alerts contain a description of the alert, date, time, location, and number of occurrences. You can gain insights in to the data that caused the alert using the Time Series Insights data. The Time Series Insights data is visualized in the alerts where applicable. If you are an Administrator, you can take default actions on the alerts such as:
+The **Alert** panel shows you alerts generated due to a reported value or a calculated OEE/KPI value exceeding its configured threshold. This panel displays alerts at each level of the hierarchy, from the station level view to the global view. The alerts contain a description of the alert, date, time, location, and number of occurrences. You can gain insights in to the data that caused the alert using the Time Series Insights data. The Time Series Insights data is visualized in the alerts where applicable. If you are an Administrator, you can take default actions on the alerts such as:
 
 * Close the alert.
 * Acknowledge the alert.
 
 Optionally, you can take more complex actions. For example, for the Pressure OPC UA Node of the Assembly you could:
 
-* Load a web page in a new browser window to show supporting information.
-* Call an OPC UA method on the device to mitigate the alert cause.
+* Show supporting information in a web page in a new browser window.
+* Mitigate the cause of the alert by calling an OPC UA method on the device.
 * Suppress the availability of the default actions.
 
     ![Connected factory preconfigured solution alerts][cf-img-alerts]
@@ -143,7 +143,7 @@ OEE rates the efficiency of the manufacturing process using a key production-rel
 
 1. To view OEE for any level in the hierarchy, navigate to the specific view you require. The OEE for that view displays in the panel along with each of the elements that make up the OEE percentage.
 
-2. To further analyze the OEE for any level in the hierarchy data, click either the OEE percentage, availability percentage, performance percentage, or quality percentage. A context panel appears with Time Series Insights powered visualizations that shows data from the last hour, last 24 hours, and last 7 days.
+2. To further analyze the OEE for any level in the hierarchy data, click either the OEE, availability, performance, or quality percentage. A context panel appears with Time Series Insights powered visualizations that shows data from the last hour, last 24 hours, and last 7 days.
 
     ![Connected factory preconfigured solution TSI visualization][cf-img-tsi-visualization]
 
@@ -159,7 +159,7 @@ The solution provides two key performance indicators, *units per hour* and *ener
 
 1. To view units per hour or energy used for any level in the hierarchy, navigate to the specific view you require. The units per hour and energy used display in the panel.
 
-2. To further analyze units per hour or energy used for any level in the hierarchy data, click either the units produced or the energy used gauge in the **Key Performance Indicators** panel. A context panel appears with Time Series Insights powered visualizations enabling you to view data from the last hour, the last 24 hours, and last 7 days.
+2. To analyze units per hour or energy used for any level in the hierarchy further, click the gauge in the **Key Performance Indicators** panel. A context panel appears with Time Series Insights powered visualizations enabling you to view data from the last hour, the last 24 hours, and last 7 days.
 
 ## Scenario review
 
@@ -167,7 +167,7 @@ In this scenario, you monitored your factories OEE and KPIs values, in the dashb
 
 ## Other features
 
-The following sections describe some additional features of the connected factory preconfigured solution that are not described as part of the previous scenario.
+The following sections describe some additional features of the connected factory solution that are not described in the previous scenario.
 
 ## Apply filters
 
@@ -177,7 +177,7 @@ The following sections describe some additional features of the connected factor
 
     ![Connected factory preconfigured solution filters][cf-img-alert-filter]
 
-3. Choose the filter that you require, it is also possible to type free text into the filter fields if you require.
+3. Choose the filter that you require. It is also possible to type free text into the filter fields.
 
 4. The filter is then applied for you. The filter state is also shown in the dashboard via a funnel that displays in the factories and alerts tables.
 
@@ -202,7 +202,7 @@ When you deploy the preconfigured solution, you automatically provision simulate
 
 3. Click **Connect**, a security dialog displays. For the simulation, it is safe to click **Proceed**
 
-4. Click any of the nodes in the server tree to expand it. Nodes that are publishing telemetry have a tick mark beside them.
+4. To expand any of the nodes in the server tree, click it. Nodes that are publishing telemetry have a tick mark beside them.
 
     ![Connected factory preconfigured solution server tree][cf-img-server-tree]
 
@@ -210,7 +210,7 @@ When you deploy the preconfigured solution, you automatically provision simulate
 
 ## Publish a node
 
-When you browse a *simulated OPC UA server*, you can also choose to publish new nodes. You can analyze the telemetry from these nodes in the solution. These *simulated OPC UA servers* make it easy for you to experiment with the preconfigured solution without the need to deploy real, physical devices.
+When you browse a *simulated OPC UA server*, you can also choose to publish new nodes. You can analyze the telemetry from these nodes in the solution. These *simulated OPC UA servers* make it easy to experiment with the preconfigured solution without deploying real, physical devices.
 
 1. Browse to a node in the OPC UA server browser tree that you wish to publish.
 
@@ -218,7 +218,7 @@ When you browse a *simulated OPC UA server*, you can also choose to publish new 
 
 3. Choose **Publish**.
 
-    ![Connected factory publish node][cf-img-publish-node]
+    ![Connected factory publishes node][cf-img-publish-node]
 
 4. A context panel appears which tells you that the publish has succeeded. The node appears in the station level view with a check mark beside it.
 
@@ -226,7 +226,7 @@ When you browse a *simulated OPC UA server*, you can also choose to publish new 
 
 ## Command and control
 
-The connected factory allows you command and control your industry devices directly from the cloud. You can use this feature to respond to alerts generated by the device. For example, you could send a command to the device from the cloud. You can find the available commands in the **StationCommands** node in the OPC UA servers browser tree. In this scenario, you are opening a pressure release valve on the assembly station of a production line in Munich. To use the command and control functionality, you must be in the **Administrator** role for the preconfigured solution deployment.
+The connected factory allows you command and control your industry devices directly from the cloud. You can use this feature to respond to alerts generated by the device. For example, you could send a command to the device from the cloud. You can find the available commands in the **StationCommands** node in the OPC UA servers browser tree. In this scenario, you open a pressure release valve on the assembly station of a production line in Munich. To use the command and control functionality, you must be in the **Administrator** role for the preconfigured solution deployment.
 
 1. Browse to the **StationCommands** node in the OPC UA server browser tree.
 

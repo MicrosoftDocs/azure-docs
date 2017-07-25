@@ -24,7 +24,6 @@ If you cannot use fewer intents, divide your intents into multiple LUIS apps, by
 
 When your system receives an utterance, you can use a variety of techniques to determine how to direct user utterances to LUIS apps:
 
-* Send the utterance to all the apps and pick the top firing intent with the highest confidence score. 
 * Create a top-level LUIS app to determine the category of utterance, and then use the result to send the utterance to the LUIS app for that category.
 * Do some preprocessing on the utterance, like matching on regular expressions, to determine which LUIS app or set of apps receives it.
 
