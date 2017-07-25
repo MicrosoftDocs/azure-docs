@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
@@ -13,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-
+ms.reviewer: rqureshi
 ---
 # Manage Role-Based Access Control with the Azure command-line interface
 > [!div class="op_single_selector"]
@@ -192,6 +191,6 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ![RBAC Azure command line - azure role list for custom roles - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## RBAC Topics
+## Next steps
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 

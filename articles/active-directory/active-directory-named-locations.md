@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # Named locations in Azure Active Directory

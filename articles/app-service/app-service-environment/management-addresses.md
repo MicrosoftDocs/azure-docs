@@ -1,6 +1,6 @@
 ---
-title: App Service Environment management addresses
-description: Lists the management addresses used to command an ASE 
+title: Azure App Service Environment management addresses
+description: Lists the management addresses used to command an App Service Environment 
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -17,11 +17,14 @@ ms.author: ccompy
 ---
 # App Service Environment management addresses
 
-The App Service Environment(ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE management traffic traverses the user owned network.  For details on the ASE networking dependencies read [Networking considerations and the App Service Environment][networking].  For general information on the ASE you can start with [Introduction to the App Service Environment][intro].
+The App Service Environment(ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE must be accessible from the Azure App Service so that it can be managed.  This ASE management traffic traverses the user controlled network.  It comes from Azure App Service management servers to the public VIP that is associated with the ASE.  For details on the ASE networking dependencies read [Networking considerations and the App Service Environment][networking].  For general information on the ASE you can start with [Introduction to the App Service Environment][intro].
 
-This document lists the source IPs for management traffic to the ASE. There are a set of IP addresses that are used across all ASE instances and then there are additional IPs that break down to a regional level.  The incoming management traffic comes in from these IP addresses to ports 454 and 455.
+This document lists the source IPs for management traffic to the ASE. You can use these addresses to create Network Security Groups to lock down incoming traffic or use them in Route Tables as needed.  To use this information you need to use:
 
-If you want to restrict access to ports 454 and 455 with a Network Security Group then you need to use the IP addresses that are in the All regions section AND as the addresses matching the region your ASE is deployed in.  
+* the IP addresses that are listed for All regions
+* the IP addresses that match to the region that your ASE is deployed into.
+
+The incoming management traffic comes in from these IP addresses to ports 454 and 455.
 
 | Region | Addresses |
 |--------|-----------|

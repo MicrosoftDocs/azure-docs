@@ -55,7 +55,7 @@ Run iothub-explorer with various management options.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
 - Make sure your device is running with the client application during this tutorial.
-- iothub-explorer. ([Install iothub-explorer](https://github.com/azure/iothub-explorer) on your development machine)
+- iothub-explorer, [Install iothub-explorer](https://github.com/azure/iothub-explorer) on your development machine.
 
 ## Connect to your IoT hub
 
