@@ -144,7 +144,7 @@ At this point you will see the hybrid connections you added.  You can also click
 
 For your HCM to be able to support the hybrid connections it is configured with, it needs:
 
-- TCP access to Azure over ports 80 and 443
+- TCP access to the Azure IP address over port 443
 - TCP access to the hybrid connection endpoint
 - ability to do DNS look ups on the endpoint host and the azure servicebus namespace
 
