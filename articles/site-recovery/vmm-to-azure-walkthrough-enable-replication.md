@@ -26,7 +26,7 @@ Post comments and questions at the bottom of this article, or on the [Azure Reco
 
 ## Before you start
 
-Make sure your Azure account has the correct [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)to create Azure VMs. [Learn more](../active-directory/role-based-access-built-in-roles) about Azure role-based access control.
+Make sure your Azure account has the correct [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)to create Azure VMs. [Learn more](../active-directory/role-based-access-built-in-roles.md) about Azure role-based access control.
 
 ## Exclude disks from replication
 
