@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/31/2016
-ms.author: elbutter; barbkess
+ms.date: 07/25/2017
+ms.author: elbutter
 
 ---
 # Manage compute power in Azure SQL Data Warehouse (REST)
