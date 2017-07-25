@@ -49,7 +49,7 @@ Changing the quantity or size is called a scale operation.  Only one scale opera
 
 **Workers**: The workers are where your apps actually run. When you scale up your App Service plans, that uses up workers in the associated worker pool.
 
-* You cannot instantly add workers. They can take sometimes an hour to provision, regardless of how many are being added.
+* You cannot instantly add workers. They may take up to an hour to provision.
 * Scaling the size of a compute resource for any pool will take < 1 hour per update domain. There are 20 update domains in an ASE. If you scaled the compute size of a worker pool with 10 instances, it could take up to 10 hours to complete.
 * If you change the size of the compute resources that are used in a worker pool, you will cause cold starts of the apps that are running in that worker pool.
 
