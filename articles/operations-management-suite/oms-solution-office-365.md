@@ -20,7 +20,7 @@ ms.author: bwren
 
 ![Office 365 logo](media/oms-solution-office-365/icon.png)
 
-The Office 365 solution for Operations Management Suite (OMS) allows you to monitor you Office 365 environment in Log Analytics.  
+The Office 365 solution for Operations Management Suite (OMS) allows you to monitor your Office 365 environment in Log Analytics.  
 
 - Monitor user activities on your Office 365 accounts to analyze usage patterns as well as identify behavioral trends. For example, you can extract specific usage scenarios, such as files that are shared outside your organization or the most popular SharePoint sites.
 - Monitor administrator activities to track configuration changes or high privilege operations.
@@ -31,7 +31,7 @@ The Office 365 solution for Operations Management Suite (OMS) allows you to moni
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
 
-- Organizational Office 365 subscription.a
+- Organizational Office 365 subscription.
 - Credentials for a user account that is a Global Administrator.
 - To receive audit data, you must [configure auditing](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.  You can still install the solution and collect other data if auditing is not configured.
  
@@ -57,7 +57,7 @@ Once you [add the Office 365 solution to your subscription](../log-analytics/log
 The Office 365 solution doesn't retrieve data from any of the [OMS agents](../log-analytics/log-analytics-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
-Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created..
+Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created.
 
 ## Using the solution
 When you add the Office 365 solution to your OMS workspace, the **Office 365** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
@@ -112,7 +112,7 @@ The following properties are common to all Azure Active Directory records.
 
 
 ### Azure Active Directory Account logon
-These records are created when an Active Directory user attempts to logon.
+These records are created when an Active Directory user attempts to log on.
 
 | Property | Description |
 |:--- |:--- |
