@@ -1795,6 +1795,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/container-instances/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>Quickly run containerized applications</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
