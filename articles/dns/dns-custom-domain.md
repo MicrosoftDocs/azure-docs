@@ -128,7 +128,7 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 
 To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service-web/custom-dns-web-site-buydomains-web-app) to learn more about App Service domains.
+If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service-web/custom-dns-web-site-buydomains-web-app.md) to learn more about App Service domains.
 
 ## Blob storage
 
