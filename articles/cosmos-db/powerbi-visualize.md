@@ -93,7 +93,7 @@ Ready to give it a try? Let's get started.
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Account Key](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
     
     > [!NOTE] 
-    > If you get an error that says "The specified database was not found." see the workaround steps in this [PowerBI Issue](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
+    > If you get an error that says "The specified database was not found." see the workaround steps in this [Power BI issue](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
     
 9. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
 10. Click and expand on the database where the data for the report will come from, if you're using the demo account, select **volcanodb**.   
