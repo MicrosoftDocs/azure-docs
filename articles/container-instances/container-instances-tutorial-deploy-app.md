@@ -53,7 +53,7 @@ az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutoria
 Within a few seconds, you will receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
 
 ```azurecli-interactive
-az container show --name aci-tutorial-app -g myResourceGroup
+az container show --name aci-tutorial-app --resource-group myResourceGroup
 ```
 
 The output includes the public IP address that you can use to access the app in the browser.
