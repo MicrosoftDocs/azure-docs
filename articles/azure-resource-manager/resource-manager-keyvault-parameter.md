@@ -57,7 +57,7 @@ Whether you are using a new key vault or an existing one, ensure that the user d
 
 ## Reference a secret with static id
 
-The template that receives a key vault secret is like any other template. That's because **you reference the key vault in the parameter file, not the template.** For example, the following template deploys a SQL database that includes an administrator password (*administratorLoginPassword*). The password parameter is set to a `securestring`. But, the template does not specify where that value comes from.
+The template that receives a key vault secret is like any other template. That's because **you reference the key vault in the parameter file, not the template.** For example, the following template deploys a SQL database that includes an administrator password. The password parameter is set to a secure string. But, the template does not specify where that value comes from.
 
 ```json
 {
