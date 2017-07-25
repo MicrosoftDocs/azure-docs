@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 07/25/2017
 ms.author: bwren
 ---
 
@@ -34,7 +34,7 @@ When you start a runbook on a Hybrid Runbook Worker, you specify the group that 
 ## Relationship to Service Management Automation
 [Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) allows you to run the same runbooks that are supported by Azure Automation in your local data center. SMA is generally deployed together with Windows Azure Pack, as Windows Azure Pack contains a graphical interface for SMA management. Unlike Azure Automation, SMA requires a local installation that includes web servers to host the API, a database to contain runbooks and SMA configuration, and Runbook Workers to execute runbook jobs. Azure Automation provides these services in the cloud and only requires you to maintain the Hybrid Runbook Workers in your local environment.
 
-If you are an existing SMA user, you can move your runbooks to Azure Automation to be used with Hybrid Runbook Worker with no changes, assuming that they perform their own authentication to resources as described in [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md#).  Runbooks in SMA run in the context of the service account on the worker server which may provide that authentication for the runbooks.
+If you are an existing SMA user, you can move your runbooks to Azure Automation to be used with Hybrid Runbook Worker with no changes, assuming that they perform their own authentication to resources as described in [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).  Runbooks in SMA run in the context of the service account on the worker server which may provide that authentication for the runbooks.
 
 You can use the following criteria to determine whether Azure Automation with Hybrid Runbook Worker or Service Management Automation is more appropriate for your requirements.
 
@@ -114,13 +114,13 @@ Open a PowerShell session in Administrator mode and run the following commands t
 
 Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
-    Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -Token <String>
+    Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
 You can get the information required for this cmdlet from the **Manage Keys** blade in the Azure portal.  Open this blade by selecting the **Keys** option from the **Settings** blade in your Automation account.
 
 ![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* **Name** is the name of the Hybrid Runbook Worker Group. If this group already exists in the automation account, then the current computer is added to it.  If it does not already exist, then it is added.
+* **GroupName** is the name of the Hybrid Runbook Worker Group. If this group already exists in the automation account, then the current computer is added to it.  If it does not already exist, then it is added.
 * **EndPoint** is the **URL** field in the **Manage Keys** blade.
 * **Token** is the **Primary Access Key** in the **Manage Keys** blade.  
 
