@@ -37,7 +37,7 @@
 ### [Pass a JSON object to an Azure Automation runbook](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [Deploy Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
-### [Run runbooks on worker](automation-hrw-running-runbooks.md)
+### [Run runbooks on worker](automation-hrw-run-runbooks.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
