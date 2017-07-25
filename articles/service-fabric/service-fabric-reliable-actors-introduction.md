@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
 
 ---
@@ -140,15 +140,9 @@ The Actors runtime allows reentrancy by default. This means that if an actor met
 The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to a client request, as well as for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some task that is not associated with the task returned by the actor methods, then the runtime cannot provide concurrency guarantees. If the method is invoked from a thread that the actor creates on its own, then the runtime also cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [actor timers and actor reminders](service-fabric-reliable-actors-timers-reminders.md) that respect turn-based concurrency.
 
 ## Next steps
-* [Getting started with Reliable Actors](service-fabric-reliable-actors-get-started.md)
-* [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
-* [Actor state management](service-fabric-reliable-actors-state-management.md)
-* [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
-* [Actor events](service-fabric-reliable-actors-events.md)
-* [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
-* [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
-* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+* Get started by building your first Reliable Actors service:
+   * [Getting started with Reliable Actors on .NET](service-fabric-reliable-actors-get-started.md)
+   * [Getting started with Reliable Actors on Java](service-fabric-reliable-actors-get-started-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

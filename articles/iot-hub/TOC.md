@@ -87,6 +87,7 @@
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java back end/Java device](iot-hub-java-java-direct-methods.md)
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
@@ -95,6 +96,7 @@
 ### How to use twin properties
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-how-to-configure.md)
 ### Use device jobs to update device firmware
 #### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
@@ -133,9 +135,10 @@
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Use a real device](iot-hub-iot-edge-physical-device.md)
 ### Create a module
-#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
-#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+#### [Java](iot-hub-iot-edge-create-module-java.md)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
+#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
+#### [Node.js](iot-hub-iot-edge-create-module-js.md)
 ### Build
 #### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
 #### [.NET Core module](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
@@ -168,15 +171,16 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
-## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
-## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
-## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
-## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
-## [Service updates](https://azure.microsoft.com/updates/?product=iot-hub)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
-## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
+## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
+## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
+## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
+## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Service updates](https://azure.microsoft.com/updates/?product=iot-hub)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)

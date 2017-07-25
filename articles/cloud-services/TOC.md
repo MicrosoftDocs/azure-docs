@@ -21,8 +21,6 @@
 #### [Queue storage and connected services](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table storage and connected services](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Configure packages for continuous build and deploy
-#### [Visual Studio Team Services and Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
@@ -114,8 +112,9 @@
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

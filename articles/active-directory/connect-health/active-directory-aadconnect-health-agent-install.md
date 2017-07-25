@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
-ms.author: vakarand
+ms.date: 07/18/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect Health Agent Installation

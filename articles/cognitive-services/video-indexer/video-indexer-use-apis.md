@@ -6,9 +6,9 @@ documentationcenter: ''
 author: juliako
 manager: erikre
 
-ms.service: video-indexer
+ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/10/2017
 ms.author: juliako;
 
 ---
@@ -22,7 +22,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 
 1. Sign in.
 
-	To start developing with Video Indexer, you must first Sign In to the [Video Indexer](http://vi.microsoft.com) portal. 
+	To start developing with Video Indexer, you must first Sign In to the [Video Indexer](https://videobreakdown.portal.azure-api.net) portal. 
 	
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api01.png)
 
@@ -33,7 +33,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 	
 2. Subscribe.
 
-	In the [Products](https://videobreakdown.portal.azure-api.net/products) page, select Production and subscribe. 
+	Select the [Products](https://videobreakdown.portal.azure-api.net/products) tab. Then, select Production and subscribe. 
 	
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api02.png)
 	

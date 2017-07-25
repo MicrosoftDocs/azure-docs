@@ -73,7 +73,7 @@ Connector groups allow you to install dedicated connectors for those networks th
 
 For applications installed on IaaS for cloud access, connector groups provide a common service to secure the access to all the apps. Connector groups don't create additional dependency on your corporate network, or fragment the app experience. Connectors can be installed on every cloud datacenter and serve only applications that reside in this network. You can install several connectors to achieve high availability.
 
-In this case, the organization has number of virtual machines connected to their own IaaS hosted virtual network. To allow employees to use these applications, these private networks are connected to the corporate network using site-to-site VPN. This provides a good experience for employees that are located on-premise. But, it may not be ideal for remote employees, because it requires additional on-premises infrastructure, as you can see in the diagram below:
+In this case, the organization has number of virtual machines connected to their own IaaS hosted virtual network. To allow employees to use these applications, these private networks are connected to the corporate network using site-to-site VPN. This provides a good experience for employees that are located on-premises. But, it may not be ideal for remote employees, because it requires additional on-premises infrastructure, as you can see in the diagram below:
 
 ![AzureAD Iaas Network](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
