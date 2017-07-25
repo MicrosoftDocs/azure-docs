@@ -30,12 +30,12 @@ After reading this article, post any comments at the bottom, or ask technical qu
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 - Check the supported regions for Site Recovery, Under Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get the [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Make sure your Azure account has the correct [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)to create Azure VMs. [Learn more](../active-directory/role-based-access-built-in-roles) about Azure role-based access control.
+- Make sure your Azure account has the correct [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)to create Azure VMs. [Learn more](../active-directory/role-based-access-built-in-roles.md) about Azure role-based access control.
 
 
 ## Set up an Azure network
 
-- Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet). Azure VMs are placed in this network when they're created after failover.
+- Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet.md). Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault
 - Site Recovery in the Azure portal can use networks set up in [Resource Manager](../resource-manager-deployment-model.md), or in classic mode.
 - We recommend you set up a network before you begin. If you don't, you need to do it during Site Recovery deployment.
@@ -55,4 +55,4 @@ After reading this article, post any comments at the bottom, or ask technical qu
 
 ## Next steps
 
-Go to [Step 6: Prepare VMM](vmm-to-azure-walkthrough-prepare-VMM.md)
+Go to [Step 6: Prepare VMM](vmm-to-azure-walkthrough-prepare-vmm-hyper-v.md)
