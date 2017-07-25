@@ -28,7 +28,7 @@ This article walks through the basic considerations that a developer should be a
 ## Language and platform
 There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
 
-* More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+* More information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 ## Tools 
 You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
@@ -36,12 +36,12 @@ You can leverage open source tools like [cheetah](https://github.com/wunderlist/
 ## Resource limitations
 Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
 
-* More Information: [Azure SQL Database resource limits](sql-database-service-tiers.md)
+* More information: [Azure SQL Database resource limits](sql-database-service-tiers.md)
 
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
 
-* More Information: [Securing your SQL Database](sql-database-security-overview.md)
+* More information: [Securing your SQL Database](sql-database-security-overview.md)
 
 ## Authentication
 * Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.

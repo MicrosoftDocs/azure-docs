@@ -15,11 +15,11 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 07/25/2017
 ms.author: sstein
 
 ---
-# SQL error codes for SQL Database client applications: Database connection error and other issues
+# SQL error codes for SQL Database client applications: Database connection errors and other issues
 <!--
 Old Title on MSDN:  Error Messages (Azure SQL Database)
 ShortId on MSDN:  ff394106.aspx
@@ -52,13 +52,13 @@ For code examples of retry logic, see:
 A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### Transient fault error codes
-The following errors are transient, and should be retried in application logic 
+The following errors are transient, and should be retried in application logic: 
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Cannot open database "%.&#x2a;ls" requested by the login. The login failed. |
 | 40197 |17 |The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You will receive this error, when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197 provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting to your SQL Database server will automatically connect you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again. |
-| 40501 |20 |The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.<br/><br/>*Note:* For more information, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
+| 40501 |20 |The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.<br/><br/>For more information, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
 | 40613 |17 |Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'. |
 | 49918 |16 |Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. |
 | 49919 |16 |Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
@@ -97,17 +97,17 @@ Related topics:
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
-| 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
+| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
+| 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
 | 40544 |20 |The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. |
 | 40549 |16 |Session is terminated because you have a long-running transaction. Try shortening your transaction. |
 | 40550 |16 |The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction. |
-| 40551 |16 |The session has been terminated because of excessive `TEMPDB` usage. Try modifying your query to reduce the temporary table space usage.<br/><br/>*Tip:* If you are using temporary objects, conserve space in the `TEMPDB` database by dropping temporary objects after they are no longer needed by the session. |
+| 40551 |16 |The session has been terminated because of excessive `TEMPDB` usage. Try modifying your query to reduce the temporary table space usage.<br/><br/>If you are using temporary objects, conserve space in the `TEMPDB` database by dropping temporary objects after they are no longer needed by the session. |
 | 40552 |16 |The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.<br/><br/>*Tip:* If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. If you are rebuilding an index with the `ALTER INDEX` statement, try using the `REBUILD WITH ONLINE = ON` option. |
 | 40553 |16 |The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>*Tip:* Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code reduces the memory requirements of your query. |
 
 ## Elastic pool errors
-The following errors are related to creating and using Elastics Pools.
+The following errors are related to creating and using elastic pools:
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -174,7 +174,7 @@ The following errors do not fall into any previous categories.
 | 40528 |16 |Users cannot be mapped to certificates, asymmetric keys, or Windows logins in this version of SQL Server. |
 | 40529 |16 |Built-in function '%.&#x2a;ls' in impersonation context is not supported in this version of SQL Server. |
 | 40532 |11 |Cannot open server "%.&#x2a;ls" requested by the login. The login failed. |
-| 40553 |16 |The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>*Note:* Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code helps reduce the memory requirements of your query. |
+| 40553 |16 |The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/> Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code helps reduce the memory requirements of your query. |
 | 40604 |16 |Could not CREATE/ALTER DATABASE because it would exceed the quota of the server. |
 | 40606 |16 |Attaching databases is not supported in this version of SQL Server. |
 | 40607 |16 |Windows logins are not supported in this version of SQL Server. |
@@ -209,7 +209,7 @@ The following errors do not fall into any previous categories.
 | 45168 |16 |The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later. |
 | 45169 |16 |The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later. |
 
-## Related links
-* [Azure SQL Database Features](sql-database-features.md)
-* [Azure SQL Database resource limits](sql-database-service-tiers.md)
+## Next steps
+* Read about [Azure SQL Database Features](sql-database-features.md).
+* Read about [Service tiers](sql-database-service-tiers.md).
 

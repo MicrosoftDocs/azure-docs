@@ -19,13 +19,13 @@ ms.date: 07/20/2017
 ms.author: carlrab
 
 ---
-# What are Azure SQL Database service tiers and resource limits
+# Azure SQL Database service tiers and resource limits
 
 Azure SQL Database manages the resources available to a single database or a database in an elastic pool using two mechanisms:
 - CPU, memory, storage, log I/O, and data I/O resource are managed using [Service tiers, performance levels, and storage amounts](#what-are-azure-sql-database-service-tiers?)
 - [Other resource limits](#how-are-other-resource-limits-enforced?) are enforced by denying new requests when limits are reached.
 
-## What are Azure SQL Datbase service tiers?
+## What are Azure SQL Database service tiers?
 
 [Azure SQL Database](sql-database-technical-overview.md) offers four service tiers for both [single databases](sql-database-single-database-resources.md) and databases in [elastic pools](sql-database-elastic-pool.md) databases. These service tiers are: **Basic**, **Standard**, **Premium**, and **Premium RS**. Within each service tier are multiple performance levels ([DTUs](sql-database-what-is-a-dtu.md)) and storage options to handle different workloads and data sizes. Higher performance levels provide additional compute and storage resources designed to deliver increasingly higher throughput and capacity. You can change service tiers, performance levels, and storage dynamically without downtime. 
 - **Basic**, **Standard**, and **Premium** service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
@@ -42,7 +42,7 @@ Monitor the resource utilization and the average response times of queries when 
 
 1. Reduce the number of incoming requests to the database to prevent timeout and the pile up of requests.
 2. Assign a higher performance level to the database.
-3. Optimize queries to reduce the resource utilization of each query. For more information, see the [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+3. Optimize queries to reduce the resource utilization of each query. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 The following table provides examples of the tiers best suited for different application workloads.
 
@@ -76,8 +76,9 @@ To decide on a service tier, start by determining the minimum database features 
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
-More than 1 TB of storage in the Premium tier is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-single-database-resources.md#current-limitations-of-p11-and-p15-databases-with-maxsize-greater-than-1-tb) 
- 
+> [!IMPORTANT]
+> More than 1 TB of storage in the Premium tier is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-single-database-resources.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb) 
+> 
 
 ## Choosing a performance level
 

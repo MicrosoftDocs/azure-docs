@@ -58,7 +58,7 @@ There is no built-in functionality to do bulk restore. The [Azure SQL Database: 
 > To recover using automated backups, you must be a member of the SQL Server Contributor role in the subscription or be the subscription owner. You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL. 
 > 
 
-## Point-In-Time Restore
+## Point-in-time restore
 
 You can restore an existing database to an earlier point in time as a new database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 

@@ -124,14 +124,14 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
 ### Changing elastic pool resources
 
-You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-single-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-single-database-elastic-pools-using-powershell), the [Azure CLI](#manage-single-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
+You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
 
 * Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
 * Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 ## Elastic pool service tiers, performance levels, and storage amounts
 
-For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](#manage-single-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-single-database-elastic-pools-using-powershell), the [Azure CLI](#manage-single-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
+For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
 
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier.  For example, the max concurrent workers for an S2 database is 120 workers.  So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
