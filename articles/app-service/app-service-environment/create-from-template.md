@@ -75,7 +75,7 @@ An SSL certificate must be associated with the ASE as the "default" SSL certific
 
     b. Export the certificate as a .pfx file.
 
-    c. Convert the .pfx file into a base64-string.
+    c. Convert the .pfx file into a base64 string.
 
     d. Save the base64-encoded string to a separate file. 
 
@@ -131,12 +131,12 @@ An abbreviated example of *azuredeploy.parameters.json* is shown here:
          }
     }
 
-5. After the *azuredeploy.parameters.json* file is filled in, configure the default SSL certificate. Use the PowerShell code snippet. Change the file paths to match where the Resource Manager template files are located on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name:
+After the *azuredeploy.parameters.json* file is filled in, configure the default SSL certificate by using the PowerShell code snippet. Change the file paths to match where the Resource Manager template files are located on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name:
 
-       $templatePath="PATH\azuredeploy.json"
-       $parameterPath="PATH\azuredeploy.parameters.json"
+     $templatePath="PATH\azuredeploy.json"
+     $parameterPath="PATH\azuredeploy.parameters.json"
 
-       New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 It takes roughly 40 minutes per ASE front end to apply the change. For example, for a default-sized ASE that uses two front ends, the template takes around one hour and 20 minutes to complete. While the template is running, the ASE can't scale.  
 

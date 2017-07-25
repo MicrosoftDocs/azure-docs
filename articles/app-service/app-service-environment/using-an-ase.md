@@ -136,9 +136,13 @@ For more information, see [Azure App Service pricing][Pricing].
 
 ## Delete an ASE ##
 
-To delete an ASE, use **Delete** at the top of the **App Service Environment** blade. Enter the name of your ASE to confirm that you want to delete it. When you delete an ASE, you delete all of the content within it as well. 
+To delete an ASE: 
 
-![ASE deletion][3]
+1. Use **Delete** at the top of the **App Service Environment** blade. 
+
+2. Enter the name of your ASE to confirm that you want to delete it. When you delete an ASE, you delete all of the content within it as well. 
+
+	![ASE deletion][3]
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png
