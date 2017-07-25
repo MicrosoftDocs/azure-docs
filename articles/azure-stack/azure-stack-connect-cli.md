@@ -73,7 +73,7 @@ Use the following steps to connect to Azure Stack:
     Write-Host "Adding the certificate content to python cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-    Write-Host "Python Cert store got updated for aloowing the azure stack CA root certificate" 
+    Write-Host "Python Cert store got updated for allowing the azure stack CA root certificate" 
    ```
 
 2. Register your Azure Stack environment by running the following command:
@@ -84,7 +84,7 @@ Use the following steps to connect to Azure Stack:
    az cloud register \ 
      -n AzurestackAdmin \ 
      --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns "adminvault.local.azurestack.external"
+     --suffix-keyvault-dns ".adminvault.local.azurestack.external"
    ```
 
    b. To register the **user** environment, use:
@@ -93,7 +93,7 @@ Use the following steps to connect to Azure Stack:
    az cloud register \ 
      -n AzurestackUser \ 
      --endpoint-resource-manager "https://management.local.azurestack.external" \ --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns "vault.local.azurestack.external"
+     --suffix-keyvault-dns ".vault.local.azurestack.external"
    ```
 
 3. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
