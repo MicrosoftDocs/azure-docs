@@ -18,12 +18,12 @@ ms.author: eslesar
 
 # My first Python runbook
 
-> [!div class="op_single_selector"]
+[!div class="op_single_selector"]
 > * [Graphical](automation-first-runbook-graphical.md)
-> * [Python](automation-first-runbook-textual-python.md)
-> * [Python Workflow](automation-first-runbook-textual.md)
-> * [Python](automation-first-runbook-python2.md)
->
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell Workflow](automation-first-runbook-textual.md)
+> * [Python](automation-first-runbook-textual-python2.md)
+> 
 >
 
 This tutorial walks you through the creation of a [Python runbook](automation-runbook-types.md#python-runbooks) in Azure Automation. We start with a simple runbook that we test and publish while we explain how to track the status of the runbook job. Then we modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Lastly, we make the runbook more robust by adding runbook parameters.
@@ -39,7 +39,7 @@ To complete this tutorial, you need the following:
 
 We start by creating a simple runbook that outputs the text *Hello World*.
 
-1. In the Azure portal, open your Automation account. 
+1. In the Azure portal, open your Automation account.
    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
 1. Click the **Runbooks** tile to open the list of runbooks.
    ![RunbooksControl](media/automation-first-runbook-textual-python/runbooks-control-tiles.png)

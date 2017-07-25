@@ -122,7 +122,7 @@ It is important to note that the first element of the array, `sys.argv[0]`, is t
 so the first actual input parameter is `sys.argv[1]`.
 
 For an example of how to use input parameters in a Python runbook, see
-[My first Python runbook in Azure Automation](automation-first-runbook-textual-python2).
+[My first Python runbook in Azure Automation](automation-first-runbook-textual-python2.md).
 
 ## Assign values to input parameters in runbooks
 

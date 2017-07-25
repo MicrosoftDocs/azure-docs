@@ -24,7 +24,7 @@ ms.author: magoedte;bwren
 > * [Graphical](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell Workflow](automation-first-runbook-textual.md)
-> * [Python](automation-first-runbook-python2.md)
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 > 
 
