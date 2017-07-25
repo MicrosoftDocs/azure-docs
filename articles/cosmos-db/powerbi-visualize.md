@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 07/25/2016
 ms.author: mimig
 
 ---
@@ -37,7 +37,7 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 * [The latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Access to our demo account or data in your Cosmos DB account.
   * The demo account is populated with the volcano data shown in this tutorial. This demo account is not bound by any SLAs and is meant for demonstration purposes only.  We reserve the right to make modifications to this demo account including but not limited to, terminating the account, changing the key, restricting access, changing and delete the data, at any time without advance notice or reason.
-    * URL:   https://analytics.documents.azure.com
+    * URL: https://analytics.documents.azure.com
     * Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * Or, to create your own account, see [Create an Azure Cosmos DB database account using the Azure portal](https://azure.microsoft.com/documentation/articles/create-account/). Then, to get sample volcano data that's similar to what's used in this tutorial (but does not contain the GeoJSON blocks), see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [Azure Cosmos DB data migration tool](import-data.md).
 
@@ -77,30 +77,35 @@ Ready to give it a try? Let's get started.
    
     ![Power BI Desktop Report View - Power BI connector](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. Select the **Home** ribbon, then click on **Get Data**.  The **Get Data** window should appear.
-5. Click on **Azure**, select **Microsoft Azure Cosmos DB (Beta)**, and then click **Connect**.  The **Microsoft Azure Cosmos DB Connect** window should appear.
-   
-    ![Power BI Desktop Get Data - Power BI connector](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)
-6. Specify the Cosmos DB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. You can retrieve the URL from the URI box in the **[Keys](manage-account.md#keys)** blade of the Azure portal or you can use the demo account, in which case the URL is `https://analytics.documents.azure.com`. 
+5. Click on **Azure**, select **Microsoft Azure DocumentDB (Beta)**, and then click **Connect**. 
+
+    ![Power BI Desktop Get Data - Power BI connector](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
+6. On the **Preview Connector** page, click **Continue**. The **Microsoft Azure DocumentDB Connect** window appears.
+7. Specify the Cosmos DB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. To use your own account, you can retrieve the URL from the URI box in the **[Keys](manage-account.md#keys)** blade of the Azure portal. To use the demo account, enter `https://analytics.documents.azure.com` for the URL. 
    
     Leave the database name, collection name, and SQL statement blank as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Desktop Connect Window](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. If you are connecting to this endpoint for the first time, you will be prompted for the account key.  You can retrieve the key from the **Primary Key** box in the **[Read-only Keys](manage-account.md#keys)** blade of the Azure portal, or you can use the demo account, in which case the key is `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Enter the account key and click **Connect**.
+8. If you are connecting to this endpoint for the first time, you will be prompted for the account key. For your own account, retrieve the key from the **Primary Key** box in the **[Read-only Keys](manage-account.md#keys)** blade of the Azure portal. For the demo account, the key is `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Enter the appropriate key and then click **Connect**.
    
     We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the [Keys](manage-account.md#keys) blade of the Azure portal or you can use the demo account information provided above.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Account Key](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
-8. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
-9. Click and expand on the database where the data for the report will come from, if you're using the demo account, select **volcanodb**.   
-10. Now, select a collection that you will retrieve the data from. If you're using the demo account, select **volcano1**.
+    
+    > [!NOTE] 
+    > If you get an error that says "The specified database was not found." see the workaround steps in this [PowerBI Issue](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
+    
+9. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
+10. Click and expand on the database where the data for the report will come from, if you're using the demo account, select **volcanodb**.   
+11. Now, select a collection that you will retrieve the data from. If you're using the demo account, select **volcano1**.
     
     The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.
     
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Navigator window](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
-11. Click **Edit** to launch the Query Editor so we can transform the data.
+12. Click **Edit** to launch the Query Editor in a new window to transform the data.
 
 ## Flattening and transforming JSON documents
-1. In the Power BI Query Editor, you should see a **Document** column in the center pane.
+1. Switch to the Power BI Query Editor window, where the **Document** column in the center pane.
    ![Power BI Desktop Query Editor](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 2. Click on the expander at the right side of the **Document** column header.  The context menu with a list of fields will appear.  Select the fields you need for your report, for instance,  Volcano Name, Country, Region, Location, Elevation, Type, Status and Last Know Eruption, and then click **OK**.
    
