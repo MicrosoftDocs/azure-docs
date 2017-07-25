@@ -93,7 +93,7 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ### Setup for role-based access control (RBAC) permissions
 
-Key Vault needs permissions to *list* and *Regenerate* keys for a storage account. Set up these permissions using the following steps:
+Key Vault needs permissions to *List* and *Regenerate* keys for a storage account. Set up these permissions using the following steps:
 
 - Get ObjectId of Key Vault: 
 
@@ -110,14 +110,14 @@ Key Vault needs permissions to *list* and *Regenerate* keys for a storage accoun
 
 Example: A key vault object owner adds a storage account object to an Azure Key Vault to onboard a storage account.
 
-During onboarding, Key Vault needs to verify that the identity of the onboarding account has access to the *list* and *regenerate* storage keys. Key Vault gets an OBO (On Behalf Of) token from the authentication service, audience set to Azure Resource Manager, and makes a *list* key call to the Azure Storage service. If the *list* call fails, the Key Vault object creation fails with a HTTP status code of *Forbidden*. The keys listed in this fashion are cached with your key vault entity storage. 
+During onboarding, Key Vault needs to verify that the identity of the onboarding account has permissions to *list* and to *Regenerate* storage keys. In order to verify this, Key Vault gets an OBO (On Behalf Of) token from the authentication service, audience set to Azure Resource Manager, and makes a *list* key call to the Azure Storage service. If the *list* call fails, the Key Vault object creation fails with a HTTP status code of *Forbidden*. The keys listed in this fashion are cached with your key vault entity storage. 
 
-Key Vault must verify that the identity has *regenerate* permissions before it can take ownership of regenerating your keys. To verify that the identity, via OBO token, as well as the Key Vault first party identity has these permissions:
+Key Vault must verify that the identity has *Regenerate* permissions before it can take ownership of regenerating your keys. To verify that the identity, via OBO token, as well as the Key Vault first party identity has these permissions:
 
 - Key Vault lists RBAC permissions on the storage account resource.
 - Key Vault validates the response via regular expression matching of actions and non-actions. 
 
-If the identity does not have *regenerate* permission or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
+If the identity does not have *Regenerate* permissions or if Key Vault's first party identity doesn’t have *list* or *Regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
 
 The OBO token will only work when you use first-party, native client applications of either PowerShell or CLI.
 
