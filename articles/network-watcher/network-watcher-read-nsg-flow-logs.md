@@ -24,7 +24,7 @@ NSG flow logs are stored in a storage account in [block blobs](/rest/api/storage
 
 ## Scenario
 
-In the following scenario, you have an example flow log that is stored in a storage account. You step through how to read the latest event in the NSG flow log.
+In the following scenario, you have an example flow log that is stored in a storage account. we step through how you can selectively read the latest events in NSG flow logs. In this article we will use PowerShell, however, the concepts discussed in the article are not limited to the programming language and are applicable to all languages supported by the Azure Storage APIs
 
 ## Setup
 
@@ -32,7 +32,7 @@ Before you begin, you must have Network Security Group Flow Logging enabled on o
 
 ## Retrieve the block list
 
-The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the block blob. Update the script to contain valid values for your environment.
+The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 # The SubscriptionID to use
@@ -42,16 +42,16 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "<resourceGroupName>"
 
 # The name of the Network Security Group
-$nsgName = "<NSGName"
-
-# The date and time for the log to be queried, logs are stored in hour intervals.
-[datetime]$logtime = "06/16/2017 20:00"
+$nsgName = "NSGName"
 
 # The storage account name that contains the NSG logs
 $storageAccountName = "<storageAccountName>" 
 
-# The storage account key to access the NSG logs
-$StorageAccountKey = "<storageAccountKey>"
+# The date and time for the log to be queried, logs are stored in hour intervals.
+[datetime]$logtime = "06/16/2017 20:00"
+
+# Retrieve the primary storage account key to access the NSG logs
+$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 
 # Setup a new storage context to be used to query the logs
 $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
@@ -90,7 +90,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      9      True
 
 ## Read the block blob
 
-Next we need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array.
+Next we need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. We use the [DownloadRangeToByteArray](dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) function.
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -150,6 +150,10 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log. You can read new entries in the log as they are written by using the block ID or by tracking the length of blocks stored in the block blob. This allows you to read only the new entries.
 
+https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?redirectedfrom=MSDN&view=azurestorage-8.1.3 
+
 ## Next steps
 
 Visit [visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) to learn more about other ways to view NSG flow logs.
+
+To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)
