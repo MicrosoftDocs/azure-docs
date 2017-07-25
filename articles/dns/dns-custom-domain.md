@@ -23,16 +23,7 @@ Azure DNS provides DNS for a custom domain for any of your Azure resources that 
 
 In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you are able to configure the DNS records needed.
 
-The following are resources that you can configure a vanity or custom domain for using Azure DNS:
-
-|Service  | Configuration  |
-|---------|---------|
-|[Azure Function App](#azure-function-app)    | A CNAME record added as a hostname for the custom domain         |
-|[Azure IoT](#azure-iot)    | A CNAME record to IoT host name        |
-|[Public IP address](#public-ip-address)    | An A record to public IP address        |
-|[App Service (Web Apps)](#app-service-web-apps)     | A CNAME record added as a hostname for the custom domain          |
-|[Blob storage](#blob-storage)    | Use indirect validation with CNAME records.         |
-|[Azure CDN](#azure-cdn)    | Use indirect validation with CNAME records. 
+You can configure a vanity or custom domain for [Azure Function Apps](#azure-function-app), [Azure IoT](#azure-iot), [Public IP addresses](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Blob storage](#blob-storage), and [Azure CDN](#azure-cdn).   
 
 ## Azure Function App
 
@@ -136,6 +127,8 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 ![figure 1](./media/dns-custom-domain/finalnslookup.png)
 
 To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+
+If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service-web/custom-dns-web-site-buydomains-web-app) to learn more about App Service domains.
 
 ## Blob storage
 
