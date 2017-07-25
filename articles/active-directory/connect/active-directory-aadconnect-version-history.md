@@ -30,8 +30,49 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.561.0
+Status: July 23 2017
+
+### Azure AD Connect
+
+#### Fixed issue
+
+* Fixed an issue that caused the out-of-box synchronization rule “Out to AD - User ImmutableId” to be removed:
+
+  * The issue occurs when Azure AD Connect is upgraded, or when the task option *Update Synchronization Configuration* in the Azure AD Connect wizard is used to update Azure AD Connect synchronization configuration.
+  
+  * This synchronization rule is applicable to customers who have enabled the [msDS-ConsistencyGuid as Source Anchor feature](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). This feature was introduced in version 1.1.524.0 and after. When the synchronization rule is removed, Azure AD Connect can no longer populate on-premises AD ms-DS-ConsistencyGuid attribute with the ObjectGuid attribute value. It does not prevent new users from being provisioned into Azure AD.
+  
+  * The fix ensures that the synchronization rule will no longer be removed during upgrade, or during configuration change, as long as the feature is enabled. For existing customers who have been affected by this issue, the fix also ensures that the synchronization rule is added back after upgrading to this version of Azure AD Connect.
+
+* Fixed an issue that causes out-of-box synchronization rules to have precedence value that is less than 100:
+
+  * In general, precedence values 0 - 99 are reserved for custom synchronization rules. During upgrade, the precedence values for out-of-box synchronization rules are updated to accommodate sync rule changes. Due to this issue, out-of-box synchronization rules may be assigned precedence value that is less than 100.
+  
+  * The fix prevents the issue from occurring during upgrade. However, it does not restore the precedence values for existing customers who have been affected by the issue. A separate fix will be provided in the future to help with the restoration.
+
+* Fixed an issue where the [Domain and OU Filtering screen](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the Azure AD Connect wizard is showing *Sync all domains and OUs* option as selected, even though OU-based filtering is enabled.
+
+*	Fixed an issue that caused the [Configure Directory Partitions screen](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) in the Synchronization Service Manager to return an error if the *Refresh* button is clicked. The error message is *“An error was encountered while refreshing domains: Unable to cast object of type ‘System.Collections.ArrayList’ to type ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject.”* The error occurs when new AD domain has been added to an existing AD forest and you are trying to update Azure AD Connect using the Refresh button.
+
+#### New features and improvements
+
+* [Automatic Upgrade feature](active-directory-aadconnect-feature-automatic-upgrade.md) has been expanded to support customers with the following configurations:
+  * You have enabled the device writeback feature.
+  * You have enabled the group writeback feature.
+  * The installation is not an Express settings or a DirSync upgrade.
+  * You have more than 100,000 objects in the metaverse.
+  * You are connecting to more than one forest. Express setup only connects to one forest.
+  * You are not using a SQL Server Express LocalDB database.
+  * The AD Connector account is not the default MSOL_ account anymore.
+  * The server is set to be in staging mode.
+  * You have enabled the user writeback feature.
+  
+  >[!NOTE]
+  >The scope expansion of the Automatic Upgrade feature affects customers with Azure AD Connect build 1.1.105.0 and after. If you do not want your Azure AD Connect server to be automatically upgraded, you must run following cmdlet on your Azure AD Connect server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. For more information about enabling/disabling Automatic Upgrade, refer to article [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md).
+
 ## 1.1.558.0
-Status: To be released
+Status: Will not be released. Changes in this build are included in version 1.1.561.0.
 
 ### Azure AD Connect
 
