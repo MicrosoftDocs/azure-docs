@@ -268,8 +268,9 @@ in the secondary region.
 
    A trigger prompts you to establish a connection to an integration account. 
    The trigger should be connected to a primary region integration account. 
-   Enter a connection name, select your *primary region integration account* 
-   from the list, and choose **Create**.
+   
+3. Enter a connection name, select your *primary region integration account* 
+from the list, and choose **Create**.
 
    ![Primary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
@@ -311,7 +312,7 @@ replicates from the primary region to the secondary region.
 During a disaster event, when the primary region is not available, 
 direct traffic to the secondary region for business continuity. 
 
-
 ## Next steps
-Learn more about [monitoring B2B messages](logic-apps-monitor-b2b-message.md).   
+
+[Monitor B2B messages](logic-apps-monitor-b2b-message.md)
 
