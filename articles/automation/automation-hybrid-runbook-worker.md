@@ -18,7 +18,7 @@ ms.author: bwren
 ---
 
 # Automate resources in your data center or cloud with Hybrid Runbook Worker
-Runbooks in Azure Automation cannot access resources in other clouds or in your on-premises environment since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks on machines located in these other environments to manage those local resources. The runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.  
+Runbooks in Azure Automation cannot access resources in other clouds or in your on-premises environment since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks against the machine directly and outside itself against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.  
 
 This functionality is illustrated in the following image:<br>  
 
@@ -34,7 +34,7 @@ When you start a runbook on a Hybrid Runbook Worker, you specify the group that 
 ## Relationship to Service Management Automation
 [Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) allows you to run the same runbooks that are supported by Azure Automation in your local data center. SMA is generally deployed together with Windows Azure Pack, as Windows Azure Pack contains a graphical interface for SMA management. Unlike Azure Automation, SMA requires a local installation that includes web servers to host the API, a database to contain runbooks and SMA configuration, and Runbook Workers to execute runbook jobs. Azure Automation provides these services in the cloud and only requires you to maintain the Hybrid Runbook Workers in your local environment.
 
-If you are an existing SMA user, you can move your runbooks to Azure Automation to be used with Hybrid Runbook Worker with no changes, assuming that they perform their own authentication to resources as described in [Creating runbooks for Hybrid Runbook Worker](automation-hrw-running-runbooks.md#creating-runbooks-for-hybrid-runbook-worker).  Runbooks in SMA run in the context of the service account on the worker server which may provide that authentication for the runbooks.
+If you are an existing SMA user, you can move your runbooks to Azure Automation to be used with Hybrid Runbook Worker with no changes, assuming that they perform their own authentication to resources as described in [running runbooks for Hybrid Runbook Worker](automation-hrw-running-runbooks.md#).  Runbooks in SMA run in the context of the service account on the worker server which may provide that authentication for the runbooks.
 
 You can use the following criteria to determine whether Azure Automation with Hybrid Runbook Worker or Service Management Automation is more appropriate for your requirements.
 

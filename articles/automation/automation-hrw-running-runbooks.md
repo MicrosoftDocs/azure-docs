@@ -18,10 +18,11 @@ ms.author: magoedte
 ---
 
 # Running runbooks on Hybrid Runbook Worker
-There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly though since runbooks for Hybrid Runbook Worker typically manage local resources in your data center, while runbooks in Azure Automation typically manage resources in the Azure cloud.
+There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly though since runbooks targeting a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it is deployed, while runbooks in Azure Automation typically manage resources in the Azure cloud.
 
 You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
 
+## Starting a runbook on Hybrid Runbook Worker
 [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) describes different methods for starting a runbook.  Hybrid Runbook Worker adds a **RunOn** option where you can specify the name of a Hybrid Runbook Worker Group.  If a group is specified, then the runbook is retrieved and run by of the workers in that group.  If this option is not specified, then it is run in Azure Automation as normal.
 
 When you start a runbook in the Azure portal, you are presented with a **Run on** option where you can select **Azure** or **Hybrid Worker**.  If you select **Hybrid Worker**, then you can select the group from a dropdown.
@@ -69,7 +70,7 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 6. Select the credential and click **Save**.
 
 ### Automation Run As account
-As part of your automated build process for deploying resources in Azure, you may require interrogating on-premise systems to support a task or set of steps in your deployment sequence.  To support authentication against Azure using the Run As account, you need to install the Run As account certificate.  
+As part of your automated build process for deploying resources in Azure, you may require access to on-premise systems to support a task or set of steps in your deployment sequence.  To support authentication against Azure using the Run As account, you need to install the Run As account certificate.  
 
 The following PowerShell runbook, *Export-RunAsCertificateToHybridWorker*, exports the Run As certificate from your Azure Automation account and downloads and imports it into the local machine certificate store on a Hybrid worker connected to the same account.  Once that step is completed, it verifies the worker can successfully authenticate to Azure using the Run As account.
 
