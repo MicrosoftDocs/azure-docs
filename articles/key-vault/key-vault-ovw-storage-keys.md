@@ -1,7 +1,7 @@
----
+﻿---
 ms.assetid: 
 title: Azure Key Vault Storage Account Keys
-description: Storage account keys provide a seemless integration between Azure Key Vault and key access to Azure Storage Account.
+description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: article
 services: key-vault
 ms.service: key-vault
