@@ -73,7 +73,7 @@ Configuring SSO for Envoy requires you to retrieve a thumbprint value from a cer
 2. On the **How would you like users to sign on to Envoy** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
    ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configure single sign-on")
-3. On the **Configure App URL** page, in the **Envoy Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Envoy.com*", and then click **Next**.
+3. On the **Configure App URL** page, in the **Envoy Sign In URL** textbox, type the following URL "*https://web.envoy.com/saml/consume*", and then click **Next**.
    
    ![Configure app URL](./media/active-directory-saas-envoy-tutorial/IC776780.png "Configure app URL")
 4. On the **Configure single sign-on at Envoy** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Envoy.cer**.
