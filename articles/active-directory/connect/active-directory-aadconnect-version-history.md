@@ -63,7 +63,6 @@ Status: July 23 2017
   * The installation is not an Express settings or a DirSync upgrade.
   * You have more than 100,000 objects in the metaverse.
   * You are connecting to more than one forest. Express setup only connects to one forest.
-  * You are not using a SQL Server Express LocalDB database.
   * The AD Connector account is not the default MSOL_ account anymore.
   * The server is set to be in staging mode.
   * You have enabled the user writeback feature.
@@ -92,7 +91,6 @@ Status: Will not be released. Changes in this build are included in version 1.1.
   * The installation is not an Express settings or a DirSync upgrade.
   * You have more than 100,000 objects in the metaverse.
   * You are connecting to more than one forest. Express setup only connects to one forest.
-  * You are not using a SQL Server Express LocalDB database.
   * The AD Connector account is not the default MSOL_ account anymore.
   * The server is set to be in staging mode.
   * You have enabled the user writeback feature.
