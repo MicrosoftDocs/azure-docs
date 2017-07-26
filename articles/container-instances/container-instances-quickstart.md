@@ -48,7 +48,7 @@ az group create --name myResourceGroup --location eastus
 
 You can create a container by providing a name, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
 
-Take nore, Azure Container Instances CLI commands are currently only available in Azure Cloud Shell.
+Azure Container Instances CLI commands are currently only available in Azure Cloud Shell.
 
 ```azurecli-interactive
 az container create --name myContainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
