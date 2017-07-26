@@ -37,23 +37,23 @@ The following table provides a comparison between a variety of common queries to
 
 | Description | Legacy | new |
 |:--|:--|:--|
-| Select data from table | Type=Event |  Event |
-|                        | Type=Event \| select Source, EventLog, EventID | Event \| project Source, EventLog, EventID |
-|                        | Type=Event \| top 100 | Event \| take 100 |
-| String comparison      | Type=Event Computer=srv01.contoso.com   | Event \| where Computer == "srv01.contoso.com" |
-|                        | Type=Event Computer=contains("contoso") | Event \| where Computer contains "contoso" |
-|                        | Type=Event Computer=RegEx("@contoso@")  | Event \| where Computer matches regex ".*contoso*" |
-| Date comparison        | Type=Event TimeGenerated > NOW-1DAYS | Event \| where TimeGenerated > ago(1d) |
-|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event \| where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
-| Boolean comparison     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
-| Sort                   | Type=Event \| sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
-| Distinct               | Type=Event \| dedup Computer \| select Computer | Event \| summarize by Computer, EventLog |
-| Extend columns         | Type=Perf CounterName="% Processor Time" \| EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf \| where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
-| Aggregation            | Type=Event \| measure count() as Count by Computer | Event \| summarize Count = count() by Computer |
+| Select data from table | `Type=Event` |  Event |
+|                        | `Type=Event | select Source, EventLog, EventID` | Event \| project Source, EventLog, EventID |
+|                        | `Type=Event | top 100` | Event \| take 100 |
+| String comparison      | `Type=Event Computer=srv01.contoso.com`   | Event \| where Computer == "srv01.contoso.com" |
+|                        | `Type=Event Computer=contains("contoso")` | Event \| where Computer contains "contoso" |
+|                        | `Type=Event Computer=RegEx("@contoso@")`  | Event \| where Computer matches regex ".*contoso*" |
+| Date comparison        | `Type=Event TimeGenerated > NOW-1DAYS` | Event \| where TimeGenerated > ago(1d) |
+|                        | `Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31` | Event \| where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
+| Boolean comparison     | `Type=Heartbeat IsGatewayInstalled=false`  | Heartbeat \| where IsGatewayInstalled == false |
+| Sort                   | `Type=Event | sort Computer asc, EventLog desc, EventLevelName asc` | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
+| Distinct               | `Type=Event | dedup Computer | select Computer` | Event \| summarize by Computer, EventLog |
+| Extend columns         | `Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION` | Perf \| where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
+| Aggregation            | `Type=Event | measure count() as Count by Computer` | Event \| summarize Count = count() by Computer |
 |                                | Type=Perf ObjectName=Processor CounterName="% Processor Time" \| measure avg(CounterValue) by Computer interval 5minute | Perf \| where ObjectName=="Processor" and CounterName=="% Processor Time" \| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min) |
-| Aggregation with limit | Type=Event \| measure count() by Computer \| top 10 | Event \| summarize AggregatedValue = count() by Computer \| limit 10 |
-| Union                  | Type=Event or Type=Syslog               | union Event, Syslog |
-| Join                   | Type=NetworkMonitoring \| join inner AgentIP (Type=Heartbeat) ComputerIP | NetworkMonitoring \| join kind=inner (search Type == "Heartbeat") on $left.AgentIP == $right.ComputerIP |
+| Aggregation with limit | `Type=Event | measure count() by Computer | top 10` | Event \| summarize AggregatedValue = count() by Computer \| limit 10 |
+| Union                  | `Type=Event or Type=Syslog` | union Event, Syslog |
+| Join                   | `Type=NetworkMonitoring | join inner AgentIP (Type=Heartbeat) ComputerIP` | NetworkMonitoring \| join kind=inner (search Type == "Heartbeat") on $left.AgentIP == $right.ComputerIP |
 
 
 
