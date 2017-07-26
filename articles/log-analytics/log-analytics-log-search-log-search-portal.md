@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/25/2017
 ms.author: bwren
 
 ---
 # Create log searches in Azure Log Analytics using the Log Search portal
 
 > [!NOTE]
-> This article describes the Log Search portal in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
+> This article describes the Log Search portal in Azure Log Analytics using the new query language.  You can learn more about the new language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).  
 >
-> If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
+> If your workspace hasn't been upgraded to the new query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
 
 This article includes a tutorial that describes how to create log searches and analyze data stored in your Log Analytics workspace using the Log Search portal.  The tutorial includes running some simple queries to return different types of data and analyzing results.  It focuses on features in the Log Search portal for modifying the query rather than modifying it directly.  For details on directly editing the query, see the [Query Language reference](https://docs.loganalytics.io/queryLanguage/query_language.html).
 
-To create searches in the Advanced Analytics portal instead of the Log Search portal, see [Getting Started with the Analytics Portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).  Both portals use the same query language to access the same data in the Log Analytics workspace. 
+To create searches in the Advanced Analytics portal instead of the Log Search portal, see [Getting Started with the Analytics Portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).  Both portals use the same query language to access the same data in the Log Analytics workspace.
 
 ## Prerequisites
 This tutorial assumes that you already have a Log Analytics workspace with at least one connected source that generates data for the queries to analyze.  
@@ -38,11 +38,11 @@ Start by opening the Log Search portal.  You can access it in either the Azure p
 
 1. Open the Azure portal.
 2. Navigate to Log Analytics and select your workspace.
-3. Either select **Log Search** to stay in the Azure portal or launch the OMS portal by selecting **OMS Portal** and then clicking the Log Search button. 
- 
+3. Either select **Log Search** to stay in the Azure portal or launch the OMS portal by selecting **OMS Portal** and then clicking the Log Search button.
+
 ![Log Search button](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
-## Create a simple search 
+## Create a simple search
 The quickest way to retrieve some data to work with is a simple query that returns all records in table.  If you have any Windows or Linux clients connected to your workspace, then you'll have data in either the Event (Windows) or Syslog (Linux) table.
 
 Type one the following queries in the search box and click the search button.  
@@ -80,7 +80,7 @@ If you're working with **Event**, select the checkbox next to **Error** under **
 Event | where (EventLevelName == "Error")
 ```
 ```
-Syslog | where (SeverityLevel == "err") 
+Syslog | where (SeverityLevel == "err")
 ```
 
 ![Filter](media/log-analytics-log-search-log-search-portal/log-search-portal-04.png)
@@ -95,9 +95,7 @@ You only have the **Filter** option for properties with their name in blue.  The
 
 ![Filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) operator to your query that and display the results in a chart.  You can group on more than one property, but you would need to edit the query directly.
-
-You must change back to the **List** view to access the record menu.  Select the record menu next the the **Computer** property and select **Group by 'Computer'**.  
+You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) operator to your query that displays the results in a chart.  You can group on more than one property, but you would need to edit the query directly.  Select the record menu next the the **Computer** property and select **Group by 'Computer'**.  
 
 ![Group by computer](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
@@ -106,11 +104,11 @@ The Log Search portal has a variety of features for working with the results of 
 
 To view the data in table form which provides additional options for filtering and sorting, click **Table**.  
 
-![Table view](media/log-analytics-log-search-log-search-portal/log-search-portal-05.png) 
+![Table view](media/log-analytics-log-search-log-search-portal/log-search-portal-05.png)
 
 Click the arrow by a record to view the details for that record.
 
-![Sort results](media/log-analytics-log-search-log-search-portal/log-search-portal-06.png) 
+![Sort results](media/log-analytics-log-search-log-search-portal/log-search-portal-06.png)
 
 Sort on any field by clicking on its column header.
 
@@ -138,7 +136,7 @@ Perf
 Returning millions of records for all performance objects and counters though isn't very useful.  You can use the same methods you used above to filter the data or just type the following query directly into the log search box.  This returns only processor utilization records for both Windows and Linux computers.
 
 ```
-Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") 
+Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
 ```
 
 ![Processor utilization](media/log-analytics-log-search-log-search-portal/log-search-portal-12.png)

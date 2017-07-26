@@ -68,7 +68,7 @@ The following table provides different examples of log searches that retrieve Wi
 
 
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 >
 >| Query | Description |
 |:---|:---|
@@ -83,4 +83,3 @@ The following table provides different examples of log searches that retrieve Wi
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
 * Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
 * Configure [collection of performance counters](log-analytics-data-sources-performance-counters.md) from your Windows agents.
-

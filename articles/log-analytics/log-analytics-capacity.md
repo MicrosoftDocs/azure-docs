@@ -127,7 +127,7 @@ The following table provides sample log searches for capacity and performance da
 | Breakdown of Total Latency across all CSVs | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 
 > | Query | Description |
 |:--- |:--- |

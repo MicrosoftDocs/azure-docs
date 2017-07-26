@@ -23,10 +23,10 @@ The View Designer in Log Analytics allows you to create custom Views in the OMS 
 Other articles available for View Designer are:
 
 * [View Designer](log-analytics-view-designer.md) - Overview of the View Designer and procedures for creating and editing custom views.
-* [Visualization part reference](log-analytics-view-designer-parts.md) - Reference of the settings for each of the tiles available to use in your custom views. 
+* [Visualization part reference](log-analytics-view-designer-parts.md) - Reference of the settings for each of the tiles available to use in your custom views.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [next generation query language](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Any views that were created before the workspace was upgraded will be automtically converted.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [new query language](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Any views that were created before the workspace was upgraded will be automtically converted.
 
 The following table lists the different types of tiles available in the View Designer.  The sections below describe each tile type in detail and their properties.
 
@@ -176,4 +176,3 @@ The **Two timelines** tile displays the results of two log queries over time as 
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to support the queries in tiles.
 * Add [Visualization Parts](log-analytics-view-designer-parts.md) to your custom view.
-

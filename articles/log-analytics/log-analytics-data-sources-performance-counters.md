@@ -43,8 +43,8 @@ Follow this procedure to add a new Windows performance counter to collect.
 
 1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*.  
 
-    When collecting SQL Server performance counters from named instances, all named instance counters start with *MSSQL$* and followed by the name of the instance.  For example, to collect the Log Cache Hit Ratio counter for all databases from the Database performance object for named SQL instance INST2, specify `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`. 
- 
+    When collecting SQL Server performance counters from named instances, all named instance counters start with *MSSQL$* and followed by the name of the instance.  For example, to collect the Log Cache Hit Ratio counter for all databases from the Database performance object for named SQL instance INST2, specify `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+
 2. Click **+** or press **Enter** to add the counter to the list.
 3. When you add a counter, it uses the default of 10 seconds for its **Sample Interval**.  You can change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
 4. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
@@ -62,7 +62,7 @@ Follow this procedure to add a new Linux performance counter to collect.
 5. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
 
 #### Configure Linux performance counters in configuration file
-Instead of configuring Linux performance counters using the OMS portal, you have the option of editing configuration files on the Linux agent.  Performance metrics to collect are controlled by the configuration in **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**. 
+Instead of configuring Linux performance counters using the OMS portal, you have the option of editing configuration files on the Linux agent.  Performance metrics to collect are controlled by the configuration in **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
 
 Each object, or category, of performance metrics to collect should be defined in the configuration file as a single `<source>` element. The syntax follows the pattern below.
 
@@ -85,7 +85,7 @@ The parameters in this element are described in the following table.
 | interval | Frequency at which the object's counters are collected. |
 
 
-The following table lists the objects and counters that you can specify in the configuration file.  There are additional counters available for certain applications as described in [Collect performance counters for Linux applications in Log Analytics](log-analytics-data-sources-linux-applications.md). 
+The following table lists the objects and counters that you can specify in the configuration file.  There are additional counters available for certain applications as described in [Collect performance counters for Linux applications in Log Analytics](log-analytics-data-sources-linux-applications.md).
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -153,7 +153,7 @@ Following is the default configuration for performance metrics.
 	  counter_name_regex ".*"
 	  interval 5m
 	</source>
-	
+
 	<source>
 	  type oms_omi
 	  object_name "Logical Disk"
@@ -161,7 +161,7 @@ Following is the default configuration for performance metrics.
 	  counter_name_regex ".*"
 	  interval 5m
 	</source>
-	
+
 	<source>
 	  type oms_omi
 	  object_name "Processor"
@@ -169,7 +169,7 @@ Following is the default configuration for performance metrics.
 	  counter_name_regex ".*"
 	  interval 30s
 	</source>
-	
+
 	<source>
 	  type oms_omi
 	  object_name "Memory"
@@ -218,7 +218,7 @@ The following table provides different examples of log searches that retrieve Pe
 | Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2.  
 
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 
 > | Query | Description |
 |:--- |:--- |

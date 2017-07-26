@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/25/2017
 ms.author: bwren
 
 ---
 # Portals for creating and editing log queries in Azure Log Analytics
 
 > [!NOTE]
-> This article describes portals in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
+> This article describes portals in Azure Log Analytics using the new query language.  You can learn more about the new language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).  
 >
-> If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
+> If your workspace hasn't been upgraded to the new query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
 
 You use log searches in a variety of places throughout Log Analytics to retrieve data from the workspace.  For actually creating and editing queries in addition to working interactively with returned data though, you have two options that are described below.  
 
@@ -34,7 +34,7 @@ The Log Search portal provides multiple features for editing the query without h
 ![Log Search portal](media/log-analytics-log-search-portals/log-search-portal.png)
 
 ## Advanced Analytics portal
-The Advanced Analytics portal is a dedicated portal that provides advanced functionality not available in the Log Search portal.  Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics.  The Advanced Analytics portal is most suitable for designing complex queries that are either saved as a log search or copied and pasted into other Log Analytics elements.
+The Advanced Analytics portal is a dedicated portal that provides advanced functionality not available in the Log Search portal.  Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics.  The Advanced Analytics portal is most suitable for designing complex queries that are either saved as a log search or copied and pasted into other Log Analytics elements.  You launch the Advanced Analytics portal from a link in the Log Search portal.
 
 ![Advanced Analytics portal](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
@@ -47,4 +47,4 @@ Because of its advanced features, you'll usually use the Advanced Analytics port
 ## Next steps
 
 - Walk through a tutorial on using the [Log Search portal](log-analytics-log-search-log-search-portal.md) or the [Advanced Analytics portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) to create queries.
-- Check out a [tutorial on writing queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) using the next generation query language.
+- Check out a [tutorial on writing queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) using the new query language.

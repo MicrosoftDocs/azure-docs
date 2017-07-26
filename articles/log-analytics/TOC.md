@@ -39,10 +39,10 @@
 ### [Take action from search results](log-analytics-log-search-takeaction.md)
 ### [Computer groups](log-analytics-computer-groups.md)
 
-## Next generation log search (public preview)
+## New log search
 ### [Upgrade your workspace](log-analytics-log-search-upgrade.md)
 ### [FAQ](log-analytics-log-search-faq.md)
-### [Log searches overview](log-analytics-log-search-next-generation.md)
+### [Log searches overview](log-analytics-log-search-new.md)
 ### [Log search portals](log-analytics-log-search-portals.md)
 #### [Use the log search portal](log-analytics-log-search-log-search-portal.md)
 ### [Transitioning from legacy language](log-analytics-log-search-transition.md)

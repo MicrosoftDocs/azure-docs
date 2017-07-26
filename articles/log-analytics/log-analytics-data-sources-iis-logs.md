@@ -74,7 +74,7 @@ The following table provides different examples of log queries that retrieve IIS
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Total bytes received by each IIS computer. |
 
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 
 > | Query | Description |
 |:--- |:--- |
@@ -88,4 +88,3 @@ The following table provides different examples of log queries that retrieve IIS
 * Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.
 * Configure alerts in Log Analytics to proactively notify you of important conditions found in IIS logs.
-
