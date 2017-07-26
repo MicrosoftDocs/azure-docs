@@ -1,6 +1,6 @@
 ---
 title: Alert Management solution in Operations Management Suite (OMS) | Microsoft Docs
-description: The Alert Management solution in Log Analytics helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager (SCOM) management groups into Log Analytics.
+description: The Alert Management solution in Log Analytics helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager management groups into Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -21,20 +21,20 @@ ms.author: bwren
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md).  The solution also imports alerts from any [connected System Center Operations Manager (SCOM) management groups](log-analytics-om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those source [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md).  The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
 
 ## Prerequisites
 The solution will work with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
 
 - For Log Analytics alerts, [create alert rules](log-analytics-alerts.md) to create alert records directly in the repository.
 - For Nagios and Zabbix alerts, [configure those servers](log-analytics-linux-agents.md) to send alerts to Log Analytics.
-- For SCOM alerts,[connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in SCOM will be imported into Log Analytics.  
+- For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
 ## Configuration
 Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](log-analytics-add-solutions.md).  There is no further configuration required.
 
 ## Management packs
-If your SCOM management group is connected to your OMS workspace,  then the following management packs will be installed in SCOM when you add this solution.  There is no configuration or maintenance of these management packs required.  
+If your System Center Operations Manager management group is connected to your OMS workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of these management packs required.  
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -47,13 +47,13 @@ The following table describes the connected sources that are supported by this s
 | Connected Source | Support | Description |
 |:--- |:--- |:--- |
 | [Windows agents](log-analytics-windows-agents.md) | No |Direct Windows agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Windows agents. |
-| [Linux agents](log-analytics-linux-agents.md) | No |Direct Linux agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Linux agents.  Nagios and Zabbix alerts are collected from those servers which require the Linux agent. |
-| [SCOM management group](log-analytics-om-agents.md) |Yes |Alerts that are generated on SCOM agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  SCOM agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
+| [Linux agents](log-analytics-linux-agents.md) | No |Direct Linux agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Linux agents.  Nagios and Zabbix alerts are collected from those servers that require the Linux agent. |
+| [System Center Operations Manager management group](log-analytics-om-agents.md) |Yes |Alerts that are generated on SCOM agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  SCOM agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
 
 
 ### Collection frequency
 - Alert records are available to the solution as soon as they are stored in the repository.
-- Alert data is sent from the SCOM management group to Log Analytics every 3 minutes.  
+- Alert data is sent from the SCOM management group to Log Analytics every three minutes.  
 
 ## Using the solution
 When you add the Alert Management solution to your OMS workspace, the **Alert Management** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
@@ -69,7 +69,7 @@ Click on the **Alert Management** tile to open the **Alert Management** dashboar
 | Active SCOM Alerts |All alerts collected from SCOM with any state other than *Closed* grouped by source that generated the alert. |
 | All Active Alerts |All alerts with any severity grouped by alert name. Only includes SCOM alerts with any state other than *Closed*. |
 
-If you scroll to the right, the dashboard will list several common queries that you can click on to perform a [log search](log-analytics-log-searches.md) for alert data.
+If you scroll to the right, the dashboard lists several common queries that you can click on to perform a [log search](log-analytics-log-searches.md) for alert data.
 
 ![Alert Management dashboard](media/log-analytics-solution-alert-management/dashboard.png)
 
@@ -77,7 +77,7 @@ If you scroll to the right, the dashboard will list several common queries that 
 ## Log Analytics records
 The Alert Management solution analyzes any record with a type of **Alert**.  Alerts created by Log Analytics or collected from Nagios or Zabbix are not directly collected by the solution.
 
-The solution does import alerts from SCOM and creates a corresponding record for each with a type of **Alert** and a SourceSystem of **OpsManager**.  These records have the properties in the following table.  
+The solution does import alerts from System Center Operations Manager and creates a corresponding record for each with a type of **Alert** and a SourceSystem of **OpsManager**.  These records have the properties in the following table:  
 
 | Property | Description |
 |:--- |:--- |
@@ -92,11 +92,11 @@ The solution does import alerts from SCOM and creates a corresponding record for
 | AlertState |Latest resolution state of the alert. |
 | LastModifiedBy |Name of the user who last modified the alert. |
 | ManagementGroupName |Name of the management group where the alert was generated. |
-| RepeatCount |Number of time the same alert was generated for the same monitored object since being resolved. |
+| RepeatCount |Number of times the same alert was generated for the same monitored object since being resolved. |
 | ResolvedBy |Name of the user who resolved the alert. Empty if the alert has not yet been resolved. |
 | SourceDisplayName |Display name of the monitoring object that generated the alert. |
 | SourceFullName |Full name of the monitoring object that generated the alert. |
-| TicketId |Ticket ID for the alert if the SCOM environment is integrated with a process for assigning tickets for alerts.  Empty of no ticket ID is assigned. |
+| TicketId |Ticket ID for the alert if the System Center Operations Manager environment is integrated with a process for assigning tickets for alerts.  Empty of no ticket ID is assigned. |
 | TimeGenerated |Date and time that the alert was created. |
 | TimeLastModified |Date and time that the alert was last changed. |
 | TimeRaised |Date and time that the alert was generated. |

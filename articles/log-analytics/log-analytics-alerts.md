@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/26/2017
 ms.author: bwren
 
 ---
@@ -60,7 +60,7 @@ The threshold for a **Number of results** alert rule is simply greater than or l
 ### Scenarios
 
 #### Events
-This type of alert rule is ideal for working with events such as such as Windows event logs, Syslog, and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time window.
+This type of alert rule is ideal for working with events such as Windows event logs, Syslog, and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time window.
 
 To alert on a single event, set the number of results to greater than 0 and both the frequency and time window to 5 minutes.  That will run the query every 5 minutes and check for the occurrence of a single event that was created since the last time the query was run.  A longer frequency may delay the time between the event being collected and the alert being created.
 
@@ -100,7 +100,7 @@ While you can use any query for a **Number of results** alert rule, there are sp
 - **Interval**.  Defines the time interval over which the data is aggregated.  For example, if you specified **5minutes**, a record would be created for each instance of the group field aggregated at 5 minute intervals over the time window specified for the alert.
 
 #### Threshold
-The threshold for Metric measurement alert rules is defined by an aggregate value and a number of breaches.  If any data point in the log search search exceeds this value, it's considered a breach.  If the number of breaches in for any object in the results exceeds the specified value , then an alert is created for that object.
+The threshold for Metric measurement alert rules is defined by an aggregate value and a number of breaches.  If any data point in the log search exceeds this value, it's considered a breach.  If the number of breaches in for any object in the results exceeds the specified value, then an alert is created for that object.
 
 #### Example
 Consider a scenario where you wanted an alert if any computer exceeded processor utilization of 90% three times over 30 minutes.  You would create an alert rule with the following details.  
@@ -139,7 +139,7 @@ There are other kinds of alert records created by the [Alert Management solution
 
 
 ## Next steps
-* Install the [Alert Management solution](log-analytics-solution-alert-management.md) to analyze alerts created in Log Analytics along with alerts collected from System Center Operations Manager (SCOM).
+* Install the [Alert Management solution](log-analytics-solution-alert-management.md) to analyze alerts created in Log Analytics along with alerts collected from System Center Operations Manager.
 * Read more about [log searches](log-analytics-log-searches.md) that can generate alerts.
 * Complete a walkthrough for [configuring a webook](log-analytics-alerts-webhooks.md) with an alert rule.  
 * Learn how to write [runbooks in Azure Automation](https://azure.microsoft.com/documentation/services/automation) to remediate problems identified by alerts.

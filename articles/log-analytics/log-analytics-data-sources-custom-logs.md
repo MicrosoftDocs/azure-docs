@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Custom logs in Log Analytics
-The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the log into individual fields using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
+The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the log in to individual fields using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
 
 ![Custom log collection](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -118,10 +118,10 @@ Custom log records have a type with the log name that you provide and the proper
 
 | Property | Description |
 |:--- |:--- |
-| TimeGenerated |Date and time that the record was collected by Log Analytics.  If the log uses a time based delimiter then this is the time collected from the entry. |
-| SourceSystem |Type of agent the record was collected from. <br> OpsManager – Windows agent, either direct connect or SCOM <br> Linux – All Linux agents |
+| TimeGenerated |Date and time that the record was collected by Log Analytics.  If the log uses a time-based delimiter then this is the time collected from the entry. |
+| SourceSystem |Type of agent the record was collected from. <br> OpsManager – Windows agent, either direct connect or System Center Operations Manager <br> Linux – All Linux agents |
 | RawData |Full text of the collected entry. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
+| ManagementGroupName |Name of the management group for System Center Operations Manage agents.  For other agents, this is AOI-\<workspace ID\> |
 
 ## Log searches with custom log records
 Records from custom logs are stored in the OMS repository just like records from any other data source.  They will have a type matching the name that you provide when you define the log, so you can use the Type property in your search to retrieve records collected from a specific log.
@@ -143,7 +143,7 @@ The following table provides different examples of log searches that retrieve re
 
 
 ## Sample walkthrough of adding a custom log
-The following section walks through an example of creating a custom log.  The sample log being collected has a single entry on each line starting with a date and time and then comma delimited fields for code, status, and message.  Several sample entries are shown below.
+The following section walks through an example of creating a custom log.  The sample log being collected has a single entry on each line starting with a date and time and then comma-delimited fields for code, status, and message.  Several sample entries are shown below.
 
     2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
     2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
@@ -177,5 +177,5 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 ![Log query with custom fields](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## Next steps
-* Use [Custom Fields](log-analytics-custom-fields.md) to parse the entries in the custom log into individual fields.
+* Use [Custom Fields](log-analytics-custom-fields.md) to parse the entries in the custom log in to individual fields.
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.

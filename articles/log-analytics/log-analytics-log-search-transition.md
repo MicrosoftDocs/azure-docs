@@ -33,7 +33,7 @@ If you're familiar with the legacy Log Analytics query language, the easiest way
 
 ## Cheat sheet
 
-The following table provides a comparison between a variety of common queries to equivalent commands between the new and legacy query language in Azure Log Analytics.  You can use this as a quick reference in your transition.
+The following table provides a comparison between a variety of common queries to equivalent commands between the new and legacy query language in Azure Log Analytics. 
 
 | Description | Legacy | new |
 |:--|:--|:--|
