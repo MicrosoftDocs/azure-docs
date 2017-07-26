@@ -22,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
 
 You also need to:
-- Install [.NET Framework](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your  (Windows, Unbuntu Linux, or macOS). 
+- Install [.NET Framework](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
 - Install [Visual Studio](https://www.visualstudio.com/downloads/) or Visual Studio Code to type and edit code.
 - Install [Npgsql](http://www.npgsql.org/doc/index.html) library as described below.
 
