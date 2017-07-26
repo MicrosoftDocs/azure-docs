@@ -74,7 +74,7 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure security MVP program](azure-security-mvp.md)
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
 ## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
