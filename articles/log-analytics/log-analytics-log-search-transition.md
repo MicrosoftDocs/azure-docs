@@ -37,8 +37,8 @@ The following table provides a comparison between a variety of common queries to
 
 | Description | Legacy | new |
 |:--|:--|:--|
-| Select data from table | `Type=Event` |  `Event` |
-|                        | `Type=Event | select Source, EventLog, EventID` | `Event &#124; project Source, EventLog, EventID` |
+| Select data from table | ```Type=Event``` |  `Event` |
+|                        | ```Type=Event | select Source, EventLog, EventID``` | ```Event &#124; project Source, EventLog, EventID``` |
 |                        | `Type=Event \| top 100` | `Event \| take 100` |
 | String comparison      | `Type=Event Computer=srv01.contoso.com`   | `Event &#124; where Computer == "srv01.contoso.com"` |
 |                        | `Type=Event Computer=contains("contoso")` | `Event &#124; where Computer contains "contoso"` |
