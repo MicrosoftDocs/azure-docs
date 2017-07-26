@@ -19,6 +19,9 @@
 ### [Restore](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
 ### [Disable Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
+# Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
+
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
