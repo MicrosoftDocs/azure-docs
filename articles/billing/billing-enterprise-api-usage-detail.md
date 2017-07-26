@@ -20,7 +20,7 @@ ms.author: aedwin
 ---
 # Reporting APIs for Enterprise customers - Usage Details
 
-The Usage Detail API offers a daily breakdown of consumed quantities and estimated charges by an Enrollment. The result also includes information on instances, meters and departments. The API can be queried by Billing period or by a specified start and end date. 
+The Usage Detail API offers a daily breakdown of consumed quantities and estimated charges by an Enrollment. The result also includes information on instances, meters and departments. The API can be queried by Billing period or by a specified start and end date.  
 ## Consumption APIs
 
 
