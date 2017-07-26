@@ -23,7 +23,7 @@ Key Vault's soft delete feature allows recovery of the deleted vaults and vault 
 
 ## Enabling soft-delete
 
-To be able to recover a deleted vault or deleted keys/secrets inside a vault you must first enable soft-delete for that vault. Here's how.
+To be able to recover a deleted vault or deleted keys/secrets inside a vault, you must first enable soft-delete for that vault. Here's how.
 
 ### Existing vault
 Say you have a key vault named 'ContosoVault', here's how you would enable soft-delete for this vault:
@@ -34,7 +34,7 @@ Say you have a key vault named 'ContosoVault', here's how you would enable soft-
 
 ### New vault
 
-If you're creating a new vault, simply add '-EnableSoftDelete' parameter when running 'New-AzureRmKeyVault' cmdlet, like this:
+If you're creating a new vault, add '-EnableSoftDelete' parameter when running 'New-AzureRmKeyVault' cmdlet, like this:
 
 `New-AzureRmKeyVault -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete`
 
@@ -48,7 +48,8 @@ The cmdlet to delete (or remove) a vault remains same, but it's behavior changes
 
 `Remove-AzureRmKeyVault -VaultName ContosoVault`
 
-Beware that, if you run the above cmdlet for a vault that does not have soft-delete enabled, you will permanently lose this vault and all its content without any options for recovery.
+> [!NOTE]
+>Beware that, if you run the previous cmdlet for a key vault that does not have soft-delete enabled, you will permanently lose this vault and all its content without any options for recovery.
 
 With soft-delete turned on, when a vault is deleted, it is removed from the resource group and placed in a different name space that is only associated with the location where it was created. All the keys and secrets in a deleted vault also become inaccessible. The DNS name for a vault in a deleted state is still reserved, so a new vault with same name cannot be created.  To see all the vaults in your subscription in deleted state, run this cmdlet:
 
@@ -63,13 +64,13 @@ With soft-delete turned on, when a vault is deleted, it is removed from the reso
   Tags                 :
   ```
 
- The `Get-AzureRmKeyVault` cmdlet will only show deleted vault if you use *-InRemovedState* parameter. In other words, if you do not use the *-InRemovedState* parameter, you will not see deleted vaults listed.
+ The `Get-AzureRmKeyVault` cmdlet shows deleted key vaults if you use `-InRemovedState` parameter. In other words, if you do not use the `-InRemovedState` parameter, you will not see deleted key vaults listed.
 
-The *Resource ID* in the above output refers to the original resource ID of this vault. Since this vault is now in a deleted state, no such resource exists with that resource ID. That's where the *Id* field above comes in, which can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
+The *Resource ID* in the preceding output refers to the original resource ID of this vault. Since this vault is now in a deleted state, no such resource exists with that resource ID. That's where the *Id* field comes in. It can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
 
 ## Recovering a vault
 
-To recover a vault, you need to specify the vault name, resource group and location. Note the location and the resource group of the deleted vault. You'll need it when recovering.
+To recover a vault, you need to specify the vault name, resource group, and location. Note the location and the resource group of the deleted vault. You'll need it when recovering.
 
 `Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG-Location westus`
 
@@ -81,7 +82,7 @@ To purge, permanently delete:
 
 ` Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus `
 
-To recover a vault, a user needs to have RBAC permission to perform ‘Microsoft.KeyVault/vaults/write’ operation. Similarly to purging a deleted vault so that the vault and all its contents are permanently removed the user needs RBAC permission to perform ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ operation. To list the deleted vault a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission.
+To recover a vault, a user needs to have RBAC permission to perform ‘Microsoft.KeyVault/vaults/write’ operation. Similarly to purging a deleted vault so that the vault and all its contents are permanently removed the user needs RBAC permission to perform ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ operation. To list the deleted vault, a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission.
 
 ## Vault objects and soft-delete
 
@@ -95,7 +96,7 @@ With your key vault enabled for soft-delete, a deleted key still appears like it
 
 ### Transition state 
 
-When you delete a key in a vault with soft-delete enabled it may take a few seconds for the transition to complete.During this transition state, it may appear that the key is neither in the active state nor the deleted state. Ex. listing the key, with or without the *-InRemovedState* parameter, will return an empty list.
+When you delete a key in a vault with soft-delete enabled it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. For example, listing the key, with or without the *-InRemovedState* parameter, will return an empty list.
 
 This command will list all deleted keys in 'ContosoVault'.
 ```
