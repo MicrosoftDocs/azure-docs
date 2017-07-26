@@ -87,6 +87,7 @@ Use the following code as click **Save**
 # Get credentials for Office 365 account
 $MyCredential = "Office 365 account"
 $Cred = Get-AutomationPSCredential -Name $MyCredential
+$username = "<from email address>"
 
 # Get the connection "AzureRunAsConnection "
 $connectionName = "AzureRunAsConnection"
@@ -101,17 +102,17 @@ Add-AzureRmAccount `
 "Setting context to a specific subscription"
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "<Azure Region>" }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-$sa = Get-AzureRmStorageAccount -Name "<storage account name>" -ResourceGroupName "<resource group name" 
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "<vpn connection name>" -ResourceGroupName "<resource group name>"
+$sa = Get-AzureRmStorageAccount -Name "<storage account name>" -ResourceGroupName "<resource group name>" 
 $result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
 
 
 if($result.code -ne "Healthy")
     {
-        $Body = "Connection for ${vpnconnectionName} is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
-        $subject = "${connectionname} Status"
+        $Body = "Connection for $($connection.name) is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
+        $subject = "$($connection.name) Status"
         Send-MailMessage `
         -To 'admin@contoso.com' `
         -Subject $subject `
@@ -119,13 +120,13 @@ if($result.code -ne "Healthy")
         -UseSsl `
         -Port 587 `
         -SmtpServer 'smtp.office365.com' `
-        -From "${$username}" `
+        -From $username `
         -BodyAsHtml `
         -Credential $Cred
     }
 else
     {
-    Write-Output ("Connection Status is: $($result.connectionStatus)")
+    Write-Output ("Connection Status is: $($result.code)")
     }
 ```
 

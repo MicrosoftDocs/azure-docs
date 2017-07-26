@@ -35,7 +35,7 @@ Write your queries faster by downloading the SQL query cheat sheet and using it 
 
 ## More help with writing SQL queries
 * For a walk through of the query options available in Cosmos DB, see [Query Cosmos DB](documentdb-sql-query.md).
-* For the related reference documentation, see [Cosmos DB SQL Query Language](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* For the related reference documentation, see [Azure Cosmos DB DocumentDB API: SQL syntax reference](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## Release notes
 Updated on 7/29/2016 to include TOP.

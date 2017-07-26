@@ -24,6 +24,7 @@
 ### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
 ## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
@@ -33,7 +34,7 @@
 
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [JavaScript embed sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 ## [JavaScript Git repo](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Power BI C# Git repo](https://github.com/Microsoft/PowerBI-CSharp)
