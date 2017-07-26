@@ -45,7 +45,7 @@ Each command in the table links to command specific documentation. This script u
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az storage account create](/cli/azure/storage/account#create) | Creates an Azure Storage account. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Creates an Azure Function. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Creates an Azure Function App. |
 
 ## Next steps
 
