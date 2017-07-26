@@ -345,15 +345,15 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-thefundingportal-tutorial.png)| [The Funding Portal](active-directory-saas-thefundingportal-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Thirdlight.png)| [Thirdlight](active-directory-saas-thirdlight-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-thoughtworks-mingle-tutorial.png)| [Thoughtworks Mingle](active-directory-saas-thoughtworks-mingle-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ThousandEyes.png)| [ThousandEyes](active-directory-saas-thousandeyes-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Tidemark.png)| [Tidemark](active-directory-saas-tidemark-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TigerText.png)| [TigerText Secure Messenger](active-directory-saas-tigertext-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TimeOffManager.png)| [TimeOffManager](active-directory-saas-timeoffmanager-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TinfoilSecurity.png)| [Tinfoil Security](active-directory-saas-tinfoil-security-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TiViTz.png)| [TiViTz](active-directory-saas-tivitz-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TOPdesk.png)| [TOPdesk - Public](active-directory-saas-topdesk-public-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-thousandeyes-tutorial.png)| [ThousandEyes](active-directory-saas-thousandeyes-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-tidemark-tutorial.png)| [Tidemark](active-directory-saas-tidemark-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-tigertext-tutorial.png)| [TigerText Secure Messenger](active-directory-saas-tigertext-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-timeoffmanager-tutorial.png)| [TimeOffManager](active-directory-saas-timeoffmanager-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-tinfoil-security-tutorial.png)| [Tinfoil Security](active-directory-saas-tinfoil-security-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-tivitz-tutorial.png)| [TiViTz](active-directory-saas-tivitz-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-topdesk-public-tutorial.png)| [TOPdesk - Public](active-directory-saas-topdesk-public-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TOPdesk.png)| [TOPdesk - Secure](active-directory-saas-topdesk-secure-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Trakopolis.png)| [Trakopolis](active-directory-saas-trakopolis-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-trakopolis-tutorial.png)| [Trakopolis](active-directory-saas-trakopolis-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Trakstar.png)| [Trakstar](active-directory-saas-trakstar-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Trello.png)| [Trello](active-directory-saas-trello-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ultipro.png)| [UltiPro](active-directory-saas-ultipro-tutorial.md)|
