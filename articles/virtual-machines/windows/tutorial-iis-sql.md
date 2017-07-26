@@ -28,16 +28,15 @@ In this tutorial, we will build a two-tier demo music store .Net Core applicatio
 > * Create an inbound port 80 rule for web traffic 
 > * Configure
 
-## Register the SQL namespace
+## Register the resource providers
 
-Register the SQL resource provider for your subscription.
+Register the resource providers for your subscription.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
-
-
 ## Create a resource group
 
 Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
@@ -332,7 +331,8 @@ It takes a few minutes to create and configure all three VMs.
 ## Configure the VM with Custom Script Extension
 In a previous tutorial on [How to customize a Windows virtual machine](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with the Custom Script Extension for Windows. You can use the same approach to install and configure IIS on your VMs.
 
-Create a configure.ps1 file that contains the following script
+
+Create a.ps1 file that contains the following script and save it locally.
 
 ```powershell
 Param (
@@ -375,20 +375,31 @@ New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool
 ```
 
 
-Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) to install the Custom Script Extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the *Default.htm* page to show the hostname of the VM:
+Upload the file to your storage account.
+
+```powershell
+$StorageAccountName = "musicstoreiissql"
+$ContainerName = "musicstore"
+$ScriptToUpload = "C:\musicstore\musicstore.ps1"
+New-AzureRMStorageAccount –StorageAccountName $StorageAccountName -SkuName "Standard_LRS" -Kind "Storage" -ResourceGroupName $resourcegroupname -Location $Location
+$key = Get-AzureRmStorageAccountKey -Name $StorageAccountName -ResourceGroupName $resourcegroupname
+$context = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $key[0].Value;
+New-AzureStorageContainer -Name $ContainerName -Context $context -Permission off
+Set-AzureStorageBlobContent -Container $ContainerName -File $ScriptToUpload -Context $context
+$scriptURL = (Get-AzureStorageBlob -Container $ContainerName -Context $context).ICloudBlob.uri.AbsoluteUri
+```
+
+Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) to install the Custom Script Extension. The extension runs the script on the VM to configure the VM and the application settings.
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
 {
-   Set-AzureRmVMExtension `
-     -ResourceGroupName $resourcegroupname `
-     -ExtensionName IIS `
-     -VMName myVM$i `
-     -Publisher Microsoft.Compute `
-     -ExtensionType CustomScriptExtension `
-     -TypeHandlerVersion 1.4 `
-     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-     -Location EastUS
+Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourcegroupname `
+    -VMName myVM$i `
+    -Location $location `
+    -FileUri $scriptURL `
+    -Run musicstore.ps1 `
+    -Name MusicStoreExtension
 }
 ```
 
@@ -406,8 +417,6 @@ You can then enter the public IP address in to a web browser. The website is dis
 ![Running IIS website](./media/tutorial-load-balancer/running-iis-website.png)
 
 To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
-
-```
 
 
 
