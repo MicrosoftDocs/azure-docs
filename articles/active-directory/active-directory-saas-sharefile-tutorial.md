@@ -187,7 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In order to enable Azure AD users to log into Citrix ShareFile, they must be provisioned into Citrix ShareFile. In the case of Citrix ShareFile, provisioning is a manual task.
 
-**To provision a user accounts, perform the following steps:**
+**To provision a user account, perform the following steps:**
 
 1. Log in to your **Citrix ShareFile** tenant.
 
@@ -208,7 +208,7 @@ In order to enable Azure AD users to log into Citrix ShareFile, they must be pro
 4. Click **Add User**.
   
    >[!NOTE]
-   >The AAD account holder will receive an email and follow a link to confirm their account before it becomes active.You can use any other Citrix ShareFile user account creation tools or APIs provided by Citrix ShareFile to provision AAD user accounts.
+   >The Azure AD account holder will receive an email and follow a link to confirm their account before it becomes active.You can use any other Citrix ShareFile user account creation tools or APIs provided by Citrix ShareFile to provision Azure AD user accounts.
 
 ### Assign the Azure AD test user
 
