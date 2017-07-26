@@ -107,7 +107,7 @@ Just as you can choose between different VM types with Azure Virtual Machines, y
 
 As of July 2017, SAP HANA on Azure (Large Instances) is available in several configurations in the Azure Regions of US West and US East, Australia East, Australia Southeast, West Europe, and North Europe:
 
-| SAP Solution | CPU | RAM | Storage | Availability |
+| SAP Solution | CPU | Memory | Storage | Availability |
 | --- | --- | --- | --- | --- |
 | Optimized for OLAP: SAP BW, BW/4HANA<br /> or SAP HANA for generic OLAP workload | SAP HANA on Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3 |  768 GB |  3 TB | Available |
 | --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3 |  1.5 TB |  6 TB | Not offered anymore |
