@@ -23,7 +23,7 @@ Key Vault's soft delete feature allows recovery of the deleted vaults and vault 
 
 ## Enabling soft-delete
 
-To be able to recover a deleted vault or deleted keys/secrets inside a vault, you must first enable soft-delete for that vault. Here's how.
+To be able to recover a deleted vault or deleted keys/secrets inside a vault, you must first enable soft-delete for that vault.
 
 ### Existing vault
 Say you have a key vault named 'ContosoVault', here's how you would enable soft-delete for this vault:
@@ -44,7 +44,7 @@ To check whether a vault has soft-delete enabled, run the 'Get-AzureRmKeyVault' 
 
 ## Deleting a vault protected by soft-delete
 
-The cmdlet to delete (or remove) a vault remains same, but it's behavior changes depending on whether you have enabled soft-delete or not.
+The cmdlet to delete (or remove) a vault remains same, but its behavior changes depending on whether you have enabled soft-delete or not.
 
 `Remove-AzureRmKeyVault -VaultName ContosoVault`
 
@@ -86,7 +86,7 @@ To recover a vault, a user needs to have RBAC (role-based access control) permis
 
 ## Vault objects and soft-delete
 
-Now that we have seen the complete life cycle of a vault with soft-delete enabled, let's turn our attention to keys and secrets in a vault with soft-delete enabled. I'm assuming here that you already know how to create keys and secrets in a vault. If not check out Get started with Azure Key Vault.
+Now that we have seen the complete life cycle of a vault with soft-delete enabled, let's turn our attention to keys and secrets in a vault with soft-delete enabled. I am assuming here that you already know how to create keys and secrets in a key vault. If not, check out [Get started with Azure Key Vault](key-vault-get-started.md).
 
 Let's say you have a key 'ContosoFirstKey' in your vault 'ContosoVault' with soft-delete enabled. Here's how you would delete that key.
 
@@ -128,7 +128,7 @@ To permanently delete a key:
 
 `Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState`
 
-The **recover** and **purge** actions have their own permissions associated in Key Vault a access policy. For a user or service principal to be able to execute a **recover** or **purge** action they must have the respective permission for that object (key or secret) in the key vault access policy. By default, the **purge** permission is not added to a vault's access policy when the 'all' shortcut is used to grant all permissions to a user. You must explicitly grant **purge** permission. For example, the following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**.
+The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action they must have the respective permission for that object (key or secret) in the key vault access policy. By default, the **purge** permission is not added to a vault's access policy when the 'all' shortcut is used to grant all permissions to a user. You must explicitly grant **purge** permission. For example, the following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**.
 
 `Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge`
 
