@@ -21,8 +21,8 @@ ms.author: gwallace
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure CLI](application-gateway-web-application-firewall-powershell.md)
+> * [PowerShell](application-gateway-web-application-firewall-cli.md)
+> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 
 Learn how to create an web application firewall enabled application gateway or add web application firewall to an existing application gateway.
 
@@ -144,6 +144,6 @@ az network public-ip show \
 
 ## Next steps
 
-Learn how to configure diagnostic logging, to log the events that are detected or prevented with web application firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+Learn how to configure customize WAF rules by visiting: [Customize web application firewall rules through the Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
 
-[scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
+[scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png

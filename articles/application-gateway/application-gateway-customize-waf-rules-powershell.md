@@ -1,6 +1,6 @@
 ---
-title: Customize web application firewall rules in Azure Application Gateway - Azure CLI 2.0 | Microsoft Docs
-description: This page provides information on how to customize web application firewall rules in Application Gateway with the Azure CLI 2.0.
+title: Customize web application firewall rules in Azure Application Gateway - PowerShell | Microsoft Docs
+description: This page provides information on how to customize web application firewall rules in Application Gateway with PowerShell.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -18,7 +18,7 @@ ms.author: gwallace
 
 ---
 
-# Customize web application firewall rules through the Azure CLI 2.0
+# Customize web application firewall rules through PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-customize-waf-rules-portal.md)
@@ -33,53 +33,46 @@ The following are examples show how to view rules and rule groups that are confi
 
 ### View rule groups
 
-```azurecli
-az network application-gateway waf-config list-rule-sets --type OWASP
+```powershell
+Get-AzureRmApplicationGatewayAvailableWafRuleSets
 ```
 
 The following a truncated response from the preceding example.
 
 ```
-[
-  {
-    "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
-    "location": null,
-    "name": "OWASP_3.0",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "",
-    "ruleGroups": [
-      {
-        "description": "",
-        "ruleGroupName": "REQUEST-910-IP-REPUTATION",
-        "rules": null
-      },
-      ...
-    ],
-    "ruleSetType": "OWASP",
-    "ruleSetVersion": "3.0",
-    "tags": null,
-    "type": "Microsoft.Network/applicationGatewayAvailableWafRuleSets"
-  },
-  {
-    "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
-    "location": null,
-    "name": "OWASP_2.2.9",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "",
-   "ruleGroups": [
-      {
-        "description": "",
-        "ruleGroupName": "crs_20_protocol_violations",
-        "rules": null
-      },
-      ...
-    ],
-    "ruleSetType": "OWASP",
-    "ruleSetVersion": "2.2.9",
-    "tags": null,
-    "type": "Microsoft.Network/applicationGatewayAvailableWafRuleSets"
-  }
-]
+OWASP (Ver. 3.0):
+
+    REQUEST-910-IP-REPUTATION:
+        Description:
+            
+        Rules:
+            RuleId     Description
+            ------     -----------
+            910011     Rule 910011
+            910012     Rule 910012
+            ...        ...
+
+    REQUEST-911-METHOD-ENFORCEMENT:
+        Description:
+            
+        Rules:
+            RuleId     Description
+            ------     -----------
+            911011     Rule 911011
+            ...        ...
+
+OWASP (Ver. 2.2.9):
+
+    crs_20_protocol_violations:
+        Description:
+            
+        Rules:
+            RuleId     Description
+            ------     -----------
+            960911     Invalid HTTP Request Line
+            981227     Apache Error: Invalid URI in Request.
+            960000     Attempted multipart/form-data bypass
+            ...        ...
 ```
 
 ### View rules in a rule group

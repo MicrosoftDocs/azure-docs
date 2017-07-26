@@ -23,6 +23,7 @@ ms.author: gwallace
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-customize-waf-rules-portal.md)
+> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 
 Application Gateway web application firewall provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block real traffic.  For this reason application gateway provides the capability to customize rulegroups and rules on a web application firewall enabled application gateway. For more information on the specific rule groups and rules, visit [web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md)
