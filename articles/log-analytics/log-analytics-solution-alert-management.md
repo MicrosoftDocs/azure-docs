@@ -21,7 +21,7 @@ ms.author: bwren
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those source [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md).  The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md).  The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
 
 ## Prerequisites
 The solution works with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
@@ -56,7 +56,7 @@ The following table describes the connected sources that are supported by this s
 - Alert data is sent from the Operations Manager management group to Log Analytics every three minutes.  
 
 ## Using the solution
-When you add the Alert Management solution to your OMS workspace, the **Alert Management** tile is be added to your OMS dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
+When you add the Alert Management solution to your OMS workspace, the **Alert Management** tile is added to your OMS dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
 
 ![Alert Management tile](media/log-analytics-solution-alert-management/tile.png)
 
@@ -103,7 +103,7 @@ The solution does import alerts from System Center Operations Manager and create
 | TimeResolved |Date and time that the alert was resolved. Empty if the alert has not yet been resolved. |
 
 ## Sample log searches
-The following table provides sample log searches for alert records collected by this solution.  
+The following table provides sample log searches for alert records collected by this solution: 
 
 | Query | Description |
 |:--- |:--- |
@@ -117,7 +117,7 @@ The following table provides sample log searches for alert records collected by 
 
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the preceding queries would change to the following:
 >
 >| Query | Description |
 |:---|:---|
