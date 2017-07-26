@@ -82,7 +82,7 @@ To purge, permanently delete:
 
 ` Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus `
 
-To recover a vault, a user needs to have RBAC permission to perform ‘Microsoft.KeyVault/vaults/write’ operation. Similarly to purging a deleted vault so that the vault and all its contents are permanently removed the user needs RBAC permission to perform ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ operation. To list the deleted vault, a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission.
+To recover a vault, a user needs to have RBAC (role-based access control) permission to perform ‘Microsoft.KeyVault/vaults/write’ operation. Similarly to purging a deleted vault so that the vault and all its contents are permanently removed the user needs RBAC permission to perform ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ operation. To list the deleted vault, a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission.
 
 ## Vault objects and soft-delete
 
@@ -136,7 +136,7 @@ Note that, if you have an existing vault that has just had soft-delete enabled, 
 
 ### Secrets
 
-Similarly here are related commands for deleting, listing, recovering and purging secrets respectively.
+Similarly here are related commands for deleting, listing, recovering, and purging secrets respectively.
 
 - Delete a secret named SQLPassword: `Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword`
 
@@ -155,7 +155,7 @@ To purge (permanently delete) a key vault by using the `Remove-AzureRmKeyVault` 
 When a key vault is purged, all of its contents (ex. keys and secrets) are permanently deleted.
 
 - To purge a deleted key vault so that the vault and all its contents are permanently removed, the user needs RBAC permission to perform a *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
-- To list the deleted key vault a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission. 
+- To list the deleted key, the vault a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission. 
 - By default only a subscription administrator has these permissions. 
 
 ## See also
