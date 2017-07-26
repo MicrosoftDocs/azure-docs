@@ -111,6 +111,8 @@
   items:
   - name: Azure CLI
     href: /cli/azure/mysql
+  - name: REST API
+    href: /rest/api/mysql
 - name: Resources
   items:
   - name: Azure Roadmap
