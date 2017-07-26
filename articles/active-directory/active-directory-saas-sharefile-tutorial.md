@@ -139,11 +139,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. In **Your IDP Issuer/ Entity ID** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
 
-	c. In **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	c. Click **Change** next to the **X.509 Certificate** field and then upload the certificate you downloaded from the Azure portal.
 	
-	d. In **Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
-
-	e. Click **Change** next to the **X.509 Certificate** field and then upload the certificate you downloaded from the Azure portal.
+	d. In **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	
+	e. In **Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
 
 11. Click **Save** on the Citrix ShareFile management portal.
 
