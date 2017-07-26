@@ -82,8 +82,59 @@ az keyvault secret set --vault-name aci-keyvault --name azurefilesstoragekey --v
 
 ## Mount the volume
 
+Mounting an Azure file share as a volume in a container is a two-step process. First, you provide the details of the share as part of defining the container group, then you specify how you want the volume mounted within one or more of the containers in the group.
 
+To define the volumes you want to make available for mounting, add a `volumes` array to the container group definition in the Azure Resource Manager template, then reference them in the definition of the individual containers. In the template below, the storage account name and key are provided as parameters. See [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) for more details.
 
-## Manage files
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources":[{
+    "name": "hellofiles",
+    "type": "Microsoft.ContainerInstance/containerGroups",
+    "apiVersion": "2017-08-01-preview",
+    "location": "[resourceGroup().location]",
+    "properties": {
+      "containers": [{
+        "name": "hellofiles",
+        "image": "seanmckenna/aci-hellofiles",
+        "resources": {
+          "request": {
+            "cpu": 1,
+            "memoryInGb": 1.5
+          }
+        }
+        "volumeMounts": [{
+          "name": "myvolume",
+          "mountPath": "/acifiles/"
+        }]
+      }],
+      "osType": "Linux",                "volumes": [{
+          "name": "myvolume",
+          "azureFile": {
+              "shareName": "acishare",
+              "storageAccountName": "[parameters('storageaccountname')]",
+              "storageAccountKey": "[parameters('storageaccountkey')]"
+          }
+        }
+      ]
+    }
+  }]
+}
+```
+
+## Deploy the container and manage files
+
+With the template defined, you can create the container and mount its volume using the Azure CLI:
+
+```azurecli-interactive
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --resource-group myResourceGroup
+```
+
+Once the container starts up, you can manage files in the share at the mount path that you specified.
 
 ## Next steps
+
+- Deploy for your first container using the Azure Container Instances [quick start](container-instances-quickstart.md)
+- Learn about the [relationship between Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md)
