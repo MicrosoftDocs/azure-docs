@@ -110,7 +110,7 @@ To define the volumes you want to make available for mounting, add a `volumes` a
           "mountPath": "/acifiles/"
         }]
       }],
-      "osType": "Linux",                
+      "osType": "Linux",
       "volumes": [{
           "name": "myvolume",
           "azureFile": {
