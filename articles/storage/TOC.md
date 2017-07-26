@@ -135,9 +135,7 @@
 #### [Enable and view metrics](storage-enable-and-view-metrics.md)
 #### [Monitor, diagnose, and troubleshoot](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Troubleshooting tutorial](storage-e2e-troubleshooting.md)
-### Troubleshoot disk deletion errors
-#### [In a Resource Manager deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
+### [Troubleshoot disk deletion errors](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Troubleshoot File storage](storage-troubleshoot-file-connection-problems.md)
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
