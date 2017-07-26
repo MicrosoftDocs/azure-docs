@@ -1,6 +1,6 @@
 # Overview
 ## [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
-## [How it Works](multi-factor-authentication-how-it-works.md)
+## [How it works](multi-factor-authentication-how-it-works.md)
 ## [How to get Azure MFA](multi-factor-authentication-versions-plans.md)
 
 # Get started
@@ -15,6 +15,7 @@
 ### [Configure settings](multi-factor-authentication-whats-next.md)
 ### [Reports in MFA](multi-factor-authentication-manage-reports.md)
 ### [Use existing network policy servers](multi-factor-authentication-nps-extension.md)
+#### [Advanced configuration for NPS extension](nps-extension-advanced-configuration.md)
 ### [Create an Auth Provider](multi-factor-authentication-get-started-auth-provider.md)
 ### Azure MFA on-premises
 #### [Install the users portal](multi-factor-authentication-get-started-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB Node.js API, SDK & Resources | Microsoft Docs
-description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK.
+title: Azure Cosmos DB Node.js API, SDK & Resources | Microsoft Docs
+description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -18,9 +18,10 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB Node.js SDK: Release notes and resources
+# Azure Cosmos DB Node.js SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -45,7 +46,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Get started tutorial**</td><td>[Get started with the Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using DocumentDB](documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using Azure Cosmos DB](documentdb-nodejs-application.md)</td></tr>
 
 <tr><td>**Current supported platform**</td><td> 
 [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
@@ -66,7 +67,7 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.11.0"/>1.11.0</a>
 * Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
 * Added the option for controlling degree of parallelism for cross partition queries.
-* Added the option for disabling SSL verification when running against DocumentDB Emulator.
+* Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 * Fixed the continuation token bug for single partition collection (github #107).
 * Fixed the executeStoredProcedure bug in handling 0 as single param (github #155).
@@ -84,7 +85,7 @@ ms.custom: H1Hack27Feb2017
 * Added support for TOP/ORDER BY queries for partitioned collections.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
+* Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, Azure Cosmos DB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. Azure Cosmos DB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
 * Cosmos DB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
 * The RetryOptions class was added, exposing the RetryOptions property on the ConnectionPolicy class that can be used to override some of the default retry options.
 
@@ -104,7 +105,7 @@ ms.custom: H1Hack27Feb2017
 * Fixed hashParitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for DocumentDB purposes. Use a dedicated agent for all of the lib’s requests.
+* Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib’s requests.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media ids.

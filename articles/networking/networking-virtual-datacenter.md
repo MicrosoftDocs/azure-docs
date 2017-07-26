@@ -6,7 +6,7 @@ author: tracsman
 manager: rossort
 tags: azure-resource-manager
 
-ms.service: networking
+ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -31,7 +31,7 @@ The following cloud deployment diagram illustrates some examples of security gap
 
 The Virtual Data Center (vDC) was born from this necessity for scaling to support enterprise workloads, and the need to deal with the problems introduced when supporting large-scale applications in the public cloud.
 
-A vDC is not just the application workloads in the cloud, but also the network, security, management, and infrastructure (for example, DNS and Directory Services). It usually also provides a private connection back to an on-premise network or data center. As more and more workloads move to Azure, it is important to think about the supporting infrastructure and objects that these workloads are placed in. Thinking carefully about how resources are structured can avoid the proliferation of hundreds of "workload islands" that must be managed separately with independent data flow, security models, and compliance challenges.
+A vDC is not just the application workloads in the cloud, but also the network, security, management, and infrastructure (for example, DNS and Directory Services). It usually also provides a private connection back to an on-premises network or data center. As more and more workloads move to Azure, it is important to think about the supporting infrastructure and objects that these workloads are placed in. Thinking carefully about how resources are structured can avoid the proliferation of hundreds of "workload islands" that must be managed separately with independent data flow, security models, and compliance challenges.
 
 A Virtual Data Center is essentially a collection of separate but related entities with common supporting functions, features, and infrastructure. By viewing your workloads as an integrated vDC, you can realize reduced cost due to economies of scale, optimized security through component and data flow centralization, along with easier operations, management, and compliance audits.
 
@@ -41,7 +41,7 @@ A Virtual Data Center is essentially a collection of separate but related entiti
 The vDC can help enterprises get workloads and applications into Azure for the following scenarios:
 
 -   Hosting multiple related workloads
--   Migrating workloads from an on-premise environment to Azure
+-   Migrating workloads from an on-premises environment to Azure
 -   Implementing shared or centralized security and access requirements across workloads
 -   Mixing DevOps and Centralized IT appropriately for a large enterprise
 

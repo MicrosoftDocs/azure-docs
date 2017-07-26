@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/06/2017
+ms.date: 06/29/2017
 ms.author: vturecek
 
 ---
@@ -137,11 +137,7 @@ During the deployment process, you can see the progress in the **Output** window
 ![Service Fabric debugging output window][3]
 
 ## Next steps
-* [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
-* [Actor state management](service-fabric-reliable-actors-state-management.md)
-* [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Sample code](https://github.com/Azure/servicefabric-samples)
+Learn more about [how Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md).
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG

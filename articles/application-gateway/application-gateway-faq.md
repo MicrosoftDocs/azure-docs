@@ -52,7 +52,11 @@ Application Gateway is a dedicated deployment in your virtual network.
 
 **Q. Is HTTP->HTTPS redirection supported?**
 
-This is currently not supported.
+Redirection is supported. Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn more.
+
+**Q. In what order are listeners processed?**
+
+Listeners are processed in the order they are shown. For that reason if a basic listener matches an incoming request it will process it first.  Multi-site listeners should be configured before a basic listener to ensure traffic is routed to the correct back-end.
 
 **Q. Where do I find Application Gateway’s IP and DNS?**
 
@@ -73,6 +77,10 @@ Only one public IP address is supported on an Application Gateway.
 **Q. Does Application Gateway support x-forwarded-for headers?**
 
 Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
+
+**Q. How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?**
+
+New Application Gateway deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
 
 ## Configuration
 
@@ -122,6 +130,10 @@ Micro service architecture is supported. You would need multiple http settings c
 
 Custom probes do not support wildcard or regex on response data.
 
+**Q. How are rules processed?**
+
+Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
+
 **Q. What does the Host field for custom probes signify?**
 
 Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>.
@@ -144,7 +156,7 @@ This can be done using NSGs on Application Gateway subnet. The following restric
 
 **Q. How does Application Gateway support high availability and scalability?**
 
-Application Gateway supports high availability scenarios if you have more than 2 instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
+Application Gateway supports high availability scenarios if you have 2 or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
 
 **Q. How do I achieve DR scenario across data centers with Application Gateway?**
 
