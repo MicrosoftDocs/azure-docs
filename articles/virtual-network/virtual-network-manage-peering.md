@@ -37,7 +37,7 @@ Complete the following tasks before completing steps in any section of this arti
 >There are several requirements, constraints, and considerations to successfully create a virtual network peering. Before creating a peering, ensure you've familiarized yourself with the [requirements and constraints](#requirements-and-constraints) and [required permissions](#permissions).
 >
 
-1. Log in to the [portal](https://portal.azure.com) with an account that has the necessary [permissions](#permissions).
+1. Log in to the [portal](https://portal.azure.com) with an account that is assigned the necessary [role or permissions](#permissions).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
 3. In the **Virtual networks** blade that appears, click the virtual network you want to create a peering for.
 4. In the pane that appears for the virtual network you selected, click **Peerings** in the **SETTINGS** section.
@@ -79,7 +79,7 @@ A virtual network peering is created between virtual networks created through th
 
 ## View or change peering settings
 
-1. Log in to the [portal](https://portal.azure.com) with an account that has the necessary [roles and permissions](#roles-permissions).
+1. Log in to the [portal](https://portal.azure.com) with an account that is assigned the necessary [role or permissions](#permissions).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
 3. In the **Virtual networks** blade that appears, click the virtual network you want to create a peering for.
 4. In the pane that appears for the virtual network you selected, click **Peerings** in the **SETTINGS** section.
@@ -104,7 +104,7 @@ When a peering is deleted, traffic from a virtual network no longer flows to the
 
 If you want virtual networks to communicate sometimes, but not always, rather than deleting a peering, you can set the **Allow virtual network access** setting to **Disabled** instead. To learn how, read step 6 of the [Create a peering](#create-peering) section of this article. You may find disabling and enabling network access easier than deleting and recreating peerings.
 
-1. Log in to the [portal](https://portal.azure.com) with an account that has the necessary [roles and permissions](#roles-permissions).
+1. Log in to the [portal](https://portal.azure.com) with an account that is assigned the necessary [role or permissions](#permissions).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
 3. In the **Virtual networks** blade that appears, click the virtual network you want to delete a peering from.
 4. In the blade that appears for the virtual network you selected, click **Peerings** under **Settings**.
