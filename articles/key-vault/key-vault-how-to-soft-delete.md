@@ -34,24 +34,24 @@ Say you have a key vault named 'ContosoVault', here's how you would enable soft-
 
 ### New vault
 
-If you're creating a new vault, add '-EnableSoftDelete' parameter when running 'New-AzureRmKeyVault' cmdlet, like this:
+If you're creating a new vault, add the `-EnableSoftDelete` parameter when running `New-AzureRmKeyVault` command:
 
 `New-AzureRmKeyVault -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete`
 
 ### Verify soft-delete enablement
 
-To check whether a vault has soft-delete enabled, run the 'Get-AzureRmKeyVault' cmdlet and look for the 'Soft Delete Enabled?' attribute. If it is set to 'True', soft-delete is enabled for this vault. If set to empty or 'False' soft-delete is disabled.
+To check whether a vault has soft-delete enabled, run the `Get-AzureRmKeyVault` command and look for the 'Soft Delete Enabled?' attribute. If it is set to 'True', soft-delete is enabled for this key vault. If set to empty or 'False' soft-delete is disabled.
 
 ## Deleting a vault protected by soft-delete
 
-The cmdlet to delete (or remove) a vault remains same, but its behavior changes depending on whether you have enabled soft-delete or not.
+The command to delete (or remove) a vault remains same, but its behavior changes depending on whether you have enabled soft-delete or not.
 
 `Remove-AzureRmKeyVault -VaultName ContosoVault`
 
 > [!NOTE]
->Beware that, if you run the previous cmdlet for a key vault that does not have soft-delete enabled, you will permanently lose this vault and all its content without any options for recovery.
+>Beware that, if you run the previous command for a key vault that does not have soft-delete enabled, you will permanently lose this vault and all its content without any options for recovery.
 
-With soft-delete turned on, when a vault is deleted, it is removed from the resource group and placed in a different name space that is only associated with the location where it was created. All the keys and secrets in a deleted vault also become inaccessible. The DNS name for a vault in a deleted state is still reserved, so a new vault with same name cannot be created.  To see all the vaults in your subscription in deleted state, run this cmdlet:
+With soft-delete turned on, when a vault is deleted, it is removed from the resource group and placed in a different name space that is only associated with the location where it was created. All the keys and secrets in a deleted vault also become inaccessible. The DNS name for a vault in a deleted state is still reserved, so a new vault with same name cannot be created.  To see all the vaults in your subscription in the deleted state, run this command:
 
   ```
   PS C:\> Get-AzureRmKeyVault -InRemovedState
@@ -64,7 +64,7 @@ With soft-delete turned on, when a vault is deleted, it is removed from the reso
   Tags                 :
   ```
 
- The `Get-AzureRmKeyVault` cmdlet shows deleted key vaults if you use `-InRemovedState` parameter. In other words, if you do not use the `-InRemovedState` parameter, you will not see deleted key vaults listed.
+ The `Get-AzureRmKeyVault` command shows deleted key vaults if you use `-InRemovedState` parameter. In other words, if you do not use the `-InRemovedState` parameter, you will not see deleted key vaults listed.
 
 The *Resource ID* in the preceding output refers to the original resource ID of this vault. Since this vault is now in a deleted state, no such resource exists with that resource ID. That's where the *Id* field comes in. It can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
 
