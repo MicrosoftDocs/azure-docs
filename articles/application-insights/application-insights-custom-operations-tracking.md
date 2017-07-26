@@ -18,7 +18,7 @@ ms.author: sergkanz
 
 # Track custom operations with Application Insights .NET SDK
 
-Azure Application Insights SDKs automatically track incoming HTTP requests and calls to dependent services, such as HTTP requests and SQL queries. Tracking and correlation of requests and dependencies give you visibility into the whole application's responsiveness and reliability across all microservices. We're going to gradually expand the list and give an automatic collection of other well-known platforms and frameworks. 
+Azure Application Insights SDKs automatically track incoming HTTP requests and calls to dependent services, such as HTTP requests and SQL queries. Tracking and correlation of requests and dependencies give you visibility into the whole application's responsiveness and reliability across all microservices that combine this application. 
 
 There is a class of application patterns that can't be supported generically. Proper monitoring of such patterns requires manual code instrumentation. This article covers a few patterns that might require manual instrumentation, such as custom queue processing and running long-running background tasks.
 
@@ -29,7 +29,7 @@ This document provides guidance on how to track custom operations with the Appli
 - Application Insights for ASP.NET Core version `2.1+`.
 
 ## Overview
-An operation is a logical piece of work run by an application. It has a name, start time, duration, and a context of execution like user name, properties, and result. If operation `A` was initiated by operation `B`, then operation `B` is set as a parent for `A`. An operation can have only one parent, but it can have many children operations. For more information on operations and telemetry correlation, see [Azure Application Insights telemetry correlation](application-insights-correlation.md).
+An operation is a logical piece of work run by an application. It has a name, start time, duration, result, and a context of execution like user name, properties, and result. If operation `A` was initiated by operation `B`, then operation `B` is set as a parent for `A`. An operation can have only one parent, but it can have many children operations. For more information on operations and telemetry correlation, see [Azure Application Insights telemetry correlation](application-insights-correlation.md).
 
 In the Application Insights .NET SDK, the operation is described by the abstract class [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) and its descendants [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
 
@@ -43,7 +43,7 @@ Let's see how we can track such operations.
 On a high level, the task is to create `RequestTelemetry` and set known properties. After the operation is finished, you track the telemetry. The following example demonstrates this task.
 
 ### HTTP request in Owin self-hosted app
-In this example, we follow the [HTTP Correlation Protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). You should expect to receive headers that are described there:
+In this example, we follow the [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). You should expect to receive headers that are described there:
 
 ``` C#
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -64,7 +64,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         if (context.Request.Headers.ContainsKey("Request-Id"))
         {
             var requestId = context.Request.Headers.Get("Request-Id");
-            // Get the operation id from the Request-Id (if you follow the HTTP Correlation Protocol).
+            // Get the operation id from the Request-Id (if you follow the HTTP Protocol for Correlation).
             requestTelemetry.Context.Operation.Id = GetOperationId(requestId);
             requestTelemetry.Context.Operation.ParentId = requestId;
         }
@@ -116,7 +116,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 }
 ```
 
-The HTTP Correlation Protocol also declares the `Correlation-Context` header. However, it's omitted here for simplicity.
+The HTTP Protocol for Correlation also declares the `Correlation-Context` header. However, it's omitted here for simplicity.
 
 ## Queue instrumentation
 For HTTP communication, we've created a protocol to pass correlation details. With some queues' protocols, you can pass additional metadata along with the message, and with others you can't.
@@ -175,7 +175,7 @@ public async Task Process(BrokeredMessage message)
 
     var rootId = message.Properties["RootId"].ToString();
     var parentId = message.Properties["ParentId"].ToString();
-    // Get the operation id from the Request-Id (if you follow the HTTP Correlation Protocol).
+    // Get the operation id from the Request-Id (if you follow the HTTP Protocol for Correlation).
     requestTelemetry.Context.Operation.Id = rootId;
     requestTelemetry.Context.Operation.ParentId = parentId;
 
@@ -220,7 +220,7 @@ module.Initialize(TelemetryConfiguration.Active);
 You also might want to correlate the Application Insights operation ID with the Azure Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose, and troubleshoot Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### Enqueue
-Because Azure Storage Queues support the HTTP API, all operations with the queue are automatically tracked by Application Insights. In many cases, this instrumentation should be enough. However, to correlate traces on the consumer side with producer traces, you must pass some correlation context similar to how we do it in the HTTP Correlation Protocol. 
+Because Azure Storage Queues support the HTTP API, all operations with the queue are automatically tracked by Application Insights. In many cases, this instrumentation should be enough. However, to correlate traces on the consumer side with producer traces, you must pass some correlation context similar to how we do it in the HTTP Protocol for Correlation. 
 
 In this example, we track the optional `Enqueue` operation. You can:
 
@@ -248,7 +248,7 @@ public async Task Enqueue(CloudQueue queue, string message)
     
     CloudQueueMessage queueMessage = new CloudQueueMessage(jsonPayload);
 
-    // Add operation.Telemetry.Id to the OperationContext to correlate Azure Storage logs and ApplicationInsights telemetry.
+    // Add operation.Telemetry.Id to the OperationContext to correlate Azure Storage logs and Application Insights telemetry.
     OperationContext context = new OperationContext { ClientRequestID = operation.Telemetry.Id};
 
     try
@@ -469,7 +469,7 @@ public async Task RunMyTaskAsync()
 ## Next steps
 
 - Learn the basics of [telemetry correlation](application-insights-correlation.md) in Application Insights.
-- See the [data model](application-insights-data-model.md) for Application Insights types and data models.
+- See the [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Report custom [events and metrics](app-insights-api-custom-events-metrics.md) to Application Insights.
 - Check out standard context properties collection [configuration](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
 - Check the [System.Diagnostics.Activity User Guide](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) to see how we correlate telemetry.
