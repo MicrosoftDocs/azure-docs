@@ -27,6 +27,8 @@
   items:
     - name: Multi-container groups
       href: container-instances-multi-container-group.md
+    - name: Managing state with Azure file shares
+      href: container-instances-mounting-azure-files-volume.md
 - name: Resources
   items:
   - name: Azure Roadmap
