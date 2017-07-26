@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-While in preview, the Azure Container Instances CLI commands are available only in the Cloud Shell.
+The Azure Container Instances CLI commands are currently only available in Azure Cloud Shell.
 
 ## Create a resource group
 
