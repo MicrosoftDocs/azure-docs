@@ -27,6 +27,7 @@ At the end of this guide, your application will be able to accept sign ins of wo
 
 > [!NOTE]
 > This guided setup helps you to enable sign-ins from work and school accounts. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). Please see [this ASP.NET guided setup](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
+<br/>
 
 > This guide requires Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it?  [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
 
@@ -301,16 +302,16 @@ public class ClaimsController : Controller
     {
         var claimsPrincipalCurrent = System.Security.Claims.ClaimsPrincipal.Current;
         //You get the user’s first and last name below:
-        ViewBag.Name = claimsPrincipalCurrent.FindFirst("name").Value;
+        ViewBag.Name = claimsPrincipalCurrent.FindFirst("name")?.Value;
 
-        // The 'Upn' claim can be used for showing the username
-        ViewBag.Username = claimsPrincipalCurrent.FindFirst(ClaimTypes.Upn).Value;
+        // The 'Name' claim can be used for showing the username
+        ViewBag.Username = claimsPrincipalCurrent.FindFirst(ClaimTypes.Name)?.Value;
 
-        // The subject claim can be used to uniquely identify the user across the web
-        ViewBag.Subject = claimsPrincipalCurrent.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
+        // The subject/ NameIdentifier claim can be used to uniquely identify the user across the web
+        ViewBag.Subject = claimsPrincipalCurrent.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
         // TenantId is the unique Tenant Id - which represents an organization in Azure AD
-        ViewBag.TenantId = claimsPrincipalCurrent.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
+        ViewBag.TenantId = claimsPrincipalCurrent.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
 
         return View();
     }
