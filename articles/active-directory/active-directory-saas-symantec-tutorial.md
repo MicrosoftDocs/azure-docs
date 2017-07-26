@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 07/27/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Symantec Web Security Service (WSS)
 
-In this tutorial, you learn how to integrate Symantec Web Security Service (WSS) with Azure Active Directory (Azure AD).
+In this tutorial, you will learn how to integrate your Symantec Web Security Service (WSS) account with your Azure Active Directory (Azure AD) account so that WSS can authenticate an end user provisioned in the Azure AD using SAML authentication and enforce user or group level policy rules.
 
 Integrating Symantec Web Security Service (WSS) with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Symantec Web Security Service (WSS).
-- You can enable your users to automatically get signed-on to Symantec Web Security Service (WSS) (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+- Manage all of the end users and groups used by your WSS account from your Azure AD portal. 
+
+- Allow the end users to authenticate themselves in WSS using their Azure AD credentials.
+
+- Enable the enforcement of user and group level policy rules defined in your WSS account.
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -34,21 +36,21 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Symantec Web Security Service (WSS), you need the following items:
 
 - An Azure AD subscription
-- A Symantec Web Security Service (WSS) single-sign on enabled subscription
+- A Symantec Web Security Service (WSS) account
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> To test the steps in this tutorial, we do not recommend using a WSS account that is currently being used for production purpose.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
-- Do not use your production environment, unless it is necessary.
+- Do not use your WSS account that is currently being used for production purpose for this test unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you will configure your Azure AD to enable single sign-on to WSS using the end user credentials defined in your Azure AD account.
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Symantec Web Security Service (WSS) from the gallery
+1. Adding the Symantec Web Security Service (WSS) app from the gallery
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding Symantec Web Security Service (WSS) from the gallery
@@ -110,8 +112,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type the URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Symantec Web Security Service (WSS) Client support team](https://www.symantec.com/contact-us) to get these values.
+	> [!NOTE]
+	> Please contact the [Symantec Web Security Service (WSS) Client support team](https://www.symantec.com/contact-us) if the values for the **Identifier** and **Reply URL** are not working for some reason.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -121,7 +123,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-symantec-tutorial/tutorial_general_400.png)
 	
-6. To configure single sign-on on **Symantec Web Security Service (WSS)** side, you need to send the downloaded **Metadata XML** to [Symantec Web Security Service (WSS) support team](https://www.symantec.com/contact-us).
+6. To configure single sign-on on the Symantec Web Security Service (WSS) side, refer to the WSS online documentation. The downloaded **Metadata XML** file will need to be imported into the WSS portal. Contact the [Symantec Web Security Service (WSS) support team](https://www.symantec.com/contact-us) if you need assistance with the configuration on the WSS portal.  
+
+To configure single sign-on on **Symantec Web Security Service (WSS)** side, you need to send the downloaded **Metadata XML** to [Symantec Web Security Service (WSS) support team](https://www.symantec.com/contact-us).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -160,7 +164,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Symantec Web Security Service (WSS) test user
 
-In this section, you create a user called Britta Simon in Symantec Web Security Service (WSS). Work with [Symantec Web Security Service (WSS) support team](https://www.symantec.com/contact-us) to add the users in the Symantec Web Security Service (WSS) platform. Users must be created and activated before you use single sign-on. Also along with the user details you need to send the public IPaddress of the machine from which you are trying to access the application.
+In this section, you create a user called Britta Simon in Symantec Web Security Service (WSS). The corresponding end username can be manually created in the WSS portal or you can wait for the users/groups provisioned in the Azure AD to be synchronized to the WSS portal after a few minutes (~15 minutes). Users must be created and activated before you use single sign-on. The public IP address of the end user machine, which will be used to browse websites also need to be provisioned in the Symantec Web Security Service (WSS) portal.
 
 > [!NOTE]
 > Please [click here](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) to get your machine's public IPaddress.
@@ -197,10 +201,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you'll test the single sign-on functionality now that you've configured your WSS account to use your Azure AD for SAML authentication.
 
-When you click the Symantec Web Security Service (WSS) tile in the Access Panel, you should get automatically signed-on to your Symantec Web Security Service (WSS) application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+After you have configured your web browser to proxy traffic to WSS, when you open your web browser and try to browse to a site then you'll be redirected to the Azure sign-on page. Enter the credentials of the test end user that has been provisioned in the Azure AD (that is, BrittaSimon) and associated password. Once authenticated, you'll be able to browse to the website that you chose. Should you create a policy rule on the WSS side to block BrittaSimon from browsing to a particular site then you should see the WSS block page when you attempt to browse to that site as user BrittaSimon.
 
 ## Additional resources
 
