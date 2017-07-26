@@ -117,7 +117,7 @@ The following table provides sample log searches for alert records collected by 
 
 
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 >
 >| Query | Description |
 |:---|:---|
@@ -132,4 +132,3 @@ The following table provides sample log searches for alert records collected by 
 
 ## Next steps
 * Learn about [Alerts in Log Analytics](log-analytics-alerts.md) for details on generating alerts from Log Analytics.
-

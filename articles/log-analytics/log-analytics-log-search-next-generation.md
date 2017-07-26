@@ -1,6 +1,6 @@
 ---
 title: Log searches in OMS Log Analytics| Microsoft Docs
-description: You require a log search to retrieve any data from Log Analytics.  This article describes how next generation log searches are used in Log Analytics and provides concepts that you need to understand before creating one. 
+description: You require a log search to retrieve any data from Log Analytics.  This article describes how next generation log searches are used in Log Analytics and provides concepts that you need to understand before creating one.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -19,7 +19,7 @@ ms.author: bwren
 # Understanding log searches in Log Analytics
 
 > [!NOTE]
-> This article describes log searches in Azure Log Analytics using the next generation query language which is currently in public preview.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
+> This article describes log searches in Azure Log Analytics using the next generation query language.  You can learn more about the next generation language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).  
 >
 > If your workspace hasn't been upgraded to the next generation query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md).
 
@@ -45,9 +45,9 @@ When you build a query, you start by determining which tables have the data that
 
 
 ## Writing a query
-At the core of log searches in Log Analytics is [an extensive query language](https://docs.loganalytics.io/) that lets you retrieve and analyze data from the repository in a variety of ways.  This same query language is used for [Application Insights](../application-insights/app-insights-analytics.md).  Learning how to write a query is critical to creating log searches in Log Analytics.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex. 
+At the core of log searches in Log Analytics is [an extensive query language](https://docs.loganalytics.io/) that lets you retrieve and analyze data from the repository in a variety of ways.  This same query language is used for [Application Insights](../application-insights/app-insights-analytics.md).  Learning how to write a query is critical to creating log searches in Log Analytics.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
 
-The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions. 
+The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions.
 
 For example, suppose you wanted to find the top ten computers with the most error events over the past day.
 
@@ -55,7 +55,7 @@ For example, suppose you wanted to find the top ten computers with the most erro
 	| where (EventLevelName == "Error")
 	| where (TimeGenerated > ago(1days))
 	| summarize ErrorCount = count() by Computer
-	| top 10 by ErrorCount desc 
+	| top 10 by ErrorCount desc
 
 Or maybe you want to find computers that haven't had a heartbeat in the last day.
 

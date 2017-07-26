@@ -44,7 +44,7 @@ Alert Rules are defined by the following details.
 Each alert rule in Log Analytics will be one of the following two types.  Each of these types is described in detail in the sections that follow.
 
 - **[Number of results](#number-of-results-alert-rules)**. Single alert created when the number records returned by the log search exceed a specified number.
-- **[Metric measurement](#metric-measurement-alert-rules)**.  Alert created for each object in the results of the log search with values that exceed specified threshold. 
+- **[Metric measurement](#metric-measurement-alert-rules)**.  Alert created for each object in the results of the log search with values that exceed specified threshold.
 
 The differences between alert rule types are as follows.
 
@@ -52,7 +52,7 @@ The differences between alert rule types are as follows.
 - **Number of results** alert rules will create an alert when the threshold is exceeded a single time. **Metric measurement** alert rules can create an alert when the threshold is exceeded a certain number of times over a particular time interval.
 
 ## Number of results alert rules
-**Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold. 
+**Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold.
 
 ### Threshold
 The threshold for a **Number of results** alert rule is simply greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
@@ -75,12 +75,12 @@ For example, if you wanted to alert when the processor runs over 90%, you would 
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**. 
+If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**.
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
@@ -143,4 +143,3 @@ There are other kinds of alert records created by the [Alert Management solution
 * Read more about [log searches](log-analytics-log-searches.md) that can generate alerts.
 * Complete a walkthrough for [configuring a webook](log-analytics-alerts-webhooks.md) with an alert rule.  
 * Learn how to write [runbooks in Azure Automation](https://azure.microsoft.com/documentation/services/automation) to remediate problems identified by alerts.
-

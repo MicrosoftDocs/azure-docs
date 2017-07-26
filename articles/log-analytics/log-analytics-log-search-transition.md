@@ -20,13 +20,13 @@ ms.author: bwren
 # Transitioning to Azure Log Analytics next generation query language
 
 > [!NOTE]
-> The next generation Log Analytics query language is currently in public preview.  You can read more about it and get the procedure to upgrade your workspace at Upgrade your [Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).
+> You can read more about the next generation Log Analytics query language and get the procedure to upgrade your workspace at Upgrade your [Azure Log Analytics workspace to next generation log search](log-analytics-log-search-upgrade.md).
 
-This article provides assistance on transitioning to the next generation query language for Log Analytics if you're already familiar with the legacy language. 
+This article provides assistance on transitioning to the next generation query language for Log Analytics if you're already familiar with the legacy language.
 
 ## Language converter
 
-If you're familiar with the legacy Log Analytics query language, the easiest way to create the same query in the next generation language is to use the Language Converter that's installed in the Log Search portal when your workspace is converted.  Using the converter is as simple as typing in a legacy query in the top text box and then clicking **Convert**.  You can either click the search button to run the query or copy and paste it to use it somewhere else. 
+If you're familiar with the legacy Log Analytics query language, the easiest way to create the same query in the next generation language is to use the Language Converter that's installed in the Log Search portal when your workspace is converted.  Using the converter is as simple as typing in a legacy query in the top text box and then clicking **Convert**.  You can either click the search button to run the query or copy and paste it to use it somewhere else.
 
 ![Language converter](media/log-analytics-log-search-upgrade/language-converter.png)
 
@@ -44,13 +44,13 @@ The following table provides a comparison between a variety of common queries to
 |                        | Type=Event Computer=contains("contoso") | Event \| where Computer contains "contoso" |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event \| where Computer matches regex ".*contoso*" |
 | Date comparison        | Type=Event TimeGenerated > NOW-1DAYS | Event \| where TimeGenerated > ago(1d) |
-|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event \| where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) | 
+|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event \| where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
 | Boolean comparison     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
 | Sort                   | Type=Event \| sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinct               | Type=Event \| dedup Computer \| select Computer | Event \| summarize by Computer, EventLog |
 | Extend columns         | Type=Perf CounterName="% Processor Time" \| EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf \| where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
 | Aggregation            | Type=Event \| measure count() as Count by Computer | Event \| summarize Count = count() by Computer |
-|                                | Type=Perf ObjectName=Processor CounterName="% Processor Time" \| measure avg(CounterValue) by Computer interval 5minute | Perf \| where ObjectName=="Processor" and CounterName=="% Processor Time" \| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min) | 
+|                                | Type=Perf ObjectName=Processor CounterName="% Processor Time" \| measure avg(CounterValue) by Computer interval 5minute | Perf \| where ObjectName=="Processor" and CounterName=="% Processor Time" \| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min) |
 | Aggregation with limit | Type=Event \| measure count() by Computer \| top 10 | Event \| summarize AggregatedValue = count() by Computer \| limit 10 |
 | Union                  | Type=Event or Type=Syslog               | union Event, Syslog |
 | Join                   | Type=NetworkMonitoring \| join inner AgentIP (Type=Heartbeat) ComputerIP | NetworkMonitoring \| join kind=inner (search Type == "Heartbeat") on $left.AgentIP == $right.ComputerIP |

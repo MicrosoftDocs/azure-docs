@@ -104,8 +104,8 @@ If you have recommendations that you want to ignore, you can create a text file 
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
-> 
+> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+>
 > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
    Here's a screen shot showing the Log Search query:
@@ -128,8 +128,8 @@ After the next scheduled assessment runs, by default every 7 days, the specified
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 >[!NOTE]
-> If your workspace has been upgraded to the [public preview of next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
-> 
+> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+>
 > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.

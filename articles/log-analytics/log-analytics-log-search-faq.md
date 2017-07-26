@@ -19,9 +19,6 @@ ms.author: bwren
 
 # Log Analytics next generation log search frequently asked questions
 
-> [!NOTE]
-> This article answers questions the upgrade of your Log Analytics workspace to the next generation query language which is currently in public preview.  Participation in the public preview is optional.  
-
 This article provides frequently asked questions regarding the upgrade of [Log Analytics to the next generation query language](log-analytics-log-search-upgrade.md).
 
 
@@ -47,20 +44,20 @@ No problem.  We create a snapshot of your workspace before upgrade, so you can r
 
 ## Log searches
 
-### I have saved searches outside of my upgraded workspace. Can I convert them to the new search language automatically? 
+### I have saved searches outside of my upgraded workspace. Can I convert them to the new search language automatically?
 You can use the language converter tool in the log search page to convert each one.  There is no method to automatically convert multiple searches without upgrading the workspace.
-  
+
 
 
 ## Alerts
 
 ### I have a lot of alert rules. Do I need to create them again in the new language after I upgrade?  
 No, your alert rules are automatically converted to the new search language during upgrade.  
-  
+
 ## Power BI
 
 ### Does anything change with PowerBI integration?
-Yes.  Once your workspace has been upgraded then the process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled.  After upgrade, Azure Log Analytics uses the same platform as Application Insights, and you use the same process to export Log Analytics queries to Power BI as [the process to export Application Insights queries to Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries). 
+Yes.  Once your workspace has been upgraded then the process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled.  After upgrade, Azure Log Analytics uses the same platform as Application Insights, and you use the same process to export Log Analytics queries to Power BI as [the process to export Application Insights queries to Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
 
 
 
