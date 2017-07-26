@@ -202,7 +202,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a SAP HANA test user
 
-To enable Azure AD users to log in to SAP HANA, they must be provisioned into SAP HANA.  
+To enable Azure AD users to log in to SAP HANA, they must be provisioned into SAP HANA.
 SAP HANA supports just-in-time provisioning, which is by default enabled.
 
 If you need to create a user manually, perform the following steps:
@@ -215,7 +215,7 @@ External users are authenticated using an external system, for example a Kerbero
 
 	![create user](./media/active-directory-saas-saphana-tutorial/sap5.png)
 
-2. Tick the invisible (?) checkbox in front of **SAML** and follow the Configuration link.
+2. Tick the invisible checkbox to the left of **SAML** and follow the Configure link.
 
 3. Click **Add** to add the SAML IDP and click **OK** selecting the appropriate SAML IDP.
 
@@ -224,7 +224,7 @@ External users are authenticated using an external system, for example a Kerbero
 	>[!Note]
 	>If "ANY" check-box is not checked, then the user name in HANA needs to exactly match the name of the user in the UPN before the domain suffix (i.e. BrittaSimon@contoso.com would become BrittaSimon in HANA).
 
-5. For testing purposes, assign all **"XS"** roles to the user. 
+5. For testing purposes, assign all **"XS"** roles to the user.
 
 	![assigning roles](./media/active-directory-saas-saphana-tutorial/sap6.png)
 
