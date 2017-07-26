@@ -6,7 +6,7 @@ services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
-editor: TomSh
+editor: tomsh
 
 ms.assetid: 
 ms.service: security
