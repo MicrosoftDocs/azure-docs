@@ -54,7 +54,7 @@ Here are some of the features of Premium Storage:
 
 * **Premium storage disks**
 
-    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
+    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series, GS-series, Ls-series, and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
 * **Premium page blobs**
 

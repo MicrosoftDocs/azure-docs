@@ -223,7 +223,7 @@ To learn about additional methods for creating Spring Boot apps by using Intelli
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Azure Sign In for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Configuring Artifacts]: https://www.jetbrains.com/help/idea/2016.1/configuring-artifacts.html
-[Deploy Spring Boot on Linux in ACS]: ./container-service/container-service-deploy-spring-boot-app-on-linux.md
+[Deploy Spring Boot on Linux in ACS]:container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md
 [Docker]: https://www.docker.com/
 [Publish Container with Azure Toolkit]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
 [Spring Boot]: http://projects.spring.io/spring-boot/

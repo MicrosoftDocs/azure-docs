@@ -196,7 +196,7 @@ And when an edit arises where one of the attributes of the chunk is affected, it
 ## The search box
 Users will generate, luckily, a lot of content. And we should be able to provide the ability to search and find content that might not be directly in their content streams, maybe because we don’t follow the creators, or maybe we are just trying to find that old post we did 6 months ago.
 
-Thankfully, and because we are using Azure DocumentDB, we can easily implement a search engine using [Azure Search](https://azure.microsoft.com/services/search/) in a couple of minutes and without typing a single line of code (other than obviously, the search process and UI).
+Thankfully, and because we are using Azure Cosmos DB, we can easily implement a search engine using [Azure Search](https://azure.microsoft.com/services/search/) in a couple of minutes and without typing a single line of code (other than obviously, the search process and UI).
 
 Why is this so easy?
 

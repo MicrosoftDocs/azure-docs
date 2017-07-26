@@ -60,7 +60,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Case Studies](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Networking Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)

@@ -18,6 +18,7 @@
 ### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
+### [Adjust quota limits](data-lake-analytics-quota-limits.md)
 
 ## Develop U-SQL programs
 ### [U-SQL basics](data-lake-analytics-u-sql-get-started.md)
@@ -48,7 +49,7 @@
 
 # Resources
 ## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
