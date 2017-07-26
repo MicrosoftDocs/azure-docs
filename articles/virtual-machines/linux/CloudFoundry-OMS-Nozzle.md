@@ -131,7 +131,7 @@ Make sure the OMS nozzle application is running.
 * If you did not use the OMS for CF template, you will need to manually import the default views and create the alerts.
 
 ### 1. Import OMS View
-From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, select one of the omsview files, e.g. Cloud Foundry.omsview, and save the view. Now a **Tile** will be displayed on the main OMS Overview page. Click the **Tile**, it shows visualized metrics.
+From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, select one of the omsview files, e.g. Cloud Foundry.omsview, and save the view. Now a **Tile** will be displayed on the main OMS Overview page. Click the **Tile**, it will show visualized metrics.
 
 Operators could customize these views or create new views through **View Designer**.
 
