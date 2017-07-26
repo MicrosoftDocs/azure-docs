@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/26/2017
 ms.author: bwren
 
 ---
@@ -20,15 +20,16 @@ ms.author: bwren
 # Upgrade your Azure Log Analytics workspace to new log search
 
 > [!NOTE]
-> The new Log Analytics query language is currently in public preview.  Participation in the public preview is optional.  When the Azure Log Analytics new query language reaches general availability, then your workspace will be automatically upgraded.
+> Upgrade to the new Log Analytics query language is currently optional giving you time to [ramp up on the new language](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html).  
 
-The new Log Analytics query language is almost here, and you can participate in the public preview.  This article describes the advantages of the new language and how to convert your workspace if you choose to join the preview.  If you don't join, then your workspace will continue to operate just like it always did, but it will be automatically converted when the new language reaches general availability sometime later this year.
+The new Log Analytics query language is here, and you need to upgrade your workspace to take advantage of it.  This article describes the advantages of the new language and how to convert your workspace.  If you don't choose to upgrade now, then your workspace will continue to operate just like it always did, but it will be automatically converted at a later date.  You will receive significant time and notification when that date is set.
 
 This article provides details on the new language and the upgrade process.
 
 ## Why the new language?
 We understand that there’s pain in any transition, and we aren’t just changing the query language for the fun of it.  There are several reasons that this change will provide significant value to our Log Analytics customers.
 
+- **Simple yet powerful.** The new language is easier to understand and similar to SQL with constructs more like natural language than the legacy language. 
 - **Full piping language.**  The new language has more extensive piping capabilities than the legacy language.  Virtually any output can be piped to another command to create more complex queries than were previously possible.
 - **Search-time field extractions.**  The new language supports more advanced runtime calculated fields than the legacy language.  You can use complex calculations for extended fields and then use the calculated fields for additional commands including joins and aggregations.
 - **Advanced joins.**  The new language provides more advanced joins than the legacy language including the ability to join tables on multiple fields, use inner and outer joins, and join on extended fields.
@@ -36,6 +37,7 @@ We understand that there’s pain in any transition, and we aren’t just changi
 - **Smart Analytics.**  The new language has advanced algorithms to evaluate patterns in datasets and compare different sets of data.
 - **Advanced Analytics portal.**  The Advanced Analytics portal offers analysis features not available in the Log Analytics portal including multiline editing of queries, additional visualizations, and advanced diagnostics.
 - **Consistency with other applications.**  The new language and the Advanced Analytics Portal are already used for analytics in Application Insights.  Implementing it for Log Analytics provides consistency across Azure services.
+- **Much more.** Refer to the [Azure Log Analytics Query Language](https://docs.loganalytics.io/index.html) site for complete details and tutorials on the new language.
 
 
 ## When can I upgrade?
