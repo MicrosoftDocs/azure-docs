@@ -97,6 +97,8 @@ The following procedure is only required for Spark clusters:
 12. Click **Restart**, and then click **Restart All Affected**.
 13. Click **Confirm Restart All**.
 14. Click **OK** to close the dialog.
+
+
 ## Add additional storage accounts
 
 You can use script action to add additional secure transfer enabled storage accounts to a HDInsight cluster.  For more information, see [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md).
