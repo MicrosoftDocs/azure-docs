@@ -170,7 +170,7 @@ We would like to draw attention to a few noteworthy aspects of the Cosmos DB que
 * A Cosmos DB collection is a schema-free container of JSON documents. The relations in data entities within and across documents in a collection are implicitly captured by containment and not by primary key and foreign key relations. This is an important aspect worth pointing out in light of the intra-document joins discussed later in this article.
 
 ## <a id="Indexing"></a> Cosmos DB indexing
-Before we get into the DocumentDB API SQL syntax, it is worth exploring the indexing design in Cosmos DB API API. 
+Before we get into the DocumentDB API SQL syntax, it is worth exploring the indexing design in Cosmos DB. 
 
 The purpose of database indexes is to serve queries in their various forms and shapes with minimum resource consumption (like CPU and input/output) while providing good throughput and low latency. Often, the choice of the right index for querying a database requires much planning and experimentation. This approach poses a challenge for schema-less databases where the data doesn’t conform to a strict schema and evolves rapidly. 
 

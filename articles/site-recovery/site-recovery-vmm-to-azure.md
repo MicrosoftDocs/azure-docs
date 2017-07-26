@@ -160,6 +160,12 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 
      ![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Accept or modify the location of an SSL certificate that’s automatically generated for data encryption. This certificate is used if you enable data encryption for a cloud protected by Azure in the Azure Site Recovery portal. Keep this certificate safe. When you run a failover to Azure you’ll need it to decrypt, if data encryption is enabled.
+
+	> [!NOTE]
+	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using the data
+	> encryption option provided by Azure Site Recovery. The encryption capability provided by Azure can be turned on for a storage	 	 > account and helps achieve better performance as the encryption/decryption is handled by Azure storage.
+	> [Learn more about Storage service encryption from Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+	
 8. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration, specify the VMM cluster role name.
 9. Enable **Sync cloud metadata**, if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Register** to complete the process.
 
@@ -427,6 +433,14 @@ Where:
 * **/Credentials**: Mandatory parameter that specifies where the registration key file is located.  
 * **/FriendlyName**: Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
 * * **/EncryptionEnabled**: Optional parameter when you're replicating Hyper-V VMs in VMM clouds to Azure. Specify if you want to encrypt virtual machines in Azure (at rest encryption). Ensure that the name of the file has a **.pfx** extension. Encryption is off by default.
+
+	> [!NOTE]
+	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using 
+	> the encryption option (EncryptionEnabled option) provided by Azure Site Recovery. The encryption capability provided by Azure 
+	> can be turned on for a storage account and helps achieve better performance as the encryption/decryption is done by Azure  
+	> storage.
+	> [Learn more about Storage service encryption in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+	
 * **/proxyAddress**: Optional parameter that specifies the address of the proxy server.
 * **/proxyport**: Optional parameter that specifies the port of the proxy server.
 * **/proxyUsername**: Optional parameter that specifies the proxy user name (if proxy requires authentication).

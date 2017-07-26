@@ -199,7 +199,7 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 
 ## Add capacity
 
-Add capacity by adding additional SQL hosts	in the Azure Stack portal and associate them with an appropriate SKU. If you wish to use another instance of SQL instead of the one installed on the provider VM, click **Resource Providers** &gt; **SQLAdapter** &gt; **SQL Hosting Servers** &gt; **+Add**.
+Add capacity by adding additional SQL hosts in the Azure Stack portal and associate them with an appropriate SKU. If you wish to use another instance of SQL instead of the one installed on the provider VM, click **Resource Providers** &gt; **SQLAdapter** &gt; **SQL Hosting Servers** &gt; **+Add**.
 
 ## Making SQL databases available to tenants
 
@@ -218,15 +218,13 @@ In order to remove the resource provider, it is essential to first remove any de
 
 2. All tenant databases must be deleted from the resource provider (this will not delete the data). This should be performed by the tenants themselves.
 
-3. Tenants must unregister from the namespace.
+3. Administrator must delete the hosting servers from the SQL Adapter
 
-4. Administrator must delete the hosting servers from the SQL Adapter
+4. Administrator must delete any plans that reference the SQL Adapter.
 
-5. Administrator must delete any plans that reference the SQL Adapter.
+5. Administrator must delete any SKUs and quotas associated to the SQL Adapter.
 
-6. Administrator must delete any SKUs and quotas associated to the SQL Adapter.
-
-7. Rerun the deployment script with the -Uninstall parameter, Azure Resource Manager endpoints, DirectoryTenantID, and credentials for the service administrator account.
+6. Rerun the deployment script with the -Uninstall parameter, Azure Resource Manager endpoints, DirectoryTenantID, and credentials for the service administrator account.
 
 
 
