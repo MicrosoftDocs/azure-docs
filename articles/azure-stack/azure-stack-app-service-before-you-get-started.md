@@ -29,8 +29,6 @@ You need a few items to install Azure App Service on Azure Stack:
 >[!NOTE] 
 > The following steps *all* take place on the Azure Stack host machine.
 
-## Before you deploy App Service on Azure Stack
-
 To deploy a resource provider, you must run the PowerShell Integrated Scripting Environment (ISE) as an administrator. For this reason, you need to allow cookies and JavaScript in the Internet Explorer profile that you use to sign in to Azure Active Directory.
 
 ## Turn off Internet Explorer enhanced security
