@@ -119,7 +119,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 4. To review the subnets for the virtual network, copy the following command, and then paste it in the PowerShell window:
     ```powershell
-    $Vnet = $Vnet.subnets | Format-Table Name, AddressPrefix
+    $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 5. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-powershell) in this article.
 
@@ -132,7 +132,7 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
 ### <a name="template-portal"></a>Azure portal
 
 1. In your browser, open the [template page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Click the **Deploy to Azure** button. Log in to Azure on the Azure portal login screen that appears, if you're not already logged in to Azure.
+2. Click the **Deploy to Azure** button. If you're not already logged in to Azure, log in on the Azure portal login screen that appears.
 3. Sign in to the portal by using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Enter the following values for the parameters:
 
@@ -207,7 +207,7 @@ In a CLI session, enter the following command: `az group delete --name myResourc
 
 ### <a name="delete-powershell"></a>PowerShell
 
-In a PowerShell session, enter the following command: `Remove-AzureRmResourceGroup -Name myResourceGroup`
+In a PowerShell session, enter the following command: `Remove-AzureRmResourceGroup -Name myResourceGroup -Force`
 
 ## Next steps
 
