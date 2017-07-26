@@ -44,7 +44,7 @@ The nozzle also runs with a CF user who is authorized to access the loggregator 
 * [Install Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
 * [Install Cloud Foundry UAA Command Line Client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md) 
-Note you will need Rubygems to install UAA command Line Client.
+Note you need to install Rubygems first to install UAA command Line Client.
 
 ### 3. Create an OMS Workspace in Azure
 * Create the OMS workspace manually
@@ -60,7 +60,7 @@ Click OK to complete.
 For additional details, see [Get started with Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started)
 
 * Create the OMS workspace through the OMS for CF template
-You can create the OMS workspace, load the Pre-configured OMS views and alerts, all though this [OMS for CF template](TBD Link)
+You can create the OMS workspace, load the Pre-configured OMS views and alerts, all through the [OMS for CF template](TBD Link)
 
 # Deploy 
 
@@ -131,7 +131,7 @@ Make sure the OMS nozzle application is running.
 * If you did not use the OMS for CF template, you will need to manually import the default views and create the alerts.
 
 ### 1. Import OMS View
-From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, select one of the [omsview](./docs/omsview) files, e.g. [Cloud Foundry.omsview](./docs/omsview/Cloud%20Foundry.omsview), and save the view. Now a **Tile** will be displayed on the main OMS Overview page. Click the **Tile**, it shows visualized metrics.
+From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, select one of the omsview files, e.g. Cloud Foundry.omsview, and save the view. Now a **Tile** will be displayed on the main OMS Overview page. Click the **Tile**, it shows visualized metrics.
 
 Operators could customize these views or create new views through **View Designer**.
 
