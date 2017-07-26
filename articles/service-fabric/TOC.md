@@ -16,7 +16,9 @@
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Samples
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Azure CLI](samples-cli.md)
 # Concepts
 ## [Understand microservices](service-fabric-overview-microservices.md)
 ## [Big picture](service-fabric-content-roadmap.md)
