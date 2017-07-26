@@ -37,6 +37,7 @@
 ## Configure URL path based routing
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 ## Configure multiple site hosting
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)

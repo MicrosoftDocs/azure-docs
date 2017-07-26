@@ -104,7 +104,7 @@ The IP addresses used for the backend are the IP addresses for your backend serv
 az network application-gateway create \
 --name AdatumAppGateway \
 --location eastus \
---resource-group AdatumAppGatewayRG \
+--resource-group myresourcegroup \
 --vnet-name "AdatumAppGatewayVNET" \
 --vnet-address-prefix "10.0.0.0/16" \
 --subnet "Appgatewaysubnet" \
@@ -116,7 +116,7 @@ az network application-gateway create \
 --http-settings-protocol Http \
 --frontend-port 80 \
 --routing-rule-type Basic \
---http-settings-port 80
+--http-settings-port 80 \
 --public-ip-address "pip2" \
 --public-ip-address-allocation "dynamic" \
 
@@ -128,7 +128,7 @@ The preceding example shows many properties that are not required during the cre
 az network application-gateway create \
 --name "AdatumAppGateway" \
 --location "eastus" \
---resource-group "AdatumAppGatewayRG" \
+--resource-group "myresourcegroup" \
 --vnet-name "AdatumAppGatewayVNET" \
 --vnet-address-prefix "10.0.0.0/16" \
 --subnet "Appgatewaysubnet" \
@@ -142,6 +142,51 @@ az network application-gateway create \
 
 This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
 If you already have your web application defined with the backend pool in the preceding steps, once created, load balancing begins.
+
+## Get application gateway DNS name
+
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../dns/dns-custom-domain.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
+
+
+```azurecli
+az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+```
+
+```
+{
+  "dnsSettings": {
+    "domainNameLabel": null,
+    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.121.167.250",
+  "ipConfiguration": {
+    "etag": null,
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
+    "name": null,
+    "privateIpAddress": null,
+    "privateIpAllocationMethod": null,
+    "provisioningState": null,
+    "publicIpAddress": null,
+    "resourceGroup": "AdatumAppGatewayRG",
+    "subnet": null
+  },
+  "location": "eastus",
+  "name": "pip2",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Dynamic",
+  "resourceGroup": "AdatumAppGatewayRG",
+  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
+  "tags": {
+    "cli[2] owner[administrator]": ""
+  },
+  "type": "Microsoft.Network/publicIPAddresses"
+}
+```
 
 ## Delete all resources
 

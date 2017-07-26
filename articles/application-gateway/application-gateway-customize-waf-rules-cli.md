@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
-ms.date: 06/13/2017
+ms.date: 07/26/2017
 ms.author: gwallace
 
 ---
