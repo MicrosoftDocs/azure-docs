@@ -24,7 +24,7 @@ ms.author: bwren
 The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those source [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md).  The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
 
 ## Prerequisites
-The solution will work with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
+The solution works with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
 
 - For Log Analytics alerts, [create alert rules](log-analytics-alerts.md) to create alert records directly in the repository.
 - For Nagios and Zabbix alerts, [configure those servers](log-analytics-linux-agents.md) to send alerts to Log Analytics.
@@ -34,7 +34,7 @@ The solution will work with any records in the Log Analytics repository with a t
 Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](log-analytics-add-solutions.md).  There is no further configuration required.
 
 ## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of these management packs required.  
+If your System Center Operations Manager management group is connected to your OMS workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.  
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -48,26 +48,26 @@ The following table describes the connected sources that are supported by this s
 |:--- |:--- |:--- |
 | [Windows agents](log-analytics-windows-agents.md) | No |Direct Windows agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No |Direct Linux agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Linux agents.  Nagios and Zabbix alerts are collected from those servers that require the Linux agent. |
-| [System Center Operations Manager management group](log-analytics-om-agents.md) |Yes |Alerts that are generated on SCOM agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  SCOM agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
+| [System Center Operations Manager management group](log-analytics-om-agents.md) |Yes |Alerts that are generated on Operations Manager agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  Operations Manager agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
 
 
 ### Collection frequency
 - Alert records are available to the solution as soon as they are stored in the repository.
-- Alert data is sent from the SCOM management group to Log Analytics every three minutes.  
+- Alert data is sent from the Operations Manager management group to Log Analytics every three minutes.  
 
 ## Using the solution
-When you add the Alert Management solution to your OMS workspace, the **Alert Management** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
+When you add the Alert Management solution to your OMS workspace, the **Alert Management** tile is be added to your OMS dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
 
 ![Alert Management tile](media/log-analytics-solution-alert-management/tile.png)
 
-Click on the **Alert Management** tile to open the **Alert Management** dashboard.  The dashboard includes the columns in the following table.  Each column lists the top ten alerts by count matching that column's criteria for the specified scope and time range.  You can run a log search that provides the entire list by clicking **See all** at the bottom of the column or by clicking the column header.
+Click on the **Alert Management** tile to open the **Alert Management** dashboard.  The dashboard includes the columns in the following table.  Each column lists the top 10 alerts by count matching that column's criteria for the specified scope and time range.  You can run a log search that provides the entire list by clicking **See all** at the bottom of the column or by clicking the column header.
 
 | Column | Description |
 |:--- |:--- |
 | Critical Alerts |All alerts with a severity of Critical grouped by alert name.  Click on an alert name to run a log search returning all records for that alert. |
 | Warning Alerts |All alerts with a severity of Warning grouped by alert name.  Click on an alert name to run a log search returning all records for that alert. |
-| Active SCOM Alerts |All alerts collected from SCOM with any state other than *Closed* grouped by source that generated the alert. |
-| All Active Alerts |All alerts with any severity grouped by alert name. Only includes SCOM alerts with any state other than *Closed*. |
+| Active SCOM Alerts |All alerts collected from Operations Manager with any state other than *Closed* grouped by source that generated the alert. |
+| All Active Alerts |All alerts with any severity grouped by alert name. Only includes Operations Manager alerts with any state other than *Closed*. |
 
 If you scroll to the right, the dashboard lists several common queries that you can click on to perform a [log search](log-analytics-log-searches.md) for alert data.
 
@@ -110,8 +110,8 @@ The following table provides sample log searches for alert records collected by 
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Critical alerts raised during the past 24 hours |
 | Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |Warning alerts raised during the past 24 hours |
 | Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |Sources with active alerts raised during the past 24 hours |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |Critical alerts raised during the past 24 hours which are still active |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Alerts raised during the past 24 hours which are now closed |
+| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |Critical alerts raised during the past 24 hours that are still active |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Alerts raised during the past 24 hours that are now closed |
 | Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Alerts raised during the past 1 day grouped by their severity |
 | Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Alerts raised during the past 1 day sorted by their repeat count value |
 
@@ -124,8 +124,8 @@ The following table provides sample log searches for alert records collected by 
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |Critical alerts raised during the past 24 hours |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |Warning alerts raised during the past 24 hours |
 | Alert &#124; where SourceSystem == "OpsManager" and AlertState != "Closed" and TimeRaised > ago(24h) &#124; summarize Count = count() by SourceDisplayName |Sources with active alerts raised during the past 24 hours |
-| Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) and AlertState != "Closed" |Critical alerts raised during the past 24 hours which are still active |
-| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |Alerts raised during the past 24 hours which are now closed |
+| Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) and AlertState != "Closed" |Critical alerts raised during the past 24 hours that are still active |
+| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |Alerts raised during the past 24 hours that are now closed |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |Alerts raised during the past 1 day grouped by their severity |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |Alerts raised during the past 1 day sorted by their repeat count value |
 

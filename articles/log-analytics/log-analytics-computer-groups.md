@@ -36,14 +36,14 @@ You can create a computer group in Log Analytics using any of the methods in the
 | WSUS |Automatically scan WSUS servers or clients for targeting groups and create a group in Log Analytics for each. |
 
 ### Log search
-Computer groups created from a Log Search will contain all of the computers returned by a search query that you define.  This query is run every time the computer group is used so that any changes since the group was created will be reflected.
+Computer groups created from a Log Search contain all of the computers returned by a search query that you define.  This query is run every time the computer group is used so that any changes since the group was created is reflected.
 
 Use the following procedure to create a computer group from a log search.
 
 1. [Create a log search](log-analytics-log-searches.md) that returns a list of computers.  The search must return a distinct set of computers by using something like **Distinct Computer** or **measure count() by Computer** in the query.  
 2. Click the **Save** button at the top of the screen.
-3. Select **Yes** to **Save this query as a computer group:**.
-4. Type in a **Name** and a **Category** for the group.  If a search with the same name and category already exists, then you will be prompted to overwrite it.  You can have multiple searches with the same name in different categories. 
+3. Select **Yes** to **Save this query as a computer group**.
+4. Type in a **Name** and a **Category** for the group.  If a search with the same name and category already exists, then you are be prompted to overwrite it.  You can have multiple searches with the same name in different categories. 
 
 Following are example searches that you can save as a computer group.
 
@@ -62,22 +62,22 @@ Computer groups created with the Log Search API are the same as searches created
 For details on creating a computer group using the Log Search API see [Computer Groups in Log Analytics log search REST API](log-analytics-log-search-api.md#computer-groups).
 
 ### Active Directory
-When you configure Log Analytics to import Active Directory group memberships, it will analyze the group membership of any domain joined computers with the OMS agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
+When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the OMS agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
 
 You configure Log Analytics to import Active Directory security groups from the **Computer Groups** menu in Log Analytics **Settings**.  Select **Automation** and then **Import Active Directory group memberships from computers**.  There is no further configuration required.
 
 ![Computer groups from Active Directory](media/log-analytics-computer-groups/configure-activedirectory.png)
 
-When groups have been imported, the menu will list the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ### Windows Server Update Service
-When you configure Log Analytics to import WSUS group memberships, it will analyze the targeting group membership of any computers with the OMS agent.  If you are using client-side targeting, any computer that is connected to OMS and is part of any WSUS targeting groups will have its group membership imported to Log Analytics. If you are using server-side targeting, the OMS agent should be installed on the WSUS server in order for the group membership information to be imported to OMS.  This membership is continuously updated every 4 hours. 
+When you configure Log Analytics to import WSUS group memberships, it analyzes the targeting group membership of any computers with the OMS agent.  If you are using client-side targeting, any computer that is connected to OMS and is part of any WSUS targeting groups has its group membership imported to Log Analytics. If you are using server-side targeting, the OMS agent should be installed on the WSUS server in order for the group membership information to be imported to OMS.  This membership is continuously updated every 4 hours. 
 
 You configure Log Analytics to import Active Directory security groups from the **Computer Groups** menu in Log Analytics **Settings**.  Select **Active Directory** and then **Import Active Directory group memberships from computers**.  There is no further configuration required.
 
 ![Computer groups from Active Directory](media/log-analytics-computer-groups/configure-wsus.png)
 
-When groups have been imported, the menu will list the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ## Managing computer groups
 You can view computer groups that were created from a log search or the Log Search API from the **Computer Groups** menu in Log Analytics **Settings**.  Click the **x** in the **Remove** column to delete the computer group.  Click the **View members** icon for a group to run the group's log search that returns its members. 
@@ -91,14 +91,14 @@ You use the following syntax to refer to a computer group in a log search.  Spec
 
     $ComputerGroups[Category: Name]
 
-When a search is run, the members of any computer groups included in the search are first resolved.  If the group is based on a log search, then that search is run to return the members of the group before performing the top level log search.
+When a search is run, the members of any computer groups included in the search are first resolved.  If the group is based on a log search, then that search is run to return the members of the group before performing the top-level log search.
 
-Computer groups are typically used with the **IN** clause in the log search as in the following example.
+Computer groups are typically used with the **IN** clause in the log search as in the following example:
 
     Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you use a Computer group in a query by treating its alias as a function as in the following example.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you use a Computer group in a query by treating its alias as a function as in the following example:
 > 
 >  `UpdateSummary | where Computer IN (MyComputerGroup)`
 
@@ -113,7 +113,7 @@ A record is created in the OMS repository for each computer group membership cre
 | Group |Name of the group. |
 | GroupFullName |Full path to the group including the source and source name. |
 | GroupSource |Source that group was collected from. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Name of the source that the groups was collected from.  For Active Directory, this is the domain name. |
+| GroupSourceName |Name of the source that the group was collected from.  For Active Directory, this is the domain name. |
 | ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
 | TimeGenerated |Date and time the computer group was created or updated. |
 
