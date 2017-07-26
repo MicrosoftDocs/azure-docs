@@ -93,7 +93,7 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
   }
 ```
 
-To use a private container image registry, add an object to the json document with the following format. A complete example can be seen in the [ACI GitHub Repo](https://github.com/Microsoft/azure-cseries-preview/blob/master/templates/201-privateregistry/azuredeploy.json).
+To use a private container image registry, add an object to the json document with the following format.
 
 ```json
 "imageRegistryCredentials": [
