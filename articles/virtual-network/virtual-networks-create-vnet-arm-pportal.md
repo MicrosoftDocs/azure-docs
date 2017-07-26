@@ -1,5 +1,5 @@
 ---
-title: Create an Azure virtual network with subnets | Microsoft Docs
+title: Create an Azure virtual network with multiple subnets | Microsoft Docs
 description: Learn how to create a virtual network with multiple subnets in Azure.
 services: virtual-network
 documentationcenter: ''
@@ -21,13 +21,13 @@ ms.custom:
 ---
 # Create a virtual network with multiple subnets
 
-In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. You can connect Azure resources, like virtual machines, Azure App Service environments, virtual machine scale sets, Azure HDInsight, and other cloud services to subnets. Resources that are connected to virtual networks can communicate with each other over your private Azure network.
+In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. You can create Azure resources, like Virtual machines, App Service environments, Virtual machine scale sets, Azure HDInsight, and Cloud services in a subnet. Resources in virtual networks can communicate with each other and with other networks connected to a virtual network.
 
-The following sections include steps that you can take to deploy a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), and an [Azure Resource Manager template](#resource-manager-template). The result is the same, regardless of which tool you use to deploy the virtual network. Click a tool link to go to that section of the tutorial. To learn more about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual subnets](virtual-network-manage-subnet.md).
+The following sections include steps that you can take to create a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), and an [Azure Resource Manager template](#resource-manager-template). The result is the same, regardless of which tool you use to create the virtual network. Click a tool link to go to that section of the tutorial. To learn more about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual network subnets](virtual-network-manage-subnet.md).
 
 ## <a name="portal"></a>Azure portal
 
-1. In an Internet browser, go to the [Azure portal](https://portal.azure.com). Sign in by using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+1. In an Internet browser, go to the [Azure portal](https://portal.azure.com). Log in using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. In the portal, click **+New** > **Networking** > **Virtual network**.
 3. On the **Create virtual network** blade, enter the following values, and then click **Create**:
 
@@ -41,7 +41,7 @@ The following sections include steps that you can take to deploy a virtual netwo
     |Subscription and location|Select your subscription and location.
 
     If you're new to Azure, learn more about [resource groups](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), and [locations](https://azure.microsoft.com/regions) (also referred to as *regions*).
-4. In the portal, you can create only one subnet when you create a virtual network. In this tutorial, you create a second subnet after you create the virtual network. You might later connect Internet-accessible resources to the **Public** subnet. You also might connect resources that aren't accessible from the Internet to a **Private** subnet. 
+4. In the portal, you can create only one subnet when you create a virtual network. In this tutorial, you create a second subnet after you create the virtual network. You might later create Internet-accessible resources in the **Public** subnet. You also might create resources that aren't accessible from the Internet in the **Private** subnet. 
 To create the second subnet, in the **Search resources** box at the top of the page, enter **myVnet**. In the search results, click **myVnet**. If you have multiple virtual networks with the same name in your subscription, check the resource groups that are listed under each virtual network. Ensure that you click the **myVnet** search result that has the resource group **myResourceGroup**.
 5. On the **myVnet** blade, under **SETTINGS**, click **Subnets**.
 6. On the **myVnet - Subnets** blade, click **+Subnet**.
@@ -79,7 +79,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group myResourceGroup
     ```
     
-4. When the script is finished running, review the subnets for the virtual network. Copy the following command, and then paste it in the CLI session:
+4. When the script is finished running, review the subnets for the virtual network. Copy the following command, and then paste it into your CLI session:
 
     ```azurecli
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
@@ -117,10 +117,12 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Subnet $Subnet1,$Subnet2
     ```
 
-4. To review the subnets for the virtual network, copy the following command, and then paste it in the PowerShell window:
+4. To review the subnets for the virtual network, copy the following command, and then paste it into your PowerShell session:
+
     ```powershell
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
+
 5. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-powershell) in this article.
 
 ## Resource Manager template
@@ -203,11 +205,19 @@ When you finish this tutorial, you might want to delete the resources that you c
 
 ### <a name="delete-cli"></a>Azure CLI
 
-In a CLI session, enter the following command: `az group delete --name myResourceGroup --yes`
+In a CLI session, enter the following command:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
+```
 
 ### <a name="delete-powershell"></a>PowerShell
 
-In a PowerShell session, enter the following command: `Remove-AzureRmResourceGroup -Name myResourceGroup -Force`
+In a PowerShell session, enter the following command:
+
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## Next steps
 
