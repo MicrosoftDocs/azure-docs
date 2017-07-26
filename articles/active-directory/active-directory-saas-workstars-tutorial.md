@@ -106,9 +106,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Workstars Domain and URLs single sign-on information](./media/active-directory-saas-workstars-tutorial/tutorial_workstars_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://workstars.com`
+    a. In the **Identifier** textbox, type the URL: `https://workstars.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdoamin>.workstars.com/saml/login_check`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.workstars.com/saml/login_check`
 
 	> [!NOTE] 
 	> The value is not real. Update the value with the actual Reply URL. Contact [Workstars support team](https://support.workstars.com) to get the value.
