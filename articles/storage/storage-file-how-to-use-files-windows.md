@@ -7,7 +7,7 @@ author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+ms.assetid: 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -20,23 +20,21 @@ ms.author: renash
 # Mount an Azure File share and access the share in Windows
 [Azure File storage](storage-dotnet-how-to-use-files.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
 
-In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. The following table shows the SMB version of recent Windows releases:
+In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
-| Windows version | SMB version | Supports mounting from Azure VM | Supports mounting from on-premises | Minimum Recommended KB |
-|----|----|----|----|----|
-| Windows 10 version 1703 | SMB 3.1.1 | Yes | Yes | |
-| Windows Server 2016 | SMB 3.1.1 | Yes | Yes | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10 version 1607 | SMB 3.1.1 | Yes | Yes | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10 version 1511 | SMB 3.1.1 | Yes | Yes | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10 version 1507 | SMB 3.1.1 | Yes | Yes | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Yes | Yes | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Yes | Yes | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Yes | Yes | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Yes | No | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Yes | No | [KB4012215](https://support.microsoft.com/help/4012215) |
+Azure File share can be mounted on Windows machine either on-premises or in Azure VM depending on OS version. Below table illustrates the 
+
+| Windows Version        | SMB Version |Mountable On Azure VM|Mountable On-Premise|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Yes                 | No                  |
+| Windows Server 2008 R2 | SMB 2.1     | Yes                 | No                  |
+| Windows 8              | SMB 3.0     | Yes                 | Yes                 |
+| Windows Server 2012    | SMB 3.0     | Yes                 | Yes                 |
+| Windows Server 2012 R2 | SMB 3.0     | Yes                 | Yes                 |
+| Windows 10             | SMB 3.0     | Yes                 | Yes                 |
 
 > [!Note]  
-> We always recommend taking the most recent KB for your version of Windows. The minimum recommended KB is meant to provide the most recent package that has SMB fixes for update-averse IT administrators.
+> We always recommend taking the most recent KB for your version of Windows.
 
 ## </a>Prerequisites for Mounting Azure File Share with Windows 
 * **Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.

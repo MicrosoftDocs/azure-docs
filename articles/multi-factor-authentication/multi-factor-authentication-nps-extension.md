@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid:
 ms.service: multi-factor-authentication
@@ -13,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/14/2017
 ms.author: kgremban
-
-ms.custom: H1Hack27Feb2017,it-pro
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017; it-pro
 ---
-# Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication - Public preview
+# Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 
 The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
 
@@ -103,9 +102,8 @@ If you need to kick off a new round of synchronization, us the instructions in [
 There are two factors that affect which authentication methods are available with an NPS extension deployment:
 
 1. The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
-   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, text message, mobile app notification, and mobile app verification code.
-   - **CHAPV2** supports phone call and mobile app notification.
-   - **EAP** is not supported.
+   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, and mobile app verification code.
+   - **CHAPV2** and **EAP** support phone call and mobile app notification.
 2. The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
 
 When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
@@ -117,9 +115,9 @@ You can [disable unsupported authentication methods](multi-factor-authentication
 Before you deploy the full NPS extension, you need to enable MFA for the users that you want to perform two-step verification. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
 
 Use these steps to get a test account started:
-1. [Enable an account for MFA](multi-factor-authentication-get-started-user-states.md).
-2. Go to any website that kicks off an Azure AD authentication, like https://portal.azure.com.
-3. [Register for two-step verification](./end-user/multi-factor-authentication-end-user-first-time.md).
+1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account. 
+2. Follow the prompts to set up a verification method.
+3. Either create a conditional access policy or [change the user state](multi-factor-authentication-get-started-user-states.md) to require two-step verification for the test account. 
 
 Your users also need to follow these steps to enroll before they can authenticate with the NPS extension.
 
@@ -165,14 +163,13 @@ Repeat these steps on any additional NPS servers that you want to set up for loa
 
 This section includes design considerations and suggestions for successful NPS extension deployments.
 
-### Configurations limitations
+### Configuration limitations
 
 - The NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users will have to perform proof-up again to populate their MFA details in the cloud.  
 - The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension cannot be configured to use a different identifier like alternate login ID or custom AD field other than UPN.  
 - Not all encryption protocols support all verification methods.
-   - **PAP** supports phone call, text message, mobile app notification, and mobile app verification code
-   - **CHAPV2** supports phone call and mobile app notification
-   - **EAP** is not supported
+   - **PAP** supports phone call, one-way text message, mobile app notification, and mobile app verification code
+   - **CHAPV2** and **EAP** support phone call and mobile app notification
 
 ### Control RADIUS clients that require MFA
 
@@ -238,4 +235,6 @@ Verify that https://adnotifications.windowsazure.com is reachable from the serve
 
 ## Next steps
 
-See how to integrate Azure MFA with [Active Directory](multi-factor-authentication-get-started-server-dirint.md), [RADIUS authentication](multi-factor-authentication-get-started-server-radius.md), and [LDAP authentication](multi-factor-authentication-get-started-server-ldap.md).
+- Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](nps-extension-advanced-configuration.md)
+
+- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)

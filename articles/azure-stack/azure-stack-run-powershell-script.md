@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 7/17/2017
 ms.author: erikje
 
 ---
@@ -68,7 +68,7 @@ To deploy the development kit, you must complete the following steps:
     # Download file
     Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
     ```
-6. Open an elevated PowerShell console > navigate to the asdk-installer.ps1 script > run it > click **Prepare vhdx**.
+6. Open an elevated PowerShell console > run the C:\AzureStack_Installer\asdk-installer.ps1 script > click **Prepare vhdx**.
 7. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the cloudbuilder.vhdx file that you downloaded in the previous steps.
 8. Optional: Check the **Add drivers** box to specify a folder containing additional drivers that you want on the host.
 9. On the **Optional settings** page, provide the local administrator account for the development kit host. If you don't provide these credentials, you'll need KVM access to the host during the install process below.
@@ -90,7 +90,7 @@ To deploy the development kit, you must complete the following steps:
     > [!IMPORTANT]
     > For Azure Active Directory deployments, Azure Stack requires access to the Internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
     
-2. Open an elevated PowerShell console > navigate to the asdk-installer.ps1 script > run it > click **Install**.
+2. Open an elevated PowerShell console > run the \AzureStack_Installer\asdk-installer.ps1 script (which may be on a different drive in the Cloudbuilder.vhdx) > click **Install**.
 3. In the **Type** box, select **Azure Cloud** or **ADFS**.
     - **Azure Cloud**: Azure Active Directory is the identity provider. Use this parameter to specify a specific directory where the AAD account has global admin permissions. Full name of an AAD Directory tenant in the format of .onmicrosoft.com. 
     - **ADFS**: The default stamp Directory Service is the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
@@ -118,22 +118,28 @@ To deploy the development kit, you must complete the following steps:
    
     When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**.
    
-    If the deployment fails, you can rerun the installer and choose the **Rerun installation** option. Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
+If the deployment fails, you can use the following PowerShell rerun script from the same elevated PowerShell window:
+
+```powershell
+cd c:\CloudDeployment\Setup
+.\InstallAzureStackPOC.ps1 -Rerun
+```
+
+This script will restart the deployment from the last step that succeeded.
+
+Or, you can [redeploy](azure-stack-redeploy.md) from scratch.
 
 
 ## Reset the password expiration to 180 days
 
 To make sure that the password for the development kit host doesn't expire too soon, follow these steps after you deploy:
 
-1. Sign in to the development kit host as azurestack\azurestackadmin.
+1. On the development kit host, open **Group Policy Management** and navigate to **Group Policy Management** – **Forest: azurestack.local** – **Domains** – **azurestack.local**.
+2. Right click on **MemberServer** and click **Edit**.
+3. In the Group Policy Management Editor, navigate to **Computer Configuration** – **Policies** – **Windows Settings** – **Security Settings** – **Account Policies** – **Password Policy**.
+4. In the right pane, double-click on **Maximum password age**.
+5. In the **Maximum password age Properties** dialog box, change the **Password will expire in** value to 180, then Click **OK**.
 
-2. Run the following command to display the current MaxPasswordAge of 42 days: `Get-ADDefaultDomainPasswordPolicy`
-
-3. Run the following command to update the MaxPasswordAge to 180 days:
-
-    `Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local`   
-
-4. Run the following command again to confirm the password age change: `Get-ADDefaultDomainPasswordPolicy`.
 
 ## Next steps
 [Register Azure Stack with your Azure subscription](azure-stack-register.md)

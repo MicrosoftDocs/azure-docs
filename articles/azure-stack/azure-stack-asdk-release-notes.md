@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 07/21/2017
 ms.author: helaw
 
 ---
@@ -44,7 +44,9 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * Tenants are able to browse the full marketplace without a subscription, and will see administrative items like plans and offers.  These items are non-functional to tenants.
 * When selecting an infrastructure role instance,  you see an error showing a reference error. Use the browser’s refresh functionality to refresh the Admin Portal.
 * The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
-* You will receive repeated notifications for syndicated marketplace items that have completed downloading
+* You will receive repeated notifications for syndicated marketplace items that have completed downloading.
+* You are not able to view permissions to your subscription using the Azure Stack portals.  As a work around, you can verify permissions using Powershell.
+* You must add `-TenantID` as a flag when exporting a completed deployment as an automation script from the portal.
 
 #### Services
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
@@ -76,8 +78,12 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
     ```PowerShell
       Set-AzureRmEnvironment AzureStack -GraphAudience https://graph.local.azurestack.external/
     ```
-    
+
+
+
 #### Fabric
 * All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
 * The compute resource provider displays an unknown state.
 * The BMC IP address & model are not shown in the essential information of a Scale Unit Node.  This behavior is expected in Azure Stack development kit.
+* The restart action on Compute controller infrastructure role (AzS-XRP01 instance) should not be used.
+* The Infrastructure backup blade should not be used.

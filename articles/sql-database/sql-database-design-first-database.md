@@ -37,7 +37,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
+To complete this tutorial, make sure you have installed:
+- The newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
+- The newest version of [BCP and SQLCMD][https://www.microsoft.com/download/details.aspx?id=36433].
 
 ## Log in to the Azure portal
 

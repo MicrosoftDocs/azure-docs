@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Cloud App Discovery Security and Privacy Considerations
