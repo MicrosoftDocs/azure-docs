@@ -23,13 +23,17 @@ ms.author: andret
 
 This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
 
-At the end of this guide, your application will be able to accept sign ins of work and school accounts from any company or organization that has integrated with Azure Active Directory. 
+At the end of this guide, your application will be able to accept sign ins of work and school accounts from organizations that has integrated with Azure Active Directory. 
+
+> [!NOTE]
+> This guided setup helps you to enable sign-ins from work and school accounts. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). Please see [this ASP.NET guided setup](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
 
 > This guide requires Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it?  [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
 
 ## How this guide works
 
-![How this guide works](media/active-directory-serversidewebapp-aspnetwebappowin-intro/aspnetbrowsergeneral.png)
+![How this guide works](media/active-directory-aspnetwebapp-v1/aspnet-intro.png)
+
 
 This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
 
@@ -359,7 +363,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 <!--end-use-->
 
 <!--start-configure-->
-## Configure your applicaiton
+## Configure your *web.config* and register an application
 
 1. In Visual Studio, add the following to `web.config` (located in the root folder) under the section `configuration\appSettings`:
 
@@ -391,15 +395,38 @@ In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> wit
 </li>
 </ol>
 
-### Register your application in the Azure Portal, then add it to *web.config*
+### Register your application in the Azure Portal, then add its information to *web.config*
 
 1. Go to the [Microsoft Azure Portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to register an application
 2. Select `New application registration`
 3. Enter a name for your application
 4. Paste the *SSL URL* for your Visual Studio project in `Sing-on URL` (This URL will also be added automatically to the list of Reply URLs for your new application).
 5. Click `Create` to register the application. This action will take you back to the list of applications.
-6. Now, search and/or select the application you just created to open its properties. Copy the app's `Application ID` to the clipboard.
-7. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you just registered
+6. Now, search and/or select the application you just created to open its properties. 
+7. Copy the guid under `Application ID` to the clipboard.
+8. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you just registered.
+
+## Configure sign-in options
+
+You can configure your application to either accept sign-ins from any company or organization that has integrated with Azure Active Directory, or you can also restrict it to allow sign-ins from users of only one company/ organization. Please follow the instructions of one of choices below:
+
+### Configure your application to allow sign ins of work and school accounts from any company or organization (multi-tenant)
+
+Follow the steps below if you want to accept sign ins of work and school accounts from any company or organization that has integrated with Azure Active Directory. This is a common scenario for *SaaS applications*:
+
+1. Go back to [Microsoft Azure Portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and locate the application you just registered
+2. Under `All Settings` select `Properties'
+3. Change `Multi-tenanted` property to `Yes` and click `Save`
+
+For more information about this setting and the concept of multi-tenant applications, please see [this article](../active-directory-devhowto-multi-tenant-overview.md#update-registration-to-be-multitenant).
+
+### Restrict users from only one organization to sign in to your application (single-tenant)
+
+If you want your application to accept sign-ins from accounts that belont to only one Azure Active Directory organization, replace the `Tenant` parameter in *web.config* from `Common` to the tenant name of the organization – example, *contoso.onmicrosoft.com*. After that, change the `ValidateIssuer` argument in your [*OWIN Startup class*](#configure-the-authentication-pipeline) to `true`.
+
+To allow users from only a list of specific organizations, set `ValidateIssuer` to true and use the `ValidIssuers` parameter to specify a list of organizations.
+
+Another option is to implement a custom method to validate the issuers using IssuerValidator parameter. For more information about `TokenValidationParameters`, please see [this](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN article") MSDN article.
 
 <!--end-configure-->
 
@@ -473,16 +500,5 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 <div></div>
 <br/>
-
-> [!NOTE]
-> **How to restrict users from only one organization to sign in to your application**
-
-> By default work and school accounts from any company or organization that has integrated with Azure Active Directory can sign-in to the application generated by this sample. 
-
-> If you want your application to accept sign-ins from only one Azure Active Directory organization, replace the `Tenant` parameter in *web.config* from `Common` to the tenant name of the organization – example, *contoso.onmicrosoft.com*. After that, change the `ValidateIssuer` argument in your *OWIN Startup class* to `true`.
-
-> To allow users from only a list of specific organizations, set `ValidateIssuer` to true and use the `ValidIssuers` parameter to specify a list of organizations.
-
-> Another option is to implement a custom method to validate the issuers using IssuerValidator parameter. For more information about `TokenValidationParameters`, please see [this](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN article") MSDN article.
 
 <!--end-test-->
