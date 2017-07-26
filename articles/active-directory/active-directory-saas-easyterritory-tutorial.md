@@ -212,6 +212,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 
 
+
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-easyterritory-tutorial/tutorial_general_01.png
