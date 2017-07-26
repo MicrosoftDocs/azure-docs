@@ -68,6 +68,7 @@
 
 # Reference
 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)

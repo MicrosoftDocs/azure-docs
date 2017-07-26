@@ -39,6 +39,8 @@
     href: functions-create-serverless-api.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
   - name: Azure CLI
     href: functions-cli-samples.md
 - name: Concepts

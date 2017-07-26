@@ -179,6 +179,7 @@
 #### [Backing up drive manifests](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostics and error recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET

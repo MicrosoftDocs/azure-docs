@@ -59,6 +59,7 @@
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Sources of monitoring data](monitoring-data-sources.md)
 ## [List of supported metrics](monitoring-supported-metrics.md)
 ## [Activity Log event schema](monitoring-activity-log-schema.md)

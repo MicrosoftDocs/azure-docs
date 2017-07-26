@@ -150,6 +150,7 @@
 #### [Native module host](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
