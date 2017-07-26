@@ -36,12 +36,12 @@ The different ways that you will use log searches in Log Analytics include the f
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
 - **Log Analytics API.**  The [Log Analytics log search API](log-analytics-log-search-api.md) allows any REST API client to retrieve data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
 
-![Log searches](media/log-analytics-log-search-next-generation/log-search-overview.png)
+![Log searches](media/log-analytics-log-search-new/log-search-overview.png)
 
 ## How Log Analytics data is organized
 When you build a query, you start by determining which tables have the data that you're looking for. Each [data source](log-analytics-data-sources.md) and [solution](../operations-management-suite/operations-management-suite-solutions.md) stores its data in dedicated tables in the Log Analytics workspace.  Documentation for each data source and solution includes the name of the data type that it creates and a description of each of its properties.     Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
 
-![Tables](media/log-analytics-log-search-next-generation/queries-tables.png)
+![Tables](media/log-analytics-log-search-new/queries-tables.png)
 
 
 ## Writing a query
