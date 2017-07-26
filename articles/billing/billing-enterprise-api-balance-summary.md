@@ -31,7 +31,7 @@ Common header properties that need to be added are specified [here](billing-ente
 |GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/balancesummary|
 |GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary|
 
-Note: To use the preview version of API, please replace v2 by v1 in the above URI.
+Note: To use the preview version of API, replace v2 by v1 in the above URI.
 
 ## Response
 
