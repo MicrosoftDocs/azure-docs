@@ -1,6 +1,6 @@
 ---
-title: Log Analytics next generation log search frequently asked questions | Microsoft Docs
-description: This article provides frequently asked questions regarding the upgrade of Log Analytics to the next generation query language.
+title: Log Analytics new log search frequently asked questions | Microsoft Docs
+description: This article provides frequently asked questions regarding the upgrade of Log Analytics to the new query language.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -17,9 +17,9 @@ ms.author: bwren
 
 ---
 
-# Log Analytics next generation log search frequently asked questions
+# Log Analytics new log search frequently asked questions
 
-This article provides frequently asked questions regarding the upgrade of [Log Analytics to the next generation query language](log-analytics-log-search-upgrade.md).
+This article provides frequently asked questions regarding the upgrade of [Log Analytics to the new query language](log-analytics-log-search-upgrade.md).
 
 
 
@@ -35,7 +35,7 @@ No. The log data available to your workspace searches is not affected by the upg
 The legacy log search will be deprecated in the coming months. Workspaces that are not upgraded by that time will be upgraded automatically.
 
 ### I didn't choose to upgrade, but my workspace has been upgraded anyway! what happened?  
-Another admin of this workspace could have upgraded the workspace. Please note that all workspaces will be automatically upgraded when the next generation language reaches general availability.  
+Another admin of this workspace could have upgraded the workspace. Please note that all workspaces will be automatically upgraded when the new language reaches general availability.  
 
 ### I have upgraded by mistake and now need to cancel it and restore everything back. What should I do?!  
 No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade).

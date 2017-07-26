@@ -68,7 +68,7 @@ The following table provides different examples of log searches that retrieve Wi
 
 
 >[!NOTE]
-> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 >
 >| Query | Description |
 |:---|:---|

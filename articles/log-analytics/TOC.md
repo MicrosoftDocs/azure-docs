@@ -39,7 +39,7 @@
 ### [Take action from search results](log-analytics-log-search-takeaction.md)
 ### [Computer groups](log-analytics-computer-groups.md)
 
-## Next generation log search
+## new log search
 ### [Upgrade your workspace](log-analytics-log-search-upgrade.md)
 ### [FAQ](log-analytics-log-search-faq.md)
 ### [Log searches overview](log-analytics-log-search-next-generation.md)

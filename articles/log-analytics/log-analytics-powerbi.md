@@ -20,7 +20,7 @@ ms.author: bwren
 # Export Log Analytics data to Power BI
 
 >[!NOTE]
-> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then this process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled. 
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then this process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled. 
 >
 > After upgrade, Azure Log Analytics uses the same platform as Application Insights, and you use the same process to export Log Analytics queries to Power BI as [the process to export Application Insights queries to Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  You can either export the query using the Analytics console as described in that article, or you can select the **Power BI** button at the top of the screen in the Log Search portal.
 

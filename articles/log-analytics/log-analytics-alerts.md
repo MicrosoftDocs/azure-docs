@@ -80,7 +80,7 @@ If you wanted to alert when the processor averaged over 90% for a particular tim
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 >[!NOTE]
-> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 

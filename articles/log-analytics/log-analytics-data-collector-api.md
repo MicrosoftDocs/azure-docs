@@ -189,7 +189,7 @@ This table lists the complete set of status codes that the service might return:
 To query data submitted by the Log Analytics HTTP Data Collector API, search for records with **Type** that is equal to the **LogType** value that you specified, appended with **_CL**. For example, if you used **MyCustomLog**, then you'd return all records with **Type=MyCustomLog_CL**.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
 
 > `MyCustomLog_CL`
 

@@ -74,7 +74,7 @@ The following table provides different examples of log queries that retrieve IIS
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Total bytes received by each IIS computer. |
 
 >[!NOTE]
-> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 
 > | Query | Description |
 |:--- |:--- |

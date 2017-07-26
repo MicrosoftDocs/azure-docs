@@ -218,7 +218,7 @@ The following table provides different examples of log searches that retrieve Pe
 | Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2.  
 
 >[!NOTE]
-> If your workspace has been upgraded to the [next generation Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 
 > | Query | Description |
 |:--- |:--- |
