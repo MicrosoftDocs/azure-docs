@@ -31,7 +31,5 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Templates - C-Series
-    href: https://github.com/microsoft/azure-cseries-preview
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
