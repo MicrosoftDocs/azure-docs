@@ -13,11 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/26/2017
 ms.author: bwren
 
 ---
 # Computer groups in Log Analytics log searches
+
+>[!NOTE]
+> This article describes the use of Computer Groups using the current Log Anayltics query language.    If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then Computer Groups work differently.  Notes are provided in this article with the different syntax and behavior for the new query language.  
+
+
 Computer groups in Log Analytics allow you to scope [log searches](log-analytics-log-searches.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log search, the results are limited to records that match the computers in the group.
 
 ## Creating a computer group
@@ -44,6 +49,12 @@ Following are example searches that you can save as a computer group.
 
     Computer="Computer1" OR Computer="Computer2" | distinct Computer 
     Computer=*srv* | measure count() by Computer
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md) then the following changes are made to the procedure to create a new computer group.
+>  
+> - The query to create a computer group must include `distinct Computer`.  Following is an example of a query to create a computer group.<br>`Heartbeat | where Computer contains "srv" `
+> - When you create a new computer group, you must specify an alias in addition to the name.  You use the alias when using the computer group in a query as described below.  
 
 ### Log search API
 Computer groups created with the Log Search API are the same as searches created with a Log Search.
@@ -85,6 +96,11 @@ When a search is run, the members of any computer groups included in the search 
 Computer groups are typically used with the **IN** clause in the log search as in the following example.
 
     Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you use a Computer group in a query by treating its alias as a function as in the following example.
+> 
+>  `UpdateSummary | where Computer IN (MyComputerGroup)`
 
 ## Computer group records
 A record is created in the OMS repository for each computer group membership created from Active Directory or WSUS.  These records have a type of **ComputerGroup** and have the properties in the following table.  Records are not created for computer groups based on log searches.
