@@ -158,7 +158,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Resources
-## [Azure roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)
