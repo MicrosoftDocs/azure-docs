@@ -31,6 +31,9 @@ Changes in Azure Cosmos DB are persisted and can be processed asynchronously, an
 
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
+> [!NOTE]
+> Change feed support is only provided for the DocumentDB API at this time; the Graph API and Table API are not currently supported.
+
 ## Use cases and scenarios
 Change feed allows for efficient processing of large datasets with a high volume of writes, and offers an alternative to querying entire datasets to identify what has changed. For example, you can perform the following tasks efficiently:
 
