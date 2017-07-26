@@ -132,7 +132,7 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
 ### <a name="template-portal"></a>Azure portal
 
 1. In your browser, open the [template page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Click the **Deploy to Azure** button. Log in to Azure on the Azure portal log in screen that appears.
+2. Click the **Deploy to Azure** button. Log in to Azure on the Azure portal login screen that appears, if you're not already logged in to Azure.
 3. Sign in to the portal by using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Enter the following values for the parameters:
 
