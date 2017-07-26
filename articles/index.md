@@ -136,7 +136,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/">Containers with Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
                                                         <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
                                                     </ul>
                                                 </div>
