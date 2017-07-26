@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 07/25/2017
 ms.author: bwren
 
 ---
@@ -38,10 +38,10 @@ No. The log data available to your workspace searches is not affected by the upg
 The legacy log search will be deprecated in the coming months. Workspaces that are not upgraded by that time will be upgraded automatically.
 
 ### I didn't choose to upgrade, but my workspace has been upgraded anyway! what happened?  
-Another admin of this workspace could have upgraded the workspace. Check out your email to see who initiated the upgrade and when.  Please note that workspaces that are not upgraded until the due date will be automatically upgraded.  
+Another admin of this workspace could have upgraded the workspace. Please note that all workspaces will be automatically upgraded when the next generation language reaches general availability.  
 
 ### I have upgraded by mistake and now need to cancel it and restore everything back. What should I do?!  
-No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment and go back to the legacy search language go to AAA and click Restore. If this option is not open to you - contact our support team here and they will restore it for you.  
+No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade).
 
 
 

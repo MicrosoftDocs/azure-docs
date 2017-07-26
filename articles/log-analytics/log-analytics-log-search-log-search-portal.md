@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/25/2017
 ms.author: bwren
 
 ---
@@ -95,9 +95,7 @@ You only have the **Filter** option for properties with their name in blue.  The
 
 ![Filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) operator to your query that and display the results in a chart.  You can group on more than one property, but you would need to edit the query directly.
-
-You must change back to the **List** view to access the record menu.  Select the record menu next the the **Computer** property and select **Group by 'Computer'**.  
+You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) operator to your query that displays the results in a chart.  You can group on more than one property, but you would need to edit the query directly.  Select the record menu next the the **Computer** property and select **Group by 'Computer'**.  
 
 ![Group by computer](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 

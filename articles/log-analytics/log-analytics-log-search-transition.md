@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/21/2017
+ms.date: 07/25/2017
 ms.author: bwren
 
 ---
@@ -26,7 +26,7 @@ This article provides assistance on transitioning to the next generation query l
 
 ## Language converter
 
-If you're familiar with the legacy Log Analytics query language, the easiest way to create the same query in the next generation language is to use the Language Converter that's installed in the Log Search portal when your workspace is converted.  Using the converter is as simple as type in a legacy query in the top text box and then clicking **Convert**.  You can either click the search button to run the query or copy and paste it to use it somewhere else. 
+If you're familiar with the legacy Log Analytics query language, the easiest way to create the same query in the next generation language is to use the Language Converter that's installed in the Log Search portal when your workspace is converted.  Using the converter is as simple as typing in a legacy query in the top text box and then clicking **Convert**.  You can either click the search button to run the query or copy and paste it to use it somewhere else. 
 
 ![Language converter](media/log-analytics-log-search-upgrade/language-converter.png)
 
@@ -59,4 +59,4 @@ The following table provides a comparison between a variety of common queries to
 
 ## Next steps
 - Check out a [tutorial on writing queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) using the next generation query language.
-- Refer to the [Query Language Reference](https://analytics-docs-int.azurewebsites.net/queryLanguage/query_language.html) for details on all command, operators, and functions for the next generation query language.  
+- Refer to the [Query Language Reference](https://docs.loganalytics.io/queryLanguage/query_language.html) for details on all command, operators, and functions for the next generation query language.  

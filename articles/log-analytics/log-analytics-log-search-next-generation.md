@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/25/2017
 ms.author: bwren
 
 ---
@@ -39,7 +39,7 @@ The different ways that you will use log searches in Log Analytics include the f
 ![Log searches](media/log-analytics-log-search-next-generation/log-search-overview.png)
 
 ## How Log Analytics data is organized
-When you build a query, you start by determining which tables have the data that you're looking for.  Each Log Analytics workspace separates its data into multiple tables.  Each table represents data from different [data sources](log-analytics-data-sources.md) and [solutions](../operations-management-suite/operations-management-suite-solutions.md).  Documentation for each data source and solution includes the name of the data type that it creates and a description of each of its properties.     Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
+When you build a query, you start by determining which tables have the data that you're looking for. Each [data source](log-analytics-data-sources.md) and [solution](../operations-management-suite/operations-management-suite-solutions.md) stores its data in dedicated tables in the Log Analytics workspace.  Documentation for each data source and solution includes the name of the data type that it creates and a description of each of its properties.     Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
 
 ![Tables](media/log-analytics-log-search-next-generation/queries-tables.png)
 

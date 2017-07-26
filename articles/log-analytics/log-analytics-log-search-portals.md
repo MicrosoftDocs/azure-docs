@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/25/2017
 ms.author: bwren
 
 ---
@@ -34,7 +34,7 @@ The Log Search portal provides multiple features for editing the query without h
 ![Log Search portal](media/log-analytics-log-search-portals/log-search-portal.png)
 
 ## Advanced Analytics portal
-The Advanced Analytics portal is a dedicated portal that provides advanced functionality not available in the Log Search portal.  Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics.  The Advanced Analytics portal is most suitable for designing complex queries that are either saved as a log search or copied and pasted into other Log Analytics elements.
+The Advanced Analytics portal is a dedicated portal that provides advanced functionality not available in the Log Search portal.  Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics.  The Advanced Analytics portal is most suitable for designing complex queries that are either saved as a log search or copied and pasted into other Log Analytics elements.  You launch the Advanced Analytics portal from a link in the Log Search portal.
 
 ![Advanced Analytics portal](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 

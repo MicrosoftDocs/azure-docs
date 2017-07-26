@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2017
+ms.date: 07/25/2017
 ms.author: bwren
 
 ---
@@ -33,7 +33,7 @@ We understand that there’s pain in any transition, and we aren’t just changi
 - **Search-time field extractions.**  The next generation language supports more advanced runtime calculated fields than the legacy language.  You can use complex calculations for extended fields and then use the calculated fields for additional commands including joins and aggregations.
 - **Advanced joins.**  The next generation language provides more advanced joins than the legacy language including the ability to join tables on multiple fields, use inner and outer joins, and join on extended fields.
 - **Date/time functions.**  The next generation language has more advanced date/time functions than the legacy language.
-- **Advanced Analysis.**  The next generation language has advanced algorithms to evaluate patterns in datasets and compare different sets of data.
+- **Smart Analytics.**  The next generation language has advanced algorithms to evaluate patterns in datasets and compare different sets of data.
 - **Advanced Analytics portal.**  The Advanced Analytics portal offers analysis features not available in the Log Analytics portal including multiline editing of queries, additional visualizations, and advanced diagnostics.
 - **Consistency with other applications.**  The next generation language and the Advanced Analytics Portal are already used for analytics in Application Insights.  Implementing it for Log Analytics provides consistency across Azure services.
 
@@ -62,7 +62,7 @@ You can upgrade your workspace when you see the purple banner at the top of the 
 4.	That’s it!  Go over to the Log Search page to have a look at your upgraded workspace.<br>![Upgrade 6](media/log-analytics-log-search-upgrade/upgrade-06.png)<br>
 
 ## How do I learn the new language?
-Since it's used by multiple services we've created an [external site to host the documentation](https://docs-analytics-eus.azurewebsites.net/) for the next generation language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) and access the language reference at [Log Analytics query langauge](https://docs.loganalytics.io/queryLanguage/query_language.html).  
+Since it's used by multiple services we've created an [external site to host the documentation](https://docs.loganalytics.io/) for the next generation language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) and access the language reference at [Log Analytics query langauge](https://docs.loganalytics.io/queryLanguage/query_language.html).  
 
 If you're already familiar with the legacy Log Analytics query language though, then you can use the language converter which is added to your workspace as part of the upgrade.
 
