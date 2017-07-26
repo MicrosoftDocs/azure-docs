@@ -57,7 +57,7 @@ az container create --name mycontainer --image microsoft/aci-helloworld --resour
 Within a few seconds, you should get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
 
 ```azurecli-interactive
-az container show mycontainer --resource-group myResourceGroup
+az container show --name mycontainer --resource-group myResourceGroup
 ```
 
 At the bottom of the output, you will see the container's provisioning state and its IP address:
