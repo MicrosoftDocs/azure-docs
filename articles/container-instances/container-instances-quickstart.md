@@ -22,7 +22,7 @@ ms.custom:
 
 # Create your first container in Azure Container Instances
 
-Azure Container Instances makes it easy to create and manage containers in Azure. In this quick start, you will create a container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few minutes, you will see this in your browser:
+Azure Container Instances makes it easy to create and manage containers in Azure. In this quick start, you will create a container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few seconds, you will see this in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
