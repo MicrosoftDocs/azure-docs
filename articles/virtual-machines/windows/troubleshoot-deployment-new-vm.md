@@ -27,7 +27,7 @@ ms.custom: H1Hack27Feb2017
 ## Top issues
 [!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
-For other VM deployment issues, see [Troubleshoot deploying Windows virtual machine issues in Azure](troubleshoot-deploy-vm.md).
+For other VM deployment issues and questions, see [Troubleshoot deploying Windows virtual machine issues in Azure](troubleshoot-deploy-vm.md).
 
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.

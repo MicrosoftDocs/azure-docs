@@ -73,7 +73,7 @@ Sign in to your account for the Resource Manager model.
 Get the available subscriptions by using the following command:
 
 ```powershell
-    Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+    Get-AzureRMSubscription | Sort Name | Select Name
 ```
 
 Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own.
@@ -264,7 +264,7 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## Step 6.3 Migrate a storage account
+## Step 6.2 Migrate a storage account
 Once you're done migrating the virtual machines, we recommend you migrate the storage accounts.
 
 Before you migrate the storage account, please perform preceding prerequisite checks:

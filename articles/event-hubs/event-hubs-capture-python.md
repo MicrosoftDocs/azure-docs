@@ -98,11 +98,11 @@ This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/pyth
           if not 'id' in parsed_json:
               return
           if not dict.has_key(parsed_json['id']):
-          list = []
-          dict[parsed_json['id']] = list
-      else:
-          list = dict[parsed_json['id']]
-          list.append(parsed_json)
+              list = []
+              dict[parsed_json['id']] = list
+          else:
+              list = dict[parsed_json['id']]
+              list.append(parsed_json)
       reader.close()
       for device in dict.keys():
           deviceFile = open(device + '.csv', "a")

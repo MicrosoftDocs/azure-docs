@@ -34,6 +34,8 @@
 ### [Track a runbook job](automation-runbook-execution.md)
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
+### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
+### [Pass a JSON object to an Azure Automation runbook](automation-pass-json-string.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
@@ -58,6 +60,7 @@
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
+### [Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook](automation-deploy-template-runbook.md)
 ## Solutions
 ### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)

@@ -51,7 +51,7 @@ With Data Factory, you can use the Copy Activity in a data pipeline to move data
 Once data is present in a centralized data store in the cloud, you want the collected data to be processed or transformed by using compute services such as HDInsight Hadoop, Spark, Data Lake Analytics, and Machine Learning. You want to reliably produce transformed data on a maintainable and controlled schedule to feed production environments with trusted data. 
 
 ### Publish 
-Deliver transformed data from the cloud to on-premises sources like SQL Server, or keep it in your cloud storage sources for consumption by business intelligence (BI) and analytics tools and other applications
+Deliver transformed data from the cloud to on-premises sources like SQL Server, or keep it in your cloud storage sources for consumption by business intelligence (BI) and analytics tools and other applications.
 
 ## Key components
 An Azure subscription may have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components that work together to provide the platform on which you can compose data-driven workflows with steps to move and transform data. 

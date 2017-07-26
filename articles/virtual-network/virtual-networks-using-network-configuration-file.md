@@ -27,7 +27,7 @@ You can create and configure a virtual network (classic) with a network configur
 
 Creating and configuring a virtual network (classic) with a network configuration file requires exporting, changing, and importing the file.
 
-## Export a network configuration file
+## <a name="export"></a>Export a network configuration file
 
 You can use PowerShell or the Azure CLI to export a network configuration file. PowerShell exports an XML file, while the Azure CLI exports a json file.
 
@@ -115,7 +115,7 @@ The following example network configuration file creates a virtual network named
 
 If the network configuration file you exported contains no contents, you can copy the json in the previous example, and paste it into a new file.
 
-## Import a network configuration file
+## <a name="import"></a>Import a network configuration file
 
 You can use PowerShell or the Azure CLI to import a network configuration file. PowerShell imports an XML file, while the Azure CLI imports a json file. If the import fails, confirm that the file complies with the [network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 

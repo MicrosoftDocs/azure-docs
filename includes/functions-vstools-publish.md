@@ -16,10 +16,6 @@ In the **Create App Service** dialog, use the hosting settings as specified in t
 | **[App Service Plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Make sure to choose the **Consumption** under **Size** when you create a new plan.  |
 | **[Storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Globally unique name | Use an existing storage account or create a new one.   |
 
-Click **Create** to create a function app in Azure with these settings. 
-
-After the provisioning is complete, click **Publish** to deploy your project code to the new function app. 
+Click **Create** to create a function app in Azure with these settings. After the provisioning is complete, make a note of the **Site URL** value, which is the address of your function app in Azure. 
 
 ![Azure local runtime](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
-
-Make a note of the **Site URL** value, which is the address of your function app in Azure. 

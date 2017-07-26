@@ -24,7 +24,7 @@ ms.author: sethm
 This tutorial covers the following steps:
 
 1. Create a Service Bus namespace, using the Azure portal.
-2. Create a Service Bus Messaging queue, using the Azure portal.
+2. Create a Service Bus queue, using the Azure portal.
 3. Write a console application to send a message.
 4. Write a console application to receive the messages sent in the previous step.
 
@@ -72,7 +72,6 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);
@@ -103,7 +102,6 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
@@ -129,7 +127,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
 3. Add the following code to the `Main` method. Set the `connectionString` variable to the connection string that was obtained when creating the namespace, and set `queueName` to the queue name that you used when creating the queue.
    
     ```csharp
-    var connectionString = "<your connection string";
+    var connectionString = "<your connection string>";
     var queueName = "<your queue name>";
    
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
@@ -173,7 +171,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
       }
     }
     ```
-4. Run the program, and check the portal again. Notice that the **Active Message Count** and **Current** values should now be 0.
+4. Run the program, and check the portal again. Notice that the **Active Message Count** and **Current** values are now 0.
    
     ![Queue length][queue-message-receive]
 

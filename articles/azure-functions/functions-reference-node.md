@@ -276,7 +276,7 @@ The following steps let you include packages in your function app:
 2. Click **Debug Console** > **CMD**.
 
 3. Go to `D:\home\site\wwwroot`, and then drag your package.json file to the **wwwroot** folder at the top half of the page.  
-    You can upload files to your function app in other ways also. For more information, see [How to update function app files](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+    You can upload files to your function app in other ways also. For more information, see [How to update function app files](functions-reference.md#fileupdate). 
 
 4. After the package.json file is uploaded, run the `npm install` command in the **Kudu remote execution console**.  
     This action downloads the packages indicated in the package.json file and restarts the function app.

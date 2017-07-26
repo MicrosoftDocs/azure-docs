@@ -97,7 +97,7 @@ Now that you have an account, let's create our new ASP.NET project.
 Now that we have most of the ASP.NET MVC plumbing that we need for
 this solution, let's get to the real purpose of this tutorial, adding Azure Cosmos DB to our MVC web application.
 
-1. The DocumentDB .NET SDK is packaged and distributed as a NuGet package. To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in **Solution Explorer** and then clicking **Manage NuGet Packages**.
+1. The Azure Cosmos DB .NET SDK is packaged and distributed as a NuGet package. To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in **Solution Explorer** and then clicking **Manage NuGet Packages**.
    
       ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/documentdb-dotnet-application/image21.png)
    
@@ -106,7 +106,7 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Cosm
    
     From the results, install the **Microsoft Azure Cosmos DB Client Library** package. This will download and install the Azure Cosmos DB package as well as all dependencies, like Newtonsoft.Json. Click **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the install.
    
-      ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure DocumentDB Client Library highlighted](./media/documentdb-dotnet-application/nuget.png)
+      ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure Cosmos DB Client Library highlighted](./media/documentdb-dotnet-application/nuget.png)
    
       Alternatively you can use the Package Manager Console to install the package. To do so, on the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**. At the prompt, type the following.
    
@@ -325,7 +325,7 @@ The first thing to do here is add a class that contains all the logic to connect
         <add key="collection" value="Items"/>
 4. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure Portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.
 
-    That takes care of wiring up the DocumentDB repository, now let's add our application logic.
+    That takes care of wiring up the Azure Cosmos DB repository, now let's add our application logic.
 
 1. The first thing we want to be able to do with a todo list application is to display the incomplete items.  Copy and paste the following code snippet anywhere within the **DocumentDBRepository** class.
    
@@ -400,7 +400,7 @@ Let's add some code to  Azure Cosmos DBRepository and ItemController to persist 
            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
        }
    
-   This method simply takes an object passed to it and persists it in DocumentDB.
+   This method simply takes an object passed to it and persists it in Azure Cosmos DB.
 2. Open the ItemController.cs file and add the following code snippet within the class. This is how ASP.NET MVC knows what to do for the **Create** action. In this case just render the associated Create.cshtml view created earlier.
    
         [ActionName("Create")]
@@ -563,7 +563,7 @@ If you receive the "An error occurred while processing your request" while tryin
 ## <a name="_Toc395637775"></a>Next steps
 Congratulations! You just built your first ASP.NET MVC web application using Azure Cosmos DB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][GitHub]. So if you're interested in adding that to your app, grab the code and add it to this app.
 
-To add additional functionality to your application, review the APIs available in the [DocumentDB .NET Library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) and feel free to contribute to the DocumentDB .NET Library on [GitHub][GitHub]. 
+To add additional functionality to your application, review the APIs available in the [Azure Cosmos DB .NET Library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) and feel free to contribute to the Azure Cosmos DB .NET Library on [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

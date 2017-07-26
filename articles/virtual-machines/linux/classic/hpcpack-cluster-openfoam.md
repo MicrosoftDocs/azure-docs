@@ -37,7 +37,7 @@ Microsoft HPC Pack provides features to run large-scale HPC and parallel applica
   
   **Additional things to know**
   
-  * For Linux RDMA networking prerequisites in Azure, see [About H-series and compute-intensive A-series VMs](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * For Linux RDMA networking prerequisites in Azure, see [High performance compute VM sizes](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   * If you use the Powershell script deployment option, deploy all the Linux compute nodes within one cloud service to use the RDMA network connection.
   * After deploying the Linux nodes, connect by SSH to perform any additional administrative tasks. Find the SSH connection details for each Linux VM in the Azure portal.  
 * **Intel MPI** - To run OpenFOAM on SLES 12 HPC compute nodes in Azure, you need to install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is preinstalled on CentOS-based HPC images.)  In a later step, if necessary, install Intel MPI on your Linux compute nodes. To prepare for this step, after you register with Intel, follow the link in the confirmation email to the related web page. Then, copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
