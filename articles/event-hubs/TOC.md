@@ -56,7 +56,7 @@
 ## [Quotas](event-hubs-quotas.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Code samples](event-hubs-samples.md)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)

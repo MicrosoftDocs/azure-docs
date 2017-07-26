@@ -206,7 +206,7 @@
 ### [Troubleshooting tutorial](storage-e2e-troubleshooting-classic-portal.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Storage client tools](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)

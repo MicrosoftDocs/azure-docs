@@ -87,7 +87,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)
