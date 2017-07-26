@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 04/11/2017
+ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -45,7 +45,7 @@ Each command in the table links to command specific documentation. This script u
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az storage account create](/cli/azure/storage/account#create) | Creates an Azure Storage account. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Creates an Azure Function. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Creates a function app. |
 
 ## Next steps
 
