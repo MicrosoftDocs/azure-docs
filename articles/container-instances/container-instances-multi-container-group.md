@@ -48,8 +48,8 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
     "resources": [
       {
         "name": "myContainerGroup",
-        "type": "Microsoft.Container/containerGroups",
-        "apiVersion": "2017-04-01-preview",
+        "type": "Microsoft.ContainerInstance/containerGroups",
+        "apiVersion": "2017-08-01-preview",
         "location": "[resourceGroup().location]",
         "properties": {
           "containers": [
@@ -57,6 +57,12 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
               "name": "[variables('container1name')]",
               "properties": {
                 "image": "[variables('container1image')]",
+                "resources": {
+                  "requests": {
+                    "cpu": 1,
+                    "memoryInGb": 1.5
+                    }
+                },
                 "ports": [
                   {
                     "port": 80
@@ -67,7 +73,13 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
             {
               "name": "[variables('container2name')]",
               "properties": {
-                "image": "[variables('container2image')]"
+                "image": "[variables('container2image')]",
+                "resources": {
+                  "requests": {
+                    "cpu": 1,
+                    "memoryInGb": 1.5
+                    }
+                }
               }
             }
           ],
@@ -87,7 +99,7 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
     "outputs": {
       "containerIPv4Address": {
         "type": "string",
-        "value": "[reference(resourceId('Microsoft.Container/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
+        "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
       }
     }
   }
