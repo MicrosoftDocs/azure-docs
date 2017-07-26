@@ -275,7 +275,6 @@ Click the Absorb LMS tile in the Access Panel, you will get automatically signed
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-absorblms-tutorial/tutorial_general_01.png
