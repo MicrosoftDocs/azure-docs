@@ -137,6 +137,8 @@
         href: documentdb-resources.md
       - name: SQL queries
         href: documentdb-sql-query.md
+      - name: SQL query performance
+        href: documentdb-sql-query-metrics.md        
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
       - name: Partitioning
