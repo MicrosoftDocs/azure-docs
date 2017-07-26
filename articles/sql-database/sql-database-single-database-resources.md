@@ -29,7 +29,7 @@ The following video shows dynamically changing the performance tier to increase 
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-## Scaling up or scaling down a single database
+## Rescaling DTUs for a single database
 
 After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](#manage-single-database-resources-using-powershell), the [Azure CLI](#manage-single-database-resources-using-the-azure-cli), or the [REST API](#manage-single-database-resources-using-the-rest-api).  
 

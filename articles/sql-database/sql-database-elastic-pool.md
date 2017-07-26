@@ -122,13 +122,6 @@ In cases where you can't use tooling, the following step-by-step can help you es
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
 5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
 
-### Changing elastic pool resources
-
-You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
-
-* Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
-* Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
-
 ## Elastic pool service tiers, performance levels, and storage amounts
 
 For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
@@ -152,6 +145,13 @@ The following table describes the properties for pooled databases.
 | Max storage per database |The maximum storage for a database in a pool. Pooled databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. Max storage per database refers to the maximum size of the data files and does not include the space used by log files. |
 |||
  
+## Rescaling eDTUs for an elastic pool
+
+You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
+
+* Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
+* Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
+
 ## Using other SQL Database features with elastic pools
 
 ### Elastic jobs and elastic pools
