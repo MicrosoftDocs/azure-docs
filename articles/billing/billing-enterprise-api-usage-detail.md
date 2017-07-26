@@ -102,7 +102,7 @@ Note: To use the preview version of the API, replace v2 by v1 in the above URI.
 |subscriptionGuid| string| Global Unique Identifier for the subscription. |
 |subscriptionName| string| Name of the subscription. |
 |date| string| The date on which consumption occurred. |
-|product| string| Specific flavor of the Azure Service used. Example: A1(VM)Windows - AP East|
+|product| string| Additional details on the meter. Example: A1(VM)Windows - AP East|
 |meterId| string| The identifier for the meter which emitted usage. |
 |meterCategory| string| The Azure platform service that was used. |
 |meterSubCategory| string| Defines the Azure service type that can affect the rate. Example: A1 VM (Non-Windows|
@@ -113,12 +113,12 @@ Note: To use the preview version of the API, replace v2 by v1 in the above URI.
 |cost| double| The charge that has been incurred for the meter. |
 |resourceLocation| string| Identifies the datacenter where the meter is running. |
 |consumedService| string| The Azure platform service that was used. |
-|instanceId| string| The identifier is the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources) |
+|instanceId| string| This identifier is the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources) |
 |serviceInfo1| string| Internal Azure Service Metadata. |
 |serviceInfo2| string| For example, an image type for a virtual machine and ISP name for ExpressRoute. |
 |additionalInfo| string| Service-specific metadata. For example, an image type for a virtual machine. |
 |tags| string| Customer added tags. For more information, see [Organize your Azure resources with tags](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags). |
-|storeServiceIdentifier| string| |
+|storeServiceIdentifier| string| This columns is not used. Present for backward compatibility. |
 |departmentName| string| Name of the department. |
 |costCenter| string| The cost center that the usage is associated with. |
 |unitOfMeasure| string| Identifies the unit that the service is charged in. Example: GB, hours, 10,000 s. |
