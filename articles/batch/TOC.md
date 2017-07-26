@@ -31,12 +31,14 @@
 ## Manage
 ### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
+#### [Run Batch jobs without code](batch-cli-templates.md)
 #### [Create a Batch account](./scripts/batch-cli-sample-create-account.md)
 #### [Add an application](./scripts/batch-cli-sample-add-application.md)
 #### [Manage pools](./scripts/batch-cli-sample-manage-pool.md)
 #### [Run a job and tasks](./scripts/batch-cli-sample-run-job.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)

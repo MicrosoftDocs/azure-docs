@@ -20,8 +20,11 @@
 ## [Manage data assets](data-catalog-how-to-manage.md)
 ## [Save searches and pin data assets](data-catalog-how-to-save-pin.md)
 ## [Set up the business glossary](data-catalog-how-to-business-glossary.md)
+## [Secure access to data catalog](data-catalog-how-to-secure-catalog.md)
+## [View related data assets](data-catalog-how-to-view-related-data-assets.md) 
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Search syntax reference](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Developer concepts](data-catalog-developer-concepts.md)

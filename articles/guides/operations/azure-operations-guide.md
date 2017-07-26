@@ -9,7 +9,7 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid:
-ms.service:
+ms.service: azure
 ms.devlang: 
 ms.topic: 
 ms.tgt_pltfrm: 
@@ -187,7 +187,7 @@ A subscription is a logical grouping of Azure services that is linked to an Azur
 
 Before you can work with Azure services, you need a subscription. Several subscription types are available.
 
-**Free accounts**: The link to sign up for a free account is on the [Azure website](https://azure.microsoft.com/). This gives you a $200 credit over the course of 30 days to try any combination of resources in Azure. If you exceed your credit amount, your account is suspended. At the end of the trial, your services are decommissioned and will no longer work. You can upgrade to a pay-as-you-go subscription at any time.
+**Free accounts**: The link to sign up for a free account is on the [Azure website](https://azure.microsoft.com/). This gives you a credit over the course of 30 days to try any combination of resources in Azure. If you exceed your credit amount, your account is suspended. At the end of the trial, your services are decommissioned and will no longer work. You can upgrade to a pay-as-you-go subscription at any time.
 
 **MSDN subscriptions**: If you have an MSDN subscription, you get a specific amount in Azure credit each month. For example, if you have a Microsoft Visual Studio Enterprise with MSDN subscription, you get \$150 per month in Azure credit.
 
@@ -404,7 +404,7 @@ Azure File storage is a service that offers file shares in the cloud by using th
 
 Because a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file system I/O APIs. Developers can therefore use their existing code and skills to migrate existing applications. IT pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
-For more information, see [Get started with Azure File storage on Windows](../../storage/storage-dotnet-how-to-use-files.md) or [How to use Azure File Storage with Linux](../../storage/storage-how-to-use-files-linux.md).
+For more information, see [Get started with Azure File storage on Windows](../../storage/storage-file-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/storage-how-to-use-files-linux.md).
 
 **Table storage**
 

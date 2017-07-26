@@ -1,5 +1,5 @@
 ---
-title: Query your Azure Search Index using the .NET SDK | Microsoft Docs
+title: "Query an index (.NET API - Azure Search) | Microsoft Docs"
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
 services: search
 manager: jhubbard
@@ -29,7 +29,8 @@ This article will show you how to query an index using the [Azure Search .NET SD
 
 Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
-Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> All sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto). You can also read about the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) for a more detailed walk through of the sample code.
 
 ## Identify your Azure Search service's query api-key
 Now that you have created an Azure Search index, you are almost ready to issue queries using the .NET SDK. First, you will need to obtain one of the query api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.

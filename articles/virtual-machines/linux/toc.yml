@@ -39,8 +39,12 @@
     href: tutorial-azure-security.md
   - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
+  - name: 13 - Set up CI/CD with Team Services
+    href: tutorial-build-deploy-jenkins.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=virtual-machines
   - name: Azure CLI
     href: cli-samples.md
   - name: PowerShell
@@ -96,11 +100,11 @@
         href: sizes-storage.md
       - name: GPU
         href: sizes-gpu.md
+        items:
+        - name: GPU drivers
+          href: n-series-driver-setup.md
       - name: High performance compute
         href: sizes-hpc.md
-        items:
-        - name: Compute-intensive sizes
-          href: a8-a9-a10-a11-specs.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Compute benchmark scores
@@ -129,16 +133,14 @@
     items:
     - name: VM creation overview
       href: creation-choices.md
-    - name: Create a VM with CLI
-      href: quick-create-cli-nodejs.md
+    - name: Create complete VM
+      href: create-cli-complete.md
     - name: Create a VM with template
       href: create-ssh-secured-vm-from-template.md
     - name: Copy a VM
       href: copy-vm.md
     - name: Move a VM between subscriptions
       href: move-vm.md
-    - name: Create highly available VMs
-      href: create-cli-complete.md
     - name: Terraform
       items:
       - name: Install and configure
@@ -203,6 +205,8 @@
       href: cli-ps-findimage.md
     - name: Create custom VM images
       href: create-upload-generic.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Upload custom VM images
       href: upload-vhd.md
     - name: Capture an existing VM into an image
@@ -353,6 +357,8 @@
         href: classic/hpcpack-cluster-namd.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
+    - name: Oracle on Azure
+      href: ../workloads/oracle/oracle-considerations.md
   - name: Docker on VMs
     items:
     - name: Create Docker hosts with the Azure Docker VM extension
@@ -379,6 +385,10 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Supportability of adding Azure VM to an existing availability set
+      href: ../virtual-machines-availability-set-supportability.md
+    - name: Reset Linux VM password
+      href: virtual-machines-linux-reset-password.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
     - name: SSH connections
@@ -393,7 +403,11 @@
     - name: Allocation failures
       href: allocation-failure.md
     - name: Deployment issues
+      href: troubleshoot-deploy-vm.md
+    - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Device names are changed
+      href: troubleshoot-device-names-problems.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
     - name: Common error messages
@@ -424,6 +438,8 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing

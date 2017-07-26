@@ -9,8 +9,8 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: java
-ms.topic: article
-ms.date: 06/20/2017
+ms.topic: hero-article
+ms.date: 06/23/2017
 ---
 
 # Azure Database for PostgreSQL: Use Java to connect and query data
@@ -19,7 +19,7 @@ This quickstart demonstrates how to connect to an Azure Database for PostgreSQL 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
 - [Create DB - Portal](quickstart-create-server-database-portal.md)
-- [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
+- [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 You also need to:
 - Download the [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) matching your version of Java and the Java Development Kit.
@@ -36,7 +36,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
 ## Connect, create table, and insert data
-Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), and [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) are used to connect, drop, and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) runs the command for each set of parameters. 
+Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), and [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) are used to connect, drop, and create the table. The [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) runs the command for each set of parameters. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
@@ -223,7 +223,7 @@ public class ReadTable {
 ```
 
 ## Update data
-Use the following code to change the data with an **UPDATE** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), prepareStatement(), and [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) are used to connect, prepare, and run the update statement. 
+Use the following code to change the data with an **UPDATE** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), and [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) are used to connect, prepare, and run the update statement. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
@@ -303,7 +303,7 @@ public class UpdateTable {
 }
 ```
 ## Delete data
-Use the following code to remove data with a **DELETE** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), prepareStatement(), and [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) are used to connect, prepare, and run the delete statement. 
+Use the following code to remove data with a **DELETE** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), and [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) are used to connect, prepare, and run the delete statement. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 

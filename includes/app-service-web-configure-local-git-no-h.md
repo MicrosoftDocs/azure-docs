@@ -10,10 +10,10 @@ az webapp deployment source config-local-git --name <app_name> --resource-group 
 
 The output has the following format:
 
-```
+```bash
 https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 ```
 
 The `<username>` is the [deployment user](#configure-a-deployment-user) that you created in a previous step.
 
-Save the URI shown; you'll use it in the next step. 
+Copy the URI shown; you'll use it in the next step.

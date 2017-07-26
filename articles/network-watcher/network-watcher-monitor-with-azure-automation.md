@@ -44,13 +44,14 @@ Before you start this scenario, you must have the following pre-requisites:
 - You must have a set of credentials configure in Azure Automation. Learn more at [Azure Automation security](../automation/automation-security-overview.md)
 - A valid SMTP server (Office 365, your on-premises email or another) and credentials defined in Azure Automation
 - A configured Virtual Network Gateway in Azure.
+- An existing storage account to store the logs in.
 
 > [!NOTE]
 > The infrastructure depicted in the preceding image is for illustration purposes and are not created with the steps contained in this article.
 
 ### Create the runbook
 
-The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal)
+The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 
 ### Step 1
 
@@ -86,6 +87,7 @@ Use the following code as click **Save**
 # Get credentials for Office 365 account
 $MyCredential = "Office 365 account"
 $Cred = Get-AutomationPSCredential -Name $MyCredential
+$username = "<from email address>"
 
 # Get the connection "AzureRunAsConnection "
 $connectionName = "AzureRunAsConnection"
@@ -100,17 +102,17 @@ Add-AzureRmAccount `
 "Setting context to a specific subscription"
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "<Azure Region>" }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "<vpn connection name>" -ResourceGroupName "<resource group name>"
+$sa = Get-AzureRmStorageAccount -Name "<storage account name>" -ResourceGroupName "<resource group name>" 
 $result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
 
 
 if($result.code -ne "Healthy")
     {
-        $Body = "Connection for ${vpnconnectionName} is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
-        $subject = "${connectionname} Status"
+        $Body = "Connection for $($connection.name) is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
+        $subject = "$($connection.name) Status"
         Send-MailMessage `
         -To 'admin@contoso.com' `
         -Subject $subject `
@@ -118,17 +120,15 @@ if($result.code -ne "Healthy")
         -UseSsl `
         -Port 587 `
         -SmtpServer 'smtp.office365.com' `
-        -From "${$username}" `
+        -From $username `
         -BodyAsHtml `
         -Credential $Cred
     }
 else
     {
-    Write-Output ("Connection Status is: $($result.connectionStatus)")
+    Write-Output ("Connection Status is: $($result.code)")
     }
 ```
-
-![Step 5][5]
 
 ### Step 6
 

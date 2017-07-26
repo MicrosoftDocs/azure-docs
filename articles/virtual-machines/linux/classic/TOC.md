@@ -20,6 +20,7 @@
 ### [Monitor VMs using v2.x of the Diagnostic VM Extension](diagnostic-extension-v2.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
+### [Maintenance](planned-maintenance-schedule.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
 ### [Create a Docker host using the portal](portal-use-docker.md)
 ### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md)
@@ -65,6 +66,7 @@
 ## Troubleshoot
 ### [VM deployments](troubleshoot-deployment-new-vm.md)
 ### [Restart or resize a VM](restart-resize-error-troubleshooting.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](/powershell/azure/overview)
@@ -78,7 +80,7 @@
 
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Regional availability](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -151,7 +151,7 @@ We have not verified the functionality or quality claimed by the following third
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>

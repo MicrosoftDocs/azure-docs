@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 07/26/2017
 ms.author: byvinyal
 
 ---
@@ -55,6 +55,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
+* [Container Instances](#container-instances-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -111,6 +112,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 ### Virtual Machine Scale Sets limits
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
+
+### Container Instances Limits
+[!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### Networking limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]

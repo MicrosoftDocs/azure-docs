@@ -1,5 +1,6 @@
 # [Overview](azure-security.md)
 ## [Network security](security-network-overview.md)
+## [Database security](azure-database-security-overview.md)
 ## [Storage security](security-storage-overview.md)
 ## [Compute security](security-virtual-machines-overview.md)
 ## [Security management and monitoring](security-management-and-monitoring-overview.md)
@@ -12,6 +13,7 @@
 ### [Isolation in the public cloud](azure-isolation.md)
 ### [Security technical capabilities](azure-security-technical-capabilities.md)
 ### [Governance in Azure](governance-in-azure.md)
+### [Data encryption at rest](azure-security-encryption-atrest.md)
 
 # Get Started
 ## [Getting started with Azure security](azure-security-getting-started.md)
@@ -42,6 +44,7 @@
 #### [Get started with Azure log integration](security-azure-log-integration-get-started.md)
 #### [Integrate Azure Active Directory audit logs](security-azure-log-integration-ad.md)
 #### [Integrate Security Center alerts](security-azure-log-integration-security-center.md)
+#### [Integrate logs from Key Vault using Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 
 ## Identity management
@@ -50,6 +53,7 @@
 ## PaaS services
 ### [Securing PaaS deployments](security-paas-deployments.md)
 #### [Securing PaaS web and mobile applications using SQL](security-paas-applications-using-sql.md)
+#### [SQL Database best practices](azure-database-security-best-practices.md)
 #### [Securing PaaS web and mobile applications using App Services](security-paas-applications-using-app-services.md)
 
 ## Internet of Things
@@ -72,7 +76,7 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure security MVP program](azure-security-mvp.md)
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
 ## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)

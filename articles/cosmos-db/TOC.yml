@@ -29,6 +29,8 @@
       href: create-mongodb-dotnet.md
     - name: Java
       href: create-mongodb-java.md
+    - name: Golang
+      href: create-mongodb-golang.md
   - name: Graph
     items:
     - name: .NET
@@ -281,12 +283,16 @@
       href: odbc-driver.md
 - name: Reference
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: DocumentDB APIs
     items:
     - name: Java
       href: documentdb-sdk-java.md
     - name: .NET
       href: documentdb-sdk-dotnet.md
+    - name: .NET Change feed
+      href: documentdb-sdk-dotnet-changefeed.md
     - name: .NET Core
       href: documentdb-sdk-dotnet-core.md
     - name: Node.js
@@ -309,6 +315,8 @@
       href: graph-sdk-dotnet.md
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ

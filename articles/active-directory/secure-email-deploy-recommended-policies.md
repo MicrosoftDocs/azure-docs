@@ -1,17 +1,19 @@
 ---
-title: Deploying recommended policies for Azure AD Secure email | Microsoft Docs
-description: Describes deploying Microsoft recommendations about how to apply email policies and configurations.
+title: Deploying recommended policies for secure email | Microsoft Docs
+description:  Describes Microsoft recommendations and core concepts for deploying secure email policies and configurations.
 author: jeffgilb
+manager: femila
+editor: jsnow
 ms.service: guidance
 ms.topic: article
-ms.date: 05/24/2017
-ms.author: pnp
-
+ms.date: 07/12/2017
+ms.author: jeffgilb
+ms.reviewer: jsnow
+ms.custom: it-pro
 pnp.series.title: Best Practices
-
 ---
 
-# Deploy recommended policies
+# Deploy recommended secure email policies
 
 This section discusses how to deploy the recommended policies in a newly provisioned environment. Setting up these policies in a separate lab environment allows you to understand and evaluate the recommended policies before staging the rollout to your pre-production and production environments. Your newly provisioned environment may be cloud-only or Hybrid.  
 
@@ -22,7 +24,7 @@ To successfully deploy the recommended polices, you need to take actions in the 
 
 You can target both Azure AD and Intune policies towards specific groups of users. We suggest rolling out the policies defined earlier in a staged way. This way you can validate the performance of the policies and your support teams relative to the policy incrementally.
 
-## Baseline CA policy
+## Baseline conditional access policy
 
 To create a new conditional access policy, log in to the Microsoft Azure portal with your administrator credentials. Then navigate to **Azure Active Directory > Security > Conditional access**. 
 
@@ -90,7 +92,7 @@ To manage mobile apps, log in to the Microsoft Azure portal with your administra
 
 Once your pilot project has been completed, these policies should be applied to all users in your organization.
 
-## Sensitive CA policy
+## Sensitive conditional access policy
 
 ### Low and above risk requires MFA
 The following table describes the conditional access policy settings to implement for low- and above-risk policies.
@@ -121,7 +123,7 @@ The following table describes the conditional access policy settings to implemen
 
 Once the pilot project has been completed, these policies should be applied to users in your organization who require access to email considered sensitive.
 
-## Highly regulated CA policy
+## Highly regulated conditional access policy
 ### MFA required
 
 The following table describes the conditional access policy settings to implement for the highly regulated policy.
@@ -325,4 +327,4 @@ If a user reports that they are now expected to perform MFA when this was previo
 Users within the organization with a Global Administrator or Security Administrator role can use Azure AD Identity Protection to review the risky events that contributed to the calculated risk score. If they identify some events that were flagged as suspicious, but are confirmed to be valid (such as a login from an unfamiliar location when an employee is on vacation), the administrator can resolve the event so it no longer contributes to the risk score.
 
 ## Next steps
-[EMS and Office 365 service descriptions](secure-email-ems-office365-service-descriptions.md)
+[Learn more about Office 365 and EMS services](secure-email-ems-office365-service-descriptions.md)

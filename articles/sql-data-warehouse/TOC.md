@@ -50,6 +50,7 @@
 #### [Indexes](sql-data-warehouse-tables-index.md)
 #### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partitions](sql-data-warehouse-tables-partition.md)
+#### [Replicated tables](design-guidance-for-replicated-tables.md)
 #### [Statistics](sql-data-warehouse-tables-statistics.md)
 #### [Temporary](sql-data-warehouse-tables-temporary.md)
 
@@ -140,7 +141,7 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
