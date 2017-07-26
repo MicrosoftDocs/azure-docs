@@ -25,8 +25,8 @@ There is a class of application patterns that can't be supported generically. Pr
 This document provides guidance on how to track custom operations with the Application Insights SDK. This documentation is relevant for:
 
 - Application Insights for .NET (aka Base SDK) version `2.4+`.
-- Application Insights for Web Applications (running ASP.NET) version `2.4+`.
-- Application Insights for AspNetCore version `2.1+`.
+- Application Insights for web applications (running ASP.NET) version `2.4+`.
+- Application Insights for ASP.NET Core version `2.1+`.
 
 ## Overview
 An operation is a logical piece of work run by an application. It has a name, start time, duration, and a context of execution like user name, properties, and result. If operation `A` was initiated by operation `B`, then operation `B` is set as a parent for `A`. An operation can have only one parent, but it can have many children operations. For more information on operations and telemetry correlation, see [Azure Application Insights telemetry correlation](application-insights-correlation.md).
@@ -64,7 +64,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         if (context.Request.Headers.ContainsKey("Request-Id"))
         {
             var requestId = context.Request.Headers.Get("Request-Id");
-            // Get the operation id from the Request-Id (if you follow the 'HTTP Protocol for Correlation')
+            // Get the operation id from the Request-Id (if you follow the HTTP Correlation Protocol).
             requestTelemetry.Context.Operation.Id = GetOperationId(requestId);
             requestTelemetry.Context.Operation.ParentId = requestId;
         }
@@ -74,7 +74,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         // and initializes start time and duration on telemetry items.
         var operation = telemetryClient.StartOperation(requestTelemetry);
 
-        // process request
+        // Process the request.
         try
         {
             await Next.Invoke(context);
@@ -122,7 +122,7 @@ The HTTP Correlation Protocol also declares the `Correlation-Context` header. Ho
 For HTTP communication, we've created a protocol to pass correlation details. With some queues' protocols, you can pass additional metadata along with the message, and with others you can't.
 
 ### Service Bus Queue
-With the [Service Bus Queue](../service-bus-messaging/index.md) you can pass a property bag along with the message. We use it to pass the correlation ID.
+With the [Service Bus Queue](../service-bus-messaging/index.md), you can pass a property bag along with the message. We use it to pass the correlation ID.
 
 The Service Bus Queue uses TCP-based protocols. Application Insights doesn't automatically track queue operations, so we track them manually. The dequeue operation is a push-style API, and we're unable to track it.
 
@@ -217,7 +217,7 @@ module.Initialize(TelemetryConfiguration.Active);
 // Do not forget to dispose of the module during application shutdown.
 ```
 
-You also might want to correlate the Application Insights operation ID with the Azure Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose and troubleshoot Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+You also might want to correlate the Application Insights operation ID with the Azure Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose, and troubleshoot Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### Enqueue
 Because Azure Storage Queues support the HTTP API, all operations with the queue are automatically tracked by Application Insights. In many cases, this instrumentation should be enough. However, to correlate traces on the consumer side with producer traces, you must pass some correlation context similar to how we do it in the HTTP Correlation Protocol. 
@@ -248,7 +248,7 @@ public async Task Enqueue(CloudQueue queue, string message)
     
     CloudQueueMessage queueMessage = new CloudQueueMessage(jsonPayload);
 
-    // Add operation.Telemetry.Id to the OperationContext to correlate Azure Storage logs and ApplciationInsights telemetry.
+    // Add operation.Telemetry.Id to the OperationContext to correlate Azure Storage logs and ApplicationInsights telemetry.
     OperationContext context = new OperationContext { ClientRequestID = operation.Telemetry.Id};
 
     try
