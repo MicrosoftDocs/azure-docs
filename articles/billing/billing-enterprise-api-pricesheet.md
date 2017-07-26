@@ -67,7 +67,7 @@ Note: To use the preview version of API, please replace v2 by v1 in the above UR
 |-|-|-|
 |id| string| The unique Id that represents a particular PriceSheet item (meter by billing period)|
 |billingPeriodId| string| The unique Id that represents a particular Billing period|
-|meterId| string| The identifier for the meter applicable to the enterprise agreement|
+|meterId| string| The identifier for the meter. It can be mapped to the usage meterId.|
 |meterName| string| The meter name|
 |unitOfMeasure| string| The Unit of Measure for measuring the service|
 |includedQuantity| decimal| Quantity that is included |
