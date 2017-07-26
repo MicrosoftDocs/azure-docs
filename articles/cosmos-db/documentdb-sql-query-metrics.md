@@ -18,8 +18,8 @@ ms.date: 07/21/2017
 ms.author: arramac
 
 ---
-# Debugging query performance with Azure Cosmos DB
-Azure Cosmos DB supports querying a [SQL API for querying data](documentdb-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
+# Tuning query performance with Azure Cosmos DB
+Azure Cosmos DB provides a [SQL API for querying data](documentdb-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
 * High-level details on how Azure Cosmos DB's SQL query execution works
 * Details on query request and response headers, and client SDK options
@@ -218,8 +218,8 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 
 
 ## Next steps
-* To learn about the supported SQL query operators and keyword, see [SQL query](documentdb-sql-query.md). 
-* To learn about the supported SQL query operators and keyword, see [SQL query](documentdb-sql-query.md). 
-* To learn about the supported SQL query operators and keyword, see [SQL query](documentdb-sql-query.md). 
+* To learn about the supported SQL query operators and keywords, see [SQL query](documentdb-sql-query.md). 
+* To learn about request units, see [request units](request-units.md).
+* To learn about indexing policy, see [indexing policy](indexing-policies.md) 
 
 
