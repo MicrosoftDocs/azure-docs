@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/27/2017
 ms.author: jeedes
 
 ---
@@ -102,13 +102,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-zivver-tutorial/tutorial_zivver_samlbase.png)
 
-3. On the **ZIVVER Domain and URLs** section, perform the following steps:
+3. On the **ZIVVER Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
 
 	![ZIVVER Domain and URLs single sign-on information](./media/active-directory-saas-zivver-tutorial/tutorial_zivver_url.png)
-
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://app.zivver.com/SAML/Zivver`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.zivver.com/api/sso/saml/consumer/`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
