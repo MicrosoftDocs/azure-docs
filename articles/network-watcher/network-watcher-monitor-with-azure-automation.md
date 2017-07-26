@@ -126,7 +126,7 @@ if($result.code -ne "Healthy")
     }
 else
     {
-    Write-Output ("Connection Status is: $($result.connectionStatus)")
+    Write-Output ("Connection Status is: $($result.code)")
     }
 ```
 

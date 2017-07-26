@@ -64,11 +64,15 @@ Container registry login server (update with your registry name):
 az acr show --name <acrName> --query loginServer
 ```
 
+Throughout the rest of this tutorial, we use `<acrLoginServer>` as a placeholder for the container registry login server value.
+
 Container registry password:
 
 ```azurecli
 az acr credential show --name <acrName> --query passwords[0].value
 ```
+
+Throughout the rest of this tutorial, we use `<acrPassword>` as a placeholder for the container registry password value.
 
 ## Login to the container registry
 
