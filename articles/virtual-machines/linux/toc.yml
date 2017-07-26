@@ -39,6 +39,8 @@
     href: tutorial-azure-security.md
   - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
+  - name: 13 - Set up CI/CD with Team Services
+    href: tutorial-build-deploy-jenkins.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -381,6 +383,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Supportability of adding Azure VM to an existing availability set
+      href: ../virtual-machines-availability-set-supportability.md
     - name: Reset Linux VM password
       href: virtual-machines-linux-reset-password.md
     - name: Understand a system reboot

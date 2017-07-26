@@ -36,7 +36,7 @@ Historically, containers have offered application dependency isolation and resou
 
 ## Custom sizes
 
-Containers are typically optimized to run just a single application, but the exact needs of those applications can differ greatly. With Azure Container Instances, you can request exactly what you need in terms of CPU cores and memory. You pay based on what you request, billed by the second, so you can finely optimizing your spending based on your needs.
+Containers are typically optimized to run just a single application, but the exact needs of those applications can differ greatly. With Azure Container Instances, you can request exactly what you need in terms of CPU cores and memory. You pay based on what you request, billed by the second, so you can finely optimize your spending based on your needs.
 
 ## Public IP connectivity
 

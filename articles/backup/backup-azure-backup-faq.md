@@ -1,7 +1,7 @@
 
 ---
 title: Azure Backup FAQ | Microsoft Docs
-description: 'Answers to common questions about: Recovery Services vault, what it can backup, how it works, encryption, and limits.'
+description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/10/2017
-ms.author: markgal;giridham;arunak;trinadhk;
+ms.date: 7/21/2017
+ms.author: markgal;arunak;trinadhk;
 
 ---
 # Questions about the Azure Backup service
@@ -57,6 +57,13 @@ Detailed list of questions are present in [FAQ on Azure file-folder backup](back
 
 ## Azure VM backup
 Detailed list of questions are present in [FAQ on Azure VM backup](backup-azure-vm-backup-faq.md)
+
+## Back up VMware servers
+
+### Can I back up VMware vCenter servers to Azure?
+
+Yes. You can use Azure Backup Server to back up VMware vCenter and ESXi to Azure. For information on the supported VMware version, see the article, [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). For step-by-step instructions, see [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
+
 
 ## Azure Backup Server and System Center Data Protection Manager
 ### Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server? <br/>

@@ -21,10 +21,21 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Create attribute-based rules for dynamic group membership in Azure Active Directory
-In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules.
+In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices.
 
-## To create the advanced rule
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
+
+> [!NOTE]
+> - You can set up a rule for dynamic membership on security groups or Office 365 groups.
+>
+> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group.
+>
+> - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
+
+> - At the moment it is not possible to create a device group based on owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
+
+## To create an advanced rule
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a global administrator or a user account administrator.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
@@ -152,7 +163,7 @@ Allowed operators
 | --- | --- | --- |
 | city |Any string value or $null |(user.city -eq "value") |
 | country |Any string value or $null |(user.country -eq "value") |
-| CompanyName | Any string value or $null | (user.CompanyName -eq "value") |
+| companyName | Any string value or $null | (user.companyName -eq "value") |
 | department |Any string value or $null |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Any string value or $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -195,7 +206,7 @@ Allowed operators
 
 | Properties | Values | Usage |
 | --- | --- | --- |
-| assigendPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
 Multi-value properties are collections of objects of the same type. You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively. For example:
 

@@ -1,3 +1,5 @@
+- name: Container Instances
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Container Instances
@@ -17,12 +19,14 @@
       href: container-instances-tutorial-prepare-acr.md    
     - name: 3 - Deploy app
       href: container-instances-tutorial-deploy-app.md    
+- name: Concepts
+  items:
+  - name: Relationship to orchestrators
+    href: container-instances-orchestrator-relationship.md
 - name: How-to guides
   items:
     - name: Multi-container groups
       href: container-instances-multi-container-group.md
-- name: Reference
-  items:
 - name: Resources
   items:
   - name: Azure Roadmap
