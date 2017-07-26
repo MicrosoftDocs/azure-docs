@@ -22,7 +22,7 @@ ms.custom:
 
 # Create your first container in Azure Container Instances
 
-Azure Container Instances makes it easy to create and manage containers in Azure. In this quick start, you will create a container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few minutes, you will see this in your browser:
+Azure Container Instances makes it easy to create and manage containers in Azure. In this quick start, you will create a container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few seconds, you will see this in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -57,7 +57,7 @@ az container create --name mycontainer --image microsoft/aci-helloworld --resour
 Within a few seconds, you should get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
 
 ```azurecli-interactive
-az container show mycontainer --resource-group myResourceGroup
+az container show --name mycontainer --resource-group myResourceGroup
 ```
 
 At the bottom of the output, you will see the container's provisioning state and its IP address:
