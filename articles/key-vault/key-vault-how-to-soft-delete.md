@@ -48,8 +48,8 @@ The command to delete (or remove) a vault remains same, but its behavior changes
 
 `Remove-AzureRmKeyVault -VaultName ContosoVault`
 
-> [!NOTE]
->Beware that, if you run the previous command for a key vault that does not have soft-delete enabled, you will permanently lose this vault and all its content without any options for recovery.
+> [!IMPORTANT]
+>If you run the previous command for a key vault that does not have soft-delete enabled, you will permanently lose this vault and all its content without any options for recovery.
 
 With soft-delete turned on, when a vault is deleted, it is removed from the resource group and placed in a different name space that is only associated with the location where it was created. All the keys and secrets in a deleted vault also become inaccessible. The DNS name for a vault in a deleted state is still reserved, so a new vault with same name cannot be created.  To see all the vaults in your subscription in the deleted state, run this command:
 
