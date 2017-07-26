@@ -147,7 +147,7 @@ Similarly here are related commands for deleting, listing, recovering and purgin
 
 ## Purging objects
 
-To purge (permanently delete) a key vault run 'Remove-AzureRmKeyVault' with '-InRemovedState' and specify the location of the deleted key vault. You can find the location of deleted vault using the ‘Get-AzureRmKeyVault -InRemovedState’ cmdlet described previously.
+To purge (permanently delete) a key vault by using the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
 
 `Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus`
 
