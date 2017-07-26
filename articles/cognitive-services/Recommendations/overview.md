@@ -8,9 +8,15 @@ manager: mwinkle
 ms.service: cognitive-services
 ms.technology: recommendations
 ms.topic: article
-ms.date: 06/18/2016
+ms.date: 07/26/2017
 ms.author: luisca
 ---
+
+>  **NOTE**  
+>  __The Microsoft Cognitive Services Recommendations API preview will be retired on February 15, 2018.__   
+>  Consider using the new [Recommendations Solution template](http://aka.ms/recopcs), which lets you host a recommendations 
+>  engine within your own Azure subscription. It supports the core scenarios of the Recommendations API, while also giving you the freedom to deploy to any Azure region and more closely control the computational resources used to train models and serve recommendations. 
+> Learn more about the Recommendations Solution template by reading [the documentation](https://github.com/Microsoft/Product-Recommendations). 
 
 # Recommendations
 
