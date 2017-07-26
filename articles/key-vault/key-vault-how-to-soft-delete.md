@@ -6,7 +6,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/18/2017
+ms.date: 07/26/2017
 
 ---
 # How to: Azure Key Vault soft-delete
@@ -144,6 +144,18 @@ Similarly here are related commands for deleting, listing, recovering and purgin
 - Recover a secret in deleted state: `Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword`
 
 - Purge a secret in deleted state: `Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword`
+
+## Purging objects
+
+To purge (permanently delete) a key vault run 'Remove-AzureRmKeyVault' with '-InRemovedState' and specify the location of the deleted key vault. You can find the location of deleted vault using the ‘Get-AzureRmKeyVault -InRemovedState’ cmdlet described previously.
+
+`Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus`
+
+When a key vault is purged, all of its contents (ex. keys and secrets) are permanently deleted.
+
+- To purge a deleted key vault so that the vault and all its contents are permanently removed, the user needs RBAC permission to perform a *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
+- To list the deleted key vault a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission. 
+- By default only a subscription administrator has these permissions. 
 
 ## See also
 
