@@ -18,7 +18,7 @@ ms.date: 04/25/2017
 ms.author: aedwin
 
 ---
-# Reporting APIs for Enterprise customers - Marketplace Charges (Preview)
+# Reporting APIs for Enterprise customers - Marketplace Charges
 
 The Marketplace Store Charge API returns the usage-based marketplace charges breakdown by day for the specified Billing Period or start and end dates (one time fees are not included).
 
@@ -27,9 +27,11 @@ Common header properties that need to be added are specified [here](billing-ente
 
 |Method | Request URI|
 |-|-|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+
+Note: To use the preview version of API, please replace V2 by V1 in the above URI.
 
 ## Response
  

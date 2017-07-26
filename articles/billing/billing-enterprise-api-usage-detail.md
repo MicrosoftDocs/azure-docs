@@ -20,7 +20,7 @@ ms.author: aedwin
 ---
 # Reporting APIs for Enterprise customers - Usage Details
 
-The Usage Detail API offers a daily breakdown of consumed quantities and estimated charges by an Enrollment. The result also includes information on instances, meters and departments. The API can be queried by Billing period or by a specified start and end date.  
+The Usage Detail API offers a daily breakdown of consumed quantities and estimated charges by an Enrollment. The result also includes information on instances, meters and departments. The API can be queried by Billing period or by a specified start and end date. 
 ## Consumption APIs
 
 
@@ -122,8 +122,8 @@ Note: To use the preview version of the API, please replace V2 by V1 in the abov
 |departmentName| string| Name of the department. |
 |costCenter| string| The cost center that the usage is associated with. |
 |unitOfMeasure| string| Identifies the unit that the service is charged in. Example: GB, hours, 10,000 s. |
-|resourceGroup| string| For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-
+|resourceGroup| string| The resource group in which the deployed meter is running in. For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
+<br/>
 ## See Also
 * [Billing Periods API](billing-enterprise-api-billing-periods.md)
 

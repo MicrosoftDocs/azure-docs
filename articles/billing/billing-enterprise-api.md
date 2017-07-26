@@ -18,7 +18,7 @@ ms.date: 04/25/2017
 ms.author: aedwin
 
 ---
-# Overview of Reporting APIs for Enterprise customers (Preview)
+# Overview of Reporting APIs for Enterprise customers
 The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. 
 
 ## Enabling data access to the API
@@ -30,7 +30,7 @@ The Reporting APIs enable Enterprise Azure customers to programmatically pull co
 |Authorization| Specify the value in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09|
 
 ## Consumption APIs
-A Swagger endpoint is available [here](https://consumption.azure.com/v1/swagger) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
+A Swagger endpoint is available [here](https://consumption.azure.com/v2/swagger/index) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
 
 * **Balance and Summary** - The [Balance and Summary API](billing-enterprise-api-balance-summary.md) offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments and overage charges.
 
