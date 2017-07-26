@@ -377,7 +377,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_workpath.png)| [Workpath](active-directory-saas-workpath-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_WorksMobile.png)| [WORKS MOBILE](active-directory-saas-worksmobile-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Yardi.png)| [Yardi eLearning](active-directory-saas-yardielearning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Yonyx Interactive Guides](active-directory-saas-yonyx-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-youearnedit-tutorial.png)| [YouEarnedIt](active-directory-saas-youearnedit-tutorial.md)|
