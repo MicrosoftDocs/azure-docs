@@ -104,7 +104,7 @@ To define the volumes you want to make available for mounting, add a `volumes` a
             "cpu": 1,
             "memoryInGb": 1.5
           }
-        }
+        },
         "volumeMounts": [{
           "name": "myvolume",
           "mountPath": "/acifiles/"
