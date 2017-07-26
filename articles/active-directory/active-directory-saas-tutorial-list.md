@@ -366,30 +366,30 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-voyance-tutorial.png)| [Voyance](active-directory-saas-voyance-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-vxmaintain-tutorial.png)| [vxMaintain](active-directory-saas-vxmaintain-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_wdesk.png)| [Wdesk](active-directory-saas-wdesk-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Weekdone.png)| [Weekdone](active-directory-saas-weekdone-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Wikispace.png)| [Wikispaces](active-directory-saas-wikispaces-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-weekdone-tutorial.png)| [Weekdone](active-directory-saas-weekdone-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-wikispaces-tutorial.png)| [Wikispaces](active-directory-saas-wikispaces-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_wingspanetmf.png)| [Wingspan eTMF](active-directory-saas-wingspanetmf-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_WizergosProductivitySoftware.png)| [Wizergos Productivity Software](active-directory-saas-wizergosproductivitysoftware-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Work.png)| [Work.com](active-directory-saas-work-com-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-work-com-tutorial.png)| [Work.com](active-directory-saas-work-com-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](active-directory-saas-workday-tutorial.md)| [Workday - User Provisioning](active-directory-saas-workday-inbound-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_FBAtWork.png)| [Workplace by Facebook](active-directory-saas-facebook-at-work-tutorial.md)| [Workplace by Facebook - User Provisioning](active-directory-saas-workplacebyfacebook-provisioning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-facebook-at-work-tutorial.png)| [Workplace by Facebook](active-directory-saas-facebook-at-work-tutorial.md)| [Workplace by Facebook - User Provisioning](active-directory-saas-workplacebyfacebook-provisioning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_workfront.png)| [Workfront](active-directory-saas-workfront-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_workpath.png)| [Workpath](active-directory-saas-workpath-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Workrite.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_WorksMobile.png)| [WORKS MOBILE](active-directory-saas-worksmobile-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Yardi.png)| [Yardi eLearning](active-directory-saas-yardielearning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Yonyx.png)| [Yonyx Interactive Guides](active-directory-saas-yonyx-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_YouEarnIt.png)| [YouEarnedIt](active-directory-saas-youearnedit-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Yonyx Interactive Guides](active-directory-saas-yonyx-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-youearnedit-tutorial.png)| [YouEarnedIt](active-directory-saas-youearnedit-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zendesk.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ZohoMail.png)| [Zoho Mail](active-directory-saas-zoho-mail-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zoom.png)| [Zoom](active-directory-saas-zoom-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler Beta](active-directory-saas-zscaler-beta-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler One](active-directory-saas-zscaler-one-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zoho-mail-tutorial.png)| [Zoho Mail](active-directory-saas-zoho-mail-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zoom-tutorial.png)| [Zoom](active-directory-saas-zoom-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](active-directory-saas-zscaler-beta-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](active-directory-saas-zscaler-one-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_zscalerprivateaccess.png  )| [Zscaler Private Access (ZPA)](active-directory-saas-zscalerprivateaccess-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler Two](active-directory-saas-zscaler-two-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](active-directory-saas-zscaler-two-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler ZSCloud](active-directory-saas-zscaler-zscloud-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler](active-directory-saas-zscaler-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-tutorial.png)| [Zscaler](active-directory-saas-zscaler-tutorial.md)|
 
 ## Related articles
 
