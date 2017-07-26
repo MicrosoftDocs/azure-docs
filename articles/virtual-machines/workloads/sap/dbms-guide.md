@@ -308,7 +308,7 @@ ms.custom: H1Hack27Feb2017
 
 This guide is part of the documentation on implementing and deploying the SAP software on Microsoft Azure. Before reading this guide, please read the [Planning and Implementation Guide][planning-guide]. This document covers the deployment of various Relational Database Management Systems (RDBMS) and related products in combination with SAP on Microsoft Azure Virtual Machines (VMs) using the Azure Infrastructure as a Service (IaaS) capabilities.
 
-The paper complements the SAP Installation Documentation and SAP Notes which represent the primary resources for installations and deployments of SAP software on given platforms
+The paper complements the SAP Installation Documentation and SAP Notes which represent the primary resources for installations and deployments of SAP software on given platforms.
 
 ## General considerations
 In this chapter, considerations of running SAP-related DBMS systems in Azure VMs are introduced. There are few references to specific DBMS systems in this chapter. Instead the specific DBMS systems are handled within this paper, after this chapter.
@@ -363,7 +363,7 @@ The following SAP Notes are related to the topic of SAP on Azure:
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
-You should have a working knowledge about the Microsoft Azure Architecture and how Microsoft Azure Virtual Machines are deployed and operated. You can find more information here <https://azure.microsoft.com/documentation/>
+You should have a working knowledge about the Microsoft Azure Architecture and how Microsoft Azure Virtual Machines are deployed and operated. You can find more information at <https://azure.microsoft.com/documentation/>
 
 > [!NOTE]
 > We are **not** discussing Microsoft Azure Platform as a Service (PaaS) offerings of the Microsoft Azure Platform. This paper is about running a database management system (DBMS) in Microsoft Azure Virtual Machines (IaaS) just as you would run the DBMS in your on-premises environment. Database capabilities and functionalities between these two offers are very different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
@@ -456,7 +456,7 @@ Situations experienced in Azure deployments which would favor using a software R
 - - -
 > ![Windows][Logo_Windows] Windows
 > 
-> Usage of Windows Server 2012 or higher Storage Spaces is preferable since it is more efficient than Windows Striping of earlier Windows versions. Please be aware that you might need to create the Windows Storage Pools and Storage Spaces by PowerShell commands when using Windows Server 2012 as Operating System. The PowerShell commands can be found here <https://technet.microsoft.com/library/jj851254.aspx>
+> We recommend using Windows Storage Spaces if you run on Windows Server 2012 or higher. It is more efficient than Windows Striping of earlier Windows versions. Please be aware that you might need to create the Windows Storage Pools and Storage Spaces by PowerShell commands when using Windows Server 2012 as Operating System. The PowerShell commands can be found here <https://technet.microsoft.com/library/jj851254.aspx>
 > 
 > ![Linux][Logo_Linux] Linux
 > 
@@ -512,7 +512,7 @@ So for Azure Standard Storage it is important to note there is a limit on the IO
 
 For Azure Standard Storage it is not recommended to present storage from different storage accounts to a single VM if possible.
 
-Whereas using the DS or GS-series of Azure VMs it is possible to mount VHDs out of Azure Standard Storage Accounts and Premium Storage Accounts. Use cases like writing backups into Standard Storage backed VHDs whereas having DBMS data and log files on Premium Storage come to mind where such heterogeneous storage could be leveraged. 
+When using the DS or GS-series of Azure VMs it is possible to mount VHDs out of Azure Standard Storage Accounts and Premium Storage Accounts. Use cases like writing backups into Standard Storage backed VHDs and having DBMS data and log files on Premium Storage come to mind where such heterogeneous storage could be leveraged. 
 
 Based on customer deployments and testing around 30 to 40 VHDs containing database data files and log files can be provisioned on a single Azure Standard Storage Account with acceptable performance. As mentioned earlier, the limitation of an Azure Premium Storage Account is likely to be the data capacity it can hold and not IOPS.
 
@@ -592,9 +592,9 @@ Even for Cross-Premises scenarios, by default a shutdown and de-allocation will 
 > 
 
 ## Deployment of Host Monitoring
-For productive usage of SAP Applications in Azure Virtual Machines, SAP requires the ability to get host monitoring data from the physical hosts running the Azure Virtual Machines. A specific SAP HostAgent patch level will be required that enables this capability in SAPOSCOL and SAP HostAgent. The exact patch level is documented in SAP Note [1409604].
+For productive usage of SAP Applications in Azure Virtual Machines, SAP requires the ability to get host monitoring data from the physical hosts running the Azure Virtual Machines. A specific SAP Host Agent patch level is required that enables this capability in SAPOSCOL and SAP Host Agent. The exact patch level is documented in SAP Note [1409604].
 
-For the details regarding deployment of components that deliver host data to SAPOSCOL and SAPHostAgent and the lifecycle management of those components, please refer to the [Deployment Guide][deployment-guide]
+For the details regarding deployment of components that deliver host data to SAPOSCOL and SAP Host Agent and the lifecycle management of those components, please refer to the [Deployment Guide][deployment-guide]
 
 ## <a name="3264829e-075e-4d25-966e-a49dad878737"></a>Specifics to Microsoft SQL Server
 ### SQL Server IaaS
@@ -1161,14 +1161,14 @@ The installation and operation of SRS works as well functionally in a VM hosted 
 ASE HADR via SAP Replication Server is NOT supported at this point in time. It might be tested with and released for Microsoft Azure platforms in the future.
 
 ## Specifics to Oracle Database on Windows
-Since midyear 2013, Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. Please read this article to get more details on the general support of Windows Hyper-V and Azure by Oracle: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 
 ### Oracle Version Support
-All details about Oracle versions and corresponding OS versions which are supported for running SAP on Oracle on Azure Virtual Machines can be found in the following SAP Note [2039619]
+Oracle versions and corresponding OS versions which are supported for running SAP on Oracle on Azure Virtual Machines can be found in SAP Note [2039619].
 
-General information about running SAP Business Suite on Oracle can be found on SCN: <https://www.sap.com/community/topic/oracle.html>
+General information about running SAP Business Suite on Oracle can be found in 1DX: <https://www.sap.com/community/topic/oracle.html>
 
 ### Oracle Configuration Guidelines for SAP Installations in Azure VMs
 #### Storage configuration
@@ -1184,11 +1184,11 @@ Using disks based on Azure Page BLOB Storage or Managed Disks, the statements ma
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
-To identify the supported Azure VM types, please refer to SAP note [1928533]
+To identify the supported Azure VM types, please refer to SAP note [1928533].
 
 As long as the current IOPS quota per disk satisfies the requirements, it is possible to store all the DB files on one single mounted disk. 
 
-If more IOPS are required, it is strongly recommended to use Window Storage Pools (only available in Windows Server 2012 and higher) or Windows striping for Windows 2008 R2 to create one big logical device over multiple mounted disks. See also chapter [Software RAID][dbms-guide-2.2] of this document. This approach simplifies the administration overhead to manage the disk space and avoids the effort to manually distribute files across multiple mounted disks.
+If more IOPS are required, it is strongly recommended to use Window Storage Pools (only available in Windows Server 2012 and higher) or Windows striping for Windows 2008 R2 to create one big logical device over multiple mounted disks (see also chapter [Software RAID][dbms-guide-2.2] of this document). This approach simplifies the administration overhead to manage the disk space and avoids the effort to manually distribute files across multiple mounted disks.
 
 #### Backup / Restore
 For backup / restore functionality, the SAP BR*Tools for Oracle are supported in the same way as on standard Windows Server Operating Systems and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restore from disk.
@@ -1201,14 +1201,14 @@ in [this][virtual-machines-windows-classic-configure-oracle-data-guard] document
 All other general topics like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with the Oracle Database as well.
 
 ## Specifics to Oracle Database on Oracle Linux
-Since midyear 2013, Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. Please read this article to get more details on the general support of Windows Hyper-V and Azure by Oracle: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 
 ### Oracle Version Support
-All details about Oracle versions and corresponding OS versions which are supported for running SAP on Oracle on Azure Virtual Machines can be found in the following SAP Note [2039619]
+Oracle versions and corresponding OS versions which are supported for running SAP on Oracle on Azure Virtual Machines can be found in SAP Note [2039619].
 
-General information about running SAP Business Suite on Oracle can be found on SCN: <https://www.sap.com/community/topic/oracle.html>
+General information about running SAP Business Suite on Oracle can be found in 1DX: <https://www.sap.com/community/topic/oracle.html>
 
 ### Oracle Configuration Guidelines for SAP Installations in Azure VMs
 #### Storage configuration
