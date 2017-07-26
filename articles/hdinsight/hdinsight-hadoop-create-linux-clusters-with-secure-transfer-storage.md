@@ -74,7 +74,7 @@ This step is required only if you use a secure transfer enabled storage account 
 
 The following procedure is only required for Spark clusters:
 
-**To confiugre the default storage account for Spark clusters:**
+**To configure the default storage account for Spark clusters:**
 
 1. Sign in to the Ambari Web UI.  See [Connectivity](./hdinsight-hadoop-manage-ambari.md#connectivity).
 2. Click **Spark2** from the left menu.
