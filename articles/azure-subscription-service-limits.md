@@ -55,6 +55,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
+* [Container Instances](#container-instances-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -85,7 +86,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Traffic Manager](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
 * [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
-* [Container Instances](#container-instances-limits)
 
 ### Subscription limits
 #### Subscription limits
