@@ -114,8 +114,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Container Instances Limits
-[!INCLUDE [container-instances-limits]
-(../includes/container-instances-limits.md)]
+[!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### Networking limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
