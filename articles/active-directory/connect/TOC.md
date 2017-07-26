@@ -82,6 +82,7 @@
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Hybrid Identity Required Ports and Protocols](active-directory-aadconnect-ports.md)
 ## [Features in preview](active-directory-aadconnect-feature-preview.md)
