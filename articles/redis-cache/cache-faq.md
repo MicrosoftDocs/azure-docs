@@ -140,10 +140,10 @@ From this table, we can draw the following conclusions:
 | C5 |26 GB |4 |1,000 / 125 |115,000 |
 | C6 |53 GB |8 |2,000 / 250 |150,000 |
 | **Premium cache sizes** | |**CPU cores per shard** | |**Requests per second (RPS), per shard** |
-| P1 |6 GB |2 |1,500 / 125 |180,000 |
-| P2 |13 GB |4 |3,000 / 250 |360,000 |
-| P3 |26 GB |4 |3,000 / 250 |360,000 |
-| P4 |53 GB |8 |6,000 / 500 |400,000 |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
+| P2 |13 GB |4 |3,000 / 375 |360,000 |
+| P3 |26 GB |4 |3,000 / 375 |360,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
