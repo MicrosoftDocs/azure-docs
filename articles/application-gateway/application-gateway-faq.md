@@ -40,7 +40,7 @@ Application Gateway supports HTTP, HTTPS, and WebSocket.
 
 **Q. What resources are supported today as part of backend pool?**
 
-Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, and fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
+Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure Web Apps. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
 
 **Q. What regions is the service available in?**
 
