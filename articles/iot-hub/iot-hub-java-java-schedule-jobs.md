@@ -82,7 +82,7 @@ To create the app:
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.6.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -117,10 +117,14 @@ To create the app:
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceTwinDevice;
     import com.microsoft.azure.sdk.iot.service.devicetwin.Pair;
+    import com.microsoft.azure.sdk.iot.service.devicetwin.Query;
+    import com.microsoft.azure.sdk.iot.service.devicetwin.SqlQuery;
     import com.microsoft.azure.sdk.iot.service.jobs.JobClient;
     import com.microsoft.azure.sdk.iot.service.jobs.JobResult;
+    import com.microsoft.azure.sdk.iot.service.jobs.JobStatus;
 
     import java.util.Date;
+    import java.time.Instant;
     import java.util.HashSet;
     import java.util.Set;
     import java.util.UUID;
@@ -203,7 +207,7 @@ To create the app:
           return;
         }
         // Check the job result until it's completed
-        while(jobResult.getJobStatus() != JobResult.JobStatus.completed)
+        while(jobResult.getJobStatus() != JobStatus.completed)
         {
           Thread.sleep(100);
           jobResult = jobClient.getJob(jobId);
@@ -218,6 +222,23 @@ To create the app:
     }
     ```
 
+1. To query for the details of the jobs you ran, add the following method:
+
+    ```java
+    private static void queryDeviceJobs(JobClient jobClient, String start) throws Exception {
+      System.out.println("\nQuery device jobs since " + start);
+
+      // Create a jobs query using the time the jobs started
+      Query deviceJobQuery = jobClient
+          .queryDeviceJob(SqlQuery.createSqlQuery("*", SqlQuery.FromType.JOBS, "devices.jobs.startTimeUtc > '" + start + "'", null).getQuery());
+
+      // Iterate over the list of jobs and print the details
+      while (jobClient.hasNextJob(deviceJobQuery)) {
+        System.out.println(jobClient.getNextJob(deviceJobQuery));
+      }
+    }
+    ```
+
 1. Update the **main** method signature to include the following `throws` clause:
 
     ```java
@@ -227,6 +248,9 @@ To create the app:
 1. To run and monitor two jobs sequentially, add the following code to the **main** method:
 
     ```java
+    // Record the start time
+    String start = Instant.now().toString();
+
     // Create JobClient
     JobClient jobClient = JobClient.createFromConnectionString(iotHubConnectionString);
     System.out.println("JobClient created with success");
@@ -241,6 +265,9 @@ To create the app:
     String directMethodJobId = "DMCMD" + UUID.randomUUID();
     scheduleJobCallDirectMethod(jobClient, directMethodJobId);
     monitorJob(jobClient, directMethodJobId);
+
+    // Run a query to show the job detail
+    queryDeviceJobs(jobClient, start);
 
     System.out.println("Shutting down schedule-jobs app");
     ```
