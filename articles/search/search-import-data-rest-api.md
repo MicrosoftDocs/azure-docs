@@ -1,5 +1,5 @@
 ---
-title: Data upload in Azure Search using the REST API | Microsoft Docs
+title: "Upload data (REST API - Azure Search) | Microsoft Docs"
 description: Learn how to upload data to an index in Azure Search using the REST API.
 services: search
 documentationcenter: ''

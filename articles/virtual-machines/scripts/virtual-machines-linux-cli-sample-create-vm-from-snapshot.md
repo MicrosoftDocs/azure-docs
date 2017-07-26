@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
+ms.custom: mvc
 ---
 
 # Create a virtual machine from a snapshot with CLI
@@ -23,8 +24,6 @@ ms.author: ramankum
 This script creates a virtual machine from a snapshot of an OS disk.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +35,7 @@ This script creates a virtual machine from a snapshot of an OS disk.
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

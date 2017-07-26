@@ -34,7 +34,7 @@ The CRM format is designed for utility and is conducive to focused documentation
 
 For example, control AC-1 requires documented access control policies and procedures for the system seeking an ATO. For this control, Microsoft has internal Azure-specific policies and procedures regarding access control mechanisms used to manage the Azure infrastructure and platform. Customers must also create their own access control policies and procedures used within their specific system built in Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on an annual basis.
 
-The Blueprint CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 and L5 baselines.
+The Blueprint CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, the DISA Cloud Computing SRG L4 and L5 baselines, and the NIST Cybersecurity Framework (CSF).
 
 To request a copy of the Azure Blueprint CRM or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 

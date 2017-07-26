@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ---
 # Azure and Linux
 Microsoft Azure is a growing collection of integrated public cloud services including analytics, Virtual Machines, databases, mobile, networking, storage, and web&mdash;ideal for hosting your solutions.  Microsoft Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on-premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
@@ -130,7 +130,7 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 ## Containers
 * [Virtual Machines and Containers in Azure](containers.md)
 * [Azure Container Service introduction](../../container-service/container-service-intro.md)
-* [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
+* [Deploy an Azure Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## Next steps
 You now have an overview of Linux on Azure.  The next step is to dive in and create a few VMs!

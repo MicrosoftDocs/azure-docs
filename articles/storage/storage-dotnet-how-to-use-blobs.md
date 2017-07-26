@@ -49,7 +49,7 @@ For additional examples using Blob storage, see [Getting Started with Azure Blob
 Add the following **using** directives to the top of the `Program.cs` file:
 
 ```csharp
-using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ```

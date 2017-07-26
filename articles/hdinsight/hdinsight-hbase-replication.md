@@ -1,5 +1,5 @@
 ﻿---
-title: Configure HBase replication | Microsoft Docs
+title: Configure HBase cluster replication within virtual networks - Azure  | Microsoft Docs
 description: Learn how to configure HBase replication for load balancing, high availability, zero-downtime migration/update from one HDInsight version to another, and disaster recovery.
 services: hdinsight,virtual-network
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 05/25/2017
 ms.author: jgao
 
 ---
-# Configure HBase replication
+# Configure HBase cluster replication within virtual networks
 
 Learn how to configure HBase replication within one virtual network (VNet) or between two virtual networks.
 

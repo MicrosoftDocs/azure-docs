@@ -3,7 +3,7 @@ title: Azure Event Hubs samples | Microsoft Docs
 description: Azure Event Hubs samples 
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
-ms.author: jotaub;sethm
+ms.author: sethm
+
 ---
 
 # Event Hubs samples 

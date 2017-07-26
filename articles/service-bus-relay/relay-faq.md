@@ -3,7 +3,7 @@ title: Azure Relay FAQs | Microsoft Docs
 description: Get answers to some frequently asked questions about Azure Relay.
 services: service-bus-relay
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: jotaub;sethm
+ms.author: sethm
 
 ---
 # Azure Relay FAQs

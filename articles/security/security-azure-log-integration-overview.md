@@ -1,4 +1,4 @@
----
+﻿---
 title: Integrate logs from Azure resources into your SIEM systems | Microsoft Docs
 description: Learn about Azure log integration, its key capabilities, and how it works.
 services: security
@@ -13,8 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/20/2017
+ms.date: 06/01/2017
 ms.author: TomSh
+ms.custom: azlog
+
 
 ---
 # Introduction to Microsoft Azure log integration
@@ -40,6 +42,9 @@ Azure produces extensive logging for every Azure service. These logs represent t
 
 Azure log integration currently supports integration of Azure Activity Logs, Windows Event logs from Windows virtual machines in your Azure subscription, Azure Security Center alerts, Azure Diagnostic logs, and Azure Active Directory audit logs.
 
+>[!NOTE]
+While Azure Log Integration is a free solution there will be Azure storage costs resulting from the log file information storage.
+
 The following table explains the Log category and SIEM integration detail
 
 | Log type  |Log analytics supporting JSON (Splunk, ELK)| ArcSight  | QRadar  |   
@@ -50,8 +55,8 @@ The following table explains the Log category and SIEM integration detail
 | Diagnostics Logs (resource logs) | Yes | Needs end user to create FlexConnector JSON parser file. Please refer to ArcSight documentation on how to do that. | You must create a Log Source Extension. Please refer to the QRadar documentation for more information |
 | VM logs | Yes via Forwarded events and not thru JSON | Yes via Forwarded events | Yes via Forwarded events |
 
->[!NOTE]
-While Azure Log Integration is a free solution there will be Azure storage costs resulting from the log file information storage.
+For additional information on supported log types please visit the [FAQ](security-azure-log-integration-faq.md)
+
 
 Community assistance is available through the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). The forum provides the AzLog community the ability support each other with questions, answers, tips, and tricks on how to get the most out of Azure Log Integration. In addition, the Azure Log Integration team monitors this forum and will help whenever we can.
 

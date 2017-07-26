@@ -18,7 +18,9 @@ ms.author: mazha
 
 ---
 # Analyze Azure CDN usage patterns
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+
+[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+
 The guide below goes through the steps to view the core reports via the Manage portal for Verizon profiles. You may also export core analytics data to storage, event hub, or log analytics (oms) for both Verizon and Akamai profiles [through the azure portal](cdn-log-analysis.md).
 
 You can view usage patterns for your CDN using the following reports:

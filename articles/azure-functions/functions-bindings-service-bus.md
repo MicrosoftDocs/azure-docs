@@ -79,7 +79,7 @@ Note the following:
 * **Single-threading** - By default, the Functions runtime processes multiple messages concurrently. To direct the runtime 
   to process only a single queue or topic message at a time, set `serviceBus.maxConcurrentCalls` to 1 in *host.json*. 
   For information about *host.json*, see [Folder Structure](functions-reference.md#folder-structure) and 
-  [host.json](https://git
+  [host.json](https://github
   .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Poison message handling** - Service Bus does its own poison message handling, which can't be controlled or configured 
   in Azure Functions configuration or code. 
@@ -187,7 +187,7 @@ The Service Bus queue and topic output for a function use the following JSON obj
         "topicName" : "<Name of the topic>",
         "subscriptionName" : "<Name of the subscription>",
         "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }

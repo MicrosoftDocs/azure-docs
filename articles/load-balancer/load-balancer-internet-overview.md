@@ -27,7 +27,7 @@ The *servicedefinition.csdef* file contains the endpoint configuration and when 
 
 The following figure shows a load-balanced endpoint for web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
 
-![public load balancer example](./media/load-balancer-internet-overview/IC727496.png))
+![public load balancer example](./media/load-balancer-internet-overview/IC727496.png)
 
 Figure 1 - Load-balanced endpoint for web traffic
 

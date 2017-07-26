@@ -14,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # Connect domain-joined devices to Azure AD for Windows 10 experiences

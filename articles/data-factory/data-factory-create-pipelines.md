@@ -112,14 +112,14 @@ The **activities** section can have one or more activities defined within it. Ea
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }
 }
 ```
 
-Following table describe properties in the activity JSON definition:
+Following table describes properties in the activity JSON definition:
 
 | Tag | Description | Required |
 | --- | --- | --- |

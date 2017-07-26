@@ -26,9 +26,9 @@ If you don't need webpages but you do need answers from more than one of the oth
 
 ## Search query term
 
-Your user experience must provide a search box where the user enters a search query term. You can determine the maximum length of the term that you allow, but the maximum length of all your query parameters should be less than 1,500 characters.
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their query term, you need to URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query) query parameter. For example, if the user entered *sailing lessons near me*, you would set `q` to *sailing+lessons+near+me* or *sailing%20lessons%20near%20me*.
+After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
 
 If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
 

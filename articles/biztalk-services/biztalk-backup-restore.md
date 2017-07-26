@@ -18,14 +18,16 @@ ms.author: mandia
 
 ---
 # BizTalk Services: Backup and Restore
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk Services includes Backup and Restore capabilities. This topic describes how to backup and restore BizTalk Services using the Azure classic portal.
 
 You can also back up BizTalk Services using the [BizTalk Services REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
 
 > [!NOTE]
 > Hybrid Connections are NOT backed up, regardless of the Edition. You must recreate your hybrid connections.
-> 
-> 
+
 
 ## Before you Begin
 * Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md).

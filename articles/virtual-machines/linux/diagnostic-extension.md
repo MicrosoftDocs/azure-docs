@@ -387,15 +387,13 @@ Either "table" or "sinks", or both, must be specified.
 Controls the capture of log files. LAD captures new text lines as they are written to the file and writes them to table rows and/or any specified sinks (JsonBlob or EventHub).
 
 ```json
-"fileLogs": {
-    "fileLogConfiguration": [
-        {
-            "file": "/var/log/mydaemonlog",
-            "table": "MyDaemonEvents",
-            "sinks": ""
-        }
-    ]
-}
+"fileLogs": [
+    {
+        "file": "/var/log/mydaemonlog",
+        "table": "MyDaemonEvents",
+        "sinks": ""
+    }
+]
 ```
 
 Element | Value

@@ -148,7 +148,7 @@ For more information, see the CNTK section of [GitHub](https://github.com/Micros
 Caffe is a deep learning framework from the Berkeley Vision and Learning Center. It is available in /opt/caffe. Examples can be found in /opt/caffe/examples.
 
 #### H2O
-H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. The Flow Web UI can be started with "java -jar /dsvm/tools/h2o/current/h2o.jar". Browse to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
+H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. To start H2O from the commandline  run `java -jar /dsvm/tools/h2o/current/h2o.jar`; there are various [command line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you may like to configure. The Flow Web UI can be accessed by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
 
 #### Keras
 Keras is a high-level neural network API in Python that is capable of running on top of either Tensorflow or Theano. It is available in the root and py35 Python environments. 

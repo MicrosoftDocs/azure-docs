@@ -1,6 +1,6 @@
 # Overview
 ## [What is Application Insights?](app-insights-overview.md)
-## [Performance monitoring in a devOps cycle](app-insights-detect-triage-diagnose.md)
+## [Performance monitoring overview for DevOps](app-insights-detect-triage-diagnose.md)
 
 # Get started
 ## Monitor Azure
@@ -43,6 +43,7 @@
 ### Azure
 #### [Profiler](app-insights-profiler.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
+#### [Previews](app-insights-previews.md)
 
 ### ASP.NET
 #### [Collect more telemetry](app-insights-asp-net-more.md)
@@ -79,7 +80,6 @@
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metrics](app-insights-metrics-explorer.md)
 #### [Live stream](app-insights-live-stream.md)
-
 #### [Application Map](app-insights-app-map.md)
 #### [HockeyApp data](app-insights-hockeyapp-bridge-app.md)
 
@@ -91,8 +91,10 @@
 
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
-#### [Retention](app-insights-usage-retention.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
+#### [Funnels](usage-funnels.md)
+#### [Retention](app-insights-usage-retention.md)
+#### [Workbooks](app-insights-usage-workbooks.md)
 
 ### Analytics
 
@@ -108,10 +110,13 @@
 ### [Create resources](app-insights-powershell-script-create-resource.md)
 ### [Set alerts](app-insights-powershell-alerts.md)
 ### [Get Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
+### [Automate with Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automate with an Azure Logic App](automate-with-logic-apps.md)
 
 ## Develop
 
-### [API for custom events and metrics ](app-insights-api-custom-events-metrics.md)
+### [API for custom events and metrics](app-insights-api-custom-events-metrics.md)
+### [Track custom operations in .NET SDK](application-insights-custom-operations-tracking.md)
 ### [Filtering and preprocessing telemetry](app-insights-api-filtering-sampling.md)
 ### [Sampling](app-insights-sampling.md)
 
@@ -151,6 +156,7 @@
 ## [Telemetry correlation](application-insights-correlation.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Languages and platforms](app-insights-platforms.md)
 

@@ -21,8 +21,7 @@ ms.author: cfreeman
 
 Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It shows you detailed profiles of live requests that were served by your app, and highlights the 'hot path' that is using the most time. It automatically selects examples that have different response times. The profiler uses various techniques to minimize overhead.
 
-The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier. (If you're using ASP.NET Core, the target framework must be `.NetCoreApp`.)
-
+The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier. 
 
 <a id="installation"></a>
 ## Enable the profiler
@@ -217,18 +216,21 @@ File a support ticket from the portal. Please include the correlation ID from th
 
 ## Manual installation
 
-When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually if your environment requires, for example, if your application runs in a private network using Internal Load Balancer:
+When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually if your environment requires, for example, if your application runs in Azure App Service Environment (ASE):
 
-1. In the Web app control blade, open Settings.
+1. In the web app control blade, open Settings.
 2. Set ".Net Framework version" to v4.6.
 3. Set "Always On" to On.
 4. Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
-5. In **Extensions**, Add "Application Insights". It will take a few minutes to install.
+5. Open Advanced Tools.
+6. Click "Go" to open the Kudu website.
+7. In the Kudu website, select "Site extensions".
+8. Install "__Application Insights__" from Gallery.
+9. Restart the web app.
 
 ## <a id="aspnetcore"></a>ASP.NET Core Support
 
-ASP.NET Core 1.1.2 applications targeting to AI SDK 2.0 or higher would work with the Profiler. 
-
+ASP.NET Core application needs to install Microsoft.ApplicationInsights.AspNetCore Nuget package 2.1.0-beta6 or higher to work with the Profiler. We no longer support the lower versions after 6/27/2017.
 
 ## Next steps
 

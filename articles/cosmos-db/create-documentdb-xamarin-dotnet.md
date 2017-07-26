@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

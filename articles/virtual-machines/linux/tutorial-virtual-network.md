@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
@@ -30,9 +31,10 @@ Azure virtual machines use Azure networking for internal and external network co
 > * Secure incoming internet traffic
 > * Secure VM to VM traffic
 
-This tutorial requires the Azure CLI version 2.0.4 or later. To find the CLI version run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## VM networking overview
 
@@ -44,7 +46,7 @@ For this tutorial, a single virtual network is created with two subnets. A front
 
 Before you can create a virtual network, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myRGNetwork* in the eastus location.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
 ```
 
@@ -52,7 +54,7 @@ az group create --name myRGNetwork --location eastus
 
 Us the [az network vnet create](/cli/azure/network/vnet#create) command to create a virtual network. In this example, the network is named *mvVnet* and is given an address prefix of *10.0.0.0/16*. A subnet is also created with a name of *mySubnetFrontEnd* and a prefix of *10.0.1.0/24*. Later in this tutorial a front-end VM is connected to this subnet. 
 
-```azurecli
+```azurecli-interactive 
 az network vnet create \
   --resource-group myRGNetwork \
   --name myVnet \
@@ -65,7 +67,7 @@ az network vnet create \
 
 A new subnet is added to the virtual network using the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) command. In this example, the subnet is named *mySubnetBackEnd* and is given an address prefix of *10.0.2.0/24*. This subnet is used with all back-end services.
 
-```azurecli
+```azurecli-interactive 
 az network vnet subnet create \
   --resource-group myRGNetwork \
   --vnet-name myVnet \
@@ -89,7 +91,7 @@ The allocation method can be set to static, which ensures that the IP address re
 
 When creating a VM with the [az vm create](/cli/azure/vm#create) command, the default public IP address allocation method is dynamic. In the following example, a VM is created with a dynamic IP address. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myRGNetwork \
   --name myFrontEndVM \
@@ -111,19 +113,19 @@ The IP address allocation method can be changed using the [az network public-ip 
 
 First, deallocate the VM.
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
 Use the [az network public-ip update](/azure/network/public-ip#update) command to update the allocation method. In this case, the `--allocaion-metod` is being set to *static*.
 
-```azurecli
+```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static
 ```
 
 Start the VM.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myRGNetwork --name myFrontEndVM --no-wait
 ```
 
@@ -147,13 +149,13 @@ All NSGs contain a set of default rules. The default rules cannot be deleted, bu
 
 ### Create network security groups
 
-A network security group can be created at the same time as a VM using the [az vm create](/cli/azure/vm#create) command. When doing so, the NSG is associated with the VMs network interface and an NSG rule is auto created to allow traffic on port *22* from any destination. Earlier in this tutorial, the front-end NSG was auto-created with the front-end VM. An NSG rule was also auto created for port 22. 
+A network security group can be created at the same time as a VM using the [az vm create](/cli/azure/vm#create) command. When doing so, the NSG is associated with the VMs network interface and an NSG rule is auto created to allow traffic on port *22* from any source. Earlier in this tutorial, the front-end NSG was auto-created with the front-end VM. An NSG rule was also auto created for port 22. 
 
 In some cases, it may be helpful to pre-create an NSG, such as when default SSH rules should not be created, or when the NSG should be attached to a subnet. 
 
 Use the [az network nsg create](/cli/azure/network/nsg#create) command to create a network security group.
 
-```azurecli
+```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myNSGBackEnd
 ```
 
@@ -161,7 +163,7 @@ Instead of associating the NSG to a network interface, it is associated with a s
 
 Update the existing subnet named *mySubnetBackEnd* with the new NSG.
 
-```azurecli
+```azurecli-interactive 
 az network vnet subnet update \
   --resource-group myRGNetwork \
   --vnet-name myVnet \
@@ -171,7 +173,7 @@ az network vnet subnet update \
 
 Now create a virtual machine, which is attached to the *mySubnetBackEnd*. Notice that the `--nsg` argument has a value of empty double quotes. An NSG does not need to be created with the VM. The VM is attached to the back-end subnet, which is protected with the pre-created back-end NSG. This NSG applies to the VM. Also, notice here that the `--public-ip-address` argument has a value of empty double quotes. This configuration creates a VM without a public IP address. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myRGNetwork \
   --name myBackEndVM \
@@ -189,7 +191,7 @@ When the front-end VM was created, an NSG rule was created to allow incoming tra
 
 Use the [az network nsg rule create](/cli/azure/network/nsg/rule#create) command to create a rule for port *80*.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGFrontEnd \
@@ -206,13 +208,13 @@ az network nsg rule create \
 
 The front-end VM is now only accessible on port *22* and port *80*. All other incoming traffic is blocked at the network security group. It may be helpful to visualize the NSG rule configurations. Return the NSG rule configuration with the [az network rule list](/cli/azure/network/nsg/rule#list) command. 
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGFrontEnd --output table
 ```
 
 Output:
 
-```azurecli
+```azurecli-interactive 
 Access    DestinationAddressPrefix      DestinationPortRange  Direction    Name                 Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
 --------  --------------------------  ----------------------  -----------  -----------------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
 Allow     *                                               22  Inbound      default-allow-ssh        1000  Tcp         Succeeded            myRGNetwork      *                      *
@@ -225,7 +227,7 @@ Network security group rules can also apply between VMs. For this example, the f
 
 Use the [az network nsg rule create](/cli/azure/network/nsg/rule#create) command to create a rule for port 22. Notice that the `--source-address-prefix` argument specifies a value of *10.0.1.0/24*. This configuration ensures that only traffic from the front-end subnet is allowed through the NSG.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -242,7 +244,7 @@ az network nsg rule create \
 
 Now add a rule for MySQL traffic on port 3306.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -259,7 +261,7 @@ az network nsg rule create \
 
 Finally, because NSGs have a default rule allowing all traffic between VMs in the same VNet, a rule can be created for the back-end NSGs to block all traffic. Notice here that the `--priority` is given a value of *300*, which is lower that both the NSG and MySQL rules. This configuration ensures that SSH and MySQL traffic is still allowed through the NSG.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -276,13 +278,13 @@ az network nsg rule create \
 
 The back-end VM is now only accessible on port *22* and port *3306* from the front-end subnet. All other incoming traffic is blocked at the network security group. It may be helpful to visualize the NSG rule configurations. Return the NSG rule configuration with the [az network rule list](/cli/azure/network/nsg/rule#list) command. 
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGBackEnd --output table
 ```
 
 Output:
 
-```azurecli
+```azurecli-interactive 
 Access    DestinationAddressPrefix    DestinationPortRange    Direction    Name       Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
 --------  --------------------------  ----------------------  -----------  -------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
 Allow     *                           22                      Inbound      SSH             100  Tcp         Succeeded            myRGNetwork      10.0.1.0/24            *

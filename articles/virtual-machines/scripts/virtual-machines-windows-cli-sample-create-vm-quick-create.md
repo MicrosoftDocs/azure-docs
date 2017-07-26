@@ -34,7 +34,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016. After 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

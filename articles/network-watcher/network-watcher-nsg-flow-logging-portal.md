@@ -1,5 +1,5 @@
 ---
-title: Manage Network Security Group flow logs with Azure Network Watcher | Microsoft Docs
+title: Manage network security group flow logs with Azure Network Watcher | Microsoft Docs
 description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: gwallace
 
 ---
 
-# Manage Network Security Group flow logs in the Azure portal
+# Manage network security group flow logs in the Azure portal
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -27,67 +27,76 @@ ms.author: gwallace
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+Network security group flow logs are a feature of Network Watcher that enables you to view information about ingress and egress IP traffic through a network security group. These flow logs are written in JSON format and provide important information, including: 
+
+- Outbound and inbound flows on a per-rule basis.
+- The NIC that the flow applies to.
+- 5-tuple information about the flow (source/destination IP, source/destination port, protocol).
+- Information about whether traffic was allowed or denied.
 
 ## Before you begin
 
-This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
+This scenario assumes you have already followed the steps in [Create a Network Watcher instance](network-watcher-create.md). The scenario also assumes that a you have a resource group with a valid virtual machine.
 
 ## Register Insights provider
 
-In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. To register the provider, navigate to **Subscriptions**, select the subscription for which you want to enable flow logs. On the **Subscription** blade, select **Resource Providers**. Navigate the list of providers and verify that **microsoft.insights** provider is registered. If not then click **Register**.
+For flow logging to work successfully, the **Microsoft.Insights** provider must be registered. To register the provider, take the following steps: 
 
-![view providers][providers]
+1. Go to **Subscriptions**, and then select the subscription for which you want to enable flow logs. 
+2. On the **Subscription** blade, select **Resource Providers**. 
+3. Look at the list of providers, and verify that the **microsoft.insights** provider is registered. If not, then select **Register**.
+
+![View providers][providers]
 
 ## Enable flow logs
 
-These steps take you through enabling Flow logs on a Network Security Group.
+These steps take you through the process of enabling flow logs on a network security group.
 
 ### Step 1
 
-Navigate to a Network Watcher instance and select **Flow logs**
+Go to a Network Watcher instance, and then select **NSG Flow logs**.
 
-![flow logs overview][1]
+![Flow logs overview][1]
 
 ### Step 2
 
-Select a Network Security Group from the list by clicking it.
+Select a network security group from the list.
 
-![flow logs overview][2]
+![Flow logs overview][2]
 
 ### Step 3 
 
-On the **Flow logs settings** blade, set the status to **On** and configure a storage account.  When complete click **OK** and **Save**
+On the **Flow logs settings** blade, set the status to **On**, and then configure a storage account.  When you're done, select **OK**. Then select **Save**.
 
-![flow logs overview][3]
+![Flow logs overview][3]
 
-## Download Flow logs
+## Download flow logs
 
-Flow logs are saved in a storage account. To view your flow logs you need to download them.
+Flow logs are saved in a storage account. Download your flow logs to view them.
 
 ### Step 1
 
-To download Flow logs, click **You can download flow logs from configured storage accounts**.  This will take you to a storage account view where you can navigate to your log to download.
+To download flow logs, select **You can download flow logs from configured storage accounts**. This step takes you to a storage account view where you can choose which logs to download.
 
-![flow logs settings][4]
+![Flow logs settings][4]
 
 ### Step 2
 
-Navigate to the correct storage account and then **Containers** > **insights-log-networksecuritygroupflowevent**
+Go to the correct storage account. Then select **Containers** > **insights-log-networksecuritygroupflowevent**.
 
-![flow logs settings][5]
+![Flow logs settings][5]
 
 ### Step 3
 
-Drill down to the location of the flow log, select the flow log and click **Download**
+Go to the location of the flow log, select it, and then select **Download**.
 
-![flow logs settings][6]
+![Flow logs settings][6]
 
-For information about the structure of the log visit [Network Security Group flow log Overview](network-watcher-nsg-flow-logging-overview.md)
+For information about the structure of the log, visit [Network security group flow log overview](network-watcher-nsg-flow-logging-overview.md).
 
 ## Next steps
 
-Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Learn how to [visualize your NSG flow logs with PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
 <!-- Image references -->
 [1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png

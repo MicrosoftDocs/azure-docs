@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 06/14/2017
 ms.author: tomfitz
 
 ---
 # Understand the structure and syntax of Azure Resource Manager templates
 This topic describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment. For a step-by-step tutorial on creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
-
-Limit the size of your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
 ## Template format
 In its simplest structure, a template contains the following elements:
@@ -462,6 +460,20 @@ The following example shows a value that is returned in the Outputs section.
 ```
 
 For more information about working with output, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
+
+## Template limits
+
+Limit the size of your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
+
+You are also limited to:
+
+* 256 parameters
+* 256 variables
+* 800 resources (including copy count)
+* 64 output values
+* 24,576 characters in a template expression
+
+You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](resource-manager-objects-as-parameters.md).
 
 ## Next steps
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).

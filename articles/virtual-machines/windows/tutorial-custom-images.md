@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
+ms.custom: mvc
 ---
 
 # Create a custom image of an Azure VM using PowerShell

@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 05/30/2017
 ms.author: cynthn
 
 ---
@@ -51,7 +51,7 @@ Prior to capturing an image of an Azure virtual machine, it is recommended the t
    * Click **OK**.
 
    ![Run Sysprep](./media/capture-image/SysprepGeneral.png)
-5. Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure classic portal to **Stopped**.
+5. Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure portal to **Stopped**.
 6. In the Azure portal, click **Virtual Machines (classic)** and select the virtual machine you want to capture. The **VM images (classic)** group is listed under **Compute** when you view **More services**.
 
 7. On the command bar, click **Capture**.

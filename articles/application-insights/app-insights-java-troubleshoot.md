@@ -92,13 +92,13 @@ You can also instruct the logger to output to a file:
 
 ```XML
 
-    <SDKLogger type="File">
+    <SDKLogger type="FILE">
       <enabled>True</enabled>
-      <uniqueprefix>JavaSDKLog</uniqueprefix>
+      <UniquePrefix>JavaSDKLog</UniquePrefix>
     </SDKLogger>
 ```
 
-The files can be found under `%temp%\javasdklogs`.
+The files can be found under `%temp%\javasdklogs` or `java.io.tmpdir` in case of Tomcat server.
 
 
 ## The Azure start screen

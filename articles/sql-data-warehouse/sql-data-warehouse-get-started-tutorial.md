@@ -575,6 +575,9 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
 
 7. Run the query again! You should notice a significant difference. 
 
+    > [!NOTE]
+    > Because the query returns a lot of data, the bandwidth availability of the machine running SSMS may be a performance bottleneck. This can result in you not seeing any performance improvements!
+
 > [!NOTE]
 > Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
 > Azure SQL Data Warehouse.

@@ -22,5 +22,7 @@
     href: https://github.com/Microsoft/Cognitive-video-windows
 - name: Resources
   items: 
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Glossary
     href: Glossary.md

@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/18/2017
 ms.author: cynthn
+ms.custom: mvc
 ---
 
 # Sample script to upload a VHD to Azure and create a new VM

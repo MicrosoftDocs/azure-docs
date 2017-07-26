@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 
 ---
@@ -226,7 +226,7 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 
 	![Jupyter query results](media/data-factory-spark/jupyter-notebook-results.png)
 
-See [Run a Spark SQL query](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-an-interactive-spark-sql-query) section for detailed instructions. 
+See [Run a Spark SQL query](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql) section for detailed instructions. 
 
 ### Troubleshooting
 Since you set **getDebugInfo** to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**.
@@ -294,7 +294,7 @@ The following table describes the JSON properties used in the JSON definition:
 | className | Application's Java/Spark main class | No |
 | arguments | A list of command-line arguments to the Spark program. | No |
 | proxyUser | The user account to impersonate to execute the Spark program | No |
-| sparkConfig | Spark configuration properties. | No |
+| sparkConfig | Specify values for Spark configuration properties listed in the topic: [Spark Configuration - Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties). | No |
 | getDebugInfo | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No |
 | sparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No |
 

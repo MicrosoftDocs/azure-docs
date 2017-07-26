@@ -19,11 +19,6 @@ ms.author: raynew
 ---
 # Support matrix for replication to a secondary site with Azure Site Recovery
 
-> [!div class="op_single_selector"]
-> * [Replicate from Azure to Azure](site-recovery-support-matrix-azure-to-azure.md)
-> * [Replicate from on-premises to Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
-
 This article summarizes what's supported when you use Azure Site Recovery to replicate to a secondary on-premises site.
 
 ## Deployment options

@@ -57,6 +57,10 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **A:** Yes.
 
+**Q:** Can I use **web deploy** to deploy my web app?
+
+**A:** Yes, you need to set an app setting called `UseWebDeployScm` to `false`.
+
 ## Language support
 
 **Q:** Do you support uncompiled .NET Core apps?

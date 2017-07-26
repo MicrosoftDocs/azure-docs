@@ -103,7 +103,7 @@ Or Use the generic events subscription method
 **Phrases** | The set of n-best recognized phrases with the recognition confidence. Refer to the above table for phrase format.
 
 ## <a name="Response">Speech Response</a>
-Speech Rsponse example:
+Speech Response example:
 ```
 --- Partial result received by OnPartialResult  
 ---what  

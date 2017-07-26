@@ -1,109 +1,226 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Innotas | Microsoft Docs'
-description: Learn how to use Innotas with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+description: Learn how to configure single sign-on between Azure Active Directory and Innotas.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 
 ms.assetid: eb9e9c2c-4b09-4177-bbab-423fd657448e
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 06/29/2017
 ms.author: jeedes
 
 ---
-
 # Tutorial: Azure Active Directory integration with Innotas
-The objective of this tutorial is to show the integration of Azure and Innotas.  
-The scenario outlined in this tutorial assumes that you already have the following items:
 
-* A valid Azure subscription
-* A Innotas tenant
+In this tutorial, you learn how to integrate Innotas with Azure Active Directory (Azure AD).
 
-After completing this tutorial, the Azure AD users you have assigned to Innotas will be able to single sign into the application at your Innotas company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Integrating Innotas with Azure AD provides you with the following benefits:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+- You can control in Azure AD who has access to Innotas
+- You can enable your users to automatically get signed-on to Innotas (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure portal
 
-* Enabling the application integration for Innotas
-* Configuring single sign-on
-* Configuring user provisioning
-*  Assigning users
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Scenario](./media/active-directory-saas-innotas-tutorial/IC777331.png "Scenario")
+## Prerequisites
 
-## Enable the application integration for Innotas
-The objective of this section is to outline how to enable the application integration for Innotas.
+To configure Azure AD integration with Innotas, you need the following items:
 
-**To enable the application integration for Innotas, perform the following steps:**
+- An Azure AD subscription
+- An Innotas single sign-on enabled subscription
 
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-innotas-tutorial/IC700993.png "Active Directory")
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
-   ![Applications](./media/active-directory-saas-innotas-tutorial/IC700994.png "Applications")
-4. Click **Add** at the bottom of the page.
-   
-   ![Add application](./media/active-directory-saas-innotas-tutorial/IC749321.png "Add application")
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
-   ![Add an application from gallerry](./media/active-directory-saas-innotas-tutorial/IC749322.png "Add an application from gallerry")
-6. In the **search box**, type **Innotas**.
-   
-   ![Application gallery](./media/active-directory-saas-innotas-tutorial/IC777332.png "Application gallery")
-7. In the results pane, select **Innotas**, and then click **Complete** to add the application.
-   
-   ![Innotas](./media/active-directory-saas-innotas-tutorial/IC777333.png "Innotas")
-   
-## Configure single sign-on
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
-The objective of this section is to outline how to enable users to authenticate to Innotas with their account in Azure AD using federation based on the SAML protocol.
+To test the steps in this tutorial, you should follow these recommendations:
 
-**To configure single sign-on, perform the following steps:**
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-1. In the Azure classic portal, on the **Innotas** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
-   
-   ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configure single sign-on")
-2. On the **How would you like users to sign on to Innotas** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
-   
-   ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777335.png "Configure single sign-on")
-3. On the **Configure App URL** page, in the **Innotas Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Innotas.com*", and then click **Next**.
-   
-   ![Configure app URL](./media/active-directory-saas-innotas-tutorial/IC777336.png "Configure app URL")
-4. On the **Configure single sign-on at Innotas** page, to download your metadata, click **Download metadata**, and then the data file locally as **c:\\InnotasMetaData.xml**.
-   
-   ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configure single sign-on")
-5. Forward that metadata file to Innotas support team. The support team needs configures single sign-on for you.
-6. Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
-   
-   ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configure single sign-on")
-   
-## Configure user provisioning
+## Scenario description
+
+In this tutorial, you test Azure AD single sign-on in a test environment. 
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding Innotas from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+## Adding Innotas from the gallery
+To configure the integration of Innotas into Azure AD, you need to add Innotas from the gallery to your list of managed SaaS apps.
+
+**To add Innotas from the gallery, perform the following steps:**
+
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+
+	![Active Directory][1]
+
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
+
+	![Applications][2]
+	
+3. To add new application, click **New application** button on the top of dialog.
+
+	![Applications][3]
+
+4. In the search box, type **Innotas**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_search.png)
+
+5. In the results panel, select **Innotas**, and then click **Add** button to add the application.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_addfromgallery.png)
+
+##  Configuring and testing Azure AD single sign-on
+
+In this section, you configure and test Azure AD single sign-on with Innotas based on a test user called "Britta Simon."
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Innotas is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Innotas needs to be established.
+
+In Innotas, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+
+To configure and test Azure AD single sign-on with Innotas, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating an Innotas test user](#creating-an-innotas-test-user)** - to have a counterpart of Britta Simon in Innotas that is linked to the Azure AD representation of user.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Innotas application.
+
+**To configure Azure AD single sign-on with Innotas, perform the following steps:**
+
+1. In the Azure portal, on the **Innotas** application integration page, click **Single sign-on**.
+
+	![Configure Single Sign-On][4]
+
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_samlbase.png)
+
+3. On the **Innotas Domain and URLs** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_url.png)
+
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.Innotas.com`
+
+	> [!NOTE] 
+	> This value is not real. Update this value with the actual Sign-On URL. Contact [Innotas Client support team](https://www.innotas.com/contact) to get this value. 
+ 
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_certificate.png) 
+
+5. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-innotas-tutorial/tutorial_general_400.png)
+
+6. To configure single sign-on on **Innotas** side, you need to send the downloaded **Metadata XML** to [Innotas support team](https://www.innotas.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### Creating an Azure AD test user
+
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
+
+![Create Azure AD User][100]
+
+**To create a test user in Azure AD, perform the following steps:**
+
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-innotas-tutorial/create_aaduser_01.png) 
+
+2. To display the list of users, go to **Users and groups** and click **All users**.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-innotas-tutorial/create_aaduser_02.png) 
+
+3. To open the **User** dialog, click **Add** on the top of the dialog.
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-innotas-tutorial/create_aaduser_03.png) 
+
+4. On the **User** dialog page, perform the following steps:
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-innotas-tutorial/create_aaduser_04.png) 
+
+    a. In the **Name** textbox, type **BrittaSimon**.
+
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+
+	c. Select **Show Password** and write down the value of the **Password**.
+
+    d. Click **Create**.
+ 
+### Creating an Innotas test user
 
 There is no action item for you to configure user provisioning to Innotas.  
-When an assigned user tries to log into Innotas using the access panel, Innotas checks whether the user exists.  
+When an assigned user tries to log in to Innotas using the access panel, Innotas checks whether the user exists.  
 
 >[!NOTE]
 >If there is no user account available yet, it is automatically created by Innotas.
->
 
-## Assign users
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+### Assigning the Azure AD test user
 
-**To assign users to Innotas, perform the following steps:**
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Innotas.
 
-1. In the Azure classic portal, create a test account.
-2. On the **Innotas** application integration page, click **Assign users**.
-   
-   ![Assign users](./media/active-directory-saas-innotas-tutorial/IC777339.png "Assign users")
-3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
-   
-   ![Yes](./media/active-directory-saas-innotas-tutorial/IC767830.png "Yes")
+![Assign User][200] 
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+**To assign Britta Simon to Innotas, perform the following steps:**
+
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+
+	![Assign User][201] 
+
+2. In the applications list, select **Innotas**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_app.png) 
+
+3. In the menu on the left, click **Users and groups**.
+
+	![Assign User][202] 
+
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
+	
+### Testing single sign-on
+
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Innotas tile in the Access Panel, you should get automatically signed-on to your Innotas application.
+
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_203.png
 

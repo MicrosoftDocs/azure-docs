@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/26/2017
+ms.date: 05/31/2017
 ms.author: genli
 
 ---
@@ -44,7 +44,7 @@ Before proceeding, it might help to mentally review what has changed since the l
 ## Preliminary steps
 Before proceeding to the detailed troubleshooting,
 
-* Check the status of the virtual machine in the Azure classic portal or the Azure portal for any obvious issues.
+* Check the status of the virtual machine in the Azure portal for any obvious issues.
 * Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
 
 Try reconnecting to the VM via Remote Desktop after these steps.
@@ -115,6 +115,8 @@ Network Security Groups allow more granular control of allowed inbound and outbo
   * Make sure the action is set to **Allow** and click OK to save your new inbound rule.
 
 For more information, see [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
+
+You can also use IP Verify to validate the NSG configuration. For more information, see [Azure network monitoring overview](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## Source 5: Windows-based Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

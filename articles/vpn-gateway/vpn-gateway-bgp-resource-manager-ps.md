@@ -37,7 +37,7 @@ Each part of the instructions forms a basic building block for enabling BGP in y
 
 ![BGP topology](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
-You can combine these together to build a more complex, multi-hope, transit network that meet your needs.
+You can combine these together to build a more complex, multi-hop, transit network that meet your needs.
 
 ## <a name ="enablebgp"></a>Part 1 - Configure BGP on the Azure VPN Gateway
 The following configuration steps will setup the BGP parameters of the Azure VPN gateway as shown in the following diagram:

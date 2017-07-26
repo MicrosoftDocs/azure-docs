@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 06/12/2017
 ms.author: donnam, glenga
 
 ms.custom: H1Hack27Feb2017
@@ -40,7 +40,10 @@ You can scale between tiers on the App Service plan. On the Consumption plan, Az
 
 ## Consumption plan
 
-When you're using a Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically, and you are charged for compute resources only when your functions are running. On a Consumption plan, a function can run for a maximum of five minutes. 
+When you're using a Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically, and you are charged for compute resources only when your functions are running. On a Consumption plan, a function can run for a maximum of 10 minutes. 
+
+> [!NOTE]
+> The default timeout for functions on a Consumption plan is 5 minutes. The value can be increased to 10 minutes for the Function App by changing the property `functionTimeout` in [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
 Billing is based on execution time and memory used, and it's aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page].
 

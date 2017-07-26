@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: asteen
 
 ---
 # Managing Applications with Azure Active Directory
@@ -79,7 +80,7 @@ It important to understand that the way the authorization is enacted on the targ
 
 * **Applications pre-integrated by service provider** Like Office 365 and Azure, these are applications built directly on Azure AD and relying on it for their comprehensive identity and access management capabilities. Access to these applications is enabled through directory information and token issuance.
 * **Applications pre-integrated by Microsoft and custom applications** These are independent cloud applications that rely on an internal application directory and can operate independently of Azure AD. Access to these applications is enabled by issuing an application specific credential mapped to an application account. Depending on the application capabilities, the credential may be a federation token or user-name and password for an account that was previously provisioned in the application.
-* **On-premises applications** Applications published through the Azure AD application proxy primarily enabling access to on-premises applications. These applications rely on a central on premise directory like Windows Server Active Directory. Access to these applications is enabled by triggering the proxy to deliver the application content to the end user while honoring the on-premises sign-on requirement.
+* **On-premises applications** Applications published through the Azure AD application proxy primarily enabling access to on-premises applications. These applications rely on a central on-premises directory like Windows Server Active Directory. Access to these applications is enabled by triggering the proxy to deliver the application content to the end user while honoring the on-premises sign-on requirement.
 
 For example, if a user joins your organization, you need to create an account for the user in Azure AD for the primary sign-on operations. If this user requires access to a managed application such as Salesforce, you also need to create an account for this user in Salesforce and link it to the Azure account to make SSO work. When the user leaves your organization, it is advisable to delete the Azure AD account and all counterpart accounts in the IAM stores of the applications the user had access to.
 

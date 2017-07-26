@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introduction to Azure Cosmos DB's Table API | Microsoft Docs
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency using the popular OSS MongoDB APIs.
 services: cosmos-db
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2017
+ms.date: 06/09/2017
 ms.author: arramac
 
 ---
@@ -23,7 +23,7 @@ ms.author: arramac
 
 ![Azure Table storage API and Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
-Azure Cosmos DB provides the Table API for applications that need a key-value store with flexible schema. [Azure Table storage](../storage/storage-introduction.md) SDKs and REST APIs can be used to work with Azure Cosmos DB. You can use Azure Cosmos DB to create tables with high throughput requirements. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), currently in public preview. 
+Azure Cosmos DB provides the Table API (preview) for applications that need a key-value store with flexible schema, predictable performance, global distribution, and high throughput. The Table API provides the same functionality as Azure Table storage, but leverages the benefits of the Azure Cosmos DB engine. 
 
 You can continue to use Azure Table storage for tables with high storage and lower throughput requirements. Azure Cosmos DB will introduce support for storage-optimized tables in a future update, and existing and new Azure Table storage accounts will be upgraded to Azure Cosmos DB.
 
@@ -37,7 +37,7 @@ If you currently use Azure Table storage, you gain the following benefits by mov
 | Global Distribution | Single region with one optional readable secondary read region for HA. You cannot initiate failover | [Turn-key global distribution](distribute-data-globally.md) from one to 30+ regions, Support for [automatic and manual failovers](regional-failover.md) at any time, anywhere in the world |
 | Indexing | Only primary index on PartitionKey and RowKey. No secondary indexes | Automatic and complete indexing on all properties, no index management |
 | Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. Azure Cosmos DB's database engine is capable of supporting aggregates, geo-spatial, and sorting. |
-| Consistency | Strong within primary region, Eventual with secondary region | [five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs |
+| Consistency | Strong within primary region, Eventual with secondary region | [Five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs |
 | Pricing | Storage-optimized  | Throughput-optimized |
 | SLAs | 99.9% availability | 99.99% availability within a single region, and ability to add more regions for higher availability. [Industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability |
 

@@ -52,3 +52,5 @@ You can create an IPsec/IKE policy and apply to a new or existing connection. Th
 
 ## Next steps
 See [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) for step-by-step instructions on configuring custom IPsec/IKE policy on a connection.
+
+See also [Connect multiple policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) to learn more about the UsePolicyBasedTrafficSelectors option.

@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/05/2017
 ms.author: cynthn
+ms.custom: mvc
 ---
 # Back up Linux  virtual machines in Azure
 

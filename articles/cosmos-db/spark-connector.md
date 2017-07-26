@@ -1,6 +1,6 @@
 ---
 title: Connecting Apache Spark to Azure Cosmos DB | Microsoft Docs
-description: Use this tutorial to learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB to perform distributed aggregations and data sciences on Microsoft's multi-tenant globally distributed database system designed for the cloud.
+description: Use this tutorial to learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB to perform distributed aggregations and data sciences on the multi-tenant globally distributed database system from Microsoft that's designed for the cloud.
 keywords: apache spark
 services: cosmos-db
 documentationcenter: ''
@@ -14,30 +14,36 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/05/2017
 ms.author: denlee
 
 ---
 
 # Accelerate real-time big-data analytics with the Spark to Azure Cosmos DB connector
 
-The Spark to Azure Cosmos DB connector enables Cosmos DB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) accelerates your ability to solve fast-moving data science problems, where data can be quickly persisted and queried using Cosmos DB. The Spark to Azure Cosmos DB connector efficiently utilizes the native Cosmos DB managed indexes and enables updateable columns when performing analytics, push-down predicate filtering against fast-changing globally distributed data, ranging from IoT, data science, and analytics scenarios. 
+The Spark to Azure Cosmos DB connector enables Cosmos DB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) accelerates your ability to solve fast-moving data science problems where you can use Cosmos DB to quickly persist and query data. The Spark to Azure Cosmos DB connector efficiently utilizes the native Cosmos DB managed indexes. The indexes enable updateable columns when you perform analytics and push-down predicate filtering against fast-changing globally distributed data, which range from Internet of Things (IoT) to data science and analytics scenarios.
 
-For working with Spark GraphX and Azure Cosmos DB's Gremlin graph APIs, see [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md).
+For working with Spark GraphX and the Gremlin graph APIs of Azure Cosmos DB, see [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md).
 
 ## Download
 
-Get started by downloading the Spark to Azure Cosmos DB connector (preview) from the [azure-cosmosdb-spark](https://github.com/Azure/azure-documentdb-spark/) repo on GitHub.
+To get started, download the Spark to Azure Cosmos DB connector (preview) from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) repository on GitHub.
 
 ## Connector components
 
 The connector utilizes the following components:
 
-* [Azure Cosmos DB](http://documentdb.com) enables customers to provision and elastically scale both throughput and storage across any number of geographical regions. The service offers turn key [global distribution](distribute-data-globally.md) and horizontal scale, guaranteed single digit latencies at the 99th percentile, [multiple well-defined consistency models](consistency-levels.md), and guarantees high avaiability with multi-homing capabilities — all backed by industry-leading, comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/cosmos-db) (SLAs).
+* [Azure Cosmos DB](http://documentdb.com) enables customers to provision and elastically scale both throughput and storage across any number of geographical regions. The service offers:
+   * Turn key [global distribution](distribute-data-globally.md) and horizontal scale
+   * Guaranteed single digit latencies at the 99th percentile
+   * [Multiple well-defined consistency models](consistency-levels.md)
+   * Guaranteed high availability with multi-homing capabilities
 
-* [Apache Spark](http://spark.apache.org/)is a powerful open source processing engine built around speed, ease of use, and sophisticated analytics. 
+   All features are backed by industry-leading, comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/cosmos-db) (SLAs).
 
-* [Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). You can deploy Apache Spark in the cloud for mission critical deployments using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+* [Apache Spark](http://spark.apache.org/) is a powerful open source processing engine that's built around speed, ease of use, and sophisticated analytics.
+
+* [Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) so that you can deploy Apache Spark in the cloud for mission-critical deployments by using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
 
 Officially supported versions:
 
@@ -46,15 +52,15 @@ Officially supported versions:
 |Apache Spark|2.0+|
 | Scala| 2.11|
 | Azure DocumentDB Java SDK | 1.10.0 |
- 
-This article helps you run some simple samples with Python (via pyDocumentDB) and the Scala interfaces.
+
+This article helps you run some simple samples by using Python (via pyDocumentDB) and the Scala interfaces.
 
 There are two approaches to connect Apache Spark and Azure Cosmos DB:
 - Use pyDocumentDB via the [Azure DocumentDB Python SDK](https://github.com/Azure/azure-documentdb-python).
-- Create a Java-based Spark to Cosmos DB connector utilizing the [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
+- Create a Java-based Spark to Cosmos DB connector by utilizing the [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
-## pyDocumentDB implementation 
-The current [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python) enables us to connect Spark to Cosmos DB as shown in the following diagram:
+## pyDocumentDB implementation
+The current [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python) enables you to connect Spark to Cosmos DB as shown in the following diagram:
 
 ![Spark to Cosmos DB data flow via pyDocumentDB DB](./media/spark-connector/spark-pydocumentdb.png)
 
@@ -63,24 +69,24 @@ The current [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python)
 
 The data flow is as follows:
 
-1. Connection is made from Spark master node to Cosmos DB gateway node via pyDocumentDB.  Note, user only specifies Spark and Cosmos DB connections, the fact that it connects to the respective master and gateway nodes is transparent to the user.
-2. Query is made against Cosmos DB (via the gateway node) where the query subsequently runs the query against the collection's partitions in the data nodes. The response for those queries is sent back to the gateway node and that resultset is returned to Spark master node.
-3. Any subsequent queries (for example, against a Spark DataFrame) are sent to the Spark worker nodes for processing.
+1. The Spark master node connects to the Cosmos DB gateway node via pyDocumentDB. A user specifies only the Spark and Cosmos DB connections. Connections to the respective master and gateway nodes are transparent to the user.
+2. The gateway node makes the query against Cosmos DB where the query subsequently runs against the collection's partitions in the data nodes. The response for those queries is sent back to the gateway node, and that result set is returned to the Spark master node.
+3. Subsequent queries (for example, against a Spark DataFrame) are sent to the Spark worker nodes for processing.
 
-The important call out is that communication between Spark and Cosmos DB is limited to the Spark master node and Cosmos DB gateway nodes.  The queries go as fast as the transport layer is between these two nodes.
+Communication between Spark and Cosmos DB is limited to the Spark master node and Cosmos DB gateway nodes.  The queries go as fast as the transport layer between these two nodes allows.
 
-### Installing pyDocumentDB
-You can install pyDocumentDB on your driver node using **pip**, for example:
+### Install pyDocumentDB
+You can install pyDocumentDB on your driver node by using **pip**, for example:
 
 ```
 pip install pyDocumentDB
 ```
 
 
-### Connecting Spark to Cosmos DB via pyDocumentDB 
-In return for the simplicity of the communication transport, executing a query from Spark to Cosmos DB using pyDocumentDB is relatively simple.
+### Connect Spark to Cosmos DB via pyDocumentDB
+The simplicity of the communication transport makes execution of a query from Spark to Cosmos DB by using pyDocumentDB relatively simple.
 
-The following code snippet shows how to use pyDocumentDB within a Spark context.
+The following code snippet shows how to use pyDocumentDB in a Spark context.
 
 ```
 # Import Necessary Libraries
@@ -91,24 +97,24 @@ import datetime
 
 # Configuring the connection policy (allowing for endpoint discovery)
 connectionPolicy = documents.ConnectionPolicy()
-connectionPolicy.EnableEndpointDiscovery 
+connectionPolicy.EnableEndpointDiscovery
 connectionPolicy.PreferredLocations = ["Central US", "East US 2", "Southeast Asia", "Western Europe","Canada Central"]
 
 
-# Set keys to connect to Cosmos DB 
-masterKey = 'le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==' 
+# Set keys to connect to Cosmos DB
+masterKey = 'le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA=='
 host = 'https://doctorwho.documents.azure.com:443/'
 client = document_client.DocumentClient(host, {'masterKey': masterKey}, connectionPolicy)
 ```
 
 As noted in the code snippet:
 
-* The Cosmos DB Python SDK (`pyDocumentDB`) contains the all the necessary connection parameters including the preferred locations (that is, choosing which read replica in what priority order).
+* The Cosmos DB Python SDK (`pyDocumentDB`) contains the all the necessary connection parameters. For example, the preferred locations parameter chooses the read replica and priority order.
 *  Import the necessary libraries and configure your **masterKey** and **host** to create the Cosmos DB *client* (**pydocumentdb.document_client**).
 
 
-### Executing Spark Queries via pyDocumentDB
-The following examples use the Cosmos DB instance created in the previous snippet using the specified read-only keys.  The following code snippet connects to the **airports.codes** collection (in the DoctorWho account as specified earlier) running a query to extract the airport cities in Washington state. 
+### Execute Spark Queries via pyDocumentDB
+The following examples use the Cosmos DB instance that was created in the previous snippet by using the specified read-only keys. The following code snippet connects to the **airports.codes** collection in the DoctorWho account as specified earlier and runs a query to extract the airport cities in Washington state.
 
 ```
 # Configure Database and Collections
@@ -132,7 +138,7 @@ query = client.QueryDocuments(collLink, querystr, options=None, partition_key=No
 elements = list(query)
 ```
 
-Once the query has been executed via **query**, the result is a **query_iterable.QueryIterable** that is converted into a Python list. A Python list can be easily converted into a Spark DataFrame using the following code:
+After the query has been executed via **query**, the result is a **query_iterable.QueryIterable** that is converted to a Python list. A Python list can be easily converted to a Spark DataFrame by using the following code:
 
 ```
 # Create `df` Spark DataFrame from `elements` Python list
@@ -140,10 +146,10 @@ df = spark.createDataFrame(elements)
 ```
 
 ### Why use the pyDocumentDB to connect Spark to Cosmos DB?
-Connecting Spark to Cosmos DB using pyDocumentDB is typically for scenarios where:
+Connecting Spark to Cosmos DB by using pyDocumentDB is typically for scenarios where:
 
-* You want to use python.
-* You are returning a relatively small result set from Cosmos DB to Spark.  Note that the underlying dataset within Cosmos DB can be quite large. It is more that you are applying filters - that is running predicate filters - against your Cosmos DB source.  
+* You want to use Python.
+* You are returning a relatively small result set from Cosmos DB to Spark. Note that the underlying dataset in Cosmos DB can be quite large. You are applying filters, that is, running predicate filters, against your Cosmos DB source.  
 
 ## Spark to Cosmos DB connector
 
@@ -153,28 +159,28 @@ The Spark to Cosmos DB connector utilizes the [Azure DocumentDB Java SDK](https:
 
 The data flow is as follows:
 
-1. A connection is made from the Spark master node to the Cosmos DB gateway node to obtain the partition map.  Note, the user only specifies the Spark and Cosmos DB connections, the fact that it connects to the respective master and gateway nodes is transparent to the user.
-2. This information is provided back to the Spark master node.  At this point, you should be able to parse the query to determine which partitions (and their locations) within Cosmos DB you need to access.
-3. This information is transmitted to the Spark worker nodes ...
-4. Thus allowing the Spark worker nodes to connect directly to the Cosmos DB partitions directly to extract the data that is needed and bring the data back to the Spark partitions within the Spark worker nodes.
+1. The Spark master node connects to the Cosmos DB gateway node to obtain the partition map. A user specifies only the Spark and Cosmos DB connections. Connections to the respective master and gateway nodes are transparent to the user.
+2. This information is provided back to the Spark master node.  At this point, you should be able to parse the query to determine the partitions and their locations in Cosmos DB that you need to access.
+3. This information is transmitted to the Spark worker nodes.
+4. The Spark worker nodes connect to the Cosmos DB partitions directly to extract the data and return the data to the Spark partitions in the Spark worker nodes.
 
-The important call out is that communication between Spark and Cosmos DB is significantly faster because the data movement is between the Spark worker nodes and the Cosmos DB data nodes (partitions).
+Communication between Spark and Cosmos DB is significantly faster because the data movement is between the Spark worker nodes and the Cosmos DB data nodes (partitions).
 
-### Building the Spark to Cosmos DB connector
+### Build the Spark to Cosmos DB connector
 Currently, the connector project uses maven. To build the connector without dependencies, you can run:
 ```
 mvn clean package
 ```
-You can also download the latest versions of the jar within the *releases* folder.
+You can also download the latest versions of the JAR from the *releases* folder.
 
-### Including the Azure Cosmos DB Spark JAR
-Prior to executing any code, you first need to include the Azure Cosmos DB Spark JAR.  If you are using the **spark-shell**, then you can include the JAR using the **--jars** option.  
+### Include the Azure Cosmos DB Spark JAR
+Before you execute any code, you need to include the Azure Cosmos DB Spark JAR.  If you are using the **spark-shell**, then you can include the JAR by using the **--jars** option.  
 
 ```
 spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-with-dependencies.jar
 ```
 
-or if you want to execute the jar without dependencies:
+If you want to execute the JAR without dependencies, use the following code:
 
 ```
 spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
@@ -191,12 +197,12 @@ If you are using a notebook service such as Azure HDInsight Jupyter notebook ser
 }
 ```
 
-The **jars** command enables you to include the two jars needed for **azure-cosmosdb-spark** (itself and the Azure DocumentDB Java SDK) and excludes **scala-reflect** so it does not interfere with the Livy calls made (Jupyter notebook > Livy > Spark).
+The **jars** command enables you to include the two JARs that are needed for **azure-cosmosdb-spark** (itself and the Azure DocumentDB Java SDK) and exclude **scala-reflect** so that it does not interfere with the Livy calls (Jupyter notebook > Livy > Spark).
 
-### Connecting Spark to Cosmos DB using the connector
-While the communication transport is a little more complicated, executing a query from Spark to Cosmos DB using the connector is significantly faster.
+### Connect Spark to Cosmos DB using the connector
+Although the communication transport is a little more complicated, executing a query from Spark to Cosmos DB by using the connector is significantly faster.
 
-The following code snippet shows how to use the connector within a Spark context.
+The following code snippet shows how to use the connector in a Spark context.
 
 ```
 // Import Necessary Libraries
@@ -211,22 +217,22 @@ val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.co
 "Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
 "Database" -> "DepartureDelays",
 "preferredRegions" -> "Central US;East US2;",
-"Collection" -> "flights_pcoll", 
+"Collection" -> "flights_pcoll",
 "SamplingRatio" -> "1.0"))
- 
-// Create collection connection 
+
+// Create collection connection
 val coll = spark.sqlContext.read.cosmosDB(readConfig2)
 coll.createOrReplaceTempView("c")
 ```
 
 As noted in the code snippet:
 
-- **azure-cosmosdb-spark** contains the all the necessary connection parameters including the preferred locations (for example, choosing which read replica in what priority order).
+- **azure-cosmosdb-spark** contains the all the necessary connection parameters, which include the preferred locations. For example, you can choose the read replica and priority order.
 - Just import the necessary libraries and configure your masterKey and host to create the Cosmos DB client.
 
-### Executing Spark queries via the connector
+### Execute Spark queries via the connector
 
-The following example uses the Cosmos DB instance created in the previous snippet using the specified read-only keys. The following code snippet connects to the DepartureDelays.flights_pcoll collection (in the DoctorWho account as specified earlier) running a query to extract the flight delay information of flights departing from Seattle.
+The following example uses the Cosmos DB instance that was created in the previous snippet by using the specified read-only keys. The following code snippet connects to the DepartureDelays.flights_pcoll collection (in the DoctorWho account as specified earlier) and runs a query to extract the flight delay information of flights that are departing from Seattle.
 
 ```
 // Queries
@@ -242,20 +248,20 @@ df.show()
 
 ### Why use the Spark to Cosmos DB connector implementation?
 
-Connecting Spark to Cosmos DB using the connector is typically for scenarios where:
+Connecting Spark to Cosmos DB by using the connector is typically for scenarios where:
 
-* You want to use Scala (and update it to include a Python wrapper as noted in [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-documentdb-spark/issues/3)).
+* You want to use Scala and update it to include a Python wrapper as noted in [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-cosmosdb-spark/issues/3).
 * You have a large amount of data to transfer between Apache Spark and Cosmos DB.
 
-To give you an idea of the query performance difference, see the [Query Test Runs wiki](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs).
+To give you an idea of the query performance difference, see the [Query Test Runs wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
 
 ## Distributed aggregation example
-This section provides some examples of how you can do distributed aggregations and analytics using Apache Spark and Azure Cosmos DB together.  Note, Azure Cosmos DB already has support for aggregations, as discussed in the [Planet scale aggregates with Azure Cosmos DB blog](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/), so here is how you can take it to the next level with Apache Spark.
+This section provides some examples of how you can do distributed aggregations and analytics by using Apache Spark and Azure Cosmos DB together. Azure Cosmos DB already supports aggregations, which is discussed in the [Planet scale aggregates with Azure Cosmos DB blog](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/). Here is how you can take it to the next level with Apache Spark.
 
-Note, these aggregations are in reference to the [Spark to Cosmos DB Connector notebook](https://github.com/Azure/azure-documentdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb).
+Note that these aggregations are in reference to the [Spark to Cosmos DB Connector notebook](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb).
 
-### Connecting to flights sample data
-For these aggregations examples, we are accessing some flight performance data stored in our **DoctorWho** Cosmos DB database.  To connect to it, you need to utilize the following code snippet:
+### Connect to flights sample data
+These aggregation examples access some flight performance data that's stored in our **DoctorWho** Cosmos DB database. To connect to it, you need to utilize the following code snippet:
 
 ```
 // Import Spark to Cosmos DB connector
@@ -268,15 +274,15 @@ val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.co
 "Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
 "Database" -> "DepartureDelays",
 "preferredRegions" -> "Central US;East US 2;",
-"Collection" -> "flights_pcoll", 
+"Collection" -> "flights_pcoll",
 "SamplingRatio" -> "1.0"))
 
-// Create collection connection 
+// Create collection connection
 val coll = spark.sqlContext.read.cosmosDB(readConfig2)
 coll.createOrReplaceTempView("c")
 ```
 
-With this snippet, we are also going to run a base query that transfers the filtered set of data we want from Cosmos DB to Spark (where the latter can perform distributed aggregates).  In this case, we are asking for flights departing from Seattle (SEA).
+With this snippet, we are also going to run a base query that transfers the filtered set of data from Cosmos DB to Spark where the latter can perform distributed aggregates. In this case, we are asking for flights that depart from Seattle (SEA).
 
 ```
 // Run, get row count, and time query
@@ -291,17 +297,17 @@ Just like you're used to in SQL/Spark SQL, let's start off with a **LIMIT** quer
 
 ![Spark LIMIT query](./media/spark-connector/spark-sql-query.png)
 
-The next query being a simple and fast **COUNT** query:
+The next query is a simple and fast **COUNT** query:
 
 ![Spark COUNT query](./media/spark-connector/spark-count-query.png)
 
 ### GROUP BY query
-In this next set, now we can easily run **GROUP BY** queries against our Cosmos DB database:
+In this next set, we can easily run **GROUP BY** queries against our Cosmos DB database:
 
 ```
-select destination, sum(delay) as TotalDelays 
-from originSEA 
-group by destination 
+select destination, sum(delay) as TotalDelays
+from originSEA
+group by destination
 order by sum(delay) desc limit 10
 ```
 
@@ -317,10 +323,10 @@ You can use the following example queries to continue analysis of the flight dat
 
 #### Top 5 delayed destinations (cities) departing from Seattle
 ```
-select destination, sum(delay) 
+select destination, sum(delay)
 from originSEA
-where delay < 0 
-group by destination 
+where delay < 0
+group by destination
 order by sum(delay) limit 5
 ```
 ![Spark top delays graph](./media/spark-connector/top-delays-graph.png)
@@ -328,10 +334,10 @@ order by sum(delay) limit 5
 
 #### Calculate median delays by destination cities departing from Seattle
 ```
-select destination, percentile_approx(delay, 0.5) as median_delay 
+select destination, percentile_approx(delay, 0.5) as median_delay
 from originSEA
-where delay < 0 
-group by destination 
+where delay < 0
+group by destination
 order by percentile_approx(delay, 0.5)
 ```
 
@@ -339,11 +345,9 @@ order by percentile_approx(delay, 0.5)
 
 ## Next steps
 
-If you haven't already, download the Spark to Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-documentdb-spark) GitHub repository and explore the additional resources in the repo:
+If you haven't already, download the Spark to Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub repository and explore the additional resources in the repo:
 
-* [Distributed Aggregations Examples](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
-* [Sample Scripts and Notebooks](https://github.com/Azure/azure-documentdb-spark/tree/master/samples)
+* [Distributed Aggregations Examples](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
+* [Sample Scripts and Notebooks](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-You may also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) article.
-
-
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) article.
