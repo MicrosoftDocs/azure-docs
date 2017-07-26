@@ -27,11 +27,11 @@
   items:
     - name: Multi-container groups
       href: container-instances-multi-container-group.md
+    - name: Managing state with Azure file shares
+      href: container-instances-mounting-azure-files-volume.md
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Templates - C-Series
-    href: https://github.com/microsoft/azure-cseries-preview
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/

@@ -1,6 +1,6 @@
 ﻿---
 title: Configure group settings using Azure Active Directory cmdlets | Microsoft Docs
-description: How manage the settings for groups using Azure Active Directory cmdlets.
+description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: rodejo
 
+
 ---
 # Azure Active Directory cmdlets for configuring group settings
 
 > [!IMPORTANT]
-> This content applies only to Unified groups, also known as Office 365 groups. 
+> This content applies only to Office 365 groups. 
 
 Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you will not see any Settings objects in your directory. This means your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure group settings for your directory, you will use the template named "Group.Unified". To configure group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to a group. 
 

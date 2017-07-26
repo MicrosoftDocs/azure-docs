@@ -46,6 +46,9 @@ To decide on a pricing tier, first start by determining if your workload needs a
 
 During the preview timeframe, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
 
+## Understand the price
+When you create a new Azure Database for MySQL inside the [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer), click the **Pricing tier** blade, and the monthly cost will be shown based on the options you have selected. If you do not have an Azure subscription, use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for MySQL** to customize the options.
+
 ## Choose a performance level (Compute Units)
 Once you have determined the pricing tier for your Azure Database for MySQL server, you are ready to determine the performance level by selecting the number of Compute Units needed. A good starting point is 200 or 400 Compute Units for applications that require higher user concurrency for their web or analytical workloads, and adjust incrementally as needed. 
 

@@ -67,6 +67,6 @@
 ## [DNS](/azure/dns/)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)
