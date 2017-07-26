@@ -355,16 +355,16 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TOPdesk.png)| [TOPdesk - Secure](active-directory-saas-topdesk-secure-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-trakopolis-tutorial.png)| [Trakopolis](active-directory-saas-trakopolis-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Trakstar.png)| [Trakstar](active-directory-saas-trakstar-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Trello.png)| [Trello](active-directory-saas-trello-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ultipro.png)| [UltiPro](active-directory-saas-ultipro-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-trello-tutorial.png)| [Trello](active-directory-saas-trello-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-ultipro-tutorial.png)| [UltiPro](active-directory-saas-ultipro-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-unifi-tutorial.png)| [UNIFI](active-directory-saas-unifi-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_UserEcho.png)| [UserEcho](active-directory-saas-userecho-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_UserVoice.png)| [UserVoice](active-directory-saas-uservoice-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-userecho-tutorial.png)| [UserEcho](active-directory-saas-userecho-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-uservoice-tutorial.png)| [UserVoice](active-directory-saas-uservoice-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_velpicsaml.png)| [Velpic SAML](active-directory-saas-velpicsaml-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Veracode.png)| [Veracode](active-directory-saas-veracode-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_VeritasEnterprise.png)| [Veritas Enterprise Vault.cloud SSO](active-directory-saas-veritas-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Voyance.png)| [Voyance](active-directory-saas-voyance-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_VXMaintain.png)| [vxMaintain](active-directory-saas-vxmaintain-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-veritas-tutorial.png)| [Veritas Enterprise Vault.cloud SSO](active-directory-saas-veritas-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-voyance-tutorial.png)| [Voyance](active-directory-saas-voyance-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-vxmaintain-tutorial.png)| [vxMaintain](active-directory-saas-vxmaintain-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_wdesk.png)| [Wdesk](active-directory-saas-wdesk-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Weekdone.png)| [Weekdone](active-directory-saas-weekdone-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Wikispace.png)| [Wikispaces](active-directory-saas-wikispaces-tutorial.md)|
