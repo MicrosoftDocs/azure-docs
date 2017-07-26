@@ -48,11 +48,7 @@ Python can be used as a UDF from Hive through the HiveQL `TRANSFORM` statement. 
 **Linux-based HDInsight**
 
 ```hiveql
-<<<<<<< HEAD
-add file wasb:///streaming.py;
-=======
 add file wasb:///hiveudf.py;
->>>>>>> f58a19c5e8442c92e0b750236aaa3eff56a79881
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'python hiveudf.py' AS
@@ -64,11 +60,7 @@ ORDER BY clientid LIMIT 50;
 **Windows-based HDInsight**
 
 ```hiveql
-<<<<<<< HEAD
-add file wasb:///streaming.py;
-=======
-add file wasbs:///hiveudf.py;
->>>>>>> f58a19c5e8442c92e0b750236aaa3eff56a79881
+add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'D:\Python27\python.exe hiveudf.py' AS
@@ -228,11 +220,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 2. Enter the following query at the `hive>` prompt:
 
    ```hive
-<<<<<<< HEAD
-   add file wasb:///streaming.py;
-=======
-   add file wasbs:///hiveudf.py;
->>>>>>> f58a19c5e8442c92e0b750236aaa3eff56a79881
+   add file wasb:///hiveudf.py;
    SELECT TRANSFORM (clientid, devicemake, devicemodel)
        USING 'python hiveudf.py' AS
        (clientid string, phoneLabel string, phoneHash string)
@@ -255,13 +243,8 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 2. Enter the following statements at the `grunt>` prompt:
 
    ```pig
-<<<<<<< HEAD
-   Register wasb:///pig_python.py using jython as myfuncs;
+   Register wasb:///pigudf.py using jython as myfuncs;
    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
-=======
-   Register wasbs:///pigudf.py using jython as myfuncs;
-   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
->>>>>>> f58a19c5e8442c92e0b750236aaa3eff56a79881
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -292,13 +275,8 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 6. Use the `pig` command to start the shell again. Once you are at the `grunt>` prompt, use the following to run the Python script using the C Python interpreter.
 
    ```pig
-<<<<<<< HEAD
-   Register 'pig_python.py' using streaming_python as myfuncs;
-   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
-=======
    Register 'pigudf.py' using streaming_python as myfuncs;
-   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
->>>>>>> f58a19c5e8442c92e0b750236aaa3eff56a79881
+   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -443,13 +421,8 @@ if(-not($sub))
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
-<<<<<<< HEAD
-$PigQuery = "Register wasb:///pig_python.py using jython as myfuncs;" +
+$PigQuery = "Register wasb:///pigudf.py using jython as myfuncs;" +
             "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
-=======
-$PigQuery = "Register wasbs:///pigudf.py using jython as myfuncs;" +
-            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
->>>>>>> f58a19c5e8442c92e0b750236aaa3eff56a79881
             "LOG = FILTER LOGS by LINE is not null;" +
             "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
             "DUMP DETAILS;"
