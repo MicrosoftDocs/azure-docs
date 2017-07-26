@@ -72,7 +72,31 @@ This step is required only if you use a secure transfer enabled storage account 
 13. Click **Confirm Restart All**.
 14. Click **OK** to close the dialog.
 
+The following procedure is only required for Spark clusters:
 
+**To confiugre the default storage account for Spark clusters:**
+
+1. Sign in to the Ambari Web UI.  See [Connectivity](./hdinsight-hadoop-manage-ambari.md#connectivity).
+2. Click **Spark2** from the left menu.
+3. Click the **Configs** tab.
+4. Click **Advanced spark2-defaults** to expand the node.
+5. Update the scheme to **wasb://** for the following fields:
+
+    - spark.eventLog.dir, 
+    - spark.history.fs.logDirectory
+6. Click **Advanced spark2-thrift-sparkconf** to expand the node.
+7. Update the scheme to **wasb://** for the following fields: 
+
+    - spark.eventLog.dir, 
+    - spark.history.fs.logDirectory
+7. Click **Save**.
+8. Add a note, and then click **Save**.
+9. Click **OK**.
+10. Click **Proceed Anyway**.
+11. Click **OK**.
+12. Click **Restart**, and then click **Restart All Affected**.
+13. Click **Confirm Restart All**.
+14. Click **OK** to close the dialog.
 ## Add additional storage accounts
 
 You can use script action to add additional secure transfer enabled storage accounts to a HDInsight cluster.  For more information, see [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md).
