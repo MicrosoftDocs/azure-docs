@@ -18,9 +18,9 @@ ms.author: sergkanz
 
 # Track custom operations with Application Insights .NET SDK
 
-Azure Application Insights SDKs automatically track incoming HTTP requests and calls to dependent services, such as HTTP requests and SQL queries. Tracking and correlation of requests and dependencies give you visibility into the whole application's responsiveness and reliability across all micro-services. We're going to gradually expand the list and give an automatic collection of other well-known platforms and frameworks. 
+Azure Application Insights SDKs automatically track incoming HTTP requests and calls to dependent services, such as HTTP requests and SQL queries. Tracking and correlation of requests and dependencies give you visibility into the whole application's responsiveness and reliability across all microservices. We're going to gradually expand the list and give an automatic collection of other well-known platforms and frameworks. 
 
-One class of application patterns can't be supported generically. Proper monitoring of such patterns requires manual code instrumentation. This article covers a few patterns that might require manual instrumentation, such as custom queue processing and running long-running background tasks.
+There is a class of application patterns that can't be supported generically. Proper monitoring of such patterns requires manual code instrumentation. This article covers a few patterns that might require manual instrumentation, such as custom queue processing and running long-running background tasks.
 
 This document provides guidance on how to track custom operations with the Application Insights SDK. This documentation is relevant for:
 
@@ -29,7 +29,7 @@ This document provides guidance on how to track custom operations with the Appli
 - Application Insights for AspNetCore version `2.1+`.
 
 ## Overview
-An operation is a logical piece of work run by an application. It has a name, start time, duration, and a context of execution like user name, properties, and result. If operation `A` was initiated by operation `B`, then operation `B` is set as a parent for `A`.  An operation can have only one parent, but it can have many children operations. For more information on operations and telemetry correlation, see [Azure Application Insights telemetry correlation](application-insights-correlation.md).
+An operation is a logical piece of work run by an application. It has a name, start time, duration, and a context of execution like user name, properties, and result. If operation `A` was initiated by operation `B`, then operation `B` is set as a parent for `A`. An operation can have only one parent, but it can have many children operations. For more information on operations and telemetry correlation, see [Azure Application Insights telemetry correlation](application-insights-correlation.md).
 
 In the Application Insights .NET SDK, the operation is described by the abstract class [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) and its descendants [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
 
@@ -54,13 +54,13 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 
     public override async Task Invoke(IOwinContext context)
     {
-        // Let's create and start RequestTelemetry
+        // Let's create and start RequestTelemetry.
         var requestTelemetry = new RequestTelemetry
         {
             Name = $"{context.Request.Method} {context.Request.Uri.GetLeftPart(UriPartial.Path)}"
         };
 
-        // if there is Request-Id recevied from the upstream service, set telemetry context accordingly
+        // If there is a Request-Id received from the upstream service, set the telemetry context accordingly.
         if (context.Request.Headers.ContainsKey("Request-Id"))
         {
             var requestId = context.Request.Headers.Get("Request-Id");
@@ -69,9 +69,9 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
             requestTelemetry.Context.Operation.ParentId = requestId;
         }
 
-        // StartOperation is a helper method that allows to correlate 
+        // StartOperation is a helper method that allows correlation of 
         // current operations with nested operations/telemetry
-        // and initializes start time and duration on telemetry item
+        // and initializes start time and duration on telemetry items.
         var operation = telemetryClient.StartOperation(requestTelemetry);
 
         // process request
@@ -87,7 +87,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         }
         finally
         {
-            // update status code and success as appropriate
+            // Update status code and success as appropriate.
             if (context.Response != null)
             {
                 requestTelemetry.ResponseCode = context.Response.StatusCode.ToString();
@@ -98,14 +98,14 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
                 requestTelemetry.Success = false;
             }
 
-            // now it's time to stop operation (and track telemetry)
+            // Now it's time to stop the operation (and track telemetry).
             telemetryClient.StopOperation(operation);
         }
     }
     
     public static string GetOperationId(string id)
     {
-        // returns root Id from the '|' to first '.' if any
+        // Returns the root Id from the '|' to the first '.' if any.
         int rootEnd = id.IndexOf('.');
         if (rootEnd < 0)
             rootEnd = id.Length;
@@ -116,13 +116,13 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 }
 ```
 
-The HTTP Correlation Protocol also declares the `Correlation-Context` header. However, it's omitted for simplicity.
+The HTTP Correlation Protocol also declares the `Correlation-Context` header. However, it's omitted here for simplicity.
 
 ## Queue instrumentation
-For HTTP communication, we've created a protocol to pass correlation details. Some queues' protocols allow you to pass additional metadata along with the message, and others do not.
+For HTTP communication, we've created a protocol to pass correlation details. With some queues' protocols, you can pass additional metadata along with the message, and with others you can't.
 
 ### Service Bus Queue
-The [Service Bus Queue](../service-bus-messaging/index.md) allows you to pass a property bag along with the message. We use it to pass the correlation ID.
+With the [Service Bus Queue](../service-bus-messaging/index.md) you can pass a property bag along with the message. We use it to pass the correlation ID.
 
 The Service Bus Queue uses TCP-based protocols. Application Insights doesn't automatically track queue operations, so we track them manually. The dequeue operation is a push-style API, and we're unable to track it.
 
@@ -131,16 +131,16 @@ The Service Bus Queue uses TCP-based protocols. Application Insights doesn't aut
 ```C#
 public async Task Enqueue(string payload)
 {
-    // StartOperation is a helper method that initializes telemetry item
-    // and allows to correlate this operation with its parent and children
+    // StartOperation is a helper method that initializes the telemetry item
+    // and allows correlation of this operation with its parent and children.
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queueName);
     operation.Telemetry.Type = "Queue";
     operation.Telemetry.Data = "Enqueue " + queueName;
 
     var message = new BrokeredMessage(payload);
-    // Service Bus Queue allows the property bag to pass along with the message
+    // Service Bus Queue allows the property bag to pass along with the message.
     // We will use them to pass our correlation identifiers (and other context)
-    // to the consumer
+    // to the consumer.
     message.Properties.Add("ParentId", operation.Telemetry.Id);
     message.Properties.Add("RootId", operation.Telemetry.Context.Operation.Id);
 
@@ -148,13 +148,13 @@ public async Task Enqueue(string payload)
     {
         await queue.SendAsync(message);
         
-        // set operation.Telemetry Success and ResponseCode here
+        // Set operation.Telemetry Success and ResponseCode here.
         operation.Telemetry.Success = true;
     }
     catch (Exception e)
     {
         telemetryClient.TrackException(e);
-        // set operation.Telemetry Success and ResponseCode here
+        // Set operation.Telemetry Success and ResponseCode here.
         operation.Telemetry.Success = false;
         throw;
     }
@@ -169,13 +169,13 @@ public async Task Enqueue(string payload)
 ```C#
 public async Task Process(BrokeredMessage message)
 {
-    // Once the message is taken from the queue, create ReqeustTelemetry to track its processing
-    // It may also make sense to get the name from the message
+    // Once the message is taken from the queue, create RequestTelemetry to track its processing.
+    // It might also make sense to get the name from the message.
     RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
 
     var rootId = message.Properties["RootId"].ToString();
     var parentId = message.Properties["ParentId"].ToString();
-    // Get the operation id from the Request-Id (if you follow the 'HTTP Protocol for Correlation')
+    // Get the operation id from the Request-Id (if you follow the HTTP Correlation Protocol).
     requestTelemetry.Context.Operation.Id = rootId;
     requestTelemetry.Context.Operation.ParentId = parentId;
 
@@ -192,7 +192,7 @@ public async Task Process(BrokeredMessage message)
     }
     finally
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         telemetryClient.StopOperation(operation);
     }
 }
@@ -201,28 +201,28 @@ public async Task Process(BrokeredMessage message)
 ### Azure Storage Queue
 The following example shows how to track the [Azure Storage Queue](../storage/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage. 
 
-The Azure Storage Queue has an HTTP API. All calls to the queue are tracked by the ApplicationInsights DependencyCollector for HTTP requests.
-Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in the `applicationInsights.config`. Add it programmatically as described in [Filtering and Preprocessing in the Azure Application Insights SDK](app-insights-api-filtering-sampling.md).
+The Azure Storage Queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests.
+Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in the `applicationInsights.config`. If you don't have it, add it programmatically as described in [Filtering and Preprocessing in the Azure Application Insights SDK](app-insights-api-filtering-sampling.md).
 
-If you configure ApplicationInsights manually, make sure you create and initialize `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` similarly to:
+If you configure Application Insights manually, make sure you create and initialize `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` similar to:
  
 ``` C#
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
 // You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add an Azure Storage endpoint, otherwise you might experience request signature validation issues on the Storage service side
+// Make sure you add an Azure Storage endpoint, otherwise you might experience request signature validation issues on the Storage service side.
 module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
 module.Initialize(TelemetryConfiguration.Active);
 
-// Do not forget to dispose of the module during application shutdown
+// Do not forget to dispose of the module during application shutdown.
 ```
 
-You also might want to correlate the Application Insights operation ID with the Azure Storage RequestId. For information on how to set and get a storage request client and a server request ID, see [Monitor, diagnose and troubleshoot Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+You also might want to correlate the Application Insights operation ID with the Azure Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose and troubleshoot Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### Enqueue
-Because Azure Storage Queues support the HTTP API, all operations with the queue are automatically tracked by Application Insights. In many cases, this instrumentation should be enough. However, to correlate traces on the consumer side with producer traces, you must pass some correlation context similar to how we do it in the HTTP Protocol for Correlation. 
+Because Azure Storage Queues support the HTTP API, all operations with the queue are automatically tracked by Application Insights. In many cases, this instrumentation should be enough. However, to correlate traces on the consumer side with producer traces, you must pass some correlation context similar to how we do it in the HTTP Correlation Protocol. 
 
-In this example, we track the optional `Enqueue` operation. It allows you to
+In this example, we track the optional `Enqueue` operation. You can:
 
  - **Correlate retries (if any)**: They all have one common parent that's the `Enqueue` operation. Otherwise, they're tracked as children of the incoming request. If there are multiple logical requests to the queue, it might be difficult to find which call resulted in retries.
  - **Correlate Azure Storage logs (if and when needed)**: They're correlated with Application Insights telemetry.
@@ -236,7 +236,7 @@ public async Task Enqueue(CloudQueue queue, string message)
     operation.Telemetry.Type = "Queue";
     operation.Telemetry.Data = "Enqueue " + queue.Name;
 
-    // MessagePayload represents your custom message and also serializes correlation identifiers into payload
+    // MessagePayload represents your custom message and also serializes correlation identifiers into payload.
     // e.g. if you choose to pass payload serialized to JSON, it might look like
     // {'RootId' : 'some-id', 'ParentId' : '|some-id.1.2.3.', 'message' : 'your message to process'}
     var jsonPayload = JsonConvert.SerializeObject(new MessagePayload
@@ -248,7 +248,7 @@ public async Task Enqueue(CloudQueue queue, string message)
     
     CloudQueueMessage queueMessage = new CloudQueueMessage(jsonPayload);
 
-    // Add operation.Telemetry.Id to the OperationContext to correlate Azure Storage logs and ApplciationInsights telemetry
+    // Add operation.Telemetry.Id to the OperationContext to correlate Azure Storage logs and ApplciationInsights telemetry.
     OperationContext context = new OperationContext { ClientRequestID = operation.Telemetry.Id};
 
     try
@@ -264,7 +264,7 @@ public async Task Enqueue(CloudQueue queue, string message)
     }
     finally
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         telemetryClient.StopOperation(operation);
     }
 }  
@@ -302,13 +302,13 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
         {
             var payload = JsonConvert.DeserializeObject<MessagePayload>(message.AsString);
 
-            // If there is a message, we want to correlate the Dequeue operation with processing
-            // However, we will only know what correlation Id to use AFTER we get it from the message
-            // So we will report telemetry once we know the Ids.
+            // If there is a message, we want to correlate the Dequeue operation with processing.
+            // However, we will only know what correlation Id to use AFTER we get it from the message,
+            // so we will report telemetry once we know the Ids.
             telemetry.Context.Operation.Id = payload.RootId;
             telemetry.Context.Operation.ParentId = payload.ParentId;
 
-            // delete message
+            // Delete the message.
             return payload;
         }
     }
@@ -321,7 +321,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     }
     finally
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         telemetry.Stop();
         telemetryClient.Track(telemetry);
     }
@@ -337,9 +337,9 @@ In the following example, we trace an incoming message in a manner similar to ho
 ```C#
 public async Task Process(MessagePayload message)
 {
-    // Once the message is dequeued from the queue, create ReqeustTelemetry to track its processing
+    // Once the message is dequeued from the queue, create RequestTelemetry to track its processing.
     RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
-    // It might also make sense to get the name from the message
+    // It might also make sense to get the name from the message.
     requestTelemetry.Context.Operation.Id = message.RootId;
     requestTelemetry.Context.Operation.ParentId = message.ParentId;
 
@@ -356,7 +356,7 @@ public async Task Process(MessagePayload message)
     }
     finally
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         telemetryClient.StopOperation(operation);
     }
 }
@@ -364,7 +364,7 @@ public async Task Process(MessagePayload message)
 
 Similarly, other queue operations can be instrumented. A peek operation should be instrumented in a similar way as a dequeue operation. Instrumenting queue management operations isn't necessary. Application Insights tracks operations such as HTTP, and in most cases, it's enough.
 
-When instrumenting message deletion, make sure you set the operation (correlation) identifiers. Alternatively, you can use the `Activity` API. Then you don't need to set operation identifiers on the telemetry items because Application Insights does it for you:
+When you instrument message deletion, make sure you set the operation (correlation) identifiers. Alternatively, you can use the `Activity` API. Then you don't need to set operation identifiers on the telemetry items because Application Insights does it for you:
 
 - Create a new `Activity` after you've got an item from the queue.
 - Use `Activity.SetParentId(message.ParentId)` to correlate consumer and producer logs.
@@ -374,7 +374,7 @@ When instrumenting message deletion, make sure you set the operation (correlatio
 - Use `Start/StopOperation`, or call Track telemetry manually.
 
 ### Batch processing
-Some queues allow you to dequeue multiple messages with one request. Processing such messages is presumably independent and belongs to the different logical operations. In this case, it's not possible to correlate the `Dequeue` operation to particular message processing.
+With some queues, you can dequeue multiple messages with one request. Processing such messages is presumably independent and belongs to the different logical operations. In this case, it's not possible to correlate the `Dequeue` operation to particular message processing.
 
 Each message should be processed in its own asynchronous control flow. For more information, see the [Outgoing dependencies tracking](#outgoing-dependencies-tracking) section.
 
@@ -391,15 +391,15 @@ async Task BackgroundTask()
         int progress = 0;
         while (progress < 100)
         {
-            // process task
+            // Process the task.
             telemetryClient.TrackTrace($"done {progress++}%");
         }
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
     }
     catch (Exception e)
     {
         telemetryClient.TrackException(e);
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         throw;
     }
     finally
@@ -438,8 +438,8 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// this will do nothing and will not report telemetry for the first operation
-// as currently secondOperation is active
+// This will do nothing and will not report telemetry for the first operation
+// as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
@@ -453,11 +453,11 @@ public async Task RunMyTaskAsync()
     try 
     {
         var myTask = await StartMyTaskAsync();
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
     }
     catch(...) 
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
     }
     finally 
     {
