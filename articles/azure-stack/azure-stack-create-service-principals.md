@@ -3,7 +3,7 @@ title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a new service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
-author: Shriramnat
+author: helaw
 manager: bradleyb
 
 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
-ms.author: shnatara
+ms.date: 07/26/2017
+ms.author: HeathL17
 
 ---
 # Provide applications access to Azure Stack
-When an application needs access to deploy or configure resources through Azure Resource Manager in Azure Stack, you will create a service principal, which is an identity for your application.  You can then delegate only the necessary permissions to that service principal.  
+When an application needs access to deploy or configure resources through Azure Resource Manager in Azure Stack, you will create a service principal, which is a credential for your application.  You can then delegate only the necessary permissions to that service principal.  
 
-As an example, you may have a configuration management tool that uses Azure Resource Manager to inventory resources.  In this scenario, you can create a service principal, grant the reader role to that service principal, and limit the configuration management tool to read-only access. 
+As an example, you may have a configuration management tool that uses Azure Resource Manager to inventory Azure resources.  In this scenario, you can create a service principal, grant the reader role to that service principal, and limit the configuration management tool to read-only access. 
 
 Service principals are preferable to running the app under your own credentials because:
 
@@ -87,9 +87,9 @@ Set-ExecutionPolicy Unrestricted
 ### Create the service principal
 You can create a Service Principal by executing the following command:
 ```powershell
-$servicePrincipal = New-ADGraphServicePrincipal`
- -DisplayName "<YourServicePrincipalName>"`
- -AdminCredential $(Get-Credential)`
+$servicePrincipal = New-AzSADGraphServicePrincipal `
+ -DisplayName "<YourServicePrincipalName>" `
+ -AdminCredential $(Get-Credential) `
  -Verbose
 ```
 ### Assign a role
@@ -99,10 +99,10 @@ Once the Service Principal is created, you must [assign it to a role](azure-stac
 Once you've assigned a role, you can sign in to Azure Stack using the service principal with the following command:
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>"`
- -ServicePrincipal`
- -CertificateThumbprint $servicePrincipal.Thumbprint`
- -ApplicationId $servicePrincipal.ApplicationId` 
+Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+ -ServicePrincipal `
+ -CertificateThumbprint $servicePrincipal.Thumbprint `
+ -ApplicationId $servicePrincipal.ApplicationId ` 
  -TenantId $directoryTenantId
 ```
 
