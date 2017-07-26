@@ -30,7 +30,7 @@ Service principals are preferable to running the app under your own credentials 
 
 ## Getting started
 
-Depending on how you have deployed Azure Stack, you start by creating a service principal.  This document guides you through creating a service principal for both [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) and [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Once you've created the service principal, a set of steps common to both AD FS and Azure Acitve Directory are used to [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) to the role.     
+Depending on how you have deployed Azure Stack, you start by creating a service principal.  This document guides you through creating a service principal for both [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) and [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) to the role.     
 
 ## Create service principal for Azure AD
 
