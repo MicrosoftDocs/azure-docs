@@ -1,6 +1,6 @@
 ---
 title: 'Connect to Azure Database for PostgreSQL from C# | Microsoft Docs'
-description: This quickstart provides a C# (.Net) code sample you can use to connect and query data from Azure Database for PostgreSQL.
+description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -22,15 +22,15 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
 
 You also need to:
-- Install [.Net Framework](https://www.microsoft.com/net/download)
+- Install [.NET Framework](https://www.microsoft.com/net/download)
 - Install [Visual Studio](https://www.visualstudio.com/downloads/)
 - Install [Npgsql](http://www.npgsql.org/doc/index.html) 
 
 ## Install Visual Studio and .NET
 The steps in this section assume that you are familiar with developing using .NET.
 
-### **Windows .NET framework and .NET core**
-Visual Studio 2017 Community is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
+### **Windows .NET framework and .NET Core**
+Visual Studio 2017 Community is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET Core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
 
 1. Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Run the installer and follow the installation prompts to complete the installation.
@@ -60,7 +60,7 @@ sudo apt-get install dotnet-dev-1.0.1
 ```
 
 ## Install Npgsql references into your Visual Studio solution
-To connect from the C# application to PostgreSQL, use the open source ADO.Net library called Npgsql. NuGet helps download and manage the references easily.
+To connect from the C# application to PostgreSQL, use the open source ADO.NET library called Npgsql. NuGet helps download and manage the references easily.
 
 1. Create a new C# solution, or open an existing one: 
    - Within Visual Studio, create a solution, by clicking File menu **New** > **Project**.
@@ -113,7 +113,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSL Mode=Prefer; Trust Server Certificate=true",
                     Host,
                     User,
                     DBname,
