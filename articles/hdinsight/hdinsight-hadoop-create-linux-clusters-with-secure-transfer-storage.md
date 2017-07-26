@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/14/2017
+ms.date: 07/26/2017
 ms.author: jgao
 
 ---
@@ -50,7 +50,7 @@ Currently, you can enable secure transfer for the storage accounts only after th
 
 ## Configure the defaultFS setting
 
-This step is required only if you use a secure transfer enabled storage account as the default storage account.
+The following procedure is required only if you use a secure transfer enabled storage account as the default storage account. You must restart all the related services.
 
 **To configure the defaultFS setting**
 
@@ -94,9 +94,7 @@ The following procedure is only required for Spark clusters:
 9. Click **OK**.
 10. Click **Proceed Anyway**.
 11. Click **OK**.
-12. Click **Restart**, and then click **Restart All Affected**.
-13. Click **Confirm Restart All**.
-14. Click **OK** to close the dialog.
+12. Click **Restart** to restart the affected services.
 
 
 ## Add additional storage accounts
