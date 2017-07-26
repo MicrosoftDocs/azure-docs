@@ -21,7 +21,7 @@ ms.custom:
 ---
 # Create a virtual network with multiple subnets
 
-In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. You can create Azure resources, like Virtual machines, App Service environments, Virtual machine scale sets, Azure HDInsight, and Cloud services in a subnet. Resources in virtual networks can communicate with each other and with other networks connected to a virtual network.
+In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. You can create Azure resources, like Virtual machines, App Service environments, Virtual machine scale sets, Azure HDInsight, and Cloud services in a subnet. Resources in virtual networks can communicate with each other and with resources in other networks connected to a virtual network.
 
 The following sections include steps that you can take to create a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), and an [Azure Resource Manager template](#resource-manager-template). The result is the same, regardless of which tool you use to create the virtual network. Click a tool link to go to that section of the tutorial. To learn more about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual network subnets](virtual-network-manage-subnet.md).
 
