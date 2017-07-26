@@ -484,6 +484,28 @@ const (
 	resource    = "/api/logs"
 )
 
+func main() {
+	omsclient := NewOmsLogClient(omscustomerID, omssharedKey, omsPostTimeout)
+
+	// An example JSON data message to post
+	msg := &omsMessage{
+			SourceSystem:   "MySystemName",
+			ContainerID:    "1234567890",
+			ContainerName:  "mycontainer",
+			TimeGenerated:  time.Now().Format(time.RFC3339),
+			LogEntry:       "Golang API sample code log event",
+		}
+
+	buffer, err := json.Marshal(msg)
+	if err != nil {
+		fmt.Println("JSON convert error:", err)
+	}
+	postErr := omsclient.PostData(&buffer, "GolangExampleLog")
+	if postErr != nil {
+		fmt.Println("API POST error:", postErr)
+	}
+}
+
 type omsMessage struct {
 	SourceSystem   string `json:"sourceSystem,omitempty"`
 	ContainerID    string `json:"containerId"`
@@ -568,28 +590,6 @@ func (c *omslogclient) buildSignature(date string, contentLength int, method str
 	encodedHash := base64.StdEncoding.EncodeToString(hasher.Sum(nil))
 	authorization := fmt.Sprintf("SharedKey %s:%s", c.customerID, encodedHash)
 	return authorization, err
-}
-
-func main() {
-	omsclient := NewOmsLogClient(omscustomerID, omssharedKey, omsPostTimeout)
-
-	// An example JSON data message to post
-	msg := &omsMessage{
-			SourceSystem:   "MySystemName",
-			ContainerID:    "1234567890",
-			ContainerName:  "mycontainer",
-			TimeGenerated:  time.Now().Format(time.RFC3339),
-			LogEntry:       "Golang API sample code log event",
-		}
-
-	buffer, err := json.Marshal(msg)
-	if err != nil {
-		fmt.Println("JSON convert error:", err)
-	}
-	postErr := omsclient.PostData(&buffer, "ContainerLog")
-	if postErr != nil {
-		fmt.Println("API POST error:", postErr)
-	}
 }
 ```
 
