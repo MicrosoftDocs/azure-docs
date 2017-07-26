@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/26/2017
 ms.author: bradsev
 
 ---
@@ -207,7 +207,7 @@ The [Execute Python Script][execute-python-script] module allows a data scientis
 We expect to provide additional functionality to the [Execute Python Script][execute-python-script] module such as the ability to train and operationalize models in Python and to add better support for the development and debugging code in Azure Machine Learning Studio.
 
 ## Next steps
-For more information, see the [Python Developer Center](https://azure.microsoft.com/en-us/develop/python/).
+For more information, see the [Python Developer Center](https://azure.microsoft.com/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
