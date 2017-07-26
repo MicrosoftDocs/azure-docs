@@ -23,3 +23,7 @@
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb
   - name: Windows SDK
     href: https://github.com/Microsoft/Cognitive-linguisticanalysis-windows
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

@@ -1,10 +1,10 @@
 ---
 title: Raspberry Pi to cloud (C) - Connect Raspberry Pi to Azure IoT Hub | Microsoft Docs
-description: Connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud.
+description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud'
 
@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/15/2017
+ms.date: 7/12/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 
@@ -149,7 +149,10 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
    sudo apt-get update
-   sudo apt-get install -y azure-iot-sdk-c-dev cmake
+   sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
+   git clone git://git.drogon.net/wiringPi
+   cd ./wiringPi
+   ./build
    ```
 
 
@@ -158,12 +161,12 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Clone the sample application by running the following command:
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-c-raspberry-pi-client-app
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
    ```
 1. Open the config file by running the following commands:
 
    ```bash
-   cd iot-hub-c-raspberry-pi-client-app
+   cd iot-hub-c-raspberrypi-client-app
    nano config.h
    ```
 

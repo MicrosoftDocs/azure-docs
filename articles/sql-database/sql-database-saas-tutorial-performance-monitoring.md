@@ -113,7 +113,7 @@ The pool's resource utilization is the aggregate database utilization for all da
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
-Because there are additional databases in the pool beyomd the top five, the pool utilization shows activity that is not reflected in the top five databases chart. For additional details, click **Database Resource Utilization**:
+Because there are additional databases in the pool beyond the top five, the pool utilization shows activity that is not reflected in the top five databases chart. For additional details, click **Database Resource Utilization**:
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 

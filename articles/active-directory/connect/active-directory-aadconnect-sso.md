@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/18/2017
 ms.author: billmath
 ---
 
@@ -29,14 +29,14 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 >[!NOTE]
 >This feature is _not_ applicable to Active Directory Federation Services (ADFS), which already includes this capability.
 
-## Key benefits of using Azure AD Seamless SSO
+## Key benefits
 
 - *Great user experience*
   - Users are automatically signed into both on-premises and cloud-based applications.
   - Users don't have to enter their passwords repeatedly.
 - *Easy to deploy & administer*
   - No additional components needed on-premises to make this work.
-  - Works with any method of managed authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
+  - Works with any method of cloud authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
   - Can be rolled out to some or all your users using Group Policy.
   - Register non-Windows 10 devices with Azure AD. This needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -51,11 +51,11 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes|Not supported|Yes|Yes\*|N/A
-|Windows 8.1|Yes|Not supported|Yes|Yes\*|N/A
-|Windows 8|Yes|Not supported|Yes|Yes\*|N/A
-|Windows 7|Yes|Not supported|Yes|Yes\*|N/A
-|Mac OS X|N/A|N/A|Yes\*|Yes\*|Not supported
+|Windows 10|Yes|Yes|Yes|Yes\*|N/A
+|Windows 8.1|Yes|N/A|Yes|Yes\*|N/A
+|Windows 8|Yes|N/A|Yes|Yes\*|N/A
+|Windows 7|Yes|N/A|Yes|Yes\*|N/A
+|Mac OS X|N/A|N/A|Yes\*|Yes\*|Yes\*
 
 \*Requires [additional configuration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 

@@ -97,3 +97,5 @@
 #### [Use client assertion to get access tokens](guidance-multitenant-identity-client-assertion.md)
 #### [Use Azure Key Vault to protect application secrets](guidance-multitenant-identity-keyvault.md)
 #### [Deploying virtual appliances in high availability](guidance-nva-ha.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

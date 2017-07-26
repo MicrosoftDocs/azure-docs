@@ -38,7 +38,7 @@ You can monitor your connectors from the machine they are running on, using eith
 
  ![AzureAD Application Proxy Connectors](./media/application-proxy-understand-connectors/app-proxy-connectors.png)
 
-You don't have to manually delete connectors that are unused. When a connector is running, it remains active as it connects to the service. Connectors not being used are tagged as _inactive_ and will be removed after 10 days of inactivity. 
+You don't have to manually delete connectors that are unused. When a connector is running, it remains active as it connects to the service. Connectors not being used are tagged as _inactive_ and will be removed after 10 days of inactivity. If you do want to uninstall a connector, though, uninstall both the Connector service and the Updater service from the server. Restart your computer to fully remove the service.
 
 ## Automatic updates
 
@@ -57,7 +57,7 @@ The outbound traffic is sent to the Application Proxy service and to the publish
 
 As a result of having only outbound traffic, there is no need to set up load balancing between the connectors or configure inbound access through your firewalls.
 
-For information about configuring outbound firewall rules, see [Work with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md).
+For information about configuring outbound firewall rules, see [Work with existing on-premises Proxy servers](application-proxy-working-with-proxy-servers.md).
 
 Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 

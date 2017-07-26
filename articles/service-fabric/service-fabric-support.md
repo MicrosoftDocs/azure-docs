@@ -38,11 +38,11 @@ Learn more about:
 
 ## Report production or live-site issues or request paid support for standalone Service Fabric clusters
 
-For reporting live-site issues on your Service Fabric cluster deployed on premise or on other clouds, open a ticket for professional support on [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
+For reporting live-site issues on your Service Fabric cluster deployed on-premises or on other clouds, open a ticket for professional support on [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:
 
-- [Professional Support from Microsoft for on-premise](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+- [Professional Support from Microsoft for on-premises](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 

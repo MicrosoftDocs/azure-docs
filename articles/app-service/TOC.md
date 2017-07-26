@@ -75,7 +75,6 @@
 ### Custom domains
 #### [Buy and configure custom domains](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Map your own custom domain](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Configure GoDaddy domains](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Custom domains with Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Clone an existing app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -140,6 +139,7 @@
 ## Integrate
 ### [Access on-premises resources using hybrid connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Send email using SendGrid with Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Export to PowerApps and Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
 ## Troubleshoot
 ### [Enable diagnostics logging](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -147,13 +147,14 @@
 ### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 # Resources
-## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Pricing](https://azure.microsoft.com/pricing/details/app-service/)  
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
+## [Service updates](https://azure.microsoft.com/updates/?product=app-service) 
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [REST](https://docs.microsoft.com/rest/api/appservice/)
-## [Pricing](https://azure.microsoft.com/pricing/details/app-service/)  
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
-## [Service updates](https://azure.microsoft.com/updates/?product=app-service) 

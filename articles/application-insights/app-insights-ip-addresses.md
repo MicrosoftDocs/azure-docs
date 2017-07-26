@@ -230,7 +230,7 @@ Note: *.applicationinsights.io domain is owned by Application Insights team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | agent.azureserviceprofiler.net | dynamic | 443
+| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | dynamic | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443
 
@@ -238,6 +238,6 @@ Note: *.applicationinsights.io domain is owned by Application Insights team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.net | dynamic | 443
+| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | dynamic | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
-| Storage | *.core.windows.net | dyanmic | 443
+| Storage | *.core.windows.net | dynamic | 443

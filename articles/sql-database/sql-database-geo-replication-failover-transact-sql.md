@@ -1,5 +1,5 @@
 ---
-title: Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL | Microsoft Docs
+title: 'TSQL:Initiate failover for Azure SQL Database | Microsoft Docs'
 description: Initiate a planned or unplanned failover for Azure SQL Database using Transact-SQL
 services: sql-database
 documentationcenter: ''
