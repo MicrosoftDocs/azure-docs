@@ -22,7 +22,7 @@ ms.author: luisca
 
 The Recommendations API built with Microsoft Azure Machine Learning helps your customer discover items in your catalog. Customer activity in your digital store is used to recommend items and to improve conversion in your digital store.
 
-The recommendation engine may be trained by uploading data about past customer activity or by collecting data directly from your digital store. When the customer returns to your store you will be able to feature recommended items from your catalog that may increase your conversion rate.
+The recommendation engine may be trained by uploading data about past customer activity or by collecting data directly from your digital store. When the customer returns to your store you are able to feature recommended items from your catalog that may increase your conversion rate.
 
 ## Resources ##
 
@@ -38,15 +38,15 @@ The recommendation engine may be trained by uploading data about past customer a
 
 **Frequently Bought Together (FBT) Recommendations**
 
-In this scenario the recommendations engine will recommend items that are likely to be purchased together in the same transaction with a particular item.
+In this scenario, the recommendations engine recommends items that are likely to be purchased together in the same transaction with a particular item.
 
-For instance, in the example below, customers who bought the Wedge Touch Mouse were also likely to buy the at least one of the following product in the same transaction: Wedge Mobile Keyboard, the Surface VGA Adapter and Surface 2.
+For instance, in the following example, customers who bought the Wedge Touch Mouse were also likely to buy at least one of the following products in the same transaction: Wedge Mobile Keyboard, the Surface VGA Adapter and Surface 2.
 
 **Item to Item Recommendations**
 
-A common scenario that uses this capability, is "people who visited/clicked on this item, also visited/clicked on this item".
+A common scenario that uses this capability, is "people who visited/clicked on this item, also visited/clicked on this item."
 
-For instance, in the example below, most people who visited the "Wedge Touch Mouse" details page also visited the pages related to other mouse devices.
+For instance, in the following example, most people who visited the "Wedge Touch Mouse" details page also visited the pages related to other mouse devices.
 
 **Customer to Item Recommendations**
 
