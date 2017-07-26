@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 07/29/2017
 ms.author: jeedes
 
 ---
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. You can get these values from **SP Information** section on your **Questetra BPM Suite** company site, which is explained later in the tutorial or contact [Questetra BPM Suite Client support team](https://www.questetra.com/contact/). 
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate (Base 64)** and then save the certificate file on your computer.
 
 	![SAML Signing Certificate section](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_certificate.png) 
 
@@ -154,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	e. In the **NameID format** textbox, type `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
-    f. Open your **base-64** encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. 
+    f. Open your **Base-64** encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. 
 
     g. Click **Save**.
 
