@@ -10,11 +10,11 @@ tags: azure-resource-manager
 
 ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
 
@@ -132,7 +132,7 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
 ### <a name="template-portal"></a>Azure portal
 
 1. In your browser, open the [template page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Click the **Deploy to Azure** button. This opens the Azure portal sign-in page.
+2. Click the **Deploy to Azure** button. Log in to Azure on the Azure portal log in screen that appears.
 3. Sign in to the portal by using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Enter the following values for the parameters:
 
@@ -212,7 +212,7 @@ In a PowerShell session, enter the following command: `Remove-AzureRmResourceGro
 ## Next steps
 
 - To learn about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md#view-vnet) and [Manage virtual network subnets](virtual-network-manage-subnet.md#create-subnet). You have various options for using virtual networks and subnets in a production environment to meet different requirements.
-- Create and apply [network security groups](virtual-networks-nsg.md) to subnets to filter inbound and outbound subnet traffic.
+- To filter inbound and outbound subnet traffic, create and apply [network security groups](virtual-networks-nsg.md) to subnets.
 - Create a [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and then connect it to an existing virtual network.
-- Connect the virtual network to another virtual network in the same Azure location by using [virtual network peering](virtual-network-peering-overview.md).
+- To connect two virtual networks in the same Azure location, create a  [virtual network peering](virtual-network-peering-overview.md) between the virtual networks.
 - Connect the virtual network to an on-premises network by using a [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.
