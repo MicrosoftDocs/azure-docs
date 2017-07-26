@@ -51,13 +51,13 @@ You can create a container by providing a name, a Docker image, and an Azure res
 Azure Container Instances CLI commands are currently only available in Azure Cloud Shell.
 
 ```azurecli-interactive
-az container create --name myContainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
+az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
 ```
 
 Within a few seconds, you should get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
 
 ```azurecli-interactive
-az container show myContainer --resource-group myResourceGroup
+az container show mycontainer --resource-group myResourceGroup
 ```
 
 At the bottom of the output, you will see the container's provisioning state and its IP address:
@@ -87,7 +87,7 @@ Once the container moves to the **Succeeded** state, you can reach it in the bro
 You can pull the logs for the container you created using the `logs` command:
 
 ```azurecli-interactive
-az container logs --name myContainer --resource-group myResourceGroup
+az container logs --name mycontainer --resource-group myResourceGroup
 ```
 
 Output:
@@ -103,7 +103,7 @@ listening on port 80
 When you are done with the container, you can remove it using the `delete` command:
 
 ```azurecli-interactive
-az container delete --name myContainer --resource-group myResourceGroup
+az container delete --name mycontainer --resource-group myResourceGroup
 ```
 
 ## Next steps
