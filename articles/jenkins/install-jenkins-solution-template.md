@@ -25,7 +25,7 @@ This quickstart shows how to install the latest stable Jenkins version on a Linu
 <li>Git for source control</li>
 <li>Azure credential plugin for connecting securely</li>
 <li>Azure VM Agents plugin for elastic build, test, and continuous integration</li>
-<li>Azure Storage plugin for storing artifacts></li>
+<li>Azure Storage plugin for storing artifacts</li>
 <li>Azure CLI to deploy apps using scripts</li>
 </ul>
 

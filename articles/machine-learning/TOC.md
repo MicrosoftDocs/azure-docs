@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
 
@@ -207,6 +207,7 @@
 ##### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)

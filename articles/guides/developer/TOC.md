@@ -111,5 +111,6 @@
 
 # Resources
 ## [Azure regions](https://azure.microsoft.com/regions/)
-## [Videos](https://azure.microsoft.com/resources/videos/home/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Samples](https://azure.microsoft.com/resources/samples/)
+## [Videos](https://azure.microsoft.com/resources/videos/home/)

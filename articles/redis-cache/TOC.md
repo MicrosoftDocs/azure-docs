@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ##[Why use Redis cache](https://azure.microsoft.com/services/cache/)
 ##[Explore premium tier features](cache-premium-tier-intro.md)
 ## Scenarios
@@ -55,6 +55,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Resources
-## [Redis cache samples](cache-redis-samples.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cache/)
+## [Redis cache samples](cache-redis-samples.md)
 

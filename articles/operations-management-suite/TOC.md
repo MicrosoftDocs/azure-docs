@@ -73,3 +73,5 @@
 # Reference
 ## [SDK](operations-management-suite-sdk.md)
 
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

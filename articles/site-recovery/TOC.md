@@ -116,8 +116,9 @@
 ## [Azure Automation](/azure/automation/)
 
 # Resources
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=site-recovery)

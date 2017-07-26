@@ -223,7 +223,8 @@
 ## [REST](/rest/api/media/mediaservice)  
 
 # Resources
-## [Release notes](media-services-release-notes.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Community](media-services-community.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
+## [Release notes](media-services-release-notes.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

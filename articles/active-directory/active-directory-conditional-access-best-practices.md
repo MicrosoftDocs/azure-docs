@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2017
+ms.date: 06/22/2017
 ms.author: markvi
 
 ---
@@ -53,11 +53,6 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 ### Does conditional access work with Exchange ActiveSync?
 
 Yes, you can use Exchange ActiveSync in a conditional access policy.
-
-
-### What happens if I require multi-factor authentication or a compliant device?
-
-Currently, the user will be prompted for multi-factor authentication irrespective of the device.
 
 
 ## What you should avoid doing

@@ -9,6 +9,7 @@
 # How-to guides
 ## [Secure Jenkins on Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 # Resources
-## [Jenkins Azure VM Agents plugin](https://plugins.jenkins.io/azure-vm-agents)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Jenkins Azure Storage plugin](https://plugins.jenkins.io/windows-azure-storage)
+## [Jenkins Azure VM Agents plugin](https://plugins.jenkins.io/azure-vm-agents)
 ## [Jenkins site](https://jenkins.io/)

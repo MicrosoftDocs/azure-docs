@@ -14,3 +14,5 @@
 ### [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQs](microsoft-authenticator-app-faq.md)
 
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

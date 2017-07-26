@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [Monitoring tools across Azure](monitoring-overview.md)
 ## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Metrics](monitoring-overview-metrics.md)
@@ -70,6 +70,7 @@
 ### [1.3 and later](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Resources
-## [PowerShell samples](insights-powershell-samples.md)
 ## [Azure CLI 1.0 samples](insights-cli-samples.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [PowerShell samples](insights-powershell-samples.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
