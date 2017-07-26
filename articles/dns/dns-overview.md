@@ -47,3 +47,5 @@ Learn about DNS zones and records by visiting: [DNS zones and records overview](
 
 Learn how to [create a DNS zone](./dns-getstarted-create-dnszone-portal.md) in Azure DNS.
 
+Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+

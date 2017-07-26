@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -68,11 +68,11 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 5. Download and install the GRID driver:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.92-grid.run
+  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
+  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
   ``` 
 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
@@ -111,9 +111,9 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
  
-  tar xvzf lis-rpms-4.2.1.tar.gz
+  tar xvzf lis-rpms-4.2.2-2.tar.gz
  
   cd LISISO
  
@@ -127,11 +127,11 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 5. Download and install the GRID driver:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.92-grid.run
+  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
+  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
   ``` 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
@@ -237,7 +237,6 @@ Then run installation commands specific for your distribution.
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
-
 1. Get updates. 
 
   ```bash
@@ -245,8 +244,12 @@ Then run installation commands specific for your distribution.
 
   sudo reboot
   ```
-2. Reconnect to the VM and install the latest Linux Integration Services for Hyper-V:
- 
+2. Reconnect to the VM and install the latest Linux Integration Services for Hyper-V.
+
+  > [!IMPORTANT]
+  > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 3. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the image, LIS should not be upgraded, and kernel updates are disabled by default.
+  >
+
   ```bash
   wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
  

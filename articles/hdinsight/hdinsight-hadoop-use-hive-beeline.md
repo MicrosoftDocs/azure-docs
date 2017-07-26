@@ -79,7 +79,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 3. Use the following command to display the schema for the hivesampletable:
 
-    ```bash
+    ```hiveql
     describe hivesampletable;
     ```
 

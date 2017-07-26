@@ -4,7 +4,7 @@ description: A sample application runs on Adafruit Feather M0 WiFi and monitors 
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'arduino control led from web, arduino control led via web'
 

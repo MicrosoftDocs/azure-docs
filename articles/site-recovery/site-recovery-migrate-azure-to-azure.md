@@ -34,8 +34,8 @@ Here's what you need for this deployment:
 ## Deployment steps
 This section describes the deployment steps in the new Azure portal.
 
-1. [Create a vault](site-recovery-vmware-to-azure.md#create-a-recovery-services-vault).
-2. [Enable replication](site-recovery-vmware-to-azure.md#enable-replication). Enable replication for the VMs you want to migrate, and choose Azure as source. 
+1. [Create a vault](site-recovery-vmware-to-azure.md).
+2. [Enable replication](site-recovery-vmware-to-azure.md). Enable replication for the VMs you want to migrate, and choose Azure as source. 
 3. [ Run an unplanned failover](site-recovery-failover.md). After initial replication is complete, you can run an unplanned failover from one Azure region to another. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines between regions. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
 
 ## Next steps

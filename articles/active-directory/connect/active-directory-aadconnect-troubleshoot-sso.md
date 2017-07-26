@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/24/2017
 ms.author: billmath
 ---
 
@@ -77,7 +77,7 @@ If success auditing is enabled on your Domain Controller, then every time a user
 
 ## Manual reset of Azure AD Seamless SSO
 
-If troubleshooting didn't help, use the following steps to manually reset the feature on your tenant:
+If troubleshooting didn't help, you can manually reset the feature on your tenant. Follow these steps on the on-premises server where you are running Azure AD Connect:
 
 ### Step 1: Import the Seamless SSO PowerShell module
 
@@ -88,7 +88,7 @@ If troubleshooting didn't help, use the following steps to manually reset the fe
 
 ### Step 2: Get the list of AD forests on which Seamless SSO has been enabled
 
-1. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your Azure AD tenant administrator credentials.
+1. Run PowerShell as Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your tenant's Global Administrator credentials.
 2. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 3: Disable Seamless SSO for each AD forest that it was set it up on

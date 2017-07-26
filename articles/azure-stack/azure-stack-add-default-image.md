@@ -80,7 +80,15 @@ After the download completes, the image is added to the **Marketplace Management
       -EnvironmentName AzureStackAdmin 
     ```
    
-9. Add the Windows Server 2016 image to the Azure Stack marketplace by running the `New-AzsServer2016VMImage` cmdlet. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
+9. Sign in to your Azure Stack environment by using the following cmdlet:
+
+   ```PowerShell
+   Login-AzureRmAccount `
+   -EnvironmentName "AzureStackAdmin" `
+   -TenantId $TenantID 
+   ```
+
+10. Add the Windows Server 2016 image to the Azure Stack marketplace by running the `New-AzsServer2016VMImage` cmdlet. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
 
    ```powershell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"
