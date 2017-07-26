@@ -54,7 +54,7 @@ The *partner trial experience* can be used when a manual or a long-term operatio
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>User finds your application in AppSource web site</li><li>Selects ‘Request trial’ or ‘Request trial’ option</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>User finds your application in AppSource web site</li><li>Selects ‘Request trial’ or ‘Contact Me’ option</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Fills out a form with contact information</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
