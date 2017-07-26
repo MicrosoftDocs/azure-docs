@@ -22,7 +22,7 @@ ms.author: anwestg
 You must add an [Azure App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment:
 
 * If you're running Azure Stack in an isolated environment secured by Active Directory Federation Services (AD FS). 
-* If you want to give your tenants the capability to create web, mobile, and API applications and Azure Functions with their Azure Stack subscription. 
+* If you want to give your tenants the capability to create web, mobile, and API applications--and Azure Functions applications--with their Azure Stack subscription. 
 
 To do so, follow the steps in this article.
 
