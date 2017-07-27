@@ -29,7 +29,7 @@ This capability can be used in conjunction with the “bring your own app” cap
 
 There are two use cases for SCIM in Azure Active Directory:
 
-* **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and use OAuth bearer tokens for authentication can work with Azure AD out of the box.
+* **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and use OAuth bearer tokens for authentication can work with Azure AD with no code changes.
 * **Build your own provisioning solution for applications that support other API-based provisioning** - For non-SCIM applications, you can create a SCIM endpoint to translate between the Azure AD SCIM endpoint and whatever API the application supports for user provisioning.  To aid in the development of a SCIM endpoint, we provide CLI libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
 
 ## Provisioning Users and Groups To Applications That Support SCIM
@@ -43,7 +43,7 @@ Azure Active Directory can be configured to automatically provision assigned use
 * Supports querying groups by ID and by member as per section 3.4.2 of the SCIM protocol.  
 * Accepts OAuth bearer tokens for authorization as per section 2.1 of the SCIM protocol.
 
-You should check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
+Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
 ### Getting Started
 Applications that support the SCIM profile described in this article can be connected to Azure Active Directory using the "non-gallery application" feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process every 20 minutes where it queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
@@ -61,11 +61,11 @@ Applications that support the SCIM profile described in this article can be conn
 
 ![][2]
 
-6. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. This may be a URL such as https://api.contoso.com/scim/v2/
+6. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/v2/
 7. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, then Azure AD included an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD -issued token.
 8. Click the **Test Connection** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, error information is displayed.  
 9. If the attempts to connect to the application succeed, then click **Save** to save the admin credentials.
-10. In the **Mappings** section, there are two selectable sets of attribute mappings: one for user objects and one for group objects. Select each one to review the attributes that will be synchronized from Azure Active Directory to your app. Note that the attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select the Save button to commit any changes.
+10. In the **Mappings** section, there are two selectable sets of attribute mappings: one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select the Save button to commit any changes.
 
 >[!NOTE]
 >You can optionally disable syncing of group objects by disabling the "groups" mapping. 
@@ -129,7 +129,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 
 1. In a web browser, launch the Azure management portal at https://portal.azure.com 
 2. Browse to **Azure Active Directory > Enterprise Applications, and select **New application > All > Non-gallery application**.
-3. Enter a name for your application, and click **Add** icon to create an app object. Note that the application object created is intended to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
+3. Enter a name for your application, and click **Add** icon to create an app object. The application object created is intended to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
 4. In the resulting screen, select the **Provisioning** tab in the left column.
 5. In the **Provisioning Mode** menu, select **Automatic**.
 
@@ -139,8 +139,8 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 7. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, then Azure AD will include an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD -issued token.
 8. Click the **Test Connection** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, error information is displayed.  
 9. If the attempts to connect to the application succeed, then click **Save** to save the admin credentials.
-10. In the **Mappings** section, there are two selectable sets of attribute mappings: one for user objects and one for group objects. Select each one to review the attributes that will be synchronized from Azure Active Directory to your app. Note that the attributes selected as **Matching** properties will be used to match the users and groups in your app for update operations. Select the Save button to commit any changes.
-11. Under **Settings**, the **Scope** field defines which users and or groups will be synced. Selecting "Sync only assigned users and groups" (recommended) will only sync users and groups assigned in the **Users and groups** tab.
+10. In the **Mappings** section, there are two selectable sets of attribute mappings: one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select the Save button to commit any changes.
+11. Under **Settings**, the **Scope** field defines which users and or groups are synchronized. Selecting "Sync only assigned users and groups" (recommended) will only sync users and groups assigned in the **Users and groups** tab.
 12. Once your configuration is complete, change the **Provisioning Status** to **On**.
 13. Click **Save** to start the Azure AD provisioning service. 
 14. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users and/or groups you wish to sync.
@@ -152,7 +152,7 @@ The final step in verifying the sample is to open the TargetFile.csv file in the
 ### Development Libraries
 To develop your own Web service that conforms to the SCIM specification, first familiarize yourself with the following libraries provided by Microsoft to help accelerate the development process: 
 
-**1:**  Common Language Infrastructure (CLA) libraries are offered for use with languages based on that infrastructure, such as C#.  One of those libraries, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declares an interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, shown in the figure below.  A developer using the libraries would implement that interface with a class that may be referred to, generically, as a provider.  The libraries enable the developer to easily deploy a Web service that conforms to the SCIM specification, either hosted within Internet Information Services, or any executable CLA assembly.  Requests to that Web service will be translated into calls to the provider’s methods, which would be programmed by the developer to operate on some identity store.    
+**1:**  Common Language Infrastructure (CLA) libraries are offered for use with languages based on that infrastructure, such as C#.  One of those libraries, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declares an interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, shown in the figure below.  A developer using the libraries would implement that interface with a class that may be referred to, generically, as a provider.  The libraries enable the developer to easily deploy a Web service that conforms to the SCIM specification, either hosted within Internet Information Services, or any executable CLA assembly.  Requests to that Web service are translated into calls to the provider’s methods, which would be programmed by the developer to operate on some identity store.    
 
 ![][3]
 
@@ -374,12 +374,12 @@ The figure below shows the messages that Azure Active Directory will send to a S
 ![][4]
 *Figure: User provisioning and de-provisioning sequence*
 
-**1:**  Azure Active Directory will query the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure Active Directory.  The query will be expressed as a Hypertext Transfer Protocol request like this one, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory: 
+**1:**  Azure Active Directory will query the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure Active Directory.  The query is expressed as a HTTP request like this one, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory: 
 
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
 
-If the service was built using the CLA libraries provided by Microsoft for implementing SCIM services, then the request will be translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
+If the service was built using the CLA libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
 
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
@@ -427,7 +427,7 @@ Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.I
         Equals
     }
 
-In the case of the foregoing sample of a query for a user with a given value for the externalId attribute, values of the arguments passed to the Query method will be as follows: 
+In the case of the foregoing sample of a query for a user with a given value for the externalId attribute, values of the arguments passed to the Query method are as follows: 
 
 * parameters.AlternateFilters.Count: 1
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
@@ -476,14 +476,14 @@ The CLA libraries provided by Microsoft for implementing SCIM services would tra
       Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
       string correlationIdentifier);
 
-In the case of a request to provision a user, the value of the resource argument will be an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly-provisioned user.  
+In the case of a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly-provisioned user.  
 
 **3:**  To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory will proceed by requesting the current state of that user from the service with a request like this one: 
 
     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
 
-In a service built using the CLA libraries provided by Microsoft for implementing SCIM services, the request will be translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
+In a service built using the CLA libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
 
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
@@ -511,19 +511,19 @@ In a service built using the CLA libraries provided by Microsoft for implementin
           { get; set; }
     }
 
-In the case of the foregoing example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument will be as follows: 
+In the case of the foregoing example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters are as follows: 
 
 * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-**4:**  If a reference attribute is to be updated, then Azure Active Directory will query the service to determine whether or not the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory.  In the case of users, the only attribute of which the current value will be queried in this way is the manager attribute.  Here is an example of a request to determine whether the manager attribute of a particular user object currently has a certain value: 
+**4:**  If a reference attribute is to be updated, then Azure Active Directory will query the service to determine whether or not the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory.  In the case of users, the only attribute where the value is queried in this way is the manager attribute.  Here is an example of a request to determine whether the manager attribute of a particular user object currently has a certain value: 
 
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
 
 The value of the attributes query parameter, id, signifies that if a user object exists that satisfies the expression provided as the value of the filter query parameter, then the service is expected to respond with a urn:ietf:params:scim:schemas:core:2.0:User or urn:ietf:params:scim:schemas:extension:enterprise:2.0:User resource, including only the value of that resource’s id attribute.  The value of the id attribute is known to the requestor—it is included in the value of the filter query parameter; the purpose of asking for it is actually to request a minimal representation of a resource that satisfying the filter expression as an indication of whether or not any such object exists.   
 
-If the service was built using the CLA libraries provided by Microsoft for implementing SCIM services, then the request will be translated into a call to the Query method of the service’s provider.  The value of the properties of the object provided as the value of the parameters argument will be as follows: 
+If the service was built using the CLA libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  The value of the properties of the object provided as the value of the parameters argument are as follows: 
 
 * parameters.AlternateFilters.Count: 2
 * parameters.AlternateFilters.ElementAt(x).AttributePath: "id"
@@ -656,7 +656,7 @@ In the case of the foregoing example of a request to update a user, the object p
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
 
-If the service was built using the CLA libraries provided by Microsoft for implementing SCIM services, then the request will be translated into a call to the Delete method of the service’s provider.   That method has this signature: 
+If the service was built using the CLA libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Delete method of the service’s provider.   That method has this signature: 
 
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
@@ -674,9 +674,9 @@ The object provided as the value of the resourceIdentifier argument will have th
 ## Group Provisioning and De-Provisioning
 The figure below shows the messages that Azure Active Directory will send to a SCIM service to manage the lifecycle of a group in another identity store.  Those messages differ from the messages pertaining to users in three ways: 
 
-* The schema of a group resource will be identified as http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* The schema of a group resource is identified as http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 * Requests to retrieve groups will stipulate that the members attribute is to be excluded from any resource provided in response to the request.  
-* Requests to determine whether a reference attribute has a certain value will be requests about the members attribute.  
+* Requests to determine whether a reference attribute has a certain value ware requests about the members attribute.  
 
 ![][5]
 *Figure: Group provisioning and de-provisioning sequence*
