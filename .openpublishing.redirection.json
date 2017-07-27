@@ -1226,7 +1226,7 @@
             "redirect_document_id": false
         },
 		{
-		    "source-path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md"
+		    "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md"
 			"redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker"
 			"redirect_document_id": false
 		},
