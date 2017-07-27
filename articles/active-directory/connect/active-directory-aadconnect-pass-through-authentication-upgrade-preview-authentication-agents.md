@@ -44,6 +44,8 @@ Follow these steps, on each server identified in the preceding step, to check th
 2. If there is an entry for "**Microsoft Azure AD Connect Authentication Agent**", you don't need to take any action on this server.
 3. If there is an entry for "**Microsoft Azure AD Application Proxy Connector**", with versions between 1.5.58.0 and 1.5.132.0 (both included), you will need to manually upgrade the Authentication Agent on this server.
 
+![Preview version of Authentication Agent](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
+
 ## Best practices before doing the upgrade
 
 Before upgrading, ensure that you have the following items in place:
