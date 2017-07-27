@@ -1231,8 +1231,8 @@
 			"redirect_document_id": false
 		},
         {
-            "source_path": "articles/azure-portal/resource-group-portal.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-group-portal",
+            "source_path": "articles/azure-portal/resource-group-portal.md"
+            "redirect_url": "/azure/azure-resource-manager/resource-group-portal"
             "redirect_document_id": false
         },
         {
