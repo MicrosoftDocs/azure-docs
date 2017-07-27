@@ -31,7 +31,11 @@ With accelerated networking, network traffic arrives at the VM's network interfa
 
 The benefits of accelerated networking only apply to the VM that it is enabled on. For the best results, it is ideal to enable this feature on at least two VMs connected to the same Azure Virtual Network (VNet). When communicating across VNets or connecting on-premises, this feature has minimal impact to overall latency.
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+> [!WARNING]
+> This Linux Public Preview may not have the same level of availability and reliability as features that are in general 
+> availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure 
+> locations. For the most up-to-date notifications on availability and status of this feature, check the Azure Virtual Network updates 
+> page.
 
 ## Benefits
 * **Lower Latency / Higher packets per second (pps):** Removing the virtual switch from the datapath removes the time packets spend in the host for policy processing and increases the number of packets that can be processed inside the VM.
@@ -320,11 +324,11 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
 
 1.	Provision a non-SRIOV CentOS 7.3 VM on Azure
 
-2.	Install LIS 4.2.1:
+2.	Install LIS 4.2.2:
     
     ```bash
-    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-    tar -xvf lis-rpms-4.2.1-1.tar.gz
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+    tar -xvf lis-rpms-4.2.2-2.tar.gz
     cd LISISO && sudo ./install.sh
     ```
 
@@ -398,8 +402,8 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
 
     # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
     # Must end with ".vhd" extension
-    $destOsDiskName = "MyOsDiskName.vhd" 
-    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    $OsDiskName = "MyOsDiskName.vhd" 
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $OsDiskName
     
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
@@ -413,7 +417,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
      -Credential $Cred | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
     Set-AzureRmVMOSDisk `
-     -Name $OSDiskName `
+     -Name $OsDiskName `
      -SourceImageUri $sourceUri `
      -VhdUri $destOsDiskUri `
      -CreateOption FromImage `

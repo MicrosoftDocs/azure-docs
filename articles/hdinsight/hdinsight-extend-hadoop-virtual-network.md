@@ -134,11 +134,11 @@ To enable name resolution between the virtual network and resources in joined ne
         
         * __Custom DNS__ (in the virtual network):
 
-            * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests between resources within the virtual network.
+            * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests for resources in the virtual network
 
             * Forward all other requests to the on-premises DNS server. The on-premises DNS handles all other name resolution requests, even requests for internet resources such as Microsoft.com.
 
-        * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the Azure recursive resolver (168.63.129.16). The Azure recursive resolver handles name resolution for the resources in the virtual network.
+        * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the custom DNS server. The custom DNS server then forwards to the Azure recursive resolver.
 
         This configuration routes requests for fully qualified domain names that contain the DNS suffix of the virtual network to the custom DNS server. All other requests (even for public internet addresses) are handled by the on-premises DNS server.
 
@@ -156,11 +156,11 @@ To enable name resolution between the virtual network and resources in joined ne
 
 For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
-## Directly connect to HDInsight
+## Directly connect to Hadoop services
 
 Most documentation on HDInsight assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses the public gateway, which is not available if you have used NSGs or UDRs to restrict access from the internet.
 
-To directly connect to HDInsight through the virtual network, use the following steps:
+To connect to Ambari and other web pages through the virtual network, use the following steps:
 
 1. To discover the internal fully qualified domain names (FQDN) of the HDInsight cluster nodes, use one of the following methods:
 
@@ -184,12 +184,12 @@ To directly connect to HDInsight through the virtual network, use the following 
 	az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
 	```
 
-    You can use the FQDNs returned to directly connect to the cluster from within the virtual network or a connected network.
-
-2. To determine the port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
+    In the list of nodes returned, find the FQDN for the head nodes and use those to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
 
     > [!IMPORTANT]
-    > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it fails, switch to the other head node.
+    > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it returns a 404 error, switch to the other head node.
+
+2. To determine the node and port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
 ## <a id="networktraffic"></a> Controlling network traffic
 
@@ -249,6 +249,8 @@ Use the following table to find the IP addresses for the region you are using:
 | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 | Inbound |
 | Japan | Japan East | 13.78.125.90</br>13.78.89.60 | 443 | Inbound |
 | &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | 443 | Inbound |
+| Korea | Korea Central | 52.231.39.142</br>52.231.36.209 | 433 | Inbound |
+| &nbsp; | Korea South | 52.231.203.16</br>52.231.205.214 | 443 | Inbound
 | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 | Inbound |
 | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 | Inbound |
 | United States | Central US | 13.67.223.215</br>40.86.83.253 | 443 | Inbound |
@@ -453,7 +455,7 @@ On the custom DNS server in the virtual network:
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. On the custom DNS server for the virtual network, use the following text as the contents of the `/etc/bind/named.config.local` file:
+2. On the custom DNS server for the virtual network, use the following text as the contents of the `/etc/bind/named.conf.local` file:
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver

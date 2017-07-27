@@ -1,6 +1,5 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
-## [Choose an edition](active-directory-editions.md)
 ## [About Azure identity management](identity-fundamentals.md)
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
@@ -110,6 +109,7 @@
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
+#### [Notifications](active-directory-reporting-notifications.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -122,23 +122,6 @@
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
-### [Classic portal](active-directory-view-access-usage-reports.md)
-#### [Azure AD reporting](active-directory-reporting-getting-started.md)
-#### [Reporting guide](active-directory-reporting-guide.md)
-#### [Known networks](active-directory-known-networks.md)
-#### [API](active-directory-reporting-api-getting-started.md)
-##### [Prerequisites](active-directory-reporting-api-prerequisites.md)
-#### [Audit events](active-directory-reporting-audit-events.md)
-#### [Latencies](active-directory-reporting-latencies.md)
-#### [Notifications](active-directory-reporting-notifications.md)
-#### Understand reports
-##### [Irregular sign-in](active-directory-reporting-irregular-sign-in-activity.md)
-##### [Multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)
-##### [Suspicious IP addresses](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-##### [Multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-##### [Possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-##### [Unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)
-##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Manage passwords](active-directory-passwords-overview.md)
 ### User documents
@@ -401,7 +384,7 @@
 
 # Resources
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)

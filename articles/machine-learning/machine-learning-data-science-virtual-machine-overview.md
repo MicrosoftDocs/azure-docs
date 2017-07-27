@@ -1,6 +1,6 @@
 ---
 title: What is a Data Science Virtual Machine? | Microsoft Docs
-description: Learn the key scenarios, features, and how to get started with Data Science Virtual Machines, an environment and toolkit ready for analytics.
+description: How to get started doing key analytics scenarios with Data Science Virtual Machines.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
-ms.author: gokuma
+ms.date: 07/21/2017
+ms.author: gokuma;bradsev
 
 ---
 # Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows
@@ -128,11 +128,11 @@ The Data Science Virtual Machine has many popular data science and deep learning
 
 ## Get started with the Linux Data Science VM
 * Create an instance of the desired Linux DSVM edition by navigating to 
-  * [Ubuntu](http://aka.ms/dsvm/ubuntu)
+  * [Ubuntu based DSVM](http://aka.ms/dsvm/ubuntu)
 
   or
 
-  * [OpenLogic CentOS](http://aka.ms/dsvm/centos)
+  * [OpenLogic CentOS based DSVM](http://aka.ms/dsvm/centos)
 
   
 * Click the **Get it now** button.

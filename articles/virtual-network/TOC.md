@@ -44,7 +44,11 @@
 ##### [PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI](virtual-network-create-udr-classic-cli.md)
 
-### [Virtual network peering](virtual-network-create-peering.md)
+### Virtual network peering
+#### [Same deployment model - same subscription](virtual-network-create-peering.md)
+#### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
+#### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
+#### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address
@@ -133,6 +137,7 @@
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Throughput testing](virtual-network-bandwidth-testing.md)
+### [Cannot delete virtual networks](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Reference
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
@@ -153,7 +158,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Resources
-## [Azure roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)

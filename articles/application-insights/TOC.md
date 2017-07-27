@@ -92,7 +92,7 @@
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
-#### [Funnels](app-insights-understand-usage-patterns.md)
+#### [Funnels](usage-funnels.md)
 #### [Retention](app-insights-usage-retention.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
 
