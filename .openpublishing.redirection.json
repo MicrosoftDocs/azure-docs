@@ -8343,6 +8343,11 @@
             "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
             "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
             "redirect_document_id": false
-        }                                               
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
+            "redirect_document_id": false
+        }                                               	
     ]
 }
