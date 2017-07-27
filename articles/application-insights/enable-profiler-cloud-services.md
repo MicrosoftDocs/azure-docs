@@ -26,7 +26,7 @@ The following diagram illustrates how the Profiler works for Azure Compute resou
 ![Overview](./media/enable-profiler-compute/overview.png)
 You must install the Diagnostics Agent component for the Azure Compute resources in order to  collect information for processing and display on the Azure portal. The rest of the walk-through provides guidance on how to install and configure the diagnostics agent to enable the Application Insights Profiler.
 
-### Prerequisites for the Walkthrough
+### Prerequisites for the walk-through
 
 * Download the deployment Resource Manager templates that install the Profiler agents on the VMs or Scale Sets.
 
@@ -48,8 +48,8 @@ These steps are explained in this section:
 * Add an Availability Test to your application
 * View your performance data
 
-### Create Resource Group in your Azure subscription
-Create a resource group in your Azure subscription. The following example demonstrates how to do this using a PowerShell script:
+### Create a Resource Group in your Azure subscription
+The following example demonstrates how to do create a resource group using a PowerShell script:
 
 ```
 New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Replace_With_Resource_Group_Location"
