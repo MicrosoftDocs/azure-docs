@@ -70,11 +70,7 @@
 #### [Submit jobs from on-premises to Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configure Oracle Data Guard for Azure](configure-oracle-data-guard.md)
-####[Configure Oracle GoldenGate for Azure](configure-oracle-goldengate.md)
-####[Miscellaneous considerations for images](oracle-considerations.md)
-####[List of Oracle VM images](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
@@ -85,7 +81,8 @@
 ### [Access to an application](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Classic deployment issues with creating a new VM](troubleshoot-deployment-new-vm.md)
 ### [Classic deployment issues with restarting or resizing an existing VM](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Reset RDP password](reset-rdp.md)
+### [Reset RDP password](reset-rdp.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](/powershell/azure/overview)
@@ -99,7 +96,7 @@
 ## [Storage REST](/rest/api/storageservices)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

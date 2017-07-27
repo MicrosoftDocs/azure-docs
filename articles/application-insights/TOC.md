@@ -92,7 +92,7 @@
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
-#### [Funnels](app-insights-understand-usage-patterns.md)
+#### [Funnels](usage-funnels.md)
 #### [Retention](app-insights-usage-retention.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
 
@@ -154,6 +154,9 @@
 ### [Metric](application-insights-data-model-metric-telemetry.md)
 ### [Context](application-insights-data-model-context.md)
 ## [Telemetry correlation](application-insights-correlation.md)
+
+# Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -1226,6 +1226,11 @@
             "redirect_document_id": false
         },
         {
+           "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
+           "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
+           "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-portal/resource-group-portal.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-portal",
             "redirect_document_id": false
@@ -1358,6 +1363,11 @@
         {
             "source_path": "articles/app-service-web/web-sites-nodejs-use-webmatrix.md",
             "redirect_url": "https://www.microsoft.com/web/webmatrix/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-godaddy-custom-domain-name.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-tutorial-custom-domain",
             "redirect_document_id": false
         },
         {
@@ -8226,7 +8236,21 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
+            "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso-git.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-get-started",
+            "redirect_document_id": false
+        },
+        {   "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
         },
@@ -8259,6 +8283,66 @@
             "source_path": "articles/active-directory/active-directory-reporting-users-with-anomalous-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
-        }            
+        },            
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-latencies.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-latencies-azure-portal",
+            "redirect_document_id": false
+        },                
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-audit-events.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-activity-audit-logs",
+            "redirect_document_id": false
+        },                    
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-prerequisites.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal",
+            "redirect_document_id": false
+        },                        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-getting-started.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal",
+            "redirect_document_id": false
+        },                            
+        {
+            "source_path": "articles/active-directory/active-directory-known-networks.md",
+            "redirect_url": "/azure/active-directory/active-directory-named-locations",
+            "redirect_document_id": false
+        },                                
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-getting-started.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        },                                    
+        {
+            "source_path": "articles/active-directory/active-directory-view-access-usage-reports.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        },                                        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-guide.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-understand-usage-patterns.md",
+            "redirect_url": "/azure/application-insights/usage-funnels",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-wad.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-lad.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-lad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
+            "redirect_document_id": false
+        }                                               
     ]
 }
