@@ -42,37 +42,37 @@ This article describes how to:
 ## Configuring self-service application access
 To enable self-service application access and configured which applications can be added or requested by your end users, follow these instructions.
 
-**1:** Sign into the [Azure classic portal](https://manage.windowsazure.com/).
+1. Sign into the [Azure classic portal](https://manage.windowsazure.com/).
 
-**2:**    Under the **Active Directory** section, select your directory, then select the **Applications** tab. 
+2.   Under the **Active Directory** section, select your directory, then select the **Applications** tab. 
 
-**3:** Select the **Add** button, and use the gallery option to select and add an application.
+3. Select the **Add** button, and use the gallery option to select and add an application.
 
-**4:** After your app has been added, you’ll get the app Quick Start page. Click **Configure Single Sign-On**, select the desired single sign-on mode, and save the configuration. 
+4. After your app has been added, you’ll get the app Quick Start page. Click **Configure Single Sign-On**, select the desired single sign-on mode, and save the configuration. 
 
-**5:** Next, select the **Configure** tab. To enable users to request access to this app from the Azure AD access panel, set **Allow self-service application access** to **Yes**.
+5. Next, select the **Configure** tab. To enable users to request access to this app from the Azure AD access panel, set **Allow self-service application access** to **Yes**.
+  
+  ![][1]
 
-![][1]
+6. To optionally configure an approval workflow for access requests, set **Require approval before granting access** to **Yes**. Then one or more approvers can be selected using the **Approvers** button.
 
-**6:** To optionally configure an approval workflow for access requests, set **Require approval before granting access** to **Yes**. Then one or more approvers can be selected using the **Approvers** button.
+  An approver can be any user in the organization with an Azure AD account, and could be responsible for account provisioning, licensing, or any other business process your organization requires before granting access to an app. The approver could even be the group owner of one or more shared account groups, and can assign the users to one of these groups to give them access via a shared account. 
 
-An approver can be any user in the organization with an Azure AD account, and could be responsible for account provisioning, licensing, or any other business process your organization requires before granting access to an app. The approver could even be the group owner of one or more shared account groups, and can assign the users to one of these groups to give them access via a shared account. 
+  If no approval is required, then users instantly get the application added to their Azure AD access panel. If the application has been set up for [automatic user provisioning](active-directory-saas-app-provisioning.md), or has been set up [“user-managed” password SSO mode](active-directory-appssoaccess-whatis.md#password-based-single-sign-on), the user should already have a user account and know the password.
 
-If no approval is required, then users instantly get the application added to their Azure AD access panel. If the application has been set up for [automatic user provisioning](active-directory-saas-app-provisioning.md), or has been set up [“user-managed” password SSO mode](active-directory-appssoaccess-whatis.md#password-based-single-sign-on), the user should already have a user account and know the password.
+7. If the application has been configured to use password-based single sign-on, then an option for allowing the approver to set the SSO credentials on behalf of each user is also available. For more information, see the section on [delegated access management](#delegated-application-access-management).
 
-**7:** If the application has been configured to use password-based single sign-on, then an option for allowing the approver to set the SSO credentials on behalf of each user is also available. For more information, see the section on [delegated access management](#delegated-application-access-management).
+8. Finally, the **Group for Self-Assigned Users** shows the name of the group that is used to store the users who have been granted or assigned access to the application. The access approver becomes the owner of this group. If the group name shown does not exist, it is created automatically. Optionally the group name can be set to the name of an existing group.
 
-**8:** Finally, the **Group for Self-Assigned Users** shows the name of the group that is used to store the users who have been granted or assigned access to the application. The access approver becomes the owner of this group. If the group name shown does not exist, it is created automatically. Optionally the group name can be set to the name of an existing group.
+9. To save the configuration, click **Save** at the bottom of the screen. Now users can to request access to this app from the access panel.
 
-**9:** To save the configuration, click **Save** at the bottom of the screen. Now users can to request access to this app from the access panel.
+10. To try the end-user experience, sign into your organization’s Azure AD access panel at https://myapps.microsoft.com, preferably using a different account that isn’t an app approver. 
 
-**10:** To try the end-user experience, sign into your organization’s Azure AD access panel at https://myapps.microsoft.com, preferably using a different account that isn’t an app approver. 
+11. Under the **Applications** tab, click the **Get more applications** tile. This tile displays a gallery of all of the applications that have been enabled for self-service application access in the directory, with the ability to search and filter by app category on the left. 
 
-**11:** Under the **Applications** tab, click the **Get more applications** tile. This tile displays a gallery of all of the applications that have been enabled for self-service application access in the directory, with the ability to search and filter by app category on the left. 
+12. Clicking on an app kicks off the request process. If no approval process is required, then the application will be immediately added under the **Applications** tab after a short confirmation. If approval is required, then you see a dialog indicating this, and an email is sent to the approvers. You must be signed into the access panel as a non-approver to see this request process.
 
-**12:** Clicking on an app kicks off the request process. If no approval process is required, then the application will be immediately added under the **Applications** tab after a short confirmation. If approval is required, then you see a dialog indicating this, and an email is sent to the approvers. You must be signed into the access panel as a non-approver to see this request process.
-
-**13:** The email directs the approver to sign into the Azure AD access panel and approve the request. Once the request is approved (and any special processes you define have been performed by the approver), the user sees the application appear under their **Applications** tab where they can sign into it.
+13. The email directs the approver to sign into the Azure AD access panel and approve the request. Once the request is approved (and any special processes you define have been performed by the approver), the user sees the application appear under their **Applications** tab where they can sign into it.
 
 ## Delegated application access management
 An application access approver can be any user in your organization who is the most appropriate person to approve or deny access to the application in question. This user could be responsible for account provisioning, licensing, or any other business process your organization requires before granting access to an app.
