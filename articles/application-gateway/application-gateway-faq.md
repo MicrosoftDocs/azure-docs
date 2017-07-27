@@ -186,7 +186,7 @@ Self signed certs, CA certs, and wild-card certs are supported. EV certs are not
 
 **Q. What are the current cipher suites supported by Application Gateway?**
 
-The following are the current cipher suites supported by application gateway.
+The following are the current cipher suites supported by application gateway. Visit: [Configure SSL policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md) to learn how to customize SSL options.
 
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
@@ -223,9 +223,9 @@ Yes, Application Gateway supports SSL offload, and end to end SSL, which re-encr
 
 Yes, you can configure Application Gateway to deny TLS1.0, TLS1.1, and TLS1.2. SSL 2.0 and 3.0 are already disabled by default and are not configurable.
 
-**Q. Can I configure SSL policy to control cipher suites?**
+**Q. Can I configure cipher suites and policy order?**
 
-Yes, configuration of cipher suites is supported. when defining a custom policy, on of the following cipher suites must be enabled.  Application gateway uses SHA256 to for backend management.
+Yes, configuration of cipher suites is supported. When defining a custom policy, at least one of the following cipher suites must be enabled. Application gateway uses SHA256 to for backend management.
 
 - TLS_RSA_WITH_AES_128_GCM_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA256
