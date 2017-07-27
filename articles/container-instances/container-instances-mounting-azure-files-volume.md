@@ -79,7 +79,7 @@ Store the storage account key as a new secret in the key vault:
 
 ```azurecli-interactive
 KEYVAULT_SECRET_NAME=azurefilesstoragekey
-az keyvault secret set --vault-name aci-keyvault --name $KEYVAULT_SECRET_NAME --value $STORAGE_KEY
+az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME --value $STORAGE_KEY
 ```
 
 ## Mount the volume
