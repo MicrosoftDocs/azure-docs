@@ -61,6 +61,8 @@ Note: To use the preview version of API, replace v2 by v1 in the above URI.
 		]
 	
 
+Note: If you are using preview api, meterId field is not available.
+
 **Response property definitions**
 
 |Property Name| Type| Description
