@@ -37,7 +37,6 @@ As on a dedicated machine, utilizing all available resources results in a longer
 
 ## Choosing a service tier
 
-### Recommendations:
 Monitor the resource utilization and the average response times of queries when nearing the maximum utilization of a database. When encountering higher query latencies you generally have three options:
 
 1. Reduce the number of incoming requests to the database to prevent timeout and the pile up of requests.
@@ -62,14 +61,14 @@ To decide on a service tier, start by determining the minimum database features 
 
 | **Service tier limits for single databases** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Maximum single database size | 2 GB | 1 TB | 4 TB*  | 1 TB  |
+| Maximum single database size* | 2 GB | 1 TB | 4 TB  | 1 TB  |
 | Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
 | **Service tier limits for elastic pools** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Maximum elastic pool size | 156 GB | 4 TB | 4 TB* | 1 TB |
+| Maximum elastic pool size* | 156 GB | 4 TB | 4 TB | 1 TB |
 | Maximum database size  | 2 GB | 1 TB | 1 TB | 1 TB |
 | Maximum number of databases  | 500  | 500 | 100 | 100 |
 | Maximum DTUs per database | 5 | 3000 | 4000 | 1000 |
@@ -77,7 +76,7 @@ To decide on a service tier, start by determining the minimum database features 
 ||||||
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-single-database-resources.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb) 
+> Storage sizes greater than the amount of storage included are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-single-database-resources.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb).  
 > 
 
 ## Choosing a performance level
@@ -95,7 +94,7 @@ Once you have determined the appropriate service tier, you are ready to determin
 
 ## Choosing storage amounts
 
-Each performance level within a service tier comes with a certain about of storage that is included in the price for the single database or elastic pool. You can provision additional storage above the included amount for a [single database](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and for an [elastic pool](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts). Storage sizes greater than the storage included are in preview.  If the storage max size set exceeds the amount of storage included, then an additional cost for the extra storage applies. The price of extra storage is the amount of extra storage multiplied by the unit price of extra storage for the service tier. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  
+Each performance level within a service tier comes with a certain about of storage that is included in the price for the single database or elastic pool. You can provision additional storage above the included amount for a [single database](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and for an [elastic pool](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts). If the storage max size set exceeds the amount of storage included, then an additional cost for the extra storage applies. The price of extra storage is the amount of extra storage multiplied by the unit price of extra storage for the service tier. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  
 
 Examples showing how the price of extra storage is determined:
 

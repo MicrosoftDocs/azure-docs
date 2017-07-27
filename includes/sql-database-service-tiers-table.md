@@ -53,4 +53,4 @@ sql-database-single-database-resources.md
 |||||||
 
 > [!IMPORTANT]
-> \* Storage sizes greater than the amount of storage included are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
+> \* Storage sizes greater than the amount of storage included are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). Storage sizes greater than the amount of storage included are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
