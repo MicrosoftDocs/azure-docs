@@ -176,7 +176,7 @@ az group deployment create --name hellofilesdeployment --template-file azuredepl
 Once the container starts up, you can manage files in the share at the mount path that you specified.
 
 >[!NOTE]
-> To learn more about using Azure Resource Manager templates, parameter files, and deploying with the Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](..azure-resource-manager/resource-group-template-deploy-cli.md).
+> To learn more about using Azure Resource Manager templates, parameter files, and deploying with the Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
 
 ## Next steps
 
