@@ -53,46 +53,51 @@ The following table provides examples of the tiers best suited for different app
 | **Premium RS** | Designed for IO-intensive workloads that do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record. |
 |||
 
-You can create single databases with dedicated resources within a service tier at a specific [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) or you can also create databases within a [SQL elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus). In a SQL elastic pool, the compute and storage resources are shared across multiple databases within a single logical server. 
+Compute resources include CPU, data IO, and log IO, and are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs?](sql-database-what-is-a-dtu.md).
 
-Resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and resources for SQL elastic pools are expressed in terms of elastic Database Transaction Units (eDTUs). For more on DTUs and eDTUs, see [What are DTUs and eDTUs?](sql-database-what-is-a-dtu.md)
+You can create single databases with dedicated compute (DTUs) or you can create databases within an [elastic pool](sql-database-elastic-pool.md) where compute (eDTUs) and storage resources are shared across multiple databases.
 
 To decide on a service tier, start by determining the minimum database features that you need:
 
 | **Service tier limits for single databases** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Maximum single database size* | 2 GB | 1 TB | 4 TB  | 1 TB  |
-| Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
-| Database backup retention period | 7 days | 35 days | 35 days | 35 days |
+| Maximum storage size* | 2 GB | 1 TB | 4 TB  | 1 TB  |
+| Maximum DTUs | 5 | 100 | 4000 | 1000 |
+| Backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
 | **Service tier limits for elastic pools** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Maximum elastic pool size* | 156 GB | 4 TB | 4 TB | 1 TB |
-| Maximum database size  | 2 GB | 1 TB | 1 TB | 1 TB |
-| Maximum number of databases  | 500  | 500 | 100 | 100 |
-| Maximum DTUs per database | 5 | 3000 | 4000 | 1000 |
-| Database backup retention period | 7 days | 35 days | 35 days | 35 days |
+| Maximum storage size per database*  | 2 GB | 1 TB | 1 TB | 1 TB |
+| Maximum storage size per pool* | 156 GB | 4 TB | 4 TB | 1 TB |
+| Maximum eDTUs per database | 5 | 3000 | 4000 | 1000 |
+| Maximum DTUs per pool | 1600 | 3000 | 4000 | 1000 |
+| Maximum number of databases per pool | 500  | 500 | 100 | 100 |
+| Backup retention period per database | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
 > [!IMPORTANT]
 > Storage sizes greater than the amount of storage included are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-single-database-resources.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb).  
 > 
 
-## Choosing a performance level
+## Choosing compute
 
-Once you have determined the appropriate service tier, you are ready to determine the performance level (the number of DTUs) and the storage amount for the database. 
-
-- The S2 and S3 performance levels in the **Standard** tier are often a good starting point. 
-- For databases with high CPU or IO requirements, the performance levels in the **Premium** tier are the right starting point. 
-- The **Premium** tier offers more CPU and starts at 10x more IO compared to the highest performance level in the **Standard** tier.
+- The **Standard** tier is often a good starting point that balances performance and price. More conservatively, if compute requirements are unknown, start first in **Premium**, and then downsize if possible to **Standard** or even **Basic**. 
+- For databases requiring high IO throughput or low IO latency, **Premium** is the right starting point.  The **Premium** tier provides an order of magnitude more IO per DTU (and per eDTU) compared to the **Standard** tier.
 - The **PremiumRS** tier offers the performance of the **Premium** tier at a lower cost, but with a reduced SLA.
 
 > [!IMPORTANT]
 > Review the [SQL elastic pools](sql-database-elastic-pool.md) topic for the details about grouping databases into SQL elastic pools to share compute and storage resources. The remainder of this topic focuses on service tiers and performance levels for single databases.
 >
 
-## Choosing storage amounts
+## Choosing storage 
+
+- The DTU price for a single database and eDTU price for an elastic pool include a certain amount of storage at no additional cost.
+- Extra storage beyond the included amount can be provisioned for an additional cost up to the storage max in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB.  For included storage amounts and max storage limits, see single database and elastic pool.
+- The price of extra storage is the extra storage amount multiplied by the unit price for the service tier.  For details on the price of extra storage, see the SQL Database pricing page.
+- Extra storage for a single database can be provisioned by increasing its max size using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli), or [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
+- Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), [Azure CLI](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli), or [REST API](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-rest-api).
+
 
 Each performance level within a service tier comes with a certain about of storage that is included in the price for the single database or elastic pool. You can provision additional storage above the included amount for a [single database](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and for an [elastic pool](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts). If the storage max size set exceeds the amount of storage included, then an additional cost for the extra storage applies. The price of extra storage is the amount of extra storage multiplied by the unit price of extra storage for the service tier. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  
 
