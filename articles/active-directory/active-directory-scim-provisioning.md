@@ -77,7 +77,7 @@ Applications that support the SCIM profile described previously can be connected
 11. Under **Account Provisioning**, confirm that the Status is set to On. 
 12. Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
 
-Five to ten minutes might elapse before the provisioning process will begin to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab, and both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
+Five to 10 minutes might elapse before the provisioning process begins to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab, and both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
 
 ## Building Your Own Provisioning Solution For Any Application
 By creating a SCIM web service that interfaces with Azure Active Directory, you can enable single sign-on and automatic user provisioning for virtually any application that provides a REST or SOAP user provisioning API.
@@ -87,7 +87,7 @@ Here’s how it works:
 1. Azure AD provides a common language infrastructure library named [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). System integrators and developers can use this library to create and deploy a SCIM-based web service endpoint capable of connecting Azure AD to any application’s identity store.
 2. Mappings are implemented in the web service to map the standardized user schema to the user schema and protocol required by the application.
 3. The endpoint URL is registered in Azure AD as part of a custom application in the application gallery.
-4. Users and groups are assigned to this application in Azure AD. Upon assignment, they are put into a queue to be synchronized to the target application. The synchronization process handling the queue runs every 5 minutes.
+4. Users and groups are assigned to this application in Azure AD. Upon assignment, they are put into a queue to be synchronized to the target application. The synchronization process handling the queue runs every five minutes.
 
 ### Code Samples
 To make this process easier, a set of [code samples](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) are provided that create a SCIM web service endpoint and demonstrate automatic provisioning. One sample is of a provider that maintains a file with rows of comma-separated values representing users and groups.  The other is of a provider that operates on the Amazon Web Services Identity and Access Management service.  
@@ -98,7 +98,7 @@ To make this process easier, a set of [code samples](https://github.com/Azure/Az
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * Windows machine that supports the ASP.NET framework 4.5 to be used as the SCIM endpoint. This machine must be accessible from the cloud
 * [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
-* The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). See the README file included with the sample for additional details
+* The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). For more information, see the README file included with the sample.
 
 ### Getting Started
 The easiest way to implement a SCIM endpoint that can accept provisioning requests from Azure AD is to build and deploy the code sample that outputs the provisioned users to a comma-separated value (CSV) file.
@@ -108,7 +108,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 1. Download the code sample package at [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Unzip the package and place it on your Windows machine at a location such as C:\AzureAD-BYOA-Provisioning-Samples\.
 3. In this folder, launch the FileProvisioningAgent solution in Visual Studio.
-4. Select **Tools > Library Package Manager > Package Manager Console**, and execute the commands below for the FileProvisioningAgent project to resolve the solution references:
+4. Select **Tools > Library Package Manager > Package Manager Console**, and execute the following commands for the FileProvisioningAgent project to resolve the solution references:
    
    Install-Package Microsoft.SystemForCrossDomainIdentityManagement
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -116,15 +116,15 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
    Install-Package Microsoft.Owin.Host.SystemWeb
 5. Build the FileProvisioningAgent project.
 6. Launch the Command Prompt application in Windows (as an Administrator), and use the **cd** command to change the directory to your **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug** folder.
-7. Run the command below, replacing <ip-address> with the IP or domain name of the Windows Machine.
-   
+7. Run the following command, replacing <ip-address> with the IP address or domain name of the Windows machine:
+      
    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
 8. In Windows under **Windows Settings > Network & Internet Settings**, select the **Windows Firewall > Advanced Settings**, and create an **Inbound Rule** that allows inbound access to port 9000.
-9. If the Windows machine is behind a router, the router will need to be configured to perform Network Access Translation between its port 9000 that is exposed to the internet, and port 9000 on the Windows machine. This is required for Azure AD to be able to access this endpoint in the cloud.
+9. If the Windows machine is behind a router, the router must be configured to perform Network Access Translation between its port 9000 that is exposed to the Internet, and port 9000 on the Windows machine. This configuration is required for Azure AD to access this endpoint in the cloud.
 
 **To register the sample SCIM endpoint in Azure AD:**
 
-1. In a web browser, launch the Azure management portal at https://manage.windowsazure.com.
+1. Sign in to [the Azure portal](https://manage.windowsazure.com).
 2. Browse to **Active Directory > Directory > [Your Directory] > Applications**, and select **Add > Add an application from the gallery**.
 3. Select the **Custom** tab on the left, enter a name such as “SCIM Test App”, and click the checkmark icon to create an app object. Note that the application object created is intended to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
 
@@ -139,14 +139,14 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 9. Under **Account Provisioning**, confirm that the Status is set to On. 
 10. Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
 
-Five to ten minutes might elapse before the provisioning process begins to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab. And both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
+Five to 10 minutes might elapse before the provisioning process begins to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab. And both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
 
 The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
 
 ### Development Libraries
 To develop your own Web service that conforms to the SCIM specification, first familiarize yourself with the following libraries provided by Microsoft to help accelerate the development process: 
 
-1. Common Language Infrastructure libraries are offered for use with languages based on that infrastructure, such as C#. One of thosel ibraries, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declares an interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, shown in the following illustration:  A developer using the libraries would implement that interface with a class that may be referred to, generically, as a provider. The libraries enable the developer to deploy a web service that conforms to the SCIM specification. The web service can be either hosted within Internet Information Services, or any executable Common Language Infrastructure assembly. Requestis translatedice is translated into calls to the provider’s methods, which would be programmed by the developer to operate on some identity store.
+1. Common Language Infrastructure libraries are offered for use with languages based on that infrastructure, such as C#. One of those libraries, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declares an interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, shown in the following illustration:  A developer using the libraries would implement that interface with a class that may be referred to, generically, as a provider. The libraries enable the developer to deploy a web service that conforms to the SCIM specification. The web service can be either hosted within Internet Information Services, or any executable Common Language Infrastructure assembly. Request is translated into calls to the provider’s methods, which would be programmed by the developer to operate on some identity store.
   
   ![][3]
   
@@ -240,7 +240,7 @@ A server authentication certificate can be bound to a port on a Windows host usi
 
     netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc1c08da5e6 appid={00112233-4455-6677-8899-AABBCCDDEEFF}  
 
-Here, the value provided for the certhash argument is the thumbprint of the certificate, while the value provided for the appid argument is an arbitrary globally-unique identifier.  
+Here, the value provided for the certhash argument is the thumbprint of the certificate, while the value provided for the appid argument is an arbitrary globally unique identifier.  
 
 To host the service within Internet Information Services, a developer would build a Common Language Infrastructure code library assembly with a class named Startup in the default namespace of the assembly.  Here is a sample of such a class: 
 

@@ -42,7 +42,7 @@ You can configure each Azure AD tenant independently to get data synchronized fr
 * The Azure Active tenant Connector for Forefront Identity Manager, to synchronize data with one or more on-premises forests, and/or non-Azure AD data sources.
 
 ## Add an Azure AD tenant
-To add an Azure AD tenant in the Azure portal, sign in to [the Azure portal](https://poral.azure.com) with an account that is an Azure AD global administrator, and, on the left, select **New**.
+To add an Azure AD tenant in the Azure portal, sign in to [the Azure portal](https://portal.azure.com) with an account that is an Azure AD global administrator, and, on the left, select **New**.
 
 > [!NOTE]
 > Unlike other Azure resources, your tenants are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your tenant data using Azure PowerShell, the Azure Graph API, or the Office 365 Admin Center. You can also associate another subscription with the tenant.
