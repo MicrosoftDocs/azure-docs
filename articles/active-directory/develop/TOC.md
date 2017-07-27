@@ -88,6 +88,7 @@
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
+#### [Universal Windows Platform](guidedsetups/active-directory-uwp-v2.md)
 ### Web apps
 #### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
