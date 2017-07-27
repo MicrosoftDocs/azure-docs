@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/20/2017
+ms.date: 07/28/2017
 ms.author: masnider
 
 ---
@@ -107,7 +107,7 @@ If you increase the number of nodes, Service Fabric will utilize the resources o
 </center>
 
 ## Scaling by using the Service Fabric Cluster Resource Manager and metrics
-[Metrics](./service-fabric-cluster-resource-manager-metrics.md) are how services express their resource consumption to Service Fabric. Using metrics gives the Cluster Resource Manager an opportunity to reorganize and optimize the layout of the cluster. For example, there may be plenty of resources in the cluster, however they may not be allocated to the services that are currently doing work. Using metrics allows the Cluster Resource manager to reorganize the cluster to ensure that services have access to the available. 
+[Metrics](./service-fabric-cluster-resource-manager-metrics.md) are how services express their resource consumption to Service Fabric. Using metrics gives the Cluster Resource Manager an opportunity to reorganize and optimize the layout of the cluster. For example, there may be plenty of resources in the cluster, however they may not be allocated to the services that are currently doing work. Using metrics allows the Cluster Resource Manager to reorganize the cluster to ensure that services have access to the available. 
 
 
 ## Scaling by adding and removing nodes from the cluster 

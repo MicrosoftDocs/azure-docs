@@ -1,6 +1,6 @@
 ---
 title: Cluster Resource Manager Cluster Description | Microsoft Docs
-description: Describing a Service Fabric cluster by specifying Fault Domains, Upgrade Domains, node properties, and node capacities to the Cluster Resource Manager.
+description: Describing a Service Fabric cluster by specifying Fault Domains, Upgrade Domains, node properties, and node capacities for the Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -365,27 +365,31 @@ Placement constraints are specified for every different named service instance. 
 The properties on a node are defined via the cluster definition and hence cannot be updated without an upgrade to the cluster's configuration. The upgrade of a node's properties requires each affected node to restart in order to report the new node properties. These rolling upgrades are managed by Service Fabric.
 
 ## Describing and Managing Cluster Resources
-One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. Managing cluster resources can mean a couple of different things. First, there's just ensuring that machines are not overloaded (that they aren't running more services than they have the reasources for). Secondly, there's balancing and optimization. The last thing you want if you’re trying to run services efficiently is a bunch of nodes that are hot while others are cold. Hot nodes lead to resource contention and poor performance, and cold nodes represent wasted resources/increased cost. 
+One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. Managing cluster resources can mean a couple of different things. First, there's just ensuring that machines are not overloaded (that they aren't running more services than they have the resources for). Secondly, there's balancing and optimization. The last thing you want if you’re trying to run services efficiently is a bunch of nodes that are hot while others are cold. Hot nodes lead to resource contention and poor performance, and cold nodes represent wasted resources/increased cost. 
 
-Service Fabric represents resources as `Metrics`. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. For information configuring metrics and their uses, see [this article](service-fabric-cluster-resource-manager-metrics.md)
+Service Fabric represents resources as `Metrics`. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. For information about the physical resources that Service Fabric can govern on nodes, see [resource governance](service-fabric-resource-governance.md). For information on configuring custom metrics and their uses, see [this article](service-fabric-cluster-resource-manager-metrics.md)
 
 Metrics are different from placements constraints and node properties. Node properties are static descriptors of the nodes themselves, whereas metrics are about resources that nodes have and that services consume when they are running on a node. A node property could be "HasSSD" and could be set to true or false. The amount of space available on that SSD (and consumed by services) would be a metric like “DriveSpaceInMb”. 
 
 It is important to note that just like for placement constraints and node properties, the Service Fabric Cluster Resource Manager doesn't understand what the names of the metrics mean. Metric names are just strings. It is a good practice to declare units as a part of the metric names that you create when it could be ambiguous.
 
 ## Capacity
-If you turned off all resource *balancing*, Service Fabric’s Cluster Resource Manager would still ensure that no node ended up over its capacity. Generally this is possible unless the cluster as a whole is too full, or a given workload has become larger than a given machine. Capacity is another *constraint* that the Cluster Resource Manager uses to understand how much of a resource a node has. Remaining capacity is also tracked for the cluster as a whole. Both the capacity and the consumption at the service level are expressed in terms of metrics. So for example, the metric might be "MemoryInMb" and a given Node may have a capacity for "MemoryInMb" of 2048. Some service running on that node can say it is currently consuming 64 of "MemoryInMb".
+If you turned off all resource *balancing*, Service Fabric’s Cluster Resource Manager would still ensure that no node ended up over its capacity. Generally this is possible unless the cluster as a whole is too full, or a given workload has become larger than a given machine. Capacity is another *constraint* that the Cluster Resource Manager uses to understand how much of a resource a node has. Remaining capacity is also tracked for the cluster as a whole. Both the capacity and the consumption at the service level are expressed in terms of metrics. So for example, the metric might be "ClientConnections" and a given Node may have a capacity for "ClientConnections" of 32768. Other nodes can have other limits Some service running on that node can say it is currently consuming 32256 of the metric "ClientConnections".
 
 During runtime, the Cluster Resource Manager tracks how much of each resource is present on each node and how much is remaining. It does this by subtracting any declared usage of each service running on that node from the node's capacity. With this information, the Service Fabric Cluster Resource Manager can figure out where to place or move replicas so that nodes don’t go over capacity.
+
+<center>
+![Cluster nodes and capacity][Image7]
+</center>
 
 C#:
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
 ServiceLoadMetricDescription metric = new ServiceLoadMetricDescription();
-metric.Name = "MemoryInMb";
-metric.PrimaryDefaultLoad = 64;
-metric.SecondaryDefaultLoad = 64;
+metric.Name = "ClientConnections";
+metric.PrimaryDefaultLoad = 1024;
+metric.SecondaryDefaultLoad = 0;
 metric.Weight = ServiceLoadMetricWeight.High;
 serviceDescription.Metrics.Add(metric);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
@@ -394,21 +398,17 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,64,64)
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
-<center>
-![Cluster nodes and capacity][Image7]
-</center>
 
 You can see capacities defined in the cluster manifest:
 
 ClusterManifest.xml
 
 ```xml
-    <NodeType Name="NodeType02">
+    <NodeType Name="NodeType03">
       <Capacities>
-        <Capacity Name="MemoryInMb" Value="2048"/>
-        <Capacity Name="DiskInMb" Value="512000"/>
+        <Capacity Name="ClientConnections" Value="65536"/>
       </Capacities>
     </NodeType>
 ```
@@ -418,16 +418,15 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ```json
 "nodeTypes": [
     {
-        "name": "NodeType02",
+        "name": "NodeType03",
         "capacities": {
-            "MemoryInMb": "2048",
-            "DiskInMb": "512000"
+            "ClientConnections": "65536",
         }
     }
 ],
 ```
 
-It is also possible (and in fact common) that a service’s load changes dynamically. Say that a replica's load changed from 64 to 1024, but the node it was running on then only had 512 (of the "MemoryInMb" metric) remaining. Now that replica or instance's placement is invalid, since there's not enough room on that node. This can also happen if the combined usage of the replicas and instances on that node exceeds that node’s capacity. In either case the Cluster Resource Manager has to kick in and get the node back below capacity. It does this by moving one or more of the replicas or instances on that node to different nodes. When moving replicas, the Cluster Resource Manager tries to minimize the cost of those movements. Movement cost is discussed in [this article](service-fabric-cluster-resource-manager-movement-cost.md) and more about the Cluster Resource Manager's rebalancing strategies and rules is described [here](service-fabric-cluster-resource-manager-metrics.md).
+Commonly a service’s load changes dynamically. Say that a replica's load of "ClientConnections" changed from 1024 to 2048, but the node it was running on then only had 512 capacity remaining for that metric. Now that replica or instance's placement is invalid, since there's not enough room on that node. This can also happen if the combined usage of the replicas and instances on that node exceeds that node’s capacity. In either case the Cluster Resource Manager has to kick in and get the node back below capacity. It does this by moving one or more of the replicas or instances on that node to different nodes. When moving replicas, the Cluster Resource Manager tries to minimize the cost of those movements. Movement cost is discussed in [this article](service-fabric-cluster-resource-manager-movement-cost.md) and more about the Cluster Resource Manager's rebalancing strategies and rules is described [here](service-fabric-cluster-resource-manager-metrics.md).
 
 ## Cluster capacity
 So how does the Service Fabric Cluster Resource Manager keep the overall cluster from being too full? Well, with dynamic load there’s not a lot it can do. Services can have their load spike independently of actions taken by the Cluster Resource Manager. As a result, your cluster with plenty of headroom today may be underpowered when you become famous tomorrow. That said, there are some controls that are baked in to prevent problems. The first thing we can do is prevent the creation of new workloads that would cause the cluster to become full.

@@ -17,6 +17,7 @@ ms.date: 07/28/2017
 ms.author: masnider
 
 ---
+
 # Availability of Service Fabric services
 This article gives an overview of how Service Fabric maintains availability of a service.
 
@@ -25,7 +26,7 @@ Azure Service Fabric services can be either stateful or stateless. A stateless s
 
 Creating a stateless service requires defining an `InstanceCount`. The instance count defines the number of instances of the stateless service's application logic that should be running in the cluster. Increasing the number of instances is the recommended way of scaling out a stateless service.
 
-When an instance of a stateless named service fails, a new instance is created on some eligible node in the cluster. This is not always the same location as where the instance was previously running. For example a stateless service instance might fail on Node1 and be recreated on Node5.
+When an instance of a stateless named service fails, a new instance is created on some eligible node in the cluster. For example, a stateless service instance might fail on Node1 and be recreated on Node5.
 
 ## Availability of Service Fabric stateful services
 A stateful service has some state associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is a running instance of the code of the service that also has a copy of the state for that service. Read and write operations are performed at one replica (called the Primary). Changes to state from write operations are *replicated* to the other replicas in the replica set (called Active Secondaries) and applied. 
@@ -40,13 +41,13 @@ This concept, of a replica being either a Primary or Active Secondary, is known 
 The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is Primary services read requests. The Primary also handles all write requests by updating its state and replicating the changes. These changes are applied to the Active Secondaries in the replica set. The job of an Active Secondary is to receive state changes that the Primary replica has replicated and update its view of the state.
 
 > [!NOTE]
-> Higher-level programming models such as the [reliable actors framework](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) abstract away the concept of replica role from the developer. In actors, the notion of role is unnecessary, while in Services it is visible if necessary but largely simplified.
+> Higher-level programming models such as [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) hide the concept of replica role from the developer. In Actors, the notion of role is unnecessary, while in Services it is largely simplified for most scenarios.
 >
 
 ## Next steps
 For more information on Service Fabric concepts, see the following articles:
 
-* [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
-* [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
-* [Defining and managing state](service-fabric-concepts-state.md)
-* [Reliable Services](service-fabric-reliable-services-introduction.md)
+- [Scaling Service Fabric services](service-fabric-concepts-scalability.md)
+- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+- [Defining and managing state](service-fabric-concepts-state.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)

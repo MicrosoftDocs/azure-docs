@@ -73,7 +73,9 @@ Upgrade Domains are useful for modeling areas where software is going to be upgr
 
 You can visualize the layout of your cluster across fault domains using the cluster map provided in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
+<center>
 ![Nodes spread across fault domains in Service Fabric Explorer][sfx-cluster-map]
+</center>
 
 > [!NOTE]
 > Modeling areas of failure, rolling upgrades, running many instances of your service code and state, placement rules to ensure your services run across fault and upgrade domains, and built-in health monitoring are just **some** of the features that Service Fabric provides in order to keep normal operational issues and failures from turning into disasters. 
@@ -132,12 +134,12 @@ If seed node failures lead to the cluster as a whole being down, the best option
 
 
 ## Next Steps
-* Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
-* Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
-  * [Availability checklist](../best-practices-availability-checklist.md)
-  * [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
-  * [Disaster recovery and high availability for Azure applications][dr-ha-guide]
-* Learn about [Service Fabric support options](service-fabric-support.md)
+- Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
+- Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
+  - [Availability checklist](../best-practices-availability-checklist.md)
+  - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
+- Learn about [Service Fabric support options](service-fabric-support.md)
 
 <!-- External links -->
 

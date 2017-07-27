@@ -69,7 +69,7 @@ The above snippets are all for specifying MoveCost for a whole service at once f
 C#
 
 ```csharp
-this.ServicePartition.ReportMoveCost(MoveCost.Medium);
+this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## Impact of move cost
@@ -81,9 +81,9 @@ MoveCost has four levels: Zero, Low, Medium, and High. MoveCosts are relative to
 
 MoveCost helps you find the solutions that cause the least disruption overall and are easiest to achieve while still arriving at equivalent balance. A service’s notion of cost can be relative to many things. The most common factors in calculating your move cost are:
 
-* The amount of state or data that the service has to move.
-* The cost of disconnection of clients. The cost of moving a primary replica is usually higher than the cost of moving a secondary replica.
-* The cost of interrupting an in-flight operation. Some operations at the data store level or operations performed in response to a client call are costly. After a certain point, you don’t want to stop them if you don’t have to. So while the operation is going on, you increase the move cost of this service object to reduce the likelihood that it moves. When the operation is done, you set the cost back to normal.
+- The amount of state or data that the service has to move.
+- The cost of disconnection of clients. The cost of moving a primary replica is usually higher than the cost of moving a secondary replica.
+- The cost of interrupting an in-flight operation. Some operations at the data store level or operations performed in response to a client call are costly. After a certain point, you don’t want to stop them if you don’t have to. So while the operation is going on, you increase the move cost of this service object to reduce the likelihood that it moves. When the operation is done, you set the cost back to normal.
 
 ## Enabling move cost in your cluster
 In order for the more granular MoveCosts to be taken into account, MoveCost must be enabled in your cluster. Without this setting, the default mode of just counting the number of moves being enacted.
@@ -114,7 +114,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ```
 
 ## Next steps
-* Service Fabric Cluster Resource Manger uses metrics to manage consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [Managing resource consumption and load in Service Fabric with metrics](service-fabric-cluster-resource-manager-metrics.md).
-* To learn about how the Cluster Resource Manager manages and balances load in the cluster, check out [Balancing your Service Fabric cluster](service-fabric-cluster-resource-manager-balancing.md).
+- Service Fabric Cluster Resource Manger uses metrics to manage consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [Managing resource consumption and load in Service Fabric with metrics](service-fabric-cluster-resource-manager-metrics.md).
+- To learn about how the Cluster Resource Manager manages and balances load in the cluster, check out [Balancing your Service Fabric cluster](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png

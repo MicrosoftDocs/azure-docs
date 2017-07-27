@@ -18,16 +18,16 @@ ms.author: masnider
 
 ---
 # Introduction to Application Groups
-Service Fabric's Cluster Resource Manager typically manages cluster resources by spreading the load (represented via [Metrics](service-fabric-cluster-resource-manager-metrics.md)) evenly throughout the cluster. Service Fabric also manages the capacity of the nodes in the cluster and the cluster as a whole through the notion of [capacity](service-fabric-cluster-resource-manager-cluster-description.md). Metrics and capacity work great for many workloads, but patterns that make heavy use of different Service Fabric Application Instances sometimes bring in additional requirements. For example you may want to:
+Service Fabric's Cluster Resource Manager typically manages cluster resources by spreading the load (represented via [Metrics](service-fabric-cluster-resource-manager-metrics.md)) evenly throughout the cluster. Service Fabric manages the capacity of the nodes in the cluster and the cluster as a whole via [capacity](service-fabric-cluster-resource-manager-cluster-description.md). Metrics and capacity work great for many workloads, but patterns that make heavy use of different Service Fabric Application Instances sometimes bring in additional requirements. For example you may want to:
 
-* Reserve some capacity on the nodes in the cluster for the services within some named application instance
-* Limit the total number of nodes that the services within a named application instance run on (instead of spreading them out over the entire cluster)
-* Define capacities on the named application instance itself to limit the number of services or total resource consumption of the services inside it
+- Reserve some capacity on the nodes in the cluster for the services within some named application instance
+- Limit the total number of nodes that the services within a named application instance run on (instead of spreading them out over the entire cluster)
+- Define capacities on the named application instance itself to limit the number of services or total resource consumption of the services inside it
 
 To meet these requirements, the Service Fabric Cluster Resource Manager supports a feature called Application Groups.
 
 ## Limiting the maximum number of nodes
-The simplest use case for Application capacity is when an application instance needs to be limited to a certain maximum number of nodes. This helps to consolidate all of the services within that application instance onto a set number of machines. This is useful whn you're trying to predict (or at least cap) how many physical resources will be used by the services within that named application instance. 
+The simplest use case for Application capacity is when an application instance needs to be limited to a certain maximum number of nodes. This consolidates all services within that application instance onto a set number of machines. Consolidation is useful when you're trying to predict or cap physical resource use by the services within that named application instance. 
 
 The following image shows an application instance with and without a maximum number of nodes defined:
 
@@ -62,15 +62,15 @@ await fc.ApplicationManager.UpdateApplicationAsync(adUpdate);
 
 ```
 
- There are no guarantees made about which replicas or instances of which services get placed together, or which specific nodes get used.
+Within the set of nodes, the Cluster Resource Manager doesn't guarantee which service objects get placed together or which nodes get used.
 
 ## Application Metrics, Load, and Capacity
-Application Groups also allow you to define metrics associated with a given named application instance, and that application instance's capacity for those metrics. This allows you to track, reserve, and limit the resource consumption of the services inside that application instance.
+Application Groups also allow you to define metrics associated with a given named application instance, and that application instance's capacity for those metrics. Application metrics allow you to track, reserve, and limit the resource consumption of the services inside that application instance.
 
 For each application metric, there are two values that can be set:
 
-* **Total Application Capacity** – This setting represents the total capacity of the application for a particular metric. The Cluster Resource Manager disallows the creation of any new services within this application instance that would cause total load to exceed this value. For example, let's say the application instance had a capacity of 10 and already had load of five. In this case the creation of a service with a total default load of 10 would be disallowed.
-* **Maximum Node Capacity** – This setting specifies the maximum total load for replicas of the services inside the application on a single node. If total load on the node goes over this capacity, the Cluster Resource Manager will attempt to move replicas to other nodes so that the capacity constraint is respected.
+- **Total Application Capacity** – This setting represents the total capacity of the application for a particular metric. The Cluster Resource Manager disallows the creation of any new services within this application instance that would cause total load to exceed this value. For example, let's say the application instance had a capacity of 10 and already had load of five. The creation of a service with a total default load of 10 would be disallowed.
+- **Maximum Node Capacity** – This setting specifies the maximum total load for the application on a single node. If load goes over this capacity, the Cluster Resource Manager moves replicas to other nodes so that the load decreases.
 
 
 Powershell:
@@ -96,14 +96,19 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 ```
 
 ## Reserving Capacity
-Another common use for application groups is to ensure that resources within the cluster are reserved for a given application instance. This is desirable so that the space can be reserved when the application instance is created. This way even if the application instance doesn't have any services within it yet, if the number of services will grow and shrink over time, or if the services are created but aren't consuming the resources yet the space is still reserved up front. 
+Another common use for application groups is to ensure that resources within the cluster are reserved for a given application instance. The space is always reserved when the application instance is created.
 
-Reserving resources for an application instance requires specifying a couple additional parameters: *MinimumNodes* and *NodeReservationCapacity*
+Reserving space in the cluster for the application happens immediately even when:
+- the application instance is created but doesn't have any services within it yet
+- the number of services within the application instance changes every time 
+- the services exist but aren't consuming the resources 
 
-* **MinimumNodes** - Just like specifying a maximum number of nodes that the services within an application instance can run on, you can also specify the minimum number. When paired with the **NodeReservationCapacity** This setting defines the number of nodes that resources should be reserved on, guaranteeing capacity within the cluster as a part of creating the application instance. 
-* **NodeReservationCapacity** - The NodeReservationCapacity can be defined for each metric within the application. This setting defines the amount of the metric reserved for the application on any node where any services within that application instance are placed.
+Reserving resources for an application instance requires specifying two additional parameters: *MinimumNodes* and *NodeReservationCapacity*
 
-In the event that there was insufficient capacity in the cluster to meet the amount required when creating the application instance, creation of the application instance would fail. 
+- **MinimumNodes** - Defines the minimum number of nodes that the application instance should run on.  
+- **NodeReservationCapacity** - This setting is per metric for the application. The value is the amount of that metric reserved for the application on any node where that the services in that application run.
+
+Combining **MinimumNodes** and **NodeReservationCapacity** guarantees a minimum load reservation for the application within the cluster. If there's less remaining capacity in the cluster than the total reservation required, creation of the application fails. 
 
 Let's look at an example of capacity reservation:
 
@@ -115,9 +120,9 @@ In the left example, applications do not have any Application Capacity defined. 
 
 In the example on the right, let's say that Application1 was created with the following settings:
 
-* MinimumNodes set to two
-* An application Metric defined with
-  * NodeReservationCapacity of 20
+- MinimumNodes set to two
+- An application Metric defined with
+  - NodeReservationCapacity of 20
 
 Powershell
 
@@ -182,29 +187,29 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 ```
 
-This command removes all Application capacity management parameters from the application instance (MinimumNodes, MaximumNodes, and the Application's Metrics are all removed). The effect of the command is immediate. After this command completes, the Cluster Resource Manager reverts to using the default behavior for managing applications, as if none of these parameters had been specified. Application Capacity parameters can be specified again via `Update-ServiceFabricApplication`/`System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`.
+This command removes all Application capacity management parameters from the application instance. This includes MinimumNodes, MaximumNodes, and the Application's metrics, if any. The effect of the command is immediate. After this command completes, the Cluster Resource Manager uses the default behavior for managing applications. Application Capacity parameters can be specified again via `Update-ServiceFabricApplication`/`System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`.
 
 ### Restrictions on Application Capacity
-There are several restrictions on Application Capacity parameters that must be respected. If there are validation errors, the creation or update of the application is rejected with an error and no changes take place.
+There are several restrictions on Application Capacity parameters that must be respected. If there are validation errors no changes take place.
 
-* All integer parameters must be non-negative numbers.
-* MinimumNodes must never be greater than MaximumNodes.
-* If capacities for a load metric are defined, then they must follow these rules:
-  * Node Reservation Capacity must not be greater than Maximum Node Capacity. For example, you cannot limit the capacity for the metric “CPU” on the node to two units and try to reserve three units on each node.
-  * If MaximumNodes is specified, then the product of MaximumNodes and Maximum Node Capacity must not be greater than Total Application Capacity. For example, let's say the Maximum Node Capacity for load metric “CPU” is set to eight. Let's also say you set the Maximum Nodes to ten. In this case then Total Application Capacity must be greater than 80 for this load metric.
+- All integer parameters must be non-negative numbers.
+- MinimumNodes must never be greater than MaximumNodes.
+- If capacities for a load metric are defined, then they must follow these rules:
+  - Node Reservation Capacity must not be greater than Maximum Node Capacity. For example, you cannot limit the capacity for the metric “CPU” on the node to two units and try to reserve three units on each node.
+  - If MaximumNodes is specified, then the product of MaximumNodes and Maximum Node Capacity must not be greater than Total Application Capacity. For example, let's say the Maximum Node Capacity for load metric “CPU” is set to eight. Let's also say you set the Maximum Nodes to 10. In this case, Total Application Capacity must be greater than 80 for this load metric.
 
 The restrictions are enforced both during application creation and updates.
 
 ## How not to use Application Capacity
-* Do not try to use the Application Group features to constrain the application to a _specific_ subset of nodes. In other words, you can specify that the application runs on at most five nodes, but not which specific five nodes in the cluster. Constraining an application to specific nodes can be achieved using placement constraints for services.
-* Do not try to use the Application Capacity to ensure that two services from the same application are placed alongside each other. Ensuring services run on the same node can be achieved by using affinity or with placement constraints depending on the specific requirements.
+- Do not try to use the Application Group features to constrain the application to a _specific_ subset of nodes. In other words, you can specify that the application runs on at most five nodes, but not which specific five nodes in the cluster. Constraining an application to specific nodes can be achieved using placement constraints for services.
+- Do not try to use the Application Capacity to ensure that two services from the same application are placed on the same nodes. Instead use [affinity](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) or [placement constraints](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
 ## Next steps
-* For more information about the other options available for configuring services, check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
-* To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
-* Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-* For more information on how metrics work generally, read up on [Service Fabric Load Metrics](service-fabric-cluster-resource-manager-metrics.md)
-* The Cluster Resource Manager has many options for describing the cluster. To find out more about them, check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+- For more information on configuring services, [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- For more information on how metrics work generally, read up on [Service Fabric Load Metrics](service-fabric-cluster-resource-manager-metrics.md)
+- The Cluster Resource Manager has many options for describing the cluster. To find out more about them, check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

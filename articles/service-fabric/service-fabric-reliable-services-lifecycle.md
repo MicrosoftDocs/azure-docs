@@ -56,7 +56,7 @@ When shutting down a stateless service, the same pattern is followed, just in re
 
 1. In parallel
     - Any open listeners are Closed (`ICommunicationListener.CloseAsync()` is called on each listener)
-    - The cancellation token passed to `RunAsync()` is canceled (checking the cancellation token's `IsCancellationRequested` property returns true, and if called the token's `ThrowIfCancellationRequested` method returns an `OperationCanceledException`)
+    - The cancellation token passed to `RunAsync()` is canceled (checking the cancellation token's `IsCancellationRequested` property returns true, and if called the token's `ThrowIfCancellationRequested` method throws an `OperationCanceledException`)
 2. Once `CloseAsync()` completes on each listener and `RunAsync()` also completes, the service's `StatelessService.OnCloseAsync()` method is called, if present (again this is an uncommon override).
 3. After `StatelessService.OnCloseAsync()` completes, the service object is destructed
 
@@ -77,7 +77,7 @@ Similarly to Stateless services, the lifecycle events during shutdown are the sa
 
 1. In parallel
     - Any open listeners are Closed (`ICommunicationListener.CloseAsync()` is called on each listener)
-    - The cancellation token passed to `RunAsync()` is canceled (checking the cancellation token's `IsCancellationRequested` property returns true, and if called the token's `ThrowIfCancellationRequested` method returns an `OperationCanceledException`)
+    - The cancellation token passed to `RunAsync()` is canceled (checking the cancellation token's `IsCancellationRequested` property returns true, and if called the token's `ThrowIfCancellationRequested` method throws an `OperationCanceledException`)
 2. Once `CloseAsync()` completes on each listener and `RunAsync()` also completes (which should only have been necessary if this service replica was a Primary), the service's `StatefulServiceBase.OnChangeRoleAsync()` is called. (This is uncommonly overridden in the service.)
 3. Once the `StatefulServiceBase.OnChangeRoleAsync()` method completes, the `StatefulServiceBase.OnCloseAsync()` method is called (again this is an uncommon override but it is available).
 3. After `StatefulServiceBase.OnCloseAsync()` completes, the service object is destructed.
@@ -90,7 +90,7 @@ Service Fabric needs this replica to stop processing messages and quit any backg
 
 1. In parallel
     - Any open listeners are Closed (`ICommunicationListener.CloseAsync()` is called on each listener)
-    - The cancellation token passed to `RunAsync()` is canceled (checking the cancellation token's `IsCancellationRequested` property returns true, and if called the token's `ThrowIfCancellationRequested` method returns an `OperationCanceledException`)
+    - The cancellation token passed to `RunAsync()` is canceled (checking the cancellation token's `IsCancellationRequested` property returns true, and if called the token's `ThrowIfCancellationRequested` method throws an `OperationCanceledException`)
 2. Once `CloseAsync()` completes on each listener and `RunAsync()` also completes, the service's `StatefulServiceBase.OnChangeRoleAsync()` is called. (This is uncommonly overridden in the service.)
 
 ### For the secondary being promoted
