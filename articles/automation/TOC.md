@@ -28,7 +28,6 @@
 ## Automate
 ### [Start a runbook](automation-starting-a-runbook.md)
 ### [Start a runbook from a webhook](automation-webhooks.md)
-### [Run runbooks on Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Configure runbook input parameters](automation-runbook-input-parameters.md)
 ### [Error handling in graphical runbooks](automation-runbook-graphical-error-handling.md)
 ### [Track a runbook job](automation-runbook-execution.md)
@@ -36,6 +35,9 @@
 ### [Manage Azure Automation data](automation-managing-data.md)
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ### [Pass a JSON object to an Azure Automation runbook](automation-pass-json-string.md)
+## Hybrid Runbook Worker
+### [Deploy Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+### [Run runbooks on worker](automation-hrw-run-runbooks.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
