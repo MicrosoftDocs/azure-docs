@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/26/2017
+ms.date: 07/27/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 
@@ -23,9 +23,9 @@ This article talks about steps to backup and restore virtual machines using Azur
 
 ## Supported scenarios
 > [!NOTE]
-> 1. Backup and restore of encrypted VMs is supported only for Resource Manager deployed virtual machines. It is not supported for Classic virtual machines. <br>
-> 2. It is supported for both Windows and Linux virtual machines using Azure Disk Encryption, which leverages the industry standard BitLocker feature of Windows and DM-Crypt feature of Linux to provide encryption of disks. <br>
-> 3. It is supported only for virtual machines encrypted using BitLocker Encryption Key and Key Encryption Key both. It is not supported for virtual machines encrypted using BitLocker Encryption Key only. <br>
+> * Backup and restore of encrypted VMs is supported only for Resource Manager deployed virtual machines. It is not supported for Classic virtual machines. <br>
+> * It is supported for both Windows and Linux virtual machines using Azure Disk Encryption, which leverages the industry standard BitLocker feature of Windows and DM-Crypt feature of Linux to provide encryption of disks. <br>
+> * It is supported only for virtual machines encrypted using BitLocker Encryption Key and Key Encryption Key both. It is not supported for virtual machines encrypted using BitLocker Encryption Key only. <br>
 >
 >
 
@@ -108,7 +108,7 @@ Use the following steps to provide relevant permissions to Azure Backup to acces
 
     ![Select Azure backup](./media/backup-azure-vms-encryption/select-backup-template.png)
     
-7. Click Ok. Notice that Backup Management Service gets added in Access Policies blade. 
+7. Click OK. Notice that Backup Management Service gets added in Access Policies blade. 
 
     ![Backup service access policy](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
     
