@@ -71,7 +71,7 @@ Follow these steps to upgrade Authentication Agents on other servers (where Azur
 
 1. **Uninstall the preview version of the Authentication Agent**: Download [this PowerShell script](https://aka.ms/rmpreviewagent) and run it as an Administrator on the server.
 2. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials. Select **Azure Active Directory -> Azure AD Connect -> Pass-through Authentication -> Download agent**. Accept the terms of service and download the latest version.
-3. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 3. Provide your tenant's Global Administrator credentials when prompted.
+3. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 2. Provide your tenant's Global Administrator credentials when prompted.
 4. **Verify that the latest version has been installed**: As shown before, go to **Control Panel -> Programs -> Programs and Features** and verify that there is an entry called **Microsoft Azure AD Connect Authentication Agent**.
 
 ## Next steps
