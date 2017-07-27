@@ -22,7 +22,7 @@ ms.author: aedwin
 The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. 
 
 ## Enabling data access to the API
-* **Generate\Retrieve the API Key** - Log in to the Enterprise portal and follow the tutorial under Help - Reporting APIs. The first section under this help article explains how to generate\retrieve the API key for the specified enrollment.
+* **Generate or retrieve the API key** - Log in to the Enterprise portal and follow the tutorial under Help - Reporting APIs. The first section under this help article explains how to generate or retrieve the API key for the specified enrollment.
 * **Passing keys in the API** - The API key needs to be passed for each call for Authentication and Authorization. The following property needs to be to the HTTP headers
 
 |Request Header Key | Value|

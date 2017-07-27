@@ -20,7 +20,7 @@ ms.author: aedwin
 ---
 # Reporting APIs for Enterprise customers - Balance and Summary
 
-The Balance and Charge API offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges.
+The Balance and Summary API offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges.
 
 
 ##Request 
@@ -31,7 +31,7 @@ Common header properties that need to be added are specified [here](billing-ente
 |GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/balancesummary|
 |GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary|
 
-Note: To use the preview version of API, replace v2 by v1 in the above URI.
+Note: To use the preview version of API, replace v2 by v1 in the above URL.
 
 ## Response
 

@@ -18,7 +18,7 @@ ms.date: 04/25/2017
 ms.author: aedwin
 
 ---
-# Reporting APIs for Enterprise customers - PriceSheet
+# Reporting APIs for Enterprise customers - Price Sheet
 
 The Price Sheet API provides the applicable rate for each Meter for the given Enrollment and Billing Period.
 
@@ -30,7 +30,7 @@ Common header properties that need to be added are specified [here](billing-ente
 |GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet|
 |GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet|
 
-Note: To use the preview version of API, replace v2 by v1 in the above URI.
+Note: To use the preview version of API, replace v2 by v1 in the above URL.
 ## Response
 
 	
@@ -61,7 +61,7 @@ Note: To use the preview version of API, replace v2 by v1 in the above URI.
 		]
 	
 
-Note: If you are using preview api, meterId field is not available.
+Note: If you are using the Preview API, meterId field is not available.
 
 **Response property definitions**
 
