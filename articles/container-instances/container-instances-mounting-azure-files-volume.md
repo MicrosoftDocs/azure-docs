@@ -68,7 +68,7 @@ Storage account keys protect access to your data, so we recommend storing them i
 
 Create a key vault with the Azure CLI:
 
-```bash
+```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
 az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
 ```
@@ -77,7 +77,7 @@ The `enabled-for-template-deployment` switch allows Azure Resource Manager to pu
 
 Store the storage account key as a new secret in the key vault:
 
-```
+```azurecli-interactive
 KEYVAULT_SECRET_NAME=azurefilesstoragekey
 az keyvault secret set --vault-name aci-keyvault --name $KEYVAULT_SECRET_NAME --value $STORAGE_KEY
 ```
