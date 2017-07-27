@@ -139,7 +139,7 @@ From this table, we can draw the following conclusions:
 | C4 |13 GB |2 |500 / 62.5 |61,000 |
 | C5 |26 GB |4 |1,000 / 125 |115,000 |
 | C6 |53 GB |8 |2,000 / 250 |150,000 |
-| **Premium cache sizes** | |**CPU cores per shard** | |**Requests per second (RPS), per shard** |
+| **Premium cache sizes** | |**CPU cores per shard** | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS), per shard** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |
 | P2 |13 GB |4 |3,000 / 375 |360,000 |
 | P3 |26 GB |4 |3,000 / 375 |360,000 |
