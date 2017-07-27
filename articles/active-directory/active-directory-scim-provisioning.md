@@ -278,6 +278,7 @@ Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any se
 Developers using the Common Language Infrastructure libraries provided by Microsoft for building a SCIM service can authenticate requests from Azure Active Directory using the Microsoft.Owin.Security.ActiveDirectory package by following these steps: 
 
 1. In a provider, implement the Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior property by having it return a method to be called whenever the service is started: 
+
 ````
     public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
     {
@@ -293,6 +294,7 @@ Developers using the Common Language Infrastructure libraries provided by Micros
     {
     }
 ````
+
 2. Add the following code to that method to have any request to any of the service’s endpoints authenticated as bearing a token issued by Azure Active Directory on behalf of a specified tenant, for access to the Azure AD Graph Web service: 
 
     private void OnServiceStartup(
