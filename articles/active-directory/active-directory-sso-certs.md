@@ -18,7 +18,7 @@ ms.author: jeedes
 
 ---
 # Manage certificates for federated single sign-on in Azure Active Directory
-This article covers common questions and information related to the certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your SaaS applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application using the federated SSO option.
+This article covers common questions and information related to the certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your SaaS applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
 
 This article is relevant only to apps that are configured to use Azure AD SSO through SAML federation, as shown in the following example:
 
@@ -51,7 +51,7 @@ The screenshots use Salesforce for the sake of example, but these steps can appl
 
     ![Download then upload the certificate](./media/active-directory-sso-certs/certifcate_date_selection.PNG)
 
-6. Now the new certificate is available to download. Click the **Certificate** link to download it. At this point, your certificate is not active. When you want to roll over to this certificate, select the **Make new certificate active** check box and click **Save**. From that point onward, Azure AD starts using the new certificate for signing the response.
+6. Now the new certificate is available to download. Click the **Certificate** link to download it. At this point, your certificate is not active. When you want to roll over to this certificate, select the **Make new certificate active** check box and click **Save**. From that point, Azure AD starts using the new certificate for signing the response.
 
 7.	To learn how to upload the certificate to your particular SaaS application, click the **View application configuration tutorial** link.
 
