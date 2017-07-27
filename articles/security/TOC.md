@@ -35,6 +35,8 @@
 ### [Best practices for IaaS workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Disk encryption for IaaS VMs](azure-security-disk-encryption.md)
+#### [Disk encryption FAQ](azure-security-disk-encryption-faq.md)
+#### [Disk encryption troubleshooting](azure-security-disk-encryption-tsg.md)
 ### [Encrypt an Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Security management and monitoring
