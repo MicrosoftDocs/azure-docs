@@ -67,7 +67,7 @@ Fill out the required information for the listener and upload the .pfx certifica
 
 ## Create a rule and associate it to the listener
 
-The listener has now been created. It is time to create a rule to handle the traffic from the listener. Rules define how traffic is routed to the backend pools based on multiple configuration settings, including whether cookie based session affinity is used, protocol, port and health probes.
+The listener has now been created. It is time to create a rule to handle the traffic from the listener. Rules define how traffic is routed to the backend pools based on multiple configuration settings, including whether cookie-based session affinity is used, protocol, port, and health probes.
 
 ### Step 1
 

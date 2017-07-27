@@ -3,7 +3,7 @@ title: Customize web application firewall rules in Azure Application Gateway - P
 description: This page provides information on how to customize web application firewall rules in Application Gateway with PowerShell.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: georgewallace 
 manager: timlt
 editor: tysonn
 
@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 
-Application Gateway web application firewall provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block real traffic.  For this reason application gateway provides the capability to customize rulegroups and rules on a web application firewall enabled application gateway. For more information on the specific rule groups and rules, visit [web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+Application Gateway web application firewall provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block real traffic.  For this reason application gateway provides the capability to customize rule groups and rules on a web application firewall enabled application gateway. For more information on the specific rule groups and rules, visit [web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md)
 
 ## View rule groups and rules
 
@@ -83,7 +83,7 @@ The following example shows how to view rules in a specified rule group.
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
-The following is a truncated response from the preceding example.
+The following output is a truncated response from the preceding example.
 
 ```
 [

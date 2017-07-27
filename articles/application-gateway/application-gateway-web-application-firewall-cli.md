@@ -24,7 +24,7 @@ ms.author: gwallace
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 
-Learn how to create an web application firewall enabled application gateway or add web application firewall to an existing application gateway.
+Learn how to create a web application firewall enabled application gateway or add web application firewall to an existing application gateway.
 
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
@@ -61,7 +61,7 @@ az network application-gateway waf-config set \
   --resource-group "AdatumAppGatewayRG"
 ```
 
-This command updates the application gateway with web application firewall. It is recommended to view [Application Gateway Diagnostics](application-gateway-diagnostics.md) to understand how to view logs for your application gateway. Due to the security nature of WAF, logs need to be reviewed regularly to understand the security posture of your web applications.
+This command updates the application gateway with web application firewall. Visit [Application Gateway Diagnostics](application-gateway-diagnostics.md) to understand how to view logs for your application gateway. Due to the security nature of WAF, logs need to be reviewed regularly to understand the security posture of your web applications.
 
 ## Create an Application Gateway with web application firewall
 
@@ -144,6 +144,6 @@ az network public-ip show \
 
 ## Next steps
 
-Learn how to configure customize WAF rules by visiting: [Customize web application firewall rules through the Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
+Learn how to customize WAF rules by visiting: [Customize web application firewall rules through the Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png

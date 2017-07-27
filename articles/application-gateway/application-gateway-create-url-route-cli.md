@@ -44,7 +44,7 @@ az login -u "username"
 ```
 
 > [!NOTE]
-> You can also use `az login` without the switch for device login that will require entering a code at aka.ms/devicelogin.
+> You can also use `az login` without the switch for device login that requires entering a code at aka.ms/devicelogin.
 
 Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
 
@@ -58,13 +58,13 @@ Once the code has been entered you are signed in, close the browser to continue 
 
 ![successfully signed in][3]
 
-## Add a path based rule to an existing application gateway
+## Add a path-based rule to an existing application gateway
 
 Create an application gateway with a path rule defined
 
 ### Create a new back-end pool
 
-Configure application gateway setting **imagesBackendPool** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the new back-end pool. Each back-end pool can have its own back-end pool setting.  Backend HTTP settings are used by rules to route traffic to the correct backend pool members. This determines the protocol and port that is used when sending traffic to the backend pool members. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity will send traffic to the same backend as previous requests for each packet.
+Configure application gateway setting **imagesBackendPool** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the new back-end pool. Each back-end pool can have its own back-end pool setting.  Backend HTTP settings are used by rules to route traffic to the correct backend pool members. This determines the protocol and port that is used when sending traffic to the backend pool members. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity sends traffic to the same backend as previous requests for each packet.
 
 ```azurecli
 az network application-gateway address-pool create \
@@ -76,7 +76,7 @@ az network application-gateway address-pool create \
 
 ### Create a new front-end port
 
-Configure the front-end port for an application gateway. The front-end port configuration object is used by a listener to define what port the Application Gateway will listen for traffic on the listener.
+Configure the front-end port for an application gateway. The front-end port configuration object is used by a listener to define what port the Application Gateway listens for traffic on the listener.
 
 ```azurecli
 az network application-gateway frontend-port create --port 82 --gateway-name AdatumAppGateway --resource-group myresourcegroup --name port82
@@ -84,7 +84,7 @@ az network application-gateway frontend-port create --port 82 --gateway-name Ada
 
 ### Create a new listener
 
-Configure the listener. This step configures the listener for the public IP address and port used to receive incoming network traffic. The following example takes the previously configured front-end IP configuration,  front-end port configuration and a protocol (http or https) and configures the listener. In this example the listener listens to HTTP traffic on port 82 on the public IP address that was created earlier.
+Configure the listener. This step configures the listener for the public IP address and port used to receive incoming network traffic. The following example takes the previously configured front-end IP configuration,  front-end port configuration, and a protocol (http or https) and configures the listener. In this example, the listener listens to HTTP traffic on port 82 on the public IP address that was created earlier.
 
 ```azurecli
 az network application-gateway http-listener create --name imageListener --frontend-ip appGatewayFrontendIP  --frontend-port port82 --resource-group myresourcegroup --gateway-name AdatumAppGateway
@@ -97,7 +97,7 @@ Configure URL rule paths for the back-end pools. This step configures the relati
 > [!IMPORTANT]
 > Each path must start with / and the only place a "\*" is allowed, is at the end. Valid examples are /xyz, /xyz* or /xyz/*. The string fed to the path matcher does not include any text after the first "?" or "#", and those characters are not allowed. 
 
-The following example creates one rule for "/images/*" path routing traffic to back-end "imagesBackendPool". This rule ensures that traffic for each set of urls is routed to the backend. For example, http://contoso.com/images/figure1.jpg will go to "imagesBackendPool". If the path doesn't match any of the pre-defined path rules, the rule path map configuration also configures a default back-end address pool. For example, http://contoso.com/shoppingcart/test.html will go to pool1 as it is defined as the default pool for un-matched traffic.
+The following example creates one rule for "/images/*" path routing traffic to back-end "imagesBackendPool." This rule ensures that traffic for each set of urls is routed to the backend. For example, http://contoso.com/images/figure1.jpg goes to "imagesBackendPool." If the path doesn't match any of the pre-defined path rules, the rule path map configuration also configures a default back-end address pool. For example, http://contoso.com/shoppingcart/test.html goes to pool1 as it is defined as the default pool for unmatched traffic.
 
 ```azurecli
 az network application-gateway url-path-map create \
