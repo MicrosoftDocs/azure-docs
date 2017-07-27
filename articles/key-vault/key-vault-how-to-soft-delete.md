@@ -10,12 +10,12 @@ manager: mbaldwin
 ms.date: 07/27/2017
 
 ---
-# How to: Azure Key Vault soft-delete
+# How to use Key Vault soft-delete
 
-Azure Key Vault's soft delete feature allows recovery of the deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
+Azure Key Vault's soft delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
 
 - Support for recoverable deletion of a key vault
-- Support for recoverable deletion of key vault objects; keys, secrets, and certificates
+- Support for recoverable deletion of key vault objects; keys, secrets, and, certificates
 
 ## Prerequisites
 
@@ -24,16 +24,22 @@ Azure Key Vault's soft delete feature allows recovery of the deleted vaults and 
 
 For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0) or for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
 
+## Required permissions
+
+Key Vault operations are seperately controlled via RBAC permissions as follows:
+
+- Recover: restores a deleted keyvault. User needs to have ‘Microsoft.KeyVault/vaults/write’ permission. 
+- Purge: removes a deleted key vault so that the vault and all its contents are permanently removed. User needs ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ permission. 
+- List: to list deleted key vaults. User needs ‘Microsoft.KeyVault/deletedVaults/read’ permission.
+
 
 ## Enabling soft-delete
 
-To be able to recover a deleted key vault or deleted keys or secrets inside a vault, you must first enable soft-delete for that key vault.
+To be able to recover a deleted key vault or objects stored in a key vault, you must first enable soft-delete for that key vault.
 
 ### Existing vault
 
-For an existing key vault named 'ContosoVault', here's how you would enable soft-delete for this vault.
-
-#### PowerShell
+For an existing key vault named 'ContosoVault', enable soft-delete as follows.
 
 ```powershell
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -41,15 +47,13 @@ For an existing key vault named 'ContosoVault', here's how you would enable soft
 Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
-#### CLI
-
 ```azurecli
 az keyvault update --name "ContosoVault" ...
 ```
 
 ### New vault
 
-Enabling soft-delete on a new vault is done at create time by adding the soft-delete enable flag to your command.
+Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
 
 ```powershell
 New-AzureRmKeyVault -VaultName "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
@@ -61,21 +65,43 @@ az keyvault create --name "ContosoVault" --resource-group "ContosoVault" --enabl
 
 ### Verify soft-delete enablement
 
-To check whether a vault has soft-delete enabled, run the `Get-AzureRmKeyVault` command and look for the 'Soft Delete Enabled?' attribute. If it is set to 'True', soft-delete is enabled for this key vault. If set to empty or 'False' soft-delete is disabled.
+To verify that a key vault has soft-delete enabled, run the appropriate *get* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
+
+```powershell
+Get-AzureRmKeyVault -VaultName "ContosoVault"
+```
+
+```azurecli
+az keyvault get --name "ContosoVault"
+```
 
 ## Deleting a vault protected by soft-delete
 
-The command to delete (or remove) a vault remains same, but its behavior changes depending on whether you have enabled soft-delete or not.
+The command to delete (or remove) a vault remains the same, but its behavior changes depending on whether you have enabled soft-delete or not.
 
-`Remove-AzureRmKeyVault -VaultName ContosoVault`
+```powershell
+Remove-AzureRmKeyVault -VaultName 'ContosoVault'
+```
+
+```azurecli
+az keyvault --name ContosoVault
+```
 
 > [!IMPORTANT]
->If you run the previous command for a key vault that does not have soft-delete enabled, you will permanently lose this vault and all its content without any options for recovery.
+>If you run the previous command for a key vault that does not have soft-delete enabled, you will permanently delete this key vault and all its content without any options for recovery.
 
-With soft-delete turned on, when a vault is deleted, it is removed from the resource group and placed in a different name space that is only associated with the location where it was created. All the keys and secrets in a deleted vault also become inaccessible. The DNS name for a vault in a deleted state is still reserved, so a new vault with same name cannot be created.  To see all the vaults in your subscription in the deleted state, run this command:
+### How soft-delete protects your key vault
 
-``` PowerShell
-PS C:\> Get-AzureRmKeyVault -InRemovedStateVault Name           : ContosoVault
+With soft-delete enabled:
+
+- When a key vault is deleted, it is removed from its resource group and placed in a reserved namespace that is only associated with the location where it was created. 
+- Objects in a deleted key vault, such as keys and secrets, become inaccessible when its in this state. 
+- The DNS name for a key vault in a deleted state is still reserved so, a new vault with same name cannot be created.  
+
+```powershell
+PS C:\> Get-AzureRmKeyVault -InRemovedStateVault 
+
+Name           : ContosoVault
 Location             : westus
 Id                   : /subscriptions/xxx/providers/Microsoft.KeyVault/locations/westus/deletedVaults/ContosoVault
 Resource ID          : /subscriptions/xxx/resourceGroups/ContosoVault/providers/Microsoft.KeyVault/vaults/ContosoVault
@@ -84,25 +110,25 @@ Scheduled Purge Date : 8/7/2017 12:14:14 AM
 Tags                 :
 ```
 
- The `Get-AzureRmKeyVault` command shows deleted key vaults if you use `-InRemovedState` parameter. In other words, if you do not use the `-InRemovedState` parameter, you will not see deleted key vaults listed.
+```azurecli
+az keyvault list-deleted
+```
 
-The *Resource ID* in the preceding output refers to the original resource ID of this vault. Since this vault is now in a deleted state, no such resource exists with that resource ID. That's where the *Id* field comes in. It can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
+The *Resource ID* in the output refers to the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. The *Id* field comes can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
 
 ## Recovering a vault
 
-To recover a vault, you need to specify the vault name, resource group, and location. Note the location and the resource group of the deleted vault. You'll need it when recovering.
+To recover a key vault, you need to specify the vault name, resource group, and location. Note the location and the resource group of the deleted vault. You'll need it when recovering.
 
-`Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG-Location westus`
+```powershell
+Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
+```
 
-When a vault is recovered, all the keys/secrets in the vault will also become accessible again.
+```azurecli
+az keyvault recover --location westus --name ContosoVault --resource-group ContosoRG
+```
 
-When a vault is recovered, the result is a new resource with the vault's original resource ID. If the resource group where the vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered. 
-
-To purge, permanently delete:
-
-`Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus`
-
-To recover a vault, a user needs to have RBAC (role-based access control) permission to perform ‘Microsoft.KeyVault/vaults/write’ operation. Similarly to purging a deleted vault so that the vault and all its contents are permanently removed the user needs RBAC permission to perform ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ operation. To list the deleted vault, a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission.
+When a vault is recovered, the result is a new resource with the vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered. 
 
 ## Vault objects and soft-delete
 
