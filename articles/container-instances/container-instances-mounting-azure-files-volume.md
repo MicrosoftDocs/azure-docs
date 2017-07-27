@@ -58,7 +58,11 @@ echo $STORAGE_ACCOUNT
 The share name is already known (it is *acishare* in the script above), so all that remains is the storage account key, which can be found using the following command:
 
 ```azurecli-interactive
+<<<<<<< HEAD
 STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCT --query "[0].value" -o tsv)
+=======
+$STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+>>>>>>> f20f60e9fb263caccccc994a8b23c0049cdffc34
 echo $STORAGE_KEY
 ```
 
