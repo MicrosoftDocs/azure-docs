@@ -102,9 +102,9 @@ The IP addresses used for the backend are the IP addresses for your backend serv
 
 ```azurecli
 az network application-gateway create \
---name AdatumAppGateway \
---location eastus \
---resource-group myresourcegroup \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
 --vnet-name "AdatumAppGatewayVNET" \
 --vnet-address-prefix "10.0.0.0/16" \
 --subnet "Appgatewaysubnet" \
@@ -131,7 +131,7 @@ az network application-gateway create \
 --resource-group "myresourcegroup" \
 --vnet-name "AdatumAppGatewayVNET" \
 --vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
+--subnet "Appgatewaysubnet \
 --subnet-address-prefix "10.0.0.0/28" \
 --servers "10.0.0.5"  \
 --public-ip-address pip
