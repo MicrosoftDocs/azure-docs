@@ -20,10 +20,10 @@ ms.tgt_pltfrm: NA
 
 # Elastic pools help you manage and scale multiple Azure SQL databases
 
-SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources ([elastic Database Transaction Units](sql-database-what-is-a-dtu.md) (eDTUs)) at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.   
+SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources ([elastic Database Transaction Units](sql-database-what-is-a-dtu.md) (eDTUs)) at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. 
 
 > [!NOTE]
-> Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
+> Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview. GA of elastic pools in this region will occur as soon as possible.
 >
 
 ## What are SQL elastic pools? 
@@ -46,7 +46,7 @@ Within the pool, individual databases are given the flexibility to auto-scale wi
 
 Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
-The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases.  
+The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases. 
 
 The following sections help you understand how to assess if your specific collection of databases can benefit from being in a pool. The examples use Standard pools but the same principles also apply to Basic and Premium pools.
 
@@ -64,17 +64,17 @@ Building on the previous example, suppose there are additional databases with si
 
    ![four databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool/four-databases.png)
 
-  ![twenty databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool/twenty-databases.png)
+   ![twenty databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool/twenty-databases.png)
 
 The aggregate DTU utilization across all 20 databases is illustrated by the black line in the preceding figure. This shows that the aggregate DTU utilization never exceeds 100 DTUs, and indicates that the 20 databases can share 100 eDTUs over this time period. This results in a 20x reduction in DTUs and a 13x price reduction compared to placing each of the databases in S3 performance levels for single databases.
 
 This example is ideal for the following reasons:
 
-* There are large differences between peak utilization and average utilization per database.  
+* There are large differences between peak utilization and average utilization per database. 
 * The peak utilization for each database occurs at different points in time.
 * eDTUs are shared between many databases.
 
-The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
+The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide. 
 
 The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
 
@@ -127,12 +127,12 @@ In cases where you can't use tooling, the following step-by-step can help you es
 For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
 
 > [!NOTE]
-> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier.  For example, the max concurrent workers for an S2 database is 120 workers.  So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
+> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 >
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
+If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 ### Database properties for pooled databases
 
@@ -140,8 +140,8 @@ The following table describes the properties for pooled databases.
 
 | Property | Description |
 |:--- |:--- |
-| Max eDTUs per database |The maximum number of eDTUs that any database in the pool may use, if available based on utilization by other databases in the pool.  Max eDTU per database is not a resource guarantee for a database.  This setting is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time.  If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
-| Min eDTUs per database |The minimum number of eDTUs that any database in the pool is guaranteed.  This setting is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average eDTU utilization per database. The product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool.  For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
+| Max eDTUs per database |The maximum number of eDTUs that any database in the pool may use, if available based on utilization by other databases in the pool. Max eDTU per database is not a resource guarantee for a database. This setting is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time. If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
+| Min eDTUs per database |The minimum number of eDTUs that any database in the pool is guaranteed. This setting is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average eDTU utilization per database. The product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool. For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
 | Max storage per database |The maximum storage for a database in a pool. Pooled databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. Max storage per database refers to the maximum size of the data files and does not include the space used by log files. |
 |||
  
@@ -149,8 +149,12 @@ The following table describes the properties for pooled databases.
 
 You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
 
-* Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
-* Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
+- When rescaling pool eDTUs, database connections are briefly dropped. This is the same behavior as occurs when rescaling DTUs for a single database (not in a pool). For details on the duration and impact of dropped connections for a database during rescaling operations, see [Rescaling DTUs for a single database](sql-database-single-database-resources.md#rescaling-dtus-for-a-single-database). 
+- The duration to rescale pool eDTUs can depend on the total amount of storage space used by all databases in the pool. In general, the rescaling latency averages 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for rescaling the pool is 3 hours or less. In some cases within the Standard or Basic tier, the rescaling latency can be under 5 minutes regardless of the amount of space used.
+- In general, the duration to change the min eDTUs per database or max eDTUs per database is 5 minutes or less.
+- When downsizing pool eDTUs, the pool used space must be smaller than the maximum allowed size of the target service tier and pool eDTUs.
+- When rescaling pool eDTUs, an extra storage cost applies if (1) the storage max size of the pool is supported by the target pool, and (2) the storage max size exceeds the included storage amount of the target pool. For example, if a 100 eDTU Standard pool with a max size of 100 GB is downsized to a 50 eDTU Standard pool, then an extra storage cost applies since target pool supports a max size of 100 GB and its included storage amount is only 50 GB. So, the extra storage amount is 100 GB – 50 GB = 50 GB. For pricing of extra storage please see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount. 
+
 
 ## Using other SQL Database features with elastic pools
 
@@ -179,7 +183,7 @@ Creating an elastic pool from an existing **server** blade in the portal is the 
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
->  
+> 
 
 The pool's pricing tier determines the features available to the elastics in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see [Service Tiers](#edtu-and-storage-limits-for-elastic-pools).
 
@@ -193,7 +197,7 @@ If the databases you're working with have enough historical usage telemetry, the
 
 The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
 
-![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
 
 The pool recommendation comprises:
 
@@ -218,10 +222,10 @@ In the Azure portal, you can monitor the utilization of an elastic pool and the 
 
 The following graphic shows an example elastic pool. The view includes:
 
-*  Charts for monitoring resource usage of both the elastic pool and the databases contained in the pool.
-*  The **Configure** pool button to make changes to the elastic pool.
-*  The **Create database** button that creates a database and adds it to the current elastic pool.
-*  Elastic jobs that help you manage large numbers of databases by running Transact SQL scripts against all databases in a list.
+* Charts for monitoring resource usage of both the elastic pool and the databases contained in the pool.
+* The **Configure** pool button to make changes to the elastic pool.
+* The **Create database** button that creates a database and adds it to the current elastic pool.
+* Elastic jobs that help you manage large numbers of databases by running Transact SQL scripts against all databases in a list.
 
 ![Pool view](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
@@ -284,7 +288,7 @@ You can add rules to an elastic pool that send email to people or alert strings 
 2. Type a **Name** and **Description** that identifies the alert to you and the recipients.
 3. Choose a **Metric** that you want to alert from the list.
 
-    The chart dynamically shows resource utilization for that metric to help you choose a threshold.
+   The chart dynamically shows resource utilization for that metric to help you choose a threshold.
 
 4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
 5. Choose a **Period** of time that the metric rule must be satisfied before the alert triggers.
