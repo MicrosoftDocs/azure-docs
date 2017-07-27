@@ -75,45 +75,6 @@ OWASP (Ver. 2.2.9):
             ...        ...
 ```
 
-### View rules in a rule group
-
-The following example shows how to view rules in a specified rule group.
-
-```azurecli
-az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
-```
-
-The following output is a truncated response from the preceding example.
-
-```
-[
-  {
-    "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
-    "location": null,
-    "name": "OWASP_3.0",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "",
-    "ruleGroups": [
-      {
-        "description": "",
-        "ruleGroupName": "REQUEST-910-IP-REPUTATION",
-        "rules": [
-          {
-            "description": "Rule 910011",
-            "ruleId": 910011
-          },
-          ...
-        ]
-      }
-    ],
-    "ruleSetType": "OWASP",
-    "ruleSetVersion": "3.0",
-    "tags": null,
-    "type": "Microsoft.Network/applicationGatewayAvailableWafRuleSets"
-  }
-]
-```
-
 ## Disable rules
 
 The following example disables rules `910018` and `910017` on an application gateway.
