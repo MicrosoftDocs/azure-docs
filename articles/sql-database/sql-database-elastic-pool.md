@@ -351,7 +351,6 @@ To create and manage SQL Database elastic pools with Azure PowerShell, use the f
 |[Remove-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Removes a database.|
 
 
-
 > [!TIP]
 > Creation of many databases in an elastic pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into an elastic pool, see [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 >
@@ -373,7 +372,7 @@ To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure/
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|Updates an elastic pool.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|Deletes the elastic pool.|
 
-## Manage SQL Database elastic pools using Transact-SQL
+## Manage SQL databases in elastic pools using Transact-SQL
 
 To create and move databases within existing elastic pools or to return information about an SQL Database elastic pool with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. To create and manage databases, servers, and firewall rules, see [Create and manage Azure SQL Database servers and databases using Transact-SQL](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
 
