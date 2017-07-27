@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/27/2017
 ms.author: billmath
 ---
 
@@ -35,6 +35,8 @@ Follow these steps to check where your Authentication Agents are installed:
 2. Select **Azure Active Directory** on the left hand navigation.
 3. Select **Azure AD Connect**. 
 4. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
+
+![Azure portal - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
 
 ### Step 2: Check the versions of your Authentication Agents
 
