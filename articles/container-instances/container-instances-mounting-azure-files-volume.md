@@ -117,7 +117,7 @@ To define the volumes you want to make available for mounting, add a `volumes` a
         },
         "volumeMounts": [{
           "name": "myvolume",
-          "mountPath": "/acifiles/"
+          "mountPath": "/aci/logs/"
         }]
       }],
       "osType": "Linux",
