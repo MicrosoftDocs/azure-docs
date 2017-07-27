@@ -32,7 +32,7 @@ Common header properties that need to be added are specified [here](billing-ente
 |GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
 
 > [!Note]
-> To use the preview version of API, replace v2 by v1 in the above URL.
+> To use the preview version of API, replace v2 with v1 in the above URL.
 >
 
 ## Response
