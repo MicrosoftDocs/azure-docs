@@ -184,6 +184,23 @@ After you fix the issues that resulted in the rollback, initiate the upgrade aga
 
 
 ## Upgrade the cluster configuration
+Before you initiate the configuration upgrade, you can test your new cluster configuration json by running the powershell script in the standalone package.
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
+
+```
+or
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
+
+```
+
+Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. This will test the new cluster configuration json against the old one and throw errors in the Powershell window if there is any issue.
+
 To upgrade the cluster configuration upgrade, run **Start-ServiceFabricClusterConfigurationUpgrade**. The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
