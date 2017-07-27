@@ -17,7 +17,7 @@ ms.author: cfreeman
 
 ---
 # Reference for Analytics
-[Analytics](app-insights-analytics.md) is the powerful search feature of [Application Insights](app-insights-overview.md). These pages describe the Analytics query language.
+[Analytics](app-insights-analytics.md) is the powerful search feature of [Application Insights](app-insights-overview.md). These pages describe the Log Analytics query language.
 
 Additional sources of information:
 
