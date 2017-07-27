@@ -59,7 +59,7 @@ Before upgrading, ensure that you have the following items in place:
 
 You need upgrade Azure AD Connect before upgrading the Authentication Agent on the same server. Follow these steps on both your primary and staging Azure AD Connect servers:
 
-1. **Upgrade Azure AD Connect**: Follow this [article](./active-directory-aadconnect-upgrade-previous-version) and upgrade to the latest Azure AD Connect version.
+1. **Upgrade Azure AD Connect**: Follow this [article](./active-directory-aadconnect-upgrade-previous-version.md) and upgrade to the latest Azure AD Connect version.
 2. **Uninstall the preview version of the Authentication Agent**: Download [this PowerShell script](https://aka.ms/rmpreviewagent) and run it as an Administrator on the server.
 3. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials. Select **Azure Active Directory -> Azure AD Connect -> Pass-through Authentication -> Download agent**. Accept the terms of service and download the latest version of the Authentication Agent.
 4. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 3. Provide your tenant's Global Administrator credentials when prompted.
