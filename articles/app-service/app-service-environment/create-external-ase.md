@@ -47,7 +47,7 @@ There are three ways to create an ASE:
 - **As a standalone action**. This method creates a standalone ASE, which is an ASE with nothing in it. This method is a more advanced process to create an ASE, and you use it to create an ASE with an ILB.
 - **From an Azure Resource Manager template**. This method is for advanced users. For more information, see [Create an ASE from a template][MakeASEfromTemplate].
 
-An External ASE has a public VIP, which means that all HTTP/HTTPS traffic to the apps in the ASE hit an Internet-accessible IP address. An ASE with an ILB has an IP address from the subnet used by the ASE. The apps hosted in an ILB ASE aren't exposed directly to the Internet.
+An External ASE has a public VIP, which means that all HTTP/HTTPS traffic to the apps in the ASE hit an internet-accessible IP address. An ASE with an ILB has an IP address from the subnet used by the ASE. The apps hosted in an ILB ASE aren't exposed directly to the internet.
 
 ## Create an ASE and an App Service plan together ##
 
@@ -107,7 +107,7 @@ If you create an ASE standalone, it has nothing in it. An empty ASE still incurs
 
 5. Select your virtual network and location. You can create a new virtual network or select an existing virtual network: 
 
-    * If you select a new virtual network, you can specify a name and location. The new virtual network has the address range 192.168.250.0/23 and a subnet named **default**. The subnet is defined as 192.168.250.0/24. You can only select a Resource Manager virtual network. The **VIP Type** selection determines if your ASE can be directly accessed from the Internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service Environment][MakeILBASE]. 
+    * If you select a new virtual network, you can specify a name and location. The new virtual network has the address range 192.168.250.0/23 and a subnet named **default**. The subnet is defined as 192.168.250.0/24. You can only select a Resource Manager virtual network. The **VIP Type** selection determines if your ASE can be directly accessed from the internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service Environment][MakeILBASE]. 
 
         * If you select an **External** VIP type, you can select how many external IP addresses the system is created with for IP-based SSL purposes. 
     

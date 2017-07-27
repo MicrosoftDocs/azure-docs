@@ -1,6 +1,6 @@
 ---
 title: Create and use an internal load balancer with an Azure App Service Environment
-description: Details on how to create and use an Internet-isolated Azure App Service Environment
+description: Details on how to create and use an internet-isolated Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -17,7 +17,7 @@ ms.author: ccompy
 ---
 # Create and use an internal load balancer with an App Service Environment #
 
-The Azure App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in Azure Virtual Network. There are two ways to deploy an ASE: 
+The Azure App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in Azure Virtual Network (VNet). There are two ways to deploy an ASE: 
 
 - With a VIP on an external IP address, often called an External ASE.
 - With a VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB). 
@@ -26,7 +26,7 @@ This article shows you how to create an ILB ASE. For an overview on the ASE, see
 
 ## Overview ##
 
-You can deploy an ASE with an Internet-accessible endpoint or with an IP address in your virtual network. To set the IP address to a virtual network address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide:
+You can deploy an ASE with an internet-accessible endpoint or with an IP address in your virtual network. To set the IP address to a virtual network address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide:
 
 -   Your own domain that you use when you create your apps.
 -   The certificate used for HTTPS.
@@ -36,7 +36,7 @@ In return, you can do things such as:
 
 -   Host intranet applications securely in the cloud, which you access through a site-to-site or Azure ExpressRoute VPN.
 -   Host apps in the cloud that aren't listed in public DNS servers.
--   Create Internet-isolated back-end apps that can securely integrate with your front-end apps.
+-   Create internet-isolated back-end apps, which your front-end apps can securely integrate with.
 
 ### Disabled functionality ###
 
@@ -58,7 +58,7 @@ To create an ILB ASE:
 
 4. Select or create a virtual network.
 
-5. If you select a virtual network, create a subnet. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. You can't use a subnet size of `/29` or smaller. Infrastructure needs use up at least five addresses. In a `/28` subnet size, a maximum scaling of 11 instances is left. Use a `/24` with 256 addresses if you need to:
+5. If you select an existing virtual network, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of /25, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a /28. After infrastructure needs, this size can be scaled to a maximum of 11 instances.
 
 	* Go beyond the default maximum of 100 instances in your App Service plans.
 	* Scale near 100 but with more rapid front-end scaling.
@@ -78,17 +78,18 @@ To create an ILB ASE:
 	- abcd.def.contoso.com
 	- abcd.contoso.com
 
-   If you know the custom domain names for your apps, choose a domain name that won’t have a conflict when you create your ILB ASE. In this example, it might be something like _contoso-internal.com_.
+   If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE as that won't conflict with custom domain names that end in *.contoso.com*.
 
 8. Select **OK**, and then select **Create**.
 
 	![ASE creation][1]
 
-9. On the **Virtual Network** blade, select **Virtual Network Configuration**. Select **External** to configure your ASE with an Internet-accessible VIP. Select **Internal** to configure your ASE with an ILB on an IP address within your virtual network.
+On the **Virtual Network** blade, there is a **Virtual Network Configuration** option. You can use it to select between an External VIP or an Internal VIP. The default is **External**. If you select **External**, your ASE uses an internet-accessible VIP. If you select **Internal**, your ASE is configured with an ILB on an IP address within your virtual network.
 
-	* If you select **Internal**, you can't add more IP addresses to your ASE. Instead, you need to provide the domain of the ASE. In an ASE with an External VIP, the name of the ASE is used in the domain for apps created in that ASE.
+After you select **Internal**, the ability to add more IP addresses to your ASE is removed. Instead, you need to provide the domain of the ASE. In an ASE with an External VIP, the name of the ASE is used in the domain for apps created in that ASE.
 
-	* If you set **VIP Type** to **Internal**, your ASE name isn't used in the domain for the ASE. You specify the domain explicitly. If your domain is *contoso.corp.net* and you create an app in that ASE named *timereporting*, the URL for that app is timereporting.contoso.corp.net.
+If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is *contoso.corp.net* and you create an app in that ASE named *timereporting*, the URL for that app is *timereporting.contoso.corp.net*.
+
 
 ## Create an app in an ILB ASE ##
 
@@ -118,14 +119,14 @@ After you create your ASE, the domain name shows the domain you specified. A new
 
 ![ILB ASE domain name][3]
 
-1. Obtain a valid SSL certificate. Use internal certificate authorities, purchase a certificate from an external issuer, or use a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
+Your ILB ASE needs a valid SSL certificate. Use internal certificate authorities, purchase a certificate from an external issuer, or use a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
 
-	* **Subject**: This attribute must be set to _\*.your-root-domain-here_.
-	* **Subject Alternative Name**: This attribute must include both _\*.your-root-domain-here_ and _\*.scm.your-root-domain-here_. SSL connections to the SCM/Kudu site associated with each app use an address of the form _your-app-name.scm.your-root-domain-here_.
+* **Subject**: This attribute must be set to *.your-root-domain-here.
+* **Subject Alternative Name**: This attribute must include both **.your-root-domain-here* and **.scm.your-root-domain-here*. SSL connections to the SCM/Kudu site associated with each app use an address of the form *your-app-name.scm.your-root-domain-here*.
 
-2. Convert/save the SSL certificate as a .pfx file. The .pfx file must include all intermediate and root certificates. Secure it with a password.
+Convert/save the SSL certificate as a .pfx file. The .pfx file must include all intermediate and root certificates. Secure it with a password.
 
-3. Create your own certificate by using the PowerShell commands here. Be sure to use your ILB ASE domain name instead of *internal.contoso.com*: 
+If you want to create a self-signed certificate, you can use the PowerShell commands here. Be sure to use your ILB ASE domain name instead of *internal.contoso.com*: 
 
 	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
 	
@@ -135,9 +136,9 @@ After you create your ASE, the domain name shows the domain you specified. A new
 	$fileName = "exportedcert.pfx" 
 	Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
 
-	The certificate that these PowerShell commands generate is flagged by browsers. You're notified because the certificate wasn't created by a certificate authority that's in your browser's chain of trust. To get a certificate that your browser trusts, procure it from a commercial certificate authority in your browser's chain of trust. 
+The certificate that these PowerShell commands generate is flagged by browsers because the certificate wasn't created by a certificate authority that's in your browser's chain of trust. To get a certificate that your browser trusts, procure it from a commercial certificate authority in your browser's chain of trust. 
 
-	![Set ILB certificate][4]
+![Set ILB certificate][4]
 
 To upload your own certificates and test access:
 
@@ -152,7 +153,7 @@ To upload your own certificates and test access:
 5. Create a VM if you don't have one in that virtual network.
 
 	> [!NOTE] 
-	> Don't create this VM in the same subnet as the ASE. Otherwise, it breaks your setup.
+	> Don't try to create this VM in the same subnet as the ASE because it will fail or cause problems.
 	>
 	>
 
@@ -193,7 +194,7 @@ The SCM site name takes you to the Kudu console, called the **Advanced portal**,
 
 In the multitenant App Service and in an External ASE, there's single sign-on between the Azure portal and the Kudu console. For the ILB ASE, however, you need to use your publishing credentials to sign into the Kudu console.
 
-Internet-based CI systems, such as GitHub and VSTS, don't work with an ILB ASE because the publishing endpoint isn't Internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
+Internet-based CI systems, such as GitHub and VSTS, don't work with an ILB ASE because the publishing endpoint isn't internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the subdomain *contoso.net* and an app named *mytest*, use *mytest.contoso.net* for FTP and *mytest.scm.contoso.net* for web deployment.
 

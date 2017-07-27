@@ -33,9 +33,9 @@ ASEs are isolated to running only a single customer's applications and are alway
 
 All articles and how-to instructions about ASEs are available in the [README for Application Service Environments][ASEReadme]:
 
-* ASEs can enable high scale and secure network access. For more information, see the [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) on ASEs.
+* ASEs enable high-scale app hosting with secure network access. For more information, see the [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) on ASEs.
 * Multiple ASEs can be used to scale horizontally. For more information, see how to set up a [geo-distributed app footprint](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
-* ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. For more information, see how to implement a [layered security architecture](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) with ASEs.
+* ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. To see how the security architecture shown in the AzureCon Deep Dive was configured, see the article on implementing a layered security architecture with App Service Environments.
 * Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAF). For more information, see [Configure a WAF for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
 
 ## Dedicated environment ##
@@ -58,7 +58,7 @@ There is a flat monthly rate for an ASE that pays for the infrastructure and doe
 
 An ASE can be created only in an Azure Resource Manager virtual network. To learn more about Azure Virtual Networks, see the [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
 
-An ASE can be either Internet-facing with a public IP address or internal-facing with only an Azure internal load balancer (ILB) address.
+An ASE can be either internet-facing with a public IP address or internal-facing with only an Azure internal load balancer (ILB) address.
 
 [Network Security Groups][NSGs] restrict inbound network communications to the subnet where an ASE resides. You can use NSGs to run apps behind upstream devices and services such as WAFs and network SaaS providers.
 
