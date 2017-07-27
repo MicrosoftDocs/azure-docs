@@ -1226,8 +1226,18 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-portal/resource-group-portal.md"
-            "redirect_url": "/azure/azure-resource-manager/resource-group-portal"
+            "source_path": "articles/automation/automation-solution-startstopvm-psworkflow.md",
+            "redirect_url": "https://docs.microsoft.com/azure/automation/automation-solution-vm-management",
+            "redirect_document_id": false
+        },
+        {
+           "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
+           "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
+           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-portal/resource-group-portal.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-portal",
             "redirect_document_id": false
         },
         {
@@ -1358,6 +1368,11 @@
         {
             "source_path": "articles/app-service-web/web-sites-nodejs-use-webmatrix.md",
             "redirect_url": "https://www.microsoft.com/web/webmatrix/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-godaddy-custom-domain-name.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-tutorial-custom-domain",
             "redirect_document_id": false
         },
         {
@@ -8327,6 +8342,11 @@
         {
             "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-lad.md",
             "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-lad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
             "redirect_document_id": false
         }                                               
     ]
