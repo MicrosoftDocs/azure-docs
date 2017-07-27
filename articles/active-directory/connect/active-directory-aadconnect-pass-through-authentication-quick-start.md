@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/27/2017
 ms.author: billmath
 ---
 
@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) Pass-through Authentication allows your users 
 
 ## How to deploy Azure AD Pass-through Authentication
 
-To deploy Pass-through Authentication, you need to follow these steps:
+To deploy Pass-through Authentication, you need to follow these instructions:
 1. *Check prerequisites*: Set up your tenant and on-premises environment correctly before you enable the feature.
 2. *Enable the feature*: Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent to handle password validation requests.
 3. *Test the feature*: Test user sign-in using Pass-through Authentication.
@@ -40,8 +40,8 @@ Ensure that the following prerequisites are in place:
 ### In your on-premises environment
 
 1. Identify a server running Windows Server 2012 R2 or later on which to run Azure AD Connect. Add the server to the same AD forest as the users whose passwords need to be validated.
-2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in Step 2. If you already have Azure AD Connect running, ensure that the version is 1.1.486.0 or later.
-3. Identify an additional server running Windows Server 2012 R2 or later on which to run a standalone Authentication Agent. The Authentication Agent version needs to be 1.5.58.0 or later. This server is needed to ensure high availability of sign-in requests. Add the server to the same AD forest as the users whose passwords need to be validated.
+2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in Step 2. If you already have Azure AD Connect running, ensure that the version is 1.1.557.0 or later.
+3. Identify an additional server running Windows Server 2012 R2 or later on which to run a standalone Authentication Agent. The Authentication Agent version needs to be 1.5.193.0 or later. This server is needed to ensure high availability of sign-in requests. Add the server to the same AD forest as the users whose passwords need to be validated.
 4. If there is a firewall between your servers and Azure AD, you need to configure the following items:
    - Open up your ports: Ensure that the Authentication Agents on your servers can make outbound requests to Azure AD over ports 80 and 443. If your firewall enforces rules according to originating users, open these ports for traffic coming from Windows services running as a Network Service.
    - Allow Azure AD endpoints: If URL filtering is enabled, ensure that the Authentication Agents can communicate with **\*.msappproxy.net** and **\*.servicebus.windows.net**.
@@ -67,30 +67,36 @@ If you have already installed Azure AD Connect (using the [express installation]
 
 ## Step 3: Test the feature
 
-After Step 2, users from all managed domains in your tenant will sign in using Pass-through Authentication. However, users from federated domains continue to sign in using Active Directory Federation Services (AD FS) or another federation provider that you have previously configured. If you convert a domain from federated to managed, all users from that domain automatically start signing in using Pass-through Authentication. Cloud-only users are not impacted by the Pass-through Authentication feature.
+Follow these instructions to verify that you have enabled Pass-through Authentication correctly:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
+2. Select **Azure Active Directory** on the left hand navigation.
+3. Select **Azure AD Connect**.
+4. Verify that the **Pass-through Authentication** feature shows as **Enabled**.
+
+![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+5. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
+
+![Azure portal - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
+
+At this stage, users from all managed domains in your tenant can sign in using Pass-through Authentication. However, users from federated domains continue to sign in using Active Directory Federation Services (AD FS) or another federation provider that you have previously configured. If you convert a domain from federated to managed, all users from that domain automatically start signing in using Pass-through Authentication. Cloud-only users are not impacted by the Pass-through Authentication feature.
 
 ## Step 4: Ensure high availability
 
 If you plan to deploy Pass-through Authentication in a production environment, you should install a standalone Authentication Agent. Install this second Authentication Agent on a server _other_ than the one running Azure AD Connect and the first Authentication Agent. This setup provides you high availability of sign-in requests. Follow these instructions to deploy a standalone Authentication Agent:
 
-### Download and install the Authentication Agent software on your server
+1. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials.
+2. Select **Azure Active Directory** on the left hand navigation.
+3. Select **Azure AD Connect** and then **Pass-through Authentication**. And select **Download agent**.
 
-1.	[Download](https://go.microsoft.com/fwlink/?linkid=837580) the latest Authentication Agent software. Verify that the version is 1.5.58.0 or later.
-2.	Open the command prompt as an Administrator.
-3.	Run the following command (the **/q** option means "quiet installation" - the installation does not prompt you to accept the End-User License Agreement):
-`
-AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
-`
+![Azure portal - Download Authentication Agent button](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
->[!NOTE]
->You can install only a single Authentication Agent per server.
+5. Click the **Accept terms & download** button.
 
-### Register the Authentication Agent with Azure AD
+![Azure portal - Download Agent blade](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
-1.	Open a PowerShell window as an Administrator.
-2.	Navigate to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script as follows:
-`.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
-3.	When prompted, enter the credentials of the Global Administrator account on your Azure AD tenant.
+6. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 5. Provide your tenant's Global Administrator credentials when prompted.
 
 ## Next steps
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
