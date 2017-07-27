@@ -1,6 +1,6 @@
 ---
 title: Protect web apps with Azure Application Gateway - PowerShell | Microsoft Docs
-description: This article provides guidance on how to configure web apps as back-end hosts on an existing or new application gateway.
+description: This article provides guidance on how to configure web apps as back end hosts on an existing or new application gateway.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -19,11 +19,11 @@ ms.author: gwallace
 
 # Configure App Service Web Apps with Application Gateway 
 
-Application gateway allows you to have a web app as a back-end pool member. In this article, to you learn to configure web apps with application gateway. The first example shows you how to configure an existing application gateway to use a web app as a back-end pool member. The second example shows you how to create a new application gateway with a web app as a back-end pool member.
+Application gateway allows you to have a web app as a back end pool member. In this article, to you learn to configure web apps with application gateway. The first example shows you how to configure an existing application gateway to use a web app as a back end pool member. The second example shows you how to create a new application gateway with a web app as a back end pool member.
 
 ## Configure a web app behind an existing application gateway
 
-The following example adds a web app as a back-end pool member to an existing application gateway. Both the switch `-PickHostNamefromBackendHttpSettings`on the Probe configuration and `-PickHostNameFromBackendAddress` on the back-end http settings must be provided in order for web apps to work.
+The following example adds a web app as a back end pool member to an existing application gateway. Both the switch `-PickHostNamefromBackendHttpSettings`on the Probe configuration and `-PickHostNameFromBackendAddress` on the back end http settings must be provided in order for web apps to work.
 
 ```powershell
 # Retrieve an existing application gateway
@@ -50,7 +50,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## Configure a web application behind a new application gateway
 
-This scenario deploys a web app and an application gateway, and configures 
+This scenario deploys a web app with the asp.net getting started website and an application gateway.
 
 ```powershell
 # Defines a variable for a dotnet get started web app repository location
