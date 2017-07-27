@@ -91,7 +91,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 6. In the menu on the left, select **Virtual machines**. 
 7. From the list, select the VM.
 8. On the VM blade, in the **Settings** section, click **Backup**. The **Backup** blade opens. 
-9. In the menu at the top of the blade, select **File Recovery (Preview)**. The **File Recovery (Preview)** blade opens.
+9. In the menu at the top of the blade, select **File Recovery**. The **File Recovery** blade opens.
 10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
 11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the downloaded file to your local computer.
 7. Click **Download script** to download the script file locally.
