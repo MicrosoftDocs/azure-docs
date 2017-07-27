@@ -202,7 +202,7 @@ Yes. We accept up to 4000 route prefixes for private peering and 200 each for pu
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We do not accept private prefixes (RFC1918) in the Public and Microsoft peering BGP session.
+We do not accept private prefixes (RFC1918) in the public and Microsoft peering BGP session.
 
 ### What happens if I exceed the BGP limits?
 
@@ -220,7 +220,7 @@ The following steps help Azure recognize the activation request:
 2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
 3. The Key Management Service must recognize that the activation request comes from Azure and honor the request. Perform one of the following three tasks:
 
-   * On your on-premises network, route the traffic destined for the IP address (obtained in step 2) back to Azure via the public peering.
+   * On your on-premises network, route the traffic destined for the IP address that you obtained in step 2 back to Azure via the public peering.
    * Have your NSP provider hair-pin the traffic back to Azure via the public peering.
    * Create a user-defined route that points the IP that has Internet as a next hop, and apply it to the subnet(s) where these virtual machines are.
 
@@ -293,7 +293,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 > 
 > 
 
-### Do I need to enable Azure Public Peering to connect to Office 365 services and Dynamics 365?
+### Do I need to enable Azure public peering to connect to Office 365 services and Dynamics 365?
 
 No, you only need to enable Microsoft Peering. Authentication traffic to Azure AD is sent through Microsoft Peering. 
 
