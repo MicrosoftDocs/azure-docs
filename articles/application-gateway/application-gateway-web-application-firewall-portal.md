@@ -149,7 +149,7 @@ These steps create a basic application gateway with default settings for the lis
 
 ## Next steps
 
-Next, you can learn how to configure a custom domain alias for the [public IP address](../dns/dns-custom-domain.md#public-ip-address) address using Azure DNS.
+Next, you can learn how to configure a custom domain alias for the [public IP address](../dns/dns-custom-domain.md#public-ip-address) address using Azure DNS or another DNS provider.
 
 Learn how to configure diagnostic logging, to log the events that are detected or prevented with web application firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
