@@ -1,7 +1,7 @@
 ---
 
-title: Azure database security best practices| Microsoft Docs
-description: This article provides a set of best practices for Azure database security.
+title: Azure database security checklist| Microsoft Docs
+description: This article provides a set of checklist for Azure database security.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2017
+ms.date: 07/27/2017
 ms.author: tomsh
 
 ---
