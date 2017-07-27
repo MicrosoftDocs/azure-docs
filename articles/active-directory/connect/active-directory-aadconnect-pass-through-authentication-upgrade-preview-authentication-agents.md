@@ -20,9 +20,9 @@ ms.author: billmath
 
 ## Overview
 
-This article is for customers using Azure AD Pass-through Authentication through preview. We recently upgraded (and re-branded) the Authentication Agent software. You need to _manually_ upgrade preview Authentication Agents installed on your on-premises servers. This manual upgrade is a one-time action only. All future updates to Authentication Agents will be automatic. The reasons to upgrade are as follows:
+This article is for customers using Azure AD Pass-through Authentication through preview. We recently upgraded (and rebranded) the Authentication Agent software. You need to _manually_ upgrade preview Authentication Agents installed on your on-premises servers. This manual upgrade is a one-time action only. All future updates to Authentication Agents are automatic. The reasons to upgrade are as follows:
 
-- The preview versions of Authentication Agents won’t be receiving any further security or bug fixes.
+- The preview versions of Authentication Agents will not receive any further security or bug fixes.
 -	The preview versions of Authentication Agents can't be installed on additional servers, for high availability.
 
 ## Check versions of your Authentication Agents
@@ -32,7 +32,7 @@ This article is for customers using Azure AD Pass-through Authentication through
 Follow these steps to check where your Authentication Agents are installed:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
-2. Select **Azure Active Directory** on the left hand navigation.
+2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect**. 
 4. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
 
@@ -40,11 +40,11 @@ Follow these steps to check where your Authentication Agents are installed:
 
 ### Step 2: Check the versions of your Authentication Agents
 
-Follow these steps, on each server identified in the preceding step, to check the versions of your Authentication Agents:
+To check the versions of your Authentication Agents, on each server identified in the preceding step, follow these instructions:
 
 1. Go to **Control Panel -> Programs -> Programs and Features** on the on-premises server.
 2. If there is an entry for "**Microsoft Azure AD Connect Authentication Agent**", you don't need to take any action on this server.
-3. If there is an entry for "**Microsoft Azure AD Application Proxy Connector**", with versions between 1.5.58.0 and 1.5.132.0 (both included), you will need to manually upgrade the Authentication Agent on this server.
+3. If there is an entry for "**Microsoft Azure AD Application Proxy Connector**", versions 1.5.132.0 or earlier, you need to manually upgrade on this server.
 
 ![Preview version of Authentication Agent](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 
