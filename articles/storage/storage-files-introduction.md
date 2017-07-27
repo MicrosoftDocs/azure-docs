@@ -18,7 +18,7 @@ ms.author: renash
 ---
 
 # Introduction to Azure File storage
-Azure File storage offers network file shares in the cloud using the industry standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Samba/Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Azure File shares can be mounted concurrently by clients such as on-premises deployments of Windows, macOS, Linux, or by Azure Virtual Machines. A general-purpose storage account gives you access to Azure File Storage and other services such as Blobs, Azure virtual machine disks, Queues under a single account.
+Azure File storage offers network file shares in the cloud using the industry standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Azure File shares can be mounted concurrently by clients such as on-premises deployments of Windows, macOS, Linux, or by Azure Virtual Machines. A general-purpose storage account gives you access to Azure File Storage and other services such as Blobs, Azure virtual machine disks, Queues under a single account.
 
 
 
