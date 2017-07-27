@@ -37,60 +37,71 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-  },
+  "parameters": {},
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-tutorial-app:v1",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
-    "resources": [
-      {
-        "name": "myContainerGroup",
-        "type": "Microsoft.Container/containerGroups",
-        "apiVersion": "2017-04-01-preview",
-        "location": "[resourceGroup().location]",
-        "properties": {
-          "containers": [
-            {
-              "name": "[variables('container1name')]",
-              "properties": {
-                "image": "[variables('container1image')]",
-                "ports": [
-                  {
-                    "port": 80
-                  }
-                ]
-              }
-            },
-            {
-              "name": "[variables('container2name')]",
-              "properties": {
-                "image": "[variables('container2image')]"
+  "resources": [
+    {
+      "name": "myContainerGroup",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2017-08-01-preview",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "ports": [
+                {
+                  "port": 80
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
               }
             }
-          ],
-          "osType": "Linux",
-          "ipAddress": {
-            "type": "Public",
-            "ports": [
-              {
-                "protocol": "tcp",
-                "port": "80"
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
               }
-            ]
+            }
           }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            }
+          ]
         }
       }
-    ],
-    "outputs": {
-      "containerIPv4Address": {
-        "type": "string",
-        "value": "[reference(resourceId('Microsoft.Container/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
-      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
     }
   }
+}
 ```
 
 To use a private container image registry, add an object to the json document with the following format.
@@ -134,7 +145,7 @@ Output:
 ```azurecli
 Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
 ----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  0 core/0 gb   Linux     westus
+myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
 ## View logs   
