@@ -314,7 +314,7 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
   <td>?</td>
   <td>Show the help message.</td>
   <td></td>
-  <td>.</td>
+  <td></td>
 </tr>
 </table>
 
