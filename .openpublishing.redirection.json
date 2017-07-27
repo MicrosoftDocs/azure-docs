@@ -1226,11 +1226,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/automation/automation-solution-startstopvm-psworkflow.md",
-            "redirect_url": "https://docs.microsoft.com/azure/automation/automation-solution-vm-management",
-            "redirect_document_id": false
-        },
-        {
            "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
            "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
            "redirect_document_id": false
