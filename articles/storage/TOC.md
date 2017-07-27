@@ -179,6 +179,7 @@
 #### [Backing up drive manifests](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostics and error recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -206,7 +207,7 @@
 ### [Troubleshooting tutorial](storage-e2e-troubleshooting-classic-portal.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Storage client tools](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)

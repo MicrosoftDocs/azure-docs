@@ -5,7 +5,7 @@ keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 07/26/2017
 ms.author: sstein
 
 ---
@@ -65,7 +65,7 @@ Run the *Demo-ProvisionAndCatalog* script to quickly create a tenant and registe
 1. Open **Demo-ProvisionAndCatalog.ps1** in the PowerShell ISE and set the following values:
    * **$TenantName** = the name of the new venue (for example, *Bushwillow Blues*).
    * **$VenueType** = one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
-   * **$DemoScenario** = 1, Leave this set to _1_ to **Provision a single tenant**.
+   * **$DemoScenario** = 1, Leave this set to _1_ to *Provision a single tenant*.
 
 1. Press **F5** and run the script.
 
@@ -78,15 +78,15 @@ After the script completes, the new tenant is provisioned, and their *Events* ap
 
 This exercise provisions a batch of additional tenants. It’s recommended you provision a batch of tenants before completing other Wingtip SaaS tutorials so there's more than just a few databases to work with.
 
-1. Open ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE* and set the following value:
-   * **$DemoScenario** = **3**, Set to **3** to **Provision a batch of tenants**.
+1. Open ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE* and change the *$DemoScenario* parameter to 3:
+   * **$DemoScenario** = **3**, change to **3** to *Provision a batch of tenants*.
 1. Press **F5** and run the script.
 
 The script deploys a batch of additional tenants. It uses an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md) that controls the batch and then delegates provisioning of each database to a linked template. Using templates in this way allows Azure Resource Manager to broker the provisioning process for your script. Templates provision databases in parallel where it can, and handles retries if needed, optimizing the overall process. The script is idempotent so if it fails or stops for any reason, run it again.
 
 ### Verify the batch of tenants successfully deployed
 
-* Open the *tenants1* server in the [Azure portal](https://portal.azure.com) and click **SQL databases**:
+* Open the *tenants1* server by browsing to your list of servers in the [Azure portal](https://portal.azure.com), click **SQL databases**, and verify the batch of 17 additional databases are now in the list:
 
    ![database list](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
@@ -98,13 +98,13 @@ For a better understanding of how the Wingtip application implements new tenant 
 1. Open ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ and set the following parameters:
    * **$TenantName** = tenant names must be unique, so set to a different name than any existing tenants (for example, *Hackberry Hitters*).
    * **$VenueType** = use one of the pre-defined venue types (for example, *judo*).
-   * **$DemoScenario** = 1, Set to **1** to **Provision a single tenant**.
+   * **$DemoScenario** = **1**, Set to **1** to *Provision a single tenant*.
 
 1. Add a breakpoint by putting your cursor anywhere on the following line: *New-Tenant `*, and press **F9**.
 
    ![break point](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. To run the script press **F5**. When the breakpoint is hit, press **F11** to step in. Trace the script's execution using **F10** and **F11** to step over or into the called functions. [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+1. To run the script press **F5**. When the breakpoint is hit, press **F11** to step in. Trace the script's execution using the Debug menu options - **F10** and **F11** to step over or into the called functions. For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ### Examine the provision and catalog implementation in detail by stepping through the script
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 07/26/2017
 ms.author: alkohli
 
 ---
@@ -101,7 +101,7 @@ Perform the following steps to create a clone of your volume from the backup cat
 
     ![Backup set list](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
-A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#transient-vs.-permanent-clones).
+A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#transient-vs-permanent-clones).
 
 
 ## Transient vs. permanent clones
