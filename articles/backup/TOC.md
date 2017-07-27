@@ -95,6 +95,7 @@
 ## [Security for hybrid backups](backup-azure-security-feature.md)
 ## [Configure Azure Backup reports](backup-azure-configure-reports.md)
 ## [Data model for Azure Backup reports](backup-azure-reports-data-model.md)
+## [Log Analytics data model for Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
 ## [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
