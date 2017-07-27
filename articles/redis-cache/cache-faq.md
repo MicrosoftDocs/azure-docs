@@ -125,8 +125,8 @@ The following table shows the maximum bandwidth values observed while testing va
 
 From this table, we can draw the following conclusions:
 
-* Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 140K RPS as compared to 49K for C3.
-* With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS.
+* Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 180,000 RPS as compared to 49,000 for C3.
+* With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 400,000 *10 = 4 Million RPS.
 * Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
 
 | Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size |
