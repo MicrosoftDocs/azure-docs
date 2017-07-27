@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 07/26/2017
 ms.author: magoedte
 ---
 
@@ -21,7 +21,7 @@ ms.author: magoedte
 
 Automation currently supports source control integration, which allows you to associate runbooks in your Automation account to a GitHub source control repository.  However, customers who have deployed [GitHub Enterprise](https://enterprise.github.com/home) to support their DevOps practices, also want to use it to manage the lifecycle of runbooks that are developed to automate business processes and service management operations.  
 
-In this scenario, you have a Windows computer in your data center configured as a Hybrid Runbook Worker with the Azure RM modules and Git tools installed.  The Hybrid worker machine has a clone of the local Git repository.  When the runbook is run on the hybrid worker, the Git directory is synchronized and the runbook file contents are imported into the Automation account.
+In this scenario, you have a Windows computer in your data center configured as a Hybrid Runbook Worker with the Azure Resource Manager modules and Git tools installed.  The Hybrid worker machine has a clone of the local Git repository.  When the runbook is run on the hybrid worker, the Git directory is synchronized and the runbook file contents are imported into the Automation account.
 
 This article describes how to set up this configuration in your Azure Automation environment. We start by configuring Automation with the security credentials, runbooks required to support this scenario, and deployment of a Hybrid Runbook Worker in your data center to run the runbooks and access your GitHub Enterprise repository to synchronize runbooks with your Automation account.  
 

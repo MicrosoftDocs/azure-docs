@@ -16,5 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
+redirect_url: /azure/automation/automation-troubleshooting-hybrid-runbook-worker
+redirect_document_id: TRUE 
+
 ---
 
