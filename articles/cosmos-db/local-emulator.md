@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 07/27/2017
 ms.author: arramac
 
 ---
@@ -152,6 +152,12 @@ Just as with Azure Document in the cloud, every request that you make against th
 
 Additionally, just as the Azure Cosmos DB service, the Azure Cosmos DB Emulator supports only secure communication via SSL.
 
+## Running the emulator on a local network
+
+You can run the emulator on a local network. To enable network access, specify the /AllowNetworkAccess option at the [command line](#command-line-syntax), which also requires that you specify /Key=key_string or /KeyFile=file_name. You can use /GenKeyFile=file_name to generate a file with a random key upfront.  Then you can pass that to /KeyFile=file_name or /Key=contents_of_file.
+
+To enable network access for the first time the user should shutdown the emulator and delete the emulator’s data directory (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
+
 ## Developing with the Emulator
 Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) or the [Azure Cosmos DB REST API](/rest/api/documentdb/) to interact with the Emulator. The Azure Cosmos DB Emulator also includes a built-in Data Explorer that lets you create collections for the DocumentDB and MongoDB APIs, and view and edit documents without writing any code.   
 
@@ -162,7 +168,7 @@ Once you have the Azure Cosmos DB Emulator running on your desktop, you can use 
 
 If you're using [Azure Cosmos DB protocol support for MongoDB](mongodb-introduction.md), please use the following connection string:
 
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
+    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 You can use existing tools like [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the Azure Cosmos DB Emulator. You can also migrate data between the Azure Cosmos DB Emulator and the Azure Cosmos DB service using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
@@ -228,7 +234,7 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>Specifies the port number to use for MongoDB compatibility API. Default is 10250.</td>
+  <td>Specifies the port number to use for MongoDB compatibility API. Default is 10255.</td>
   <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: Single port number</td>
 </tr>
@@ -273,6 +279,42 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
   <td>Specifies the maximum number of partitioned collections. See [Change the number of collections](#set-partitioncount) for more information.</td>
   <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: Maximum number of allowed single partition collections. Default is 25. Maximum allowed is 250.</td>
+</tr>
+<tr>
+  <td>DefaultPartitionCount</td>
+  <td>Specifies the default number of partitions for a partitioned collection.</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
+  <td>&lt;defaultpartitioncount&gt; Default is 25.</td>
+</tr>
+<tr>
+  <td>AllowNetworkAccess</td>
+  <td>Enables access to the emulator over a network. You must also pass /Key=&lt;key_string&gt; or /KeyFile=&lt;file_name&gt; to enable network access.</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>or<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
+  <td></td>
+</tr>
+<tr>
+  <td>NoFirewall</td>
+  <td>Don't adjust firewall rules when /AllowNetworkAccess is used.</td>
+  <td>CosmosDB.Emulator.exe /NoFirewall</td>
+  <td></td>
+</tr>
+<tr>
+  <td>GenKeyFile</td>
+  <td>Generate a new authorization key and save to the specified file. The generated key can be used with the /Key or /KeyFile options.</td>
+  <td>CosmosDB.Emulator.exe  /GenKeyFile</td>
+  <td></td>
+</tr>
+<tr>
+  <td>Consistency</td>
+  <td>Set the default consistency level for the account.</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
+  <td>&lt;consistency&gt;: Value must be one of the following [consistency levels](consistency-levels.md): Session, Strong, Eventual, or BoundedStaleness.  The default value is Session.</td>
+</tr>
+<tr>
+  <td>?</td>
+  <td>Show the help message.</td>
+  <td></td>
+  <td></td>
 </tr>
 </table>
 
