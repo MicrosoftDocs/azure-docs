@@ -41,6 +41,8 @@
     href: tutorial-vsts-iis-cicd.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=virtual-machines
   - name: PowerShell
     href: powershell-samples.md
   - name: Azure CLI
@@ -79,8 +81,6 @@
       href: preserving-maintenance.md
     - name: Restarting maintenance
       href: impactful-maintenance.md
-    - name: Schedule
-      href: planned-maintenance-schedule.md
   - name: VM sizes
     href: sizes.md
     items:
@@ -354,6 +354,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Supportability of adding Azure VM to an existing availability set
+      href: ../virtual-machines-availability-set-supportability.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
     - name: Remote Desktop connections
@@ -391,6 +393,8 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Use PerfInsights to troubleshoot performance problems
+      href: how-to-use-perfInsights.md
 - name: Reference
   items:
   - name: Azure CLI

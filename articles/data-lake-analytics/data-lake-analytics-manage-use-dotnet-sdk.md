@@ -125,7 +125,7 @@ graphClient.TenantID = domain;
 
 ### Create an Azure Resource Group
 
-If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. You will need your authentication credentials, subscription ID, and a location. The following code shows how to create a resource group:
+If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. You  need your authentication credentials, subscription ID, and a location. The following code shows how to create a resource group:
 
 ```
 var resourceGroup = new ResourceGroup { Location = location };
@@ -357,6 +357,28 @@ var jobs = adlaJobClient.Job.List(adla, odq);
 foreach (var j in jobs)
 {
    Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
+}
+```
+
+### List pipelines
+The following code lists information about each pipeline of jobs submitted to the account.
+
+```
+var pipelines = adlaJobClient.Pipeline.List(adla);
+foreach (var p in pipelines)
+{
+   Console.WriteLine($"Pipeline: {p.Name}\t{p.PipelineId}\t{p.LastSubmitTime}");
+}
+```
+
+### List recurrences
+The following code lists information about each recurrence of jobs submitted to the account.
+
+```
+var recurrences = adlaJobClient.Recurrence.List(adla);
+foreach (var r in recurrences)
+{
+   Console.WriteLine($"Recurrence: {r.Name}\t{r.RecurrenceId}\t{r.LastSubmitTime}");
 }
 ```
 
