@@ -20,7 +20,7 @@ ms.author: tomsh
 ---
 
 # Azure Operational Security Overview
-Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) is a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cyber security threat landscape.
+Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) is a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cyber security threat landscape.
 
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure.
 
@@ -73,22 +73,22 @@ With Azure Active Directory, all applications you publish for your partners and 
 ## Azure Security Center
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-[Security Center](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) helps you safeguard virtual machine data in Azure by providing visibility into your virtual machine’s security settings and monitoring for threats. Security Centre can monitor your virtual machines for:
+[Security Center](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) helps you safeguard virtual machine data in Azure by providing visibility into your virtual machine’s security settings and monitoring for threats. Security Center can monitor your virtual machines for:
 
 -	Operating System (OS) security settings with the recommended configuration rules
 -	System security and critical updates that are missing
 -	Endpoint protection recommendations
 -	Disk encryption validation
--	Network based attacks
+-	Network-based attacks
 
-Azure Security Centre uses [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), which provides [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) that can be assigned to users, groups, and services in Azure.
+Azure Security Center uses [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), which provides [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) that can be assigned to users, groups, and services in Azure.
 
-Security Centre assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Centre, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
+Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
 
 >[Note!]
->See [Permissions in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions) to learn more about roles and allowed actions in Security Centre.
+>See [Permissions in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions) to learn more about roles and allowed actions in Security Center.
 
-Security Centre uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent is stored in either an existing Log Analytics [workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
+Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent is stored in either an existing Log Analytics [workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
 
 ## Azure monitor
 Performance issues in your cloud app can impact your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately, and have tools for diagnosing and fixing the problems.
@@ -114,7 +114,7 @@ Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or O
 
 ### Metrics
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) for monitoring and troubleshooting.
-.
+
 ### Azure Diagnostics
 It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
 
@@ -124,16 +124,16 @@ Customers build an end-to-end network in Azure by orchestrating and composing va
 
 The end to end network can have complex configurations and interactions between resources, creating complex scenarios that need scenario-based monitoring through Network Watcher.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) will simplify monitoring and diagnosing of your Azure network. Diagnostic and visualization tools available with Network Watcher will enable you to take remote packet captures on an Azure Virtual Machine, gain insights into your network traffic using flow logs, and diagnose VPN Gateway and Connections.
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) will simplifies monitoring and diagnosing of your Azure network. Diagnostic and visualization tools available with Network Watcher enable you to take remote packet captures on an Azure Virtual Machine, gain insights into your network traffic using flow logs, and diagnose VPN Gateway and Connections.
 
 Network Watcher currently has the following capabilities:
 
 - [Topology](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) - Provides a network level view showing the various interconnections and associations between network resources in a resource group.
 -	[Variable Packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) - Captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuned controls such as being able to set time and size limitations provide versatility. The packet data can be stored in a blob store or on the local disk in .cap format.
--	[IP flow verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
+-	[IP flows verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
 -	[Next hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) - Determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
 -	[Security group view](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) - Gets the effective and applied security rules that are applied on a VM.
--	[NSG Flow logging](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port and Protocol.
+-	[NSG Flow logging](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port, and Protocol.
 -	[Virtual Network Gateway and Connection troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) - Provides the ability to troubleshoot Virtual Network Gateways and Connections.
 -	[Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) - Enables you to view network resource usage against limits.
 -	[Configuring Diagnostics Log](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) – Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
@@ -143,16 +143,16 @@ To learn more how to configure network watcher see, [configure network watcher](
 ## Developer operations (DevOps)
 Prior to DevOps application development, teams were in charge of gathering business requirements for a software program and writing code. Then a separate QA team tests the program in an isolated development environment, if requirements were met, and releases the code for operations to deploy. The deployment teams are further fragmented into siloed groups like networking and database. Each time a software program is “thrown over the wall” to an independent team it adds bottlenecks.
 
-[DevOps](https://www.visualstudio.com/learn/what-is-devops/) enables teams to deliver more secure, higher quality solutions faster and cheaper. Customers expect a dynamic and reliable experience when consuming software and services.  Teams must rapidly iterate on software updates, measure the impact of the updates, and respond quickly with new development iterations to address issues or provide more value.  Cloud platforms such as Microsoft Azure have removed traditional bottlenecks and helped commoditize infrastructure. Software reigns in every business as the key differentiator and factor in business outcomes. No organization, developer or IT worker can or should avoid the DevOps movement.
+[DevOps](https://www.visualstudio.com/learn/what-is-devops/) enables teams to deliver more secure, higher-quality solutions faster, and cheaper. Customers expect a dynamic and reliable experience when consuming software and services.  Teams must rapidly iterate on software updates, measure the impact of the updates, and respond quickly with new development iterations to address issues or provide more value.  Cloud platforms such as Microsoft Azure have removed traditional bottlenecks and helped commoditize infrastructure. Software reigns in every business as the key differentiator and factor in business outcomes. No organization, developer, or IT worker can or should avoid the DevOps movement.
 
-Mature DevOps practitioners adopt several of the following practices. These practices [involve people](https://www.visualstudio.com/learn/what-is-devops-culture/) to form strategies based on the business scenarios.  Tooling can help automate the various practices.
+Mature DevOps practitioners adopt several of the following practices. These practices [involve people](https://www.visualstudio.com/learn/what-is-devops-culture/) to form strategies based on the business scenarios.  Tooling can help automate the various practices:
 
 -	[Agile planning and project management](https://www.visualstudio.com/learn/what-is-agile/) techniques are used to plan and isolate work into sprints, manage team capacity, and help teams quickly adapt to changing business needs.
 -	[Version control, usually with Git](https://www.visualstudio.com/learn/what-is-git/), enables teams located anywhere in the world to share source and integrate with software development tools to automate the release pipeline.
 -	[Continuous Integration](https://www.visualstudio.com/learn/what-is-continuous-integration/) drives the ongoing merging and testing of code, which leads to finding defects early.  Other benefits include less time wasted on fighting merge issues and rapid feedback for development teams.
 -	[Continuous Delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/) of software solutions to production and testing environments help organizations quickly fix bugs and respond to ever-changing business requirements.
 -	[Monitoring](https://www.visualstudio.com/learn/what-is-monitoring/) of running applications including production environments for application health as well as customer usage help organizations form a hypothesis and quickly validate or disprove strategies.  Rich data is captured and stored in various logging formats.
--	[Infrastructure as Code (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) is a practice which enables the automation and validation of creation and teardown of networks and virtual machines to help with delivering secure, stable application hosting platforms.
+-	[Infrastructure as Code (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) is a practice, which enables the automation and validation of creation and teardown of networks and virtual machines to help with delivering secure, stable application hosting platforms.
 -	[Microservices](https://www.visualstudio.com/learn/what-are-microservices/) architecture is leveraged to isolate business use cases into small reusable services.  This architecture enables scalability and efficiency.
 
 ## Next steps
