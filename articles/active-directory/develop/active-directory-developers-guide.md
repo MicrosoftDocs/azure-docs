@@ -43,6 +43,7 @@ These articles inform you how to perform common tasks with Azure Active Director
 |[App registration](active-directory-integrating-applications.md)           | How to register an app in Azure AD |
 |[Multi-tenant apps](active-directory-devhowto-multi-tenant-overview.md)    | How to sign in any Microsoft work account |
 |[OAuth & OpenID Connect](active-directory-protocols-openid-connect-code.md)| How to sign-in users and call web APIs using our modern auth protocols |
+|[Get a Tenant](active-directory-howto-tenant.md )| How to get an AzureAD tenant for your organization |
 |[More guides...](active-directory-developers-guide-index.md#guides)        |     |
 
 ## Reference
