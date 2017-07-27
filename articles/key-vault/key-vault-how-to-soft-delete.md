@@ -35,7 +35,7 @@ For an existing key vault named 'ContosoVault', here's how you would enable soft
 #### PowerShell
 
 ```psh
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName ContosoVault).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name enableSoftDelete -Value 'True'
+($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName 'ContosoVault').ResourceId).Properties | Add-Member -MemberType 'NoteProperty' -Name 'enableSoftDelete' -Value 'true'
 
 Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
@@ -43,7 +43,7 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Prope
 #### CLI
 
 ```cli
-az keyvault update --name ContosoVault ...
+az keyvault update --name 'ContosoVault' ...
 ```
 
 ### New vault
@@ -51,11 +51,11 @@ az keyvault update --name ContosoVault ...
 Enabling soft-delete on a new vault is done at create time by adding the soft-delete enable flag to your command.
 
 ```psh
-New-AzureRmKeyVault -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete
+New-AzureRmKeyVault -VaultName 'ContosoVault' -ResourceGroupName 'ContosoRG' -Location 'westus' -EnableSoftDelete
 ```
 
 ```cli
-az keyvault create --name ContosoVault --resource-group ContosoVault --enable-soft-delete true --location westus
+az keyvault create --name 'ContosoVault' --resource-group 'ContosoVault' --enable-soft-delete 'true' --location 'westus'
 ```
 
 ### Verify soft-delete enablement
