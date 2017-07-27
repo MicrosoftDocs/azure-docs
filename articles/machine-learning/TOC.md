@@ -173,6 +173,7 @@
 
 # Reference
 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell module (New)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
