@@ -34,7 +34,7 @@ For an existing key vault named 'ContosoVault', here's how you would enable soft
 
 #### PowerShell
 
-```ps
+```psh
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName ContosoVault).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name enableSoftDelete -Value 'True'
 
 Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
@@ -50,7 +50,7 @@ az keyvault update --name ContosoVault ...
 
 Enabling soft-delete on a new vault is done at create time by adding the soft-delete enable flag to your command.
 
-```ps
+```psh
 New-AzureRmKeyVault -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete
 ```
 
