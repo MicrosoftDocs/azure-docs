@@ -43,6 +43,8 @@
     href: tutorial-build-deploy-jenkins.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=virtual-machines
   - name: Azure CLI
     href: cli-samples.md
   - name: PowerShell

@@ -370,6 +370,7 @@
 
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -384,7 +385,7 @@
 
 # Resources
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)

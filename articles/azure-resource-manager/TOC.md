@@ -11,6 +11,7 @@
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Deploy template](resource-manager-samples-powershell-deploy.md)
 
@@ -128,7 +129,7 @@
 ## [REST](/rest/api/resources/)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Throttling requests](resource-manager-request-limits.md)
