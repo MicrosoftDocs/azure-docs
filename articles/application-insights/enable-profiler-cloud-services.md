@@ -258,6 +258,6 @@ Commenting out these sections for now
 
 ## Next steps
 
-- Find help with troubleshooting profiler issues (Profiler troubleshooting)[app-insights-profiler.md#a-idtroubleshootingatroubleshooting]
+- Find help with troubleshooting profiler issues [Profiler troubleshooting](app-insights-profiler.md#a-idtroubleshootingatroubleshooting)
 
-- Read more about profiler (Viewing Profiler data)[app-insights-profiler.md#viewing-profiler-data].
+- Read more about profiler [Viewing Profiler data](app-insights-profiler.md#viewing-profiler-data).
