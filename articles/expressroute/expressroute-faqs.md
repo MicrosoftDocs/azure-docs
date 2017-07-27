@@ -160,7 +160,7 @@ For more information, see [Sharing an ExpressRoute circuit across multiple subsc
 
 ### Are virtual networks connected to the same circuit isolated from each other?
 
-No. All virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other from a routing perspective. If you need route isolation, you need to create a separate ExpressRoute circuit.
+No. From a routing perspective, all virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other. If you need route isolation, you need to create a separate ExpressRoute circuit.
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
 
@@ -243,15 +243,13 @@ You can update the bandwidth of the ExpressRoute circuit using the REST API or P
 ExpressRoute premium is a collection of the following features:
 
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
-* Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). For more information, see the [Limits table](#limits).
-* Global connectivity over the Microsoft core network. You can now link a VNet in one geopolitical region with an ExpressRoute circuit in another region.
-
-    Examples:
+* Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). For more information, see the [ExpressRoute Limits](#limits) table.
+* Connectivity to Office 365 and Dynamics 365.
+* Global connectivity over the Microsoft core network. You can now link a VNet in one geopolitical region with an ExpressRoute circuit in another region.<br>
+    **Examples:**
 
     *  You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
-
     *  On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
-* Connectivity to Office 365 and Dynamics 365.
 
 ### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 
