@@ -24,12 +24,12 @@ Learn about Azure log integration, its key capabilities, and how it works.
 
 ## Overview
 
-Azure log integration is a free solution that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems.
+Azure log integration is a free solution that enables you to integrate raw logs from your Azure resources in to your on-premises Security Information and Event Management (SIEM) systems.
 
-Azure log integration collects Windows events from Windows Event Viewer Channels, [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md) and [Azure Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. This integration helps your SIEM solution provide a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
+Azure log integration collects Windows events from Windows Event Viewer Channels, [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md), and [Azure Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. This integration helps your SIEM solution provide a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
 >[!NOTE]
-At this time the only supported clouds are Azure commercial and Azure government. Other clouds are not supported at this time.
+At this time, the only supported clouds are Azure commercial and Azure Government. Other clouds are not supported at this time.
 
 ![Azure log integration][1]
 
@@ -43,7 +43,7 @@ Azure produces extensive logging for every Azure service. These logs represent t
 Azure log integration currently supports integration of Azure Activity Logs, Windows Event logs from Windows virtual machines in your Azure subscription, Azure Security Center alerts, Azure Diagnostic logs, and Azure Active Directory audit logs.
 
 >[!NOTE]
-While Azure Log Integration is a free solution there will be Azure storage costs resulting from the log file information storage.
+While Azure Log Integration is a free solution, there are Azure storage costs resulting from the log file information storage.
 
 The following table explains the Log category and SIEM integration detail
 
@@ -58,7 +58,7 @@ The following table explains the Log category and SIEM integration detail
 For additional information on supported log types please visit the [FAQ](security-azure-log-integration-faq.md)
 
 
-Community assistance is available through the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). The forum provides the AzLog community the ability support each other with questions, answers, tips, and tricks on how to get the most out of Azure Log Integration. In addition, the Azure Log Integration team monitors this forum and will help whenever we can.
+Community assistance is available through the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). The forum provides the AzLog community the ability to support each other with questions, answers, tips, and tricks on how to get the most out of Azure Log Integration. In addition, the Azure Log Integration team monitors this forum and will help whenever we can.
 
 You can also open a [support request](../azure-supportability/how-to-create-azure-support-request.md). To do this, select **Log Integration** as the service for which you are requesting support.
 
