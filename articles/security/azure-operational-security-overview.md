@@ -19,7 +19,7 @@ ms.author: tomsh
 
 ---
 
-# Azure Operational Security Overview
+# Azure operational security overview
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) is a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cyber security threat landscape.
 
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure.
@@ -33,7 +33,7 @@ This Azure Operational Security Overview article focuses on the following areas:
 -	Azure Storage analytics
 -	Azure Active directory
 
-## Azure Operations Management Suite
+## Azure operations management suite
 IT Operations is responsible for managing datacenter infrastructure, applications, and data, including the stability and security of these systems. However, gaining security insights across increasing complex IT environments often requires organizations to cobble together data from multiple security and management systems.
 
 [Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
@@ -56,10 +56,10 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 ### Backup
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. Azure Backup offers multiple components that you download and deploy on the appropriate computer, server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (no matter whether you're protecting data on-premises or in the cloud) can be used to back up data to a Recovery Services vault in Azure. See the [Azure Backup components table](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
-### Site Recovery
+### Site recovery
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working, and fail back when systems return to working order. intelligent and effective threat detection.
 
-## Azure Active Directory
+## Azure active directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) is Microsoft’s comprehensive Identity as a Service (IDaaS) solution that:
 
 -	Enables IAM as a cloud service
@@ -70,7 +70,7 @@ Azure AD also includes a full suite of [identity management capabilities](https:
 
 With Azure Active Directory, all applications you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
 
-## Azure Security Center
+## Azure security center
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) helps you safeguard virtual machine data in Azure by providing visibility into your virtual machine’s security settings and monitoring for threats. Security Center can monitor your virtual machines for:
@@ -102,10 +102,10 @@ In addition, you can use monitoring data to gain deep insights about your applic
 -	Metrics
 -	Azure Diagnostics
 
-### Azure Activity Log
+### Azure activity log
 It is a log that provides insight into the operations that were performed on resources in your subscription. The [Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions.
 
-### Azure Diagnostic Logs
+### Azure diagnostic logs
 [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
 For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
@@ -115,11 +115,11 @@ Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or O
 ### Metrics
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) for monitoring and troubleshooting.
 
-### Azure Diagnostics
+### Azure diagnostics
 It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
 
 
-## Network Watcher
+## Network watcher
 Customers build an end-to-end network in Azure by orchestrating and composing various individual network resources such as VNet, ExpressRoute, Application Gateway, Load balancers, and more. Monitoring is available on each of the network resources.
 
 The end to end network can have complex configurations and interactions between resources, creating complex scenarios that need scenario-based monitoring through Network Watcher.
