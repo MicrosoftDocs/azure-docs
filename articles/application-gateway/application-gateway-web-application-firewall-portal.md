@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
-Learn how to create an web application firewall enabled application gateway.
+Learn how to create a web application firewall enabled application gateway.
 
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks. Web application protects against many of the OWASP top 10 common web vulnerabilities.
 
@@ -91,13 +91,13 @@ This scenario will:
 
     ![Creating Application Gateway][1]
 
-1. In the **Basics** blade that appears, eneter the following values, then click **OK**:
+1. In the **Basics** blade that appears, enter the following values, then click **OK**:
 
    | **Setting** | **Value** | **Details**
    |---|---|---|
    |**Name**|AdatumAppGateway|The name of the application gateway|
    |**Tier**|WAF|Available values are Standard and WAF. Visit [web application firewall](application-gateway-web-application-firewall-overview.md) to learn more about WAF.|
-   |**SKU Size**|Medium|Choices when choosing Standard tier are Small, Medium and Large. When choosing WAF tier, options are Medium and Large only.|
+   |**SKU Size**|Medium|Choices when choosing Standard tier are Small, Medium, and Large. When choosing WAF tier, options are Medium and Large only.|
    |**Instance count**|2|Number of instances of the application gateway for high availability. Instance counts of 1 should only be used for testing purposes.|
    |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
    |**Resource group**|**Create new:** AdatumAppGatewayRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) overview article.|
@@ -105,11 +105,11 @@ This scenario will:
 
    ![blade showing basic settings][2-2]
 
-1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This will open enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
+1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This opens enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
 
    ![choose a virtual network][2]
 
-1. On the **Create virtual network blade** enter the following values, then click **OK**. This will close the **Create virtual network** and **Choose virtual network** blades. This will also populate the **Subnet** field on the **Settings** blade with the subnet chosen.
+1. On the **Create virtual network blade** enter the following values, then click **OK**. This closes the **Create virtual network** and **Choose virtual network** blades. This will also populate the **Subnet** field on the **Settings** blade with the subnet chosen.
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
@@ -124,7 +124,7 @@ This scenario will:
 
    ![choose public ip][3]
 
-1. On the **Create public IP address** blade, accept the default value and click **OK**. This will close the **Choose public IP address** blade, the **Create public IP address** blade, and populate **Public IP address** with the public IP address chosen.
+1. On the **Create public IP address** blade, accept the default value, and click **OK**. This closes the **Choose public IP address** blade, the **Create public IP address** blade, and populate **Public IP address** with the public IP address chosen.
 
 1. On the **Settings** blade under **Listener configuration** click **HTTP** under **Protocol**. To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.
 
@@ -149,7 +149,7 @@ These steps create a basic application gateway with default settings for the lis
 
 ## Next steps
 
-Next, you can learn how to configure a custom domain alias for the [public IP address](../dns/dns-custom-domain.md#public-ip-address) address using Azure DNS or another DNS provider.
+Next, you can learn how to configure a custom domain alias for the [public IP address](../dns/dns-custom-domain.md#public-ip-address) using Azure DNS or another DNS provider.
 
 Learn how to configure diagnostic logging, to log the events that are detected or prevented with web application firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 

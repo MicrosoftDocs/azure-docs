@@ -23,7 +23,7 @@ ms.author: gwallace
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
-Learn how to create an web application firewall enabled application gateway or add web application firewall to an existing application gateway.
+Learn how to create a web application firewall enabled application gateway or add web application firewall to an existing application gateway.
 
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
@@ -113,14 +113,14 @@ New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
-In the preceding example, we created a resource group called "appgw-RG" and location "West US".
+In the preceding example, we created a resource group called "appgw-RG" and location "West US."
 
 > [!NOTE]
 > If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
 ### Configure virtual network
 
-Application Gateway requires a subnet of its own. In this step you create a virtual network with an address space of 10.0.0.0/16 and two subnets, one for the application gateway and one for backend pool members.
+Application Gateway requires a subnet of its own. In this step, you create a virtual network with an address space of 10.0.0.0/16 and two subnets, one for the application gateway and one for backend pool members.
 
 ```powershell
 # Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
