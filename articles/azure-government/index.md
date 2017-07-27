@@ -1,5 +1,17 @@
 ---
+title: Azure Government Documentation - Tutorials, API Reference | Microsoft Docs
+description: 
+services: Azure-government
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: Azure-government
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Azure Government Documentation
 
@@ -8,7 +20,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="../azure-government-overview?toc=%2fazure%2fazure-government%2ftoc.json">
+        <a href="/azure/azure-government/documentation-government-welcome">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -26,7 +38,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-government">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?tag=azure-government">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,45 +59,40 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Azure Government REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p><a href="/azure/azure-government/documentation-government-image-gallery">Images</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace for partners</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	 <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Azure Government Managed Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Services</h3>
+                        <p><a href="/azure/azure-government/documentation-government-compute">Compute</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-storage">Storage</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-database">Database</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-networking">Networking</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-securityandidentity">Security + Identity</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Monitoring + Management</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Web + Mobile</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	</ul>
+</ul>
 	
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Government Documentation
-        </div>
-    </a>
-</div>
+

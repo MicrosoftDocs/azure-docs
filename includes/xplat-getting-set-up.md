@@ -16,7 +16,7 @@ ms.author: rasquill
 
 ---
 ## Using Azure CLI
-The following steps help you use Azure CLI easily with the most recent version and the proper subscription. If you need to install Azure CLI and connect it to your account first, see the [Azure Command-Line Interface (Azure CLI)](../articles/xplat-cli-install.md).
+The following steps help you use Azure CLI easily with the most recent version and the proper subscription. If you need to install Azure CLI and connect it to your account first, see the [Azure Command-Line Interface (Azure CLI)](../articles/cli-install-nodejs.md).
 
 ### Step 1: Update Azure CLI version
 To use Azure CLI for imperative commands with service management mode, you should have a recent version if possible. To verify your version, type `azure --version`. You should see something like:

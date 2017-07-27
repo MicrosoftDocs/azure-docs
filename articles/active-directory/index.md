@@ -1,10 +1,24 @@
 ---
 layout: LandingPage
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+services: active-directory
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: active-directory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # Azure Active Directory Documentation
 
-Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.  Azure AD offers identity and access capabilities for applications running in Azure as well as on Premises.  
+Learn how to synchronize directories and enable single sign-on with Azure Active Directory (Azure AD). Tutorials, API references, and other documentation show you how to integrate identity management capabilities including multi-factor authentication, device registration, role-based access control, and security monitoring and alerting.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -26,7 +40,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,74 +97,43 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Reference</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azure/overview?azureadps=2.0">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/ad">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure Active Directory Using Azure CLI</p>
-                    </div>
+                        <h3>Languages</h3>
+                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Azure Active Directory .NET Reference</p>
+                        <h3>Other</h3>
+                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Service limits and restrictions</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Azure Java API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-   </ul>
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Active Directory Documentation
-        </div>
-    </a>
-</div>
+</ul>

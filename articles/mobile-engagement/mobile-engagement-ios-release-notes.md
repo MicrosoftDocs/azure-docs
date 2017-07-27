@@ -13,11 +13,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement iOS SDK release notes
+
+## 4.1.0 (07/17/2017)
+* Fixed badges cleared in background.
+* Fixed warnings on XCode 9 about APIs not called in main queue.
+* Fixed a memory leak in Reach polls.
+* Dropped support for iOS 6.X. Starting from this version the deployment target of your application must be at least iOS 7.
+
+## 4.0.1 (12/13/2016)
+* Improved log delivery in background.
+
 ## 4.0.0 (09/12/2016)
 * Fixed notification not actioned on iOS 10 devices.
 * Deprecate XCode 7.
@@ -64,4 +74,3 @@ ms.author: piyushjo
 * Removed API to send and receive messages between devices.
 * Security improvements.
 * SmartAd tracking removed.
-

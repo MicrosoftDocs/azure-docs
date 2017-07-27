@@ -29,7 +29,7 @@ Consider using jobs when: a solution back end needs to schedule and track progre
 * Invoke direct methods
 
 ## Job lifecycle
-Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`).  Once a job is initiated, querying for jobs will enable the back-end app to refresh the status of running jobs.
+Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`).  Once a job is initiated, querying for jobs enables the back-end app to refresh the status of running jobs.
 
 > [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -43,7 +43,7 @@ The following reference topics provide you with more information about using job
 The following is the HTTP 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
 
     ```
-    PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -56,20 +56,28 @@ The following is the HTTP 1.1 request details for executing a [direct method][ln
         cloudToDeviceMethod: {
             methodName: '<methodName>',
             payload: <payload>,                 
-            timeoutInSeconds: methodTimeoutInSeconds 
+            responseTimeoutInSeconds: methodTimeoutInSeconds 
         },
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
+The query condition can also be on a single device Id or on a list of device Ids as shown below
+
+**Examples**
+```
+queryCondition = "deviceId = 'MyDevice1'"
+queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
+queryCondition = "deviceId IN ['MyDevice1']
+```
+[IoT Hub Query Language][lnk-query] covers IoT Hub query language in additional detail.
 
 ## Jobs to update device twin properties
 The following is the HTTP 1.1 request details for updating device twin properties using a job:
 
     ```
-    PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
@@ -79,8 +87,7 @@ The following is the HTTP 1.1 request details for updating device twin propertie
         jobId: '<jobId>',
         type: 'scheduleTwinUpdate', 
         updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
@@ -90,7 +97,7 @@ The following is the HTTP 1.1 request details for updating device twin propertie
 The following is the HTTP 1.1 request details for [querying for jobs][lnk-query]:
 
     ```
-    GET /jobs/v2/query?api-version=2016-09-30-preview[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -120,7 +127,7 @@ The following is a list of properties and corresponding descriptions, which can 
 | **completed** : Job has completed. | |
 | **deviceJobStatistics** |Statistics about the job's execution. |
 
-During the preview, the deviceJobStatistics object is available only after the job is completed.
+**deviceJobStatistics** properties.
 
 | Property | Description |
 | --- | --- |
@@ -136,7 +143,7 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
-* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps

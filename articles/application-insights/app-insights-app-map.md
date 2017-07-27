@@ -1,10 +1,10 @@
 ---
-title: Application Map in Application Insights | Microsoft Docs
+title: Application Map in Azure Application Insights | Microsoft Docs
 description: A visual presentation of the dependencies between app components, labeled with KPIs and alerts.
 services: application-insights
 documentationcenter: ''
 author: SoubhagyaDash
-manager: douge
+manager: carmonm
 
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: cfreeman
 
 ---
 # Application Map in Application Insights
@@ -46,7 +46,7 @@ If you have many dependencies of one type (SQL, HTTP etc.), they may appear grou
 ## Spot problems
 Each node has relevant performance indicators, such as the load, performance, and failure rates for that component. 
 
-Warning icons highlight possible problems. An orange warning means there are failures in requests, page views or dependency calls. Red means a failure rate above 5%.
+Warning icons highlight possible problems. An orange warning means there are failures in requests, page views or dependency calls. Red means a failure rate above 5%. If you want to adjust these thresholds, open Options.
 
 ![failure icons](./media/app-insights-app-map/04.png)
 
@@ -82,23 +82,46 @@ To save the filters you have applied, pin the filtered view onto a [dashboard](a
 
 ![Pin to dashboard](./media/app-insights-app-map/12.png)
 
+## Error pane
+When you click a node in the map, an error pane is displayed on the right-hand side summarizing failures for that node. Failures are grouped first by operation ID and then grouped by problem ID.
+
+![Error pane](./media/app-insights-app-map/error-pane.png)
+
+Clicking on a failure takes you to the most recent instance of that failure.
+
+## Resource health
+For some resource types, resource health is displayed at the top of the error pane. For example, clicking a SQL node will show the database health and any alerts that have fired.
+
+![Resource health](./media/app-insights-app-map/resource-health.png)
+
+You can click the resource name to view standard overview metrics for that resource.
+
 ## End-to-end system app maps
+
+*Requires SDK version 2.3 or higher*
 
 If your application has several components - for example, a back-end service in addition to the web app - then you can show them all on one integrated app map.
 
 ![Set filters](./media/app-insights-app-map/multi-component-app-map.png)
 
-The app map finds server nodes by looking for all Application Insights resources within the current resource group. It also detects server nodes by following any dependency calls tracked by Application Insights resources in the current resource group.
+The app map finds server nodes by following any HTTP dependency calls made between servers with the Application Insights SDK installed. Each Application Insights resource is assumed to contain one server.
 
+### Multi-role app map (preview)
 
-### Setting up
+The preview multi-role app map feature allows you to use the app map with multiple servers sending data to the same Application Insights resource  / instrumentation key. Servers in the map are segmented by the cloud_RoleName property on telemetry items. Set *Multi-role Application Map* to *On* from the Previews blade to enable this configuration.
 
-> [!NOTE] 
-> End-to-end system app map is in preview. You have to instrument your components with a special version of the SDK, and you have to use a special URL to see the app map. [Learn how to set up end-to-end system app maps](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
+This approach may be desired in a micro-services application, or in other scenarios where you want to correlate events across multiple servers within a single Application Insights resource.
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## Feedback
-Please [provide feedback through the portal feedback option](app-insights-get-dev-support.md).
+Please provide feedback through the portal feedback option.
 
 ![MapLink-1 image](./media/app-insights-app-map/13.png)
 
+
+## Next steps
+
+* [Azure portal](https://portal.azure.com)

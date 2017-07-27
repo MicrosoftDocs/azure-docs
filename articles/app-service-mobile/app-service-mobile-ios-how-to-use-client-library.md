@@ -573,7 +573,7 @@ and allows for additional customization.
    replacements:
 
    * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The
-     format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied from the Domain
+     format should be https://login.microsoftonline.com/contoso.onmicrosoft.com. This value can be copied from the Domain
      tab in your Azure Active Directory in the [Azure classic portal].
    * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the
      client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
@@ -915,7 +915,7 @@ Google SDK in the future.
 [Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
+[CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Fabric Dashboard]: https://www.fabric.io/home

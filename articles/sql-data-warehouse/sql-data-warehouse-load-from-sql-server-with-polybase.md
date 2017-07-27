@@ -13,8 +13,10 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+
 
 ---
 # Load data with PolyBase in SQL Data Warehouse
@@ -31,7 +33,7 @@ This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and
 * Create database objects to define the data
 * Run a T-SQL query to load the data
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 

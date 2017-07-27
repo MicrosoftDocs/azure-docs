@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: mbaldwin
+ms.date: 07/05/2017
+ms.author: ambapat
 
 ---
-# Azure Key Vault Service Limits
-These are the service limits for Azure Key Vault.
+# Azure Key Vault service limits
+Here are the service limits for Azure Key Vault.
 
 [!INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 

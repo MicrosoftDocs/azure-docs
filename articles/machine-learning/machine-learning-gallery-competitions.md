@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 
 ---
@@ -23,6 +23,8 @@ ms.author: roopalik;garye
 ## Cortana Intelligence Competitions
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
 provide an exciting opportunity to compete with the community of data scientists to solve complex problems using Cortana Intelligence Suite.
+
+For answers to frequently-asked questions about Competitions, see [Microsoft Cortana Intelligence Competitions FAQ](machine-learning-competition-faq.md).
 
 ## Discover
   To browse for
@@ -38,9 +40,9 @@ provide an exciting opportunity to compete with the community of data scientists
 competitions.
  Click **See all** to view all
 competitions.
- From this page you can browse all the
+ From this page, you can browse all the
 competitions
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 competition
@@ -50,18 +52,18 @@ competition's
 competition
  to invite other users to view the page.
 
-![Share this item with friends](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## Enter a competition
 If the competition is open, the status on the details page will be **Active**. To enter the competition, click **Enter Competition** and you will be given instructions on the resources you need and the steps you need to take.
 
-![Competition has completed](media\\machine-learning-gallery-competitions\\open-competition.png)
+![Competition has completed](media/machine-learning-gallery-competitions/open-competition.png)
 
-If the competition is no longer open, it's status on the details page will be **Completed** and the **Enter Competition** link will be replaced with the word **Finished**.
+If the competition is no longer open, its status on the details page will be **Completed** and the **Enter Competition** link will be replaced with the word **Finished**.
 
-![Competition has completed](media\\machine-learning-gallery-competitions\\completed-competition.png)
+![Competition has completed](media/machine-learning-gallery-competitions/completed-competition.png)
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 

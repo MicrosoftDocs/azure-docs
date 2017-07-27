@@ -3,7 +3,7 @@ title: How to create a support ticket for SQL Data Warehouse | Microsoft Docs
 description: How to create a support ticket in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -13,12 +13,17 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: kevin;barbkess
 
 ---
 # How to create a support ticket for SQL Data Warehouse
-If you having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
+If you are having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
+
+> [!NOTE] 
+> As of 12/20/2016, the resource health check in the Azure portal is not accurate. We are actively working to fix this issue. 
+
 
 ## Create a support ticket
 1. Open the [Azure portal][Azure portal].
@@ -53,7 +58,7 @@ If you having any issues with your SQL Data Warehouse, please create a support t
      If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][Microsoft Premier online portal].  See [Azure support plans][Azure support plan] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][Azure support FAQs].  
      
      ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Select the **Problem Type** and **Category**.
+8. Select the **Problem Type** and **Category**. In this example, we have chosen "Tools" as the Problem type and "Client tools" as the category. 
    
     ![Problem type category](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 9. Describe the problem and choose the level of business impact.
@@ -75,7 +80,7 @@ Additionally, you can connect with the SQL Data Warehouse community on [Stack Ov
 <!--Image references--> 
 
 <!--Article references--> 
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 
 <!--MSDN references--> 
 

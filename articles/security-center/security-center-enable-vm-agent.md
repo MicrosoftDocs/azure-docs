@@ -1,4 +1,4 @@
-﻿---
+---
 title: Enable VM Agent in Azure Security Center | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendation **Enable VM Agent**.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
@@ -24,8 +24,8 @@ The VM Agent is installed by default for VMs that are deployed from the Azure Ma
 
 > [!NOTE]
 > This document introduces the service by using an example deployment. This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations blade**, select **Enable VM Agent**.

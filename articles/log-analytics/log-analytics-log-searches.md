@@ -1,23 +1,24 @@
-﻿---
-title: Log searches in Log Analytics | Microsoft Docs
+---
+title: Find data with log searches in Azure Log Analytics | Microsoft Docs
 description: Log searches allow you to combine and correlate any machine data from multiple sources within your environment.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
-manager: jwhit
+author: bwren
+manager: carmonm
 editor: ''
-
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: banders
+ms.date: 07/07/2017
+ms.author: bwren
+ms.custom: H1Hack27Feb2017
 
 ---
-# Log searches in Log Analytics
+# Find data using log searches
+
 At the core of Log Analytics is the log search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Solutions are also powered by log search to bring you metrics pivoted around a particular problem area.
 
 On the Search page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.
@@ -130,6 +131,24 @@ Similarly, this the following query return **% CPU Time** for the selected two c
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
 ```
 
+### Field types
+When creating filters, you should understand the differences in working with different types of fields returned by log searches.
+
+**Searchable fields** show in blue in search results.  You can use searchable fields in search conditions specific to the field such as the following:
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+**Free text searchable fields** are shown in grey in search results.  They cannot be used with search conditions specific to the field like searchable fields.  They are only searched when performing a query across all fields such as the following.
+
+```
+"Error"
+Type: Event "Exception"
+```
+
 
 ### Boolean operators
 With datetime and numeric fields, you can search for values using *greater than*, *lesser than*, and *lesser than or equal*. You can use simple operators such as >, < , >=, <= , != in the query search bar.
@@ -142,7 +161,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### To search using a boolean operator
-* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![search with boolean](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Although you can control the time interval graphically, and most times you might want to do that, there are advantages to including a time filter directly into the query. For example, this works great with dashboards where you can override the time for each tile, regardless of the *global* time selector on the dashboard page. For more information, see [Time Matters in Dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -177,8 +196,8 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 > [!NOTE]
 > The range syntax you must use is the colon (:) field:value separator and *not* the equal sign (=). Enclose the lower and upper end of the range in square brackets and separate them with two periods (..).
-> 
-> 
+>
+>
 
 ## Manipulate search results
 When you're searching for data, you'll want to refine your search query and have a good level of control over the results. When results are retrieved, you can apply commands to transform them.
@@ -242,7 +261,7 @@ The SELECT command behaves like Select-Object in PowerShell. It returns filtered
 3. Select some of those explicitly, and the query changes to `Type=Event | Select Computer,EventID,RenderedDescription`.  
     ![search select](./media/log-analytics-log-searches/oms-search-select.png)
 
-This is command particularly useful when you want to control search output and choose only the portions of data that really matter for your exploration, which often isn’t the full record. This is also useful when records of different types have *some* common properties, but not *all* of their properties are common. The, you can generate output that looks more naturally like a table, or work well when exported to a CSV file and then massaged in Excel.
+This command is particularly useful when you want to control search output and choose only the portions of data that really matter for your exploration, which often isn’t the full record. This is also useful when records of different types have *some* common properties, but not *all* of their properties are common. The, you can generate output that looks more naturally like a table, or work well when exported to a CSV file and then massaged in Excel.
 
 ## Use the measure command
 MEASURE is one of the most versatile commands in Log Analytics searches. It allows you to apply statistical *functions* to your data and aggregate results grouped by a given field. There are multiple statistical functions that Measure supports.
@@ -571,4 +590,3 @@ For additional information about log searches, see:
 
 * Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) to extend log searches.
 * Review the [Log Analytics log search reference](log-analytics-search-reference.md) to view all of the search fields and facets available in Log Analytics.
-

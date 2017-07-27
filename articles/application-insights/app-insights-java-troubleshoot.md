@@ -3,8 +3,8 @@ title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 services: application-insights
 documentationcenter: java
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Troubleshooting and Q and A for Application Insights for Java
 Questions or problems with [Azure Application Insights in Java][java]? Here are some tips.
 
 ## Build errors
-*In Eclipse, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.*
+**In Eclipse, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.**
 
 * If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[1.0,)</version>` or (Gradle) `version:'1.0.+'`), try specifying a specific version instead like `1.0.2`. See the [release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) for the latest version.
 
 ## No data
-*I added Application Insights successfully and ran my app, but I've never seen data in the portal.*
+**I added Application Insights successfully and ran my app, but I've never seen data in the portal.**
 
 * Wait a minute and click Refresh. The charts refresh themselves periodically, but you can also refresh manually. The refresh interval depends on the time range of the chart.
 * Check that you have an instrumentation key defined in the ApplicationInsights.xml file (in the resources folder in your project)
@@ -44,7 +44,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Open the Quotas and Pricing blade and check whether [sampling](app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry. 
 
 ## No usage data
-*I see data about requests and response times, but no page view, browser, or user data.*
+**I see data about requests and response times, but no page view, browser, or user data.**
 
 You successfully set up your app to send telemetry from the server. Now your next step is to [set up your web pages to send telemetry from the web browser][usage].
 
@@ -54,24 +54,29 @@ Use the same instrumentation key to set up both your client and server telemetry
 
 
 ## Disabling telemetry
-*How can I disable telemetry collection?*
+**How can I disable telemetry collection?**
 
 In code:
 
+```Java
+
     TelemetryConfiguration config = TelemetryConfiguration.getActive();
     config.setTrackingIsDisabled(true);
-
+```
 
 **Or** 
 
 Update ApplicationInsights.xml (in the resources folder in your project). Add the following under the root node:
 
+```XML
+
     <DisableTelemetry>true</DisableTelemetry>
+```
 
 Using the XML method, you have to restart the application when you change the value.
 
 ## Changing the target
-*How can I change which Azure resource my project sends data to?*
+**How can I change which Azure resource my project sends data to?**
 
 * [Get the instrumentation key of the new resource.][java]
 * If you added Application Insights to your project using the Azure Toolkit for Eclipse, right click your web project, select **Azure**, **Configure Application Insights**, and change the key.
@@ -79,23 +84,25 @@ Using the XML method, you have to restart the application when you change the va
 
 ## Debug data from the SDK
 
+**How can I find out what the SDK is doing?**
+
 To get more information about what's happening in the API, add `<SDKLogger/>` under the root node of the ApplicationInsights.xml configuration file.
 
 You can also instruct the logger to output to a file:
 
 ```XML
 
-    <SDKLogger type="File">
+    <SDKLogger type="FILE">
       <enabled>True</enabled>
-      <uniqueprefix>JavaSDKLog</uniqueprefix>
+      <UniquePrefix>JavaSDKLog</UniquePrefix>
     </SDKLogger>
 ```
 
-The files can be found under `%temp%\javasdklogs`.
+The files can be found under `%temp%\javasdklogs` or `java.io.tmpdir` in case of Tomcat server.
 
 
 ## The Azure start screen
-*I'm looking at [the Azure portal](https://portal.azure.com). Does the map tell me something about my app?*
+**I'm looking at [the Azure portal](https://portal.azure.com). Does the map tell me something about my app?**
 
 No, it shows the health of Azure servers around the world.
 
@@ -104,19 +111,19 @@ No, it shows the health of Azure servers around the world.
 Assuming you [set up your app for Application Insights][java], click Browse, select Application Insights, and select the app resource you created for your app. To get there faster in future, you can pin your app to the start board.
 
 ## Intranet servers
-*Can I monitor a server on my intranet?*
+**Can I monitor a server on my intranet?**
 
 Yes, provided your server can send telemetry to the Application Insights portal through the public internet. 
 
 In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 
 ## Data retention
-*How long is data retained in the portal? Is it secure?*
+**How long is data retained in the portal? Is it secure?**
 
 See [Data retention and privacy][data].
 
 ## Next steps
-*I set up Application Insights for my Java server app. What else can I do?*
+**I set up Application Insights for my Java server app. What else can I do?**
 
 * [Monitor availability of your web pages][availability]
 * [Monitor web page usage][usage]
@@ -135,5 +142,5 @@ See [Data retention and privacy][data].
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

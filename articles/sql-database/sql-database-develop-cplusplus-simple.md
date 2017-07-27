@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
 ms.service: sql-database
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 03/06/2017
 ms.author: tobiast
 
 ---
@@ -36,7 +37,7 @@ Azure currently has two options for hosting SQL server workloads: Azure SQL data
 Connecting to Azure SQL DB is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API. 
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
+See the [getting started page](sql-database-get-started-portal.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
 
 ## <a id="ConnectionString"></a>Step 2:  Get connection string
 After your Azure SQL database has been provisioned, you need to carry out the following steps to determine connection information and add your client IP for firewall access. 
@@ -74,7 +75,7 @@ Alternatively, you could create a DSN file using the wizard that is launched whe
 Congratulations! You have now successfully connected to Azure SQL using C++ and ODBC on Windows. You can continue reading to do the same for Linux platform as well. 
 
 ## <a id="Linux"></a>Step 5: Connecting from a Linux C/C++ application
-In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 For this tutorial, let us assume that you have an Ubuntu 16.04 Linux distribution set up. The steps here should also apply to Ubuntu 15.10, Red Hat 6, and Red Hat 7. 
 
@@ -87,7 +88,7 @@ The following steps install the libraries needed for SQL and ODBC for your distr
     apt-get install msodbcsql
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
-Launch Visual Studio 2015. Under Tools -> options -> cross platform -> C++ -> connection manager, add a connection to your Linux box: 
+Launch Visual Studio. Under Tools -> Options -> Cross Platform -> Connection Manager, add a connection to your Linux box: 
 
 ![Tools Options](./media/sql-database-develop-cplusplus-simple/tools.png)
 
@@ -126,7 +127,7 @@ You can find the GetStarted solution that contains all the samples in this artic
 
 ## Next steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [ODBC API Reference](https://msdn.microsoft.com/library/ms714562\(v=vs.85\).aspx)
+* More information on the [ODBC API Reference](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## Additional resources
 * [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)

@@ -50,5 +50,5 @@ You can set the current Azure subscription by running these commands at the Azur
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](../articles/powershell-install-configure.md#step-3-connect).
+For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](/powershell/azureps-cmdlets-docs#step-3-connect).
 

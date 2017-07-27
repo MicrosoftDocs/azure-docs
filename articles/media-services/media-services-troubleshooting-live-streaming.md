@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting guide for live streaming | Microsoft Docs
 description: This topic gives suggestions on how to troubleshoot live streaming problems.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 07/20/2017
 ms.author: juliako
 
 ---
@@ -58,11 +58,6 @@ This section gives suggestions on how to troubleshoot problems related to on-pre
     rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
   
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
-
-### Problem: Unable to playback the published stream.
-* **Potential issue**: There is no Streaming Endpoint running, or there is no streaming units (scale units) allocated. 
-  
-    **Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
 
 > [!NOTE]
 > If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure portal.

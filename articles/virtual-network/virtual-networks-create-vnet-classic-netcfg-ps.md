@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network using a network configuration file in the Azure portal | Microsoft Docs
+title: Create a virtual network using a network configuration file | PowerShell | Classic | Microsoft Docs
 description: Learn how to create a virtual network using a network configuration file in the Azure portal.
 services: virtual-network
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 03/15/2016
 ms.author: jdial
 
 ---
-# Create a virtual network (classic) by using PowerShell
+# Create a virtual network (classic) using a network configuration file with PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]

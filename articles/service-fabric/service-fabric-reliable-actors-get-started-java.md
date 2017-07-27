@@ -1,5 +1,5 @@
-﻿---
-title: Get started with Service Fabric Reliable Actors | Microsoft Docs
+---
+title: Create your first actor-based Azure microservice in Java | Microsoft Docs
 description: This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2016
+ms.date: 01/04/2017
 ms.author: vturecek
 
 ---
@@ -174,14 +174,30 @@ This is a simple test client application you can run separately from the Service
 Finally, the application packages the actor service and any other services you might add in the future together for deployment. It contains the *ApplicationManifest.xml* and place holders for the actor service package.
 
 ## Run the application
-The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and un-deploy the application. To run the application, first build the application with gradle:
+
+The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and remove the
+application. To deploy the application, first build the application with gradle:
 
 ```bash
 $ gradle
 ```
 
-This will produce a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Simply run the install.sh script to deploy:
+This will produce a Service Fabric application package that can be deployed using Service Fabric CLI tools.
 
-```bask
+### Deploy with XPlat CLI
+
+If using the XPlat CLI, the install.sh script contains the necessary Azure CLI commands to deploy the application 
+package. Run the install.sh script to deploy the application.
+
+```bash
 $ ./install.sh
 ```
+
+### Deploy with Azure CLI 2.0
+
+If using the Azure CLI 2.0, see the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+
+## Related articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

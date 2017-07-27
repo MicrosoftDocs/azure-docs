@@ -1,10 +1,10 @@
----
-title: Create a virtual network using PowerShell | Microsoft Docs
-description: Learn how to create a virtual network using PowerShell | Resource Manager.
+﻿---
+title: Create a virtual network - Azure PowerShell | Microsoft Docs
+description: Learn how to create a virtual network using PowerShell.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 01/03/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017 
 
 ---
 # Create a virtual network using PowerShell
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure has two deployment models: Azure Resource Manager and classic. Microsoft recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../resource-manager-deployment-model.md) article.
+Azure has two deployment models: Azure Resource Manager and classic. Microsoft recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
  
 This article explains how to create a VNet through the Resource Manager deployment model using PowerShell. You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
-- [Template](virtual-networks-create-vnet-arm-template-click.md)
-- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [CLI](virtual-networks-create-vnet-arm-cli.md)
+> * [Template](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -41,7 +42,7 @@ This article explains how to create a VNet through the Resource Manager deployme
 
 To create a virtual network using PowerShell, complete the following steps:
 
-1. Install and configure Azure PowerShell, by following the steps in the [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) article.
+1. Install and configure Azure PowerShell, by following the steps in the [How to Install and Configure Azure PowerShell](/powershell/azure/overview) article.
 
 2. If necessary, create a new resource group, as shown below. For this scenario, create a resource group named *TestRG*. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
 

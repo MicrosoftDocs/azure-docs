@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -30,7 +30,7 @@ By following this tutorial, you will build a simple registration web app in PHP.
 ![Azure PHP Web Site][running-app]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required, no commitments. 
+> If you want to get started with Azure App Service before signing up for an account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required, no commitments. 
 > 
 > 
 

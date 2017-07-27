@@ -1,4 +1,5 @@
-﻿---
+---
+
 title: Integrate Azure Active Directory single sign-on with SaaS apps | Microsoft Docs
 description: Enable single sign-on authentication and user provisioning centralized access management of SaaS apps in Azure Active Directory. An overview of how to integrate Azure Active Directory to SaaS apps.
 services: active-directory
@@ -14,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 05/04/2017
 ms.author: curtand
 
 ---
@@ -22,8 +23,8 @@ ms.author: curtand
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-enterprise-apps-manage-sso.md)
 > * [Azure classic portal](active-directory-sso-integrate-saas-apps.md)
-> 
-> 
+>
+>
 
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
@@ -47,8 +48,8 @@ Setting up single sign on for an application that your organization already uses
 
 > [!NOTE]
 > To set up SSO for an existing application, you need to have global administrator rights in both Azure AD and the SaaS application.
-> 
-> 
+>
+>
 
 ### Mapping user accounts
 A user's identity typically has a unique identifier that could be an email address, or user principal name (UPN). You will need to link (map) each user's application identity to their respective Azure AD identity. There are a couple of ways to accomplish this depending on how the requirement of your application authentication.
@@ -71,6 +72,4 @@ application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app
 There is much more detail on all of these issues in the Azure.com library,
 beginning with [What is application access and single sign-on with Azure Active Directory.](active-directory-appssoaccess-whatis.md).
 
-## See also
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-
+Plus, don't miss the [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md).

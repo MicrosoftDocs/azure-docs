@@ -1,10 +1,10 @@
 ---
-title: VPN Gateway planning and design| Microsoft Docs
+title: 'Planning and design for cross-premises connections: Azure VPN Gateway| Microsoft Docs'
 description: Learn about VPN Gateway planning and design for cross-premises, hybrid, and VNet-to-VNet connections
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 06/06/2017
 ms.author: cherylmc
 
 ---
@@ -33,20 +33,16 @@ If you want to connect your on-premises sites securely to a virtual network, you
 * What type of VPN gateway is required for the solution you want to create?
 * Which gateway SKU should you use?
 
+
+### Planning table
 The following table can help you decide the best connectivity option for your solution.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gwrequire"></a>Gateway requirements by VPN type and SKU
-[!INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-For more information about gateway SKUs, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-
-#### Aggregate throughput by SKU and VPN type
+### Gateway SKUs
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-#### Supported configurations by SKU and VPN type
-[!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ### <a name="wf"></a>Workflow
 The following list outlines the common workflow for cloud connectivity:
@@ -112,13 +108,11 @@ For most configurations, you can configure forced tunneling. Forced tunneling le
 
 Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
+A forced tunneling connection can be configured in both deployment models and by using different tools. For more information, see [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md).
+
 **Forced tunneling diagram**
 
-![Forced Tunneling connection](./media/vpn-gateway-plan-design/forced-tunnel.png "forced tunneling")
-
-A forced tunneling connection can be configured in both deployment models and by using different tools. See the following table for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
-
-[!INCLUDE [vpn-gateway-table-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
+![Azure VPN Gateway forced tunneling diagram](./media/vpn-gateway-plan-design/forced-tunneling-diagram.png)
 
 ## Next steps
 See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateway](vpn-gateway-about-vpngateways.md) articles for more information to help you with your design.

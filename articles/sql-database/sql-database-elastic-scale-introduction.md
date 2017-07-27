@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scaling out with Azure SQL Database | Microsoft Docs
 description: Software as a Service (SaaS) developers can easily create elastic, scalable databases in the cloud using these tools
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -32,7 +33,7 @@ In this graphic, colors of the database represent schemas. Databases with the sa
 
 1. A set of **Azure SQL databases** are hosted on Azure using sharding architecture.
 2. The **Elastic Database client library** is used to manage a shard set.
-3. A subset of the databases are put into an **Elastic Database pool**. (See [What is a pool?](sql-database-elastic-pool.md)).
+3. A subset of the databases are put into an **elastic pool**. (See [What is a pool?](sql-database-elastic-pool.md)).
 4. An **Elastic Database job** runs scheduled or ad-hoc T-SQL scripts against all databases.
 5. The **split-merge tool** is used to move data from one shard to another.
 6. The **Elastic Database query** allows you to write a query that spans all databases in the shard set.
@@ -44,7 +45,7 @@ In this graphic, colors of the database represent schemas. Databases with the sa
 Achieving elasticity and scale for cloud applications has been straightforward for VMs and blob storage--simply add or subtract units, or increase power. But it has remained a challenge for stateful data processing in relational databases. Challenges emerged in these scenarios:
 
 * Growing and shrinking capacity for the relational database part of your workload.
-* Managing hotspots that may arise affecting a specific subset of data – such as a particularly busy end-customer (tenant).
+* Managing hotspots that may arise affecting a specific subset of data - such as a particularly busy end-customer (tenant).
 
 Traditionally, scenarios like these have been addressed by investing in larger-scale database servers to support the application. However, this option is limited in the cloud where all processing happens on predefined commodity hardware. Instead, distributing data and processing across many identically-structured databases (a scale-out pattern known as "sharding") provides an alternative to traditional scale-up approaches both in terms of cost and elasticity.
 
@@ -75,11 +76,11 @@ In other scenarios, such as ingestion of data from distributed devices, sharding
 Sharding works best when every transaction in an application can be restricted to a single value of a sharding key. That ensures that all transactions will be local to a specific database.
 
 ## Multi-tenant and single-tenant
-Some applications use the simplest approach of creating a separate database for each tenant. This is the **single tenant sharding pattern** that provides isolation, backup/restore ability and resource scaling at the granularity of the tenant. With single tenant sharding, each database is associated with a specific tenant ID value (or customer key value), but that key need not always be present in the data itself. It is the application’s responsibility to route each request to the appropriate database – and the client library can simplify this.
+Some applications use the simplest approach of creating a separate database for each tenant. This is the **single tenant sharding pattern** that provides isolation, backup/restore ability and resource scaling at the granularity of the tenant. With single tenant sharding, each database is associated with a specific tenant ID value (or customer key value), but that key need not always be present in the data itself. It is the application’s responsibility to route each request to the appropriate database - and the client library can simplify this.
 
 ![Single tenant versus multi-tenant][4]
 
-Others scenarios pack multiple tenants together into databases, rather than isolating them into separate databases. This is a typical **multi-tenant sharding pattern** – and it may be driven by the fact that an application manages large numbers of very small tenants. In multi-tenant sharding, the rows in the database tables are all designed to carry a key identifying the tenant ID or sharding key. Again, the application tier is responsible for routing a tenant’s request to the appropriate database, and this can be supported by the elastic database client library. In addition, row-level security can be used to filter which rows each tenant can access – for details, see [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistributing data among databases may be needed with the multi-tenant sharding pattern, and this is facilitated by the elastic database split-merge tool. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Others scenarios pack multiple tenants together into databases, rather than isolating them into separate databases. This is a typical **multi-tenant sharding pattern** - and it may be driven by the fact that an application manages large numbers of very small tenants. In multi-tenant sharding, the rows in the database tables are all designed to carry a key identifying the tenant ID or sharding key. Again, the application tier is responsible for routing a tenant’s request to the appropriate database, and this can be supported by the elastic database client library. In addition, row-level security can be used to filter which rows each tenant can access - for details, see [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistributing data among databases may be needed with the multi-tenant sharding pattern, and this is facilitated by the elastic database split-merge tool. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ### Move data from multiple to single-tenancy databases
 When creating a SaaS application, it is typical to offer prospective customers a trial version of the software. In this case, it is cost-effective to use a multi-tenant database for the data. However, when a prospect becomes a customer, a single-tenant database is better since it provides better performance. If the customer had created data during the trial period, use the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) to move the data from the multi-tenant to the new single-tenant database.
@@ -89,7 +90,7 @@ For a sample app that demonstrates the client library, see [Get started with Ela
 
 To convert existing databases to use the tools, see [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-To see the specifics of the Elastic Database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-create-portal.md).  
+To see the specifics of the elastic pool, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md), or create a new pool with [elastic pools](sql-database-elastic-pool-manage-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

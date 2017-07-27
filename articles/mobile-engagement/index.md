@@ -1,9 +1,22 @@
 ---
+title: Azure Mobile Engagement Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to get insights into mobile app usage and real-time user segmentation, and how to enable contextually-aware push notifications and in-app messaging.
+services: mobile-engagement
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: mobile-engagement
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 # Mobile Engagement Documentation
 
-Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platform that provides data-driven insights into app usage, user segmentation, and enables push notifications and in-app messaging.
+Learn how to increase the usage, retention, and monetization of mobile apps with Mobile Engagement. Tutorials, SDKs, and other documentation show you how to get insights into app usage and real-time user segmentation, and how to enable contextually-aware push notifications and in-app messaging.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +38,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=mobile-engagement">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=mobile-engagement">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -172,12 +185,22 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Mobile Engagement Documentation
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">.NET</a></p>
+                   </div>
+                </div>
+            </div>
         </div>
-    </a>
-</div>
+    </li>
+</ul>
+
+---
+
 

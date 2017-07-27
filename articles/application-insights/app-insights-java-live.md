@@ -4,7 +4,7 @@ description: Start monitoring a web application that is already running on your 
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 12f3dbb9-915f-4087-87c9-807286030b0b
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights for Java web apps that are already live
@@ -30,13 +30,13 @@ You'll need a subscription to [Microsoft Azure](https://azure.com).
 
 ## 1. Get an Application Insights instrumentation key
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com)
-2. Create a new Application Insights resource
-   
-    ![Click + and choose Application Insights](./media/app-insights-java-live/01-create.png)
-3. Set the application type to Java web application.
+2. Create a new Application Insights resource and set the application type to Java web application.
    
     ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-live/02-create.png)
-4. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
+
+    The resource is created in a few seconds.
+
+4. Open the new resource and get its instrumentation key. You'll need to paste this key into your code project shortly.
    
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-live/03-key.png)
 
@@ -50,6 +50,8 @@ Note that you need to repeat this on each server instance, and for each app.
 Create ApplicationInsights.xml in the folder in which you added the SDK. Put into it the following XML.
 
 Substitute the instrumentation key that you got from the Azure portal.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -80,7 +82,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
       </TelemetryInitializers>
     </ApplicationInsights>
-
+```
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
@@ -90,6 +92,8 @@ Substitute the instrumentation key that you got from the Azure portal.
 Locate and open the web.xml file in your project, and merge the following snippet of code under the web-app node, where your application filters are configured.
 
 To get the most accurate results, the filter should be mapped before all other filters.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -101,6 +105,7 @@ To get the most accurate results, the filter should be mapped before all other f
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 ## 5. Check firewall exceptions
 You might need to [set exceptions to send outgoing data](app-insights-ip-addresses.md).
@@ -124,7 +129,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 [Learn more about metrics.](app-insights-metrics-explorer.md)
 
 ## Next steps
-* [Add telemetry to your web pages](app-insights-web-track-usage.md) to monitor page views and user metrics.
+* [Add telemetry to your web pages](app-insights-javascript.md) to monitor page views and user metrics.
 * [Set up web tests](app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
 * [Capture log traces](app-insights-java-trace-logs.md)
 * [Search events and logs](app-insights-diagnostic-search.md) to help diagnose problems.

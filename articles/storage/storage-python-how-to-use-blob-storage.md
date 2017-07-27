@@ -3,8 +3,8 @@ title: How to use Azure Blob storage (object storage) from Python | Microsoft Do
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: python
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 0348e360-b24d-41fa-bb12-b8f18990d8bc
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 2/24/2017
+ms.author: marsma
 
 ---
 # How to use Azure Blob storage from Python
@@ -134,7 +134,7 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 Now that you've learned the basics of Blob storage, follow these links
 to learn more.
 
-* [Python Developer Center](/develop/python/)
+* [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure Storage Team Blog]
 * [Microsoft Azure Storage SDK for Python]

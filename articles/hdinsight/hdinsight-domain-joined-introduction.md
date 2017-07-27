@@ -1,5 +1,5 @@
-﻿---
-title: Secure HDInsight Overview| Microsoft Docs
+---
+title: Hadoop security - domain-joined HDInsight clusters - Azure | Microsoft Docs
 description: Learn ....
 services: hdinsight
 documentationcenter: ''
@@ -10,21 +10,24 @@ tags: azure-portal
 
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 
 ---
-# An introduction to Domain-joined HDInsight clusters (Preview)
+# An introduction to Hadoop security with domain-joined HDInsight clusters (Preview)
+
 Azure HDInsight until today supported only a single user local admin. This worked great for smaller application teams or departments. As Hadoop based workloads gained more popularity in the enterprise sector, the need for enterprise grade capabilities like active directory based authentication, multi-user support, and role based access control became increasingly important. Using Domain-joined HDInsight clusters, you can create an HDInsight cluster joined to an Active Directory domain, configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. Anyone outside the enterprise cannot log on or access the HDInsight cluster. The enterprise admin can configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data access by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources.
 
 > [!NOTE]
-> The new features described in this preview are available only on Linux-based HDInsight clusters for Hive workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases. 
-> 
-> 
+> The new features described in this preview are available only on Linux-based HDInsight clusters for Hive workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases.
+
+> [!IMPORTANT]
+> Oozie is not enabled on domain-joined HDInsight.
 
 ## Benefits
 Enterprise Security contains four big pillars – Perimeter Security, Authentication, Authorization, and Encryption.
@@ -50,5 +53,4 @@ Protecting data is important for meeting organizational security and compliance 
 * For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 * For managing a Domain-joined HDInsight clusters, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
-
+* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

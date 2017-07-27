@@ -1,6 +1,6 @@
-﻿---
-title: Publish Azure Application Wizard | Microsoft Docs
-description: Publish Azure Application Wizard
+---
+title: Using the Visual Studio Publish Azure Application Wizard | Microsoft Docs
+description: Learn how to configure the various settings in the Visual Studio Publish Azure Application Wizard
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
@@ -13,123 +13,109 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 03/21/2017
 ms.author: tarcher
 
 ---
-# Publish Azure Application Wizard
-## Overview
-After you develop a web application in Visual Studio, you can publish that application more easily to an Azure cloud service by using the **Publish Azure Application** wizard. The first section explains the steps that you must complete before you use the wizard, and the remaining sections explain the features of the wizard.
+# Using the Visual Studio Publish Azure Application Wizard
+After you develop a web application in Visual Studio, you can publish that application to an Azure cloud service by using the **Publish Azure Application** wizard. 
 
 > [!NOTE]
 > This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [How to Deploy an Azure Web Site](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 > 
 > 
 
-## Prerequisites
-Before you can publish your web application to Azure, you need to have a Microsoft account and an Azure subscription, and you have to associate your web application with an Azure cloud service. If you’ve already completed these tasks, you can skip to the next section.
+## Accessing the Publish Azure Application wizard
 
-1. Get a Microsoft account and an Azure subscription. You can try a free one month free Azure subscription [here](https://azure.microsoft.com/pricing/free-trial/)
-2. Create a cloud service and a storage account on Azure. You can do this from Server Explorer in Visual Studio, or by using the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
-3. Enable your web application for Azure. To enable your web application to be published to Azure from Visual Studio, you’ll need to associate it with an Azure cloud service project in Visual Studio. To create the associated cloud service project, open the shortcut menu for the project for your web application, and then choose Convert, **Convert to Azure Cloud Service Project**.
-4. After the cloud service project is added to your solution, open the same shortcut menu again and then choose **Publish**. For more information about how to enable applications for Azure, see [How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx).
+You can access the Publish Azure Application wizard in two ways depending on the type of Visual Studio project you have.
 
-> [!NOTE]
-> Be sure to start Visual Studio with administrator credentials (Run As Administrator).
-> 
-> 
+**If you have an Azure cloud service project:**
 
-1. When you’re ready to publish your application, open the shortcut menu for the Azure cloud service project, and then choose **Publish**. The following steps show the Publish Azure Application wizard.
+1. Create or open an Azure cloud service project in Visual Studio.
 
-## Choosing Your Subscription
-### To choose a subscription
-1. Before you use the wizard for the first time, you must sign in. Choose the **Sign In** link. Sign in to the Azure portal when prompted, and provide your Azure user name and password. 
-   
-    ![This is one of the publishing wizard screens](./media/vs-azure-tools-publish-azure-application-wizard/IC799159.png)
-   
-    The list of subscriptions populates with the subscriptions associated with your account. You might also see subscriptions from any subscription files that you imported previously.
-2. In the **Choose your subscription** list, choose the subscription to use for this deployment.
-   
-   If you choose **<Manage…>**, the **Manage Subscriptions** dialog box appears, and you can choose the subscription and user account you want to use. The **Accounts** tab shows all of your accounts, and the **Subscriptions** tab shows all of the subscriptions associated with the accounts. You can also choose a region from which to use Azure resources, as well as create or import certificates for your subscription from the Azure portal. If you imported any subscriptions from a subscription file, the associated certificates will appear under the **Certificates** tab. When you're done, choose the **Close** button.
-   
-    ![Manage subscriptions](./media/vs-azure-tools-publish-azure-application-wizard/IC799160.png)
-   
-   > [!NOTE]
-   > A subscription file can contain more than one subscription.
-   > 
-   > 
-3. Choose the **Next** button to continue. 
-   
-    If there aren't any cloud services in your subscription, you need to create a cloud service in Azure to host your project. The **Create Cloud Service and Storage Account** dialog box appears.
-   
-    Specify a new name for the cloud service. The name must be unique in Azure. Then specify a region or affinity group for a data center that’s near you or most of your clients. This name is also used for a new storage account that Azure creates for your cloud service.
-4. Modify any settings you want for this deployment and then publish it by choosing the **Publish** button (The next section provides more details about the various settings). To review the settings before publishing, choose the **Next** button.
-   
-   > [!NOTE]
-   > If you chose Publish in this step, you can monitor the status of this deployment in Visual Studio.
-   > 
-   > 
+1. In **Solution Explorer**, right-click the project, and, from the context menu, select **Publish**.
 
-You can modify both common and advanced settings for a deployment by using the **Publish Azure Application** wizard. For example, you can choose a setting to deploy your application to a test environment before you release it. The following illustration shows the **Common Settings** tab for an Azure deployment.
+**If you have a web application project that is not enabled for Azure:**
 
-![Common Settings](./media/vs-azure-tools-publish-azure-application-wizard/IC749013.png)
+1. Create or open an Azure cloud service project in Visual Studio.
 
-## Configuring Your Publish Settings
-### To configure the publish settings
-1. In the **Cloud service** list, perform one of the following sets of steps:
-   
-   1. In the dropdown list box, choose an existing cloud service. The data center location for the service appears. You should note this location and make sure that your storage account location is in the same data center.
-      
-      1. Choose **Create New** to create a cloud service that Azure hosts. In the **Create Cloud Service** dialog box, provide a name for the service, and then specify a region or affinity group to specify the location of the data center that you want to host this cloud service. The name must be unique in Azure.
-2. In the **Environment** list, choose either **Production** or **Staging**. Choose the staging environment if you want to deploy your application to a test environment. You can move your application to the production environment later.
-3. In the **Build configuration** list, choose either **Debug** or **Release**.
-4. In the **Service configuration** list, choose either **Cloud** or **Local**.
-   
-    Select the **Enable Remote Desktop for all roles** check box if you want to be able to remotely connect to the service. This option is primarily used for troubleshooting. When you select this check box, the **Remote Desktop Configuration** dialog box appears. Choose the Settings link to change the configuration.
-   
-    Select the **Enable Web Deploy for all web roles** check box to enable web deployment for the service. You must enable Remote Desktop to use this feature. For more information, see [[Publishing a Cloud Service using the Azure Tools](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx). For more information about Web Deploy, see [[Publishing a Cloud Service using the Azure Tools](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx).
-5. Choose the **Advanced Settings** tab. In the **Deployment label** field, either accept the default name, or enter a name of your choosing. To append the date to the deployment label, leave the check box selected.
-   
-    ![Third screen of the Publishing Wizard](./media/vs-azure-tools-publish-azure-application-wizard/IC749014.png)
-6. In the **Storage account** list, choose the storage account to use for this deployment. Compare the locations of the data centers for your cloud service and your storage account. Ideally, these locations should be the same.
-   
-   > [!NOTE]
-   > The Azure storage account stores the package for the application deployment. After the application is deployed, the package is removed from the storage account.
-   > 
-   > 
-7. Select the **Deployment update** check box if you want to deploy only updated components. This type of deployment can be faster than a full deployment. Choose the **Settings** link to open the **Deployment update settings** dialog box, shown in the following illustration. 
-   
-    ![Deployment Settings](./media/vs-azure-tools-publish-azure-application-wizard/IC617060.png)
-   
-    You can choose either of two options for update deployment, incremental or simultaneous. An incremental deployment updates one deployed instance at a time, so that your application remains online and available to users. A simultaneous deployment updates all deployed instances at once. Simultaneous update is faster than incremental update, but if you choose this option, your application might not be available during the update process.
-   
-    You should select the check box for If deployment can't be updated, do a full deployment if you want the full deployment to take place automatically if an update deployment fails. A full deployment resets the virtual IP (VIP) address for the cloud service. For more information, see [How to: Retain a Constant Virtual IP Address for a Cloud Service](https://msdn.microsoft.com/library/azure/jj614593.aspx).
-8. To debug your service, select the **Enable IntelliTrace** check box, or if you are deploying a **Debug** configuration and want to debug your cloud service in Azure, select the **Enable Remote Debugger for all roles** checkbox to deploy the remote debugging services.
-9. To profile the application, select the **Enable profiling** check box, and then choose the **Settings** link to display the profiling options. 
+1. In **Solution Explorer**, right-click the project, and, from the context menu, select **Convert** > **Convert to Azure Cloud Service Project**. 
 
-    >[AZURE.NOTE] You must use Visual Studio Ultimate to enable either IntelliTrace or Tier Interaction Profiling (TIP), and you can't enable both at the same time.
+1. In **Solution Explorer**, right-click the newly created Azure project, and, from the context menu, select **Publish**.
 
-    For more information, see [Debugging a Published Cloud Service with IntelliTrace and Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx) and [Testing the Performance of a Cloud Service](https://msdn.microsoft.com/library/azure/hh369930.aspx).
+## Sign-in page
 
-1. Choose **Next** to view the summary page for the application.
+![Sign-in page](./media/vs-azure-tools-publish-azure-application-wizard/sign-in.png)
 
-## Publishing Your Application
-1. You can choose to create a publishing profile from the settings that you have chosen. For example, you might create one profile for a test environment and another for production. To save this profile, choose the **Save** icon. The wizard creates the profile and saves it in the Visual Studio project. To modify the profile name, open the **Target profile** list, and then choose **<Manage…>**.
+**Account** - Select an account or select **Add an account** in the account dropdown list.
+
+**Choose your subscription** - Choose the subscription to use for your deployment.
    
-    ![Summary screen of the Publishing Wizard](./media/vs-azure-tools-publish-azure-application-wizard/IC749015.png)
+## Settings page - Common Settings tab   
+
+![Common Settings](./media/vs-azure-tools-publish-azure-application-wizard/settings-common-settings.png)
+
+**Cloud service** - Using the dropdown, either select an existing cloud service, or select **&lt;Create New>**, and create a cloud service. The data center displays in parentheses for each cloud service. It is recommended that the data center location for the cloud service be the same as the data center location for the storage account (Advanced Settings).  
+
+**Environment** - Select either **Production** or **Staging**. Choose the staging environment if you want to deploy your application in a test environment. 
+
+**Build configuration** - Select either **Debug** or **Release**.
+
+**Service configuration** - Select either **Cloud** or **Local**.
+   
+**Enable Remote Desktop for all roles** - Check this option if you want to be able to remotely connect to the service. This option is primarily used for troubleshooting. When you select this check box, the **Remote Desktop Configuration** dialog box appears. Choose the **Settings** link to change the configuration.
+   
+**Enable Web Deploy for all web roles** - Check this option, to enable web deployment for the service. You must select the **Enable Remote Desktop for all roles** option to use this feature. For more information, see [[Publishing a Azure cloud service using Visual Studio](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx). 
+
+## Settings page - Advanced Settings tab
+
+![Advanced settings](./media/vs-azure-tools-publish-azure-application-wizard/settings-advanced-settings.png)
+
+**Deployment label** - Either accept the default name, or enter a name of your choosing. To append the date to the deployment label, leave the check box selected. 
+   
+**Storage account** - Select the storage account to use for this deployment, **&lt;Create New> to create a storage account. The data center displays in parentheses for each storage account. It is recommended that the data center location for the storage account be the same as the data center location for the cloud service (Common Settings).  
+   
+The Azure storage account stores the package for the application deployment. After the application is deployed, the package is removed from the storage account.
+
+**Delete deployment on failure** - Select this option to have the deployment deleted if any errors are encountered during publishing. This should be unchecked if you want to maintain a constant virtual IP address for your cloud service.
+
+**Deployment update** - Select this option if you want to deploy only updated components. This type of deployment can be faster than a full deployment. This should be checked if you want to maintain a constant virtual IP address for your cloud service. 
+
+**Deployment update - settings** - This dialog is used to further specify how you want the roles to be updated. If you choose **Incremental update**, each instance of your application is updated one after another, so that the application is always available. If you choose **Simultaneous update**, all instances of your application are updated at the same time. Simultaneous updating is faster, but your service might not be available during the update process. 
+
+![Deployment settings](./media/vs-azure-tools-publish-azure-application-wizard/deployment-settings.png)
+
+**Enable IntelliTrace** - Specify if you want to enable IntelliTrace. With IntelliTrace, you can log extensive debugging information for a role instance when it runs in Azure. If you need to find the cause of a problem, you can use the IntelliTrace logs to step through your code from Visual Studio as if it were running in Azure. For more information about using IntelliTrace, see [Debugging a published Azure cloud service with Visual Studio and IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md). 
+
+**Enable profiling** - Specify if you want to enable performance profiling. The Visual Studio profiler enables you to get an in-depth analysis of the computational aspects of how your cloud service runs. For more information on using the Visual Studio profiler, see [Test the performance of an Azure cloud service](./vs-azure-tools-performance-profiling-cloud-services.md).
+
+**Enable Remote Debugger for all roles** - Specify if you want to enable remote debugging. For more information on debugging cloud services using Visual Studio, see [Debugging an Azure cloud service or virtual machine in Visual Studio](./vs-azure-tools-debug-cloud-services-virtual-machines.md).
+
+## Diagnostics Settings page
+
+![Diagnostics settings](./media/vs-azure-tools-publish-azure-application-wizard/diagnostic-settings.png)
+
+Diagnostics enables you to troubleshoot an Azure cloud service (or Azure virtual machine). For information about diagnostics, see [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). For information about Application Insights, see [What is Application Insights?](./application-insights/app-insights-overview.md).
+
+## Summary page
+
+![Summary](./media/vs-azure-tools-publish-azure-application-wizard/summary.png)
+
+**Target profile** - You can choose to create a publishing profile from the settings that you have chosen. For example, you might create one profile for a test environment and another for production. To save this profile, choose the **Save** icon. The wizard creates the profile and saves it in the Visual Studio project. To modify the profile name, open the **Target profile** list, and then choose **<Manage…>**.
    
    > [!NOTE]
    > The publishing profile appears in Solution Explorer in Visual Studio, and the profile settings are written to a file with an .azurePubxml extension. Settings are saved as attributes of XML tags.
    > 
    > 
-2. Choose **Publish** to publish your application. You can monitor the process status in the **Output** window in Visual Studio.
 
-## See Also
-[How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx)
+## Publishing your application
 
-[Publishing a Cloud Service using the Azure Tools](https://msdn.microsoft.com/library/azure/ff683672.aspx)
+Once you configure all the settings for your project's deployment, select **Publish** at the bottom of the dialog. You can monitor the process status in the **Output** window in Visual Studio.
 
-[Debugging a Published Cloud Service with IntelliTrace and Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx)
-
-[Testing the Performance of a Cloud Service](https://msdn.microsoft.com/library/azure/hh369930.aspx)
-
+## Next steps
+- [Migrate and publish a Web Application to an Azure cloud service from Visual Studio](./vs-azure-tools-migrate-publish-web-app-to-cloud-service.md)
+- [Learn how to use Visual Studio to publish an Azure cloud service](./vs-azure-tools-publishing-a-cloud-service.md)
+- [Debugging a published Azure cloud service with Visual Studio and IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md)
+- [Test the performance of an Azure cloud service](./vs-azure-tools-performance-profiling-cloud-services.md)
+- [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). 
+- [What is Application Insights?](./application-insights/app-insights-overview.md)

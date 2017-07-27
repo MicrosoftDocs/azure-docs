@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up a new device with Azure AD during Setup| Microsoft Docs
 description: A topic that explains how users can set up Azure AD Join during their first run experience.
 services: active-directory
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 05/16/2017
+ms.author: markvi
 
 ---
 # Set up a new device with Azure AD during Setup

@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 Series Update 2 release notes | Microsoft Docs
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2.
 services: storsimple

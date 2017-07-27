@@ -1,10 +1,10 @@
-﻿---
-title: How to create, manage, or delete a storage account in the Azure Classic Portal | Microsoft Docs
-description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts.
+---
+title: How to create, manage, or delete a storage account in the Azure classic portal | Microsoft Docs
+description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 
 ---

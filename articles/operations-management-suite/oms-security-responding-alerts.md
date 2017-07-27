@@ -4,7 +4,7 @@ description: This document helps you to use the threat intelligence option avail
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
@@ -14,7 +14,7 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 06/13/2017
 ms.author: yurid
 
 ---
@@ -79,7 +79,19 @@ The **threat intelligence map** will help you to identify the current locations 
 > [!NOTE]
 > You can see a demonstration on how to use this capability during an incident response process by watching the presentation [Mitigate datacenter security threats with guided investigation using Operations Management Suite](https://myignite.microsoft.com/videos/5000) delivered at Microsoft Ignite.
 > 
-> 
+
+### Responding to distinct malicious IP accessed
+In some scenarios, you may notice a potential malicious IP that was accessed from one monitored computer:
+
+![threat intel map](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+This alert and others within the same category, are generated via OMS Security by leveraging [Microsoft Threat Intelligence](https://youtu.be/O4WtxgUrDc8). The Threat Intelligence data is collected by Microsoft as well as purchased from leading threat intelligence providers. This data is updated frequently and adapted to fast-moving threats. Due to its nature, it should be combined with other sources of security information while [investigating](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) a security alert. 
+
+## Customize alerts received via e-mail
+
+You can customize which users in your organization will be notified when security alerts are triggered by OMS Security. This option is available under Overview / Settings at the OMS dashboard:
+
+![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
 
 ## See also
 In this document, you learned how to use the **Threat Intelligence** option in OMS Security and Audit solution to respond to security alerts. To learn more about OMS Security, see the following articles:

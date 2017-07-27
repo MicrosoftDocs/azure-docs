@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
 # Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure. To see management topic using other tools, click the tab select above.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure CLI. To see management topics using other tools, click the tab select above.
+
 
 **Prerequisites**
 
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
+* **Azure CLI**. See [Install and configure Azure CLI](../cli-install-nodejs.md).
   * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 * **Authentication**, using the following command:
   
@@ -165,15 +166,6 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
     azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 
 The types include database, schema, assembly, external data source, table, table valued function or table statistics.
-
-### Create catalog secret
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### Modify catalog secret
-      azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### Delete catalog secret
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 <!-- ################################ -->
 <!-- ################################ -->

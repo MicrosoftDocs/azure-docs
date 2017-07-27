@@ -1,4 +1,3 @@
-
 ---
 title: Try Azure RemoteApp on your device in 3 minutes or less | Microsoft Docs
 description: Test drive Azure RemoteApp functionality without installing the service.
@@ -19,7 +18,7 @@ ms.author: mbaldwin
 ---
 # Try Azure RemoteApp on your device in 3 minutes or less
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to Data profile data sources
 description: How-to article highlighting how to include table- and column-level data profiles when registering data sources in Azure Data Catalog, and how to use data profiles to understand data sources.
 services: data-catalog
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/13/2016
+ms.date: 05/03/2017
 ms.author: spelluru
 
 ---
@@ -45,15 +45,15 @@ Including data profiles when registering data assets helps users answer question
 
 > [!NOTE]
 > You can also add documentation to an asset to describe how data could be integrated into an application. See [How to document data sources](data-catalog-how-to-documentation.md).
-> 
-> 
+>
+>
 
 <a name="howto"/>
 
 ## How to include a data profile when registering a data source
 It's easy to include a profile of your data source. When you register a data source, in the **Objects to be registered** panel of the data source registration tool, choose **Include Data Profile**.
 
-![](media\\data-catalog-data-profile\\data-catalog-register-profile.png)
+![](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
 To learn more about how to register data sources, see [How to register data sources](data-catalog-how-to-register.md) and [Get started with Azure Data Catalog](data-catalog-get-started.md).
 
@@ -62,13 +62,13 @@ To discover data assets that include a data profile, you can include `has:tableD
 
 > [!NOTE]
 > Selecting **Include Data Profile** in the data source registration tool includes both table and column-level profile information. However, the Data Catalog API allows data assets to be registered with only one set of profile information included.
-> 
-> 
+>
+>
 
 ## Viewing data profile information
 Once you find a suitable data source with a profile, you can view the data profile details. To view the data profile, select a data asset and choose **Data Profile** in the Data Catalog portal window.
 
-![](media\\data-catalog-data-profile\\data-catalog-view.png)
+![](media/data-catalog-data-profile/data-catalog-view.png)
 
 A data profile in **Azure Data Catalog** shows table and column profile information including:
 
@@ -89,4 +89,3 @@ Data profiling provides statistics and information about registered data assets 
 ## See Also
 * [How to register data sources](data-catalog-how-to-register.md)
 * [Get started with Azure Data Catalog](data-catalog-get-started.md)
-

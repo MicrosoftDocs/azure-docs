@@ -1,6 +1,6 @@
 ---
-title: Log Analytics View Designer | Microsoft Docs
-description: View Designer in Log Analytics allows you to create custom Views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
+title: Create views to analyze data in OMS Log Analytics | Microsoft Docs
+description: View Designer in Log Analytics allows you to create custom Views that are displayed in the OMS and Azure portal and contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 
 ---
-# Log Analytics View Designer
-The View Designer in Log Analytics allows you to create custom views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
+# Use View Designer to create custom views in Log Analytics
+The View Designer in [Log Analytics](log-analytics-overview.md) allows you to create custom views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
 
 Other articles available for View Designer are:
 
@@ -63,7 +63,7 @@ To delete an existing view, open the view by clicking on its tile in the main OM
 ![Delete a view](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### Export an existing view
-You can export a view to a JSON file that you can import into another workspace or use in an [Azure Resource Manager template](../resource-group-authoring-templates.md).  To export an existing view, open the view by clicking on its tile in the main OMS dashboard.  Then click the **Export** button to create a file in the browser's download folder.  The name of the file will be the name of the view with the extension *omsview*.
+You can export a view to a JSON file that you can import into another workspace or use in an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md).  To export an existing view, open the view by clicking on its tile in the main OMS dashboard.  Then click the **Export** button to create a file in the browser's download folder.  The name of the file will be the name of the view with the extension *omsview*.
 
 ![Export a view](media/log-analytics-view-designer/edit-menu-export.png)
 

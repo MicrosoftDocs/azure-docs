@@ -1,9 +1,9 @@
 ---
-title: Configure your standalone cluster | Microsoft Docs
-description: This article describes how to configure your standalone or private Service Fabric cluster.
+title: Configure your Azure Service Fabric standalone cluster | Microsoft Docs
+description: Learn how to configure your standalone or private Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
-ms.author: dkshir
+ms.date: 06/02/2017
+ms.author: ryanwi
 
 ---
 # Configuration settings for standalone Windows cluster
@@ -33,7 +33,7 @@ This covers the broad cluster specific configurations, as shown in the JSON snip
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "apiVersion": "01-2017",
 
 You can give any friendly name to your Service Fabric cluster by assigning it to the **name** variable. The **clusterConfigurationVersion** is the version number of your cluster; you should increase it every time you upgrade your Service Fabric cluster. You should however leave the **apiVersion** to the default value.
 
@@ -84,6 +84,10 @@ The **reliabilityLevel** section defines the number of copies of the system serv
 
 Note that since a primary node runs a single copy of the system services, you would need a minimum of 3 primary nodes for *Bronze*, 5 for *Silver*, 7 for *Gold* and 9 for *Platinum* reliability levels.
 
+If you don't specify the reliabilityLevel property in your clusterConfig.json, our system will calculate the most optimized reliabilityLevel for you based on the number of "Primary NodeType" nodes that you have. For example, if you have 4 primary nodes, the reliabilityLevel will be set to Bronze, if you have 5 such nodes, the reliabilityLevel will be set to Silver. In the near future, we will be removing the option to configure your reliability level, since the cluster will automatically detect and use the optimal reliability level.
+
+ReliabilityLevel is upgradable. You can create a clusterConfig.json v2 and scale up and down by a [Standalone Cluster Configuration Upgrade](service-fabric-cluster-upgrade-windows-server.md). Your can also upgrade to a clusterConfig.json v2 in which it doesn't specify reliabilityLevel so that the reliabilityLevel will be automatically calculated. 
+
 ### Diagnostics
 The **diagnosticsStore** section allows you to configure parameters to enable diagnostics and troubleshooting node or cluster failures, as shown in the following snippet. 
 
@@ -129,6 +133,7 @@ The **nodeTypes** section describes the type of the nodes that your cluster has.
         "leaseDriverEndpointPort": "19002"
         "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
+        "reverseProxyEndpointPort": "19081",
         "applicationPorts": {
             "startPort": "20575",
             "endPort": "20605"
@@ -149,10 +154,10 @@ The **name** is the friendly name for this particular node type. To create a nod
 * *serviceConnectionEndpointPort* is the port used by the applications and services deployed on a node, to communicate with the Service Fabric client on that particular node.
 * *httpGatewayEndpointPort* is the port used by the Service Fabric Explorer to connect to the cluster.
 * *ephemeralPorts* override the [dynamic ports used by the OS](https://support.microsoft.com/kb/929851). Service Fabric will use a part of these as application ports and the remaining will be available for the OS. It will also map this range to the existing range present in the OS, so for all purposes, you can use the ranges given in the sample JSON files. You need to make sure that the difference between the start and the end ports is at least 255. You may run into conflicts if this difference is too low, since this range is shared with the operating system. See the configured dynamic port range by running `netsh int ipv4 show dynamicport tcp`.
-* *applicationPorts* are the ports that will be used by the Service Fabric applications. These should be a subset of the *ephemeralPorts*, enough to cover the endpoint requirement of your applications. Service Fabric will use these whenever new ports are required, as well as take care of opening the firewall for these ports. 
+* *applicationPorts* are the ports that will be used by the Service Fabric applications. The application port range should be large enough to cover the endpoint requirement of your applications. This range should be exclusive from the dynamic port range on the machine, i.e. the *ephemeralPorts* range as set in the configuration.  Service Fabric will use these whenever new ports are required, as well as take care of opening the firewall for these ports. 
 * *reverseProxyEndpointPort* is an optional reverse proxy endpoint. See [Service Fabric Reverse Proxy](service-fabric-reverseproxy.md) for more details. 
 
-### Other Settings
+### Log Settings
 The **fabricSettings** section allows you to set the root directories for the Service Fabric data and logs. You can customize these only during the initial cluster creation. See below for a sample snippet of this section.
 
     "fabricSettings": [{
@@ -167,6 +172,33 @@ The **fabricSettings** section allows you to set the root directories for the Se
 
 We recommended using a non-OS drive as the FabricDataRoot and FabricLogRoot as it provides more reliability against OS crashes. Note that if you customize only the data root, then the log root will be placed one level below the data root.
 
+### Stateful Reliable Service Settings
+The **KtlLogger** section allows you to set the global configuration settings for Reliable Services. For more details on these settings read [Configure stateful reliable services](service-fabric-reliable-services-configuration.md).
+The example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
+### Add-on features
+To configure add-on features, the apiVersion should be configured as '04-2017' or higher, and addonFeatures needs to be configured:
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### Container support
+To enable container support for both windows server container and hyper-v container for standalone clusters, the 'DnsService' add-on feature needs to be enabled.
+
+
 ## Next steps
-Once you have a complete ClusterConfig.JSON file configured as per your standalone cluster setup, you can deploy your cluster by following the article [Create an Azure Service Fabric cluster on-premises or in the cloud](service-fabric-cluster-creation-for-windows-server.md) and then proceed to [visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Once you have a complete ClusterConfig.JSON file configured as per your standalone cluster setup, you can deploy your cluster by following the article [Create a standalone Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and then proceed to [visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 

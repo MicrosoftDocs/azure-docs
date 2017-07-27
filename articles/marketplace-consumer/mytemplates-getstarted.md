@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with private Templates | Microsoft Docs
 description: Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell.
 services: marketplace-customer
@@ -20,7 +20,7 @@ ms.author: vybavar
 
 ---
 # Get started with private Templates on the Azure Portal
-An [Azure Resource Manager](../resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+An [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
 You can use the new **Templates** capability in the [Azure Portal](https://portal.azure.com) along with the **Microsoft.Gallery** resource provider as an extension of the [Azure Marketplace](https://azure.microsoft.com/marketplace/) to enable users to create, manage and deploy private templates from a personal library.
 
@@ -32,7 +32,7 @@ The following suggestions will help you take full advantage of **Templates** whe
 * A **Template** is an encapsulating resource that contains an Resource Manager template and additional metadata. It behaves very similarly to an item in the Marketplace. The key difference is that it is a private item as opposed to the public Marketplace items.
 * The **Templates** library works well for users who need to customize their deployments.
 * **Templates** work well for users who need a simple repository within Azure.
-* Start with an existing Resource Manager template. Find templates in [github](https://github.com/Azure/azure-quickstart-templates) or [Export template](../resource-manager-export-template.md) from an existing resource group.
+* Start with an existing Resource Manager template. Find templates in [github](https://github.com/Azure/azure-quickstart-templates) or [Export template](../azure-resource-manager/resource-manager-export-template.md) from an existing resource group.
 * **Templates** are tied to the user who publishes them. The publisher name is visible to everyone who has read access to it.
 * **Templates** are Resource Manager resources and cannot be renamed once published.
 
@@ -41,7 +41,7 @@ There are two ways to create a **Template** resource in the Azure portal.
 
 ### Method 1 : Create a new Template resource from a running resource group
 1. Navigate to an existing resource group on the Azure Portal. Select **Export template** in **Settings**.
-2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](../resource-manager-export-template.md).
+2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
    ![Resource group export](media/rg-export-portal1.PNG)  <br />
 3. Select the **Save to Template** command button.
@@ -59,7 +59,7 @@ There are two ways to create a **Template** resource in the Azure portal.
    > 
    > 
 
-### B. Method 2 : Add a new Template resource from browse
+### Method 2 : Add a new Template resource from browse
 You can also add a new **Template** from scratch using the +Add command button in **Browse > Templates**. You will need to provide a Name, Description and the Resource Manager template JSON.
 
 ![Add Template](media/add-template-portal1.PNG)  <br />
@@ -126,7 +126,7 @@ Click **Select** and **Ok**. You can now see the users or groups you added to th
 > 
 
 ## Next steps
-* To learn about creating Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md)
-* To understand the functions you can use in an Resource Manager template, see [Template functions](../resource-group-template-functions.md)
-* For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
+* To learn about creating Resource Manager templates, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* To understand the functions you can use in an Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md)
+* For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
 

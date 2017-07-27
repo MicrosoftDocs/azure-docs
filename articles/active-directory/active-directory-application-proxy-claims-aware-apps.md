@@ -1,11 +1,11 @@
 ---
-title: Working with Claims Aware Apps in Application Proxy
-description: Covers how to get up and running with Azure AD Application Proxy.
+title: Claims-aware apps - Azure AD App Proxy | Microsoft Docs
+description: How to publish on-premises ASP.NET applications that accept ADFS claims for secure remote access by your users. 
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
+editor: harshja
 
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 05/03/2017
 ms.author: kgremban
 
 ---
@@ -31,17 +31,18 @@ Before performing this procedure, make sure that the STS the claims aware app re
 
 ## ADFS configuration
 1. Open ADFS Management.
-2. Go to **Relying Party Trusts**, right click on the app you are publishing with Application Proxy, and choose **Properties**.  
-   ![Relying Party Trusts right click on app name - screentshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+2. Go to **Relying Party Trusts**, right-click on the app you are publishing with Application Proxy, and choose **Properties**.  
+
+   ![Relying Party Trusts right-click on app name - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+
 3. On the **Endpoints** tab, under **Endpoint type**, select **WS-Federation**.
 4. Under **Trusted URL** enter the URL you entered in the Application Proxy under **External URL** and click **OK**.  
+
    ![Add an Endpoint - set Trusted URL value - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
-## See also
-* [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
+## Next steps
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 * [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 * [Enable native client apps to interact with proxy applications](active-directory-application-proxy-native-client.md)
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 

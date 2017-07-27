@@ -1,5 +1,5 @@
 ---
-title: StorSimple Device Manager - Manage shares on your Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+title: Manage StorSimple Virtual Array shares | Microsoft Docs
 description: Describes the StorSimple Device Manager and explains how to use it to manage shares on your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
@@ -71,9 +71,9 @@ Use the instructions in this tutorial to perform the following tasks:
 
 1. From the StorSimple service summary blade, click **+ Add share** from the command bar. This opens up the **Add share** blade.
 
-![Add share](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![Add share](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-1. In the **Add share** blade, do the following:
+2. In the **Add share** blade, do the following:
    
     1. In the **Share name** field, enter a unique name for your share. The name must be a string that contains 3 to 127 characters.
 
@@ -84,8 +84,8 @@ Use the instructions in this tutorial to perform the following tasks:
     4. In the **Capacity** field, specify the size of the share. A tiered share must be between 500 GB and 20 TB and a locally pinned share must be between 50 GB and 2 TB.
 
     5. In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in _john@contoso.com_ format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
-2. When you've finished configuring your share, click **Create**. A share will be created with the specified settings and you will see a notification. By default, backup will be enabled for the share.
-3. To confirm that the share was successfully created, go to the **Shares** blade. You should see the share listed.
+3. When you've finished configuring your share, click **Create**. A share will be created with the specified settings and you will see a notification. By default, backup will be enabled for the share.
+4. To confirm that the share was successfully created, go to the **Shares** blade. You should see the share listed.
    
     ![Share create success](./media/storsimple-virtual-array-manage-shares/share-success.png)
 

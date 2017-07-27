@@ -1,4 +1,4 @@
-﻿---
+---
 title: Resource Manager and classic deployment | Microsoft Docs
 description: Describes the differences between the Resource Manager deployment model and the classic (or Service Management) deployment model.
 services: azure-resource-manager
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 06/09/2017
 ms.author: tomfitz
 
 ---
@@ -45,7 +45,7 @@ When deciding which deployment model to use for your resources, there are three 
 2. The service supports Resource Manager but provides two types - one for Resource Manager and one for classic. This scenario applies only to virtual machines, storage accounts, and virtual networks.
 3. The service does not support Resource Manager.
 
-To discover whether a service supports Resource Manager, see [Resource Manager supported providers](resource-manager-supported-services.md).
+To discover whether a service supports Resource Manager, see [Resource providers and types](resource-manager-supported-services.md).
 
 If the service you wish to use does not support Resource Manager, you must continue using classic deployment.
 
@@ -55,21 +55,27 @@ For virtual machines, storage accounts, and virtual networks, if the resource wa
 
 In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative task such as moving a classic resource to another resource group. But, these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains a virtual machine that was created with classic deployment. If you run the following Resource Manager PowerShell command:
 
-    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+```powershell
+Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+```
 
 It returns the virtual machine:
 
-    Name              : ExampleClassicVM
-    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
-    ResourceName      : ExampleClassicVM
-    ResourceType      : Microsoft.ClassicCompute/virtualMachines
-    ResourceGroupName : ExampleGroup
-    Location          : westus
-    SubscriptionId    : {guid}
+```powershell
+Name              : ExampleClassicVM
+ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+ResourceName      : ExampleClassicVM
+ResourceType      : Microsoft.ClassicCompute/virtualMachines
+ResourceGroupName : ExampleGroup
+Location          : westus
+SubscriptionId    : {guid}
+```
 
 However, the Resource Manager cmdlet **Get-AzureRmVM** only returns virtual machines deployed through Resource Manager. The following command does not return the virtual machine created through classic deployment.
 
-    Get-AzureRmVM -ResourceGroupName ExampleGroup
+```powershell
+Get-AzureRmVM -ResourceGroupName ExampleGroup
+```
 
 Only resources created through Resource Manager support tags. You cannot apply tags to classic resources.
 
@@ -84,13 +90,19 @@ To help you understand the two models, let's review the characteristics of Resou
   
      ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 * Created with the Resource Manager version of the Azure PowerShell cmdlets. These commands have the format *Verb-AzureRmNoun*.
-  
-        New-AzureRmResourceGroupDeployment
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment
+  ```
+
 * Created through the [Azure Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) for REST operations.
 * Created through Azure CLI commands run in the **arm** mode.
   
-        azure config mode arm
-        azure group deployment create 
+  ```azurecli
+  azure config mode arm
+  azure group deployment create
+  ```
+
 * The resource type does not include **(classic)** in the name. The following image shows the type as **Storage account**.
   
     ![web app](./media/resource-manager-deployment-model/resource-manager-type.png)
@@ -108,13 +120,19 @@ Resources created in the classic deployment model share the following characteri
   
      ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 * Created through the Service Management version of the Azure PowerShell cmdlets. These command names have the format *Verb-AzureNoun*.
-  
-        New-AzureVM 
+
+  ```powershell
+  New-AzureVM
+  ```
+
 * Created through the [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) for REST operations.
 * Created through Azure CLI commands run in **asm** mode.
-  
-        azure config mode asm
-        azure vm create 
+
+  ```azurecli
+  azure config mode asm
+  azure vm create
+  ```
+   
 * The resource type includes **(classic)** in the name. The following image shows the type as **Storage account (classic)**.
   
     ![classic type](./media/resource-manager-deployment-model/classic-type.png)
@@ -167,9 +185,9 @@ To learn about connecting virtual networks from different deployment models, see
 ## Migrate from classic to Resource Manager
 If you are ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
-1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## Frequently Asked Questions
@@ -191,7 +209,7 @@ All the automation and scripts that you've built continue to work for the existi
 
 **Where can I find examples of Azure Resource Manager templates?**
 
-A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/).
+A comprehensive set of starter templates can be found on [Azure Resource Manager Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 
 ## Next steps
 * To walk through the creation of template that defines a virtual machine, storage account, and virtual network, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).

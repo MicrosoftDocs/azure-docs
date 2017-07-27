@@ -1,10 +1,10 @@
 ---
-title: Application Insights for JavaScript web apps | Microsoft Docs
+title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: cfreeman
 
 ---
 # Application Insights for web pages
@@ -164,10 +164,11 @@ Click any row for specific details.
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Click `...` for the full telemetry for an Ajax call.
 
 ### No Ajax calls reported?
-Ajax calls include any HTTP calls made from the script of your web page. If you don't see them reported, check that the code snippet doesn't set the `disableAjaxTracking` or `maxAjaxCallsPerView` [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Ajax calls include any HTTP/HTTPS  calls made from the script of your web page. If you don't see them reported, check that the code snippet doesn't set the `disableAjaxTracking` or `maxAjaxCallsPerView` [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## Browser exceptions
 On the Browsers blade, there's an exceptions summary chart, and a grid of exception types further down the blade.
@@ -177,6 +178,7 @@ On the Browsers blade, there's an exceptions summary chart, and a grid of except
 If you don't see browser exceptions reported, check that the code snippet doesn't set the `disableExceptionTracking` [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## Inspect individual page view events
+
 Usually page view telemetry is analyzed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
 
 In the Diagnostic Search blade, set Filters to Page View.
@@ -190,7 +192,7 @@ Select any event to see more detail. In the details page, click "..." to see eve
 > 
 > 
 
-You can also use the powerful [Analytics query language](app-insights-analytics-tour.md) to search page views.
+You can also use the powerful [Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
 
 ### Page view properties
 * **Page view duration** 
@@ -214,13 +216,15 @@ Want to find out what your users do with your app?
 * [Learn about usage tracking](app-insights-web-track-usage.md)
 * [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
-#### <a name="video"></a> Video: Tracking Usage
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a> Video
+
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
 
 ## <a name="next"></a> Next steps
 * [Track usage](app-insights-web-track-usage.md)
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-overview-usage.md)
+* [Build-measure-learn](app-insights-web-track-usage.md)
 

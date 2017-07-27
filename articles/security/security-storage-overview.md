@@ -1,6 +1,6 @@
-﻿---
-title: Azure Storage Security Overview | Microsoft Docs
-description: " Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. This article provides an overview of the core Azure security features that can be used with Azure Storage. "
+---
+title: Security features that can be used with Azure Storage | Microsoft Docs
+description: " This article provides an overview of the core Azure security features that can be used with Azure Storage. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 
 ---
@@ -59,7 +59,7 @@ Learn more:
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage you can secure data using:
 
 * [Transport-level encryption](../storage/storage-security-guide.md#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
-* [Wire encryption](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File Shares.
+* [Wire encryption](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File shares.
 * [Client-side encryption](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
 Learn more about client-side encryption:
@@ -95,4 +95,3 @@ Learn more:
 
 * [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
 * [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
-

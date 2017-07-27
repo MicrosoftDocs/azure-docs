@@ -3,7 +3,7 @@ title: Azure Service Fabric disaster recovery | Microsoft Docs
 description: Azure Service Fabric offers the capabilities necessary to deal with all types of disasters. This article describes the types of disasters that can occur and how to deal with them.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: masnider
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
-ms.author: seanmck
+ms.date: 03/01/2017
+ms.author: masnider
 
 ---
 # Disaster recovery in Azure Service Fabric
@@ -38,7 +38,7 @@ You can visualize the layout of your cluster across fault domains using the clus
 > 
 
 ### Geographic distribution
-There are currently [26 Azure regions throughout the world][azure-regions], with several more announced. An individual region can contain one or more physical data centers depending on demand and the availability of suitable locations, among other factors. Note, however, that even in regions that contain multiple physical data centers, there is no guarantee that your cluster's VMs will be evenly spread across those physical locations. Indeed, currently, all VMs for a given cluster are provisioned within a single physical site.
+There are currently [30 Azure regions throughout the world][azure-regions], with several more announced. An individual region can contain one or more physical data centers depending on demand and the availability of suitable locations, among other factors. Note, however, that even in regions that contain multiple physical data centers, there is no guarantee that your cluster's VMs will be evenly spread across those physical locations. Indeed, currently, all VMs for a given cluster are provisioned within a single physical site.
 
 ## Dealing with failures
 There are several types of failures that can impact your cluster, each with its own mitigation. We will look at them in order of likelihood to occur.
@@ -91,6 +91,7 @@ As a cause of data loss, code defects in services, human operational errors, and
   * [Availability checklist](../best-practices-availability-checklist.md)
   * [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
   * [Disaster recovery and high availability for Azure applications][dr-ha-guide]
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 <!-- External links -->
 

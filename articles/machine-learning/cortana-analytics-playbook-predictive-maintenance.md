@@ -1,5 +1,5 @@
-﻿---
-title: Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses | Microsoft Docs
+---
+title: Predictive maintenance in aerospace with Azure - Cortana Intelligence Solution template| Microsoft Docs
 description: A Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: cortana-analytics
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 03/14/2017
 ms.author: fboylu
 
 ---
@@ -758,7 +758,7 @@ real-time processing of data such as feature generation. The features
 are then used to call the predictive model web service and results are
 displayed on the dashboard. At the same time, ingested data is also
 stored in an historical database and merged with external data sources
-such as on-premise data bases to create training examples for modeling.
+such as on-premises data bases to create training examples for modeling.
 Same data warehouses can be used for batch scoring of the examples and
 storing of the results which can again be used to provide predictive
 reports on the dashboard.

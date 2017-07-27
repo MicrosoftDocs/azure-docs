@@ -1,4 +1,3 @@
-
 ---
 title: Troubleshoot creating RemoteApp hybrid collections | Microsoft Docs
 description: Learn how to troubleshoot RemoteApp hybrid collection creation failures
@@ -19,7 +18,7 @@ ms.author: mbaldwin
 ---
 # Troubleshoot creating Azure RemoteApp hybrid collections
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

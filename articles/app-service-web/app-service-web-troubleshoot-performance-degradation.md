@@ -1,10 +1,10 @@
-﻿---
+---
 title: Slow web app performance in App Service | Microsoft Docs
 description: This article helps you troubleshoot slow web app performance issues in Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 tags: top-support-issue
 keywords: web app performance, slow app, app slow
@@ -76,7 +76,7 @@ Uptime is monitored using HTTP response codes, and response time is measured in 
 
 To set it up, see [Monitor apps in Azure App Service](web-sites-monitor.md).
 
-Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) for a video on endpoint monitoring.
+Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) for a video on endpoint monitoring.
 
 #### Application performance monitoring using Extensions
 You can also monitor your application performance by leveraging *site extensions*.
@@ -110,7 +110,13 @@ For detailed instructions on how to configure your application for logging, see 
 #### Use Remote Profiling
 In Azure App Service, Web Apps, API Apps, and WebJobs can be remotely profiled. If your process is running slower than expected, or the latency of HTTP requests are higher than normal and the CPU usage of the process is also high, you can remotely profile your process and get the CPU sampling call stacks to analyze the process activity and code hot paths.
 
-For more information on, see [Remote Profiling support in Azure App Service](/blog/remote-profiling-support-in-azure-app-service).
+For more information on, see [Remote Profiling support in Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
+
+#### Use Application Insights Profiler
+
+Sometimes the App Service app is slow because certain code is not written in a performant way. Examples include sequential code that can be run in parallel and undesired database lock contentions. Removing these bottlenecks in the code increases the app's performance, but they are hard to detect without setting up elaborate traces and logs. Application Insights Profiler helps overcome this challenge for App Service apps. 
+
+With minimal configuration, Application Insights Profiler provides statistics on response time for each web call and traces that indicates which line of code caused the slow responses. For more information, see [Profiling live Azure web apps with Application Insights](../application-insights/app-insights-profiler.md). 
 
 #### Use the Azure App Service Support Portal
 Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.azurewebsites.net/Support**
@@ -127,7 +133,7 @@ Once the data is collected, it will also run an analysis on the data and provide
 
 In case you want to download the data, by default, it would be stored in the D:\home\data\DaaS folder.
 
-For more information on the Azure App Service Support portal, see [New Updates to Support Site Extension for Azure Websites](/blog/new-updates-to-support-site-extension-for-azure-websites).
+For more information on the Azure App Service Support portal, see [New Updates to Support Site Extension for Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### Use the Kudu Debug Console
 Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This is called the *Kudu Console* or the *SCM Dashboard* for your web app.
@@ -144,7 +150,7 @@ Some of the things that Kudu provides are:
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
 
 For more information on features available in Kudu, see
-[Azure Websites Team Services tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+[Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
@@ -161,7 +167,7 @@ You can set the scaling to be Manual or Automatic.
 #### Use AutoHeal
 AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
-For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
+For more information, see [Auto-Healing Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### Restart the web app
 This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.

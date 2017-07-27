@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Azure Case Study - GEP| Microsoft Docs
 description: Learn about how GEP uses SQL Database to reach more global customers and achieve greater efficiency
 services: sql-database
@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
@@ -33,7 +34,7 @@ GEP also needed a way to overcome regulatory barriers that kept it out of some g
 Nagalkar knew that a cloud solution might be the answer to this dilemma. If GEP could move to a cloud provider with a global presence, it could better meet its customers’ regulatory and performance needs by storing data closer to the customers’ physical locations.
 
 ## Finding smooth skies in the cloud
-Nagalkar and his team explored several cloud options, but most were infrastructure-as-a-service (IaaS)–based solutions that would have required GEP to invest heavily in IT resources to configure and manage the service. The Azure platform-as-a-service (PaaS) solution turned out to be a much better fit.
+Nagalkar and his team explored several cloud options, but most were infrastructure-as-a-service (IaaS)-based solutions that would have required GEP to invest heavily in IT resources to configure and manage the service. The Azure platform-as-a-service (PaaS) solution turned out to be a much better fit.
 
 “With Azure, GEP doesn’t need to deal with database management, virtual-machine configuration, patching, or other infrastructure-management tasks,” stated Nagalkar. “Instead, we can focus our resources on what we do best: leveraging our expertise in procurement to write software that truly delivers results for our customers.” 
 
@@ -60,9 +61,9 @@ At the heart of the SMART by GEP application are the Azure SQL Database instance
 > 
 > 
 
-By using Azure SQL Database, GEP automatically has greater disaster-recovery capabilities than it could have economically engineered on premises due to the fault-tolerance features built in to Azure SQL Database. GEP uses the Active Geo-Replication capability in Azure SQL Database, coupled with multiple active, readable, and online secondary replicas (Always On Availability Groups) in different geographical regions, to form high-availability pairs. Replicating SMART by GEP data across regions means that, in the case of a region-wide disaster, GEP can easily recover customer data with a minimum recovery-point objective (RPO) and recovery-time objective (RTO).
+By using Azure SQL Database, GEP automatically has greater disaster-recovery capabilities than it could have economically engineered on premises due to the fault-tolerance features built in to Azure SQL Database. GEP uses the active geo-replication capability in Azure SQL Database, coupled with multiple active, readable, and online secondary replicas (Always On Availability Groups) in different geographical regions, to form high-availability pairs. Replicating SMART by GEP data across regions means that, in the case of a region-wide disaster, GEP can easily recover customer data with a minimum recovery-point objective (RPO) and recovery-time objective (RTO).
 
-Each SMART by GEP customer has two Azure SQL Database instances: one for online transaction processing (OLTP) and one for analysis (such as customer spend and report analysis). Azure SQL Database elastic database pools enable GEP to easily manage thousands of databases globally to handle unpredictable database-resource demands. Elastic pools provide a means for GEP to ensure that customer databases can scale as necessary, without over-provisioning or under-provisioning, while also allowing GEP to control costs. Moreover, because this is a PaaS service, GEP gets all the new Azure SQL Database features with automatic upgrades.
+Each SMART by GEP customer has two Azure SQL Database instances: one for online transaction processing (OLTP) and one for analysis (such as customer spend and report analysis). Azure SQL Database elastic pools enable GEP to easily manage thousands of databases globally to handle unpredictable database-resource demands. Elastic pools provide a means for GEP to ensure that customer databases can scale as necessary, without over-provisioning or under-provisioning, while also allowing GEP to control costs. Moreover, because this is a PaaS service, GEP gets all the new Azure SQL Database features with automatic upgrades.
 
 ## Unstructured and semi-structured data
 However, some SMART by GEP customer data needs less-rigidly structured storage. For this type of data, GEP employs Azure Blob storage, Azure Table Storage, and Azure Redis Cache. Azure Blob storage houses any attachments that SMART by GEP users upload into the application. It is also where SMART by GEP stores static content, such as cascading style sheets (CSS) and JavaScript files.

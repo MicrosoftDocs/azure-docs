@@ -1,10 +1,10 @@
 ---
-title: Configure an application gateway for SSL offload by using classic deployment| Microsoft Docs
+title: Configure SSL offload - Azure Application Gateway - PowerShell classic | Microsoft Docs
 description: This article provides instructions to create an application gateway with SSL offload by using the Azure classic deployment model.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
@@ -23,8 +23,6 @@ ms.author: gwallace
 > * [Azure portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
-> 
-> 
 
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
@@ -89,8 +87,6 @@ State..........: Provisioned
 
 > [!NOTE]
 > The certificate password has to be between 4 to 12 characters, letters, or numbers. Special characters are not accepted.
-> 
-> 
 
 ## Configure the gateway
 

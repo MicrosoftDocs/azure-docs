@@ -3,7 +3,7 @@ title: Indexing tables in SQL Data Warehouse | Microsoft Azure
 description: Getting started with table indexing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 07/12/2016
-ms.author: jrj;barbkess;sonyama
+ms.author: shigu;barbkess
 
 ---
 # Indexing tables in SQL Data Warehouse
@@ -48,7 +49,6 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 There are a few scenarios where clustered columnstore may not be a good option:
 
-* Columnstore tables do not support secondary non-clustered indexes.  Consider heap or clustered index tables instead.
 * Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).  Consider heap or clustered index instead.
 * Columnstore tables may be less efficient for transient data.  Consider heap and perhaps even temporary tables.
 * Small tables with less than 100 million rows.  Consider heap tables.
@@ -90,11 +90,6 @@ To add a non-clustered index on a table, simply use the following syntax:
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
-
-> [!NOTE]
-> A non-clustered index is created by default when CREATE INDEX is used. Furthermore, a non-clustered index is only permitted on a row storage table (HEAP or CLUSTERED INDEX). Non clustered indexes on top of a CLUSTERED COLUMNSTORE INDEX is not permitted at this time.
-> 
-> 
 
 ## Optimizing clustered columnstore indexes
 Clustered columnstore tables are organized in data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.

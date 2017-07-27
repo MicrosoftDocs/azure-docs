@@ -4,7 +4,7 @@ description: This topic describes how to create filters so your client can use t
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/10/2017
 ms.author: juliako;cenkdin
 
 ---
@@ -33,10 +33,10 @@ This topic shows how to use REST APIs to create, update, and delete filters.
 ## Types used to create filters
 The following types are used when creating filters:  
 
-* [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-* [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-* [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
-* [FilterTrackSelect and FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
+* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > When working with the Media Services REST API, the following considerations apply:
@@ -325,12 +325,7 @@ The following examples show how to add filters to your streaming URLs.
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
-
-**HDS**
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
-
-
+	
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

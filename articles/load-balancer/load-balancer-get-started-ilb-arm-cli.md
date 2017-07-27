@@ -1,5 +1,5 @@
 ---
-title: Create an internal load balancer by using the Azure CLI in Resource Manager | Microsoft Docs
+title: Create an Internal load balancer - Azure CLI | Microsoft Docs
 description: Learn how to create an internal load balancer by using the Azure CLI in Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 ---
 
@@ -48,7 +48,7 @@ For more information, see [Azure Resource Manager support for Load Balancer](loa
 
 ## Set up CLI to use Resource Manager
 
-1. If you have never used Azure CLI, see [Install and configure the Azure CLI](../xplat-cli-install.md). Follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and configure the Azure CLI](../cli-install-nodejs.md). Follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as follows:
 
     ```azurecli

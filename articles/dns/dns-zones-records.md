@@ -1,5 +1,5 @@
-﻿---
-title: DNS Zones and Records | Microsoft Docs
+---
+title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
 services: dns
 documentationcenter: na
@@ -12,12 +12,13 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
-ms.author: jtuliani
+ms.date: 12/05/2016
+ms.author: jonatul
 ---
 
-# DNS zones and records
+# Overview of DNS zones and records
 
 This page explains the key concepts of domains, DNS zones, and DNS records and record sets, and how they are supported in Azure DNS.
 
@@ -25,51 +26,19 @@ This page explains the key concepts of domains, DNS zones, and DNS records and r
 
 The Domain Name System is a hierarchy of domains. The hierarchy starts from the 'root' domain, whose name is simply '**.**'.  Below this come top-level domains, such as 'com', 'net', 'org', 'uk' or 'jp'.  Below these are second-level domains, such as 'org.uk' or 'co.jp'. The domains in the DNS hierarchy are globally distributed, hosted by DNS name servers around the world.
 
-A domain name registrar is an organization that allows you to purchase a domain name, such as 'contoso.com'.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name 'www.contoso.com' to your company web site. The registrar may host the domain in its own name servers on your behalf, or alternatively you can specify alternative name servers.
+A domain name registrar is an organization that allows you to purchase a domain name, such as 'contoso.com'.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name 'www.contoso.com' to your company web site. The registrar may host the domain in its own name servers on your behalf, or allow you to specify alternative name servers.
 
 Azure DNS provides a globally distributed, high-availability name server infrastructure, which you can use to host your domain. By hosting your domains in Azure DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services.
 
-Azure DNS does not currently support purchasing of domain names. If you want to purchase a domain name, you need to use a third-party domain name registrar. The registrar will typically charge a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
+Azure DNS does not currently support purchasing of domain names. If you want to purchase a domain name, you need to use a third-party domain name registrar. The registrar typically charges a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
 
 ## DNS zones
 
-A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone.
-
-For example, the domain 'contoso.com' may contain several DNS records, such as 'mail.contoso.com' (for a mail server) and 'www.contoso.com' (for a web site).
-
-When creating a DNS zone in Azure DNS, the name of the zone must be unique within the resource group. The same zone name can be reused in a different resource group or a different Azure subscription. Where multiple zones share the same name, each instance is assigned different name server addresses. Only one set of addresses can be configured with the domain name registrar.
-
-> [!NOTE]
-> You do not have to own a domain name to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to configure the Azure DNS name servers as the correct name servers for the domain name with the domain name registrar.
-
-For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 ## DNS records
 
-### Record types
-
-Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an 'A' record, which maps a name to an IPv4 address. Another common type is an 'MX' record, which maps a name to a mail server.
-
-Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT.
-
-### Record names
-
-In Azure DNS, records are specified by using relative names. A *fully qualified* domain name (FQDN) includes the zone name, whereas a *relative* name does not. For example, the relative record name 'www' in the zone 'contoso.com' gives the fully qualified record name 'www.contoso.com'.
-
-An *apex* record is a DNS record at the root (or *apex*) of a DNS zone. For example, in the DNS zone 'contoso.com', an apex record also has the fully qualified name 'contoso.com' (this is sometimes called a *naked* domain).  By convention, the relative name '@' is used to create apex records.
-
-### Record sets
-
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the 'www.contoso.com' web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. This is an example of a record set:
-
-    www.contoso.com.        3600    IN    A    134.170.185.46
-    www.contoso.com.        3600    IN    A    134.170.188.221
-
-Azure DNS manages DNS records using *record sets*. A record set (also known as a *resource* record set) is the collection of DNS records in a zone that have the same name and are of the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record, are not uncommon.
-
-For example, suppose you have already created an A record 'www' in the zone 'contoso.com', pointing to the IP address '134.170.185.46' (the first record above).  To create the second record you would add that record to the existing record set, rather than create a new record set.
-
-The SOA and CNAME record types are exceptions. The DNS standards don't permit multiple records with the same name for these types, thus these record sets can only contain a single record.
+[!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 ### Time-to-live
 
@@ -79,7 +48,7 @@ In Azure DNS, the TTL is specified for the record set, not for each record, so t
 
 ### Wildcard records
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Wildcard records are returned in response to any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.
+Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Wildcard records are returned in response to any query with a matching name (unless there is a closer match from a non-wildcard record set). Azure DNS supports wildcard record sets for all record types except NS and SOA.
 
 To create a wildcard record set, use the record set name '\*'. Alternatively, you can also use a name with '\*' as its left-most label, for example, '\*.foo'.
 
@@ -93,9 +62,11 @@ These constraints arise from the DNS standards and are not limitations of Azure 
 
 ### NS records
 
-An NS record set is created automatically at the apex of each zone (name = '@'), and is deleted automatically when the zone is deleted (it cannot be deleted separately).  You can modify the TTL of this record set, but you cannot modify the records, which are pre-configured to refer to the Azure DNS name servers assigned to the zone.
+The NS record set at the zone apex (name '@') is created automatically with each DNS zone, and is deleted automatically when the zone is deleted (it cannot be deleted separately).
 
-You can create and delete other NS records within the zone, not at the zone apex.  This allows you to configure child zones (see [Delegating sub-domains in Azure DNS](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns).)
+This record set contains the names of the Azure DNS name servers assigned to the zone. You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers. 
+
+Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be created, modified and deleted without constraint.
 
 ### SOA records
 
@@ -105,30 +76,54 @@ You can modify all properties of the SOA record except for the 'host' property, 
 
 ### SPF records
 
-Sender Policy Framework (SPF) records are used to specifying which email servers are permitted to send email on behalf of a given domain name.  Correct configuration of SPF records is important to prevent recipients marking your email as 'junk'.
-
-The DNS RFCs originally introduced a new 'SPF' record type to support this scenario. To support older name servers, they also permitted the use of the TXT record type to specify SPF records.  This ambiguity led to confusion, which was resolved by [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  This stated that SPF records should only be created using the TXT record type, and deprecated the SPF record type.
-
-**SPF records are supported by Azure DNS and should be created using the TXT record type.** The obsolete SPF record type is not supported. When [importing a DNS zone file](dns-import-export.md), any SPF records using the SPF record type are converted to the TXT record type.
+[!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
 ### SRV records
 
 [SRV records](https://en.wikipedia.org/wiki/SRV_record) are used by various services to specify server locations. When specifying an SRV record in Azure DNS:
 
-* The *service* and *protocol* must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '@' in the record name, simply use the service and protocol, e.g. '\_sip.\_tcp'.
+* The *service* and *protocol* must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '@' in the record name, simply use the service and protocol, for example '\_sip.\_tcp'.
 * The *priority*, *weight*, *port*, and *target* are specified as parameters of each record in the record set.
+
+### TXT records
+
+TXT records are used to map domain names to arbitrary text strings. They are used in multiple applications, in particular related to email configuration, such as the [Sender Policy Framework (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
+
+The DNS standards permit a single TXT record to contain multiple strings, each of which may be up to 254 characters in length. Where multiple strings are used, they are concatenated by clients and treated as a single string.
+
+When calling the Azure DNS REST API, you need to specify each TXT string separately.  When using the Azure portal, PowerShell or CLI interfaces you should specify a single string per record, which is automatically divided into 254-character segments if necessary.
+
+The multiple strings in a DNS record should not be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined).
 
 ## Tags and metadata
 
 ### Tags
 
-Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources.  Azure Resource Manager uses tags to enable filtered views of your Azure bill, and also enables you to set a policy on which tags are required. For more information about tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources.  Azure Resource Manager uses tags to enable filtered views of your Azure bill, and also enables you to set a policy on which tags are required. For more information about tags, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
 
-Azure DNS supports using Azure Resource Manager tags on DNS zone resources.  It does not support tags on DNS record sets.
+Azure DNS supports using Azure Resource Manager tags on DNS zone resources.  It does not support tags on DNS record sets, although as an alternative 'metadata' is supported on DNS record sets as explained below.
 
 ### Metadata
 
 As an alternative to record set tags, Azure DNS supports annotating record sets using 'metadata'.  Similar to tags, metadata enables you to associate name-value pairs with each record set.  This can be useful, for example to record the purpose of each record set.  Unlike tags, metadata cannot be used to provide a filtered view of your Azure bill and cannot be specified in an Azure Resource Manager policy.
+
+## Etags
+
+Suppose two people or two processes try to modify a DNS record at the same time. Which one wins? And does the winner know that they've overwritten changes created by someone else?
+
+Azure DNS uses Etags to handle concurrent changes to the same resource safely. Etags are separate from [Azure Resource Manager 'Tags'](#tags). Each DNS resource (zone or record set) has an Etag associated with it. Whenever a resource is retrieved, its Etag is also retrieved. When updating a resource, you can choose to pass back the Etag so Azure DNS can verify that the Etag on the server matches. Since each update to a resource results in the Etag being regenerated, an Etag mismatch indicates a concurrent change has occurred. Etags can also be used when creating a new resource to ensure that the resource does not already exist.
+
+By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets. The optional *-Overwrite* switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred are overwritten.
+
+At the level of the Azure DNS REST API, Etags are specified using HTTP headers.  Their behavior is given in the following table:
+
+| Header | Behavior |
+| --- | --- |
+| None |PUT always succeeds (no Etag checks) |
+| If-match <etag> |PUT only succeeds if resource exists and Etag matches |
+| If-match * |PUT only succeeds if resource exists |
+| If-none-match * |PUT only succeeds if resource does not exist |
+
 
 ## Limits
 
@@ -139,5 +134,4 @@ The following default limits apply when using Azure DNS:
 ## Next steps
 
 * To start using Azure DNS, learn how to [create a DNS zone](dns-getstarted-create-dnszone-portal.md) and [create DNS records](dns-getstarted-create-recordset-portal.md).
-* To migrate an existing DNS zone, learn how to [import and DNS zone file](dns-import-export.md).
-
+* To migrate an existing DNS zone, learn how to [import and export a DNS zone file](dns-import-export.md).

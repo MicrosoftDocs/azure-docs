@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: xstof;xpouyat;juliako
+ms.date: 07/19/2017
+ms.author: christoc;xpouyat;juliako
 
 ---
 # Advanced Media Encoder Premium Workflow tutorials

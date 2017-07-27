@@ -1,4 +1,4 @@
-﻿---
+---
 title: Publish an app to a remote cluster with Visual Studio | Microsoft Docs
 description: Learn how to publish an application to a remote service fabric cluster by using Visual Studio.
 services: service-fabric
@@ -17,10 +17,11 @@ ms.date: 07/29/2016
 ms.author: cawa
 
 ---
-# Publish an application to a remote cluster by using Visual Studio
+# Deploy and remove applications using Visual Studio
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
 
@@ -39,18 +40,16 @@ A folder in the Service Fabric application project called **PublishProfiles** co
 * Path to an application parameter file
 * Upgrade settings
 
-By default, your application will include two publish profiles: Local.xml and Cloud.xml. You can add more profiles by copying and pasting one of the default files.
+By default, your application will include three publish profiles: Local.1Node.xml, Local.5Node.xml, and Cloud.xml. You can add more profiles by copying and pasting one of the default files.
 
 ### Application parameter files
 A folder in the Service Fabric application project called **ApplicationParameters** contains XML files for user-specified application manifest parameter values. Application manifest files can be parameterized so that you can use different values for deployment settings. To learn more about parameterizing your application, see [Manage multiple environments in Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
 > For actor services, you should build the project first before attempting to edit the file in an editor or through the publish dialog box. This is because part of the manifest files will be generated during the build.
-> 
-> 
 
-## To publish an application by using the Publish Service Fabric Application dialog box
-The following steps demonstrate how to publish an application by using the **Publish Service Fabric Application** dialog box provided by the Visual Studio Service Fabric Tools.
+## To publish an application using the Publish Service Fabric Application dialog box
+The following steps demonstrate how to publish an application using the **Publish Service Fabric Application** dialog box provided by the Visual Studio Service Fabric Tools.
 
 1. On the shortcut menu of the Service Fabric Application project, choose **Publish…** to view the **Publish Service Fabric Application** dialog box.
    
@@ -86,9 +85,9 @@ The following steps demonstrate how to publish an application by using the **Pub
 6. When you're done specifying all of the necessary settings, choose the **Publish** button to publish your application to the selected Service Fabric cluster. The settings that you specified are applied to the publish process.
 
 ## Publish to an arbitrary cluster endpoint (including party clusters)
-The Visual Studio publishing experience is optimized for publishing to remote clusters associated with one of your Azure subscriptions. However, it is possible to publish to arbitrary endpoints (such as Service Fabric party clusters) by directly editing the publish profile XML. As described above, two publish profiles are provided by default--**Local.xml** and **Cloud.xml**--but you are welcome to create additional profiles for different environments. For instance, you might want to create a profile for publishing to party clusters, perhaps named **Party.xml**.
+The Visual Studio publishing experience is optimized for publishing to remote clusters associated with one of your Azure subscriptions. However, it is possible to publish to arbitrary endpoints (such as Service Fabric party clusters) by directly editing the publish profile XML. As described above, three publish profiles are provided by default--**Local.1Node.xml**, **Local.5Node.xml**, and **Cloud.xml**--but you are welcome to create additional profiles for different environments. For instance, you might want to create a profile for publishing to party clusters, perhaps named **Party.xml**.
 
-If you are connecting to a unsecured cluster, all that's required is the cluster connection endpoint, such as `partycluster1.eastus.cloudapp.azure.com:19000`. In that case, the connection endpoint in the publish profile would look something like this:
+If you are connecting to an unsecured cluster, all that's required is the cluster connection endpoint, such as `partycluster1.eastus.cloudapp.azure.com:19000`. In that case, the connection endpoint in the publish profile would look something like this:
 
 ```XML
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />

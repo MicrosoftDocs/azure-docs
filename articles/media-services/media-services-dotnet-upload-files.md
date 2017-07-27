@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upload files into a Media Services account using .NET  | Microsoft Docs
 description: Learn how to get media content into Media Services by creating and uploading assets.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/12/2017
 ms.author: juliako
 
 ---
@@ -30,11 +30,12 @@ In Media Services, you upload (or ingest) your digital files into an asset. The 
 The files in the asset are called **Asset Files**. The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
 > [!NOTE]
-> The following considerations apply when choosing an asset file name:
+> The following considerations apply:
 > 
 > * Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
 > * The length of the name should not be greater than 260 characters.
-> 
+> * There is a limit to the maximum file size supported for processing in Media Services. Please see [this](media-services-quotas-and-limitations.md) topic for details about the file size limitation.
+> * There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 > 
 
 When you create assets, you can specify the following encryption options. 
@@ -56,13 +57,8 @@ If you specify for your asset to be encrypted with a **StorageEncrypted** option
 This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
 
 ## Upload a single file with Media Services .NET SDK
-The sample code below uses .NET SDK to perform the following tasks: 
+The sample code below uses .NET SDK to upload a single file. The AccessPolicy and Locator are created and destroyed by the Upload function. 
 
-* Creates an empty Asset.
-* Creates an AssetFile instance that we want to associate with the asset.
-* Creates an AccessPolicy instance that defines the permissions and duration of access to the asset.
-* Creates a Locator instance that provides access to the asset.
-* Uploads a single media file into Media Services. 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
@@ -73,29 +69,18 @@ The sample code below uses .NET SDK to perform the following tasks:
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions); 
+            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions);
 
             var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-
-            Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-            var policy = _context.AccessPolicies.Create(
-                                    assetName,
-                                    TimeSpan.FromDays(30),
-                                    AccessPermissions.Write | AccessPermissions.List);
-
-            var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
             Console.WriteLine("Upload {0}", assetFile.Name);
 
             assetFile.Upload(singleFilePath);
             Console.WriteLine("Done uploading {0}", assetFile.Name);
 
-            locator.Delete();
-            policy.Delete();
-
             return inputAsset;
         }
+
 
 ## Upload multiple files with Media Services .NET SDK
 The following code shows how to create an asset and upload multiple files.
@@ -295,6 +280,11 @@ The following example calls UploadFile function and specifies storage encryption
 
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
+## Next steps
+
+You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
+
+You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

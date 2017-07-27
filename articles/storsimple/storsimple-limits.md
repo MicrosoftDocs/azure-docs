@@ -1,10 +1,10 @@
 ---
-title: StorSimple system limits | Microsoft Docs
+title: StorSimple 8000 series system limits | Microsoft Docs
 description: Describes system limits and recommended sizes for StorSimple 8000 series components and connections.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2016
+ms.date: 02/27/2017
 ms.author: alkohli
-
+ms.custom: H1Hack27Feb2017
 ---
-# StorSimple system limits
+# What are StorSimple 8000 series system limits?
 ## Overview
 StorSimple provides scalable and flexible storage for your datacenter. However, there are some limits that you should keep in mind as you plan, deploy, and operate your StorSimple solution. The following table describes these limits and provides some recommendations so that you can get the most out of your StorSimple solution.
 
@@ -34,7 +34,7 @@ StorSimple provides scalable and flexible storage for your datacenter. However, 
 | Maximum number of iSCSI connections |512 | |
 | Maximum number of iSCSI connections from initiators |512 | |
 | Maximum number of access control records per device |64 | |
-| Maximum number of volumes per backup policy |24 | |
+| Maximum number of volumes per backup policy |20 | |
 | Maximum number of backups retained per schedule (in a backup policy) |64 | |
 | Maximum number of schedules per backup policy |10 | |
 | Maximum number of snapshots of any type that can be retained per volume |256 |This number includes local snapshots and cloud snapshots. |

@@ -4,7 +4,7 @@ description: Windows Universal Apps SDK Upgrade Procedures for Azure Mobile Enga
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d

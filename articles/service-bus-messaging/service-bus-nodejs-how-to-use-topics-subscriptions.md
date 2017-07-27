@@ -1,5 +1,5 @@
 ---
-title: How to use Service Bus topics with Node.js | Microsoft Docs
+title: How to use Azure Service Bus topics and subscriptions with Node.js | Microsoft Docs
 description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 04/27/2017
 ms.author: sethm
 
 ---
@@ -62,16 +62,16 @@ communicate with the Service Bus REST services.
 ### Import the module
 Using Notepad or another text editor, add the following to the top of the **server.js** file of the application:
 
-```
+```javascript
 var azure = require('azure');
 ```
 
 ### Set up a Service Bus connection
 The Azure module reads the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY for information required to connect to Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
 
-For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
+For an example of setting the environment variables for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the [Azure classic portal][Azure classic portal] for an Azure Website, see [Node.js Web Application with Storage][Node.js Web Application with Storage].
+For an example of setting the environment variables for an Azure Website, see [Node.js Web Application with Storage][Node.js Web Application with Storage].
 
 ## Create a topic
 The **ServiceBusService** object enables you to work with topics. The
@@ -79,7 +79,7 @@ following code creates a **ServiceBusService** object. Add it near the
 top of the **server.js** file, after the statement to import the azure
 module:
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
@@ -89,7 +89,7 @@ topic with the specified name will be created. The following code uses
 **createTopicIfNotExists** to create or connect to the topic named
 'MyTopic':
 
-```
+```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
     if(!error){
         // Topic was created or exists
@@ -102,7 +102,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 enable you to override default topic settings such as message time to
 live or maximum topic size. The following example sets the maximum topic size to 5GB with a time to live of 1 minute:
 
-```
+```javascript
 var topicOptions = {
         MaxSizeInMegabytes: '5120',
         DefaultMessageTimeToLive: 'PT1M'
@@ -118,13 +118,13 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ### Filters
 Optional filtering operations can be applied to operations performed using **ServiceBusService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 After performing preprocessing on the request options, the method calls `next` passing a callback with the following signature:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -132,8 +132,10 @@ In this callback, and after processing the **returnObject** (the response from t
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
-    var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```javascript
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
 
 ## Create subscriptions
 Topic subscriptions are also created with the **ServiceBusService**
@@ -158,7 +160,7 @@ subscription's virtual queue. The following example creates a
 subscription named 'AllMessages' and uses the default **MatchAll**
 filter.
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
     if(!error){
         // subscription created
@@ -192,7 +194,7 @@ add new filters to an existing subscription.
 The following example creates a subscription named `HighMessages` with a
 **SqlFilter** that only selects messages that have a custom **messagenumber** property greater than 3:
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
     if(!error){
         // subscription created
@@ -229,7 +231,7 @@ Similarly, the following example creates a subscription named
 `LowMessages` with a **SqlFilter** that only selects messages that have
 a **messagenumber** property less than or equal to 3:
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
     if(!error){
         // subscription created
@@ -273,7 +275,7 @@ To send a message to a Service Bus topic, your application must use the
 Messages sent to Service Bus topics are **BrokeredMessage** objects.
 **BrokeredMessage** objects have a set of standard properties (such as
 **Label** and **TimeToLive**), a dictionary that is used to hold custom
-application specific properties, and a body of string data. An
+application-specific properties, and a body of string data. An
 application can set the body of the message by passing a string value to
 the **sendTopicMessage** and any required standard properties will be
 populated by default values.
@@ -283,7 +285,7 @@ The following example demonstrates how to send five test messages to
 message varies on the iteration of the loop (this will determine which
 subscriptions receive it):
 
-```
+```javascript
 var message = {
     body: '',
     customProperties: {
@@ -343,7 +345,7 @@ then receives a message from the 'HighMessages' subscription using
 **isPeekLock** set to true. It then deletes the message using
 **deleteMessage**:
 
-```
+```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -383,7 +385,7 @@ to be received again.
 In the event that the application crashes after processing the message
 but before the **deleteMessage** method is called, then the message will
 be redelivered to the application when it restarts. This is often called
-**At Least Once Processing**, that is, each message will be processed at
+*At Least Once Processing*, that is, each message will be processed at
 least once but in certain situations the same message may be
 redelivered. If the scenario cannot tolerate duplicate processing, then
 application developers should add additional logic to their application
@@ -393,25 +395,29 @@ delivery attempts.
 
 ## Delete topics and subscriptions
 Topics and subscriptions are persistent, and must be explicitly deleted
-either through the [Azure classic portal][Azure classic portal] or programmatically.
+either through the [Azure portal][Azure portal] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
-    serviceBusService.deleteTopic('MyTopic', function (error) {
-        if (error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteTopic('MyTopic', function (error) {
+    if (error) {
+        console.log(error);
+    }
+});
+```
 
 Deleting a topic will also delete any subscriptions that are registered
 with the topic. Subscriptions can also be deleted independently. The
 following example shows how to delete a subscription named
 `HighMessages` from the `MyTopic` topic:
 
-    serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
-        if(error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
+    if(error) {
+        console.log(error);
+    }
+});
+```
 
 ## Next Steps
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
@@ -421,11 +427,11 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 * Visit the [Azure SDK for Node][Azure SDK for Node] repository on GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure classic portal]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Azure portal]: https://portal.azure.com
+[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md

@@ -6,7 +6,6 @@ keywords: cloud app discovery, managing applications
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -14,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Finding unmanaged cloud applications with Cloud App Discovery

@@ -1,10 +1,22 @@
 ---
+title: Azure ExpressRoute Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to configure and manage a private ExpressRoute connection to Microsoft cloud services from your on-premises infrastructure or colocation facility.
+services: expressroute
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #ExpressRoute Documentation
 
-Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
-
+Learn how to use ExpressRoute to set up a fast, private connection to Microsoft cloud services from your on-premises infrastructure or colocation facility. Tutorials, REST APIs, and other documentation help you configure and manage an ExpressRoute circuit.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -65,45 +77,34 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell reference</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/module/azurerm.network/#expressroute">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>ExpressRoute REST API Reference</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Classic REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download ExpressRoute Documentation
-        </div>
-    </a>
-</div>
+

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 
 ---
@@ -23,18 +23,18 @@ The Power BI JavaScript API enables you to easily embed Power BI reports into yo
 
 You embed a Power BI report in your application by using an iframe that is hosted as part of the application. The iframe acts as a boundary between your application and the report, as you can see in the following image. 
 
-![Power BI embedded iframe without Javascript API](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-1.png)
+![Power BI embedded iframe without Javascript API](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
 The iframe makes the embedding process a lot easier, but without the JavaScript API the report and your application can't interact with each other. This lack of interaction can make it feel like the report is not really part of the application. The report and application really need to communicate back and forth, as in the following image.
 
-![Power BI embedded iframe with Javascript API](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-2.png)
+![Power BI embedded iframe with Javascript API](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
 The Power BI JavaScript API enables you to write code that can securely pass through the iframe boundary. This enables your application to programmatically perform an action in a report, and to listen for events from actions that users make within the report.
 
 ## What can you do with the Power BI JavaScript API?
 With the JavaScript API you can manage reports, navigate to pages in a report, filter a report, and handle embedding events. The following diagram shows the structure of the API.
 
-![Power BI JavaScript API diagram](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
+![Power BI JavaScript API diagram](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### Manage reports
 The Javascript API enables you to manage behavior at the report and page level:

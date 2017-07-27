@@ -1,5 +1,5 @@
 ---
-title: Testability action | Microsoft Docs
+title: Simulate failures in Azure microservices | Microsoft Docs
 description: This article talks about the testability actions found in Microsoft Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2016
+ms.date: 06/07/2017
 ms.author: motanv;heeldin
 
 ---

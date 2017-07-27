@@ -24,13 +24,13 @@ ms.author: jdial
 > * [Portal](virtual-network-manage-nsg-arm-portal.md)
 > * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 > * [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -65,7 +65,7 @@ To view the list of NSGs in the **RG-NSG** resource group, complete the followin
 
 ### List all rules for an NSG
 
-To view the rules of an NSG named **NSG-FrontEnd**, complete the following steps: 
+To view the rules of an NSG named **NSG-FrontEnd**, complete the following steps:
 
 1. From the **Network security groups** blade, or the **Resources** blade shown above, click **NSG-FrontEnd**.
 
@@ -81,7 +81,7 @@ To view the rules of an NSG named **NSG-FrontEnd**, complete the following steps
 
 	> [!NOTE]
 	> To view default rules, click the **Default rules** icon at the top of the blade that displays the rules.
-	> 
+	>
 
 ### View NSGs associations
 
@@ -179,7 +179,7 @@ To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, complete 
 
 > [!NOTE]
 > You can also associate an NSG to a subnet from thh NSG's **Settings** blade.
-> 
+>
 
 ## Delete an NSG
 You can only delete an NSG if it's not associated to any resource. To delete an NSG, complete the following steps:.
@@ -192,7 +192,7 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
 6. If there are any subnets listed, click the subnet and follow steps 2 and 3 in [Dissociate an NSG from a subnet](#Dissociate-an-NSG-from-a-subnet).
 7. Scrolls left to the **NSG-FrontEnd** blade, then click **Delete** > **Yes**.
 
-	[Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
+	![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## Next steps
 * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.

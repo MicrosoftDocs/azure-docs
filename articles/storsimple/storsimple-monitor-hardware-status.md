@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple hardware components and status | Microsoft Docs
 description: Learn how to monitor the hardware components of your StorSimple device through the StorSimple Manager service.
 services: storsimple

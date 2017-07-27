@@ -1,9 +1,9 @@
 ---
-title: Using Azure CDN | Microsoft Docs
-description: This topic shows how to enable the Content Delivery Network (CDN) for Azure. The tutorial walks through the creation of a new CDN profile and endpoint.
+title: Getting started with Azure CDN | Microsoft Docs
+description: This topic shows how to enable the Azure Content Delivery Network (CDN). The tutorial walks through the creation of a new CDN profile and endpoint.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
-# Using Azure CDN
+# Getting started with Azure CDN
 This topic walks through enabling Azure CDN by creating a new CDN profile and endpoint.
 
 > [!IMPORTANT]

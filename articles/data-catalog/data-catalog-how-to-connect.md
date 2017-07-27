@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to connect to data sources | Microsoft Docs
 description: How-to article highlighting how to connect to data sources discovered with Azure Data Catalog.
 services: data-catalog
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 05/15/2017
 ms.author: maroche
 
 ---
@@ -66,4 +66,3 @@ Registering a data source with **Azure Data Catalog** makes that data discoverab
 
 ## See also
 * [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to connect to data sources.
-

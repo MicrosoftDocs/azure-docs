@@ -1,4 +1,4 @@
-﻿---
+---
 title: Testing your Data Service offer for the Marketplace | Microsoft Docs
 description: Understand how to test your Data Service offer for the Azure Marketplace.
 services: marketplace-publishing

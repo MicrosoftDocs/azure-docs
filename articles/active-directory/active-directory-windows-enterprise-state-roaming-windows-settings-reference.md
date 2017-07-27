@@ -1,11 +1,11 @@
-﻿---
+---
 title: Windows 10 roaming settings reference | Microsoft Docs
 description: A complete list of all the settings that will be roamed or backed up in Windows 10.
 services: active-directory
 keywords: enterprise state roaming, windows cloud
 documentationcenter: ''
-author: femila
-manager: swadhwa
+author: tanning
+manager: femila
 editor: curtand
 
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 
 ---
 # Windows 10 roaming settings reference
@@ -64,13 +64,7 @@ Settings that don't roam or sync will not belong to a group.
 | **App data**: individual apps can sync data |sync backup |sync backup |internal |
 | **App list**: list of installed apps |X |backup |Other |
 | **Bluetooth**: all Bluetooth settings |X |X | |
-| **Command prompt**: all command prompt settings |sync |X | |
-| **Cortana**: on or off |X |X | |
-| **Cortana**: enable Cortana on the lock screen |X |X | |
-| **Cortana**: user name |sync |sync |internal |
-| **Cortana**: read SMS aloud |X |sync |internal |
-| **Cortana**: Safe Search |X |sync |internal |
-| **Cortana**: find info on flights and more |X |sync |internal |
+| **Command prompt**: Command prompt "Defaults" settings |sync |X | |
 | **Credentials**: Credential Locker |sync |sync |password |
 | **Date, Time, and Region**: automatic time (Internet time sync) |sync |sync |language |
 | **Date, Time, and Region**: 24-hour clock |sync |X |language |
@@ -91,9 +85,21 @@ Settings that don't roam or sync will not belong to a group.
 | **Devices**: shared printers you've connected to |X |X |other |
 | **Edge browser**: reading list |sync |sync |internal |
 | **Edge browser**: favorites |sync |sync |internal |
-| **Edge browser**: all other Edge settings |X |X | |
-| **High Contrast**: On or Off |sync |sync |ease of access |
-| **High contrast**: Theme settings |sync |X | |
+| **Edge browser**: top sites <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: typed URLs <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: favorites bar settings <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: show the home button <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: block pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: ask me what to do with each download <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: offer to save passwords <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: send do not track requests <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: save form entries <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: show search and site suggestions as I type <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: cookies preference <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: let sites save protected media licenses on my device <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: screen reader setting <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **High Contrast**: On or Off |sync |X |ease of access |
+| **High contrast**: Theme settings |sync |X |ease of access |
 | **Internet Explorer**: open tabs (URL and title) |sync |sync |Internet Explorer |
 | **Internet Explorer**: reading list |sync |sync |Internet Explorer |
 | **Internet Explorer**: typed URLs |sync |sync |Internet Explorer |
@@ -110,8 +116,8 @@ Settings that don't roam or sync will not belong to a group.
 | **Language**: CHS QWERTY - enable dynamic candidate ranking |sync |X |Language |
 | **Language**: CHS QWERTY - char-set Simplified Chinese |sync |X |Language |
 | **Language**: CHS QWERTY - char-set Traditional Chinese |sync |X |Language |
-| **Language**: CHS QWERTY - fuzzy pinyin |sync |sync |Language |
-| **Language**: CHS QWERTY - fuzzy pairs |sync |sync |Language |
+| **Language**: CHS QWERTY - fuzzy pinyin |sync |backup |Language |
+| **Language**: CHS QWERTY - fuzzy pairs |sync |backup |Language |
 | **Language**: CHS QWERTY - full pinyin |sync |X |Language |
 | **Language**: CHS QWERTY - double pinyin |sync |X |Language |
 | **Language**: CHS QWERTY - reading auto correction |sync |X |Language |
@@ -120,7 +126,7 @@ Settings that don't roam or sync will not belong to a group.
 | **Language**: CHS WUBI - single character input mode |sync |X |Language |
 | **Language**: CHS WUBI - show the remaining coding of the candidate |sync |X |Language |
 | **Language**: CHS WUBI - beep when 4-coding is invalid |sync |X |Language |
-| **Language**: CHS Bopomofo - include CJK Ext-A |sync |X |Language |
+| **Language**: CHT Bopomofo - include CJK Ext-A |sync |X |Language |
 | **Language**: Japanese IME - predictive typing and custom words |sync |sync |Language |
 | **Language**: Korean (KOR) IME |X |X |Language |
 | **Language**: handwriting recognition |X |X |Language |
@@ -144,11 +150,11 @@ Settings that don't roam or sync will not belong to a group.
 | **Narrator**: have insert cursor following Narrator (on by default) |sync |X |Ease of access |
 | **Narrator**: enable visual highlighting of Narrator cursor (on by default) |sync |X |Ease of access |
 | **Narrator**: play audio cues (on by default) |sync |X |Ease of access |
-| **Narrator**: activate keys on the touch keyboard when you lift your finger (off by default) |sync |sync |Ease of access |
+| **Narrator**: activate keys on the touch keyboard when you lift your finger (off by default) |sync |X |Ease of access |
 | **Ease of access**: set the thickness of the blinking cursor |sync |X |Ease of access |
 | **Ease of access**: remove background images (off by default) |sync |X |Ease of access |
 | **Power and Sleep**: all settings |X |X | |
-| **Start screen personalization**: system color |sync |sync |Theme |
+| **Start screen personalization**: accent color (phone only) |X |sync |Theme |
 | **Typing**: spelling dictionary |sync |backup |Language |
 | **Typing**: autocorrect misspelled word |sync |backup |Language |
 | **Typing**: highlight misspelled words |sync |backup |Language |
@@ -161,9 +167,12 @@ Settings that don't roam or sync will not belong to a group.
 | **Typing**: personalization data for touch keyboard |sync |backup |Language |
 | **Wi-Fi**: Wi-Fi profiles (only WPA) |sync |sync |Passwords |
 
+###### Footnote 1
+Minimum supported OS version of Windows Creators Update (Build 15063). 
+
 ## Related topics
 * [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-
+* [Troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md)

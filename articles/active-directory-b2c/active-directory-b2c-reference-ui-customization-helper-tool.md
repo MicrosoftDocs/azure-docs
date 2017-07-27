@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: swkrish
 
 ---
@@ -61,14 +61,6 @@ If you would like to use Azure Blob Storage to host your page content, you can c
 6. Provide a **Name** for the container (for example, "b2c") and select **Blob** as the **Access type**. Click **OK**.
 7. The container that you created will appear in the list on the **Blobs** blade. Write down the URL of the container; for example, it should look similar to `https://contoso.blob.core.windows.net/b2c`. Close the **Blobs** blade.
 8. On the storage account blade, click **Keys** and write down the values of the **Storage Account Name** and **Primary Access Key** fields.
-9. Sign in to the [Azure portal](https://portal.azure.com/).
-10. Click **+ New** > **Data + Storage** > **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial at the [Azure website](https://azure.microsoft.com/pricing/free-trial/).
-11. Select **Blob Storage** under **Account Kind**, and leave the other values as default.  You can edit the Resource Group & Location if you wish.  Click **Create**.
-12. Go back to the Startboard and click the storage account that you just created.
-13. In the **Summary** section, click **+Container**.
-14. Provide a **Name** for the container (for example, "b2c") and select **Blob** as the **Access type**. Click **OK**.
-15. Open the container **properties**, and  Write down the URL of the container; for example, it should look similar to `https://contoso.blob.core.windows.net/b2c`. Close the container blade.
-16. On the storage account blade, click on the **Key Icon** and write down the values of the **Storage Account Name** and **Primary Access Key** fields.
 
 > [!NOTE]
 > **Primary Access Key** is an important security credential.

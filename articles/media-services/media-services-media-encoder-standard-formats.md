@@ -1,4 +1,4 @@
-﻿---
+---
 title: Media Encoder Standard formats and codecs
 description: This topic gives an overview of Media Encoder Standard formats and codecs.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 07/20/2017
 ms.author: juliako;anilmur
 
 ---

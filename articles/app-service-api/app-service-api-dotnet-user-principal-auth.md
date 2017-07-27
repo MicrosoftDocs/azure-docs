@@ -3,8 +3,8 @@ title: User authentication for API Apps in Azure App Service | Microsoft Docs
 description: Learn how to protect an API app in Azure App Service by allowing access only to authenticated users.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: ''
 
 ms.assetid: 3896760d-46ff-4b67-b98a-edd233f24758
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # User authentication for API Apps in Azure App Service
@@ -179,7 +179,7 @@ In this section you change the AngularJS front end so that it uses Active Direct
 
 Make the following changes to files in the ToDoListAngular project.
 
-1. Open the *index.html* file.
+1. Open the *index.cshtml* file.
 2. Uncomment the lines that reference the Active Directory Authentication Library (ADAL) for JS scripts.
    
         <script src="app/scripts/adal.js"></script>

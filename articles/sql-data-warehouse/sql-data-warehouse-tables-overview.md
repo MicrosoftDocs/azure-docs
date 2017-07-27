@@ -3,7 +3,7 @@ title: Overview of tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with Azure SQL Data Warehouse Tables.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: shivaniguptamsft
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess;jrj
+ms.custom: tables
+ms.date: 06/29/2016
+ms.author: shigu;jrj
 
 ---
 # Overview of tables in SQL Data Warehouse
@@ -44,7 +45,7 @@ RENAME OBJECT Customer TO CustomerOrig;
  ```
 
 ## Distributed tables
-A new fundamental attribute introduced by distributed systems like SQL Data Warehouse is the **distribution column**.  The distribution column is very much what it sounds like.  It is the column that determines how to distribute, or divide, your data behind the scenes.  When you create a table without specifying the distribution column, the table is automatically distributed using **round robin**.  While round robin tables can be sufficient in some scenarios, defining distribution columns can greatly reduce data movement during queries, thus optimizing performance.  See [Distributing a Table][Distribute] to learn more about how to select a distribution column.
+A new fundamental attribute introduced by distributed systems like SQL Data Warehouse is the **distribution column**.  The distribution column is very much what it sounds like.  It is the column that determines how to distribute, or divide, your data behind the scenes.  When you create a table without specifying the distribution column, the table is automatically distributed using **round robin**.  While round robin tables can be sufficient in some scenarios, defining distribution columns can greatly reduce data movement during queries, thus optimizing performance.  In situations where there is a small amount of data in a table, choosing to create the table with the **replicate** distribution type copies data to each compute node and saves data movement at query execution time. See [Distributing a Table][Distribute] to learn more about how to select a distribution column.
 
 ## Indexing and partitioning tables
 As you become more advanced in using SQL Data Warehouse and want to optimize performance, you'll want to learn more about Table Design.  To learn more, see the articles on [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index] and  [Partitioning a Table][Partition].
@@ -63,7 +64,6 @@ While SQL Data Warehouse contains many of the same table features offered by oth
 
 | Unsupported features |
 | --- |
-| [Identity Property][Identity Property] (see [Assigning Surrogate Key Workaround][Assigning Surrogate Key Workaround]) |
 | Primary key, Foreign keys, Unique and Check [Table Constraints][Table Constraints] |
 | [Unique Indexes][Unique Indexes] |
 | [Computed Columns][Computed Columns] |
@@ -196,7 +196,7 @@ FROM size
 ```
 
 ### Table space summary
-This query returns the rows and space by table.  It is a great query to see which tables are your largest tables and whether they are round robin or hash distributed.  For hash distributed tables it also shows the distribution column.  In most cases your largest tables should be hash distributed with a clustered columnstore index.
+This query returns the rows and space by table.  It is a great query to see which tables are your largest tables and whether they are round robin, replicated or hash distributed.  For hash distributed tables it also shows the distribution column.  In most cases your largest tables should be hash distributed with a clustered columnstore index.
 
 ```sql
 SELECT 
@@ -289,8 +289,6 @@ To learn more, see the articles on [Table Data Types][Data Types], [Distributing
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
-[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 [Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
 [Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
 [Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx

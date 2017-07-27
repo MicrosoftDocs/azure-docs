@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage your StorSimple volumes | Microsoft Docs
 description: Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary.
 services: storsimple

@@ -1,10 +1,10 @@
 ---
-title: How do I ... in Application Insights | Microsoft Docs
+title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2016
-ms.author: awills
+ms.date: 04/04/2017
+ms.author: cfreeman
 
 ---
 # How do I ... in Application Insights?
@@ -37,7 +37,7 @@ If you want to set an alert on **Server exceptions**, you might have to do [some
 ### Email on an event in my app
 Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](app-insights-alerts.md).
 
-Alerts can be set on [custom metrics](app-insights-api-custom-events-metrics.md#track-metric), though not custom events. Write some code to increase a metric when the event occurs:
+Alerts can be set on [custom metrics](app-insights-api-custom-events-metrics.md#trackmetric), though not custom events. Write some code to increase a metric when the event occurs:
 
     telemetry.TrackMetric("Alarm", 10);
 
@@ -77,55 +77,11 @@ Some points to consider:
 * [Create new resources](app-insights-powershell-script-create-resource.md)
 * [Create new alerts](app-insights-alerts.md#automation)
 
-## Application versions and stamps
-### Separate the results from dev, test and prod
-* For different environmnents, set up different ikeys
-* For different stamps (dev, test, prod) tag the telemetry with different property values
+## Separate telemetry from different versions
 
-[Learn more](app-insights-separate-resources.md)
-
-### Filter on build number
-When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
-
-You can set the Application Version property so that you can filter [search](app-insights-diagnostic-search.md) and [metric explorer](app-insights-metrics-explorer.md) results.
-
-![](./media/app-insights-how-do-i/050-filter.png)
-
-There are several different methods of setting the Application Version property.
-
-* Set directly:
-
-    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Wrap that line in a [telemetry initializer](app-insights-api-custom-events-metrics.md#defaults) to ensure that all TelemetryClient instances are set consistently.
-* [ASP.NET] Set the version in `BuildInfo.config`. The web module will pick up the version from the BuildLabel node. Include this file in your project and remember to set the Copy Always property in Solution Explorer.
-
-    ```XML
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
-      <ProjectName>AppVersionExpt</ProjectName>
-      <Build type="MSBuild">
-        <MSBuild>
-          <BuildLabel kind="label">1.0.0.2</BuildLabel>
-        </MSBuild>
-      </Build>
-    </DeploymentEvent>
-
-    ```
-* [ASP.NET] Generate BuildInfo.config automatically in MSBuild. To do this, add a few lines to your .csproj file:
-
-    ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
-    ```
-
-    This generates a file called *yourProjectName*.BuildInfo.config. The Publish process renames it to BuildInfo.config.
-
-    The build label contains a placeholder (AutoGen_...) when you build with Visual Studio. But when built with MSBuild, it is populated with the correct version number.
-
-    To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
+* Multiple roles in an app: Use a single Application Insights resource, and filter on cloud_Rolename. [Learn more](app-insights-monitor-multi-role-apps.md)
+* Separating development, test, and release versions: Use different Application Insights resources. Pick up the instrumentation keys from web.config. [Learn more](app-insights-separate-resources.md)
+* Reporting build versions: Add a property using a telemetry initializer. [Learn more](app-insights-separate-resources.md)
 
 ## Monitor backend servers and desktop apps
 [Use the Windows Server SDK module](app-insights-windows-desktop.md).
@@ -171,7 +127,7 @@ If you want a list of users with data such as what pages they look at or how oft
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
 * Use [Sampling and filtering](app-insights-api-filtering-sampling.md) at the SDK.
 * In your web pages, Limit the number of Ajax calls reported for every page view. In the script snippet after `instrumentationKey:...` , insert: `,maxAjaxCallsPerView:3` (or a suitable number).
-* If you're using [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
+* If you're using [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
 
 Learn more about [pricing and quotas](app-insights-pricing.md).
 

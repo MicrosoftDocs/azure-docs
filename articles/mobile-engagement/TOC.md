@@ -76,7 +76,6 @@
 ### Reach
 #### [Get started using and managing pushes](mobile-engagement-how-tos.md)
 #### [Send Emojis in notifications](mobile-engagement-use-emoji-with-push.md)
-#### [Send personalized notifications](mobile-engagement-send-personalized-notifications.md)
 
 ### Access service APIs
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
@@ -117,25 +116,29 @@
 
 # Reference
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+
+
+
+# Related
 ## SDK content
 ### [Android SDK](mobile-engagement-android-sdk-content.md)
 ### [iOS SDK](mobile-engagement-ios-sdk-content.md)
 ### [Windows Universal Apps SDK](mobile-engagement-windows-store-sdk-content.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-sdk-content.md)
+
+# Resources
+## [.NET API Sample](mobile-engagement-dotnet-sdk-service-api.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Sample Demo apps](mobile-engagement-demo-apps.md)
+## [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+## [Videos & Updates](https://azure.microsoft.com/documentation/services/mobile-engagement/)
 ## Release notes
 ### [Android SDK](mobile-engagement-android-release-notes.md)
 ### [iOS SDK](mobile-engagement-ios-release-notes.md)
 ### [Web SDK](mobile-engagement-web-release-notes.md)
-### [Windows Universal Apps SDK](mobile-engagement-windows-store-release-notes.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-release-notes.md)
-
-
-# Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/mobile-engagement/)
-## [Sample Demo apps](mobile-engagement-demo-apps.md)
-## [.NET API Sample](mobile-engagement-dotnet-sdk-service-api.md)
-## [Videos & Updates](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+### [Windows Universal Apps SDK](mobile-engagement-windows-store-release-notes.md)
 
 
 

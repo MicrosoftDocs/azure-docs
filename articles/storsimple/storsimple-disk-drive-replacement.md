@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replace a disk drive on a StorSimple device | Microsoft Docs
 description: Explains how to replace a disk drive on a StorSimple primary enclosure or an EBOD enclosure.
 services: storsimple

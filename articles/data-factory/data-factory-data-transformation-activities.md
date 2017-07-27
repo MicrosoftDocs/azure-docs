@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 05/16/2017
 ms.author: shlo
 
 ---
@@ -48,10 +48,11 @@ The HDInsight Pig activity in a Data Factory pipeline executes Pig queries on yo
 ## HDInsight MapReduce activity
 The HDInsight MapReduce activity in a Data Factory pipeline executes MapReduce programs on your own or on-demand Windows/Linux-based HDInsight cluster. See [MapReduce Activity](data-factory-map-reduce.md) article for details about this activity.
 
-You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) for details.
-
 ## HDInsight Streaming activity
 The HDInsight Streaming Activity in a Data Factory pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster. See [HDInsight Streaming activity](data-factory-hadoop-streaming-activity.md) for details about this activity.
+
+## HDInsight Spark Activity
+The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs from Azure Data Factory](data-factory-spark.md). 
 
 ## Machine Learning activities
 Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the [Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in an Azure Data Factory pipeline, you can invoke a Machine Learning web service to make predictions on the data in batch.

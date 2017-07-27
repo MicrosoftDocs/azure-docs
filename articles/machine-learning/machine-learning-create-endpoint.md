@@ -19,7 +19,7 @@ ms.author: himad
 ---
 # Creating Endpoints
 > [!NOTE]
-> This topic describes techniques applicable to a classic Web service.
+>  This topic describes techniques applicable to a **Classic** Machine Learning Web service.
 > 
 > 
 
@@ -67,5 +67,5 @@ You can add an endpoint to your Web service programmatically using the [AddEndpo
     ![Create endpoint](./media/machine-learning-create-endpoint/figure-4.png)
 
 ## Next Steps
-[How to consume a published Azure Machine Learning Web service](machine-learning-consume-web-services.md).
+[How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 

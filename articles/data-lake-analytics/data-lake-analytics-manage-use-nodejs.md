@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -31,8 +31,8 @@ Right now it supports:
 
 ## Features
 * Account management: create, get, list, update, and delete.
-* Job management: submit, get, list, cancel.
-* Catalog management: get, list, create (secrets), update (secrets), delete (secrets).
+* Job management: submit, get, list, and cancel.
+* Catalog management: get and list.
 
 ## How to Install
 ```bash

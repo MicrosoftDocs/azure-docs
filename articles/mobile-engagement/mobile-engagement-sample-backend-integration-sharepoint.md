@@ -4,7 +4,7 @@ description: Connect Azure Mobile Engagement with a SharePoint backend to create
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09

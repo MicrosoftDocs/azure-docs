@@ -25,7 +25,7 @@ ms.author: guybo
 Some things to consider include:
 
 * How many cores does each VM have, and are you loading each core?
-  The example Azure Quickstart template above has a do_work.php script, which loads a single core. If you’re using a VM bigger than a single core VM size like Standard_A1 or D1 then you’d need to run this load multiple times. Check how many cores your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  The example Azure Quickstart template above has a do_work.php script, which loads a single core. If you’re using a VM bigger than a single core VM size like Standard_A1 or D1 then you’d need to run this load multiple times. Check how many cores your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * How many VMs in the VM Scale Set, are you doing work on each one?
   
     A scale out event will only take place when the average CPU across **all** the VMs in a scale set exceeds the threshold value, over the time internal defined in the autoscale rules.
@@ -48,7 +48,7 @@ Some things to consider include:
     This is an indispensable troubleshooting tool which shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the Compute resource provider look at the VM Scale Set you created and check the Instance View, which shows you the state of a deployment. Also check the instance view of VMs in the VM Scale Set. Then go into the Microsoft.Insights resource provider and check the autoscale rules look good.
 * Is the Diagnostic extension working and emitting performance data?
   
-    **Update:** Azure autoscale has been enhanced to use a host based metrics pipeline which no longer requires a diagnostics extension to be installed. This means the next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. Examples of Azure templates which have been converted to use the host pipeline include: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
+    **Update:** Azure autoscale has been enhanced to use a host based metrics pipeline which no longer requires a diagnostics extension to be installed. This means the next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. An example of Azure templates which have been converted to use the host pipeline is: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     Using host based metrics for autoscale is better for the following reasons:
   

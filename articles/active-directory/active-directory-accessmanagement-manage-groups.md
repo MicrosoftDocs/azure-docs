@@ -13,8 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2016
+ms.date: 07/24/2017
 ms.author: curtand
+
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
 
 ---
 # Managing groups in Azure Active Directory
@@ -22,8 +26,8 @@ ms.author: curtand
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
 > * [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 One of the features of Azure Active Directory (Azure AD) user management is the ability to create groups of users. You use a group to perform management tasks such as assigning licenses or permissions to a number of users at once. You can also use groups to assign access permission to
 
@@ -31,6 +35,9 @@ One of the features of Azure Active Directory (Azure AD) user management is the 
 * Resources external to the directory such as SaaS applications, Azure services, SharePoint sites, or on-premises resources
 
 In addition, a resource owner can also assign access to a resource to an Azure AD group owned by someone else. This assignment grants the members of that group access to the resource. Then, the owner of the group manages membership in the group. Effectively, the resource owner delegates to the owner of the group the permission to assign users to their resource.
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to manage groups in the Azure AD admin center, see [Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
 ## How do I create a group?
 Depending on the services to which your organization has subscribed, you can create a group using one of the following:
@@ -70,13 +77,13 @@ When any attributes of a user change, the system evaluates all dynamic group rul
 
 > [!NOTE]
 > You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships aren't currently supported for group-based assignment to applications.
-> 
+>
 > Dynamic memberships for groups require an Azure AD Premium license to be assigned to
-> 
+>
 > * The administrator who manages the rule on a group
 > * All members of the group
-> 
-> 
+>
+>
 
 **To enable dynamic membership for a group**
 
@@ -97,4 +104,3 @@ These articles provide additional information on Azure Active Directory.
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

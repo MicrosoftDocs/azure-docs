@@ -1,9 +1,9 @@
-﻿---
+---
 title: Managing Concurrency in Microsoft Azure Storage
 description: How to manage concurrency for the Blob, Queue, Table, and File services
 services: storage
 documentationcenter: ''
-author: jasonnewyork
+author: jasontang501
 manager: tadb
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: jahogg
+ms.date: 05/11/2017
+ms.author: jasontang501
 
 ---
 # Managing Concurrency in Microsoft Azure Storage
@@ -36,7 +36,7 @@ In addition to selecting an appropriate concurrency strategy developers should a
 You can opt to use either optimistic or pessimistic concurrency models to manage access to blobs and containers in the blob service. If you do not explicitly specify a strategy last writes wins is the default.  
 
 ### Optimistic concurrency for blobs and containers
-The Storage service assigns an identifier to every object stored. This identifier is updated every time an update operation is performed on an object. The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol. A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an “If-Match” header which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.  
+The Storage service assigns an identifier to every object stored. This identifier is updated every time an update operation is performed on an object. The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol. A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an "If-Match" header which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.  
 
 The outline of this process is as follows:  
 
@@ -127,7 +127,7 @@ To lock a blob for exclusive use, you can acquire a [lease](http://msdn.microsof
 
 Leases enable different synchronization strategies to be supported, including exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read. Where a lease exists the storage service enforces exclusive writes (put, set and delete operations) however ensuring exclusivity for read operations requires the developer to ensure that all client applications use a lease ID and that only one client at a time has a valid lease ID. Read operations that do not include a lease ID result in shared reads.  
 
-The following C# snippet shows an example of acquiring an exclusive lease for 30 seconds on a blob, updating the content of the blob, and then releasing the lease. If there is already a valid lease on the blob when you try to acquire a new lease, the blob service returns an “HTTP (409) Conflict” status result. The snippet below uses an **AccessCondition** object to encapsulate the lease information when it makes a request to update the blob in the storage service.  You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+The following C# snippet shows an example of acquiring an exclusive lease for 30 seconds on a blob, updating the content of the blob, and then releasing the lease. If there is already a valid lease on the blob when you try to acquire a new lease, the blob service returns an "HTTP (409) Conflict" status result. The snippet below uses an **AccessCondition** object to encapsulate the lease information when it makes a request to update the blob in the storage service.  You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -228,7 +228,7 @@ catch (StorageException ex)
 }  
 ```
 
-To explicitly disable the concurrency check, you should set the **ETag** property of the **employee** object to “*” before you execute the replace operation.  
+To explicitly disable the concurrency check, you should set the **ETag** property of the **employee** object to "*" before you execute the replace operation.  
 
 ```csharp
 customer.ETag = "*";  

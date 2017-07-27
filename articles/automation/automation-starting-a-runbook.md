@@ -1,4 +1,4 @@
-﻿---
+---
 title: Starting a runbook in Azure Automation | Microsoft Docs
 description: Summarizes the different methods that can be used to start a runbook in Azure Automation and provides details on using both the Azure portal and Windows PowerShell.
 services: automation
@@ -185,6 +185,6 @@ jsmith
 ```
 
 ## Next steps
-* The runbook architecture in current article provides a high-level overview of runbooks managing resources in Azure and on-premise with the Hybrid Runbook Worker.  To learn about executing Automation runbooks in your datacenter, refer to [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
+* The runbook architecture in current article provides a high-level overview of runbooks managing resources in Azure and on-premises with the Hybrid Runbook Worker.  To learn about executing Automation runbooks in your datacenter, refer to [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
 * To learn more about the creating modular runbooks to be used by other runbooks for specific or common functions, refer to [Child Runbooks](automation-child-runbooks.md).
 

@@ -1,5 +1,5 @@
-﻿---
-title: 'Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough | Microsoft Docs'
+---
+title: 'Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough | Microsoft Docs'
 description: How to use Azure Data Lake to do data exploration and binary classification tasks on a dataset.
 services: machine-learning
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/30/2017
 ms.author: bradsev;weig
 
 ---
-# Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough
+# Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough
 This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip will be paid by a fare. It walks you through the steps of the [Team Data Science Process](http://aka.ms/datascienceprocess), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
 
 ### Azure Data Lake Analytics
@@ -43,21 +43,13 @@ Only the principal steps are outlined in this walkthrough. You can download the 
 Before you begin these topics, you must have the following:
 
 * An Azure subscription. If you do not already have one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Recommended] Visual Studio 2013, or 2015. If you do not already have one of these versions installed, you can download a free Community edition from [here](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Click on the **Download Community 2015** button under the Visual Studio section. 
+* [Recommended] Visual Studio 2013 or later. If you do not already have one of these versions installed, you can download a free Community version from [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
 > Instead of Visual Studio, you can also use the Azure Portal to submit Azure Data Lake queries. We will provide instructions on how to do so both with Visual Studio and on the portal in the section titled **Process data with U-SQL**. 
 > 
 > 
 
-* Signup for Azure Data Lake Preview
-
-> [!NOTE]
-> You need to get approval to use Azure Data Lake Store (ADLS) and Azure Data Lake Analytics (ADLA) as these services are in preview. You will be prompted to sign up when you create your first ADLS or ADLA. To sigh up, click on **Sign up to preview**, read the agreement, and click **OK**. Here, for example, is the ADLS sign up page:
-> 
-> 
-
- ![2](./media/machine-learning-data-science-process-data-lake-walkthrough/2-ADLA-preview-signup.PNG)
 
 ## Prepare data science environment for Azure Data Lake
 To prepare the data science environment for this walkthrough, create the following resources:
@@ -69,13 +61,15 @@ To prepare the data science environment for this walkthrough, create the followi
 * Azure Data Lake Tools for Visual Studio (Recommended)
 
 This section provides instructions on how to create each of these resources. If you choose to use Hive tables with Azure Machine Learning, instead of Python, to build a model,you will also need to provision an HDInsight (Hadoop) cluster. This alternative procedure in described in the appropriate section below.
-<br/>
 
-> AZURE.NOTE The **Azure Data Lake Store** can be created either separately or when you create the **Azure Data Lake Analytics** as the default storage. Instructions are referenced for creating each of these resources separately below, but the Data Lake storage account need not be created separately.
-> <br/>
+
+> [!NOTE]
+> The **Azure Data Lake Store** can be created either separately or when you create the **Azure Data Lake Analytics** as the default storage. Instructions are referenced for creating each of these resources separately below, but the Data Lake storage account need not be created separately.
+>
 > 
-> ### Create an Azure Data Lake Store
-> 
+
+### Create an Azure Data Lake Store
+
 
 Create an ADLS from the [Azure Portal](http://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
 

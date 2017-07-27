@@ -3,7 +3,7 @@ title: Azure Functions Notification Hub binding | Microsoft Docs
 description: Understand how to use Azure Notification Hub binding in Azure Functions.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: ggailey777
 manager: erikre
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: wesmc
+ms.author: glenga
 
 ---
 # Azure Functions Notification Hub output binding
@@ -40,7 +40,7 @@ The function.json file provides the following properties:
 * `connection` : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub.
 * `direction` : must be set to *"out"*. 
 * `platform` : The platform property indicates the notification platform your notification targets. Must be one of the following values:
-  * `template` : This is the default platform if the platform property is omitted from the output binding. Template notifications can be used to target any platform configured on the Azure Notification Hub. For more information on using templates in general to send cross platform notifications with an Azure Notification Hub, see [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+  * By default, if the platform property is omitted from the output binding, template notifications can be used to target any platform configured on the Azure Notification Hub. For more information on using templates in general to send cross platform notifications with an Azure Notification Hub, see [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
   * `apns` : Apple Push Notification Service. For more information on configuring the notification hub for APNS and receiving the notification in a client app, see [Sending push notifications to iOS with Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md) 
   * `adm` : [Amazon Device Messaging](https://developer.amazon.com/device-messaging). For more information on configuring the notification hub for ADM and receiving the notification in a Kindle app, see [Getting Started with Notification Hubs for Kindle apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md) 
   * `gcm` : [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, which is the new version of GCM, is also supported. For more information on configuring the notification hub for GCM/FCM and receiving the notification in an Android client app, see [Sending push notifications to Android with Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
@@ -73,8 +73,8 @@ You can also manually add a connection string for an existing hub by adding a co
 
 1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 2. In the **Settings** blade, click **Application Settings**.
-3. Scroll down to the **Connection strings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub. Change the type to **Custom**.
-4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
+3. Scroll down to the **App settings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub.
+4. Reference your App setting string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
 ## APNS native notifications with C# queue triggers
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native APNS notification. 

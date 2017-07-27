@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement User Interface - Reach
 description: Learn how to reach out to the users of your application with push notifications using Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643

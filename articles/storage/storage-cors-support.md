@@ -1,9 +1,9 @@
-﻿---
+---
 title: Cross-Origin Resource Sharing (CORS) Support | Microsoft Docs
 description: Learn how to enable CORS Support for the Microsoft Azure Storage Services.
 services: storage
 documentationcenter: .net
-author: cbrooks
+author: cbrooksmsft
 manager: carmonm
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 2/22/2017
 ms.author: cbrooks
 
 ---
@@ -40,7 +40,7 @@ If CORS is enabled for the service and there is a CORS rule that matches the pre
 
 If CORS is not enabled for the service or no CORS rule matches the preflight request, the service will respond with status code 403 (Forbidden).
 
-If the OPTIONS request doesn’t contain the required CORS headers (the Origin and Access-Control-Request-Method headers), the service will respond with status code 400 (Bad request).
+If the OPTIONS request doesn't contain the required CORS headers (the Origin and Access-Control-Request-Method headers), the service will respond with status code 400 (Bad request).
 
 Note that a preflight request is evaluated against the service (Blob, Queue, and Table) and not against the requested resource. The account owner must have enabled CORS as part of the account service properties in order for the request to succeed.
 
@@ -133,7 +133,7 @@ Next, consider the following CORS requests:
 | **Method** |**Origin** |**Request Headers** |**Rule Match** |**Result** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |First rule |Success |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |Second rule |Success |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Second rule |Failure |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |Second rule |Failure |
 
 The first request matches the first rule – the origin domain matches the allowed origins, the method matches the allowed methods, and the header matches the allowed headers – and so succeeds.
 

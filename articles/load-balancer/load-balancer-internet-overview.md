@@ -25,13 +25,13 @@ For a cloud service that contains instances of web roles or worker roles, you ca
 
 The *servicedefinition.csdef* file contains the endpoint configuration and when you have multiple role instances for a web or worker role deployment, the load balancer will be setup for it. The way to add instances to your cloud deployment is changing the instance count on the service configuration file (.csfg).
 
-The following figure shows a load-balanced endpoint for encrypted web traffic that is shared among three virtual machines for the public and private TCP port of 443. These three virtual machines are in a load-balanced set.
+The following figure shows a load-balanced endpoint for web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
 
-![public load balancer example](./media/load-balancer-internet-overview/IC727496.png))
+![public load balancer example](./media/load-balancer-internet-overview/IC727496.png)
 
-Figure 1 - Load-balanced endpoint for encrypted web traffic
+Figure 1 - Load-balanced endpoint for web traffic
 
-When Internet clients send web page requests to the public IP address of the cloud service on TCP port 443, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
+When Internet clients send web page requests to the public IP address of the cloud service on TCP port 80, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
 
 By default, Azure Load Balancer distributes network traffic equally among multiple virtual machine instances. You can also configure session affinity, For more information, see [load balancer distribution mode](load-balancer-distribution-mode.md).
 

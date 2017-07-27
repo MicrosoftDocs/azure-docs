@@ -14,27 +14,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/24/2017
 ms.author: garye;bradsev
 
 ---
 # Import your training data into Azure Machine Learning Studio from various data sources
 To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can: 
 
-* upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace.  
-* access data from one of several **online data sources** while your experiment is running using the [Import Data][import-data] module. 
-* use data from another Azure Machine learning experiment saved as a **dataset**. 
+* upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace
+* access data from one of several **online data sources** while your experiment is running using the [Import Data][import-data] module 
+* use data from another Azure Machine learning **experiment** saved as a dataset
+* use data from an on-premises **SQL Server database**
+
+Each of these options is described in one of the topics on the menu below. These topics show you how to import data from these various data sources to use in Machine Learning Studio. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Each of these options are described in one of the topics on the menu above. These topic shows you how to import data from these various data sources to use in Machine Learning Studio. 
-
 > [!NOTE]
-> There are a number of sample datasets available in Machine Learning Studio that you can use for this purpose. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
+> There are a number of sample datasets available in Machine Learning Studio that you can use for training data. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
 > 
 > 
 
-This introductory topic also shows how to get data ready for use in Machine Learning Studio and describes which data formats and data types are supported. 
+This introductory topic also discusses how to get data ready for use in Machine Learning Studio and describes which data formats and data types are supported. 
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
@@ -43,11 +44,11 @@ This introductory topic also shows how to get data ready for use in Machine Lear
 ## Get data ready for use in Azure Machine Learning Studio
 Machine Learning Studio is designed to work with rectangular or tabular data, such as text data that's delimited or structured data from a database, though in some circumstances non-rectangular data may be used.
 
-It is best if your data is relatively clean. That is, you'll want to take care of issues such as unquoted strings before you upload the data into your experiment.
+It's best if your data is relatively clean. That is, you'll want to take care of issues such as unquoted strings before you upload the data into your experiment.
 
 However, there are modules available in Machine Learning Studio that enable some manipulation of data within your experiment. Depending on the machine learning algorithms you'll be using, you may need to decide how you'll handle data structural issues such as missing values and sparse data, and there are modules that can help with that. Look in the **Data Transformation** section of the module palette for modules that perform these functions.
 
-At any point in your experiment you can view or download the data that's produced by a module by right-clicking the output port. Depending on the module there may be different download options available, or you may be able to view the data within your web browser in Machine Learning Studio.
+At any point in your experiment you can view or download the data that's produced by a module by clicking the output port. Depending on the module, there may be different download options available, or you may be able to visualize the data within your web browser in Machine Learning Studio.
 
 ## Data formats and data types supported
 You can import a number of data types into your experiment, depending on what mechanism you use to import data and where it's coming from:

@@ -1,5 +1,5 @@
 ---
-title: Managing Role-Based Access Control with the REST API
+title: Role-Based Access Control with REST - Azure AD | Microsoft Docs
 description: Managing role-based access control with the REST API
 services: active-directory
 documentationcenter: na
@@ -13,19 +13,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 05/16/2017
 ms.author: kgremban
 
 ---
-# Managing Role-Based Access Control with the REST API
+# Manage Role-Based Access Control with the REST API
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
-Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Manager API helps you manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API helps you manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 ## List all role assignments
 Lists all the role assignments at the specified scope and subscopes.
@@ -40,13 +38,13 @@ Use the **GET** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{api-version}* with 2015-07-01.
 3. Replace *{filter}* with the condition that you wish to apply to filter the role assignment list:
-   
+
    * List role assignments for only the specified scope, not including the role assignments at subscopes: `atScope()`    
    * List role assignments for a specific user, group, or application: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * List role assignments for a specific user, including ones inherited from groups | `assignedTo('{objectId of user}')`
@@ -90,7 +88,7 @@ Use the **GET** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -131,7 +129,7 @@ Use the **PUT** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope at which you wish to create the role assignments. When you create a role assignment at a parent scope, all child scopes inherit the same role assignment. The following examples show how to specify the scope for different levels:
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
    * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -189,7 +187,7 @@ Use the **DELETE** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope at which you wish to create the role assignments. The following examples show how to specify the scope for different levels:
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -230,13 +228,13 @@ Use the **GET** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the roles. The following examples show how to specify the scope for different levels:
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Resource /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{api-version}* with 2015-07-01.
 3. Replace *{filter}* with the condition that you wish to apply to filter the list of roles:
-   
+
    * List roles available for assignment at the specified scope and any of its child scopes: `atScopeAndBelow()`
    * Search for a role using exact display name: `roleName%20eq%20'{role-display-name}'`. Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -313,7 +311,7 @@ Use the **GET** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -393,7 +391,7 @@ Use the **PUT** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the first *AssignableScope* of the custom role. The following examples show how to specify the scope for different levels.
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -496,7 +494,7 @@ Use the **PUT** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the first *AssignableScope* of the custom role. The following examples show how to specify the scope for different levels:
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -599,7 +597,7 @@ Use the **DELETE** method with the following URI:
 Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope at which you wish to delete the role definition. The following examples show how to specify the scope for different levels:
-   
+
    * Subscription: /subscriptions/{subscription-id}  
    * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -646,6 +644,6 @@ Status code: 200
 
 ```
 
+## Next steps
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-

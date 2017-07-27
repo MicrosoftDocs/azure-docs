@@ -1,4 +1,4 @@
-﻿---
+---
 title: Change the key vault tenant ID after a subscription move | Microsoft Docs
 description: Learn how to switch the tenant ID for a key vault after a subscription is moved to a different tenant
 services: key-vault
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/13/2016
+ms.date: 01/07/2017
 ms.author: ambapat
 
 ---
@@ -28,6 +28,7 @@ When you create a new key vault in a subscription, it is automatically tied to t
 For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
 
 <pre>
+$Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
 $vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
 $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
 $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId

@@ -4,7 +4,7 @@ description: How to Use the Engagement API on Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: ae2ba2e8-f75b-4dee-a164-a7dd65d35a23

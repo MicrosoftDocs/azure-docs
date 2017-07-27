@@ -1,10 +1,10 @@
-﻿---
+---
 title: Get started with Azure Notification Hubs using Baidu | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices using Baidu.
 services: notification-hubs
 documentationcenter: android
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
@@ -40,16 +40,16 @@ To use Baidu, you must have a Baidu account. If you already have one, log in to 
 
 1. Go to the [Baidu portal] and click the **登录** (**Login**) link. Click **立即注册** to start the account registration process.
    
-       ![][1]
+   ![][1]
 2. Enter the required details—phone/email address, password, and verification code—and click **Signup**.
    
-       ![][2]
+   ![][2]
 3. You will be sent an email to the email address that you entered with a link to activate your Baidu account.
    
-       ![][3]
+   ![][3]
 4. Log in to your email account, open the Baidu activation mail, and click the activation link to activate your Baidu account.
    
-       ![][4]
+   ![][4]
 
 Once you have an activated Baidu account, log in to the [Baidu portal].
 

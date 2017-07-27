@@ -1,19 +1,20 @@
-﻿---
+---
 title: Restore a single table from Azure SQL Database backup | Microsoft Docs
 description: Learn how to restore a single table from Azure SQL Database backup.
 services: sql-database
 documentationcenter: ''
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: ''
 
 ms.assetid: 340b41bd-9df8-47fb-adfc-03216de38a5e
 ms.service: sql-database
+ms.custom: business continuity
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 06/13/2017
 ms.author: daleche
 
 ---
@@ -23,27 +24,34 @@ You may encounter a situation in which you accidentally modified some data in a 
 ## Preparation steps: Rename the table and restore a copy of the database
 1. Identify the table in your Azure SQL database that you want to replace with the restored copy. Use Microsoft SQL Management Studio to rename the table. For example, rename the table as &lt;table name&gt;_old.
    
-    **Note** To avoid being blocked, make sure that there's no activity running on the table that you are renaming. If you encounter issues, make sure that perform this procedure during a maintenance window.
+   > [!NOTE]
+   > To avoid being blocked, make sure that there's no activity running on the table that you are renaming. If you encounter issues, make sure that perform this procedure during a maintenance window.
+   >
+
 2. Restore a backup of your database to a point in time that you want to recover to using the [Point-In_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) steps.
    
-    **Notes**:
+   > [!NOTE]
+   > The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step doesn't overwrite the existing database name on the server. This is a safety measure, and it's intended to allow you to verify the restored database before they drop their current database and rename the restored database for production use.
    
-   * The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to allow you to verify the restored database before they drop their current database and rename the restored database for production use.
-   * All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention metrics, depending on the tier:
-
-| DB Restore | Basic tier | Standard tiers | Premium tiers |
-|:--- |:--- |:--- |:--- |
-| Point In Time Restore |Any restore point within 7 days |Any restore point within 35 days |Any restore point within 35 days |
-
 ## Copying the table from the restored database by using the SQL Database Migration tool
+
 1. Download and install the [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
 2. Open the SQL Database Migration Wizard, on the **Select Process** page, select **Database under Analyze/Migrate**, and then click **Next**.
+
    ![SQL Database Migration wizard - Select Process](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
+
 3. In the **Connect to Server** dialog box, apply the following settings:
-   * **Server name**: Your SQL Azure instance
-   * **Authentication**: **SQL Server Authentication**. Enter your login credentials.
-   * **Database**: **Master DB (List all databases)**.
-   * **Note** By default the wizard saves your login information. If you don't want it to, select **Forget Login Information**.
+
+   * Server name: **Your SQL server**
+   * Authentication: **SQL Server Authentication**
+   * Login: **Your login**
+   * Password: **Your password**
+   * Database: **Master DB (List all databases)**
+   
+   > [!NOTE]
+   > By default the wizard saves your login information. If you don't want it to, select **Forget Login Information**.
+   >
+   
      ![SQL Database Migration wizard - Select Source - step 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
 4. In the **Select Source** dialog box, select the restored database name from the **Preparation steps** section as your source, and then click **Next**.
    
@@ -64,7 +72,8 @@ You may encounter a situation in which you accidentally modified some data in a 
 9. Click **Connect**, select the target database that you want to move the table to, and then click **Next**. This should finish running the previously generated script, and you should see the newly moved table copied to the target database.
 
 ## Verification step
-1. Query and test the newly copied table to make sure that the data is intact. Upon confirmation, you can drop the renamed table form **Preparation steps** section. (for example, &lt;table name&gt;_old).
+
+- Query and test the newly copied table to make sure that the data is intact. Upon confirmation, you can drop the renamed table form **Preparation steps** section. (for example, &lt;table name&gt;_old).
 
 ## Next steps
 [SQL Database automatic backups](sql-database-automated-backups.md)

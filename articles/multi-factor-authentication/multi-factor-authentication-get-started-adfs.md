@@ -1,5 +1,5 @@
 ---
-title: Azure MFA and AD FS | Microsoft Docs
+title: Two-step verification and AD FS - Azure MFA | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS.
 services: multi-factor-authentication
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 04/23/2017
 ms.author: kgremban
 
 ---
@@ -27,7 +27,7 @@ If your organization has federated your on-premises Active Directory with Azure 
 
 The following table summarizes the verification experience between securing resources with Azure Multi-Factor Authentication and AD FS
 
-| Verification Experience - Browse-based Apps | Verification Experience - Non-Browser-based Apps |
+| Verification Experience - Browser-based Apps | Verification Experience - Non-Browser-based Apps |
 |:--- |:--- |:--- |
 | Securing Azure AD resources using Azure Multi-Factor Authentication |<li>The first verification step is performed on-premises using AD FS.</li> <li>The second step is a phone-based method carried out using cloud authentication.</li> |
 | Securing Azure AD resources using Active Directory Federation Services |<li>The first verification step is performed on-premises using AD FS.</li><li>The second step is performed on-premises by honoring the claim.</li> |
@@ -40,9 +40,8 @@ Caveats with app passwords for federated users:
 * Account disable/deletion may take up to three hours for directory sync, delaying disable/deletion of app passwords in the cloud identity.
 
 ## Next steps
-For information on setting up either Azure Multi-Factor Authentication or the Azure Multi-Factor Authentication Server with AD FS see the following articles:
+For information on setting up either Azure Multi-Factor Authentication or the Azure Multi-Factor Authentication Server with AD FS, see the following articles:
 
 * [Secure cloud resources using Azure Multi-Factor Authentication and AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
 * [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 * [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-

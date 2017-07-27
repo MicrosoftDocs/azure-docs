@@ -1,4 +1,4 @@
-﻿---
+---
 title: Licensing Microsoft® Smooth Streaming Client Porting Kit
 description: Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 06/06/2017
 ms.author: xpouyat
 
 ---
@@ -80,6 +80,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Albis Technologies Ltd.
 * Alticast Corporation
 * Amazon Digital Services, Inc.
+* Arion Technology, Inc.
 * AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar Purchasing Corporation
@@ -88,6 +89,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
+* iWEDIA S.A. 
 * Liberty Global Services BV
 * MediaTek Inc.
 * MStar Co, Ltd
@@ -110,6 +112,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Amazon Digital Services, Inc.
 * AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
+* Arion Technology, Inc.
 * ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 * British Sky Broadcasting Limited
 * CastPal Technology Inc., Shenzhen
@@ -148,6 +151,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
+
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

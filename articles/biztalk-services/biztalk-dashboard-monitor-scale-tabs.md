@@ -18,13 +18,16 @@ ms.author: mandia
 
 ---
 # Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance. 
 
 When you open the Azure classic portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.
 
 This opens a new window with the following tabs. This topic describes these tabs.
 
-## Quick Start (![Quick Start][QuickStart])
+## Quickstart (![Quickstart][Quickstart])
 Depending on the BizTalk Services Edition, all options listed may not be available. 
 
 <table border="1">
@@ -343,7 +346,7 @@ Now that you're familiar with the different tabs, you can learn more about the A
 * [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
 * [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+[Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png

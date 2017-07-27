@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Azure Scheduler? | Microsoft Docs
 description: Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically.
 services: scheduler

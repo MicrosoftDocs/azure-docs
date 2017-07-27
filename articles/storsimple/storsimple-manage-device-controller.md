@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage StorSimple device controllers | Microsoft Docs
 description: Learn how to stop, restart, shut down, or reset your StorSimple device controllers.
 services: storsimple

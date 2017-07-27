@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
 
 ---
@@ -31,7 +31,7 @@ After reading this article, you will be able to:
 
 > [!NOTE]
 > * Windows PowerShell for StorSimple cmdlets allow you to manage your StorSimple device from a serial console or remotely via Windows PowerShell remoting. For more information about each of the individual cmdlets that can be used in this interface, go to [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * The Azure PowerShell StorSimple cmdlets are a different collection of cmdlets that allow you to automate StorSimple service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [Azure StorSimple cmdlet reference](https://msdn.microsoft.com/library/azure/dn920427.aspx).
+> * The Azure PowerShell StorSimple cmdlets are a different collection of cmdlets that allow you to automate StorSimple service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [Azure StorSimple cmdlet reference](/powershell/module/azure/?view=azuresmps-3.7.0).
 > 
 > 
 
@@ -146,7 +146,7 @@ The following table shows a summary of all the common management tasks and compl
 | Install maintenance mode updates and hotfixes |[Update your device](storsimple-update-device.md) |
 | Enter maintenance mode </br>Exit maintenance mode |[StorSimple device modes](storsimple-device-modes.md) |
 | Create a Support package</br>Decrypt and edit a support package |[Create and manage a Support package](storsimple-create-manage-support-package.md) |
-| Start a Support session</br> |[Start a support session in Windows PowerShell for StorSimple](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
+| Start a Support session</br> |[Start a support session in Windows PowerShell for StorSimple](storsimple-create-manage-support-package.md#manually-create-a-support-package) |
 
 ## Get Help in Windows PowerShell for StorSimple
 In Windows PowerShell for StorSimple, cmdlet Help is available. An online, up-to-date version of this Help is also available, which you can use to update the Help on your system.

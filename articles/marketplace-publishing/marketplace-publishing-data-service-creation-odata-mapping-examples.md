@@ -1,4 +1,4 @@
-﻿---
+---
 title: Guide to creating a Data Service for the  Marketplace | Microsoft Docs
 description: Detailed instructions of how to create, certify and deploy a Data Service for purchase on the Azure Marketplace.
 services: marketplace-publishing

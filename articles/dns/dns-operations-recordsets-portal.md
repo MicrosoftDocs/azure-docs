@@ -1,6 +1,6 @@
 ---
-title: Manage DNS record sets and records using the Azure portal | Microsoft Docs
-description: Managing DNS record sets and records when hosting your domain on Azure DNS.
+title: Manage DNS record sets and records with Azure DNS | Microsoft Docs
+description: Azure DNS provides the capability to manage DNS record sets and records when hosting your domain.
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -22,7 +22,8 @@ ms.author: gwallace
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI](dns-operations-recordsets-cli.md)
+> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
@@ -106,7 +107,11 @@ You cannot add or remove records from the automatically created SOA record set a
 
 ### Modify NS records at the zone apex
 
-You cannot add to, remove, or modify the records in the automatically created NS record set at the zone apex (name = "@"). The only change that's permitted is to modify the record set TTL.
+The NS record set at the zone apex is automatically created with each DNS zone. It contains the names of the Azure DNS name servers assigned to the zone.
+
+You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers.
+
+Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be modified without constraint.
 
 ### Delete SOA or NS record sets
 
@@ -116,4 +121,4 @@ You cannot delete the SOA and NS record sets at the zone apex (name = "@") that 
 
 * For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
 * For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
-* For more information about reverse DNS records, see [How to manage reverse DNS records for your services using PowerShell](dns-reverse-dns-record-operations-ps.md).
+* For more information about reverse DNS records, see [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).

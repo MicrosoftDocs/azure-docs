@@ -1,11 +1,10 @@
 ---
-title: Assign Licenses for Azure MFA | Microsoft Docs
-description: Learn  how to assign user licenses for Microsoft Azure Multi-Factor Authentication.
+title: Assign icenses for Azure MFA | Microsoft Docs
+description: Learn how to assign user licenses for Microsoft Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid: 514ef423-8ee6-4987-8a4e-80d5dc394cf9
 ms.service: multi-factor-authentication
@@ -13,9 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 06/13/2017
 ms.author: kgremban
+ms.reviewer: yossib
+ms.custom: it-pro
 
+ROBOTS: NOINDEX
 ---
 # Assigning an Azure MFA, Azure AD Premium, or Enterprise Mobility license to users
 If you have purchased Azure MFA, Azure AD Premium, or Enterprise Mobility Suite licenses, you do not need to create a Multi-Factor Auth provider. Once you assign the licenses to your users, you can begin enabling them for MFA.
@@ -35,3 +37,6 @@ If you have purchased Azure MFA, Azure AD Premium, or Enterprise Mobility Suite 
 9. You should see a message saying how many licenses were assigned and how many may have failed.  Click **Ok**.
    ![Assign Licenses](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
+## Next steps
+
+- For more information, see [What is Microsoft Azure Active Directory licensing?](../active-directory/active-directory-licensing-what-is.md)

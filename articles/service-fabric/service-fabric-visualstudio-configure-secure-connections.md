@@ -1,5 +1,5 @@
-﻿---
-title: Configure secure connections supported by the Service Fabric cluster | Microsoft Docs
+---
+title: Configure secure Azure Service Fabric cluster connections | Microsoft Docs
 description: Learn how to use Visual Studio to configure secure connections that are supported by the Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
-ms.author: cawaMS
+ms.author: cawa
 
 ---
 # Configure secure connections to a Service Fabric cluster from Visual Studio
@@ -38,7 +38,7 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
 1. Make sure you can access one of the client certificates that the destination cluster trusts. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Setting up a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for how to configure the server to grant access to a client.
 2. Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates. Install the certificate to **Cert:\LocalMachine\My**. It's OK to accept all default settings while importing the certificate.
 3. Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
-4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
+4. Optional: You can edit the publish profile to specify a secure cluster connection.
    
    Since you're manually editing the Publish Profile XML file to specify the certificate information, be sure to note the certificate store name, store location, and certificate thumbprint. You'll need to provide these values for the certificate's store name and store location. See [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) for more information.
    
@@ -50,7 +50,7 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
    
    Here’s an example for connecting to an x509 certificate-based secure cluster:
    
-   ```
+   ```xml
    <ClusterConnectionParameters
    ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
    X509Credential="true"
