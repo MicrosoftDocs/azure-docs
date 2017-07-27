@@ -87,8 +87,8 @@ After you have updated your sources, you can install the SDK.
 	>   [!TIP]
 	>   The following commands automate accepting the license for Service Fabric packages:
 	>   ```bash
-	>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
-	>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+	>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
+	>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
 	>   ```
 	
 2. Run the SDK setup script.
