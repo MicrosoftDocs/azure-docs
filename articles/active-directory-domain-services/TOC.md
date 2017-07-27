@@ -47,6 +47,9 @@
 ### [Enable the preview Azure portal experience](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
 
+# Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
