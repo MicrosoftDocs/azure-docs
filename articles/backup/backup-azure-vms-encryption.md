@@ -108,7 +108,7 @@ Use the following steps to provide relevant permissions to Azure Backup to acces
 
     ![Select Azure backup](./media/backup-azure-vms-encryption/select-backup-template.png)
     
-7. Click OK. Notice that Backup Management Service gets added in Access Policies blade. 
+7. Click **OK**. Notice that Backup Management Service gets added in Access Policies blade. 
 
     ![Backup service access policy](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
     
