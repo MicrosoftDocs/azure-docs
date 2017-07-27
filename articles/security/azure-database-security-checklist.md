@@ -43,7 +43,7 @@ We recommend that you read the [Azure Database Security Best Practices](https://
 |Checklist Category| Description|
 | ------------ | -------- |
 |**Protect Data**||
-| Encryption in Motion/ Transit| <ul><li>[Transport Layer Security](https://docs.microsoft.com/en-us/windows-server/security/tls/transport-layer-security-protocol), for data encryption when data is moving to the networks.</li><li>Database requires secure communication from clients based on the [TDS(Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) protocol over TLS (Transport Layer Security).</li></ul> |
+| <br> Encryption in Motion/ Transit| <ul><li>[Transport Layer Security](https://docs.microsoft.com/en-us/windows-server/security/tls/transport-layer-security-protocol), for data encryption when data is moving to the networks.</li><li>Database requires secure communication from clients based on the [TDS(Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) protocol over TLS (Transport Layer Security).</li></ul> |
 |Encryption at rest| <ul><li>[Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), when inactive data is stored physically in any digital form.</li></ul>|
 |**Control Access**||  
 | Database Access | <ul><li>[Authentication](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access) (Azure Active Directory Authentication) AD authentication uses identities managed by Azure Active Directory.</li><li>[Authorization](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access) grant users the least privileges necessary.</li></ul> |
