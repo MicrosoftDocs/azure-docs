@@ -154,8 +154,6 @@
 ### [Metric](application-insights-data-model-metric-telemetry.md)
 ### [Context](application-insights-data-model-context.md)
 ## [Telemetry correlation](application-insights-correlation.md)
-
-# Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Resources
