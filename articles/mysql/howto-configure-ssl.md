@@ -14,7 +14,7 @@ ms.date: 07/28/2017
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
 ## Obtain SSL Certificate
-Download ssl certification (.crt file) [here](https://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt) and move it to a temporary direcotry i.e.: c:\ssl or /home/username/ssl
+Download ssl certification (.crt file) [here](https://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt) and move it to a temporary directory i.e.: c:\ssl or /home/username/ssl
 
 ## Convert SSL Certificate 
 In many cases, applications require a local certificate file (.pem) generated from a certificate file (.crt) to bind successfully. In order to do this you need to install OpenSSL, an open source cryptography library.
