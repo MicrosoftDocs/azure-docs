@@ -297,6 +297,7 @@ Developers using the Common Language Infrastructure libraries provided by Micros
 
 2. Add the following code to that method to have any request to any of the service’s endpoints authenticated as bearing a token issued by Azure Active Directory on behalf of a specified tenant, for access to the Azure AD Graph Web service: 
 
+  ````
     private void OnServiceStartup(
       Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
       System.Web.Http.HttpConfiguration HttpConfiguration configuration)
@@ -325,7 +326,7 @@ Developers using the Common Language Infrastructure libraries provided by Micros
 
       applicationBuilder.UseWindowsAzureActiveDirectoryBearerAuthentication(authenticationOptions);
     }
-
+  ````
 ## User and Group Schema
 Azure Active Directory can provision two types of resources to SCIM Web Services.  Those types of resources are users and groups.  
 
@@ -365,18 +366,18 @@ Group resources are identified by the schema identifier, http://schemas.microsof
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## User Provisioning and De-Provisioning
-The figure below shows the messages that Azure Active Directory sends to a SCIM service to manage the lifecycle of a user in another identity store.  The diagram also shows how a SCIM service implemented using the Common Language Infrastructure libraries provided by Microsoft for building such services translate those requests into calls to the methods of a provider.  
+The figure below shows the messages that Azure Active Directory sends to a SCIM service to manage the lifecycle of a user in another identity store. The diagram also shows how a SCIM service implemented using the Common Language Infrastructure libraries provided by Microsoft for building such services translate those requests into calls to the methods of a provider.  
 
 ![][4]
 *Figure: User provisioning and de-provisioning sequence*
 
 1. Azure Active Directory queries the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure Active Directory.  The query is expressed as a Hypertext Transfer Protocol request such as the following, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory: 
-
+  ````
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
-
+  ````
   If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
-
+  ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -386,7 +387,7 @@ The figure below shows the messages that Azure Active Directory sends to a SCIM 
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
-
+  ````
   Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
 
     public interface IQueryParameters: 
