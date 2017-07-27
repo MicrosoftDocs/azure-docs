@@ -58,3 +58,11 @@ The service can be used to detect which language the input text is written in. 1
 | Turkish     | `tr` | ✔ \* |  |   |
 
 \* indicates language support in preview
+
+## Scoring large number of records
+You can send several records in a single call, but keep in mind the following limits:
+Max request size: 1MB (for sentiment, KP and language)
+Max number of documents per request: 1000
+Max size of a single document: 10KB 
+
+If you need more than 1000 records analyzed, break up your content into several calls. You can make up to 100 API calls per minute -- effectively allowing you to score 100,000 records per minute.
