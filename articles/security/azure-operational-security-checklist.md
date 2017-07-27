@@ -21,7 +21,8 @@ ms.author: tomsh
 
 # Azure operational security checklist
 Deploying an application on Azure  is fast, easy, and cost-effective. Before deploying cloud application in production useful to have a checklist to assist in evaluating your application against a list of essential and recommended operational security actions for you to consider.
-Introduction
+
+## Introduction
 
 Azure provides a suite of infrastructure services that you can use to deploy your applications. Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure.
 
