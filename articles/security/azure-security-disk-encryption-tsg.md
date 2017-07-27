@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption Troubleshooting| Microsoft Docs
-description: The paper provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
+description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
 documentationcenter: na
 author: deventiwari
@@ -17,17 +17,19 @@ ms.date: 07/27/2017
 ms.author: devtiw
 
 ---
-# Azure Disk Encryption Troubleshooting
+# Azure Disk Encryption Troubleshooting Guide
 
-## Troubleshooting Linux OS Disk Encryption
+This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Azure disk encryption and need guidance to troubleshoot disk encryption related issues.
+
+## Troubleshooting Linux OS disk encryption
 
 Linux OS disk encryption must unmount the OS drive prior to running it through the full disk encryption process.   If it cannot, an error message of "failed to unmount after…" error message is likely to occur.
 
-This is most likely when OS disk encryption is attempted on a target VM environment that has been modified or changed from its supported stock gallery image.  Examples of deviations from the supported image which can interfere with the extension’s ability to unmount the OS drive include:
+This is most likely when OS disk encryption is attempted on a target VM environment that has been modified or changed from its supported stock gallery image.  Examples of deviations from the supported image, which can interfere with the extension’s ability to unmount the OS drive include:
 - Customized images that no longer match a supported file system and/or partitioning scheme.
 - When large applications such as SAP, MongoDB, or Apache Cassandra are installed and running in the OS prior to encryption.  The extension is unable to properly shut these down, and if they maintain open file handles to the OS drive, the drive cannot be unmounted, causing failure.
-- When custom scripts are being run in close time proximity to the encryption being enabled, or if any other changes are being made on the VM during the encryption process.   This can happen when an ARM template defines multiple extensions to execute simultaneously, or when a custom script extension or other action is run simultaneously to disk encryption.   Serializing and isolating such steps may resolve the issue.
-- When SELinux has not been disabled prior to enabling encryption, the unmount step will fail.  SELinux can be re-enabled after encryption has completed.
+- When custom scripts are being run in close time proximity to the encryption being enabled, or if any other changes are being made on the VM during the encryption process.   This can happen when a Resource Manager template template defines multiple extensions to execute simultaneously, or when a custom script extension or other action is run simultaneously to disk encryption.   Serializing and isolating such steps may resolve the issue.
+- When SELinux has not been disabled prior to enabling encryption, the unmount step fails.  SELinux can be re-enabled after encryption has completed.
 - When the OS disk is using an LVM scheme (although limited LVM data disk support is available, LVM OS disk is not)
 - When minimum memory requirements are not met (7GB is suggested for OS disk encryption)
 - When data drives have been recursively mounted under mnt or each other (eg., /mnt/data1, /mnt/data2, /data3 + /data3/data4, etc.)
@@ -65,10 +67,10 @@ When connectivity is restricted by a firewall, proxy requirement, or network sec
 Any network security group settings applied must still allow the endpoint to meet the documented network configuration [prerequisites](https://docs.microsoft.com/azure/security/azure-security-disk-encryption#prerequisites) for disk encryption.
 
 ### Azure Keyvault behind firewall
-The VM must be able to access key vault.  Please refer to guidance on access to key fault from behind a firewall that are maintained by the [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall) team.
+The VM must be able to access key vault. Refer to guidance on access to key fault from behind a firewall that is maintained by the [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall) team.
 
 ### Linux package management behind firewall
-At run time, Azure Disk Encryption for Linux relies on the target distribution’s package management system to install needed prerequisite components prior to enabling encryption.  If firewall settings prevent the VM from being able to download and install these components, then subsequent failure are expected.    The steps to configure this may vary by distribution.  On Red Hat, when a proxy is required, ensuring that subscription-manager and yum are set up properly is vital.  See [this](https://access.redhat.com/solutions/189533) Red Hat support article on this topic.  
+At run time, Azure Disk Encryption for Linux relies on the target distribution’s package management system to install needed prerequisite components prior to enabling encryption.  If firewall settings prevent the VM from being able to download and install these components, then subsequent failures are expected.    The steps to configure this may vary by distribution.  On Red Hat, when a proxy is required, ensuring that subscription-manager and yum are set up properly is vital.  See [this](https://access.redhat.com/solutions/189533) Red Hat support article on this topic.  
 
 ## See also
 In this document, you learned more about some common issues in Azure disk encryption, and how to troubleshoot. For more information about this service and its capability read:
