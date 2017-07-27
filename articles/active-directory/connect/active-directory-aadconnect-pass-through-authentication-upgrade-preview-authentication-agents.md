@@ -41,8 +41,8 @@ Follow these steps to check where your Authentication Agents are installed:
 Follow these steps, on each server identified in the preceding step, to check the versions of your Authentication Agents:
 
 1. Go to **Control Panel -> Programs -> Programs and Features** on the on-premises server.
-2. If there is an entry called **Microsoft Azure AD Connect Authentication Agent**, you don't need to take any action on this server.
-3. If there is an entry called **Microsoft Azure AD Application Proxy Connector**, with versions between 1.5.58.0 and 1.5.132.0 (both included), you will need to manually upgrade the Authentication Agent on this server.
+2. If there is an entry for "**Microsoft Azure AD Connect Authentication Agent**", you don't need to take any action on this server.
+3. If there is an entry for "**Microsoft Azure AD Application Proxy Connector**", with versions between 1.5.58.0 and 1.5.132.0 (both included), you will need to manually upgrade the Authentication Agent on this server.
 
 ## Best practices before doing the upgrade
 
@@ -59,7 +59,7 @@ You need upgrade Azure AD Connect before upgrading the Authentication Agent on t
 2. **Uninstall the preview version of the Authentication Agent**: Download [this PowerShell script](https://aka.ms/rmpreviewagent) and run it as an Administrator on the server.
 3. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials. Select **Azure Active Directory -> Azure AD Connect -> Pass-through Authentication -> Download agent**. Accept the terms of service and download the latest version of the Authentication Agent.
 4. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 3. Provide your tenant's Global Administrator credentials when prompted.
-5. **Verify that the latest version has been installed**: As shown before, go to **Control Panel -> Programs -> Programs and Features** and verify that there is an entry called **Microsoft Azure AD Connect Authentication Agent**.
+5. **Verify that the latest version has been installed**: As shown before, go to **Control Panel -> Programs -> Programs and Features** and verify that there is an entry for "**Microsoft Azure AD Connect Authentication Agent**".
 
 ## Upgrading the Authentication Agent on other servers
 
