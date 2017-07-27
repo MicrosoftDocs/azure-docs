@@ -38,7 +38,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 * **Support for Hive View 2.0**. This should improve the user experience for Interactive Hive. For more information, see [Hortonworks documentation](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
 
-* **Performance enhancements with Hive LLAP**. See [Hortonworks documentation](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/) for more details.
+* **Performance enhancements with Hive LLAP**. For more information, see [Hortonworks documentation](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/) for more details.
 
 * **New features in Hive**. See [Hortonworks documentation](https://hortonworks.com/apache/hive/#section_4) for more details.
 
@@ -72,7 +72,7 @@ Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
 
 ## 11/16/2016 - Release of R Server 9.0 on HDInsight 3.5 (Spark 2.0)
 *	R Server clusters now include the option for two versions: R Server 9.0 on HDI 3.5 (Spark 2.0) and R Server 8.0 on HDI 3.4 (Spark 1.6).
-*	R Server 9.0 on HDI 3.5 (Spark 2.0) is built on R 3.3.2 and includes new ScaleR data source functions called RxHiveData and RxParquetData for loading data from Hive and Parquet directly to Spark DataFrames for analysis by ScaleR. For more information see the inline help on these functions in R through use of the **?RxHiveData** and **?RxParquetData** commands.
+*	R Server 9.0 on HDI 3.5 (Spark 2.0) is built on R 3.3.2 and includes new ScaleR data source functions called RxHiveData and RxParquetData for loading data from Hive and Parquet directly to Spark DataFrames for analysis by ScaleR. For more information, see the inline help on these functions in R through use of the **?RxHiveData** and **?RxParquetData** commands.
 *	RStudio Server community edition is now installed by default (with an opt-out option) on the Cluster Configuration blade as part of the provisioning flow.
 
 ## 11/09/2016 - Release of Spark 2.0 on HDInsight
