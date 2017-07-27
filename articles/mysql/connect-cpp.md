@@ -34,7 +34,6 @@ The steps in this section assume that you are familiar with developing using .NE
 1. Install Visual Studio 2017 Community, which is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next two steps.
    - Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
    - Run the installer and follow the installation prompts to complete the installation.
-2. Install Boost, a set of C++ open source libraries from http://www.boost.org/
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
@@ -60,11 +59,11 @@ sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
 
-### Configure Visual Studio
+### **Configure Visual Studio**
 1. From Visual Studio, project property -> configuration properties -> c/c++ -> linker -> general -> additional library directories, add the lib\opt directory (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) of the c++ connector.
 2. From Visual Studio, project property -> configuration properties -> c/c++ -> general -> additional include directories
-- Add include/ directory of c++ connector (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)
-- Add Boost library's root directory (i.e.: C:\boost_1_64_0\)
+   - Add include/ directory of c++ connector (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)
+   - Add Boost library's root directory (i.e.: C:\boost_1_64_0\)
 3. From Visual Studio, project property -> configuration properties -> c/c++ -> linker -> Input -> Additional Dependencies, add mysqlcppconn.lib into the text field
 4. Either copy mysqlcppconn.dll from the c++ connector library folder in step 3 to the same directory as the application executable or add it to the environment variable so your application can find it.
 
