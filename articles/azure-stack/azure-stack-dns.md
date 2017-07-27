@@ -37,7 +37,7 @@ If you create the public IP address using the portal, it looks like this:
 This configuration is useful if you want to associate a public IP address with a load-balanced resource. For example, you might have a load balancer processing requests from a web application. Behind the load balancer is a web site located  on one or more virtual machines. Now you can access the load-balanced web site by a DNS name, rather than by an IP address.
 
 ## Create and manage DNS zones and records using API
-TP3 introduces the ability to create and manage DNS zones and records in Azure Stack.  
+You can create and manage DNS zones and records in Azure Stack.  
 
 Azure Stack provides a DNS service like Azure’s, using APIs that are consistent with Azure’s DNS APIs.  By hosting your domains in Azure Stack DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services. 
 
