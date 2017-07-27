@@ -30,7 +30,7 @@ In the previous tutorial [Notify users with Notification Hubs], you learned how 
 Complete the following steps to send cross-platform notifications using templates:
 
 1. In the Solution Explorer in Visual Studio, expand the **Controllers** folder, then open the RegisterController.cs file.
-2. Locate the block of code in the **Post** method that creates a new registration replace the `switch` content with the following code:
+2. Locate the block of code in the **Put** method that creates a new registration replace the `switch` content with the following code:
    
         switch (deviceUpdate.Platform)
         {
