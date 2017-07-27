@@ -21,7 +21,7 @@ ms.author: gwallace
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-cli.md)
+> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 
 Learn how to create an web application firewall enabled application gateway or add web application firewall to an existing application gateway.
