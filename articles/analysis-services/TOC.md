@@ -1,14 +1,10 @@
 # Overview
 ## [What is Azure Analysis Services?](analysis-services-overview.md)
 ## [Supported data sources](analysis-services-datasource.md)
-## [Authentication and user permissions](analysis-services-manage-users.md)
 
 # Quickstarts
 ## [Create a server - portal](analysis-services-create-server.md)
 ## [Deploy a model - SSDT](analysis-services-deploy.md)
-
-# Samples
-## [Analysis Services samples on GitHub](https://github.com/Microsoft/Analysis-Services)
 
 # Tutorials
 ## Create and deploy a model
@@ -30,16 +26,20 @@
 ### [Supplemental lesson - Dynamic security](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [Supplemental lesson - Ragged hierarchies](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
+# Concepts
+## [Authentication and user permissions](analysis-services-manage-users.md)
+## [High availability](analysis-services-bcdr.md)
+
 # How-to 
+## [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
 ## [Manage a server](analysis-services-manage.md)
 ## [Manage database users](analysis-services-database-users.md)
 ## [Manage server administrators](analysis-services-server-admins.md)
-## [Integrate On-premises data gateway](analysis-services-gateway.md)
+## [Install On-premises data gateway](analysis-services-gateway.md)
 ## [Connect with Excel](analysis-services-connect-excel.md)
 ## [Connect with Power BI](analysis-services-connect-pbi.md)
 ## [Get client libraries](analysis-services-data-providers.md)
 ## [Backup and restore](analysis-services-backup.md)
-## [High availability](analysis-services-bcdr.md)
 ## [Create an .odc file](analysis-services-odc.md)
 
 # Reference
@@ -50,9 +50,10 @@
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resources
+## [Analysis Services code samples on GitHub](https://github.com/Microsoft/Analysis-Services)
 ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure status](https://azure.microsoft.com/status/)
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Pricing](https://azure.microsoft.com/pricing/details/analysis-services/)

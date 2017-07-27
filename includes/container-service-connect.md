@@ -9,12 +9,12 @@ and Docker Swarm, we recommend that you create a secure shell (SSH) tunnel from 
 
 ## Prerequisites
 
-* A Kubernetes, DC/OS, or Docker Swarm cluster [deployed in Azure Container Service](dcos-swarm/container-service-deployment.md).
+* A Kubernetes, DC/OS, or Docker Swarm cluster [deployed in Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md).
 * SSH RSA private key file, corresponding to the public key added to the cluster during deployment. These commands assume that the private SSH key is in `$HOME/.ssh/id_rsa` on your computer. See these 
-instructions for [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md)
-or [Windows](../virtual-machines/linux/ssh-from-windows.md)
+instructions for [macOS and Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md)
+or [Windows](../articles/virtual-machines/linux/ssh-from-windows.md)
 for more information. If the SSH connection isn't working, you may need to 
-[reset your SSH keys](../virtual-machines/linux/troubleshoot-ssh-connection.md).
+[reset your SSH keys](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## Connect to a Kubernetes cluster
 
@@ -91,7 +91,7 @@ The first thing that you do when you create an SSH tunnel on Linux or macOS is t
 
 2. Click the **Container service** resource, and click **Overview**. The **Master FQDN** of the cluster appears under **Essentials**. Save this name for later use. 
 
-    ![Public DNS name](media/pubdns.png)
+    ![Public DNS name](./media/container-service-connect/pubdns.png)
 
     Alternatively, run the `az acs show` command on your container service. Look for the **Master Profile:fqdn** property in the command output.
 
@@ -168,11 +168,11 @@ There are multiple options for creating SSH tunnels on Windows. If you are runni
 
 3. Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** looks similar to `azureuser@PublicDNSName`. Enter 2200 for the **Port**.
 
-    ![PuTTY configuration 1](media/putty1.png)
+    ![PuTTY configuration 1](./media/container-service-connect/putty1.png)
 
 4. Select **SSH > Auth**. Add a path to your private key file (.ppk format) for authentication. You can use a tool such as [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to generate this file from the SSH key used to create the cluster.
 
-    ![PuTTY configuration 2](media/putty2.png)
+    ![PuTTY configuration 2](./media/container-service-connect/putty2.png)
 
 5. Select **SSH > Tunnels** and configure the following forwarded ports:
 
@@ -185,13 +185,13 @@ There are multiple options for creating SSH tunnels on Windows. If you are runni
     > Port 80 must not be in use when you create this tunnel.
     > 
 
-    ![PuTTY configuration 3](media/putty3.png)
+    ![PuTTY configuration 3](./media/container-service-connect/putty3.png)
 
 6. When you're finished, click **Session > Save** to save the connection configuration.
 
 7. To connect to the PuTTY session, click **Open**. When you connect, you can see the port configuration in the PuTTY event log.
 
-    ![PuTTY event log](media/putty4.png)
+    ![PuTTY event log](./media/container-service-connect/putty4.png)
 
 After you've configured the tunnel for DC/OS, you can access the related endpoints at:
 
@@ -204,7 +204,7 @@ After you've configured the tunnel for Docker Swarm, open your Windows settings 
 ## Next steps
 Deploy and manage containers in your cluster:
 
-* [Work with Azure Container Service and Kubernetes](kubernetes/container-service-kubernetes-ui.md)
-* [Work with Azure Container Service and DC/OS](dcos-swarm/container-service-mesos-marathon-rest.md)
-* [Work with the Azure Container Service and Docker Swarm](dcos-swarm/container-service-docker-swarm.md)
+* [Work with Azure Container Service and Kubernetes](../articles/container-service/kubernetes/container-service-kubernetes-ui.md)
+* [Work with Azure Container Service and DC/OS](../articles/container-service//dcos-swarm/container-service-mesos-marathon-rest.md)
+* [Work with the Azure Container Service and Docker Swarm](../articles//container-service/dcos-swarm/container-service-docker-swarm.md)
 

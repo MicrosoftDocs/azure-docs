@@ -297,7 +297,7 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
 ### Connect to the VPN gateway
 
-To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate) document.
+To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) document.
 
 ## <a id="python-client"></a> Example: Python client
 
