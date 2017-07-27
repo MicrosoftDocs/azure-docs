@@ -46,7 +46,7 @@ Follow these steps, on each server identified in the preceding step, to check th
 
 ![Preview version of Authentication Agent](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 
-## Best practices before doing the upgrade
+## Best practices to follow before starting the upgrade
 
 Before upgrading, ensure that you have the following items in place:
 
