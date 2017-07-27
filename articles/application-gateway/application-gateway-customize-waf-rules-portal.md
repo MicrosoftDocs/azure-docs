@@ -35,103 +35,6 @@ Application Gateway web application firewall provides protection for web applica
 
 ## View rule groups and rules
 
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az network application-gateway waf-config list-rule-sets --type OWASP
-```
-
-The following a truncated response from the preceding example.
-
-```
-[
-  {
-    "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
-    "location": null,
-    "name": "OWASP_3.0",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "",
-    "ruleGroups": [
-      {
-        "description": "",
-        "ruleGroupName": "REQUEST-910-IP-REPUTATION",
-        "rules": null
-      },
-      ...
-    ],
-    "ruleSetType": "OWASP",
-    "ruleSetVersion": "3.0",
-    "tags": null,
-    "type": "Microsoft.Network/applicationGatewayAvailableWafRuleSets"
-  },
-  {
-    "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
-    "location": null,
-    "name": "OWASP_2.2.9",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "",
-   "ruleGroups": [
-      {
-        "description": "",
-        "ruleGroupName": "crs_20_protocol_violations",
-        "rules": null
-      },
-      ...
-    ],
-    "ruleSetType": "OWASP",
-    "ruleSetVersion": "2.2.9",
-    "tags": null,
-    "type": "Microsoft.Network/applicationGatewayAvailableWafRuleSets"
-  }
-]
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-```powershell
-Get-AzureRmApplicationGatewayAvailableWafRuleSets
-```
-
-The following a truncated response from the preceding example.
-
-```
-OWASP (Ver. 3.0):
-
-    REQUEST-910-IP-REPUTATION:
-        Description:
-            
-        Rules:
-            RuleId     Description
-            ------     -----------
-            910011     Rule 910011
-            910012     Rule 910012
-            ...        ...
-
-    REQUEST-911-METHOD-ENFORCEMENT:
-        Description:
-            
-        Rules:
-            RuleId     Description
-            ------     -----------
-            911011     Rule 911011
-            ...        ...
-
-OWASP (Ver. 2.2.9):
-
-    crs_20_protocol_violations:
-        Description:
-            
-        Rules:
-            RuleId     Description
-            ------     -----------
-            960911     Invalid HTTP Request Line
-            981227     Apache Error: Invalid URI in Request.
-            960000     Attempted multipart/form-data bypass
-            ...        ...
-```
-
-# [Portal](#tab/azure-portal)
-
 Navigate to an application gateway and select **Web application firewall**.  Click **Advanced rule configuration**.  This shows a table on the page of all the rule groups provided with the rule set chosen.
 
 ![configure disabled rules][1]
@@ -143,27 +46,6 @@ The web application firewall settings blade provides the capability to filter th
 ![search for rules][2]
 
 ## Disable rule groups and rules
-
-# [Azure CLI](#tab/azure-cli)
-
-The following example disables rules `910018` and `910017` on an application gateway.
-
-```azurecli
-az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-The following example disables rules `910018` and `910017` on an application gateway.
-
-```powershell
-
-$disabledrules = New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName Request-910-IP-Reputation -Rules 910018,910017
-Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -DisabledRuleGroups $disabledrules -Enabled $true -FirewallMode Detection
-az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
-```
-
-# [Portal](#tab/azure-portal)
 
 When disabling rules you can disable an entire rule group, or specific rules under one or more rule groups.  Once the rules that you want to disable are unchecked, click **Save**.  This saves the changes to the application gateway.
 
