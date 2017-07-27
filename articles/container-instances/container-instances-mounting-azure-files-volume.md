@@ -99,7 +99,7 @@ To define the volumes you want to make available for mounting, add a `volumes` a
     "storageaccountkey": {
       "type": "securestring"
     }
-  }
+  },
   "resources":[{
     "name": "hellofiles",
     "type": "Microsoft.ContainerInstance/containerGroups",
