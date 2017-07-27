@@ -30,7 +30,10 @@ Common header properties that need to be added are specified [here](billing-ente
 |GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet|
 |GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet|
 
-Note: To use the preview version of API, replace v2 by v1 in the above URL.
+> [!Note]
+> To use the preview version of API, replace v2 by v1 in the above URL.
+>
+
 ## Response
 
 	
@@ -61,7 +64,9 @@ Note: To use the preview version of API, replace v2 by v1 in the above URL.
 		]
 	
 
-Note: If you are using the Preview API, meterId field is not available.
+> [!Note]
+>If you are using the Preview API, meterId field is not available.
+>
 
 **Response property definitions**
 
@@ -77,7 +82,7 @@ Note: If you are using the Preview API, meterId field is not available.
 |unitPrice| decimal| The unit price for the meter|
 |currencyCode| string| The currency code for the unitPrice|
 <br/>
-## See Also
+## See also
 
 * [Billing Periods API](billing-enterprise-api-billing-periods.md)
 

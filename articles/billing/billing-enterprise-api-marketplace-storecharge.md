@@ -31,7 +31,9 @@ Common header properties that need to be added are specified [here](billing-ente
 |GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
 |GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
 
-Note: To use the preview version of API, replace v2 by v1 in the above URL.
+> [!Note]
+> To use the preview version of API, replace v2 by v1 in the above URL.
+>
 
 ## Response
  
@@ -96,7 +98,7 @@ Note: To use the preview version of API, replace v2 by v1 in the above URL.
 |resourceRate|decimal|Unit price for the meter|
 |extendedCost|decimal|Estimated charge based on Consumed Quantity and Extended cost|
 <br/>
-## See Also
+## See also
 
 * [Billing Periods API](billing-enterprise-api-billing-periods.md)
 

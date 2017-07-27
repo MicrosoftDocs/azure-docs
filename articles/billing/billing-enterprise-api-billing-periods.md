@@ -30,7 +30,9 @@ Common header properties that need to be added are specified [here](billing-ente
 |-|-|
 |GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods|
 
-Note: To use the preview version of API, replace v2 by v1 in the above URL.
+> [!Note]
+> To use the preview version of API, replace v2 by v1 in the above URL.
+>
 
 ## Response
  
@@ -63,7 +65,7 @@ Note: To use the preview version of API, replace v2 by v1 in the above URL.
 |priceSheet| string| The URL path that routes to the PriceSheet data for this period|
 
 <br/>
-## See Also
+## See also
 
 * [Balance and Summary API](billing-enterprise-api-balance-summary.md)
 
