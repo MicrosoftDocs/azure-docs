@@ -53,7 +53,6 @@ This scenario will:
 * Create a medium application gateway with two instances.
 * Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
 * Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
-* Configure a certificate for SSL offload.
 
 ![Scenario example][scenario]
 
@@ -125,14 +124,12 @@ az network application-gateway create \
 --subnet Appgatewaysubnet \
 ---subnet-address-prefix 10.0.0.0/28 \
 --servers 10.0.0.4 10.0.0.5 \
---cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
---cert-password P@ssw0rd \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
 --public-ip-address AdatumAppGatewayPIP \
---frontend-port 443 \
+--frontend-port 80 \
 --routing-rule-type Basic \
 --http-settings-port 80
 
@@ -141,7 +138,7 @@ az network application-gateway create \
 > [!NOTE]
 > For a list of parameters that can be provided during creation run the following command: **az network application-gateway create --help**.
 
-This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
+This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful.
 If you already have your web application defined with the backend pool in the preceding steps, once created, load balancing begins.
 
 ## Delete all resources

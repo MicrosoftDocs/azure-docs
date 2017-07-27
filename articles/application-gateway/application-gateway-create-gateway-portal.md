@@ -27,7 +27,7 @@ ms.author: gwallace
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Learn how to create an application gateway using SSL offload.
+Learn how to create an application gateway using the Azure portal.
 
 ![Scenario example][scenario]
 
@@ -35,7 +35,7 @@ Application Gateway is a dedicated virtual appliance providing application deliv
 
 This scenario will:
 
-1. [Create a medium application gateway](#create-an-application-gateway) using SSL offload with two instances in its own subnet.
+1. [Create a medium application gateway](#create-an-application-gateway) with two instances in its own subnet.
 1. [Add servers to the back-end pool](#add-servers-to-backend-pools)
 1. [Delete all resources](#delete-all-resources). You incur charges for some of the resources created in this exercise while they're provisioned. To minimize the charges, after you complete the exercise, be sure to complete the steps in this section to delete the resources you create.
 
@@ -68,7 +68,7 @@ To create an application gateway, complete the steps that follow. Application ga
 
 1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This will open enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
 
- ![choose a virtual network][2]
+   ![choose a virtual network][2]
 
 1. On the **Create virtual network blade** enter the following values, then click **OK**. This will close the **Create virtual network** and **Choose virtual network** blades. This will also populate the **Subnet** field on the **Settings** blade with the subnet chosen.
 
@@ -83,18 +83,13 @@ To create an application gateway, complete the steps that follow. Application ga
 
 1. On the **Settings** blade under **Public IP address** click **Choose a public IP address**, this opens the **Choose public IP address** blade, click **Create new**.
 
- ![choose public ip][3]
+   ![choose public ip][3]
 
 1. On the **Create public IP address** blade, accept the default value and click **OK**. This will close the **Choose public IP address** blade, the **Create public IP address** blade, and populate **Public IP address** with the public IP address chosen.
 
-1. On the **Settings** blade under **Listener configuration** click **HTTPS** under **Protocol**. Doing this adds additional fields. Click the folder icon for the **Upload PFX certificate** field and choose the appropriate .pfx certificate. Enter the following information in the additional **Listener configuration** fields:
+1. On the **Settings** blade under **Listener configuration** click **HTTP** under **Protocol**. Enter the port to use in the **Port** field.
 
-   |**Setting** | **Value** | **Details** |
-   |---|---|---|
-   |Name|Name of the certificate|This value is a friendly name used to reference the certificate|
-   |Password|Password for .pfx| This is the password used for the private key|
-
-1. Click **OK** on the **Settings** blade to continue.
+2. Click **OK** on the **Settings** blade to continue.
 
 1. Review the settings on the **Summary** blade and click **OK** to start creation of the application gateway. Creating an application gateway is a long running task and will take time to complete.
 
