@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 01/23/2017
+ms.date: 06/03/2017
 ms.author: marsma
 
 ---
 # Azure Storage samples
-## Overview
-Use the links below to view and download working Azure Storage samples.
+
+Use the links below to view and download Azure Storage sample code and applications.
 
 ## Azure Code Samples library
 The [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
@@ -59,21 +59,18 @@ To explore the C++ samples, download the [C++ Storage Client Library](https://ww
 * [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Get started with queues](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
+## API reference and source code
+
+| Language | API reference | Source code |
+|----------|---------------|-------------|
+| .NET | [.NET Client Library Reference](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
+| Java | [Java Client Library Reference](https://docs.microsoft.com/java/api/overview/azure/storage) | [Source code for the Java storage client library](https://github.com/azure/azure-storage-java) |
+| Node.js | [Node.js Client Library Reference](http://azure.github.io/azure-storage-node) | [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node) |
+| C++ | [C++ Client Library Reference](http://azure.github.io/azure-storage-cpp/) | [Source code for the C++ storage client library](https://github.com/Azure/azure-storage-cpp)|
+
 ## Next steps
 
-### .NET resources
-* [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net)
-* [.NET Client Library Reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+The following articles index each of the samples by service (blob, file, queue, table).
 
-### Java resources
-* [Source code for the Java storage client library](https://github.com/azure/azure-storage-java)
-* [Java Client Library Reference](http://dl.windowsazure.com/storage/javadoc/)
-
-### Node.js resources
-* [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node)
-* [Node.js Client Library Reference](http://dl.windowsazure.com/nodestoragedocs/index.html)
-
-### C++ resources
-* [Source code for the C++ storage client library](https://github.com/Azure/azure-storage-cpp)
-* [C++ Client Library Reference](http://azure.github.io/azure-storage-cpp/)
-
+* [Azure Storage samples using .NET](storage-samples-dotnet.md)
+* [Azure Storage samples using Java](storage-samples-java.md)

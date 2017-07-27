@@ -5,11 +5,13 @@
 ## Scenarios
 ### [Incident response](security-center-incident-response.md)
 ### [Use recommendations to enhance security](security-center-using-recommendations.md)
+## [Platform migration](security-center-platform-migration.md)
 
 # Get started
 ## [Quick start](security-center-get-started.md)
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
 ## [Permissions](security-center-permissions.md)
+## [Supported platforms](security-center-os-coverage.md)
 ## [Partner integration](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
@@ -17,6 +19,7 @@
 
 ## Prevent
 ### [Set security policies](security-center-policies.md)
+### [Just in time access](security-center-just-in-time.md)
 ### [Implement security recommendations](security-center-recommendations.md)
 
 ### [Application recommendations](security-center-application-recommendations.md)
@@ -69,6 +72,7 @@
 ## [Azure Security](/azure/security/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Pricing](security-center-pricing.md)
 ## [Service overview](https://azure.microsoft.com/services/security-center/)

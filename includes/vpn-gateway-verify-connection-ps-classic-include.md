@@ -1,4 +1,4 @@
-You can use the **Get-AzureVNetConnection** to verify the connection for a classic virtual network gateway. 
+You can verify that your connection succeeded by using the 'Get-AzureVNetConnection' cmdlet.
 
 1. Use the following cmdlet example, configuring the values to match your own. The name of the virtual network must be in quotes if it contains spaces.
 

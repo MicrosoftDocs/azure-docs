@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
-ms.author: clemensv;jotaub;hillaryc;sethm
+ms.author: clemensv;hillaryc;sethm
 
 ---
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide

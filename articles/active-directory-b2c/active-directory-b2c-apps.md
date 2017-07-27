@@ -117,7 +117,7 @@ In this flow, the app executes [policies](active-directory-b2c-reference-policie
 ![Native App Swimlanes Image](./media/active-directory-b2c-apps/native.png)
 
 ## Current limitations
-Azure AD B2C does not currently support the following types of apps, but they are on the roadmapy. Additional limitations and restrictions related to Azure AD B2C are described in [Limitations and restrictions](active-directory-b2c-limitations.md).
+Azure AD B2C does not currently support the following types of apps, but they are on the roadmap. 
 
 ### Daemons/server-side apps
 Apps that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These apps can authenticate and get tokens by using the app's identity (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow.

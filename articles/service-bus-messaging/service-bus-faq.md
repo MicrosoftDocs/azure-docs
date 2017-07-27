@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
-ms.author: sethm;jotaub
+ms.author: sethm
 
 ---
 # Service Bus FAQ
@@ -87,9 +87,16 @@ Shared Access Signatures are an authentication mechanism based on SHA – 256 se
 
 ## Subscription and namespace management
 ### How do I migrate a namespace to another Azure subscription?
-Using the Azure portal, you can migrate Service Bus namespaces to another subscription by following the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-portal). If you prefer to use PowerShell, follow the instructions below: 
 
-The following sequence of commands moves a namespace from one Azure subscription to another. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an administrator on both the source and target subscriptions.
+You can move a namespace from one Azure subscription to another, using either the [Azure portal](https://portal.azure.com) or PowerShell commands. In order to execute the operation, the namespace must already be active. The user executing the commands must be an administrator on both the source and target subscriptions.
+
+#### Portal
+
+To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+
+#### PowerShell
+
+The following sequence of PowerShell commands moves a namespace from one Azure subscription to another. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an administrator on both the source and target subscriptions.
 
 ```powershell
 # Create a new resource group in target subscription

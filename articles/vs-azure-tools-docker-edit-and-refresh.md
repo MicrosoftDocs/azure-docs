@@ -19,11 +19,11 @@ ms.author: mlearned
 ---
 # Debugging apps in a local Docker container
 ## Overview
-The Visual Studio Tools for Docker provides a consistent way to develop in a and validate your application locally in a Linux Docker container.
+The Visual Studio Tools for Docker provides a consistent way to develop in and validate your application locally in a Linux Docker container.
 You don't have to restart the container each time you make a code change.
-This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container,
+This article illustrates how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container,
 make any necessary changes, and then refresh the browser to see those changes.
-It will also show you how to set breakpoints for debugging.
+This article also shows you how to set breakpoints for debugging.
 
 > [!NOTE]
 > Windows Container support will be coming in a future release
@@ -31,15 +31,14 @@ It will also show you how to set breakpoints for debugging.
 >
 
 ## Prerequisites
-The following tools need to be installed.
+The following tools must be installed.
 
-* [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-* Install [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+* [Latest version of Visual Studio](https://www.visualstudio.com/downloads/)
 * [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 To run Docker containers locally, you'll need a local docker client.
-You can use the released [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) which requires Hyper-V to be disabled,
-or you can use [Docker for Windows Beta](https://beta.docker.com) which uses Hyper-V, and requires Windows 10.
+You can use the [Docker Toolbox](https://www.docker.com/products/docker-toolbox), which requires Hyper-V to be disabled,
+or you can use [Docker for Windows](https://www.docker.com/get-docker), which uses Hyper-V, and requires Windows 10.
 
 If using Docker Toolbox, you'll need to [configure the Docker client](vs-azure-tools-docker-setup.md)
 

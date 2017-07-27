@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/28/2016
+ms.date: 06/01/2017
 ms.author: jroth
 
 ---
@@ -249,7 +249,7 @@ The example below shows how to place the OS VHD onto premium storage and attach 
 
 
 ### Create a new VM to use Premium Storage with a custom image
-This scenario demonstrates where you have existing customized images that reside in a Standard Storage account. As mentioned if you want to place the OS VHD on Premium Storage you will need to copy the image that exists in the Standard Storage account and transfer them to a Premium Storage before it can be used. If you have an image on premise, you can also use this method to copy that directly to the Premium Storage account.
+This scenario demonstrates where you have existing customized images that reside in a Standard Storage account. As mentioned if you want to place the OS VHD on Premium Storage you will need to copy the image that exists in the Standard Storage account and transfer them to a Premium Storage before it can be used. If you have an image on-premises, you can also use this method to copy that directly to the Premium Storage account.
 
 #### Step 1: Create Storage Account
     $mysubscription = "DansSubscription"
@@ -621,7 +621,7 @@ When connecting to SQL Server, the SQL Server Client driver will retrieve the DN
 
 The number of concurrent DNS records that are associated with the listener name depends not only on the number of IP addresses associated, but the ‘RegisterAllIpProviders’setting in Failover Clustering for the Always ON VNN resource.
 
-When you deploy Always On in Azure there are different steps to create the Listener and IP Addresses, you have to manually configure the ‘RegisterAllIpProviders’ to 1, this is different to an on premise Always On deployment where it is already set to 1.
+When you deploy Always On in Azure there are different steps to create the Listener and IP Addresses, you have to manually configure the ‘RegisterAllIpProviders’ to 1, this is different to an on-premises Always On deployment where it is already set to 1.
 
 If ‘RegisterAllIpProviders’ is 0, then you will only see one DNS record in DNS associated with the Listener:
 
@@ -677,7 +677,7 @@ For more information on managing and configuring the cluster quorum, please see 
 Save these to a text file.
 
 #### Step 7: Change Failover Partners and Replication Modes
-If you have more than 2 SQL Servers, you should change the failover of another secondary in another DC or on premise to ‘Synchronous’ and make it an Automatic Failover Partner (AFP), this is so you maintain HA whilst you are making changes. You can do this through TSQL of modify though SSMS:
+If you have more than 2 SQL Servers, you should change the failover of another secondary in another DC or on-premises to ‘Synchronous’ and make it an Automatic Failover Partner (AFP), this is so you maintain HA whilst you are making changes. You can do this through TSQL of modify though SSMS:
 
 ![Appendix6][16]
 
@@ -889,7 +889,7 @@ Now remove the old cloud service IP Address.
 You should now check DNS Servers on your SQL Server client networks and make sure that clustering has added the extra host record for the added IP address. If those DNS servers have not updated, consider forcing a DNS Zone transfer and ensure that the clients in there subnet are able to resolve to both Always On IP Addresses, this is so you do not need to wait for automatic DNS replication.
 
 #### Step 16: Reconfigure Always On
-At this point you wait for the secondary that node that was migrated to fully resynchronize with the on-premise node and switch to synchronous replication node and make it the AFP.  
+At this point you wait for the secondary that node that was migrated to fully resynchronize with the on-premises node and switch to synchronous replication node and make it the AFP.  
 
 #### Step 17: Migrate second node
     $vmNameToMigrate="dansqlams1"
@@ -1071,14 +1071,14 @@ For information for individual blobs:
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
 
 
-    #STOP!!! CHECK in the Azure classic portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure portal or Machine Endpoints through PowerShell that these Endpoints are created!
 
     #SET ACLs or Azure Network Security Groups & Windows FWs
 
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### Step 23: Test failover
-You should now let the migrated node synchronize with the on-premise Always On node, place it in to synchronous replication mode and wait until it is synchronized. Then failover from on-prem to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.
+You should now let the migrated node synchronize with the on-premises Always On node, place it in to synchronous replication mode and wait until it is synchronized. Then failover from on-prem to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.
 
 You should test failovers between all nodes and run though chaos tests to ensure failovers work as expected and in a timely manor.
 

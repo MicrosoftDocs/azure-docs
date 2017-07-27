@@ -8,7 +8,7 @@ author: ddove
 
 ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

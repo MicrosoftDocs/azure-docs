@@ -5,17 +5,17 @@ services: site-recovery
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid:
 ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 06/05/2017
 ms.author: carolz
 ---
 # Site Recovery Documentation
 
-Learn how to use Site Recovery for business continuity and disaster recovery strategy for private clouds. Tutorials and other documentation show you how to plan, deploy, and manage the orchestration of replicating on-premises physical servers and virtual machines to the cloud or to a secondary datacenter.
+Learn how to use Site Recovery to contribute to your business continuity and disaster recovery strategy, to keep apps and workloads available during downtime. Tutorials and other articles show you how to plan, deploy, and manage the replication, failover, and recovery of on-premises machines and Azure VMs.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -37,7 +37,7 @@ Learn how to use Site Recovery for business continuity and disaster recovery str
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=site-recovery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -140,5 +140,3 @@ Learn how to use Site Recovery for business continuity and disaster recovery str
         </div>
     </li>
 </ul>
-
-

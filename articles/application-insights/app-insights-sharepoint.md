@@ -3,8 +3,8 @@ title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Monitor a SharePoint site with Application Insights

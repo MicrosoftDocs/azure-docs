@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/14/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 
 ---
@@ -54,11 +54,13 @@ If you plan to join Azure Backup Server to a domain, it is recommended that you 
 ## 2. Backup vault
 ![step2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Whether you send backup data to Azure or keep it locally, the Azure Backup Server must be registered to a vault.
+Whether you send backup data to Azure or keep it locally, the Azure Backup Server must be registered to a vault. If you are a new Azure Backup user, and want to use Azure Backup Server, see the Azure portal version of this article - [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 > [!IMPORTANT]
-> Starting March 2017, you can no longer use the classic portal to create Backup vaults. Existing Backup vaults are still supported, and it is possible to [use Azure PowerShell to create Backup vaults](./backup-client-automation-classic.md#create-a-backup-vault). However, Microsoft recommends you create Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only.
->
+> Starting March 2017, you can no longer use the classic portal to create Backup vaults.
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
+>- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 >
 
 

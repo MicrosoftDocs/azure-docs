@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Add sign-in to an .NET MVC web app
@@ -92,7 +93,7 @@ Here, we'll configure the OWIN middleware to use the OpenID Connect authenticati
                                              // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
         
                                              ClientId = clientId,
-                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
+                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
                                              RedirectUri = redirectUri,
                                              Scope = "openid email profile",
                                              ResponseType = "id_token",

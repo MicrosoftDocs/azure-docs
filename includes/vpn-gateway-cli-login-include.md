@@ -15,4 +15,3 @@ Specify the subscription that you want to use.
 ```azurecli
 az account set --subscription <replace_with_your_subscription_id>
 ```
-

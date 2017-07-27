@@ -7,22 +7,22 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 ## NV instances
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 |
-| Standard_NV24 |24 |224 |1440 | 4 |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 |
 
 1 GPU = one-half M60 card.
 
 ## NC instances
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 |
-| Standard_NC24 |24 |224 | 1440 | 4 |
-| Standard_NC24r* |24 |224 | 1440 | 4 |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 32 |
 
 1 GPU = one-half K80 card.
 

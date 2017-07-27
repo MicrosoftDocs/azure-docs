@@ -3,19 +3,19 @@ title: Azure SQL Database Resource Limits | Microsoft Docs
 description: This page describes some common resource limits for Azure SQL Database.
 services: sql-database
 documentationcenter: na
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: resources
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/19/2017
-ms.author: janeng
+ms.date: 07/12/2017
+ms.author: carlrab
 
 ---
 # Azure SQL Database resource limits
@@ -48,7 +48,7 @@ For a single database, the limits of a database are defined by the database serv
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently available in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East.
+> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East.
 >
 
 ### Elastic pools

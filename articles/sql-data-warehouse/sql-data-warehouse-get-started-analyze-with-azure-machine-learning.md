@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 ms.date: 03/02/2017
-ms.author: kevin
+ms.author: kevin;barbkess
 
 ---
 # Analyze data with Azure Machine Learning

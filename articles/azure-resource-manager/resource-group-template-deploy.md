@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 
 ---
@@ -32,7 +32,7 @@ The Resource Manager template you deploy can either be a local file on your mach
 When deploying resources to Azure, you:
 
 1. Log in to your Azure account
-2. Create a resource group that serves as the container for the deployed resources
+2. Create a resource group that serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It cannot end in a period.
 3. Deploy to the resource group the template that defines the resources to create
 
 A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). The sample template defines a parameter for the storage account SKU.

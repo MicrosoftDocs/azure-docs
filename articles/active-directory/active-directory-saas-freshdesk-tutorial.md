@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 07/20/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with FreshDesk
@@ -127,11 +128,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 8. In the menu on the top, click **Admin**.
    
-   	![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
 9. In the **General Settings** tab, click **Security**.
    
-   	![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
 
 10. In the **Security** section, perform the following steps:
    

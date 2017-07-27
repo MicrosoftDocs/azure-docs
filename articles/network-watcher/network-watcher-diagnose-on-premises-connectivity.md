@@ -17,9 +17,9 @@ ms.date: 02/22/2017
 ms.author: gwallace
 ---
 
-# Diagnose on-premise connectivity via VPN gateways
+# Diagnose on-premises connectivity via VPN gateways
 
-Azure VPN Gateway enables you to create hybrid solution that address the need for a secure connection between your on-premises network and your Azure virtual network. As your requirements are unique, so is the choice of on-premises VPN device. Azure currently supports [several VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides) that are constantly validated in partnership with the device vendors. Review the device-specific configuration settings before configuring your on-premises VPN device. Similarly, Azure VPN Gateway is configured with a set of [supported IPsec parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters) that are used for establishing connections. Currently there is no way for you to specify or select a specific combination of IPsec parameters from the Azure VPN Gateway. For establishing a successful connection between on-premises and Azure, the on-premises VPN device settings must be in accordance with the IPsec parameters prescribed by Azure VPN Gateway. Failure to do so results in loss of connectivity and until now troubleshooting these issues was not trivial and usually took hours to identify and fix the issue.
+Azure VPN Gateway enables you to create hybrid solution that address the need for a secure connection between your on-premises network and your Azure virtual network. As your requirements are unique, so is the choice of on-premises VPN device. Azure currently supports [several VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) that are constantly validated in partnership with the device vendors. Review the device-specific configuration settings before configuring your on-premises VPN device. Similarly, Azure VPN Gateway is configured with a set of [supported IPsec parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) that are used for establishing connections. Currently there is no way for you to specify or select a specific combination of IPsec parameters from the Azure VPN Gateway. For establishing a successful connection between on-premises and Azure, the on-premises VPN device settings must be in accordance with the IPsec parameters prescribed by Azure VPN Gateway. Failure to do so results in loss of connectivity and until now troubleshooting these issues was not trivial and usually took hours to identify and fix the issue.
 
 With the Azure Network Watcher troubleshoot feature, you are able to diagnose any issues with your Gateway and Connections and within minutes have enough information to make an informed decision to rectify the issue.
 
@@ -29,7 +29,7 @@ You want to configure a site-to-site connection between Azure and on-premises us
 
 1. Virtual Network Gateway - The VPN Gateway on Azure
 1. Local Network Gateway - The [on-premises (CISCO ASA) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation in Azure cloud
-1. Site-to-site connection (policy based) - [Connection between the VPN Gateway and the on-premises CISCO ASA](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#a-namecreateconnectiona8-create-a-site-to-site-vpn-connection)
+1. Site-to-site connection (policy based) - [Connection between the VPN Gateway and the on-premises CISCO ASA](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
 1. [Configuring CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
 
 Detailed step by step guidance for configuring a Site-to-Site configuration can be found by visiting: [Create a VNet with a Site-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

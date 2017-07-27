@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: b33a1922-aed6-4916-9209-0e257620fded
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 06/14/2017
 ms.author: raynew
 
 ---
@@ -25,7 +25,7 @@ ms.author: raynew
 >
 >
 
-This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal. Learn more about this [scenario architecture](site-recovery-components.md#hyper-v-to-a-secondary-site).
+This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal. Learn more about this [scenario architecture](site-recovery-components.md).
 
 After reading this article, post any comments at the bottom, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 
@@ -26,7 +26,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 >
 
 > [!IMPORTANT]
-> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -84,7 +84,7 @@ Before following the procedures, you must have the following:
 * Get the HBase cluster cluster Connection-specific DNS suffix. To get it, RDP into the cluster, and then run IPConfig.  The DNS suffix is similar to:
 
         myhbase.b7.internal.cloudapp.net
-* Download and install [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) on your workstation. You will need makecert from the package to create your certificate.  
+* Download and install [Microsoft Visual Studio Express for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) on your workstation. You will need makecert from the package to create your certificate.  
 * Download and install [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) on your workstation.  SQuirreL SQL client version 3.0 and higher requires JRE version 1.6 or higher.  
 
 ### Configure a Point-to-Site VPN connection to the Azure virtual network
@@ -123,7 +123,7 @@ Assure you have provisioned an HBase cluster in an Azure virtual network (see th
     The diagram shows 0 client connections. After you make a connection to the virtual network, the number will be updated to one.
 
 #### Create your certificates
-One way to create an X.509 certificate is by using the Certificate Creation Tool (makecert.exe) that comes with [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+One way to create an X.509 certificate is by using the Certificate Creation Tool (makecert.exe) that comes with [Microsoft Visual Studio Express for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 **To create a self-signed root certificate**
 

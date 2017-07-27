@@ -3,7 +3,7 @@ title: Manage multiple environments in Service Fabric | Microsoft Docs
 description: Service Fabric applications can be run on clusters that range in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: ''
 
@@ -13,14 +13,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/06/2017
-ms.author: seanmck
+ms.date: 06/07/2017
+ms.author: mikkelhegn
 
 ---
 # Manage application parameters for multiple environments
-You can create Azure Service Fabric clusters by using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you will often want to configure the application differently, depending on the number of machines you're deploying to.
+You can create Azure Service Fabric clusters by using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you often want to configure the application differently, depending on the number of machines you're deploying to.
 
-As a simple example, consider `InstanceCount` for a stateless service. When you are running applications in Azure, you will generally want to set this parameter to the special value of "-1". This ensures that your service is running on every node in the cluster (or every node in the node type if you have set a placement constraint). However, this configuration is not suitable for a single-machine cluster since you can't have multiple processes listening on the same endpoint on a single machine. Instead, you will typically set `InstanceCount` to "1".
+As a simple example, consider `InstanceCount` for a stateless service. When you are running applications in Azure, you generally want to set this parameter to the special value of "-1". This configuration ensures that your service is running on every node in the cluster (or every node in the node type if you have set a placement constraint). However, this configuration is not suitable for a single-machine cluster since you cannot have multiple processes listening on the same endpoint on a single machine. Instead, you typically set `InstanceCount` to "1".
 
 ## Specifying environment-specific parameters
 The solution to this configuration issue is a set of parameterized default services and application parameter files that fill in those parameter values for a given environment. Default services and application parameters are configured in the application and service manifests. The schema definition for the ServiceManifest.xml and ApplicationManifest.xml files is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
@@ -29,18 +29,18 @@ The solution to this configuration issue is a set of parameterized default servi
 Service Fabric applications are made up of a collection of service instances. While it is possible for you to create an empty application and then create all service instances dynamically, most applications have a set of core services that should always be created when the application is instantiated. These are referred to as "default services". They are specified in the application manifest, with placeholders for per-environment configuration included in square brackets:
 
 ```xml
-    <DefaultServices>
-        <Service Name="Stateful1">
-            <StatefulService
-                ServiceTypeName="Stateful1Type"
-                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
-                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+  <DefaultServices>
+      <Service Name="Stateful1">
+          <StatefulService
+              ServiceTypeName="Stateful1Type"
+              TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+              MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
-                <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]"
-                    LowKey="-9223372036854775808"
-                    HighKey="9223372036854775807"
-                />
+              <UniformInt64Partition
+                  PartitionCount="[Stateful1_PartitionCount]"
+                  LowKey="-9223372036854775808"
+                  HighKey="9223372036854775807"
+              />
         </StatefulService>
     </Service>
   </DefaultServices>
@@ -69,14 +69,14 @@ The [Service Fabric application model](service-fabric-application-model.md) enab
 Suppose that you have the following setting in the Config\Settings.xml file for the `Stateful1` service:
 
 ```xml
-    <Section Name="MyConfigSection">
-      <Parameter Name="MaxQueueSize" Value="25" />
-    </Section>
+  <Section Name="MyConfigSection">
+     <Parameter Name="MaxQueueSize" Value="25" />
+  </Section>
 ```
 To override this value for a specific application/environment pair, create a `ConfigOverride` when you import the service manifest in the application manifest.
 
 ```xml
-    <ConfigOverrides>
+  <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
            <Section Name="MyConfigSection">
@@ -95,7 +95,7 @@ This parameter can then be configured by environment as shown above. You can do 
 
 ### Setting and using environment variables 
 You can specify and set environment variables in the ServiceManifest.xml file and then override these in the ApplicationManifest.xml file on a per instance basis.
-The example below shows two environment variables, one with a value set and the other will be overridden. You can use application parameters to set environment variables values in the same way that these were used for config overrides.
+The example below shows two environment variables, one with a value set and the other is overridden. You can use application parameters to set environment variables values in the same way that these were used for config overrides.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -173,7 +173,7 @@ The code belows shows how to list the Service Fabric environment variables
         }
     }
 ```
-Below are example environment variables for an application type called `GuestExe.Application` with a service type called `FrontEndService` when run on your local dev machine.
+The following are examples of environment variables for an application type called `GuestExe.Application` with a service type called `FrontEndService` when run on your local dev machine.
 
 * **Fabric_ApplicationName = fabric:/GuestExe.Application**
 * **Fabric_CodePackageName = Code**
@@ -199,7 +199,7 @@ By default, a new application includes three application parameter files, named 
 
 ![Application parameter files in Solution Explorer][app-parameters-solution-explorer]
 
-To create a new parameter file, simply copy and paste an existing one and give it a new name.
+To create a parameter file, simply copy and paste an existing one and give it a new name.
 
 ## Identifying environment-specific parameters during deployment
 At deployment time, you need to choose the appropriate parameter file to apply with your application. You can do this through the Publish dialog in Visual Studio or through PowerShell.

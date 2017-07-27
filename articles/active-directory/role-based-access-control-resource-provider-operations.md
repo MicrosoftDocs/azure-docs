@@ -158,7 +158,7 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/service/authorizationServers/write|Create a new authorization server or Update details of an existing authorization server|
 |/service/authorizationServers/delete|Remove existing authorization server|
 |/service/reports/bySubscription/read|Get report aggregated by subscription.|
-|/service/reports/byRequest/read|Get requests reposting data|
+|/service/reports/byRequest/read|Get requests reporting data|
 |/service/reports/byOperation/read|Get report aggregated by operations|
 |/service/reports/byGeo/read|Get report aggregated by geographical region|
 |/service/reports/byUser/read|Get report aggregated by developers.|

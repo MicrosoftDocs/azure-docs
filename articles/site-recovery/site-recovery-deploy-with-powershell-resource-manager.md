@@ -12,8 +12,8 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 02/06/2017
+ms.workload: storage-backup-recovery
+ms.date: 05/31/2017
 ms.author: bsiva
 
 ---

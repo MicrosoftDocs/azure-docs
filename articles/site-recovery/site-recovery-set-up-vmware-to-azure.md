@@ -12,15 +12,15 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 1/10/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
 ---
 
 # Set up the source environment (VMware to Azure)
 > [!div class="op_single_selector"]
-> * [VMware Virtual Machines](./site-recovery-set-up-vmware-to-azure.md)
-> * [Physical Servers](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware to Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)
 
 This article describes how to set up your on-premises environment to start replicating virtual machines running on VMware to Azure.
 
@@ -28,7 +28,7 @@ This article describes how to set up your on-premises environment to start repli
 
 The article assumes that you have already created:
 - A Recovery Services Vault in the [Azure portal](http://portal.azure.com "Azure portal").
-- A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
+- A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md).
 - A virtual machine on which to install the configuration server.
 
 ## Configuration server minimum requirements

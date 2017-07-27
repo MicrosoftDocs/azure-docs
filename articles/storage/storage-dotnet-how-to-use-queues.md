@@ -32,7 +32,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 **Prerequisities:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)

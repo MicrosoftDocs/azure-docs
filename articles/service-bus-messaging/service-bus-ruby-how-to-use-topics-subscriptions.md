@@ -26,39 +26,13 @@ This article describes how to use Service Bus topics and subscriptions from Ruby
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Create a Ruby application
-For instructions, see [Create a Ruby Application on Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
-
-## Configure Your application to Use Service Bus
-To use Service Bus, download and use the Azure Ruby package, which includes a set of convenience libraries that communicate with the storage REST services.
-
-### Use RubyGems to obtain the package
-1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
-2. Type "gem install azure" in the command window to install the gem and dependencies.
-
-### Import the package
-Using your favorite text editor, add the following to the top of the Ruby file in which you intend to use storage:
-
-```ruby
-require "azure"
-```
-
-## Set up a Service Bus connection
-The Azure module reads the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS\_KEY**
-for information required to connect to your namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
-
-```ruby
-Azure.config.sb_namespace = "<your azure service bus namespace>"
-Azure.config.sb_access_key = "<your azure service bus access key>"
-```
-
-Set the namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net".
+[!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## Create a topic
 The **Azure::ServiceBusService** object enables you to work with topics. The following code creates an **Azure::ServiceBusService** object. To create a topic, use the **create\_topic()** method. The following example creates a topic or prints out the errors if there are any.
 
 ```ruby
-azure_service_bus_service = Azure::ServiceBusService.new
+azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
   topic = azure_service_bus_service.create_queue("test-topic")
 rescue

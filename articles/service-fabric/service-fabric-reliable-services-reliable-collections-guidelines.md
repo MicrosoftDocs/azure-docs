@@ -30,7 +30,7 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
 * Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on `IComparable<TKey>` for merging checkpoints and rows.
 * Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
-* Consider keeping your items (for example, TKey + TValue for Reliable Dictionary) below 80 KBytes: smaller the better. This reduces the amount of Large Object Heap usage as well as disk and network IO requirements. Often, it reduces replicating duplicate data when only one small part of the value is being updated. Common way to achieve this in Reliable Dictionary, is to break your rows in to multiple rows. 
+* Consider keeping your items (for example, TKey + TValue for Reliable Dictionary) below 80 KBytes: smaller the better. This reduces the amount of Large Object Heap usage as well as disk and network IO requirements. Often, it reduces replicating duplicate data when only one small part of the value is being updated. Common way to achieve this in Reliable Dictionary, is to break your rows in to multiple rows.
 * Consider using backup and restore functionality to have disaster recovery.
 * Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
 * Do handle InvalidOperationException. User transactions can be aborted by the system for variety of reasons. For example, when the Reliable State Manager is changing its role out of Primary or when a long-running transaction is blocking truncation of the transactional log. In such cases, user may receive InvalidOperationException indicating that their transaction has already been terminated. Assuming, the termination of the transaction was not requested by the user, best way to handle this exception is to dispose the transaction, check if the cancellation token has been signaled (or the role of the replica has been changed), and if not create a new transaction and retry.  
@@ -54,7 +54,6 @@ Here are some things to keep in mind:
   * [Notifications](service-fabric-reliable-services-notifications.md)
   * [Serialization and Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
-(service-fabric-reliable-services-backup-restore.md)
 * Others
   * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

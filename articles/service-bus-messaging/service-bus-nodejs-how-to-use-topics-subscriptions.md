@@ -69,9 +69,9 @@ var azure = require('azure');
 ### Set up a Service Bus connection
 The Azure module reads the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY for information required to connect to Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
 
-For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
+For an example of setting the environment variables for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the [Azure classic portal][Azure classic portal] for an Azure Website, see [Node.js Web Application with Storage][Node.js Web Application with Storage].
+For an example of setting the environment variables for an Azure Website, see [Node.js Web Application with Storage][Node.js Web Application with Storage].
 
 ## Create a topic
 The **ServiceBusService** object enables you to work with topics. The

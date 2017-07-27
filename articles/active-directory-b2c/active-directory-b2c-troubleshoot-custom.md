@@ -96,8 +96,8 @@ The entries may be long.  Export to CSV for a closer look.
 
 You can learn more about the Analytics tool [here](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
-^[!NOTE]
-^The community has developed a userjourney viewer to help identity developers.  It is not supported by Microsoft and made available strictly as-is.  It read from your Application Insights instance and provides a well-structure view of the userjourney events.  You obtain the source code and deploy it in your own solution.
+>[!NOTE]
+>The community has developed a userjourney viewer to help identity developers.  It is not supported by Microsoft and made available strictly as-is.  It read from your Application Insights instance and provides a well-structure view of the userjourney events.  You obtain the source code and deploy it in your own solution.
 
 [Github Repository for Unsupported Custom Policy Samples and Related tools](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 

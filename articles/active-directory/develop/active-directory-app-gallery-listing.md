@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
+ms.custom: aaddev
 
 ---
 # Listing your application in the Azure Active Directory application gallery
@@ -39,7 +40,7 @@ To integrate your application with Azure AD, following the [developer instructio
 > 
 > Application Name:
 > 
-> Application Description (256 character limit):
+> Application Description (200 character limit):
 > 
 > Application Website (informational):
 > 
@@ -73,7 +74,7 @@ Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenan
 > 
 > Application Name:
 > 
-> Application Description (256 character limit):
+> Application Description (200 character limit):
 > 
 > Application Website (informational):
 > 

@@ -8,7 +8,7 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 05/23/2017
 ms.author: anroth
 ---
 
@@ -20,7 +20,7 @@ This article provides information and code samples to help you quickly get start
 Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Detect Faces in Images With Face API Using PHP <a name="Detect"> </a>
-Use the [Face - Detect method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
+Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
 to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in a number of Face API scenarios. 
 * Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
@@ -28,19 +28,26 @@ to detect faces in an image and return face attributes including:
 * Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
 
 #### Face Detect PHP Example Request
- 
+
+Change the REST URL to use the location where you obtained your subscription keys, change the body to a URL of an image, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
 ```php
 <?php
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 require_once 'HTTP/Request2.php';
 
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
+// NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+//   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+//   URL below with "westus".
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect');
 $url = $request->getUrl();
 
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-    'Ocp-Apim-Subscription-Key' => '{subscription key}',
+    
+    // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
 );
 
 $request->setHeader($headers);
@@ -49,7 +56,7 @@ $parameters = array(
     // Request parameters
     'returnFaceId' => 'true',
     'returnFaceLandmarks' => 'false',
-    'returnFaceAttributes' => '{string}',
+    'returnFaceAttributes' => 'age,gender',
 );
 
 $url->setQueryVariables($parameters);
@@ -57,7 +64,7 @@ $url->setQueryVariables($parameters);
 $request->setMethod(HTTP_Request2::METHOD_POST);
 
 // Request body
-$request->setBody("{body}");
+$request->setBody('{"url": "http://www.example.com/images/image.jpg"}');
 
 try
 {
@@ -215,22 +222,30 @@ A successful response will be returned in JSON. Following is an example of a suc
 ]
 ```
 ## Identify Faces in Images With Face API Using PHP <a name="Identify"> </a>
-Use the [Face - Identify method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 
+Use the [Face - Identify method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 
 identify people based on a detected face and people database (defined as a person group) which needs to be created in advance and can be edited over time
 
 #### Face - Identify PHP Example Request
+
+Change the REST URL to use the location where you obtained your subscription keys, change the body to a URL of an image, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
 ```php
 <?php
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 require_once 'HTTP/Request2.php';
 
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/identify');
+// NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+//   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+//   URL below with "westus".
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify');
 $url = $request->getUrl();
 
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-    'Ocp-Apim-Subscription-Key' => '{subscription key}',
+    
+    // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
 );
 
 $request->setHeader($headers);

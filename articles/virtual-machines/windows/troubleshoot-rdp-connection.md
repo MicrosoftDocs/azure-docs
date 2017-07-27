@@ -4,7 +4,7 @@ description: Troubleshoot issues when you cannot connect to your Windows virtual
 keywords: Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 02/09/2017
-ms.author: iainfou
+ms.date: 06/14/2017
+ms.author: genli
 
 ---
 # Troubleshoot Remote Desktop connections to an Azure virtual machine
@@ -32,17 +32,17 @@ After each troubleshooting step, try reconnecting to the VM:
 1. Reset Remote Desktop configuration.
 2. Check Network Security Group rules / Cloud Services endpoints.
 3. Review VM console logs.
-4. Check the VM Resource Health.
-5. Reset your VM password.
-6. Restart your VM.
-7. Redeploy your VM.
+4. Reset the NIC for the VM.
+5. Check the VM Resource Health.
+6. Reset your VM password.
+7. Restart your VM.
+8. Redeploy your VM.
 
 Continue reading if you need more detailed steps and explanations. Verify that local network equipment such as routers and firewalls are not blocking outbound TCP port 3389, as noted in [detailed RDP troubleshooting scenarios](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!TIP]
 > If the **Connect** button for your VM is grayed out in the portal and you are not connected to Azure via an [Express Route](../../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
-> 
-> 
+
 
 ## Ways to troubleshoot RDP issues
 You can troubleshoot VMs created using the Resource Manager deployment model by using one of the following methods:
@@ -83,23 +83,25 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
 3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
    
-    Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
-4. **Check the VM Resource Health**. This troubleshooting step verifies there are no known issues with the Azure platform that may impact connectivity to the VM.
+    Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](boot-diagnostics.md).
+
+4. **Reset the NIC for the VM**. For more information, see [how to reset NIC for Azure Windows VM](reset-network-interface.md).
+5. **Check the VM Resource Health**. This troubleshooting step verifies there are no known issues with the Azure platform that may impact connectivity to the VM.
    
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Resource health** button. A healthy VM reports as being **Available**:
    
     ![Check VM resource health in the Azure portal](./media/troubleshoot-rdp-connection/check-resource-health.png)
-5. **Reset user credentials**. This troubleshooting step resets the password on a local administrator account when you are unsure or have forgotten the credentials.
+6. **Reset user credentials**. This troubleshooting step resets the password on a local administrator account when you are unsure or have forgotten the credentials.
    
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Reset password** button. Make sure the **Mode** is set to **Reset password** and then enter your username and a new password. Finally, click the **Update** button:
    
     ![Reset the user credentials in the Azure portal](./media/troubleshoot-rdp-connection/reset-password.png)
-6. **Restart your VM**. This troubleshooting step can correct any underlying issues the VM itself is having.
+7. **Restart your VM**. This troubleshooting step can correct any underlying issues the VM itself is having.
    
     Select your VM in the Azure portal and click the **Overview** tab. Click the **Restart** button:
    
     ![Restart the VM in the Azure portal](./media/troubleshoot-rdp-connection/restart-vm.png)
-7. **Redeploy your VM**. This troubleshooting step redeploys your VM to another host within Azure to correct any underlying platform or networking issues.
+8. **Redeploy your VM**. This troubleshooting step redeploys your VM to another host within Azure to correct any underlying platform or networking issues.
    
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Redeploy** button, and then click **Redeploy**:
    
@@ -116,8 +118,6 @@ The following examples use variables such as `myResourceGroup`, `myVM`, and `myV
 
 > [!NOTE]
 > You reset the user credentials and the RDP configuration by using the [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet. In the following examples, `myVMAccessExtension` is a name that you specify as part of the process. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` to check the properties of the VM. To view the name, look under the 'Extensions' section of the output.
-> 
-> 
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
 
