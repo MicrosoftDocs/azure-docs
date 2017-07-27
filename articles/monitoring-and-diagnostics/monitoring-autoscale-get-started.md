@@ -92,7 +92,7 @@ Whenever your resource is scaled up or down, an event is logged in the activity 
 
 ![Run history][11]
 
-If you want to view the complete scale history (for up to 90 days), select **Click here to see more details**. This will start the activity log with Autoscale pre-selected for your resource and category.
+If you want to view the complete scale history (for up to 90 days), select **Click here to see more details**. This will navigate to the activity log with Autoscale pre-selected for your resource and category.
 
 ### View the scale definition of your resource
 Autoscale is an Azure Resource Manager resource. You can view the scale definition in JSON by switching to the **JSON** tab.
@@ -110,7 +110,7 @@ Click the **Disable autoscale** button at the top.
 > [!NOTE] 
 > This option disables your configuration. However, you can get back to it after you enable Autoscale again. 
 
-You can now set the number of instances you want to scale manually.
+You can now set the number of instances you want to scale to manually.
 
 ![Set manual scale][14]
 
