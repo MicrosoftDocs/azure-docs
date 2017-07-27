@@ -41,9 +41,9 @@ The Diagnostics Agent component is what we need to install on the Azure Compute 
 
 ### Prerequisites for the Walkthrough
 
-* Download the deployment template that installs the Profiler agents on the VMs or Scale Sets.
+* Download the deployment ARM templates that installs the Profiler agents on the VMs or Scale Sets.
 
-    [WindowsVirtualMachine.json](./WindowsVirtualMachine.json) | [WindowsVirtualMachineScaleSet.json](./WindowsVirtualMachineScaleSet.json)
+    [WindowsVirtualMachine.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachine.json) | [WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json)
 * An Application Insights instance enabled for profiling. Check https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler to see how to do that.
 * .NET framework >= 4.6.1 installed in the target Azure Compute resource.
 
@@ -73,7 +73,7 @@ New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Rep
 ![Create Application Insights](./media/enable-profiler-compute/createai.png)
 
 ### Apply Application Insights Instrumentation Key in the Azure Resource Manager template
-If you haven't downloaded the template yet, download the template from below. [WindowsVirtualMachine.json](./WindowsVirtualMachine.json)
+If you haven't downloaded the template yet, download the template from below. [WindowsVirtualMachine.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachine.json)
 
 ![Find AI Key](./media/enable-profiler-compute/copyaikey.png)
 
@@ -189,7 +189,7 @@ Clicking on the icon under Examples with open the Trace View blade.
 ```
 
 ## Enable the Profiler on Virtual Machine Scale Sets
-Download the [WindowsVirtualMachineScaleSet.json](./WindowsVirtualMachineScaleSet.json) template to see how to enable the Profiler. Apply the same changes in a VM template to VMSS diagnostics extension resource.
+Download the [WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json) template to see how to enable the Profiler. Apply the same changes in a VM template to VMSS diagnostics extension resource.
 You have to make sure each instance in the Scale Set has access to Internet, so the Profiler Agent can send the collected samples to Application Insights to be analyzed and displayed.
 
 ## Enable the Profiler on Service Fabric applications
@@ -201,7 +201,7 @@ Currently enabling the Profiler on Service Fabric applications requires the foll
 ### Provision the Service Fabric Cluster have the WAD extension that installs the Profiler agent
 A Service Fabric cluster can be secure or non-secure. A typical having the Gateway cluster to be non-secure so it doesn't require certificate to access it, together with one or more secure clusters that hosts the business logics and handles the data. The Profiler can be enabled on both secure and non-secure Service Fabric clusters. The walkthrough uses non-secure cluster as example to explain what changes are required to enable the Profiler. The same changes are applicable to a secure cluster.
 
-Download the [ServiceFabricCluster.json](./ServiceFabricCluster.json). Same as for VMs and VMSS, replace the Application Insights Key with your AI Key:
+Download the [ServiceFabricCluster.json](https://github.com/CFreemanwa/samples/blob/master/ServiceFabricCluster.json). Same as for VMs and VMSS, replace the Application Insights Key with your AI Key:
 
 ```
 "publisher": "AIP.Diagnostics.Test",
@@ -269,7 +269,7 @@ Commenting out these sections for now
 
 ## Next steps
 
-Find help with troubleshooting profiler issues (Profiler troubleshooting)[app-insights-profiler.md#a-idtroubleshootingatroubleshooting]
+- Find help with troubleshooting profiler issues (Profiler troubleshooting)[app-insights-profiler.md#a-idtroubleshootingatroubleshooting]
 
 [Overview]:./media/enable-profiler-compute/overview.png
 [Create-AppInsights]:./media/enable-profiler-compute/CreateAI.png
