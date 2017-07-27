@@ -375,7 +375,7 @@ Group resources are identified by the schema identifier, http://schemas.microsof
 The figure below shows the messages that Azure Active Directory will send to a SCIM service to manage the lifecycle of a user in another identity store.  The diagram also shows how a SCIM service implemented using the CLA libraries provided by Microsoft for building such services will translate those requests into calls to the methods of a provider.  
 
 ![][4]
-*Figure: User provisioning and de-provisioning sequence*
+*Figure 5: User provisioning and de-provisioning sequence*
 
 **1:**  Azure Active Directory will query the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure Active Directory.  The query is expressed as a HTTP request like this one, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory: 
 
@@ -682,7 +682,7 @@ The figure below shows the messages that Azure Active Directory will send to a S
 * Requests to determine whether a reference attribute has a certain value ware requests about the members attribute.  
 
 ![][5]
-*Figure: Group provisioning and de-provisioning sequence*
+*Figure 6: Group provisioning and de-provisioning sequence*
 
 ## Related Articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
