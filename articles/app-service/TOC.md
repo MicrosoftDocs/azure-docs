@@ -146,6 +146,9 @@
 ### [Streaming logs and the console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
+# Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
+
 # Resources
 ## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)

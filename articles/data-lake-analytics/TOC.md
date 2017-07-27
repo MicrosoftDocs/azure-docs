@@ -40,6 +40,7 @@
 ### [U-SQL Programmability Guide](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
@@ -49,7 +50,7 @@
 
 # Resources
 ## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)

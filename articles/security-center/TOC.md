@@ -72,7 +72,7 @@
 ## [Azure Security](/azure/security/)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Pricing](security-center-pricing.md)
 ## [Service overview](https://azure.microsoft.com/services/security-center/)

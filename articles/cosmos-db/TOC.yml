@@ -137,6 +137,8 @@
         href: documentdb-resources.md
       - name: SQL queries
         href: documentdb-sql-query.md
+      - name: SQL query performance
+        href: documentdb-sql-query-metrics.md        
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
       - name: Partitioning
@@ -283,6 +285,8 @@
       href: odbc-driver.md
 - name: Reference
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: DocumentDB APIs
     items:
     - name: Java
