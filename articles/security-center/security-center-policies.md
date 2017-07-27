@@ -45,7 +45,7 @@ You can configure security policies for each subscription. To modify a security 
 
 5. In the **Security Policy** blade, click **Prevention policy** to see the available options. Click **On** to enable the security recommendations that are relevant for this subscription.
 
-    ![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-newUI.png)
+    ![Selecting the security policies](./media/security-center-policies/security-center-policies-fig7.png)
 
 Use the following table as a reference to understand each option:
 
@@ -62,6 +62,7 @@ Use the following table as a reference to understand each option:
 | SQL Encryption |Recommends that encryption at rest be enabled for your Azure SQL Database, associated backups, and transaction log files. Even if your data is breached, it will not be readable. |
 | Vulnerability assessment |Recommends that you install a vulnerability assessment solution on your VM. |
 | Storage Encryption |Currently, this feature is available for Azure Blobs and Files. Note that after enabling Storage Service Encryption, only new data will be encrypted, and any existing files in this storage account will remain unencrypted. |
+| JIT Network Access |When just in time is enabled, Security Center locks down inbound traffic to your Azure VMs by creating an NSG rule. You select the ports on the VM to which inbound traffic will be locked down. For more information, see [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
 After you configure all options, click **OK** in the **Security Policy** blade that has the recommendations, and then click **Save** in the **Security Policy** blade that  has the initial settings.
 
