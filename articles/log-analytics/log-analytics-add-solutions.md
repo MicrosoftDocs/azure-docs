@@ -88,10 +88,10 @@ All solutions in the following table are available from within the Azure portal 
 | HDInsight HBase Monitoring <br>(Preview) 													| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | [Key Vault Analytics](log-analytics-azure-key-vault.md)  					| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | Logic Apps B2B  					| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| Not available to add from Azure portal/marketplace. |
-| [Malware Assessment](log-analytics-malware.md) 											| <ul><li>Security and Compliance</li></ul>				    				| Free<br> Standalone<br>Per&nbsp;Node&nbsp;(OMS)							   												| [Billing is per node](https://azure.microsoft.com/pricing/details/security-compliance/), regardless of the workspace pricing tier, if you add the Security and Compliance solutions after June 19, 2017. The first 60 days are free.  |
+| [Malware Assessment](log-analytics-malware.md) 											| <ul><li>Security and Compliance</li></ul>				    				| Free<br> Standalone<br>Per&nbsp;Node&nbsp;(OMS)							   												| If you add the Security and Compliance solutions after June 19, 2017 [billing is per node](https://azure.microsoft.com/pricing/details/security-compliance/), regardless of the workspace pricing tier. The first 60 days are free.  |
 | [Network Performance Monitor](log-analytics-network-performance-monitor.md) <br>	| <ul><li>Insight and Analytics</li></ul> 									| Free<br> Per&nbsp;Node&nbsp;(OMS) 																		| |
 | Office 365 Analytics <br>(Preview)														| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
-| [Security and Audit](../operations-management-suite/oms-security-getting-started.md)		| <ul><li>Security&nbsp;and&nbsp;Compliance</li></ul>				    	| Free<br> Standalone<br>Per&nbsp;Node&nbsp;(OMS)							   												| Collecting security event logs requires this solution<br>[Billing is per node](https://azure.microsoft.com/pricing/details/security-compliance/), regardless of the workspace pricing tier, if you add the Security and Compliance solutions after June 19, 2017. The first 60 days are free. |
+| [Security and Audit](../operations-management-suite/oms-security-getting-started.md)		| <ul><li>Security&nbsp;and&nbsp;Compliance</li></ul>				    	| Free<br> Standalone<br>Per&nbsp;Node&nbsp;(OMS)							   												| Collecting security event logs requires this solution<br>If you add the Security and Compliance solutions after June 19, 2017 [billing is per node](https://azure.microsoft.com/pricing/details/security-compliance/), regardless of the workspace pricing tier. The first 60 days are free. |
 | [Service Fabric Analytics](log-analytics-service-fabric.md) <br>(Preview)					| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | [Service Map](../operations-management-suite/operations-management-suite-service-map.md) <br>(Preview)| <ul><li>Insight and Analytics</li></ul> 						| Free<br> Per&nbsp;Node&nbsp;(OMS) 																		| Available in East US, West Europe, and West Central US 	|
 | Site Recovery    																			| <ul><li>Insight and Analytics</li></ul> 									| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 							   											| Requires a classic Site Recovery vault.<br> Not available to add from Azure portal/marketplace. |
@@ -232,7 +232,7 @@ Preview features and solutions aren’t right for everyone. Before asking to joi
 When enabling a preview feature through the portal, you see a warning reminding you that the feature is in preview.
 
 #### For both *private* and *public* preview
-The following applies to both public and private previews:
+The following information applies to both public and private previews:
 
 * Things may not always work correctly.
   * Issues range from being a minor annoyance through to something not working at all.
@@ -256,7 +256,7 @@ The following applies to both public and private previews:
 * Public previews may not be appropriate for your production / critical systems.
 
 #### For *private* preview
-In addition to the items above, the following is specific to private previews:
+In addition to the items above, the following information is specific to private previews:
 
 * We expect you to provide us with feedback on your experience so that we can make the feature/solution better.
 * We may contact you for feedback using surveys, phone calls, or e-mail.
