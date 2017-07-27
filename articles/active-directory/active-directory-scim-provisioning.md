@@ -23,7 +23,7 @@ ms.custom: aaddev
 Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify, and delete assigned users and groups to this Web service, which can then translate those requests into operations upon the target identity store. 
 
 ![][0]
-*Figure: Provisioning from Azure Active Directory to an identity store via a Web service*
+*Figure 1: Provisioning from Azure Active Directory to an identity store via a Web service*
 
 This capability can be used in conjunction with the “bring your own app” capability in Azure AD to enable single sign-on and automatic user provisioning for applications that provide or are fronted by a SCIM web service.
 
@@ -53,14 +53,16 @@ Applications that support the SCIM profile described in this article can be conn
 1. In a web browser, launch the Azure management portal at https://portal.azure.com 
 2. Browse to **Azure Active Directory > Enterprise Applications, and select **New application > All > Non-gallery application**.
 3. Enter a name for your application, and click **Add** icon to create an app object.
-
-![][1]
-
+    
+    ![][1]
+    *Figure 2: Azure AD application gallery*
+    
 4. In the resulting screen, select the **Provisioning** tab in the left column.
 5. In the **Provisioning Mode** menu, select **Automatic**.
-
-![][2]
-
+    
+    ![][2]
+    *Figure 3: Configuring provisioning in the Azure portal*
+    
 6. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/v2/
 7. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, then Azure AD included an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD -issued token.
 8. Click the **Test Connection** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, error information is displayed.  
@@ -132,9 +134,10 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 3. Enter a name for your application, and click **Add** icon to create an app object. The application object created is intended to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
 4. In the resulting screen, select the **Provisioning** tab in the left column.
 5. In the **Provisioning Mode** menu, select **Automatic**.
-
-![][2]
-
+    
+   ![][2]
+   *Figure 4: Configuring provisioning in the Azure portal*
+    
 6. In the **Tenant URL** field, enter the internet-exposed URL and port of your SCIM endpoint. This would be something like http://testmachine.contoso.com:9000 or http://<ip-address>:9000/, where <ip-address> is the internet exposed IP address.  
 7. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, then Azure AD will include an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD -issued token.
 8. Click the **Test Connection** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, error information is displayed.  
