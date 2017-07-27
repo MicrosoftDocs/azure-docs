@@ -28,8 +28,8 @@ The following steps walk you through adding an existing virtual network (and sub
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **More Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab. 
-4. On the lab's blade, select **Configuration**.
-5. On the lab's **Configuration** blade, select **Virtual networks**.
+4. On the lab's blade, select **Configuration and policies**.
+5. On the lab's **Configuration and policies** blade, select **Virtual networks**.
 6. On the **Virtual networks** blade, you see a list of virtual networks configured for the current lab as well
    as the default virtual network that is created for your lab. 
 7. Select **+ Add**.
