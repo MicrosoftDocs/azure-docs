@@ -6,7 +6,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/26/2017
+ms.date: 07/27/2017
 
 ---
 # How to: Azure Key Vault soft-delete
