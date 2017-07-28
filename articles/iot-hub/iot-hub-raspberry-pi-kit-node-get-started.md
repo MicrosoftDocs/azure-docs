@@ -141,6 +141,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Clone sample application and install the prerequisite packages
 
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
+   
    **Windows Users**
    1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
    1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
