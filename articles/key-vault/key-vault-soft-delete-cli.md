@@ -41,10 +41,13 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 
 ### Existing vault
 
-For an existing key vault named ContosoVault, enable soft-delete as follows.
+For an existing key vault named ContosoVault, enable soft-delete as follows. 
+
+>[NOTE!]
+>Currently you'll need to use ARM’s resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
 
 ```azurecli
-az keyvault update --name ContosoVault --enable-soft-delete true
+az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
 ```
 
 ### New vault
