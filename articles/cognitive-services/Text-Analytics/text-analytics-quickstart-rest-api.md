@@ -12,15 +12,15 @@ ms.date: 07/24/2017
 ms.author: luisca
 ---
 
-# Text analysis over HTTP in 10 minutes (REST API)
+# Text analysis in 10 minutes (REST API)
 
 In this Quickstart, learn how to call the Text Analytics REST APIs (Azure Cognitive Services) to perform sentiment analysis, keyword extraction, and language detection on text uploaded to Azure Cognitive Services.
 
-We recommend using a REST API testing tool to follow along. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that can send HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
+We recommend using a Web API testing tool to follow along. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
 
 ## Before you begin
 
-To use Microsoft Cognitive Service APIs, you first need to [create a Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. Policies and release cycles vary across each API, so we ask you to sign up for each API individually. 
+To use Microsoft Cognitive Service APIs, you first need to [create a Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. Policies and release cycles vary for each API, so we ask you to sign up for each API individually. 
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -52,7 +52,7 @@ Endpoints for each operation include the resource providing the underlying algor
 
   Your request should look similar to the following screenshot.
 
-   ![Request screenshot with endpoint and headers][../media/text-analytics/postman-request-keyphrase-1.png]
+   ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
 
 4. Provide text for analysis. Click **Body** and paste in the JSON documents below. Choose **raw** for the format. Click **Send** to submit the request.
 
@@ -62,7 +62,7 @@ Endpoints for each operation include the resource providing the underlying algor
                 {
                     "language": "en",
                     "id": "1",
-                    "text": "We love this trail. The views are breathtaking and well worth the hike!"
+                    "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
                 },
                 {
                     "language": "en",
@@ -77,7 +77,7 @@ Endpoints for each operation include the resource providing the underlying algor
                 {
                     "language": "en",
                     "id": "4",
-                    "text": "It was foggy so we missed the spectacular views but the trail was deserted and our dog loved it!"
+                    "text": "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!"
                 },                
                 {
                     "language": "en",
@@ -88,7 +88,7 @@ Endpoints for each operation include the resource providing the underlying algor
         }
 ```
 
-### Formatting the payload
+### Formatting the request body
 
  Input rows must be JSON. XML is not supported. For sentiment, key phrases and language, the format is the same:
  
@@ -99,9 +99,11 @@ Endpoints for each operation include the resource providing the underlying algor
  
  Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. 
 
-### Parsing the response
+### Parsing the response payload
 
-This call returns a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below:
+This call returns a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below.
+
+The keyPhrases algorithm iterates over the entire collection and picks up on common phrases(?).
 
 ```
 {
@@ -149,7 +151,40 @@ This call returns a JSON formatted response with the IDs and detected properties
 
 ## Detect sentiment
 
-TBD
+Using the same documents, you can edit the existing request to call the sentiment analysis algorithm and return sentiment scores.
+
++ Replace `keyPhrases` with `sentiment` in the endpoint and then click **Send** to submit the same documents collection.
+
+The response includes a sentiment score between 0.0 (negative) and 0.9999999 (positive) to indicate relative sentiment.
+
+
+```
+{
+    "documents": [
+        {
+            "score": 0.992584952105894,
+            "id": "1"
+        },
+        {
+            "score": 0.902196155767694,
+            "id": "2"
+        },
+        {
+            "score": 0.0902095755821843,
+            "id": "3"
+        },
+        {
+            "score": 0.0645565664913637,
+            "id": "4"
+        },
+        {
+            "score": 0.0565953372622392,
+            "id": "5"
+        }
+    ],
+    "errors": []
+}
+```
 
 > [!TIP]
 > For sentiment analysis, we recommend spliting text into sentences. This generally leads to higher precision in sentiment predictions.

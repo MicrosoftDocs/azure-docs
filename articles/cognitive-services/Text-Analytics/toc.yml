@@ -8,10 +8,6 @@
     href: text-analytics-overview-how.md
 - name: Quickstarts
   items:
-  - name: Interactive demo
-    href: text-analytics-quickstart-demo.md
-  - name: Signup
-    href: text-analytics-quickstart-signup.md
   - name: REST API quickstart
     href: text-analytics-quickstart-rest-api.md
   - name: Windows SDK quickstart
@@ -19,7 +15,7 @@
 - name: Concepts
   items:
    - name: Algorithms
-     href: text-analytics-concept-aAlgorithms.md
+     href: text-analytics-concept-algorithms.md
    - name: Data privacy and retention
      href: text-analytics-concept-data-privacy.md
 - name: How-to guides
