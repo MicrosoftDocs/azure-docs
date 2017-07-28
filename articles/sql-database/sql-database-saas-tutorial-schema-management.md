@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/28/2017
 ms.author: billgib; sstein
 
 ---
@@ -84,14 +84,14 @@ To create a new job, we use a set of jobs system stored procedures created in th
 1. Also connect to the tenant server: tenants1-\<user\>.database.windows.net
 1. Browse to the *contosoconcerthall* database on the *tenants1* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
 1. Open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modify \<user\>, use the user name used when you deployed the Wingtip app, in all 3 locations in the script
+1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip app
 1. Ensure you are connected to the jobaccount database and press **F5** to run the script
 
 * **sp\_add\_target\_group** creates the target group name DemoServerGroup, now we need to add target members.
-* **sp\_add\_target\_group\_member** adds a *server* target member type, which deems all databases within that server (note this is the customer1-&lt;User&gt; server containing the tenant databases) at time of job execution should be included in the job, the second is adding a *database* target member type, specifically the ‘golden’ database, baseTenantDB which resides on catalog-&lt;User&gt; server, and lastly another *database* target group member type to include the adhocanalytics database that is used in a later tutorial.
+* **sp\_add\_target\_group\_member** adds a *server* target member type, which deems all databases within that server (note this is the tenants1-&lt;User&gt; server containing the tenant databases) at time of job execution should be included in the job, the second is adding a *database* target member type, specifically the ‘golden’ database, basetenantdb which resides on catalog-&lt;User&gt; server, and lastly another *database* target group member type to include the adhocanalytics database that is used in a later tutorial.
 * **sp\_add\_job** creates a job called “Reference Data Deployment”
-* **sp\_add\_jobstep** creates the job step containing T-SQL command text to update to the reference table, VenueTypes
-* The remaining views in the script display the existence of the objects and monitor job execution. Review the status value from the **lifecycle** column. The job has successfully finished on all tenant databases and the two additional databases containing the reference table.
+* **sp\_add\_jobstep** creates the job step containing T-SQL command text to update the reference table, VenueTypes
+* The remaining views in the script display the existence of the objects and monitor job execution. Use these queries to review the status value in the **lifecycle** column to determine when the job has successfully finished on all tenant databases and the two additional databases containing the reference table.
 
 1. In SSMS, browse to the *contosoconcerthall* database on the *tenants1* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are** now in the results list.
 
