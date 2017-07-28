@@ -41,13 +41,9 @@ The following key improvements and bug fixes have been made in Update 5.
 
 * **Changes to StorSimple Diagnostics tool** – In Update 5, verbose logging is allowed for the performance test using the StorSimple Diagnostics tool. For more information, go to [troubleshoot using StorSimple Diagnostics tool](storsimple-8000-diagnostics.md).
 
-* **FIPS-related changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
+* **StorSimple Snapshot Manager changes** - A new version of StorSimple Snapshot Manager is released with Update 5. This version is compatible if you are running Update 3 or later on your StorSimple device. For more information, go to [Install StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
 
-* **Update changes** - In this release, bugs related to update failures have been fixed.
 
-* **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release. If you encounter this alert, contact Microsoft Support to ship a replacement disk. For more information, go to [hardware alerts on your StorSimple device](storsimple-manage-alerts.md#hardware-alerts).
-
-* **Controller replacement changes** - A cmdlet that allows the user to query the status of the controller replacement process is added in this release. For more information, go to the [cmdlet to query controller replacement status](https://technet.microsoft.com/library/dn688168.aspx).
 
 
 ## Issues fixed in Update 5
@@ -68,7 +64,7 @@ There are no new known issues in Update 5. For a list of issues carried over to 
 
 ## Serial-attached SCSI (SAS) controller and firmware updates in Update 5
 
-This release has SAS controller and LSI driver and firmware updates. For more information on how to install these updates, see [install Update 5](storsimple-install-update-5.md) on your StorSimple device.
+This release has SAS controller and LSI driver and firmware updates. For more information on how to install these updates, see [install Update 5](storsimple-8000-install-update-5.md) on your StorSimple device.
 
 ## Virtual device updates in Update 5
 
@@ -76,5 +72,5 @@ This update cannot be applied to the StorSimple Cloud Appliance (also known as t
 
 ## Next step
 
-Learn how to [install Update 5](storsimple-install-update-5.md) on your StorSimple device.
+Learn how to [install Update 5](storsimple-8000-install-update-5.md) on your StorSimple device.
 

@@ -23,7 +23,7 @@ ms.author: alkohli
 
 This tutorial explains how to install Update 5 on a StorSimple device running an earlier software version via the Azure portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 5 includes device software, USM firmware, LSI driver and firmware, Storport and Spaceport, OS security updates, and a host of other OS updates.  The device software, USM firmware, Spaceport, Storport, and other OS updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure portal or via the hotfix method. The disk firmware updates are disruptive updates and can only be applied via the hotfix method using the Windows PowerShell interface of the device.
+Update 5 includes device software, Storport and Spaceport, OS security updates, and OS updates.  The device software, Spaceport, Storport, security, and other OS updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure portal or via the hotfix method. The disk firmware updates are disruptive updates and can only be applied via the hotfix method using the Windows PowerShell interface of the device.
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure  portal.
@@ -41,7 +41,7 @@ Perform the following steps to update your device to [Update 5](storsimple-updat
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17820)**. The **Last updated date** should also be modified.
+Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17840)**. The **Last updated date** should also be modified.
 
 * You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
 
@@ -73,30 +73,31 @@ You must download and install the following hotfixes in the prescribed order and
 
 | Order | KB | Description | Update type | Install time |Install in folder|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Software update |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
+| 1. |KB4037264 |Software update |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |LSI driver and firmware updates <br> USM firmware update (version 3.38) |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2B. |KB4037266  |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2C. |KB4037267 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+
+You do not need to install USM and LSI driver and firmware updates if you are updating from a device running Update 4.
 
 You may also need to install disk firmware updates on top of all the updates shown in the preceding tables. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, then you do not need to install these updates.
 
 | Order | KB | Description | Update type | Install time | Install in folder|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Disk firmware |Maintenance <br></br>Disruptive |~ 30 mins | ThirdOrderUpdate |
+| 3. |KB4037263 |Disk firmware |Maintenance <br></br>Disruptive |~ 30 mins | ThirdOrderUpdate |
 
 <br></br>
 
 > [!IMPORTANT]
-> * This procedure needs to be performed only once to apply Update 5. You can use the Azure portal to apply subsequent updates.
-> * If updating from Update 4, the total install time is close to X hours.
+> * If updating from Update 4, the total install time is close to 4 hours.
 > * Before using this procedure to apply the update, make sure that both the device controllers are online and all the hardware components are healthy.
 
 Perform the following steps to download and install the hotfixes.
 
-[!INCLUDE [storsimple-install-update4-hotfix](../../includes/storsimple-install-update4-hotfix.md)]
+[!INCLUDE [storsimple-install-update5-hotfix](../../includes/storsimple-install-update5-hotfix.md)]
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
 ## Next steps
-Learn more about the [Update 5 release](storsimple-update4-release-notes.md).
+Learn more about the [Update 5 release](storsimple-update5-release-notes.md).
 
