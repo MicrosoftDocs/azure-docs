@@ -113,10 +113,6 @@ This establishes a connection using Transport Layer Security (TLS) and reduces t
 
     ![ADO.NET connection string](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
-> [!TIP]
-> For an example of creating a .NET application using Azure SQL Database, see [Build an ASP.NET app in Azure with SQL Database](/app-service-web/app-service-web-tutorial-dotnet-sqldatabase).
->
-
 ## Creating database users
 
 Before creating any users, you must first choose from one of two authentication types supported by Azure SQL Database: 
