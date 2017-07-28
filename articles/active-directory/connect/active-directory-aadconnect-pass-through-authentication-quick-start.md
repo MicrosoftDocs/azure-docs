@@ -91,14 +91,12 @@ If you plan to deploy Pass-through Authentication in a production environment, y
 1. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials.
 2. Select **Azure Active Directory** on the left hand navigation.
 3. Select **Azure AD Connect** and then **Pass-through Authentication**. And select **Download agent**.
+4. Click the **Accept terms & download** button.
+5. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 4. Provide your tenant's Global Administrator credentials when prompted.
 
 ![Azure portal - Download Authentication Agent button](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
-5. Click the **Accept terms & download** button.
-
 ![Azure portal - Download Agent blade](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
-
-6. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 5. Provide your tenant's Global Administrator credentials when prompted.
 
 ## Next steps
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
