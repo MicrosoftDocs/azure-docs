@@ -51,3 +51,10 @@ The Power BI team will reply back with instructions and a manifest XML file to u
 >**Note:** To help ensure quality and make sure that existing reports do not break, updates to existing custom visuals will take approximately two weeks to reach the general public after approval. 
 
 For more details about submitting Power BI custom visuals, see [Publish custom visuals to the Office store](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/).
+
+## Upload a Microsoft Teams app
+
+Choose the tile under App package, and upload the manifest file for your add-in. <br>When you upload your manifest file, you might get the following message: Errors exist.<br> If your package contains errors, the Seller Dashboard will report those errors and you will have to resolve them before you can submit your add-in. <br><br>
+For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://msdn.microsoft.com/en-us/microsoft-teams/createpackage) <br>
+
+For a step-by-step guide on how to submit a Microsoft Teams app, see [Submitting your Microsoft Teams app in the Seller Dashboard](https://msdn.microsoft.com/en-us/microsoft-teams/submissionguidance)
