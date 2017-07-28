@@ -1,20 +1,20 @@
 ---
-title: 'Text Analytics API Quick Start (Azure Cognitive Services) | Microsoft Docs'
+title: 'Text Analytics REST API Quickstart (Azure Cognitive Services) | Microsoft Docs'
 description: Learn the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
-author: LuisCabrer
-manager: mwinkle
+author: HeidiSteen
+manager: jhubbard
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
 ms.date: 07/24/2017
-ms.author: luisca
+ms.author: heidist
 ---
 
 # Text analysis in 10 minutes (REST API)
 
-In this Quickstart, learn how to call the Text Analytics REST APIs (Azure Cognitive Services) to perform sentiment analysis, keyword extraction, and language detection on text uploaded to Azure Cognitive Services.
+In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text uploaded to Azure Cognitive Services.
 
 We recommend using a Web API testing tool to follow along. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
 
@@ -153,7 +153,7 @@ The keyPhrases algorithm iterates over the entire collection and picks up on com
 
 Using the same documents, you can edit the existing request to call the sentiment analysis algorithm and return sentiment scores.
 
-+ Replace `keyPhrases` with `sentiment` in the endpoint and then click **Send** to submit the same documents collection.
++ Replace `/keyPhrases` with `/sentiment` in the endpoint and then click **Send** to submit the same documents collection.
 
 The response includes a sentiment score between 0.0 (negative) and 0.9999999 (positive) to indicate relative sentiment.
 
@@ -191,16 +191,27 @@ The response includes a sentiment score between 0.0 (negative) and 0.9999999 (po
 > 
 >
 
+## Detect language
+
+Again, using same documents, you can edit the existing request to call the language detection algorithm.
+
++ Replace `/sentiment` with `/languages` in the endpoint and then click **Send** to submit the same documents collection.
++ Optionally, use an online translator to translate some of the existing phrases from English to another language. Re-send the request to detect the non-English languages (120 languages are supported for language detection).
+
+The response includes language codes for each document and a score indicating certainty of the analysis.
+
 
 ## Next steps
 
-[Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
++ Sign up for the [Translate API]() and submit the documents collection for translation. Copy the strings to create a language-specific version of the documents, then run language detection to confirm the results.
 
-[Visit API refrence documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
 
-Learn how to call the [Text Analytics API from PowerApps](https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/), an application development platform that does not require in-depth programming knowledge to use.
++ [Visit API refrence documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
 
-To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
++ Learn how to call the [Text Analytics API from PowerApps](https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/), an application development platform that does not require in-depth programming knowledge to use.
+
++ To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
 ## See also 
 

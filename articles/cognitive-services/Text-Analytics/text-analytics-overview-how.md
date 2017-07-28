@@ -1,6 +1,6 @@
 ---
-title: Azure Text Analytics API | Microsoft Docs
-description: Use the Text Analytics API for sentiment analysis, key phrase extraction for English text, and language detection.
+title: Use Azure Text Analytics API with other technologies (Azure Cognitive Services) | Microsoft Docs
+description: Use-cases and scenarios for using the Text Analytics API for standalone apps or in combination with other services to flex a broader range of technologies.
 services: cognitive-services
 author: LuisCabrer
 manager: mwinkle
@@ -12,47 +12,10 @@ ms.date: 07/24/2017
 ms.author: luisca
 ---
 
-# Text Analytics API
+# How to use Text Analytics API with other technologies (Azure Cognitive Services)
 
-Use a few lines of code to easily analyze sentiment, extract key phrases, and detect language for any kind of text.
-
-## Sentiment Analysis
-
-Find out what users think of your brand or topic by analyzing any text using sentiment analysis. You are now easily able to monitor the perception of your brand or topic over time.
-
-Sentiment score is generated using classification techniques, and returns a score between 0 and 1. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
-
-## Key Phrase Extraction
-
-Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
-
-For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
-
-## Language Detection
-
-The service can be used to detect which language the input text is written in. 120 languages are supported.
-
-## Supported Languages
-
-| Language    | Language code | Sentiment | Key phrases |
-|:----------- |:----:|:----:|:----:|
-| Danish      | `da` | ✔ \* |  |
-| German       | `de` | ✔ \* | ✔ |
-| Greek       | `el` | ✔ \* |  |
-| English     | `en` | ✔ | ✔ | 
-| Spanish     | `es` | ✔ | ✔ | 
-| Finnish     | `fi` | ✔ \* |  | 
-| French      | `fr` | ✔ | ✔ \* | 
-| Japanese    | `ja` |  | ✔ |   |
-| Italian     | `it` | ✔ \* |  | 
-| Dutch       | `nl` | ✔ \* |  | 
-| Norwegian   | `no` | ✔ \* |  | 
-| Polish      | `pl` | ✔ \* |  | 
-| Portuguese  | `pt` | ✔ |  | 
-| Russian     | `ru` | ✔ \* |  | 
-| Swedish     | `sv` | ✔ \* |  | 
-| Turkish     | `tr` | ✔ \* |  | 
-
-\* indicates language support in preview
+TBD...
 
 ## Next steps
+
+## See also
