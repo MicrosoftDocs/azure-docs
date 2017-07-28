@@ -29,17 +29,11 @@ Key Vault operations are seperately managed via role-based access control (RBAC)
 
 | Operation | Description | User permission |
 |:-:|:-:|:-:|
-|List|list deleted key vaults|`Microsoft.KeyVault/deletedVaults/read`|
-|Recover|restores a deleted keyvault|`Microsoft.KeyVault/vaults/write`|
-|Purge|purges a deleted key vault, the key vault and all its contents are permanently removed|`Microsoft.KeyVault/locations/deletedVaults/purge/action`|
+|List|Lists deleted key vaults.|Microsoft.KeyVault/deletedVaults/read|
+|Recover|Restores a deleted key vault.|Microsoft.KeyVault/vaults/write|
+|Purge|Permanently removes a deleted key vault and all its contents.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-
-- Recover: restores a deleted keyvault. 
-  - User needs to have ‘Microsoft.KeyVault/vaults/write’ permission. 
-- Purge: removes a deleted key vault so that the vault and all its contents are permanently removed. 
-  - User needs ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ permission. 
-- List: to list deleted key vaults. 
-  - User needs ‘Microsoft.KeyVault/deletedVaults/read’ permission.
+For more information on permissions and access control, see [Secure you key vault](key-vault-secure-your-key-vault.md)
 
 
 ## Enabling soft-delete
