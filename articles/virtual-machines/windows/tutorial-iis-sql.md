@@ -42,8 +42,8 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```powershell
-$location = "WestEurope"
-$resourceGroup = "myResourceGroupIISSQL"
+$location = westus
+$resourceGroup = "myResourceGroupSQL"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -56,7 +56,7 @@ Define variables for use in the scripts in this quick start.
 
 ```powershell
 # The logical server name: Use a random value or replace with your own value (do not capitalize)
-$sqlserver = "musicstoresqlserver"
+$sqlserver = "sqlserver7272017"
 # Set an admin login and password for your database
 # The login information for the server
 $user = "SQLAdmin"
