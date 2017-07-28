@@ -164,6 +164,7 @@
 ## [Languages and platforms](app-insights-platforms.md)
 
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
 ## News
 
