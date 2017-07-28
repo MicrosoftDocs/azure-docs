@@ -31,9 +31,9 @@ Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-w
 
 ## What you do
 
-* Setup Raspberry Pi.
 * Create an IoT hub.
 * Register a device for Pi in your IoT hub.
+* Setup Raspberry Pi.
 * Run a sample application on Pi to send sensor data to your IoT hub.
 
 Connect Raspberry Pi to an IoT hub that you create. Then you run a sample application on Pi to collect temperature and humidity data from a BME280 sensor. Finally, you send the sensor data to your IoT hub.
