@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -26,15 +26,15 @@ This article explains network topology considerations when using Azure Active Di
 
 When an application is published through Azure AD Application Proxy, traffic from the users to the applications flows through three connections:
 
-1. The user connects to the Azure AD Application Proxy public endpoint on Azure
-2. Application Proxy connects to the connector
-3. The connector connects to the target application
+1. The user connects to the Azure AD Application Proxy service public endpoint on Azure
+2. The Application Proxy service connects to the Application Proxy connector
+3. The Application Proxy connector connects to the target application
 
- ![Diagram showing traffic flow from user to target application](./media/application-proxy-network-topologies/application-proxy-three-hops.png)
+![Diagram showing traffic flow from user to target application](./media/application-proxy-network-topologies/application-proxy-three-hops.png)
 
 ## Tenant location and Application Proxy service
 
-When you sign up for an Azure AD tenant, the region of your tenant is determined by the country you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are displayed in the same region as your Azure AD tenant, or the closest region to it.
+When you sign up for an Azure AD tenant, the region of your tenant is determined by the country you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are chosen or created in the same region as your Azure AD tenant, or the closest region to it.
 
 For example, if your Azure AD tenant’s region is the European Union (EU), all your Application Proxy connectors use service instances in Azure datacenters in the EU. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
 
@@ -44,9 +44,11 @@ All proxy solutions introduce latency into your network connection. No matter wh
 
 Organizations typically include server endpoints in their perimeter network. With Azure AD Application Proxy, however, traffic flows through the proxy service in the cloud while the connectors reside on your corporate network. No perimeter network is required.
 
+The next sections contain additional suggestions to help you reduce latency even futher. 
+
 ### Connector placement
 
-Application Proxy chooses the location of instances for you, based on your tenant location. You get to decide where to install the connector, giving you the power to define the latency characteristics of your network traffic.
+Application Proxy chooses the location of instances for you, based on your tenant location. However, you get to decide where to install the connector, giving you the power to define the latency characteristics of your network traffic.
 
 When setting up the Application Proxy service, ask the following questions:
 
@@ -55,7 +57,7 @@ When setting up the Application Proxy service, ask the following questions:
 * Where is the Application Proxy instance located?
 * Do you already have a dedicated network connection to Azure datacenters set up, like Azure ExpressRoute or a similar VPN?
 
-The connector has to communicate with Azure and your applications, so the placement of the connector affects the latency of those two connections. When evaluating the placement of the connector, consider the following:
+The connector has to communicate with both Azure and your applications (steps 2 and 3 in the Traffic flow diagram), so the placement of the connector affects the latency of those two connections. When evaluating the placement of the connector, consider the following:
 
 * If you want to use Kerberos constrained delegation (KCD) for single sign-on, then the connector needs a line of sight to a datacenter. 
 * When in doubt, install the connector closer to the application.
