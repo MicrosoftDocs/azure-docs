@@ -8348,6 +8348,11 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
             "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/application-insights/app-insights-analytics-reference.md",
+            "redirect_url": "https://docs.loganalytics.io/",
+            "redirect_document_id": false
         }
 
     ]
