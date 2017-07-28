@@ -108,17 +108,19 @@ To define the volumes you want to make available for mounting, add a `volumes` a
     "properties": {
       "containers": [{
         "name": "hellofiles",
-        "image": "seanmckenna/aci-hellofiles",
-        "resources": {
-          "request": {
-            "cpu": 1,
-            "memoryInGb": 1.5
-          }
-        },
-        "volumeMounts": [{
-          "name": "myvolume",
-          "mountPath": "/aci/logs/"
-        }]
+        "properties": {
+          "image": "seanmckenna/aci-hellofiles",
+          "resources": {
+            "request": {
+              "cpu": 1,
+              "memoryInGb": 1.5
+            }
+          },
+          "volumeMounts": [{
+            "name": "myvolume",
+            "mountPath": "/aci/logs/"
+          }]
+        }
       }],
       "osType": "Linux",
       "volumes": [{
