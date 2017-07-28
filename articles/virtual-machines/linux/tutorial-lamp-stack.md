@@ -22,11 +22,11 @@ ms.author: danlep
 This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on an Ubuntu VM in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * 
-> * 
-> * 
-> * 
-> * 
+> * Open port 80 for web traffic
+> * Install Apache, MySQL, and PHP
+> * Verify installation and configuration
+> * Install WordPress on the LAMP stack
+
 
 For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
@@ -34,33 +34,7 @@ For more on the LAMP stack, including recommendations for a production environme
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Before you begin
-
-To complete the example in this tutorial, you must have an existing Ubuntu Linux virtual machine (the 'L' in the LAMP stack). If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed. 
-
-
-## Open port 80 for web traffic 
-
-By default only SSH connections are allowed into Linux VMs deployed in Azure. Because this VM is going to be a web server, you need to open port 80 from the internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.  
- 
-```azurecli-interactive 
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM
-```
-## SSH into your VM
-
-
-If you don't already know the public IP address of your VM, run the [az network public-ip list](/cli/azure/network/public-ip#list) command:
-
-
-```azurecli-interactive
-az network public-ip list --resource-group myResourceGroup --query [].ipAddress
-```
-
-Use the following command to create an SSH session with the virtual machine. Substitute the correct public IP address of your virtual machine. In this example, the IP address is *40.68.254.142*.
-
-```bash
-ssh 40.68.254.142
-```
+[!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
 ## Install Apache, MySQL, and PHP
 
@@ -82,9 +56,9 @@ sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql
 
 You are prompted to install these packages and other dependencies. When prompted, set a root password for MySQL, and then [Enter] to continue. Follow the remaining prompts. This process installs the minimum required PHP extensions needed to use PHP with MySQL. 
 
-![][1]
+![MySQL root password page][1]
 
-## Verify the installation
+## Verify installation and configuration
 
 
 ### Apache
@@ -96,7 +70,7 @@ apache2 -v
 
 With Apache installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the Apache2 Ubuntu Default Page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
 
-![][3]
+![Apache default page][3]
 
 
 ### MySQL
@@ -158,12 +132,12 @@ sudo service apache2 restart
 
 Now you can check the PHP info page you created. Open a browser and go to `http://yourPublicIPAddress/info.php`. Substitute the public IP address of your VM. It should look similar to this image.
 
-![][2]
+![PHP info page][2]
 
 
 ## Install WordPress
 
-If you want to test your LAMP stack, you can install the WordPress platform to create websites and blogs. Here are brief steps. For more information and steps for production installion, see the [Ubuntu documenation](https://help.ubuntu.com/lts/serverguide/wordpress.html).
+If you want to try your LAMP stack, install a sample app. The following steps install the WordPress platform to create websites and blogs. This setup is for proof of concept. For more information and settings for production installion, see the [WordPress documentation](https://codex.wordpress.org/Main_Page).
 
 
 
@@ -177,12 +151,12 @@ sudo apt install wordpress
 
 ### Configure WordPress
 
-Open a text editor and create the file `/etc/wordpress/config-localhost.php`:
+Configure WordPress to use MySQL and PHP. Open a text editor (nano in this example) and create the file `/etc/wordpress/config-localhost.php`:
 
 ```bash
 sudo nano /etc/wordpress/config-localhost.php
 ```
-Copy the following lines to the file, substituting your database password (leave other values unchanged):
+Copy the following lines to the file, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
 
 ```
 <?php
@@ -194,7 +168,7 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ?>
 ```
 
-Create a temporary text file `wordpress.sql` with the following commands to create the WordPress database. Substitute your database password:
+Create a text file `wordpress.sql` with the following commands to create the WordPress database. Substitute your database password for *yourPassword*:
 
 ```
 CREATE DATABASE wordpress;
@@ -205,11 +179,14 @@ IDENTIFIED BY 'yourPassword';
 FLUSH PRIVILEGES;
 ```
 
+
 Run the following command to create the database:
 
 ```bash
 cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 ```
+
+After the command completes, delete the file `wordpress.sql`.
 
 Move the WordPress installation to the Apache document root:
 
@@ -224,7 +201,10 @@ Restart Apache:
 ```
 sudo service apache2 restart
 ```
-Now you can continue the Wordpress installation. Open a browser and go to `http://yourPublicIPAddress/wordpress`. Substitute the public IP address of your VM. It should look similar to this image.
+
+Now you can complete the Wordpress setup and start using the platform. Open a browser and go to `http://yourPublicIPAddress/wordpress`. Substitute the public IP address of your VM. It should look similar to this image.
+
+![WordPress installation page][4]
 
 ## Next steps
 
@@ -232,3 +212,4 @@ Now you can continue the Wordpress installation. Open a browser and go to `http:
 [1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png
+[4]: ./media/tutorial-lamp-stack/wordpressstartpage.png
