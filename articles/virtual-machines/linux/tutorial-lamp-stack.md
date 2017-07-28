@@ -97,12 +97,12 @@ mysql -u root -p
 
 Enter your password, and at the myql prompt type:
 
-```mysql
+```sql
 CREATE DATABASE myfirstdatabase;
 ```
 If you no longer need the database, delete it:
 
-```mysql
+```sql
 DROP DATABASE myfirstdatabase;
 ```
 To exit the mysql prompt, type:
@@ -120,7 +120,7 @@ php -v
 ```
 If you want to test further, create a quick PHP info page to view in a browser. The following command creates the PHP info page:
 
-```
+```bash
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 ```
 
@@ -137,7 +137,7 @@ Now you can check the PHP info page you created. Open a browser and go to `http:
 
 ## Install WordPress
 
-If you want to try your LAMP stack, install a sample app. The following steps install the WordPress platform to create websites and blogs. This setup is for proof of concept. For more information and settings for production installion, see the [WordPress documentation](https://codex.wordpress.org/Main_Page).
+If you want to try your LAMP stack, install a sample app. The following steps install the WordPress platform to create websites and blogs. This setup is for proof of concept. For more information and settings for production installation, see the [WordPress documentation](https://codex.wordpress.org/Main_Page).
 
 
 
@@ -158,7 +158,7 @@ sudo nano /etc/wordpress/config-localhost.php
 ```
 Copy the following lines to the file, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
 
-```
+```php
 <?php
 define('DB_NAME', 'wordpress');
 define('DB_USER', 'wordpress');
@@ -170,7 +170,7 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 
 Create a text file `wordpress.sql` with the following commands to create the WordPress database. Substitute your database password for *yourPassword*:
 
-```
+```sql
 CREATE DATABASE wordpress;
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
 ON wordpress.*
@@ -198,7 +198,7 @@ sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 
 Restart Apache:
 
-```
+```bash
 sudo service apache2 restart
 ```
 

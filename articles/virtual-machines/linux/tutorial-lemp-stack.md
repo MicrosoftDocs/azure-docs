@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,7 +19,7 @@ ms.author: danlep
 
 ---
 # Install a LEMP web server on an Azure VM
-This article walks you through how to deploy an NGINX web server, MySQL, and PHP (the LEMP stack) on an Ubuntu VM in Azure. The LEMP stack is an alternative to the popular [LAMP stack](tutorial-lamp-stack.md), which you can also install in Azure. In this tutorial you learn how to:
+This article walks you through how to deploy an NGINX web server, MySQL, and PHP (the LEMP stack) on an Ubuntu VM in Azure. The LEMP stack is an alternative to the popular [LAMP stack](tutorial-LEMP-stack.md), which you can also install in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Open port 80 for web traffic
@@ -89,17 +89,17 @@ mysql -u root -p
 
 Enter your password, and at the myql prompt type:
 
-```mysql
+```sql
 CREATE DATABASE myfirstdatabase;
 ```
 If you no longer need the database, delete it:
 
-```mysql
+```sql
 DROP DATABASE myfirstdatabase;
 ```
 To exit the mysql prompt, type:
 
-```mysql
+```sql
 \q
 ```
 
@@ -110,17 +110,61 @@ Check the version of PHP with the following command:
 ```bash
 php -v
 ```
-If you want to test further, create a quick PHP info page to view in a browser. The following command creates the PHP info page:
+
+Configure NGINX to use the PHP processor. Back up the original NGINX server block config file and then edit the file (using nano in this example):
+
+```bash
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_backup
+
+sudo nano /etc/nginx/sites-available/default
+```
+
+In the editor, replace the contents of `/etc/nginx/sites-available/default` with the following. Substitute the public IP address of your VM for *yourPublicIPAddress*, and leave the remaining settings. Then save the file.
 
 ```
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.php index.html index.htm index.nginx-debian.html;
+
+    server_name yourPublicIPAddress;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
+Check the NGINX configuration for syntax errors:
+
+```bash
+sudo nginx -t
+```
+
+If the syntax is correct, restart NGINX with the following command:
+
+```bash
+sudo service nginx restart
+```
+
+If you want to test further, create a quick PHP info page to view in a browser. The following command creates the PHP info page:
+
+```bash
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 ```
 
-Restart Apache with the following command so the installation takes effect:
 
-```bash
-sudo service apache2 restart
-```
 
 Now you can check the PHP info page you created. Open a browser and go to `http://yourPublicIPAddress/info.php`. Substitute the public IP address of your VM. It should look similar to this image.
 
@@ -129,7 +173,21 @@ Now you can check the PHP info page you created. Open a browser and go to `http:
 
 ## Install WordPress
 
-If you want to try your LAMP stack, install a sample app. The following steps install the WordPress platform to create websites and blogs. This setup is for proof of concept. For more information and settings for production installion, see the [WordPress documentation](https://codex.wordpress.org/Main_Page).
+If you want to try your LEMP stack, install a sample app. The following steps install the WordPress platform to create websites and blogs. This setup is for proof of concept. For more information and settings for production installation, see the [WordPress documentation](https://codex.wordpress.org/Main_Page).
+
+### Install PHP extensions
+
+Install popular PHP extensions for WordPress:
+
+```bash
+sudo apt install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc
+```
+
+Restart the PHP-FPM process:
+
+```bash
+sudo system restart php7.0-fpm
+```
 
 
 
@@ -150,7 +208,7 @@ sudo nano /etc/wordpress/config-localhost.php
 ```
 Copy the following lines to the file, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
 
-```
+```php
 <?php
 define('DB_NAME', 'wordpress');
 define('DB_USER', 'wordpress');
@@ -162,7 +220,7 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 
 Create a text file `wordpress.sql` with the following commands to create the WordPress database. Substitute your database password for *yourPassword*:
 
-```
+```sql
 CREATE DATABASE wordpress;
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
 ON wordpress.*
@@ -188,10 +246,10 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Restart Apache:
+Restart NGINX:
 
-```
-sudo service apache2 restart
+```bash
+sudo service nginx restart
 ```
 
 Now you can complete the Wordpress setup and start using the platform. Open a browser and go to `http://yourPublicIPAddress/wordpress`. Substitute the public IP address of your VM. It should look similar to this image.
@@ -200,16 +258,17 @@ Now you can complete the Wordpress setup and start using the platform. Open a br
 
 ## Next steps
 
-In this tutorial, you deployed a LAMP server in Azure. You learned how to:
+In this tutorial, you deployed a LEMP server in Azure. You learned how to:
 
 > [!div class="checklist"]
 > * Open port 80 for web traffic
-> * Install Apache, MySQL, and PHP
+> * Install NGINX, MySQL, and PHP
 > * Verify installation and configuration
-> * Install WordPress on the LAMP stack
+> * Install WordPress on the LEMP stack
 
 Advance to the next tutorial to learn about ....
 
 [1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
+[3]: ./media/tutorial-lemp-stack/nginx.png
 [4]: ./media/tutorial-lemp-stack/wordpressstartpage.png
