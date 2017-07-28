@@ -85,7 +85,6 @@ With soft-delete enabled:
 - Objects in a deleted key vault, such as keys and secrets, become inaccessible when its in this state. 
 - The DNS name for a key vault in a deleted state is still reserved so, a new vault with same name cannot be created.  
 
-
 ```azurecli
 az keyvault list-deleted
 ```
@@ -106,17 +105,31 @@ When a vault is recovered, the result is a new resource with the vault's origina
 
 ## Vault objects and soft-delete
 
-Now that we have seen the complete life cycle of a vault with soft-delete enabled, let's turn our attention to keys and secrets in a vault with soft-delete enabled. I am assuming here that you already know how to create keys and secrets in a key vault. If not, check out [Get started with Azure Key Vault](key-vault-get-started.md).
+Now that we have seen the complete life cycle of a key vault with soft-delete enabled, let's turn our attention to keys and secrets in a key vault with soft-delete enabled. I am assuming here that you already know how to create keys and secrets in a key vault. If not, check out [Get started with Azure Key Vault](key-vault-get-started.md).
 
 Let's say you have a key 'ContosoFirstKey' in your vault 'ContosoVault' with soft-delete enabled. Here's how you would delete that key.
 
-`Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey`
+```azurecli
+az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
+```
 
-With your key vault enabled for soft-delete, a deleted key still appears like it's deleted for the most part, except, when you explicitly list/retrieve deleted keys. Most operations on a key in deleted state will fail except for specifically listing deleted key, recovering it or purging it. For example, if you request to list keys in a key vault with 'Get-AzureKeyVaultKey -VaultName ContosoVault', the deleted key will not show up. To see deleted keys in a vault, you must use the '-InRemovedState' parameter.
+With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list/retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. 
+
+**FRANK/AMIT**- How does this work for CLI?
+
+For example, if you request to list keys in a key vault, as follows:
+
+```azurecli
+az keyvault key list-deleted --vault-name ContosoVault
+```
+
+The deleted key of interest will not show up. To see deleted keys in a vault, you must use the '-InRemovedState' parameter.
 
 ### Transition state 
 
-When you delete a key in a vault with soft-delete enabled it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. For example, listing the key, with or without the *-InRemovedState* parameter, will return an empty list.
+When you delete a key in a key vault with soft-delete enabled it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. 
+
+For example, listing the key, with or without the *-InRemovedState* parameter, will return an empty list.
 
 This command will list all deleted keys in 'ContosoVault'.
 
@@ -143,15 +156,23 @@ Just like vaults, a deleted key or secret will remain in deleted state for up to
 
 To recover a deleted key:
 
-`Undo-AzureKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey`
+```azurecli
+az keyvault key recover --name ContosoFirstKey --vault-name ContosoVault
+```
 
 To permanently delete a key:
 
-`Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState`
+```azurecli
+az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
+```
 
 The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action they must have the respective permission for that object (key or secret) in the key vault access policy. By default, the **purge** permission is not added to a vault's access policy when the 'all' shortcut is used to grant all permissions to a user. You must explicitly grant **purge** permission. For example, the following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**.
 
-`Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge`
+#### Set the Key Vault access policy for your key vault
+
+```azurecli
+az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
+```
 
 Note that, if you have an existing vault that has just had soft-delete enabled, you may not have **recover** and **purge** permissions.
 
@@ -159,24 +180,30 @@ Note that, if you have an existing vault that has just had soft-delete enabled, 
 
 Similarly here are related commands for deleting, listing, recovering, and purging secrets respectively.
 
-- Delete a secret named SQLPassword: `Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword`
+- Delete a secret named SQLPassword: `az keyvault secret delete --vault-name ContosoVault -name SQLPassword`
 
-- List all deleted secrets in a key vault: `Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState`
+- List all deleted secrets in a key vault: `az keyvault secret list-deleted --vault-name ContosoVault`
 
-- Recover a secret in deleted state: `Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword`
+- Recover a secret in the deleted state: `az keyvault secret recover --name SQLPassword --vault-name ContosoVault`
 
-- Purge a secret in deleted state: `Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword`
+`Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword`
+
+- Purge a secret in deleted state: `az keyvault secret purge --name SQLPAssword --vault-name ContosoVault`
 
 ## Purging objects
 
-To purge (permanently delete) a key vault by using the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
+To purge (permanently delete) a key vault use the `az keyvault purge` command. 
 
-`Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus`
+You can find the location of a deleted key vault using the command `az keyvault list-deleted`.
 
-When a key vault is purged, all of its contents (ex. keys and secrets) are permanently deleted.
+```azurecli
+az keyvault purge --location westus --name ContosoVault
+```
+
+When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted.
 
 - To purge a deleted key vault so that the vault and all its contents are permanently removed, the user needs RBAC permission to perform a *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
-- To list the deleted key, the vault a user needs RBAC permission to perform ‘Microsoft.KeyVault/deletedVaults/read’ permission. 
+- To list the deleted key, the vault a user needs RBAC permission to perform *Microsoft.KeyVault/deletedVaults/read* permission. 
 - By default only a subscription administrator has these permissions. 
 
 ## See also
