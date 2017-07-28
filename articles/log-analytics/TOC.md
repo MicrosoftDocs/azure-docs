@@ -101,5 +101,6 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

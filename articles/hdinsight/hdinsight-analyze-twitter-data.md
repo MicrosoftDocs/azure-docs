@@ -460,7 +460,7 @@ You have finished all the preparation work. Now, you can invoke the Hive script 
 Use the following Windows PowerShell script to run the Hive script. You will need to set the first variable.
 
 > [!NOTE]
-> To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+> To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell
 #region variables and constants
@@ -469,7 +469,7 @@ $httpUserName = "admin"
 $httpUserPassword = "<HDInsight Cluster HTTP User Password>"
 
 #use one of the following
-$hqlScriptFile = "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
+$hqlScriptFile = "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 $hqlScriptFile = "/tutorials/twitter/twitter.hql"
 
 $statusFolder = "/tutorials/twitter/jobstatus"
