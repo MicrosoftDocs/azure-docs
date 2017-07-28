@@ -19,7 +19,7 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 ## Prerequisites
 
-- Azure CLI 2.0 
+- Azure CLI 2.0
 
 For Key Vault specific refernece information for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
 
@@ -33,8 +33,7 @@ Key Vault operations are seperately managed via role-based access control (RBAC)
 |Recover|Restores a deleted key vault.|Microsoft.KeyVault/vaults/write|
 |Purge|Permanently removes a deleted key vault and all its contents.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-For more information on permissions and access control, see [Secure you key vault](key-vault-secure-your-key-vault.md)
-
+For more information on permissions and access control, see [Secure you key vault](key-vault-secure-your-key-vault.md).
 
 ## Enabling soft-delete
 
@@ -42,10 +41,10 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 
 ### Existing vault
 
-For an existing key vault named 'ContosoVault', enable soft-delete as follows.
+For an existing key vault named ContosoVault, enable soft-delete as follows.
 
 ```azurecli
-az keyvault update --name "ContosoVault" ...
+az keyvault update --name ContosoVault --enable-soft-delete true
 ```
 
 ### New vault
@@ -53,23 +52,23 @@ az keyvault update --name "ContosoVault" ...
 Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
 
 ```azurecli
-az keyvault create --name "ContosoVault" --resource-group "ContosoVault" --enable-soft-delete "true" --location "westus"
+az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
 ```
 
 ### Verify soft-delete enablement
 
-To verify that a key vault has soft-delete enabled, run the appropriate *get* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
+To verify that a key vault has soft-delete enabled, run *show* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
 
 ```azurecli
-az keyvault get --name "ContosoVault"
+az keyvault show --name ContosoVault
 ```
 
 ## Deleting a vault protected by soft-delete
 
-The command to delete (or remove) a vault remains the same, but its behavior changes depending on whether you have enabled soft-delete or not.
+The command to delete (or remove) a key vault remains the same, but its behavior changes depending on whether you have enabled soft-delete or not.
 
 ```azurecli
-az keyvault --name ContosoVault
+az keyvault delete --name ContosoVault
 ```
 
 > [!IMPORTANT]
@@ -95,7 +94,7 @@ The *Resource ID* in the output refers to the original resource ID of this vault
 To recover a key vault, you need to specify the vault name, resource group, and location. Note the location and the resource group of the deleted vault. You'll need it when recovering.
 
 ```azurecli
-az keyvault recover --location westus --name ContosoVault --resource-group ContosoRG
+az keyvault recover --location westus --name ContosoVault
 ```
 
 When a vault is recovered, the result is a new resource with the vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered.
