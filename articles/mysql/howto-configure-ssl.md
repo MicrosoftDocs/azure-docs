@@ -14,27 +14,14 @@ ms.date: 07/28/2017
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
 ## Step 1: Obtain SSL Certificate
-Download ssl certification (.crt file) [here](https://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt) and save it to a temporary directory i.e.: c:\ssl or /home/username/ssl
-
-## Step 2: Convert SSL Certificate 
-In many cases, applications require a local certificate file (.pem) generated from a certificate file (.crt) to bind successfully. In order to do this you need to install OpenSSL, an open source cryptography library.
-### Windows
-1. Download OpenSSL for Windows [here](https://slproweb.com/download/Win32OpenSSL_Light-1_1_0f.exe). Version Win32OpenSSL_Light-1_1 was tested in this article. 
-2. Convert the ssl certification file into pem format by running the following command:
-```dos
->c:\OpenSSL-Win32\bin\openssl
-OpenSSL> x509 -inform DER -in c:\ssl\BaltimoreCyberTrustRoot.crt -out c:\ssl\MySQLCertificate.pem
+   - Option 1: Go to https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html. Then copy the certificate section (shown in the redbox below) and paste it in a text editor. Save the file as MySQLCertificate.pem in your local drive.
+   ![save cert](./media/howto-configure-ssl/baltimoreCert.png)
+   - Option 2: Download ssl certification (.crt file) [here](https://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt) and use [OpenSSL](https://www.openssl.org/) to convert it into .pem format. You can use the following command to do the converstion.
 ```
-###  Linux
-1. Follow instructions from this [article](https://geeksww.com/tutorials/libraries/openssl/installation/installing_openssl_on_ubuntu_linux.php) to install OpenSSL in Linux. 
-2. Convert the ssl certification file into pem format by running the following command. Replace **username** in the file path with your actual user name.
-```bash
-$cd /usr/local/openssl/bin
-$openssl
-Openssl> x509 -inform DER -in /home/username/ssl/BaltimoreCyberTrustRoot.crt -out /home/username/ssl/MySQLCertificate.pem
+OpenSSL> x509 -inform DER -in <filepath>BaltimoreCyberTrustRoot.crt -out <filepath>MySQLCertificate.pem
 ```
 
-## Step 3: Bind SSL
+## Step 2: Bind SSL
 ### Connecting to server using the MySQL Workbench over SSL
 Configure MySQL Workbench to connect securely over SSL. Navigate to the **SSL** tab in the MySQL Workbench on the Setup New Connection dialogue. Enter the file location of the **MySQLCertificate.pem** in the **SSL CA File:** field.
 ![save customized tile](./media/howto-configure-ssl/mysql-workbench-ssl.png)
@@ -45,7 +32,7 @@ Using the MySQL command-line interface, execute the following command:
 mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\MySQLCertificate.pem
 ```
 
-## Step 4:  Enforcing SSL connections in Azure 
+## Step 3:  Enforcing SSL connections in Azure 
 ### Using Azure portal
 Using the Azure portal, visit your Azure Database for MySQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then click **Save**. Microsoft recommends to always enable **Enforce SSL connection** setting for enhanced security.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
@@ -56,7 +43,7 @@ You can enable or disable the **ssl-enforcement** parameter using Enabled or Dis
 az mysql server update --resource-group myresource --name mysqlserver4demo --ssl-enforcement Enabled
 ```
 
-## Step 5: Verify SSL Connection
+## Step 4: Verify SSL Connection
 Execute the mysql **status** command to verify that you have connected to your MySQL server using SSL:
 ```dos
 mysql> status
