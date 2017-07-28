@@ -1,5 +1,5 @@
 ---
-title: Copy machine learning sample experiments | Microsoft Docs
+title: Copy machine learning sample experiments - Azure | Microsoft Docs
 description: Learn how to use sample machine learning experiments to create new experiments with Cortana Intelligence Gallery and Microsoft Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/28/2017
 ms.author: cgronlun;olgali
 
 ---
@@ -36,9 +36,9 @@ On this page, you can see **Recently added** experiments, or scroll down to look
 To browse all experiments:
 
 1. Click **Browse all** at the top of the page.
-2. Under **Refine by** in the **Categories** section, select **Experiment** to see all the experiments in the Gallery.
+2. On the left-hand side, under **Refine by** in the **Categories** section, select **Experiment** to see all the experiments in the Gallery.
 3. You can find experiments that meet your requirements a couple different ways:
-   * **Select filters on the left.** For example, to browse experiments that use a PCA-based anomaly detection algorithm, select **Experiment** under **Categories**, and **PCA-Based Anomaly Detection** under **Algorithms Used**. (If you don't see that algorithm, click **Show all** at the bottom of the list.)<br></br>
+   * **Select filters on the left.** For example, to browse experiments that use a PCA-based anomaly detection algorithm: With **Experiment** selected under **Categories**, click **Show all*. Then, under **Algorithms Used**, choose **PCA-Based Anomaly Detection** . <br></br>
      ![Select filters](./media/machine-learning-sample-experiments/refine-the-view.png)
    * **Use the search box.** For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box. Then, select the filters **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:<br></br>
      ![Use the search box](./media/machine-learning-sample-experiments/search-for-experiments.png)
@@ -52,13 +52,13 @@ To browse all experiments:
     >
     >
 
-## Use a template in Machine Learning Studio
+## Create a new experiment using a sample as a template
 You also can create a new experiment in Machine Learning Studio using a Gallery sample as a template.
 
 1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create an experiment.
 2. Browse through the sample content and click one.
 
-A new experiment is created in your workspace using the sample experiment as a template.
+A new experiment is created in your Machine Learning Studio workspace using the sample experiment as a template.
 
 ## Next steps
 * [Import data from various sources](machine-learning-data-science-import-data.md)
