@@ -178,15 +178,25 @@ Note that, if you have an existing vault that has just had soft-delete enabled, 
 
 Similarly here are related commands for deleting, listing, recovering, and purging secrets respectively.
 
-- Delete a secret named SQLPassword: `az keyvault secret delete --vault-name ContosoVault -name SQLPassword`
+- Delete a secret named SQLPassword: 
+```azurecli
+az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+```
 
-- List all deleted secrets in a key vault: `az keyvault secret list-deleted --vault-name ContosoVault`
+- List all deleted secrets in a key vault: 
+```azurecli
+az keyvault secret list-deleted --vault-name ContosoVault
+```
 
-- Recover a secret in the deleted state: `az keyvault secret recover --name SQLPassword --vault-name ContosoVault`
+- Recover a secret in the deleted state: 
+```azurecli
+az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+```
 
-`Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword`
-
-- Purge a secret in deleted state: `az keyvault secret purge --name SQLPAssword --vault-name ContosoVault`
+- Purge a secret in deleted state: 
+```azurecli
+az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
+```
 
 ## Purging objects
 
