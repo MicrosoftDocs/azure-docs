@@ -1,6 +1,6 @@
 ---
-title: Deploy LAMP on a Linux virtual machine in Azure | Microsoft Docs
-description: Tutorial - Install the LAMP stack on a Linux VM in Azure
+title: Deploy LEMP on a Linux virtual machine in Azure | Microsoft Docs
+description: Tutorial - Install the LEMP stack on a Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -18,17 +18,15 @@ ms.date: 07/28/2017
 ms.author: danlep
 
 ---
-# Install a LAMP web server on an Azure VM
-This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on an Ubuntu VM in Azure. In this tutorial you learn how to:
+# Install a LEMP web server on an Azure VM
+This article walks you through how to deploy an NGINX web server, MySQL, and PHP (the LEMP stack) on an Ubuntu VM in Azure. The LEMP stack is an alternative to the popular [LAMP stack](tutorial-lamp-stack.md), which you can also install in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Open port 80 for web traffic
-> * Install Apache, MySQL, and PHP
+> * Install NGINX, MySQL, and PHP
 > * Verify installation and configuration
-> * Install WordPress on the LAMP stack
+> * Install WordPress on the LEMP stack
 
-
-For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,21 +34,15 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
-## Install Apache, MySQL, and PHP
+## Install NGINX, MySQL, and PHP
 
 Run the following commands to update Ubuntu package sources and install Apache, MySQL, and PHP. 
 
 
 ```bash
 sudo apt update
-sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql
+sudo apt install nginx mysql-server php php-mysql
 ```
-
-
-
-> [!TIP]
-> You can alternatively install Apache, MySQL, and PHP on Ubuntu using `sudo apt-get install lampserver^` (including the caret (^) character at the end).
->
 
 
 
@@ -61,16 +53,16 @@ You are prompted to install these packages and other dependencies. When prompted
 ## Verify installation and configuration
 
 
-### Apache
+### NGINX
 
 Check the version of Apache with the following command:
 ```bash
-apache2 -v
+nginx -v
 ```
 
 With Apache installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the Apache2 Ubuntu Default Page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
 
-![Apache default page][3]
+![NGINX default page][3]
 
 
 ### MySQL
@@ -218,7 +210,6 @@ In this tutorial, you deployed a LAMP server in Azure. You learned how to:
 
 Advance to the next tutorial to learn about ....
 
-[1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
-[2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
-[3]: ./media/tutorial-lamp-stack/apachesuccesspage.png
-[4]: ./media/tutorial-lamp-stack/wordpressstartpage.png
+[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
+[2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
+[4]: ./media/tutorial-lemp-stack/wordpressstartpage.png
