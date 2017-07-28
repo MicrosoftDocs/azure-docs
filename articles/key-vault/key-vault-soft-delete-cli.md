@@ -7,10 +7,10 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/27/2017
+ms.date: 07/28/2017
 
 ---
-# How to use Key Vault soft-delete
+# How to use Key Vault soft-delete using CLI
 
 Azure Key Vault's soft delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
 
@@ -19,18 +19,27 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 ## Prerequisites
 
-- Azure PowerShell 4.0.0 or later
 - Azure CLI 2.0 
 
-For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0) or for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
+For Key Vault specific refernece information for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## Required permissions
 
-Key Vault operations are seperately controlled via RBAC permissions as follows:
+Key Vault operations are seperately managed via role-based access control (RBAC) permissions as follows:
 
-- Recover: restores a deleted keyvault. User needs to have ‘Microsoft.KeyVault/vaults/write’ permission. 
-- Purge: removes a deleted key vault so that the vault and all its contents are permanently removed. User needs ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ permission. 
-- List: to list deleted key vaults. User needs ‘Microsoft.KeyVault/deletedVaults/read’ permission.
+| Operation | Description | User permission |
+|:-:|:-:|:-:|
+|List|list deleted key vaults|`Microsoft.KeyVault/deletedVaults/read`|
+|Recover|restores a deleted keyvault|`Microsoft.KeyVault/vaults/write`|
+|Purge|purges a deleted key vault, the key vault and all its contents are permanently removed|`Microsoft.KeyVault/locations/deletedVaults/purge/action`|
+
+
+- Recover: restores a deleted keyvault. 
+  - User needs to have ‘Microsoft.KeyVault/vaults/write’ permission. 
+- Purge: removes a deleted key vault so that the vault and all its contents are permanently removed. 
+  - User needs ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ permission. 
+- List: to list deleted key vaults. 
+  - User needs ‘Microsoft.KeyVault/deletedVaults/read’ permission.
 
 
 ## Enabling soft-delete
@@ -41,12 +50,6 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 
 For an existing key vault named 'ContosoVault', enable soft-delete as follows.
 
-```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
-```
-
 ```azurecli
 az keyvault update --name "ContosoVault" ...
 ```
@@ -54,10 +57,6 @@ az keyvault update --name "ContosoVault" ...
 ### New vault
 
 Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
-
-```powershell
-New-AzureRmKeyVault -VaultName "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
-```
 
 ```azurecli
 az keyvault create --name "ContosoVault" --resource-group "ContosoVault" --enable-soft-delete "true" --location "westus"
@@ -67,10 +66,6 @@ az keyvault create --name "ContosoVault" --resource-group "ContosoVault" --enabl
 
 To verify that a key vault has soft-delete enabled, run the appropriate *get* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
 
-```powershell
-Get-AzureRmKeyVault -VaultName "ContosoVault"
-```
-
 ```azurecli
 az keyvault get --name "ContosoVault"
 ```
@@ -78,10 +73,6 @@ az keyvault get --name "ContosoVault"
 ## Deleting a vault protected by soft-delete
 
 The command to delete (or remove) a vault remains the same, but its behavior changes depending on whether you have enabled soft-delete or not.
-
-```powershell
-Remove-AzureRmKeyVault -VaultName 'ContosoVault'
-```
 
 ```azurecli
 az keyvault --name ContosoVault
@@ -98,17 +89,6 @@ With soft-delete enabled:
 - Objects in a deleted key vault, such as keys and secrets, become inaccessible when its in this state. 
 - The DNS name for a key vault in a deleted state is still reserved so, a new vault with same name cannot be created.  
 
-```powershell
-PS C:\> Get-AzureRmKeyVault -InRemovedStateVault 
-
-Name           : ContosoVault
-Location             : westus
-Id                   : /subscriptions/xxx/providers/Microsoft.KeyVault/locations/westus/deletedVaults/ContosoVault
-Resource ID          : /subscriptions/xxx/resourceGroups/ContosoVault/providers/Microsoft.KeyVault/vaults/ContosoVault
-Deletion Date        : 5/9/2017 12:14:14 AM
-Scheduled Purge Date : 8/7/2017 12:14:14 AM
-Tags                 :
-```
 
 ```azurecli
 az keyvault list-deleted
@@ -120,15 +100,13 @@ The *Resource ID* in the output refers to the original resource ID of this vault
 
 To recover a key vault, you need to specify the vault name, resource group, and location. Note the location and the resource group of the deleted vault. You'll need it when recovering.
 
-```powershell
-Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
-```
-
 ```azurecli
 az keyvault recover --location westus --name ContosoVault --resource-group ContosoRG
 ```
 
-When a vault is recovered, the result is a new resource with the vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered. 
+When a vault is recovered, the result is a new resource with the vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered.
+
+... CLI conversion needed below here ...
 
 ## Vault objects and soft-delete
 
