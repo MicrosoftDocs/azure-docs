@@ -47,6 +47,8 @@ At the end of this tutorial, you have a java console device app and a java conso
 > [!NOTE]
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
 
+## Prerequisites
+
 To complete this tutorial, you need:
 
 * The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
