@@ -1,16 +1,16 @@
 ---
 
 ms.assetid: 
-title: Azure Key Vault - How to use soft delete
-description: Use case examples of soft-delete with PSh and CLI code snips
+title: Azure Key Vault - How to use soft delete with PowerShell
+description: Use case examples of soft-delete with PSh code snips
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/27/2017
+ms.date: 07/28/2017
 
 ---
-# How to use Key Vault soft-delete
+# How to use Key Vault soft-delete using PowerShell
 
 Azure Key Vault's soft delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
 
@@ -20,13 +20,12 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 ## Prerequisites
 
 - Azure PowerShell 4.0.0 or later
-- Azure CLI 2.0 
 
-For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0) or for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
+For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ## Required permissions
 
-Key Vault operations are seperately controlled via RBAC permissions as follows:
+Key Vault operations are seperately managed via role-based access control (RBAC) permissions as follows:
 
 - Recover: restores a deleted keyvault. User needs to have ‘Microsoft.KeyVault/vaults/write’ permission. 
 - Purge: removes a deleted key vault so that the vault and all its contents are permanently removed. User needs ‘Microsoft.KeyVault/locations/deletedVaults/purge/action’ permission. 
@@ -47,20 +46,12 @@ For an existing key vault named 'ContosoVault', enable soft-delete as follows.
 Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
-```azurecli
-az keyvault update --name "ContosoVault" ...
-```
-
 ### New vault
 
 Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
 
 ```powershell
 New-AzureRmKeyVault -VaultName "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
-```
-
-```azurecli
-az keyvault create --name "ContosoVault" --resource-group "ContosoVault" --enable-soft-delete "true" --location "westus"
 ```
 
 ### Verify soft-delete enablement
@@ -71,9 +62,6 @@ To verify that a key vault has soft-delete enabled, run the appropriate *get* co
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-```azurecli
-az keyvault get --name "ContosoVault"
-```
 
 ## Deleting a vault protected by soft-delete
 
@@ -81,10 +69,6 @@ The command to delete (or remove) a vault remains the same, but its behavior cha
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName 'ContosoVault'
-```
-
-```azurecli
-az keyvault --name ContosoVault
 ```
 
 > [!IMPORTANT]
@@ -110,10 +94,6 @@ Scheduled Purge Date : 8/7/2017 12:14:14 AM
 Tags                 :
 ```
 
-```azurecli
-az keyvault list-deleted
-```
-
 The *Resource ID* in the output refers to the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. The *Id* field comes can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
 
 ## Recovering a vault
@@ -122,10 +102,6 @@ To recover a key vault, you need to specify the vault name, resource group, and 
 
 ```powershell
 Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
-```
-
-```azurecli
-az keyvault recover --location westus --name ContosoVault --resource-group ContosoRG
 ```
 
 When a vault is recovered, the result is a new resource with the vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered. 
