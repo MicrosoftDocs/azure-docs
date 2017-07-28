@@ -1,6 +1,6 @@
 ---
-title:  | Microsoft Docs
-description: Batch rendering service.
+title: Render on Maya or Arnold in the cloud with the Azure Batch Rendering service | Microsoft Docs
+description: Render jobs with the Maya or Arnold rendering engines on a pay-per-use basis with a simple plug-in for Maya.
 services: batch
 author: tamram
 manager: timlt
@@ -11,36 +11,37 @@ ms.date: 07/25/2017
 ms.author: tamram
 ---
 
-# Get started with the Batch rendering service
+# Get started with the Batch Rendering service
 
-What is it
+The Azure Batch Rendering service offers powerful rendering capabilities on a pay-per-use basis. You can submit rendering jobs on demand via a plug-in for Autodesk Maya, and render on Azure virtual machines (VMs) running the Maya or Arnold rendering engines. By rendering on Batch, you can use Maya and Arnold without having to manage licenses or infrastructure. 
 
-The Batch rendering service provides a plug-in for Autodesk Maya that makes it easy to submit rendering jobs through the Maya user interface.
+## Supported rendering engines
 
-The Batch rendering service currently supports the following rendering engines:
+The Batch Rendering service currently supports the following rendering engines:
 
 - Autodesk Maya
 - Autodesk Arnold
-
-## Load the Maya plug-in
-
-The Maya plug-in is available on [GitHub](https://github.com/Azure/azure-batch-maya) (???is there an installer?). Download the latest plug-in release and extract the *azure_batch_maya* directory to a location of your choice. You can load the plug-in directly from the *azure_batch_maya* directory.
-
-To load the plug-in in Maya:
-
-1. Run Maya
-2. Open Window > Settings/Preferences > Plug-in Manager
-3. Click Browse
-4. Navigate to and select azure_batch_maya/plug-in/AzureBatch.py.
+- 3DS Max (???is this supported in preview - it's not in the portal?)
 
 ## Prerequisites
 
-To use the Maya plug-in, you need: both an Azure Batch account and an Azure Storage account.  
+To use the Batch Rendering service, you need:
 
 - **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md)]. 
 - **An Azure Storage account.** You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. To learn more about Storage accounts, see [How to create, manage, or delete a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
-## Authenticate access to your Azure Batch and Azure Storage accounts
+## Load the Batch plug-in in Maya
+
+The Batch plug-in is available on [GitHub](https://github.com/Azure/azure-batch-maya). Clone the repository to a directory of your choice. You can load the plug-in directly from the *azure_batch_maya* directory.
+
+To load the plug-in in Maya:
+
+1. Run Maya.
+2. Open **Window** > **Settings/Preferences** > **Plug-in Manager**.
+3. Click **Browse**.
+4. Navigate to and select *azure_batch_maya/plug-in/AzureBatch.py*.
+
+## Authenticate access to your Batch and Storage accounts
 
 To use the plug-in, you need to authenticate using your Azure Batch and Azure Storage account keys. To retrieve your account keys:
 
@@ -49,13 +50,13 @@ To use the plug-in, you need to authenticate using your Azure Batch and Azure St
 3. Select **Batch Accounts** from the left-hand menu. If necessary, click **More Services** and filter on _Batch_.
 4. Locate the desired Batch account in the list.
 5. Select the **Keys** menu item to display your account name, account URL, and access keys:
-    a. Paste the Batch account URL into the **Service** field in the Maya plug-in. 
+    a. Paste the Batch account URL into the **Service** field in the Batch plug-in. 
     b. Paste the account name into the **Batch Account** field.
     c. Paste the primary account key into the **Batch Key** field.
 5. Select Storage Accounts from the left-hand menu. If necessary, click **More Services** and filter on _Storage_.
 6. Locate the desired Storage account in the list. 
 7. Select the **Access Keys** menu item to display the storage account name and keys.
-    a. Paste the Storage account name into the **Storage Account** field in the Maya plug-in.
+    a. Paste the Storage account name into the **Storage Account** field in the Batch plug-in.
     b. Paste the primary account key into the **Storage Key** field.
 9. Click **Authenticate** to ensure that the plug-in can access both accounts.
 
@@ -63,33 +64,21 @@ Once you have successfully authenticated, the plug-in sets the status field to *
 
 ![Authenticate your Batch and Storage accounts](./media/batch-rendering-service/authentication.png)
 
-## Submit render jobs using the Batch plug-in
+## Basic Batch concepts
 
 Before you begin using the Batch plug-in for Maya, it's helpful to be familiar with a few Batch concepts, including compute nodes, pools, and jobs. To learn more about Azure Batch, see [Run intrinsically parallel workloads with Batch](batch-technical-overview.md).
 
-### Compute nodes
-
-Batch is a platform service for running compute-intensive work, like rendering, on a managed collection of Azure virtual machines (VMs). Each compute node is an Azure virtual machine (VM) running either Linux or Windows.
-
 ### Pools
 
-Batch is a platform service for running compute-intensive work, like rendering, on a managed collection, or **pool**, of compute nodes. Each compute node is an Azure virtual machine (VM) running either Linux or Windows. 
+Batch is a platform service for running compute-intensive work, like rendering, on a managed collection, or **pool**, of **compute nodes**. Each compute node in a pool is an Azure virtual machine (VM) running either Linux or Windows. 
 
-To submit a rendering job with the Batch plug-in, you must first specify a pool to use for the job.
-
-
-
-A Batch **pool** is a collection of compute nodes. Each compute node is an Azure virtual machine (VM) running either Linux or Windows. To submit a rendering job with the plug-in, you must first specify a pool to use for the job. You can use an existing pool, or indicate that Batch should create a pool for you.
-- the type of pool that  
-- 
-- For more information about Batch pools, see the [Pool](/batch-api-basics.md#pool) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+For more information about Batch pools and compute nodes, see the [Pool](batch-api-basics.md#pool) and [Compute node](batch-api-basics.md#compute-node) sections in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
 
 ### Jobs
 
-A Batch **job** is a collection of tasks that run on the compute nodes in a pool. When you submit a rendering job, Batch divides the job into tasks and distributes the tasks to the compute nodes in the pool to run.
+A Batch **job** is a collection of tasks that run on the compute nodes in a pool. When you submit a rendering job, Batch divides the job into tasks and distributes the tasks to the compute nodes in the pool to run (???is this an accurate description?).
 
-
-
+For more information about Batch jobs, see the [Job](batch-api-basics.md#job) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
 
 ## Configure a pool for a render job
 
@@ -100,7 +89,7 @@ After you have authenticated your Batch and Storage accounts, set up a pool for 
 To specify a pool, select the **Submit** tab. This tab offers options for specifying a pool for running the render job:
 
 - You can **auto provision a pool for this job** (the default option). When you choose this option, Batch creates the pool exclusively for the current job, and automatically shuts down (???deletes the pool?) when the render job is complete. This option is best when you have a single render job to complete.
-- You can **reuse an existing persistent pool**. If you already have a pool that is idle, you can specify that pool for running the render job. Reusing an existing persistent pool saves the time required to provision the pool. Use this option when you have a continuous need to run render jobs. 
+- You can **reuse an existing persistent pool**. If you already have a pool that is idle, you can specify that pool for running the render job by selecting the pool ID from the dropdown. Reusing an existing persistent pool saves the time required to provision the pool. Use this option when you have a continuous need to run render jobs. 
 - You can **create a new persistent pool**. Choosing this option creates a new pool for running the job. It does not delete the pool when the job is complete, so that you can reuse it for future jobs.
 
 You can also create a pool using the Azure portal. 
@@ -113,7 +102,7 @@ You can specify the type of OS image to use to provision compute nodes in the po
 |Operating System  |Image  |
 |---------|---------|
 |Linux     |Batch CentOS Preview ???Names are different in portal Offer field vs plugin?         |
-|Windows     |???What will appear in plug-in? I only have the screenshot....         |
+|Windows     |???What text will appear in plug-in? I only have the screenshot....         |
 
 ### Choose a VM size
 
@@ -140,6 +129,14 @@ You can specify the license servers you wish to use on the **Env** tab. Options 
 >
 >
 
+### Manage persistent pools
+
+You can manage an existing persistent pool on the **Pools** tab. Selecting a pool from the list displays the current state of the pool, including how many nodes are running, the selected VM image, the VM type and the licenses that are deployed to that pool.
+
+From the **Pools** tab, you can also delete the pool and resize the number of VMs in the pool. You can resize a pool to 0 nodes to avoid incurring costs inbetween workloads.
+
+![View, resize, and delete pools](./media/batch-rendering-service/pools.png)
+
 ## Configure a render job for submission
 
 Once you have specified the parameters for the pool that will run the render job, configure the job itself. 
@@ -152,6 +149,48 @@ The plug-in warns you if the render engine that you selected in Maya is not supp
 
 If you load a new scene while the plug-in is open, click the **Refresh** button to make sure the settings are updated.
 
+### Resolve asset paths
 
+When you load the plug-in, it scans the scene file for any external file references. These references are displayed in the **Assets** tab. If a referenced path cannot be resolved, the plug-in attempts to locate the file in a few default locations, including the scene file location, the current project's _sourceimages_ directory, and the current working directory. If the asset still cannot be located, it is listed with a warning icon:
 
-![Specify the VM OS image and size on the Env tab](./media/batch-rendering-service/environment.png)
+![Missing assets are displayed with a warning icon](./media/batch-rendering-service/missing_assets.png)
+
+If you know the location of an unresolved file references, you can click the warning icon to be prompted to add a search path. The plug-in then uses this search path to attempt to resolve any missing assets. You can add any number of additional search paths.
+
+![Resolved assets show a green light icon](./media/batch-rendering-service/found_assets.png)
+
+If you are aware of asset references that the plug-in has not detected, you can add additional files or directories with the **Add Files** and **Add Directory** buttons. If you load a new scene while the plug-in is open, be sure to click **Refresh** to update the scene's references.
+
+### Upload assets to a container in Azure Storage
+
+When you submit a render job, the referenced files displayed in the **Assets** tab are automatically uploaded to a container in Azure Storage. You can also upload the asset files independently of a render job, using the **Upload** button on the **Assets** tab. The destination container name is specified in the **Project** field, and is named after the current Maya project by default. When asset files are uploaded to the container, the file structure of the project is preserved. 
+
+Once uploaded, assets can be referenced by any number of render jobs. All uploaded assets are available to a job that references the container, regardless of whether a particular asset was explicitly referenced by that scene. To change the destination container referenced by your next job, change the name in the **Project** field in the **Assets** tab. If there are referenced files that you wish to exclude from uploading, unselect them using the green button beside the listing.
+
+### Submit and monitor the render job
+
+After you have configured the render job in the plug-in, click the **Submit Job** button on the **Submit** tab to submit the job to Batch. 
+
+You can monitor a job that is in progress from the **Jobs** tab on the plug-in. Select a job from the list to display the current state of the job. You can also use this tab to cancel and delete jobs, as well as to download the outputs and rendering logs. 
+
+To download outputs, modify the **Outputs** field to set the desired destination directory. Click the gear icon to start a background process that watches the job and downloads outputs as it progresses: 
+
+![View job status and download outputs](./media/batch-rendering-service/jobs.png)
+
+You can close Maya without disrupting the download process.
+
+You can also monitor the progress of a job from the Azure portal.
+
+## Troubleshooting
+
+???If we want to include this section, can someone provide a few tips?
+
+TBD
+
+## Rendering service FAQ
+
+TBD
+
+## Next steps
+
+TBD
