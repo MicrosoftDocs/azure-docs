@@ -104,7 +104,7 @@ To enable SSH and I2C, you can find more reference documents on [raspberrypi.org
 
 ### Connect the sensor to Pi
 
-Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, skip this section.
+Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started#connect-pi-to-the-network).
 
 ![The Raspberry Pi and sensor connection](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
