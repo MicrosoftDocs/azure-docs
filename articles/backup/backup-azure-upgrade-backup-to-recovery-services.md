@@ -1,13 +1,13 @@
 ---
 title: Upgrade a Backup vault to a Recovery Services vault (Preview) | Microsoft Docs
-description: Commands and support information to upgrade an Azure Backup vault to a Recovery Services vault.
+description: Instructions and support information to upgrade your Azure Backup vault to a Recovery Services vault.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
 
 ms.assetid: 228fef19-2f6b-4067-acc3-fb6e501afb88
-ms.service: required
+ms.service: backup
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
