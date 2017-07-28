@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.author: tomfitz
 ---
 
-# Create your first Azure Resource Manager template
+# Create and deploy your first Azure Resource Manager template
 This topic walks you through the steps of creating your first Azure Resource Manager template. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md). If you have existing resources and want to get a template for those resources, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
 To create and revise templates, you need a JSON editor. [Visual Studio Code](https://code.visualstudio.com/) is a lightweight, open-source, cross-platform code editor. We strongly recommend using Visual Studio Code for creating Resource Manager templates. This topic assumes you are using VS Code; however, if you have another JSON editor (like Visual Studio), you can use that editor.
@@ -90,49 +90,55 @@ You are ready to deploy this template. You use either PowerShell or Azure CLI to
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
 
-* For Cloud Shell, log in to the [Azure portal](https://portal.azure.com). If you have not used Cloud Shell, set up your account. For more information about setting up Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md). In Cloud Shell, you use Azure CLI. However, you must first load your template into the file share for your Cloud Shell.
+When deployment finishes, your storage account exists in the resource group.
 
-   Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
+## Deploy template from Cloud Shell
+
+You can use [Cloud Shell](../cloud-shell/overview.md) to run the Azure CLI commands for deploying your template. However, you must first load your template into the file share for your Cloud Shell. If you have not used Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for information about setting it up.
+
+1. Log in to the [Azure portal](https://portal.azure.com).   
+
+2. Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
 
    ![Select resource group](./media/resource-manager-create-first-template/select-cs-resource-group.png)
 
-   Select the storage account for your Cloud Shell.
+3. Select the storage account for your Cloud Shell.
 
    ![Select storage account](./media/resource-manager-create-first-template/select-storage.png)
 
-   Select Files.
+4. Select **Files**.
 
    ![Select files](./media/resource-manager-create-first-template/select-files.png)
 
-   Select the file share for Cloud Shell. The name pattern is `cs-<user>-<domain>-com-<uniqueGuid>`.
+5. Select the file share for Cloud Shell. The name pattern is `cs-<user>-<domain>-com-<uniqueGuid>`.
 
    ![Select file share](./media/resource-manager-create-first-template/select-file-share.png)
 
-   Select **Add directory**.
+6. Select **Add directory**.
 
    ![Add directory](./media/resource-manager-create-first-template/select-add-directory.png)
 
-   Name it **templates**, and select **Okay**.
+7. Name it **templates**, and select **Okay**.
 
    ![Name directory](./media/resource-manager-create-first-template/name-templates.png)
 
-   Select your new directory.
+8. Select your new directory.
 
    ![Select directory](./media/resource-manager-create-first-template/select-templates.png)
 
-   Select **Upload**.
+9. Select **Upload**.
 
    ![Select upload](./media/resource-manager-create-first-template/select-upload.png)
 
-   Find and upload your template.
+10. Find and upload your template.
 
    ![Upload file](./media/resource-manager-create-first-template/upload-files.png)
 
-   Open the prompt.
+11. Open the prompt.
 
    ![Open Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
 
-   Enter the following commands in the Cloud Shell:
+12. Enter the following commands in the Cloud Shell:
 
    ```azurecli
    az group create --name examplegroup --location "South Central US"
@@ -145,7 +151,7 @@ When deployment finishes, your storage account exists in the resource group.
 
 The template works fine, but it is not flexible. It always deploys a locally redundant storage to South Central US. The name is always *storage* followed by a hash value. To enable using the template for different scenarios, add parameters to the template.
 
-In the parameters section of the template, add two parameters. The first parameter *storageSKU* enables you to specify the type of redundancy. It limits the values you can pass in to values that are valid for a storage account. It also specifies a default value. The second parameter *storageNamePrefix* is set to allow a maximum of 11 characters. It specifies a default value.
+The following example shows the parameters section with two parameters. The first parameter `storageSKU` enables you to specify the type of redundancy. It limits the values you can pass in to values that are valid for a storage account. It also specifies a default value. The second parameter `storageNamePrefix` is set to allow a maximum of 11 characters. It specifies a default value.
 
 ```json
 "parameters": {
@@ -174,7 +180,7 @@ In the parameters section of the template, add two parameters. The first paramet
 },
 ```
 
-In the *variables* section, add one variable. It combines the prefix value from the parameters and a hash value from the [uniqueString](resource-group-template-functions-string.md#uniquestring) function. It uses the [toLower](resource-group-template-functions-string.md#tolower) function to convert all characters to lowercase.
+In the variables section, add a variable named `storageName`. It combines the prefix value from the parameters and a hash value from the [uniqueString](resource-group-template-functions-string.md#uniquestring) function. It uses the [toLower](resource-group-template-functions-string.md#tolower) function to convert all characters to lowercase.
 
 ```json
 "variables": {
@@ -201,7 +207,7 @@ To use these new values for your storage account, change the resource definition
 ],
 ```
 
-Notice that the name of the storage account is now set to the variable that you added. The SKU name is set to the value of the new parameter. The location is set the same location as the resource group.
+Notice that the name of the storage account is now set to the variable that you added. The SKU name is set to the value of the parameter. The location is set the same location as the resource group.
 
 Save your file. 
 
