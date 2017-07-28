@@ -1,6 +1,7 @@
 ---
 title: Copy machine learning example experiments - Azure | Microsoft Docs
 description: Learn how to use example machine learning experiments to create new experiments with Cortana Intelligence Gallery and Microsoft Azure Machine Learning.
+
 services: machine-learning
 documentationcenter: ''
 author: cjgronlund
@@ -20,7 +21,7 @@ ms.author: cgronlun;olgali
 # Copy example experiments to create new machine learning experiments
 Learn how to start with example experiments from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
 
-In the gallery are example experiments by the Microsoft Azure Machine Learning team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
+The gallery has example experiments by the Microsoft Azure Machine Learning team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
 
 To see how to use the gallery, watch the 3-minute video [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) from the series [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -38,7 +39,7 @@ To browse all experiments:
 1. Click **Browse all** at the top of the page.
 2. On the left-hand side, under **Refine by** in the **Categories** section, select **Experiment** to see all the experiments in the Gallery.
 3. You can find experiments that meet your requirements a couple different ways:
-   * **Select filters on the left.** For example, to browse experiments that use a PCA-based anomaly detection algorithm: With **Experiment** selected under **Categories**, click **Show all*. Then, under **Algorithms Used**, choose **PCA-Based Anomaly Detection** . <br></br>
+   * **Select filters on the left.** For example, to browse experiments that use a PCA-based anomaly detection algorithm: With **Experiment** selected under **Categories**, click **Show all**. Then, under **Algorithms Used**, choose **PCA-Based Anomaly Detection**. <br></br>
      ![Select filters](./media/machine-learning-sample-experiments/refine-the-view.png)
    * **Use the search box.** For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box. Then, select the filters **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:<br></br>
      ![Use the search box](./media/machine-learning-sample-experiments/search-for-experiments.png)
