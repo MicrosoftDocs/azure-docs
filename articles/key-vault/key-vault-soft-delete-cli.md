@@ -101,8 +101,6 @@ az keyvault recover --location westus --name ContosoVault
 
 When a vault is recovered, the result is a new resource with the vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered.
 
-... CLI conversion needed below here ...
-
 ## Vault objects and soft-delete
 
 Now that we have seen the complete life cycle of a key vault with soft-delete enabled, let's turn our attention to keys and secrets in a key vault with soft-delete enabled. I am assuming here that you already know how to create keys and secrets in a key vault. If not, check out [Get started with Azure Key Vault](key-vault-get-started.md).
@@ -115,7 +113,7 @@ az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
 
 With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list/retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. 
 
-**FRANK/AMIT**- How does this work for CLI?
+**FRANK/AMIT**- How does this look for CLI?
 
 For example, if you request to list keys in a key vault, as follows:
 
