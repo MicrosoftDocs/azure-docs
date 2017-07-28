@@ -35,6 +35,7 @@
 ## [Keyboard shortcuts for Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](data-catalog-whats-new.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)

@@ -70,6 +70,7 @@
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
