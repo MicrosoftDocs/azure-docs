@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/06/2017
+ms.date: 7/27/2017
 ms.author: subramar
 ---
 # Docker Compose application support in Azure Service Fabric (Preview)
