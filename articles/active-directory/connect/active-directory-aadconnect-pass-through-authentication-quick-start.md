@@ -76,10 +76,9 @@ Follow these instructions to verify that you have enabled Pass-through Authentic
 2. Select **Azure Active Directory** on the left hand navigation.
 3. Select **Azure AD Connect**.
 4. Verify that the **Pass-through Authentication** feature shows as **Enabled**.
+5. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
 
 ![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
-
-5. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
 
 ![Azure portal - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
 
