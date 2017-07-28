@@ -71,7 +71,7 @@ To decide on a service tier, start by determining the minimum database features 
 | Maximum storage size per database*  | 2 GB | 1 TB | 1 TB | 1 TB |
 | Maximum storage size per pool* | 156 GB | 4 TB | 4 TB | 1 TB |
 | Maximum eDTUs per database | 5 | 3000 | 4000 | 1000 |
-| Maximum DTUs per pool | 1600 | 3000 | 4000 | 1000 |
+| Maximum eDTUs per pool | 1600 | 3000 | 4000 | 1000 |
 | Maximum number of databases per pool | 500  | 500 | 100 | 100 |
 | Backup retention period per database | 7 days | 35 days | 35 days | 35 days |
 ||||||
