@@ -44,7 +44,7 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
 >[!NOTE]
->Currently you'll need to use ARM’s resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
+>Currently you need to use ARM’s resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
 
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
@@ -99,7 +99,7 @@ To recover a key vault, you need to specify the vault name, resource group, and 
 az keyvault recover --location westus --name ContosoVault
 ```
 
-When a vault is recovered, the result is a new resource with the vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered.
+When a key vault is recovered, the result is a new resource with the key vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be recreated before the vault can be recovered.
 
 ## Vault objects and soft-delete
 
@@ -111,17 +111,17 @@ Let's say you have a key 'ContosoFirstKey' in your vault 'ContosoVault' with sof
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
 ```
 
+**FRANK/AMIT**- How does this look for CLI?
+
 With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list/retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. 
 
-**FRANK/AMIT**- How does this look for CLI?
+
 
 For example, if you request to list keys in a key vault, as follows:
 
 ```azurecli
 az keyvault key list-deleted --vault-name ContosoVault
 ```
-
-The deleted key of interest will not show up. To see deleted keys in a vault, you must use the '-InRemovedState' parameter.
 
 ### Transition state 
 
