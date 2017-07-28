@@ -25,7 +25,7 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0] – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](tutorial-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ```
 # One command to create a resource group holding a VM with LAMP already on it

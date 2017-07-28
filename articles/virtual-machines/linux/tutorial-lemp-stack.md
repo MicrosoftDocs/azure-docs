@@ -67,7 +67,7 @@ With Apache installed, and port 80 open to your VM, the web server can now be ac
 
 ### MySQL
 
-Check the version of MySQL with the following command (note the capital `V` paramenter):
+Check the version of MySQL with the following command (note the capital `V` parameter):
 
 ```bash
 msql -V
@@ -87,7 +87,7 @@ To test that you can create a database, login to the database:
 mysql -u root -p
 ```
 
-Enter your password, and at the myql prompt type:
+Enter your password, and at the mysql prompt type:
 
 ```sql
 CREATE DATABASE myfirstdatabase;
