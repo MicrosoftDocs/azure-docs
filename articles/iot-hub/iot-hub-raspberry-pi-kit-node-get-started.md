@@ -194,7 +194,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
    ![Config file](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
 
-   There are two items in this file you can configurate. The first one is `interval`, which defines the time interval between two messages that send to cloud. The second one `simulatedData`,which is a Boolean value for whether to use simulated sensor data or not.
+   There are two items in this file you can configurate. The first one is `interval`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `simulatedData`,which is a Boolean value for whether to use simulated sensor data or not.
 
    If you **don't have the sensor**, set the `simulatedData` value to `true` to make the sample application create and use simulated sensor data.
 
