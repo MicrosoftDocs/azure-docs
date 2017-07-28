@@ -109,11 +109,11 @@ If you use self-signed certificates, they must be created using specific paramet
 
 ### <a name="getcer"></a>Step 1 - Obtain the .cer file for the root certificate
 
-[!INCLUDE [obtain root certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
+[!INCLUDE [get the root certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 ### <a name="generateclientcert"></a>Step 2 - Generate a client certificate
 
-[!INCLUDE [generate client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
+[!INCLUDE generates client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
 ## <a name="addresspool"></a>7 - Add the client address pool
 
@@ -163,7 +163,7 @@ You can use the same VPN client configuration package on each client computer, a
 
 ## <a name="installclientcert"></a>10 - Install the client certificate
 
-If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported. Typically, this is just a matter of double-clicking the certificate and installing it. For more information see, [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install).
+If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported. Typically, this is just a matter of double-clicking the certificate and installing it. For more information, see [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install).
 
 ## <a name="connect"></a>11 - Connect to Azure
 
@@ -176,31 +176,25 @@ If you want to create a P2S connection from a client computer other than the one
 
   ![Connection established](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-If you are having trouble connecting, check the following items:
-
-- Open **Manage user certificates** and navigate to **Trusted Root Certification Authorities\Certificates**. Verify that the root certificate is listed. The root certificate must be present in order for authentication to work. When you export a client certificate .pfx using the default value 'Include all certificates in the certification path if possible', the root certificate information is also exported. When you install the client certificate, the root certificate is then also installed on the client computer. 
-
-- If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, check the authentication order on the client certificate. You can check the authentication list order by double-clicking the client certificate, and going to **Details > Enhanced Key Usage**. Make sure the list shows 'Client Authentication' as the first item. If not, you need to issue a client certificate based on the User template that has Client Authentication as the first item in the list.
-
+[!INCLUDE verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>12 - Verify your connection
 
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this example:
-   
-        PPP adapter VNet1:
-            Connection-specific DNS Suffix .:
-            Description.....................: VNet1
-            Physical Address................:
-            DHCP Enabled....................: No
-            Autoconfiguration Enabled.......: Yes
-            IPv4 Address....................: 172.16.201.3(Preferred)
-            Subnet Mask.....................: 255.255.255.255
-            Default Gateway.................:
-            NetBIOS over Tcpip..............: Enabled
 
-
-If you are having trouble connecting to a virtual machine over P2S, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network. If your network address spaces don't overlap and you still can't connect to your VM, see [Troubleshoot Remote Desktop connections to a VM](../virtual-machines/windows/troubleshoot-rdp-connection.md).
+  ```
+  PPP adapter VNet1:
+      Connection-specific DNS Suffix .:
+      Description.....................: VNet1
+      Physical Address................:
+      DHCP Enabled....................: No
+      Autoconfiguration Enabled.......: Yes
+      IPv4 Address....................: 172.16.201.3(Preferred)
+      Subnet Mask.....................: 255.255.255.255
+      Default Gateway.................:
+      NetBIOS over Tcpip..............: Enabled
+  ```
 
 ## <a name="connectVM"></a>Connect to a virtual machine
 
@@ -235,7 +229,7 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 3. Navigate to the virtual network gateway **Point-to-site-configuration** blade. This is the same blade that you used to [upload a trusted root certificate](#uploadfile).
 4. In the **Revoked certificates** section, input a friendly name for the certificate (it doesn't have to be the certificate CN).
 5. Copy and paste the thumbprint string to the **Thumbprint** field.
-6. The thumbprint will validate is automatically added to the revocation list. A message appears on the screen that the list is updating. 
+6. The thumbprint validates and is automatically added to the revocation list. A message appears on the screen that the list is updating. 
 7. After updating has completed, the certificate can no longer be used to connect. Clients that try to connect using this certificate receive a message saying that the certificate is no longer valid.
 
 ## <a name="faq"></a>Point-to-Site FAQ

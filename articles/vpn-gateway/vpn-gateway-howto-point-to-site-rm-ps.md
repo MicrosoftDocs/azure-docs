@@ -20,7 +20,6 @@ ms.author: cherylmc
 ---
 # Configure a Point-to-Site connection to a VNet using PowerShell
 
-
 This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
@@ -42,7 +41,6 @@ P2S connections require the following:
 * The public key (.cer file) for a root certificate, uploaded to Azure. This is considered a trusted certificate and is used for authentication.
 * A client certificate generated from the root certificate, and installed on each client computer that will connect. This certificate is used for client authentication.
 * A VPN client configuration package must be generated and installed on every client computer that connects. The client configuration package configures the native VPN client that is already on the operating system with the necessary information to connect to the VNet.
-
 
 ## Before beginning
 
@@ -222,11 +220,7 @@ If you want to create a P2S connection from a client computer other than the one
 
   ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
-If you are having trouble connecting, check the following things:
-
-- Open **Manage user certificates** and navigate to **Trusted Root Certification Authorities\Certificates**. Verify that the root certificate is listed. The root certificate must be present in order for authentication to work. When you export a client certificate .pfx using the default value 'Include all certificates in the certification path if possible', the root certificate information is also exported. When you install the client certificate, the root certificate is then also installed on the client computer. 
-
-- If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, check the authentication order on the client certificate. You can check the authentication list order by double-clicking the client certificate, and going to **Details > Enhanced Key Usage**. Make sure the list shows 'Client Authentication' as the first item. If not, you need to issue a client certificate based on the User template that has Client Authentication as the first item in the list.  
+[!INCLUDE [verify client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>9 - Verify your connection
 
@@ -245,7 +239,6 @@ If you are having trouble connecting, check the following things:
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
   ```
-
 
 ## <a name="connectVM"></a>Connect to a virtual machine
 
