@@ -175,7 +175,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    sudo npm install
    ```
    > [!NOTE] 
-   It might take several minutes to finish this installation process denpening on your network connection.
+   It might take several minutes to finish this installation process depending on your network connection.
 
 ### Configure the sample application
 
