@@ -201,7 +201,7 @@ In this example, you must ensure that the container 'somecontainer' in storage a
 ### Pass parameters to the Add-AzureRmHDInsightScriptAction cmdlet
 To pass multiple parameters to the Add-AzureRmHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
 
-    "-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+    "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
 or
 

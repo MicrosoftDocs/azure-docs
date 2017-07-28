@@ -8,6 +8,7 @@
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End to end SSL](application-gateway-backend-ssl.md)
 ## [Redirection](application-gateway-redirect-overview.md)
+## [Multi-tenant support](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Get started
@@ -40,6 +41,8 @@
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configure redirection
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configure web apps as backend pool members
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -67,9 +70,10 @@
 ## [Load balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

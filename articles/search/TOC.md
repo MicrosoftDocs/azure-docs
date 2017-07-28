@@ -31,6 +31,7 @@
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
+### [Handle concurrent updates](search-howto-concurrency.md)
 
 ## Manage
 ### Administer Azure Search
@@ -67,6 +68,7 @@
 
 # Reference
 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
@@ -75,8 +77,9 @@
 
 # Resources
 ## [API versions](search-api-versions.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
 ## Courseware & tutorials

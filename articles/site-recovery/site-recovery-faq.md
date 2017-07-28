@@ -101,7 +101,7 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the proc
 Yes. When you create a Site Recovery vault in a region, we ensure that all metadata that we need to enable and orchestrate replication and failover remains within that region's geographic boundary.
 
 ### Does Site Recovery encrypt replication?
-For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and encryption-at-rest (in Azure) are supported.
+For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) are supported.
 
 ## Replication
 

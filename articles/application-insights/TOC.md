@@ -155,12 +155,16 @@
 ### [Context](application-insights-data-model-context.md)
 ## [Telemetry correlation](application-insights-correlation.md)
 
+# Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
+
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Languages and platforms](app-insights-platforms.md)
 
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
 ## News
 
