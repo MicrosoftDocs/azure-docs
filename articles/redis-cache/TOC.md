@@ -49,7 +49,7 @@
 ###[Use a Spring Boot Initializer app with Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=redis-cache)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 Preview](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
@@ -61,6 +61,5 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cache/)
-## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Redis cache samples](cache-redis-samples.md)
 

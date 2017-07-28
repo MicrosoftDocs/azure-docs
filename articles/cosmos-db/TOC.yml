@@ -323,8 +323,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: FAQ
     href: faq.md
   - name: Stack Overflow

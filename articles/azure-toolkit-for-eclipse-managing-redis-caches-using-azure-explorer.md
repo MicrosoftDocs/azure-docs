@@ -85,7 +85,7 @@ After your redis cache has been created, it will be displayed in the Azure Explo
 
    ![Delete redis cache prompt][DE02]
 
-## Next Steps
+## Next steps
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
@@ -98,8 +98,8 @@ For more information about Azure redis caches, configuration settings and pricin
 
 <!-- URL List -->
 
-[Redis Cache Pricing]: https://azure.microsoft.com/en-us/pricing/details/cache/
-[Azure Redis Cache]: https://azure.microsoft.com/en-us/services/cache/
+[Redis Cache Pricing]: https://azure.microsoft.com/pricing/details/cache/
+[Azure Redis Cache]: https://azure.microsoft.com/services/cache/
 [Redis Cache Documentation]: ./redis-cache/index.md
 [How to configure Azure Redis Cache]: ./redis-cache/cache-configure.md
 [Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
