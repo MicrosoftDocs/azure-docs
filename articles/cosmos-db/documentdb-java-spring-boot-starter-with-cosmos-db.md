@@ -22,9 +22,9 @@ ms.author: robmcm;yungez;kevinzha
 
 ## Overview
 
-The **[Spring Framework]** is an open-source solution which helps Java developers create enterprise-level applications. One of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
+The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
 
-Azure Cosmos DB is a globally-distributed database service which allows developers to work with data using a variety of standard APIs, such as DocumentDB, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications which easily integrate with Azure Cosmos DB by using DocumentDB APIs.
+Azure Cosmos DB is a globally-distributed database service that allows developers to work with data using a variety of standard APIs, such as DocumentDB, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using DocumentDB APIs.
 
 This article demonstrates creating an Azure Cosmos DB using the Azure portal, then using the **Spring Initializr** to create a custom java application, and then add the Spring Boot Starter functionality to your custom application to store data in and retrieve data from your Azure Cosmos DB by using the DocumentDB API.
 
@@ -44,11 +44,11 @@ The following prerequisites are required in order to follow the steps in this ar
 
    ![Azure portal][AZ01]
 
-1. Click **Databases**, and then click **Azure Commos DB**.
+1. Click **Databases**, and then click **Azure Cosmos DB**.
 
    ![Azure portal][AZ02]
 
-1. On the **Azure Commos DB** blade, enter the following information:
+1. On the **Azure Cosmos DB** blade, enter the following information:
 
    * Enter a unique **ID**, which you will use as the URI for your database. For example: *wingtiptoysdata.documents.azure.com*.
    * Choose **SQL (Document DB)** for the API.
@@ -60,7 +60,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
    ![Azure portal][AZ03]
 
-1. When your database has been created, it will be listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** blades. You can click on your database on any of those locations to open the properties blade for your cache.
+1. When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** blades. You can click on your database on any of those locations to open the properties blade for your cache.
 
    ![Azure portal][AZ04]
 
@@ -72,13 +72,13 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Aritifact** names for your application, and then click the button to **Generate Project**.
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then click the button to **Generate Project**.
 
    ![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
    >
-   > The Spring Initializr will use the **Group** and **Aritifact** names to create the package name; for example: *com.example.wintiptoys*.
+   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wintiptoys*.
    >
 
 1. When prompted, download the project to a path on your local computer.
@@ -192,16 +192,16 @@ The following prerequisites are required in order to follow the steps in this ar
    ```
    > [!NOTE]
    >
-   > Your application class will use two classes - *UserRepository* and *User* - which you will define and implement later.
+   > Your application class uses two classes - *UserRepository* and *User* - which you will define and implement later.
    >
 
 1. Save and close the main application Java file.
 
-### Define a data respository interface
+### Define a data repository interface
 
 1. Create a new file named *UserRepository.java* in the same directory as your main application Java file.
 
-1. Open the *UserRepository.java* file in a text editor, and add the following lines to the file to define a user respository interface which extends the default DocumentDB repository interface:
+1. Open the *UserRepository.java* file in a text editor, and add the following lines to the file to define a user repository interface that extends the default DocumentDB repository interface:
 
    ```java
    package com.example.wingtiptoys;
@@ -219,7 +219,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Create a new file named *User.java* in the same directory as your main application Java file.
 
-1. Open the *User.java* file in a text editor, and add the following lines to the file to define a generic user class which you will use to store and retrieve values in your database:
+1. Open the *User.java* file in a text editor, and add the following lines to the file to define a generic user class that stores and retrieve values in your database:
 
    ```java
    package com.example.wingtiptoys;
@@ -285,17 +285,17 @@ The following prerequisites are required in order to follow the steps in this ar
    java -jar target/wingtiptoys-0.0.1-SNAPSHOT.jar
    ```
 
-1. Your application will display several runtime messages, and you should see the messsage `User: testFirstName testLastName` displayed to indicate that values have been successfully stored and retrieved from your database.
+1. Your application will display several runtime messages, and you should see the message `User: testFirstName testLastName` displayed to indicate that values have been successfully stored and retrieved from your database.
 
    ![Successful output from the application][JV02]
 
-1. OPTIONAL: You can use the Azure portal to view the contents of your Azure Cosmos DB from the the properties blade for your database by clicking  **Document Explorer**, and then selecting and item from the displayed list to view the contents.
+1. OPTIONAL: You can use the Azure portal to view the contents of your Azure Cosmos DB from the properties blade for your database by clicking  **Document Explorer**, and then selecting and item from the displayed list to view the contents.
 
    ![Using the Document Explorer to view your data][JV03]
 
 ## Next steps
 
-For more information about using Azure Cosmos DB and Java, see the the following articles:
+For more information about using Azure Cosmos DB and Java, see the following articles:
 
 * [Azure Cosmos DB Documentation].
 
