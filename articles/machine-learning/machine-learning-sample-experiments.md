@@ -1,6 +1,6 @@
 ---
-title: Copy machine learning sample experiments - Azure | Microsoft Docs
-description: Learn how to use sample machine learning experiments to create new experiments with Cortana Intelligence Gallery and Microsoft Azure Machine Learning.
+title: Copy machine learning example experiments - Azure | Microsoft Docs
+description: Learn how to use example machine learning experiments to create new experiments with Cortana Intelligence Gallery and Microsoft Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: cjgronlund
@@ -17,10 +17,10 @@ ms.date: 07/28/2017
 ms.author: cgronlun;olgali
 
 ---
-# Copy sample experiments to create new machine learning experiments
-Learn how to start with sample experiments from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) instead of creating machine learning experiments from scratch. You can use the samples to build your own machine learning solution.
+# Copy example experiments to create new machine learning experiments
+Learn how to start with example experiments from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
 
-In the gallery are sample experiments by the Microsoft Azure Machine Learning team as well as samples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
+In the gallery are example experiments by the Microsoft Azure Machine Learning team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
 
 To see how to use the gallery, watch the 3-minute video [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) from the series [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -52,13 +52,13 @@ To browse all experiments:
     >
     >
 
-## Create a new experiment using a sample as a template
-You also can create a new experiment in Machine Learning Studio using a Gallery sample as a template.
+## Create a new experiment using an example as a template
+You also can create a new experiment in Machine Learning Studio using a Gallery example as a template.
 
 1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create an experiment.
-2. Browse through the sample content and click one.
+2. Browse through the example content and click one.
 
-A new experiment is created in your Machine Learning Studio workspace using the sample experiment as a template.
+A new experiment is created in your Machine Learning Studio workspace using the example experiment as a template.
 
 ## Next steps
 * [Import data from various sources](machine-learning-data-science-import-data.md)
