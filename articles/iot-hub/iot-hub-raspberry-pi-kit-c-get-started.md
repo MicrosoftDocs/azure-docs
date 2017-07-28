@@ -30,9 +30,9 @@ Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-w
 
 ## What you do
 
-* Setup Raspberry Pi.
 * Create an IoT hub.
 * Register a device for Pi in your IoT hub.
+* Setup Raspberry Pi.
 * Run a sample application on Pi to send sensor data to your IoT hub.
 
 Connect Raspberry Pi to an IoT hub that you create. Then you run a sample application on Pi to collect temperature and humidity data from a BME280 sensor. Finally, you send the sensor data to your IoT hub.
@@ -104,7 +104,7 @@ To enable SSH and SPI, you can find more reference documents on [raspberrypi.org
 
 ### Connect the sensor to Pi
 
-Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, skip this section.
+Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](#connect-pi-to-the-network).
 
 ![The Raspberry Pi and sensor connection](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
 
@@ -128,6 +128,8 @@ Click to view [Raspberry Pi 2 & 3 Pin mappings](https://developer.microsoft.com/
 After you've successfully connected BME280 to your Raspberry Pi, it should be like below image.
 
 ![Connected Pi and BME280](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+
+### Connect Pi to the network
 
 Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network.
 
@@ -190,7 +192,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Run the sample application by running the following command:
 
    ```bash
-   sudo ./app '<device connection string>'
+   sudo ./app '<DEVICE CONNECTION STRING>'
    ```
 
    > [!NOTE] 
