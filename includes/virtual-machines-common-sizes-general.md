@@ -17,11 +17,11 @@ Dsv3-series sizes are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 
 
 
 | Size             | vCPU | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
-|------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_D2s_v3  | 2         | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / moderate                                   |
-| Standard_D4s_v3  | 4         | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
-| Standard_D8s_v3  | 8         | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
-| Standard_D16s_v3 | 16        | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
+| Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / moderate                                   |
+| Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
+| Standard_D8s_v3  | 8      | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
+| Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
 
 
 ## Dv3-series
@@ -33,12 +33,12 @@ Dv3-series sizes are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) p
 Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dsv3 sizes. The pricing and billing meters for Dsv3 sizes are the same as Dv3-series. 
 
 
-| Size             | vCPU | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
-|------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_D2_v3  | 2         | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / moderate                                   |
-| Standard_D4_v3  | 4         | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
-| Standard_D8_v3  | 8         | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
-| Standard_D16_v3 | 16        | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
+| Size            | vCPU | Memory: GiB | Local SSD: GiB | Max data disks | Max local disk throughput: IOPS / Read MBps / Write MBps | Max NICs / Network bandwidth |
+|-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
+| Standard_D2_v3  | 2         | 8           | 50             | 4              | 3000/46/23                                               | 2 / moderate                 |
+| Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2 / moderate                 |
+| Standard_D8_v3  | 8         | 32          | 200            | 16             | 12000/187/93                                             | 4 / high                     |
+| Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / high                     |
 
 
 ## DSv2-series
