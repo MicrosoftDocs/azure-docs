@@ -141,8 +141,18 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Install the prerequisite packages
 
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
-    - [PuTTY](http://www.putty.org/) for Windows.
-    - The built-in SSH client on Ubuntu or macOS.
+   
+   **Windows Users**
+   1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
+   1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
+   
+   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   
+   **Mac and Ubuntu Users**
+   
+   Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
+   > [!NOTE] 
+   The default username is `pi` , and the password is `raspberry`.
 
 1. Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C and Cmake by running the following commands:
 
