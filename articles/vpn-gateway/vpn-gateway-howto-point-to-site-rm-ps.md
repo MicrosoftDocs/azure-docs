@@ -1,6 +1,6 @@
 ---
-title: 'Connect a computer to an Azure virtual network using Point-to-Site: PowerShell | Microsoft Docs'
-description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection.
+title: 'Connect a computer to an Azure virtual network using Point-to-Site and certificate authentication: PowerShell | Microsoft Docs'
+description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection using certificate authentication. This article applies to the Resource Manager deployment model and uses PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -18,9 +18,9 @@ ms.date: 06/27/2017
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site connection to a VNet using PowerShell
+# Configure a Point-to-Site certification authentication connection to a VNet using PowerShell
 
-This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using PowerShell. This configuration uses certificates to authenticate the connecting client. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

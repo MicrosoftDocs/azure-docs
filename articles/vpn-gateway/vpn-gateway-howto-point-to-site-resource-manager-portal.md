@@ -1,6 +1,6 @@
 ---
-title: 'Connect a computer to an Azure virtual network using Point-to-Site: Portal | Microsoft Docs'
-description: Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection using Resource Manager and the Azure portal.
+title: 'Connect a computer to a virtual network using Point-to-Site and certificate authentication:  Azure Portal| Microsoft Docs'
+description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection using certificate authentication. This article applies to the Resource Manager deployment model and uses the Azure portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -18,9 +18,9 @@ ms.date: 06/27/2017
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site connection to a VNet using the Azure portal
+# Configure a Point-to-Site certificate authentication connection to a VNet using the Azure portal
 
-This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using the Azure portal. This configuration uses certificates to authenticate the connecting client. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -30,7 +30,6 @@ This article shows you how to create a VNet with a Point-to-Site connection in t
 >
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. The P2S VPN connection is initiated from the client computer using the native Windows VPN client. Connecting clients use certificates to authenticate. 
-
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
 
@@ -113,7 +112,7 @@ If you use self-signed certificates, they must be created using specific paramet
 
 ### <a name="generateclientcert"></a>Step 2 - Generate a client certificate
 
-[!INCLUDE generates client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
+[!INCLUDE [generates client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
 ## <a name="addresspool"></a>7 - Add the client address pool
 
@@ -176,7 +175,7 @@ If you want to create a P2S connection from a client computer other than the one
 
   ![Connection established](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-[!INCLUDE verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
+[!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>12 - Verify your connection
 
