@@ -78,7 +78,7 @@ These items are optional because the code sample support simulated sensor data.
 Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
-   1. [Download Raspbian Jessie with Pixel](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
+   1. [Download Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
    1. Extract the Raspbian image to a folder on your computer.
 1. Install Raspbian to the microSD card.
    1. [Download and install the Etcher SD card burner utility](https://etcher.io/).
@@ -184,7 +184,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
    ![Config file](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
 
-   There are two macros in this file you can configurate. The first one is `INTERVAL`, which defines the time interval between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not.
+   There are two macros in this file you can configurate. The first one is `INTERVAL`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not.
 
    If you **don't have the sensor**, set the `SIMULATED_DATA` value to `1` to make the sample application create and use simulated sensor data.
 
@@ -215,6 +215,6 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub.
+You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi in a command line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
