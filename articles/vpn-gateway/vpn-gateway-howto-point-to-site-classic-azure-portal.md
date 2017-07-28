@@ -18,7 +18,7 @@ ms.date: 06/27/2017
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site certificate authentication connection to a VNet using the Azure portal (classic)
+# Configure a Point-to-Site connection to a VNet using certificate authentication (classic): Azure portal
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
