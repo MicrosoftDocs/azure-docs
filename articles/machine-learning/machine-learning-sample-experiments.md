@@ -1,7 +1,7 @@
 ---
 title: Copy machine learning example experiments - Azure | Microsoft Docs
 description: Learn how to use example machine learning experiments to create new experiments with Cortana Intelligence Gallery and Microsoft Azure Machine Learning.
-
+keywords: machine learning examples, sample experiment, machine learning sample
 services: machine-learning
 documentationcenter: ''
 author: cjgronlund
