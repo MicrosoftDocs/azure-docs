@@ -86,15 +86,11 @@ To decide on a service tier, start by determining the minimum database features 
 - For databases requiring high IO throughput or low IO latency, **Premium** is the right starting point.  The **Premium** tier provides an order of magnitude more IO per DTU (and per eDTU) compared to the **Standard** tier.
 - The **PremiumRS** tier offers the performance of the **Premium** tier at a lower cost, but with a reduced SLA.
 
-> [!IMPORTANT]
-> Review the [SQL elastic pools](sql-database-elastic-pool.md) topic for the details about grouping databases into SQL elastic pools to share compute and storage resources. The remainder of this topic focuses on service tiers and performance levels for single databases.
->
-
 ## Choosing storage 
 
 - The DTU price for a single database and eDTU price for an elastic pool include a certain amount of storage at no additional cost.
-- Extra storage beyond the included amount can be provisioned for an additional cost up to the storage max in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB.  For included storage amounts and max storage limits, see single database and elastic pool.
-- The price of extra storage is the extra storage amount multiplied by the unit price for the service tier.  For details on the price of extra storage, see the SQL Database pricing page.
+- Extra storage beyond the included amount can be provisioned for an additional cost up to the storage max in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB.  For included storage amounts and max storage limits, see [single database](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md).
+- The price of extra storage is the extra storage amount multiplied by the unit price for the service tier.  For details on the price of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
 - Extra storage for a single database can be provisioned by increasing its max size using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli), or [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
 - Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), [Azure CLI](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli), or [REST API](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-rest-api).
 
