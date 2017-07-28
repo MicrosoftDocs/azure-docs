@@ -28,7 +28,7 @@ For Key Vault specific refernece information for CLI, see [Azure CLI 2.0 Key Vau
 Key Vault operations are seperately managed via role-based access control (RBAC) permissions as follows:
 
 | Operation | Description | User permission |
-|:-:|:-:|:-:|
+|:--|:--|:--|
 |List|Lists deleted key vaults.|Microsoft.KeyVault/deletedVaults/read|
 |Recover|Restores a deleted key vault.|Microsoft.KeyVault/vaults/write|
 |Purge|Permanently removes a deleted key vault and all its contents.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
