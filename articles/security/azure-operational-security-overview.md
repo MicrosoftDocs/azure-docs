@@ -33,7 +33,7 @@ This Azure Operational Security Overview article focuses on the following areas:
 -	Azure Storage analytics
 -	Azure Active directory
 
-## Azure operations management suite
+## Azure Operations Management Suite
 IT Operations is responsible for managing datacenter infrastructure, applications, and data, including the stability and security of these systems. However, gaining security insights across increasing complex IT environments often requires organizations to cobble together data from multiple security and management systems.
 
 [Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
@@ -47,7 +47,7 @@ The core functionality of OMS is provided by a set of services that run in Azure
 -	Backup
 -	Site Recovery
 
-### Log analytics
+### Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export. This method allows you to consolidate data from a variety of sources so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
 ### Automation
@@ -59,7 +59,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 ### Site recovery
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working, and fail back when systems return to working order. intelligent and effective threat detection.
 
-## Azure active directory
+## Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) is Microsoft’s comprehensive Identity as a Service (IDaaS) solution that:
 
 -	Enables IAM as a cloud service
@@ -70,7 +70,7 @@ Azure AD also includes a full suite of [identity management capabilities](https:
 
 With Azure Active Directory, all applications you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
 
-## Azure security center
+## Azure Security Center
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) helps you safeguard virtual machine data in Azure by providing visibility into your virtual machine’s security settings and monitoring for threats. Security Center can monitor your virtual machines for:
@@ -85,12 +85,12 @@ Azure Security Center uses [Role-Based Access Control (RBAC)](https://docs.micro
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
 
->[Note!]
+>[!Note]
 >See [Permissions in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions) to learn more about roles and allowed actions in Security Center.
 
 Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent is stored in either an existing Log Analytics [workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
 
-## Azure monitor
+## Azure Monitor
 Performance issues in your cloud app can impact your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately, and have tools for diagnosing and fixing the problems.
 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) is basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you are managing your apps all in Azure, deciding whether to scale up or down resources, then Azure Monitor gives you what you use to start.
@@ -102,10 +102,10 @@ In addition, you can use monitoring data to gain deep insights about your applic
 -	Metrics
 -	Azure Diagnostics
 
-### Azure activity log
+### Azure Activity Log
 It is a log that provides insight into the operations that were performed on resources in your subscription. The [Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions.
 
-### Azure diagnostic logs
+### Azure Diagnostic Logs
 [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
 For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
@@ -115,11 +115,11 @@ Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or O
 ### Metrics
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) for monitoring and troubleshooting.
 
-### Azure diagnostics
+### Azure Diagnostics
 It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
 
 
-## Network watcher
+## Network Watcher
 Customers build an end-to-end network in Azure by orchestrating and composing various individual network resources such as VNet, ExpressRoute, Application Gateway, Load balancers, and more. Monitoring is available on each of the network resources.
 
 The end to end network can have complex configurations and interactions between resources, creating complex scenarios that need scenario-based monitoring through Network Watcher.
@@ -140,7 +140,7 @@ Network Watcher currently has the following capabilities:
 
 To learn more how to configure network watcher see, [configure network watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 
-## Developer operations (DevOps)
+## Developer Operations (DevOps)
 Prior to DevOps application development, teams were in charge of gathering business requirements for a software program and writing code. Then a separate QA team tests the program in an isolated development environment, if requirements were met, and releases the code for operations to deploy. The deployment teams are further fragmented into siloed groups like networking and database. Each time a software program is “thrown over the wall” to an independent team it adds bottlenecks.
 
 [DevOps](https://www.visualstudio.com/learn/what-is-devops/) enables teams to deliver more secure, higher-quality solutions faster, and cheaper. Customers expect a dynamic and reliable experience when consuming software and services.  Teams must rapidly iterate on software updates, measure the impact of the updates, and respond quickly with new development iterations to address issues or provide more value.  Cloud platforms such as Microsoft Azure have removed traditional bottlenecks and helped commoditize infrastructure. Software reigns in every business as the key differentiator and factor in business outcomes. No organization, developer, or IT worker can or should avoid the DevOps movement.
