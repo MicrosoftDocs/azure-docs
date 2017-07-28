@@ -127,23 +127,10 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 When you delete a key in a key vault with soft-delete enabled it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. 
 
-For example, listing the key, with or without the *-InRemovedState* parameter, will return an empty list.
-
 This command will list all deleted keys in 'ContosoVault'.
 
-```
-  Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
-  Vault Name           : ContosoVault
-  Name                 : ContosoFirstKey
-  Id                   : https://ContosoVault.vault.azure.net:443/keys/ContosoFirstKey
-  Deleted Date         : 2/14/2017 8:20:52 PM
-  Scheduled Purge Date : 5/15/2017 8:20:52 PM
-  Enabled              : True
-  Expires              :
-  Not Before           :
-  Created              : 2/14/2017 8:16:07 PM
-  Updated              : 2/14/2017 8:16:07 PM
-  Tags                 :
+```azure cli
+az keyvault key list-deleted --vault-name ContosoVault
 ```
 
 ## Using soft delete with keys and secrets
