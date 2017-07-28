@@ -18,7 +18,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ---
 
-# Password vaulting for single sign-on with Application Proxy - Public preview
+# Password vaulting for single sign-on with Application Proxy
 
 Azure Active Directory Application Proxy helps you improve productivity by publishing on-premises applications so that remote employees can securely access them, too. In the Azure portal, you can also set up single sign-on (SSO) to these apps. Your users only need to authenticate with Azure AD, and they can access your enterprise application without having to sign in again.
 
@@ -52,5 +52,5 @@ Go to external URL that you configured for remote access to your application. Si
 
 ## Next steps
 
-- Read about other ways to implement [Single sign-on with Application Proxy](active-directory-application-proxy-sso-overview.md)
+- Read about other ways to implement [Single sign-on with Application Proxy](application-proxy-sso-overview.md)
 - Learn about [Security considerations for accessing apps remotely with Azure AD Application Proxy](application-proxy-security-considerations.md)

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -32,13 +32,13 @@ Since the Application Proxy connectors direct remote traffic to all apps regardl
 
 ## How do I get access?
 
-Since this scenario is offered through a partnership between Azure Active Directory and PingAccess, you need licenses for both services. Azure Active Directory Premium subscriptions come with a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess. 
+Since this scenario is offered through a partnership between Azure Active Directory and PingAccess, you need licenses for both services. However, Azure Active Directory Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess. 
 
 For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 ## Publish your application in Azure
 
-This article is intended for people who are publishing an app with this scenario for the first time. It walks through how to get started with both Application and PingAccess, in addition to the publishing steps. If you’ve already configured both services but want a refresher on the publishing steps, you can skip the two registration sections.
+This article is intended for people who are publishing an app with this scenario for the first time. It walks through how to get started with both Application and PingAccess, in addition to the publishing steps. If you’ve already configured both services but want a refresher on the publishing steps, you can skip the connector installation and move on to [Add your app to Azure AD with Application Proxy](#add-your-app-to-Azure-AD-with-Application-Proxy).
 
 >[!NOTE]
 >Since this scenario is a partnership between Azure AD and PingAccess, some of the instructions exist on the Ping Identity site.
@@ -83,7 +83,10 @@ select **Assign a user for testing**, and add at least one user to the applicati
 9. On the app management blade, select **Single sign-on**.
 10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**.
 
-  ![Select header-based sign-on](./media/application-proxy-ping-access/sso-header.PNG)
+   >[!TIP]
+   >If this is your first time using header-based single sign-on, you need to install PingAccess. To make sure your Azure subscription is automatically associated with your PingAccess installation, use the link on this single sign-on page to download PingAccess. You can open the download site now, or come back to this page later. 
+
+   ![Select header-based sign-on](./media/application-proxy-ping-access/sso-header.PNG)
 
 11. Close the Enterprise applications blade or scroll all the way to the left to return to the Azure Active Directory menu.
 12. Select **App registrations**.
@@ -127,6 +130,8 @@ select **Assign a user for testing**, and add at least one user to the applicati
 
 ## Download PingAccess and configure your app
 
+Now that you've completed all the Azure Active Directory setup steps, you can move on to configuring PingAccess. 
+
 The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation, [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html).
 
 Those steps walk you through the process of getting a PingAccess account if you don't already have one, installing the PingAccess Server, and creating an Azure AD OIDC Provider connection with the Directory ID that you copied from the Azure portal. Then, you use the Application ID and Key values to create a Web Session on PingAccess. After that, you can set up identity mapping and create a virtual host, site, and application.
@@ -137,6 +142,6 @@ When you've completed all these steps, your app should be up and running. To tes
 
 ## Next steps
 
-- [Install PingAccess](https://docs.pingidentity.com/bundle/pa_sm_InstallPingAccess_pa42/page/pa_c_InstallPA.html)
+- [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [How does Azure AD Application Proxy provide single sign-on?](application-proxy-sso-overview.md)
 - [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md)

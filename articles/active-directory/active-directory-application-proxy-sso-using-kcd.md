@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017, it-pro
 
 # Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy
 
-You can provide single sign-on for on-premises applications published through Application Proxy that are secured with Integrated Windows Authentication. These applications require a Kerberos ticket for access. Application Proxy used Kerberos Constrained Delegation (KCD) to support these applications. 
+You can provide single sign-on for on-premises applications published through Application Proxy that are secured with Integrated Windows Authentication. These applications require a Kerberos ticket for access. Application Proxy uses Kerberos Constrained Delegation (KCD) to support these applications. 
 
 You can enable single sign-on to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy connectors permission in Active Directory to impersonate users. The connectors use this permission to send and receive tokens on their behalf.
 
@@ -42,14 +42,14 @@ This diagram explains the flow when a user attempts to access an on-prem applica
 Before you get started with single sign-on for IWA applications, make sure your environment is ready with the following settings and configurations:
 
 * Your apps, like SharePoint Web apps, are set to use Integrated Windows Authentication. For more information, see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-* All your apps have Service Principal Names.
+* All your apps have [Service Principal Names](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
 * The server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
-* The server running the Connector has access to read the TokenGroupsGlobalAndUniversal for users. This default setting might have been impacted by security hardening the environment. Get more help with this setting in [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
+* The server running the Connector has access to read the TokenGroupsGlobalAndUniversal attribute for users. This default setting might have been impacted by security hardening the environment.
 
 ### Configure Active Directory
-The Active Directory configuration varies, depending on whether your Application Proxy connector and the published server are in the same domain or not.
+The Active Directory configuration varies, depending on whether your Application Proxy connector and the application server are in the same domain or not.
 
-#### Connector and published server in the same domain
+#### Connector and application server in the same domain
 1. In Active Directory, go to **Tools** > **Users and Computers**.
 2. Select the server running the connector.
 3. Right-click and select **Properties** > **Delegation**.
@@ -58,9 +58,9 @@ The Active Directory configuration varies, depending on whether your Application
 
    ![Connector-SVR Properties window screenshot](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
 
-#### Connector and published server in different domains
+#### Connector and application server in different domains
 1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
-2. In Windows 2012 R2, use the `principalsallowedtodelegateto` property on the Connector server to enable the Application Proxy to delegate for the Connector server. The published server is `sharepointserviceaccount` and the delegating server is `connectormachineaccount`.
+2. Use the `principalsallowedtodelegateto` property on the Connector server to enable the Application Proxy to delegate for the Connector server. The application server is `sharepointserviceaccount` and the delegating server is `connectormachineaccount`. For Windows 2012 R2, use this code as an example:
 
         $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
@@ -101,9 +101,9 @@ With Application Proxy, you can select which identity to use to obtain the Kerbe
 
 ![Delegated login identity parameter screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
-If delegated login identity is used, the value might not be unique for all the domains or forests in your organization. You can avoid this issue by publishing these applications twice using two different Connector groups. Since each application has a different user audience, you can join its Connectors to a different domain.
+If delegated login identity is used, the value might not be unique across all the domains or forests in your organization. You can avoid this issue by publishing these applications twice using two different Connector groups. Since each application has a different user audience, you can join its Connectors to a different domain.
 
-### Configure SSO for different cloud and on-premises identities
+### Configure SSO for different identities
 1. Configure Azure AD Connect settings so the main identity is the email address (mail). This is done as part of the customize process, by changing the **User Principal Name** field in the sync settings. These settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
    ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:
@@ -115,7 +115,7 @@ If delegated login identity is used, the value might not be unique for all the d
    * On-premises SAM account name (depends on the domain controller configuration)
 
 ### Troubleshooting SSO for different identities
-If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](active-directory-application-proxy-troubleshoot.md).
+If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 But, in some cases, the request is successfully sent to the backend application while this application replies in various other HTTP responses. Troubleshooting these cases should start by examining event number 24029 on the connector machine in the Application Proxy session event log. The user identity that was used for delegation appears in the “user” field within the event details. To turn on session log, select **Show analytic and debug logs** in the event viewer view menu.
 
 ## Next steps
