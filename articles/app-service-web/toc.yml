@@ -117,8 +117,6 @@
       items:
       - name: Overview
         href: app-service-linux-intro.md
-      - name: Create Web App on Linux
-        href: app-service-linux-how-to-create-web-app.md
       - name: Ruby Web App on Linux
         href: app-service-linux-ruby-get-started.md
       - name: Node.js Web App on Linux
