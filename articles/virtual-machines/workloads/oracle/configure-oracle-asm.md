@@ -357,10 +357,10 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
 
    ```bash
    ssh <publicIPAddress>
-   mv ./*.zip /opt
+   sudo mv ./*.zip /opt
    cd /opt
-   chown grid:oinstall linuxamd64_12102_grid_1of2.zip
-   chown grid:oinstall linuxamd64_12102_grid_2of2.zip
+   sudo chown grid:oinstall linuxamd64_12102_grid_1of2.zip
+   sudo chown grid:oinstall linuxamd64_12102_grid_2of2.zip
    ```
 
 4. Unzip the files. (Install the Linux unzip tool if it's not already installed.)
@@ -384,7 +384,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    service iptables stop
    ```
 
-7. Update configured swap space. Oracle Grid components need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You will need to edit `/etc/waagent.conf` and restart the WALinuxAgent service in order for the updated settings to take effect. Because it is a read only file, you will need to change file permissions to enable write access. 
+7. Update configured swap space. Oracle Grid components need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You will need to increase `ResourceDisk.SwapSizeMB` in the `/etc/waagent.conf` file and restart the WALinuxAgent service in order for the updated settings to take effect. Because it is a read only file, you will also need to change file permissions to enable write access. 
 
    ```bash
    sudo chmod 777 /etc/waagent.conf  
@@ -393,39 +393,39 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    
    Search for `ResourceDisk.SwapSizeMB` and change the value to **8192**. You will need to press `insert` to enter insert mode, type in the value of **8192** and then press `esc` to return to command mode. To write the changes and quit the file, type `:wq` and press `enter`.
    
-    We highly recommend that you always use `WALinuxAgent` to configure swap space so that it's always created on the local ephemeral disk (temporary disk) for best performance. For more information on, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
+   We highly recommend that you always use `WALinuxAgent` to configure swap space so that it's always created on the local ephemeral disk (temporary disk) for best performance. For more information on, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
 
-## Prepare the client and VM to run x11
-This is an optional step exclusive to Windows machines. You can skip this step if you are using a Linux client or are using a machine that already has x11 set up.
+## Prepare your local client and VM to run x11
+Configuring Oracle ASM requires a graphical interface to complete the install and configuration. We will be using the x11 protocol to facilitate this installation. If you are using a client system (Mac or Linux) that already has X11 capabilities enabled and configured - you can skip this configuration and setup exclusive to Windows machines. 
 
-1. [Download PuTTY](http://www.putty.org/) and [download Xming](https://xming.en.softonic.com/) to your Windows computer.
+1. [Download PuTTY](http://www.putty.org/) and [download Xming](https://xming.en.softonic.com/) to your Windows computer. You will need to complete the installation of both of these applications with the default values before proceeding.
 
-2. After you install PuTTY, change into the PuTTY folder (for example, C:\Program Files\PuTTY), and run puttygen.exe in order to generate a key.
+2. After you install PuTTY, open a command prompt, change into the PuTTY folder (for example, C:\Program Files\PuTTY), and run `puttygen.exe` in order to generate a key.
 
 3. In PuTTY Key Generator:
    
-   1. Generate a key by selecting the **Generate** button.
+   1. Generate a key by selecting the `Generate` button.
    2. Copy the contents of the key (Ctrl+C).
-   3. Select the **Save private key** button.
-   4. Ignore the warning that appears, and then select **OK**.
+   3. Select the `Save private key` button.
+   4. Ignore the warning about securing the key with a passphrase, and then select `OK`.
 
    ![Screenshot of PuTTY Key Generator](./media/oracle-asm/puttykeygen.png)
 
 4. In your VM, run these commands:
 
    ```bash
-   # sudo su - grid
-   $ mkdir .ssh (if not already created)
-   $ cd .ssh
+   sudo su - grid
+   mkdir .ssh 
+   cd .ssh
    ```
 
-5. Create a file named authorized_keys. Paste the contents of the key in this file, and then save the file.
+5. Create a file named `authorized_keys`. Paste the contents of the key in this file, and then save the file.
 
    > [!NOTE]
    > The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
    >  
 
-6. Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
+6. On your client system, start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
 
    ![Screenshot of the SSH authentication options](./media/oracle-asm/setprivatekey.png)
 
@@ -433,7 +433,7 @@ This is an optional step exclusive to Windows machines. You can skip this step i
 
    ![Screenshot of the SSH X11 forwarding options](./media/oracle-asm/enablex11.png)
 
-8. In the **Category** pane, go to **Session**. Enter the host information, and then select **Open**.
+8. In the **Category** pane, go to **Session**. Enter your Oracle ASM VM `<publicIPaddress>` in the host name dialog box, fill in a new `Saved Session` name and then click on `Save`.  Once saved, click on `open` to connect to your Oracle ASM virtual machine.  The first time you connect you will be warned that the remote system is not cached in your registry. click on `yes` to add it and continue.
 
    ![Screenshot of the PuTTY session options](./media/oracle-asm/puttysession.png)
 
@@ -457,35 +457,26 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
    ![Screenshot of the installer's Select Installation Option page](./media/oracle-asm/install01.png)
 
-3. On the **Select Product Languages** page, select **English** or the language that you want.
-
-   ![Screenshot of the installer's Select Product Languages page](./media/oracle-asm/install02.png)
+3. On the **Select Product Languages** page, ensure **English** or the language that you want is selected.  Click `next`.
 
 4. On the **Create ASM Disk Group** page:
    - Enter a name for the disk group.
    - Under **Redundancy**, select **External**.
    - Under **Allocation Unit Size**, select **4**.
    - Under **Add Disks**, select **ORCLASMSP**.
-
-   ![Screenshot of the installer's Create ASM Disk Group page](./media/oracle-asm/install03.png)
+   - Click `next`.
 
 5. On the **Specify ASM Password** page, select the **Use same passwords for these accounts** option, and enter a password.
 
    ![Screenshot of the installer's Specify ASM Password page](./media/oracle-asm/install04.png)
 
-6. (Optional:) On the **Specify Management Options** page, select the **Register with Enterprise Manager (EM) Cloud Control** check box.
+6. On the **Specify Management Options** page, you have the option to configure EM Cloud Control. We are skipping this option - click `next` to continue. 
 
-   ![Screenshot of the installer's Specify Management Options page](./media/oracle-asm/install05.png)
+7. On the **Privileged Operating System Groups** page, use the default settings. Click `next` to continue.
 
-7. On the **Privileged Operating System Groups** page, use the default settings.
+8. On the **Specify Installation Location** page, use the default settings. Click `next` to continue.
 
-   ![Screenshot of the installer's Privileged Operating System Groups page](./media/oracle-asm/install06.png)
-
-8. On the **Specify Installation Location** page, use the default settings.
-
-   ![Screenshot of the installer's Specify Installation Location page](./media/oracle-asm/install07.png)
-
-9. On the **Create Inventory** page, enter or browse to the folder location.
+9. On the **Create Inventory** page, change the Inventory Directory to `/u01/app/grid/oraInventory`. Click `next` to continue.
 
    ![Screenshot of the installer's Create Inventory page](./media/oracle-asm/install08.png)
 
@@ -493,61 +484,53 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
     ![Screenshot of the installer's Root script execution configuration page](./media/oracle-asm/install09.png)
 
-11. On the **Perform Prerequisite Checks** page, select **Fix & Check Again**.
+11. On the **Perform Prerequisite Checks** page, the current setup will fail with errors. This is an expected behavior. Select `Fix & Check Again`.
 
-    ![Screenshot of the installer's Perform Prerequisite Checks page](./media/oracle-asm/install10.png)
+12. In the **Fixup Script** dialog box, click `OK`.
 
-12. In the **Fixup Script** dialog box, select **OK**.
-
-    ![Screenshot of the Fixup Script dialog box](./media/oracle-asm/install11.png)
-
-13. On the **Summary** page, review your selected settings, and then select **Install**.
+13. On the **Summary** page, review your selected settings, and then click `Install`.
 
     ![Screenshot of the installer's Summary page](./media/oracle-asm/install12.png)
 
-14. A warning dialog box appears. Select **Yes** to continue.
+14. A warning dialog box appears informing you configuration scripts need to be run as a privileged user. Click `Yes` to continue.
 
-    ![Screenshot of the warning dialog box](./media/oracle-asm/install14.png)
-
-15. On the **Finish** page, select **Close** to finish the installation.
-
-    ![Screenshot of the installer's Finish page](./media/oracle-asm/install16.png)
+15. On the **Finish** page, click `Close` to finish the installation.
 
 ## Set up your Oracle ASM installation
 
 To set up your Oracle ASM installation, complete the following steps:
 
-1. Sign in as grid, from your X11 session:
+1. Ensure you are still signed in as **grid**, from your X11 session. You might need to hit `enter` to revive the terminal. Then launch the Oracle Automated Storage Management Configuration Assistant:
 
    ```bash
-   $ cd /u01/app/grid/product/12.1.0/grid/bin
-   $ ./asmca
+   cd /u01/app/grid/product/12.1.0/grid/bin
+   ./asmca
    ```
 
    Oracle ASM Configuration Assistant opens.
 
-2. In the **Configure ASM: Disk Groups** dialog box, select the **Create** button, and then select **Show Advanced Options**.
-
-   ![Screenshot of the Configure ASM: Disk Groups dialog box](./media/oracle-asm/asm01.png)
+2. In the **Configure ASM: Disk Groups** dialog box, click the `Create` button, and then click `Show Advanced Options`.
 
 3. In the **Create Disk Group** dialog box:
 
-   - Enter the disk group name.
+   - Enter the disk group name **DATA**.
    - Under **Select Member Disks**, select **ORCL_DATA** and **ORCL_DATA1**.
    - Under **Allocation Unit Size**, select **4**.
+   - Click `ok` to create the disk group.
+   - Click `ok` to close the confirmation window.
 
    ![Screenshot of the Create Disk Group dialog box](./media/oracle-asm/asm02.png)
 
-4. In the **Configure ASM: Disk Groups** dialog box, select the **Create** button, and then select **Show Advanced Options**.
-
-   ![Screenshot of the Configure ASM: Disk Groups dialog box](./media/oracle-asm/asm03.png)
+4. In the **Configure ASM: Disk Groups** dialog box, click the `Create` button, and then click `Show Advanced Options`.
 
 5. In the **Create Disk Group** dialog box:
 
-   - Enter the disk group name.
-   - Under **Redundancy**, select **External**.
+   - Enter the disk group name **FRA**.
+   - Under **Redundancy**, select **External (none)**.
    - Under **Select Member Disks**, select **ORCL_FRA**.
    - Under **Allocation Unit Size**, select **4**.
+   - Click `ok` to create the disk group.
+   - Click `ok` to close the confirmation window.
 
    ![Screenshot of the Create Disk Group dialog box](./media/oracle-asm/asm04.png)
 
@@ -557,43 +540,38 @@ To set up your Oracle ASM installation, complete the following steps:
 
 ## Create the database
 
-The Oracle software is already installed on the Azure Marketplace image. To install the database, complete the following steps:
+The Oracle database software is already installed on the Azure Marketplace image. To create a database, complete the following steps:
 
 1. Switch users to the Oracle superuser, and then initialize the listener for logging:
 
    ```bash
-   $ su - oracle
-   Password:
-   $ cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
-   $ ./dbca
-    ```
+   su - oracle
+   cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
+   ./dbca
+   ```
    Database Configuration Assistant opens.
 
-2. On the **Database Operation** page, select **Create Database**.
+2. On the **Database Operation** page, click `Create Database`.
 
-   ![Screenshot of the Database Operation page](./media/oracle-asm/createdb01.png)
-  
 3. On the **Creation Mode** page:
 
    - Enter a name for the database.
-   - For **Storage Type**, select **Automatic Storage Management (ASM)**.
-   - For **Database Files Location**, browse to the folder that you want to use.
-   - For **Fast Recovery Area**, browse to the folder that you want to use.
+   - For **Storage Type**, ensure **Automatic Storage Management (ASM)** is selected.
+   - For **Database Files Location**, use the default ASM suggested location.
+   - For **Fast Recovery Area**, use the default ASM suggested location.
+   - type in an **Administrative Password** and **confirm password**.
+   - ensure `create as container database` is selected.
+   - type in a `pluggable database name` value.
 
-   ![Screenshot of the Creation Mode page](./media/oracle-asm/createdb02.png)
-
-4. On the **Summary** page, review your selected settings, and then select **Finish** to create the database.
+4. On the **Summary** page, review your selected settings, and then click `Finish` to create the database.
 
    ![Screenshot of the Summary page](./media/oracle-asm/createdb03.png)
 
-5. (Optional:) On the **Finish** page, to change the passwords, select **Password Management**.
-
-   ![Screenshot of the Finish page](./media/oracle-asm/createdb04.png)
-
+5. The Database has been created. On the **Finish** page, you have the option to unlock additional accounts to use this database and change the passwords. If you wish to do so, select **Password Management** - otherwise click on `close`.
 
 ## Delete the VM
 
-When you no longer need the VM, you can use the following command to remove the resource group, VM, and all related resources:
+You have successfully configured Oracle Automated Storage Management on the Oracle DB image from the Azure Marketplace.  When you no longer need this VM, you can use the following command to remove the resource group, VM, and all related resources:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -601,6 +579,8 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[Tutorial: Create highly available virtual machines](../../linux/create-cli-complete.md)
+[Tutorial: Configure Oracle Dataguard](configure-oracle-dataguard.md)
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+[Tutorial: Configure Oralce GoldenGate](Configure-oracle-golden-gate.md)
+
+Review [Architect an Oracle DB](oracle-design.md)
