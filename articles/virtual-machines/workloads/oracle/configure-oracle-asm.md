@@ -88,7 +88,7 @@ To install Oracle ASM, complete the following steps.
 
 For more information about installing Oracle ASM, see [Oracle ASMLib Downloads for Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
-1. You need to login as root in order to continue with ASM installation.:
+1. You need to login as root in order to continue with ASM installation:
 
    ```bash
    sudo su -
@@ -119,7 +119,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
    oracleasmlib-2.0.12-1.el6.x86_64
     ```
 
-4. ASM requires specific users and roles in order to function correctly. The following commands will create the pre-requisite user accounts and groups: 
+4. ASM requires specific users and roles in order to function correctly. The following commands create the pre-requisite user accounts and groups: 
 
    ```bash
     groupadd -g 54345 asmadmin 
@@ -129,7 +129,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
     usermod -g oinstall -G dba,asmdba,asmadmin oracle
    ```
 
-5. Verify users and groups were create correctly:
+5. Verify users and groups were created correctly:
 
    ```bash
    id grid
@@ -152,7 +152,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
 
 For this tutorial, the default user is *grid* and the default group is *asmadmin*. Ensure that the *oracle* user is part of the asmadmin group. To set up your Oracle ASM installation, complete the following steps:
 
-1. Seting up the Oracle ASM library driver involves defining the default user (grid) and default group (asmadmin) as well as configuring the drive to start on boot (choose y) and to scan for disks on boot (choose y). You will need to answer the prompts from the following command:
+1. Setting up the Oracle ASM library driver involves defining the default user (grid) and default group (asmadmin) as well as configuring the drive to start on boot (choose y) and to scan for disks on boot (choose y). You need to answer the prompts from the following command:
 
    ```bash
    /usr/sbin/oracleasm configure -i
@@ -181,7 +181,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    cat /proc/partitions
    ```
 
-   The output of this command should look simiar to the following listing of available disks
+   The output of this command should look similar to the following listing of available disks
 
    ```bash
    8       16   14680064 sdb
@@ -316,7 +316,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
     FRA
    ```
 
-9. Change the passwords for the root, oracle, and grid users. You will need to **make note of these new passwords** as you will be using them later during the installation.
+9. Change the passwords for the root, oracle, and grid users. **Make note of these new passwords** as you are using them later during the installation.
 
    ```bash
    passwd oracle 
@@ -377,7 +377,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    sudo chown -R grid:oinstall /opt/grid
    ```
 
-6. Update configured swap space. Oracle Grid components need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You will need to increase `ResourceDisk.SwapSizeMB` in the `/etc/waagent.conf` file and restart the WALinuxAgent service in order for the updated settings to take effect. Because it is a read only file, you will also need to change file permissions to enable write access.
+6. Update configured swap space. Oracle Grid components need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You need to increase `ResourceDisk.SwapSizeMB` in the `/etc/waagent.conf` file and restart the WALinuxAgent service in order for the updated settings to take effect. Because it is a read-only file, you need to change file permissions to enable write access.
 
    ```bash
    sudo chmod 777 /etc/waagent.conf  
@@ -390,7 +390,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    > We highly recommend that you always use `WALinuxAgent` to configure swap space so that it's always created on the local ephemeral disk (temporary disk) for best performance. For more information on, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
 
 ## Prepare your local client and VM to run x11
-Configuring Oracle ASM requires a graphical interface to complete the install and configuration. We will be using the x11 protocol to facilitate this installation. If you are using a client system (Mac or Linux) that already has X11 capabilities enabled and configured - you can skip this configuration and setup exclusive to Windows machines. 
+Configuring Oracle ASM requires a graphical interface to complete the install and configuration. We are using the x11 protocol to facilitate this installation. If you are using a client system (Mac or Linux) that already has X11 capabilities enabled and configured - you can skip this configuration and setup exclusive to Windows machines. 
 
 1. [Download PuTTY](http://www.putty.org/) and [download Xming](https://xming.en.softonic.com/) to your Windows computer. You will need to complete the installation of both of these applications with the default values before proceeding.
 
@@ -427,7 +427,7 @@ Configuring Oracle ASM requires a graphical interface to complete the install an
 
    ![Screenshot of the SSH X11 forwarding options](./media/oracle-asm/enablex11.png)
 
-8. In the **Category** pane, go to **Session**. Enter your Oracle ASM VM `<publicIPaddress>` in the host name dialog box, fill in a new `Saved Session` name and then click on `Save`.  Once saved, click on `open` to connect to your Oracle ASM virtual machine.  The first time you connect you will be warned that the remote system is not cached in your registry. click on `yes` to add it and continue.
+8. In the **Category** pane, go to **Session**. Enter your Oracle ASM VM `<publicIPaddress>` in the host name dialog box, fill in a new `Saved Session` name and then click on `Save`.  Once saved, click on `open` to connect to your Oracle ASM virtual machine.  The first time you connect you are warned  the remote system is not cached in your registry. Click on `yes` to add it and continue.
 
    ![Screenshot of the PuTTY session options](./media/oracle-asm/puttysession.png)
 
