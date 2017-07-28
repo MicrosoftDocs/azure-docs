@@ -123,7 +123,7 @@ When users access a published application, the following events take place betwe
 To learn more about what takes place in each of these steps, keep reading.
 
 
-#### The service checks the configuration settings for the app
+#### 1. The service checks the configuration settings for the app
 
 If you configured the app to use Passthrough as its preauthentication method, the steps in this section are skipped.
 
@@ -142,13 +142,13 @@ If you configured the app to preauthenticate with Azure AD, users are redirected
 If any part of the preauthentication steps fails, the user’s request is denied, and the user is shown a message indicating the source of the problem.
 
 
-#### The service places a request in the connector queue
+#### 2. The service places a request in the connector queue
 
 Connectors keep an outbound connection open to the Application Proxy service. When a request comes in, the service queues up the request on one of the open connections for the connector to pick up.
 
 The request includes items from the application, such as the request headers, data from the encrypted cookie, the user making the request, and the request ID. Although data from the encrypted cookie is sent with the request, the authentication cookie itself is not.
 
-#### The connector processes the request from the queue. 
+#### 3. The connector processes the request from the queue. 
 
 Based on the request, Application Proxy performs one of the following actions:
 
@@ -156,13 +156,13 @@ Based on the request, Application Proxy performs one of the following actions:
 
 * If the request has data associated with it in the body (for example, a RESTful *POST* operation), the connector makes an outbound connection by using the client certificate to the Application Proxy instance. It makes this connection to request the data and open a connection to the internal resource. After it receives the request from the connector, the Application Proxy service begins accepting content from the user and forwards data to the connector. The connector, in turn, forwards the data to the internal resource.
 
-#### The connector waits for a response.
+#### 4. The connector waits for a response.
 
 After the request and transmission of all content to the back end is complete, the connector waits for a response.
 
 After it receives a response, the connector makes an outbound connection to the Application Proxy service, to return the header details and begin streaming the return data.
 
-#### The service streams data to the user. 
+#### 5. The service streams data to the user. 
 
 Some processing of the application may occur here. If you configured Application Proxy to translate headers or URLs in your application, that processing happens as needed during this step.
 
