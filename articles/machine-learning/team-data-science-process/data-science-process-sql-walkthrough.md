@@ -56,7 +56,7 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 3. Regression task: To predict the amount of tip paid for a trip.  
 
 ## <a name="setup"></a>Setting Up the Azure data science environment for advanced analytics
-As you can see from the [Plan Your Environment](machine-learning-data-science-plan-your-environment.md) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
+As you can see from the [Plan Your Environment](data-science-plan-your-environment.md) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
 
 * Work with the data in Azure blobs then model in Azure Machine Learning
 * Load the data into a SQL Server database then model in Azure Machine Learning
@@ -66,8 +66,8 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 To set up your Azure Data Science environment:
 
 1. [Create a storage account](../storage/storage-create-storage-account.md)
-2. [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
-3. [Provision a Data Science Virtual Machine](machine-learning-data-science-setup-sql-server-virtual-machine.md), which provides a SQL Server and an IPython Notebook server.
+2. [Create an Azure Machine Learning workspace](create-workspace.md)
+3. [Provision a Data Science Virtual Machine](data-science-setup-sql-server-virtual-machine.md), which provides a SQL Server and an IPython Notebook server.
    
    > [!NOTE]
    > The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
@@ -78,10 +78,10 @@ To set up your Azure Data Science environment:
    > 
    > 
 
-Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
+Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](data-science-plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Get the Data from Public Source
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](machine-learning-data-science-move-azure-blob.md) to copy the data to your new virtual machine.
+To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](data-science-move-azure-blob.md) to copy the data to your new virtual machine.
 
 To copy the data using AzCopy:
 
@@ -95,7 +95,7 @@ To copy the data using AzCopy:
 4. Unzip the downloaded files. Note the folder where the uncompressed files reside. This folder will be referred to as the <path\_to\_data\_files\>.
 
 ## <a name="dbload"></a>Bulk Import Data into SQL Server Database
-The performance of loading/transferring large amounts of data to an SQL database and subsequent queries can be improved by using *Partitioned Tables and Views*. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) to create a new database and load the data into partitioned tables in parallel.
+The performance of loading/transferring large amounts of data to an SQL database and subsequent queries can be improved by using *Partitioned Tables and Views*. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](data-science-parallel-load-sql-partitioned-tables.md) to create a new database and load the data into partitioned tables in parallel.
 
 1. While logged in to your VM, start **SQL Server Management Studio**.
 2. Connect using Windows Authentication.
@@ -553,9 +553,9 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 3. Regression task: To predict the amount of tip paid for a trip.  
 
 ## <a name="mlmodel"></a>Building Models in Azure Machine Learning
-To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md).
+To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning workspace](create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](what-is-ml-studio.md)
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. Fore more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -596,7 +596,7 @@ An example of a binary classification experiment reading data directly from the 
 > 
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 

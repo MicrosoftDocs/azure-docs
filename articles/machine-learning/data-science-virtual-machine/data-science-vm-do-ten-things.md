@@ -66,7 +66,7 @@ Now you are set up to create a new Python project. Navigate to **File** -> **New
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
 
 To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter Notebook. If it prompts you for a password, use instructions provided in the ***How to create a strong password on the Jupyter notebook server*** section of the 
-[Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) topic to create a strong password to access the Jupyter notebook. 
+[Provision the Microsoft Data Science Virtual Machine](data-science-provision-vm.md) topic to create a strong password to access the Jupyter notebook. 
 
 Once you have opened the notebook, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
 
@@ -450,7 +450,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 ![Create Azure Blob storage account](../media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* Customize Azure HDInsight Hadoop Clusters from [Azure portal](machine-learning-data-science-customize-hadoop-cluster.md)
+* Customize Azure HDInsight Hadoop Clusters from [Azure portal](data-science-customize-hadoop-cluster.md)
   
   * You must link the storage account created with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 
@@ -559,7 +559,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
             cursor.execute(queryString)
 
 
-* Alternately,  you can follow this [walkthrough](machine-learning-data-science-process-hive-walkthrough.md) to upload NYC Taxi data to HDI cluster. Major steps include:
+* Alternately,  you can follow this [walkthrough](data-science-process-hive-walkthrough.md) to upload NYC Taxi data to HDI cluster. Major steps include:
   
   * AzCopy: download zipped CSV's from public blob to your local folder
   * AzCopy: upload unzipped CSV's from local folder to HDI cluster
@@ -795,7 +795,7 @@ The scored dataset can then be viewed:
 ### Azure SQL Data Warehouse & databases
 Azure SQL Data Warehouse is an elastic data warehouse as a service with enterprise-class SQL Server experience.
 
-You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](machine-learning-data-science-process-sqldw-walkthrough.md) to do data upload, exploration and modeling using data within the SQL Data Warehouse.
+You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](data-science-process-sqldw-walkthrough.md) to do data upload, exploration and modeling using data within the SQL Data Warehouse.
 
 #### Azure Cosmos DB
 Azure Cosmos DB is a NoSQL database in the cloud. It allows you to work with documents like JSON and allows you to store and query the documents.

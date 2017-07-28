@@ -229,7 +229,7 @@ operationalize your model. Using the Batch Execution Service, data from
 the on-premises SQL Server database configured in the **Import Data** module will
 be read and used for scoring. While you can use the Request Response
 Service for scoring on-premises data, Microsoft recommends using the
-[Excel Add-in](machine-learning-excel-add-in-for-web-services.md)
+[Excel Add-in](excel-add-in-for-web-services.md)
 instead. Currently, writing to an on-premises SQL Server database through
 **Export Data** is not supported either in your experiments or published
 web services.

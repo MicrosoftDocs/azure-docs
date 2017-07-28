@@ -18,14 +18,14 @@ ms.author: garye
 
 ---
 # Walkthrough Step 2: Upload existing data into an Azure Machine Learning experiment
-This is the second step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+This is the second step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
+1. [Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md)
 2. **Upload existing data**
-3. [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
-4. [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Deploy the Web service](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Access the Web service](machine-learning-walkthrough-6-access-web-service.md)
+3. [Create a new experiment](walkthrough-3-create-new-experiment.md)
+4. [Train and evaluate the models](walkthrough-4-train-and-evaluate-models.md)
+5. [Deploy the Web service](walkthrough-5-publish-web-service.md)
+6. [Access the Web service](walkthrough-6-access-web-service.md)
 
 - - -
 To develop a predictive model for credit risk, we need data that we can use to train and then test the model. For this walkthrough, we'll use the "UCI Statlog (German Credit Data) Data Set" from the UC Irvine Machine Learning repository. You can find it here:  
@@ -96,9 +96,9 @@ You can manage datasets that you've uploaded to Studio by clicking the **DATASET
 
 ![Manage datasets][4]
 
-For more information about importing other types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](machine-learning-data-science-import-data.md).
+For more information about importing other types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](data-science-import-data.md).
 
-**Next: [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)**
+**Next: [Create a new experiment](walkthrough-3-create-new-experiment.md)**
 
 [1]: media/machine-learning-walkthrough-2-upload-data/menu.png
 [2]: media/machine-learning-walkthrough-2-upload-data/add-dataset.png

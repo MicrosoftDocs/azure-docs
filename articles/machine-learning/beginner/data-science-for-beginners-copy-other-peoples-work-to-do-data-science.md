@@ -32,10 +32,10 @@ To get the most out of the series, watch them all. [Go to the list of videos](#o
 ## Other videos in this series
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-* Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 1: [The 5 questions data science answers](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [Is your data ready for data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: [Ask a question you can answer with data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 4: [Predict an answer with a simple model](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
 * Video 5: Copy other people's work to do data science
 
 ## Transcript: Copy other people's work to do data science
@@ -89,5 +89,5 @@ There are other experiments in the [Cortana Intelligence Gallery](http://aka.ms/
 Be sure to check out the other videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
 
 ## Next steps
-* [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Try your first data science experiment with Azure Machine Learning](create-experiment.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](what-is-machine-learning.md)

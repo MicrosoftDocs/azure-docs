@@ -67,7 +67,7 @@ The Data Science Virtual Machine for Linux can ease this burden substantially. U
 There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 ## Other Versions of the Data Science Virtual Machine
-A [CentOS](machine-learning-data-science-linux-dsvm-intro.md) image is also available, with many of the same tools as the Ubuntu image. A [Windows](machine-learning-data-science-provision-vm.md) image is available as well.
+A [CentOS](data-science-linux-dsvm-intro.md) image is also available, with many of the same tools as the Ubuntu image. A [Windows](data-science-provision-vm.md) image is available as well.
 
 ## Prerequisites
 Before you can create a Data Science Virtual Machine for Linux, you must have an Azure subscription. To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
@@ -309,7 +309,7 @@ After you sign in to Azure Machine Learning Studio, you have access to an experi
 
 You can also build your models in R or Python on the VM, and then deploy it in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 
-For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) (in particular, the section "Build models using R or Python and Operationalize them using Azure Machine Learning").
+For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data science Virtual Machine](data-science-vm-do-ten-things.md) (in particular, the section "Build models using R or Python and Operationalize them using Azure Machine Learning").
 
 > [!NOTE]
 > These instructions were written for the Windows version of the Data Science VM. But the information provided there on deploying models to Azure Machine Learning is applicable to the Linux VM.
@@ -403,7 +403,7 @@ You can exit Rattle and R. Now you can modify the generated R script, or use it 
 ## Next steps
 Here's how you can continue your learning and exploration:
 
-* The [Data science on the Data Science Virtual Machine for Linux](machine-learning-data-science-linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
+* The [Data science on the Data Science Virtual Machine for Linux](data-science-linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.

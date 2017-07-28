@@ -26,7 +26,7 @@ The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose 
 This article walks you through how to use it.
 
 > [!NOTE]
-> To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
+> To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](algorithm-cheat-sheet.md).
 > 
 > 
 
@@ -49,7 +49,7 @@ several algorithms against the same data and compares the results:
 recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
-> To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+> To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
 > 
 > 
 
@@ -159,7 +159,7 @@ settings. Typically, algorithms with large numbers parameters require
 the most trial and error to find a good combination.
 
 Alternatively, there is a [parameter
-sweeping](machine-learning-algorithm-parameters-optimize.md)
+sweeping](algorithm-parameters-optimize.md)
 module block in Azure Machine Learning that automatically tries all parameter
 combinations at whatever granularity you choose. While this is a great
 way to make sure you've spanned the parameter space, the time required
@@ -227,7 +227,7 @@ As mentioned previously, [linear regression](https://msdn.microsoft.com/library/
 fits a line (or plane, or hyperplane) to the data set. It's a workhorse,
 simple and fast, but it may be overly simplistic for some problems.
 Check here for a [linear regression
-tutorial](machine-learning-linear-regression-in-azure.md).
+tutorial](linear-regression-in-azure.md).
 
 ![Data with a linear trend][3]
 
@@ -439,10 +439,10 @@ open source code](https://github.com/JohnLangford/vowpal_wabbit) in
 several languages.
 
 ## More help with algorithms
-* For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](machine-learning-basics-infographic-with-algorithm-examples.md).
+* For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
 * For a list by category of all the machine learning algorithms available in Azure Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
 * For a complete alphabetical list of algorithms and modules in Azure Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
-* To download and print a diagram that gives an overview of the capabilities of Azure Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+* To download and print a diagram that gives an overview of the capabilities of Azure Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
 
 
 <!-- Reference links -->

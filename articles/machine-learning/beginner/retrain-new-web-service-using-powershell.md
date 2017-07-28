@@ -21,13 +21,13 @@ ms.author: v-donglo
 When you retrain a New web service, you update the predictive web service definition to reference the new trained model.  
 
 ## Prerequisites
-You must set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). 
+You must set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
 > The predictive experiment must be deployed as an Azure Resource Manager (New) based machine learning web service. 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information, see [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
 
-For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
 This process requires that you have installed the Azure Machine Learning Cmdlets. For information installing the Machine Learning cmdlets, see the [Azure Machine Learning Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN.
 

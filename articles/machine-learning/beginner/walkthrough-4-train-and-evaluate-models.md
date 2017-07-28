@@ -18,14 +18,14 @@ ms.author: garye
 
 ---
 # Walkthrough Step 4: Train and evaluate the predictive analytic models
-This topic contains the fourth step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+This topic contains the fourth step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
-2. [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
-3. [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
+1. [Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md)
+2. [Upload existing data](walkthrough-2-upload-data.md)
+3. [Create a new experiment](walkthrough-3-create-new-experiment.md)
 4. **Train and evaluate the models**
-5. [Deploy the Web service](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Access the Web service](machine-learning-walkthrough-6-access-web-service.md)
+5. [Deploy the Web service](walkthrough-5-publish-web-service.md)
+6. [Access the Web service](walkthrough-6-access-web-service.md)
 
 - - -
 One of the benefits of using Azure Machine Learning Studio for creating machine learning models is the ability to try more than one type of model at a time in a single experiment and compare the results. This type of experimentation helps you find the best solution for your problem.
@@ -35,7 +35,7 @@ In the experiment we're developing in this walkthrough, we'll create two differe
 There are various models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we'll select the [Two-Class Support Vector Machine][two-class-support-vector-machine] (SVM) and the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] modules.    
 
 > [!TIP]
-> To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+> To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).
 > 
 > 
 
@@ -54,7 +54,7 @@ First, let's set up the boosted decision tree model.
    The [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] module initializes the generic model, and [Train Model][train-model] uses training data to train the model. 
 
 3. Connect the left output of the left [Execute R Script][execute-r-script] module to the right input port of the [Train Model][train-model] module
-(we decided in [Step 3](machine-learning-walkthrough-3-create-new-experiment.md) of this walkthrough to use the data coming from the left side of the Split Data module for training).
+(we decided in [Step 3](walkthrough-3-create-new-experiment.md) of this walkthrough to use the data coming from the left side of the Split Data module for training).
    
    > [!TIP]
    > We don't need two of the inputs and one of the outputs of the [Execute R Script][execute-r-script] module for this experiment, so we can leave them unattached. 
@@ -170,9 +170,9 @@ To the right of the graph, click **Scored dataset** or **Scored dataset to compa
 By examining these values, you can decide which model is closest to giving you the results you're looking for. You can go back and iterate on your experiment by changing parameter values in the different models. 
 
 The science and art of interpreting these results and tuning the model performance is outside the scope of this walkthrough. For additional help, you might read the following articles:
-- [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md)
-- [Choose parameters to optimize your algorithms in Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md)
-- [Interpret model results in Azure Machine Learning](machine-learning-interpret-model-results.md)
+- [How to evaluate model performance in Azure Machine Learning](evaluate-model-performance.md)
+- [Choose parameters to optimize your algorithms in Azure Machine Learning](algorithm-parameters-optimize.md)
+- [Interpret model results in Azure Machine Learning](interpret-model-results.md)
 
 > [!TIP]
 > Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open.
@@ -180,12 +180,12 @@ The science and art of interpreting these results and tuning the model performan
 > You can make a copy of any iteration of your experiment by clicking **SAVE AS** below the canvas. 
 > Use the experiment's **Summary** and **Description** properties to keep a record of what you've tried in your experiment iterations.
 > 
-> For more details, see [Manage experiment iterations in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).  
+> For more details, see [Manage experiment iterations in Azure Machine Learning Studio](manage-experiment-iterations.md).  
 > 
 > 
 
 - - -
-**Next: [Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)**
+**Next: [Deploy the web service](walkthrough-5-publish-web-service.md)**
 
 [0]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/train-model-select-column.png
 [1]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png

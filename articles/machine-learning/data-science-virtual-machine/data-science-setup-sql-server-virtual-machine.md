@@ -319,7 +319,7 @@ because it can be redirected to a new IP address.)
 6. Click **Connect**.
 
 ## <a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
-In later stages of the Team Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the **Import Data** module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Team Data Science Process guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+In later stages of the Team Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the **Import Data** module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Team Data Science Process guide links. For an introduction, see [What is Azure Machine Learning Studio?](what-is-ml-studio.md).
 
 1. In the **Properties** pane of the [Import Data module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source**     dropdown list.
 2. In the **Database server name** text box, enter `tcp:<DNS name of your virtual machine>,1433`

@@ -38,7 +38,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 *Web Service deployment failed. This account does not have sufficient access to the Azure subscription that contains the Workspace. In order to deploy a Web Service to Azure, the same account must be invited to the Workspace and be given access to the Azure subscription that contains the Workspace.*
 
-For more information on creating a workspace, see [Create and share an Azure Machine Learning workspace](machine-learning-create-workspace.md).
+For more information on creating a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
 
 For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal - Public preview](../active-directory/role-based-access-control-manage-assignments.md).
 
@@ -107,7 +107,7 @@ The plan dashboard provides the following information:
 
 ## Manage Classic Web Services
 > [!NOTE]
-> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure classic portal, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
+> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure classic portal, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
 > 
 > 
 
@@ -123,7 +123,7 @@ To manage a Classic Web Service, click **Classic Web Services**. From the Classi
 
 When you manage a Classic Web service, you manage each of the endpoints separately. When you click a web service in the Web Services page, the list of endpoints associated with the service opens. 
 
-On the Classic Web Service endpoint page, you can add and delete endpoints on the service. For more information on adding endpoints, see [Creating Endpoints](machine-learning-create-endpoint.md).
+On the Classic Web Service endpoint page, you can add and delete endpoints on the service. For more information on adding endpoints, see [Creating Endpoints](create-endpoint.md).
 
 Click one of the endpoints to open the web service Quickstart page. On the Quickstart page, there are two menu options that allow you to manage your web service:
 
@@ -149,7 +149,7 @@ Click the **CONFIGURE** menu option.
 You can update the following properties:
 
 * **Description** allows you to enter a description for the Web service. Description is a required field.
-* **Logging** allows you to enable or disable error logging on the endpoint. For more information on Logging, see Enable [logging for Machine Learning web services](machine-learning-web-services-logging.md).
+* **Logging** allows you to enable or disable error logging on the endpoint. For more information on Logging, see Enable [logging for Machine Learning web services](web-services-logging.md).
 * **Enable Sample data** allows you to provide sample data that you can use to test the Request-Response service. If you created the web service in Machine Learning Studio, the sample data is taken from the data your used to train your model. If you created the service programmatically, the data is taken from the example data you provided as part of the JSON package.
 
 ## Grant or suspend access to Web services for users in the portal

@@ -18,7 +18,7 @@ ms.author: bradsev;paulsh
 
 ---
 # Data science on the Linux Data Science Virtual Machine
-This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient.
+This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](data-science-linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient.
 
 The data science tasks demonstrated in this walkthrough follow the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). This process provides a systematic approach to data science that enables teams of data scientists to effectively collaborate over the lifecycle of building intelligent applications. The data science process also provides an iterative framework for data science that can be followed by an individual.
 
@@ -28,8 +28,8 @@ We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) data
 Before you can use a Linux Data Science Virtual Machine, you must have the following:
 
 * An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
-* A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
+* A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](data-science-linux-dsvm-intro.md).
+* [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
 * An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
 
 ## Download the spambase dataset

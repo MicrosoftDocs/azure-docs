@@ -32,10 +32,10 @@ This first video is about the kinds of questions that data science can answer. T
 *Data Science for Beginners* is a quick introduction to data science taking about 25 minutes total. Check out all five videos:
 
 * Video 1: The 5 questions data science answers
-* Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 2: [Is your data ready for data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: [Ask a question you can answer with data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 4: [Predict an answer with a simple model](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 5: [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## Transcript: The 5 questions data science answers
 Hi! Welcome to the video series *Data Science for Beginners*.
@@ -136,5 +136,5 @@ Reinforcement learning algorithms gather data as they go, learning from trial an
 So that's it - The 5 questions data science can answer.
 
 ## Next steps
-* [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Try a first data science experiment with Machine Learning Studio](create-experiment.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](what-is-machine-learning.md)

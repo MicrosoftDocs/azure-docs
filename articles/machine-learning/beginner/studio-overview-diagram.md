@@ -27,7 +27,7 @@ Then with one click you can operationalize your model in the Azure cloud so that
 This diagram demonstrates how all those pieces fit together.
 
 > [!NOTE]
-> See [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) for additional help in navigating through and choosing the machine learning algorithms available in Machine Learning Studio.
+> See [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](algorithm-cheat-sheet.md) for additional help in navigating through and choosing the machine learning algorithms available in Machine Learning Studio.
 > 
 > 
 
@@ -42,9 +42,9 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 
 
 ## More help with Machine Learning Studio
-* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
-* For an overview of Machine Learning Studio, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
-* For a detailed discussion of the machine learning algorithms available in Machine Learning Studio, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](what-is-machine-learning.md)
+* For an overview of Machine Learning Studio, see [What is Azure Machine Learning Studio?](what-is-ml-studio.md).
+* For a detailed discussion of the machine learning algorithms available in Machine Learning Studio, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

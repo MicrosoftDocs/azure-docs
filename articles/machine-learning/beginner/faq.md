@@ -28,7 +28,7 @@ Azure Machine Learning has a forum on MSDN where members of the data science com
 ## General questions
 **What is Azure Machine Learning?**
 
-Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign in, upload data, and immediately start machine-learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine-learning tasks simple and quick. For more information, see the [Azure Machine Learning service overview](https://azure.microsoft.com/services/machine-learning/). For an introduction to machine learning that explains key terminology and concepts, see [Introduction to Azure Machine Learning](machine-learning-what-is-machine-learning.md).
+Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign in, upload data, and immediately start machine-learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine-learning tasks simple and quick. For more information, see the [Azure Machine Learning service overview](https://azure.microsoft.com/services/machine-learning/). For an introduction to machine learning that explains key terminology and concepts, see [Introduction to Azure Machine Learning](what-is-machine-learning.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -36,13 +36,13 @@ Azure Machine Learning is a fully managed service that you can use to create, te
 
 Machine Learning Studio is a workbench environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
 
-For more information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
+For more information about Machine Learning Studio, see [What is Machine Learning Studio?](what-is-ml-studio.md)
 
 **What is the Machine Learning API service?**
 
 The Machine Learning API service enables you to deploy predictive models, like those that are built into Machine Learning Studio, as scalable, fault-tolerant, web services. The web services that the Machine Learning API service creates are REST APIs that provide an interface for communication between external applications and your predictive analytics models.
 
-For more information, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
+For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
 
 **Where are my Classic web services listed? Where are my New (Azure Resource Manager-based) web services listed?**
 
@@ -70,7 +70,7 @@ You can also use the sample Microsoft Excel workbook that's created for you and 
 
 **What are the main updates to Azure Machine Learning?**
 
-For the latest updates, see [What's new in Azure Machine Learning](machine-learning-whats-new.md).
+For the latest updates, see [What's new in Azure Machine Learning](whats-new.md).
 
 ## Machine Learning Studio questions
 ### Import and export data for Machine Learning
@@ -82,7 +82,7 @@ You can download data to a Machine Learning Studio experiment in three ways:
 - Use a module to import data from cloud data services
 - Import a dataset saved from another experiment
 
-To learn more about supported file formats, see [Import training data into Machine Learning Studio](machine-learning-data-science-import-data.md).
+To learn more about supported file formats, see [Import training data into Machine Learning Studio](data-science-import-data.md).
 
 #### <a id="ModuleLimit"></a>How large can the data set be for my modules?
 Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB value is the total of all input sizes. You can also sample larger datasets by using queries from Hive or Azure SQL Database, or you can use Learning by Counts preprocessing before ingestion.  
@@ -124,7 +124,7 @@ You can go to the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=4
 
 **Can I bring my existing code into Machine Learning Studio?**
 
-Yes, you can bring your existing R or Python code into Machine Learning Studio, run it in the same experiment with Azure Machine Learning learners, and deploy the solution as a web service via Azure Machine Learning. For more information, see [Extend your experiment with R](machine-learning-extend-your-experiment-with-r.md) and [Execute Python machine learning scripts in Azure Machine Learning Studio](machine-learning-execute-python-scripts.md).
+Yes, you can bring your existing R or Python code into Machine Learning Studio, run it in the same experiment with Azure Machine Learning learners, and deploy the solution as a web service via Azure Machine Learning. For more information, see [Extend your experiment with R](extend-your-experiment-with-r.md) and [Execute Python machine learning scripts in Azure Machine Learning Studio](execute-python-scripts.md).
 
 **Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) to define a model?**
 
@@ -154,7 +154,7 @@ No, but Machine Learning Studio has various ways to compare the results of each 
 
 **Do you have any guidelines on picking one algorithm over another for the provided algorithms?**
 
-See [How to choose an algorithm](machine-learning-algorithm-choice.md).
+See [How to choose an algorithm](algorithm-choice.md).
 
 **Are the provided algorithms written in R or Python?**
 
@@ -179,11 +179,11 @@ Currently, you can only use R to create new custom modules.
 ### R module
 **What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio supports more than 400 CRAN R packages today, and here is the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R](machine-learning-extend-your-experiment-with-r.md) to learn how to retrieve this list yourself. If the package that you want is not in this list, provide the name of the package at the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio supports more than 400 CRAN R packages today, and here is the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R](extend-your-experiment-with-r.md) to learn how to retrieve this list yourself. If the package that you want is not in this list, provide the name of the package at the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Is it possible to build a custom R module?**
 
-Yes, see [Author custom R modules in Azure Machine Learning](machine-learning-custom-r-modules.md) for more information.
+Yes, see [Author custom R modules in Azure Machine Learning](custom-r-modules.md) for more information.
 
 **Is there a REPL environment for R?**
 
@@ -202,7 +202,7 @@ You can use the Jupyter Notebooks in Machine Learning Studio. For more informati
 ### Retrain
 **How do I retrain Azure Machine Learning models programmatically?**
 
-Use the retraining APIs. For more information, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). Sample code is also available in the [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
+Use the retraining APIs. For more information, see [Retrain Machine Learning models programmatically](retrain-models-programmatically.md). Sample code is also available in the [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
 
 ### Create
 **Can I deploy the model locally or in an application that doesn't have an Internet connection?**
@@ -216,18 +216,18 @@ See the [Azure subscription limits](../azure-subscription-service-limits.md).
 ### Use
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
-The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and deployed from the experimentation environment. The Batch Execution service (BES) is a service that asynchronously scores a batch of data records. The input for BES is like data input that RRS uses. The main difference is that BES reads a block of records from a variety of sources, such as Azure Blob storage, Azure Table storage, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
+The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and deployed from the experimentation environment. The Batch Execution service (BES) is a service that asynchronously scores a batch of data records. The input for BES is like data input that RRS uses. The main difference is that BES reads a block of records from a variety of sources, such as Azure Blob storage, Azure Table storage, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
 
 **How do I update the model for the deployed web service?**
 
-To update a predictive model for an already deployed service, modify and rerun the experiment that you used to author and save the trained model. After you have a new version of the trained model available, Machine Learning Studio asks you if you want to update your web service. For details about how to update a deployed web service, see [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+To update a predictive model for an already deployed service, modify and rerun the experiment that you used to author and save the trained model. After you have a new version of the trained model available, Machine Learning Studio asks you if you want to update your web service. For details about how to update a deployed web service, see [Deploy a Machine Learning web service](publish-a-machine-learning-web-service.md).
 
 You can also use the Retraining APIs.
-For more information, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). Sample code is also available in the [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
+For more information, see [Retrain Machine Learning models programmatically](retrain-models-programmatically.md). Sample code is also available in the [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
 
 **How do I monitor my web service deployed in production?**
 
-After you deploy a predictive model, you can monitor it from the Azure classic portal (Classic web services only) or the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information about how to manage your deployed web services, see [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md) and [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
+After you deploy a predictive model, you can monitor it from the Azure classic portal (Classic web services only) or the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information about how to manage your deployed web services, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) and [Manage an Azure Machine Learning workspace](manage-workspace.md).
 
 **Is there a place where I can see the output of my RRS/BES?**
 
@@ -244,7 +244,7 @@ See [Machine Learning Module Error Codes](https://msdn.microsoft.com/library/azu
 ## Scalability
 **What is the scalability of the web service?**
 
-Currently, the default endpoint is provisioned with 20 concurrent RRS requests per endpoint. You can scale this to 200 concurrent requests per endpoint, and you can scale each web service to 10,000 endpoints per web service as described in [Scaling a Web Service](machine-learning-scaling-webservice.md). For BES, each endpoint can process 40 requests at a time, and additional requests beyond 40 requests are queued. These queued requests run automatically as the queue drains.
+Currently, the default endpoint is provisioned with 20 concurrent RRS requests per endpoint. You can scale this to 200 concurrent requests per endpoint, and you can scale each web service to 10,000 endpoints per web service as described in [Scaling a Web Service](scaling-webservice.md). For BES, each endpoint can process 40 requests at a time, and additional requests beyond 40 requests are queued. These queued requests run automatically as the queue drains.
 
 **Are R jobs spread across nodes?**
 
@@ -282,7 +282,7 @@ No.
 ## Security and availability
 **Who can access the http endpoint for the web service by default? How do I restrict access to the endpoint?**
 
-After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Azure classic portal or programmatically by using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
+After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Azure classic portal or programmatically by using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
 
 **What happens if my Azure storage account can't be found?**
 

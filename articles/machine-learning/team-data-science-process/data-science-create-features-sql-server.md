@@ -33,7 +33,7 @@ This **menu** links to topics that describe how to create features for data in v
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
-* Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) for instructions on how to move the data there.
+* Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](data-science-move-sql-azure.md) for instructions on how to move the data there.
 
 ## <a name="sql-featuregen"></a>Feature Generation with SQL
 In this section, we describe ways of generating features using SQL:  
@@ -104,7 +104,7 @@ The newly generated feature can be added as a column to an existing table or sto
 ![azureml readers](../media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>Using a programming language like Python
-Using Python to generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
+Using Python to generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in you data science environment](data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username and password with your specific values):
 
@@ -117,5 +117,5 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Now you can work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](machine-learning-data-science-create-features-blob.md).
+Now you can work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](data-science-create-features-blob.md).
 

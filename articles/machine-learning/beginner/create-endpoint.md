@@ -50,7 +50,7 @@ You can add an endpoint to your Web service programmatically using the [AddEndpo
 1. In Machine Learning Studio, on the left navigation column, click Web Services.
 2. At the bottom of the Web service dashboard, click **Manage endpoints**. The Azure Machine Learning Web Services portal opens to the endpoints page for the Web service.
 3. Click **New**.
-4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning Web services](machine-learning-web-services-logging.md).
+4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning Web services](web-services-logging.md).
 
 ## Adding an endpoint using the Azure classic portal
 1. Sign in to the [Azure classic portal](http://manage.windowsazure.com), click **Machine Learning** in the left column. Click the workspace which contains the Web service in which you are interested.
@@ -62,10 +62,10 @@ You can add an endpoint to your Web service programmatically using the [AddEndpo
 3. Click the Web service you're interested in to see the list of available endpoints.
    
     ![Navigate to endpoint](../media/machine-learning-create-endpoint/figure-3.png)
-4. At the bottom of the page, click **Add Endpoint**. Type a name and description, ensure there are no other endpoints with the same name in this Web service. Leave the throttle level with its default value unless you have special requirements. To learn more about throttling, see [Scaling API Endpoints](machine-learning-scaling-webservice.md).
+4. At the bottom of the page, click **Add Endpoint**. Type a name and description, ensure there are no other endpoints with the same name in this Web service. Leave the throttle level with its default value unless you have special requirements. To learn more about throttling, see [Scaling API Endpoints](scaling-webservice.md).
    
     ![Create endpoint](../media/machine-learning-create-endpoint/figure-4.png)
 
 ## Next Steps
-[How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
+[How to consume an Azure Machine Learning Web service](consume-web-services.md).
 

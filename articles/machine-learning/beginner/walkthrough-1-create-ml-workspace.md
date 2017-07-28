@@ -18,14 +18,14 @@ ms.author: garye
 
 ---
 # Walkthrough Step 1: Create a Machine Learning workspace
-This is the first step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+This is the first step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 1. **Create a Machine Learning workspace**
-2. [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
-3. [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
-4. [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Deploy the Web service](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Access the Web service](machine-learning-walkthrough-6-access-web-service.md)
+2. [Upload existing data](walkthrough-2-upload-data.md)
+3. [Create a new experiment](walkthrough-3-create-new-experiment.md)
+4. [Train and evaluate the models](walkthrough-4-train-and-evaluate-models.md)
+5. [Deploy the Web service](walkthrough-5-publish-web-service.md)
+6. [Access the Web service](walkthrough-6-access-web-service.md)
 
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
@@ -41,7 +41,7 @@ To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learn
 4. On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
 -->
 
-The administrator for your Azure subscription needs to create the workspace and then add you as an owner or contributor. For details, see [Create and share an Azure Machine Learning workspace](machine-learning-create-workspace.md).
+The administrator for your Azure subscription needs to create the workspace and then add you as an owner or contributor. For details, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
 
 After your workspace is created, open Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). If you have more than one workspace, you can select the workspace in the toolbar in the upper-right corner of the window.
 
@@ -55,7 +55,7 @@ After your workspace is created, open Machine Learning Studio ([https://studio.a
 > 
 
 - - -
-**Next: [Upload existing data](machine-learning-walkthrough-2-upload-data.md)**
+**Next: [Upload existing data](walkthrough-2-upload-data.md)**
 
 [1]: ../media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 [2]: ../media/machine-learning-walkthrough-1-create-ml-workspace/open-workspace.png

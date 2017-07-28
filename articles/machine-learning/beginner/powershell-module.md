@@ -48,7 +48,7 @@ Here's a quick example of using PowerShell to run an existing experiment:
         #Run the Experiment
         Start-AmlExperiment -ExperimentId $exp.ExperimentId 
 
-For a more in-depth use case, see this article on using the PowerShell module to automate a commonly-requested task: [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
+For a more in-depth use case, see this article on using the PowerShell module to automate a commonly-requested task: [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](create-models-and-endpoints-with-powershell.md).
 
 ## How do I get started?
 To get started with Machine Learning PowerShell, download the [release package](https://github.com/hning86/azuremlps/releases) from GitHub and follow the [instructions for installation](https://github.com/hning86/azuremlps/blob/master/README.md). The instructions explain how to unblock the downloaded/unzipped DLL and then import it into your PowerShell environment. 
@@ -59,4 +59,4 @@ And if you want, you can clone the git tree, modify the code, and compile it loc
 ## Next steps
 You can find the full documentation for the PowerShell module at [https://aka.ms/amlps](https://aka.ms/amlps). 
 
-For an extended example of how to use the module in a real-world scenario, check out the in-depth use case, [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
+For an extended example of how to use the module in a real-world scenario, check out the in-depth use case, [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](create-models-and-endpoints-with-powershell.md).

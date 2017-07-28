@@ -32,11 +32,11 @@ To get the most out of the series, watch them all. [Go to the list of videos](#o
 ## Other videos in this series
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-* Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 1: [The 5 questions data science answers](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [Is your data ready for data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: [Ask a question you can answer with data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
 * Video 4: Predict an answer with a simple model
-* Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 5: [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## Transcript: Predict an answer with a simple model
 Welcome to the fourth video in the "Data Science for Beginners" series. In this one, we'll build a simple model and make a prediction.
@@ -128,5 +128,5 @@ Today, we've talked about how to do linear regression, and we made a prediction 
 Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
 
 ## Next steps
-* [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Try a first data science experiment with Machine Learning Studio](create-experiment.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](what-is-machine-learning.md)

@@ -23,7 +23,7 @@ Azure Storage Explorer is a free tool from Microsoft that allows you to work wit
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]
-> If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](machine-learning-data-science-virtual-machines.md), then Azure Storage Explorer is already installed on the VM.
+> If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](data-science-virtual-machines.md), then Azure Storage Explorer is already installed on the VM.
 > 
 > [!NOTE]
 > For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../storage/storage-dotnet-how-to-use-blobs.md) and [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).   

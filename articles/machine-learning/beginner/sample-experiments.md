@@ -22,7 +22,7 @@ Learn how to start with sample experiments from [Cortana Intelligence Gallery](h
 
 In the gallery are sample experiments by the Microsoft Azure Machine Learning team as well as samples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
 
-To see how to use the gallery, watch the 3-minute video [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) from the series [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md).
+To see how to use the gallery, watch the 3-minute video [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) from the series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -61,6 +61,6 @@ You also can create a new experiment in Machine Learning Studio using a Gallery 
 A new experiment is created in your workspace using the sample experiment as a template.
 
 ## Next steps
-* [Import data from various sources](machine-learning-data-science-import-data.md)
-* [Quickstart tutorial for the R language in Machine Learning](machine-learning-r-quickstart.md)
-* [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
+* [Import data from various sources](data-science-import-data.md)
+* [Quickstart tutorial for the R language in Machine Learning](r-quickstart.md)
+* [Deploy a Machine Learning web service](publish-a-machine-learning-web-service.md)

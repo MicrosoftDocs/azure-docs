@@ -31,7 +31,7 @@ Each of these options is described in one of the topics on the menu below. These
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 > [!NOTE]
-> There are a number of sample datasets available in Machine Learning Studio that you can use for training data. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
+> There are a number of sample datasets available in Machine Learning Studio that you can use for training data. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](use-sample-datasets.md)).
 > 
 > 
 

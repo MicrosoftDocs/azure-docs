@@ -30,7 +30,7 @@ If you plan to call the API with a higher load than a Max Concurrent Calls value
 
 The scaling of a Web service is a common task. Some reasons to scale are to support more than 200 concurrent requests, increase availability through multiple endpoints, or provide separate endpoints for the web service. You can increase the scale by adding additional endpoints for the same Web service through [Azure classic portal](https://manage.windowsazure.com/) or the [Azure Machine Learning Web Service](https://services.azureml.net/) portal.
 
-For more information on adding new endpoints, see [Creating Endpoints](machine-learning-create-endpoint.md).
+For more information on adding new endpoints, see [Creating Endpoints](create-endpoint.md).
 
 Keep in mind that using a high concurrency count can be detrimental if you're not calling the API with a correspondingly high rate. You might see sporadic timeouts and/or spikes in the latency if you put a relatively low load on an API configured for high load.
 

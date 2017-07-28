@@ -34,7 +34,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > 
 > * [Create a storage account](../storage/storage-create-storage-account.md)
 >   <br/>
-> * [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
+> * [Create an Azure Machine Learning workspace](create-workspace.md)
 > 
 > 
 
@@ -137,7 +137,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
    f.  If table joins are required, create indexes to expedite joins.
    
    > [!NOTE]
-   > For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+   > For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](data-science-parallel-load-sql-partitioned-tables.md).
    > 
    > 
 5. Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
@@ -177,7 +177,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
    f.  If table joins are required, create indexes to expedite joins.
    
    > [!NOTE]
-   > For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+   > For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](data-science-parallel-load-sql-partitioned-tables.md).
    > 
    > 
 5. Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
@@ -251,8 +251,8 @@ The following diagram summarizes the scenarios described above and the Advanced 
 ### Advanced Analytics in action Examples
 For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
-* [Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-* [Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
+* [Team Data Science Process in action: using SQL Server](data-science-process-sql-walkthrough.md).
+* [Team Data Science Process in action: using HDInsight Hadoop clusters](data-science-process-hive-walkthrough.md).
 
 [1]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png

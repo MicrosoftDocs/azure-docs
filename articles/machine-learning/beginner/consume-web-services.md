@@ -23,8 +23,8 @@ Once you deploy an Azure Machine Learning predictive model as a Web service, you
 
 You can find more information about how to create and deploy a Machine Learning Web service using Machine Learning Studio here:
 
-* For a tutorial on how to create an experiment in Machine Learning Studio, see [Create your first experiment](machine-learning-create-experiment.md).
-* For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](machine-learning-publish-a-machine-learning-web-service.md).
+* For a tutorial on how to create an experiment in Machine Learning Studio, see [Create your first experiment](create-experiment.md).
+* For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
 * For more information about Machine Learning in general, visit the [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
@@ -37,7 +37,7 @@ Azure Machine Learning has two types of services:
 * Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio.
 * Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
 
-For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](machine-learning-publish-a-machine-learning-web-service.md).
+For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
 
 ## Get an Azure Machine Learning authorization key
 When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
@@ -78,7 +78,7 @@ To retrieve the API key for a Classic Machine Learning Web service:
 You can connect to a Machine Learning Web service using any programming language that supports HTTP request and response. You can view examples in C#, Python, and R from a Machine Learning Web service help page.
 
 **Machine Learning API help**
-Machine Learning API help is created when you deploy a Web service. See [Azure Machine Learning Walkthrough- Deploy Web Service](machine-learning-walkthrough-5-publish-web-service.md).
+Machine Learning API help is created when you deploy a Web service. See [Azure Machine Learning Walkthrough- Deploy Web Service](walkthrough-5-publish-web-service.md).
 The Machine Learning API help contains details about a prediction Web service.
 
 1. Click the Web service with which you are working.

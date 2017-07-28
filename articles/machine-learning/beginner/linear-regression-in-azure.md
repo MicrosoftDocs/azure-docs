@@ -109,7 +109,7 @@ The *Web Services Dashboard* section includes a downloadable Excel workbook. The
 
 ![][1]
 
-With the workbook open, copy your predefined parameters into the blue Parameter section as shown below. Once the parameters are entered, Excel calls out to the Machine Learning web service and the predicted scored labels will display in the green Predicted Values section. The workbook will continue to create predictions for parameters based on your trained model for all row items entered under Parameters. For more information on how to use this feature, see [Consuming an Azure Machine Learning Web Service from Excel](machine-learning-consuming-from-excel.md). 
+With the workbook open, copy your predefined parameters into the blue Parameter section as shown below. Once the parameters are entered, Excel calls out to the Machine Learning web service and the predicted scored labels will display in the green Predicted Values section. The workbook will continue to create predictions for parameters based on your trained model for all row items entered under Parameters. For more information on how to use this feature, see [Consuming an Azure Machine Learning Web Service from Excel](consuming-from-excel.md). 
 
 ![][2]
 

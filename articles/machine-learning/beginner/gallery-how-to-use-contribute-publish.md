@@ -27,23 +27,23 @@ ms.author: roopalik;garye
 ## What can I find in the Gallery?
 The Cortana Intelligence Gallery contains a variety of resources that you can use to develop your own analytics solutions.
 
-* **[Experiments](machine-learning-gallery-experiments.md)** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
-* **[Jupyter Notebooks](machine-learning-gallery-jupyter-notebooks.md)** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas.
+* **[Experiments](gallery-experiments.md)** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
+* **[Jupyter Notebooks](gallery-jupyter-notebooks.md)** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas.
   Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 
 <!--
 - **[Machine Learning APIs](https://machine-learning-gallery-apis.md)** - An experiment developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these APIs are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
 -->
 
-* **[Solutions](machine-learning-gallery-solutions.md)** - Quickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns. Make them your own with the included instructions or with a featured partner.
-* **[Tutorials](machine-learning-gallery-tutorials.md)** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
+* **[Solutions](gallery-solutions.md)** - Quickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns. Make them your own with the included instructions or with a featured partner.
+* **[Tutorials](gallery-tutorials.md)** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
 
 These basic Gallery resources can be grouped together logically in a couple different ways:
 
-* **[Collections](machine-learning-gallery-collections.md)** - A collection allows you to group together experiments, APIs, and other Gallery items that address a specific solution or concept.
-* **[Industries](machine-learning-gallery-industries.md)** - The Industries section of the Gallery brings together various resources that are specific to such industries as retail, manufacturing, banking, and healthcare.
+* **[Collections](gallery-collections.md)** - A collection allows you to group together experiments, APIs, and other Gallery items that address a specific solution or concept.
+* **[Industries](gallery-industries.md)** - The Industries section of the Gallery brings together various resources that are specific to such industries as retail, manufacturing, banking, and healthcare.
 
-Finally, **[Competitions](machine-learning-gallery-competitions.md)** provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
+Finally, **[Competitions](gallery-competitions.md)** provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
 
 ![Cortana Intelligence Gallery home page](../media/machine-learning-gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
@@ -79,9 +79,9 @@ You can log in with a discussion tool such as Disqus and receive notifications f
 
 You can contribute the following items to the Gallery - follow these links for more information:
 
-* **[Collections](machine-learning-gallery-collections.md#contribute)**
-* **[Experiments](machine-learning-gallery-experiments.md#contribute)**
-* **[Tutorials](machine-learning-gallery-tutorials.md#contribute)**
+* **[Collections](gallery-collections.md#contribute)**
+* **[Experiments](gallery-experiments.md#contribute)**
+* **[Tutorials](gallery-tutorials.md#contribute)**
 
 ## We want to hear from you!
 We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery.  

@@ -18,14 +18,14 @@ ms.author: garye
 
 ---
 # Walkthrough Step 5: Deploy the Azure Machine Learning web service
-This is the fifth step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+This is the fifth step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
-2. [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
-3. [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
-4. [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+1. [Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md)
+2. [Upload existing data](walkthrough-2-upload-data.md)
+3. [Create a new experiment](walkthrough-3-create-new-experiment.md)
+4. [Train and evaluate the models](walkthrough-4-train-and-evaluate-models.md)
 5. **Deploy the web service**
-6. [Access the web service](machine-learning-walkthrough-6-access-web-service.md)
+6. [Access the web service](walkthrough-6-access-web-service.md)
 
 - - -
 To give others a chance to use the predictive model we've developed in this walkthrough, we can deploy it as a web service on Azure.
@@ -72,7 +72,7 @@ To get this model ready for deployment, we need to convert this training experim
 We could do this manually, but fortunately all three steps can be accomplished by clicking **Set Up Web Service** at the bottom of the experiment canvas (and selecting the **Predictive Web Service** option).
 
 > [!TIP]
-> If you want more details on what happens when you convert a training experiment to a predictive experiment, see [How to prepare your model for deployment in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> If you want more details on what happens when you convert a training experiment to a predictive experiment, see [How to prepare your model for deployment in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
 
 When you click **Set Up Web Service**, several things happen:
 
@@ -120,7 +120,7 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 ### Deploy as a New web service
 
 > [!NOTE] 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you are deploying the web service. For more information, see [Manage a web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you are deploying the web service. For more information, see [Manage a web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
 
 To deploy a New web service derived from our experiment:
 
@@ -203,8 +203,8 @@ From here, you can do things like monitor how the web service is doing and make 
 
 For more details, see:
 
-* [Creating Endpoints](machine-learning-create-endpoint.md)
-* [Scaling web service](machine-learning-scaling-webservice.md)
+* [Creating Endpoints](create-endpoint.md)
+* [Scaling web service](scaling-webservice.md)
 
 ### Manage a Classic or New web service in the Azure Machine Learning Web Services portal
 
@@ -218,7 +218,7 @@ To monitor the performance of your web service:
 4. Click the **Dashboard**
 
 - - -
-**Next: [Access the web service](machine-learning-walkthrough-6-access-web-service.md)**
+**Next: [Access the web service](walkthrough-6-access-web-service.md)**
 
 [3]: ../media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [3a]: ../media/machine-learning-walkthrough-5-publish-web-service/publish3a.png

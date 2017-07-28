@@ -33,7 +33,7 @@ To develop a predictive analysis model, you typically use data from one or more 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
 > [!TIP]
-> To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+> To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
 > 
 > 
 
@@ -63,7 +63,7 @@ Click **Studio** and you'll be taken to the **Azure Machine Learning Studio**. F
 ### Gallery
 Click **Gallery** and you'll be taken to the **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
 
-For more information about the Gallery, see [Share and discover solutions in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+For more information about the Gallery, see [Share and discover solutions in the Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md).
 
 ## Components of an experiment
 An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a predictive analysis model. Specifically, a valid experiment has these characteristics:
@@ -74,11 +74,11 @@ An experiment consists of datasets that provide data to analytical modules, whic
 * All input ports for modules must have some connection to the data flow
 * All required parameters for each module must be set
 
-You can create an experiment from scratch, or you can use an existing sample experiment as a template. For more information, see [Use sample experiments to create new experiments](machine-learning-sample-experiments.md).
+You can create an experiment from scratch, or you can use an existing sample experiment as a template. For more information, see [Use sample experiments to create new experiments](sample-experiments.md).
 
-For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md).
+For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md).
 
-For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 ### Datasets
 A dataset is data that has been uploaded to Machine Learning Studio so that it can be used in the modeling process. A number of sample datasets are included with Machine Learning Studio for you to experiment with, and you can upload more datasets as you need them. Here are some examples of included datasets:
@@ -89,7 +89,7 @@ A dataset is data that has been uploaded to Machine Learning Studio so that it c
 
 As you build an experiment you can choose from the list of datasets available to the left of the canvas.
 
-For a list of sample datasets included in Machine Learning Studio, see [Use the sample data sets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
+For a list of sample datasets included in Machine Learning Studio, see [Use the sample data sets in Azure Machine Learning Studio](use-sample-datasets.md).
 
 ### Modules
 A module is an algorithm that you can perform on your data. Machine Learning Studio has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
@@ -103,10 +103,10 @@ As you build an experiment you can choose from the list of modules available to 
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the **Properties** pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
 
-For some help navigating through the large library of machine learning algorithms available, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+For some help navigating through the large library of machine learning algorithms available, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).
 
 ## Deploying a predictive analytics web service
-Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio. For more details on this process, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio. For more details on this process, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
 [ml-studio-overview]:../media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
 

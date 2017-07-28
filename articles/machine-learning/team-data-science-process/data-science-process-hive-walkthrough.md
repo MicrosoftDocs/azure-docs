@@ -25,7 +25,7 @@ ms.author: hangzh;bradsev
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
 In this walkthrough, we use the [Team Data Science Process (TDSP)](data-science-process-overview.md) in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
 
-For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md).
+For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](data-science-process-hive-criteo-walkthrough.md).
 
 It is also possible to use an IPython notebook to accomplish the tasks presented the walkthrough using the 1 TB dataset. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
@@ -81,11 +81,11 @@ Here are three examples of prediction problems that we address in this walkthrou
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
 1. [Create a storage account](../storage/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob Storage. The data used in HDInsight clusters also resides here.
-2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](machine-learning-data-science-customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
+2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](data-science-customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
    
    * Remember to link the storage account created in step 1 with your HDInsight cluster when creating it. This storage account is used to access data that is processed within the cluster.
    * After the cluster is created, enable Remote Access to the head node of the cluster. Navigate to the **Configuration** tab and click **Enable Remote**. This step specifies the user credentials used for remote login.
-3. [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md): This Azure Machine Learning workspace is used to build machine learning models. This task is addressed after completing an initial data exploration and down sampling using the HDInsight cluster.
+3. [Create an Azure Machine Learning workspace](create-workspace.md): This Azure Machine Learning workspace is used to build machine learning models. This task is addressed after completing an initial data exploration and down sampling using the HDInsight cluster.
 
 ## <a name="getdata"></a>Get the data from a public source
 > [!NOTE]
@@ -93,7 +93,7 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
 > 
 > 
 
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](machine-learning-data-science-move-azure-blob.md) to copy the data to your machine.
+To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](data-science-move-azure-blob.md) to copy the data to your machine.
 
 Here we describe how use AzCopy to transfer the files containing data. To download and install AzCopy follow the instructions at [Getting Started with the AzCopy Command-Line Utility](../storage/storage-use-azcopy.md).
 
@@ -134,7 +134,7 @@ The data should now in Azure Blob Storage and ready to be consumed within the HD
 > 
 > 
 
-To access the head node of the cluster for exploratory data analysis and down sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
+To access the head node of the cluster for exploratory data analysis and down sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](data-science-customize-hadoop-cluster.md#headnode).
 
 In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in .hql files. We then down sample this data to be used within Azure Machine Learning for building models.
 
@@ -212,7 +212,7 @@ This Hive script creates two tables:
 * the "trip" table contains trip details of each ride (driver details, pickup time, trip distance and times)
 * the "fare" table contains fare details (fare amount, tip amount, tolls and surcharges).
 
-If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line ](machine-learning-data-science-move-hive-tables.md#submit).
+If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line ](data-science-move-hive-tables.md#submit).
 
 ## <a name="#load-data"></a>Load Data to Hive tables by partitions
 > [!NOTE]
@@ -474,7 +474,7 @@ The *-S* argument included in this command suppresses the status screen printout
 > 
 > 
 
-For the binary classification problem outlined in the [Examples of prediction tasks](machine-learning-data-science-process-hive-walkthrough.md#mltasks) section, it is useful to know whether a tip was given or not. This distribution of tips is binary:
+For the binary classification problem outlined in the [Examples of prediction tasks](data-science-process-hive-walkthrough.md#mltasks) section, it is useful to know whether a tip was given or not. This distribution of tips is binary:
 
 * tip given(Class 1, tip\_amount > $0)  
 * no tip (Class 0, tip\_amount = $0).
@@ -500,7 +500,7 @@ From the Hive directory prompt, run:
 > 
 > 
 
-For the multiclass classification problem outlined in the [Examples of prediction tasks](machine-learning-data-science-process-hive-walkthrough.md#mltasks) section this data set also lends itself to a natural classification where we would like to predict the amount of the tips given. We can use bins to define tip ranges in the query. To get the class distributions for the various tip ranges, we use the *sample\_hive\_tip\_range\_frequencies.hql* file. Below are its contents.
+For the multiclass classification problem outlined in the [Examples of prediction tasks](data-science-process-hive-walkthrough.md#mltasks) section this data set also lends itself to a natural classification where we would like to predict the amount of the tips given. We can use bins to define tip ranges in the query. To get the class distributions for the various tip ranges, we use the *sample\_hive\_tip\_range\_frequencies.hql* file. Below are its contents.
 
     SELECT tip_class, COUNT(*) AS tip_freq
     FROM
@@ -816,7 +816,7 @@ b. For regression problems, we measure the accuracies of our prediction by looki
 We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by our model coefficients.
 
 > [!IMPORTANT]
-> To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning?](machine-learning-what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
+> To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning?](what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
 > 
 > 
 

@@ -138,14 +138,14 @@ The Data Science Virtual Machine has many popular data science and deep learning
 * Click the **Get it now** button.
 * Sign in to the VM from an SSH client, such as Putty or SSH Command, using the credentials you specified when you created the VM.
 * In the shell prompt, enter dsvm-more-info.
-* For a graphical desktop, download the X2Go client for your client platform [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) and follow the instructions in the Linux Data Science VM document [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* For a graphical desktop, download the X2Go client for your client platform [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) and follow the instructions in the Linux Data Science VM document [Provision the Linux Data Science Virtual Machine](data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 
 ## Next steps
 ### For the Windows Data Science VM
-* For more information on how to run specific tools available on the Windows version, see [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) and
-* For more information on how to perform various tasks needed for your data science project on the Windows VM, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
+* For more information on how to run specific tools available on the Windows version, see [Provision the Microsoft Data Science Virtual Machine](data-science-provision-vm.md) and
+* For more information on how to perform various tasks needed for your data science project on the Windows VM, see [Ten things you can do on the Data science Virtual Machine](data-science-vm-do-ten-things.md).
 
 ### For the Linux Data Science VM
-* For more information on how to run specific tools available on the Linux version, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md).
-* For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, see [Data science on the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-walkthrough.md).
+* For more information on how to run specific tools available on the Linux version, see [Provision the Linux Data Science Virtual Machine](data-science-linux-dsvm-intro.md).
+* For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, see [Data science on the Linux Data Science Virtual Machine](data-science-linux-dsvm-walkthrough.md).
 

@@ -41,10 +41,10 @@ The logistic questions concern the location of the **data source**, the **target
    * Mountable Azure virtual hard disks.
 3. **How are you going to move the data?** The procedures and resources available to ingest or load data into a variety of different storage and processing environments are outlined in the following topics.
    
-   * [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md)
-   * [Import your training data into Azure Machine Learning Studio from various data sources](machine-learning-data-science-import-data.md).
-4. **Does the data need to be moved on a regular schedule or modified during migration?** Consider using Azure Data Factory (ADF) when data needs to be continually migrated, particularly if a hybrid scenario that accesses both on-premises and cloud resources is involved, or when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. For further information, see [Move data from an on-premises SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
-5. **How much of the data is to be moved to Azure?** Datasets that are very large may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio in the next section. In such cases a sample of the data may be used during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md).
+   * [Load data into storage environments for analytics](data-science-ingest-data.md)
+   * [Import your training data into Azure Machine Learning Studio from various data sources](data-science-import-data.md).
+4. **Does the data need to be moved on a regular schedule or modified during migration?** Consider using Azure Data Factory (ADF) when data needs to be continually migrated, particularly if a hybrid scenario that accesses both on-premises and cloud resources is involved, or when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. For further information, see [Move data from an on-premises SQL server to SQL Azure with Azure Data Factory](data-science-move-sql-azure-adf.md)
+5. **How much of the data is to be moved to Azure?** Datasets that are very large may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio in the next section. In such cases a sample of the data may be used during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](data-science-sample-data.md).
 
 ## Data characteristics questions: type, format and size
 These questions are key to planning your storage and processing environments, each of which are appropriate to various types of data and each of which have certain restrictions.
@@ -71,15 +71,15 @@ These questions are key to planning your storage and processing environments, ea
 Take the Azure Machine Learning Studio environment for example:
 
 * For a list of the data formats and types supported by Azure Machine Learning Studio, see
-  [Data formats and data types supported](machine-learning-data-science-import-data.md#data-formats-and-data-types-supported) section.
-* For information on data limitations for Azure Machine Learning Studio, see the **How large can the data set be for my modules?** section of [Importing and exporting data for Machine Learning](machine-learning-faq.md#machine-learning-studio-questions)
+  [Data formats and data types supported](data-science-import-data.md#data-formats-and-data-types-supported) section.
+* For information on data limitations for Azure Machine Learning Studio, see the **How large can the data set be for my modules?** section of [Importing and exporting data for Machine Learning](faq.md#machine-learning-studio-questions)
 
 For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
 
 ## Data quality questions: exploration and pre-processing
-1. **What do you know about your data?** Explore data when you need to gain an understand its basic characteristics. What patterns or trends it exhibits, what outliers is has or how many values are missing. This step is important for determining the extent of pre-processing needed, for formulating hypotheses that could suggest the most appropriate features or type of analysis, and for formulating plans for additional data collection. Calculating descriptive statistics and plotting visualizations are useful techniques for data inspection. For details of how to explore a dataset in various Azure environments, see [Explore data in the Team Data Science Process](machine-learning-data-science-explore-data.md).
+1. **What do you know about your data?** Explore data when you need to gain an understand its basic characteristics. What patterns or trends it exhibits, what outliers is has or how many values are missing. This step is important for determining the extent of pre-processing needed, for formulating hypotheses that could suggest the most appropriate features or type of analysis, and for formulating plans for additional data collection. Calculating descriptive statistics and plotting visualizations are useful techniques for data inspection. For details of how to explore a dataset in various Azure environments, see [Explore data in the Team Data Science Process](data-science-explore-data.md).
 2. **Does the data require pre-processing or cleaning?**
-   Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. For a description, see [Tasks to prepare data for enhanced machine learning](machine-learning-data-science-prepare-data.md).
+   Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. For a description, see [Tasks to prepare data for enhanced machine learning](data-science-prepare-data.md).
 
 ## Tools and languages questions
 There are lots of options here depending on what languages and development environments or tools you need or are most conformable using.
@@ -92,7 +92,7 @@ There are lots of options here depending on what languages and development envir
 2. **What tools should you use for data analysis?**
    
    * [Microsoft Azure Powershell](/powershell/azure/overview) - a script language used to administer your Azure resources in a script language.
-   * [Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md)
+   * [Azure Machine Learning Studio](what-is-ml-studio.md)
    * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
    * [RStudio](http://www.rstudio.com)
    * [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
@@ -101,5 +101,5 @@ There are lots of options here depending on what languages and development envir
    * [Microsoft Power BI](http://powerbi.microsoft.com)
 
 ## Identify your advanced analytics scenario
-Once you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
+Once you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](data-science-plan-sample-scenarios.md).
 

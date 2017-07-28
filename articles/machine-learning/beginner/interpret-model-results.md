@@ -35,11 +35,11 @@ The modules used for prediction on top of these models are:
 * [Assign to Clusters][assign-to-clusters] module for clustering
 * [Score Matchbox Recommender][score-matchbox-recommender] for recommendation systems
 
-This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md).
+This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](algorithm-parameters-optimize.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
+This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning](evaluate-model-performance.md).
 
-If you are new to Azure Machine Learning and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) in Azure Machine Learning Studio.
+If you are new to Azure Machine Learning and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md) in Azure Machine Learning Studio.
 
 ## Classification
 There are two subcategories of classification problems:
@@ -74,7 +74,7 @@ There are six columns in the results table. The left four columns are the four f
 
 **Web service publication**
 
-After the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). This procedure provides you with a scoring experiment as shown in Figure 3.
+After the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](walkthrough-5-publish-web-service.md). This procedure provides you with a scoring experiment as shown in Figure 3.
 
 ![Screenshot of scoring experiment](../media/machine-learning-interpret-model-results/3.png)
 

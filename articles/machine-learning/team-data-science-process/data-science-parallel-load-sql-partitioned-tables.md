@@ -175,5 +175,5 @@ The following PowerShell script is an example of parallel data loading using BCP
   > 
 
 ## Advanced Analytics Process and Technology in Action Example
-For an end-to-end walkthrough example using the Cortana Analytics Process with a public dataset, see [Cortana Analytics Process in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example using the Cortana Analytics Process with a public dataset, see [Cortana Analytics Process in Action: using SQL Server](data-science-process-sql-walkthrough.md).
 

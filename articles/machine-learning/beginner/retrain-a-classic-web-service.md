@@ -21,14 +21,14 @@ ms.author: v-donglo
 The Predictive Web Service you deployed is the default scoring endpoint. Default endpoints are kept in sync with the original training and scoring experiments, and therefore the trained model for the default endpoint cannot be replaced. To retrain the web service, you must add a new endpoint to the web service. 
 
 ## Prerequisites
-You must have set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). 
+You must have set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
 > The predictive experiment must be deployed as a Classic machine learning web service. 
 > 
 > 
 
-For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
 ## Add a new Endpoint
 The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your web service to with a new trained model, you must create a new scoring endpoint. 
@@ -53,14 +53,14 @@ You can add scoring endpoints using the sample code provided in this [github rep
 1. In Machine Learning Studio, on the left navigation column, click Web Services.
 2. At the bottom of the web service dashboard, click **Manage endpoints preview**.
 3. Click **Add**.
-4. Type a name and description for the new endpoint. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning web services](machine-learning-web-services-logging.md).
+4. Type a name and description for the new endpoint. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning web services](web-services-logging.md).
 
 ### Use the Azure classic portal to add an endpoint
 1. Sign in to the [classic Azure portal](https://manage.windowsazure.com).
 2. In the left menu, click **Machine Learning**.
 3. Under Name, click your workspace and then click **Web Services**.
 4. Under Name, click **Census Model [predictive exp.]**.
-5. At the bottom of the page, click **Add Endpoint**. For more information on adding endpoints, see [Creating Endpoints](machine-learning-create-endpoint.md). 
+5. At the bottom of the page, click **Add Endpoint**. For more information on adding endpoints, see [Creating Endpoints](create-endpoint.md). 
 
 ## Update the added endpoint’s Trained Model
 To complete the retraining process, you must update the trained model of the new endpoint that you added.
@@ -141,5 +141,5 @@ Using the Retraining APIs, you can update the trained model of a predictive Web 
 * Distribution of a model to customers with the goal of letting them retrain the model using their own data.
 
 ## Next steps
-[Troubleshooting the retraining of an Azure Machine Learning classic web service](machine-learning-troubleshooting-retraining-models.md)
+[Troubleshooting the retraining of an Azure Machine Learning classic web service](troubleshooting-retraining-models.md)
 

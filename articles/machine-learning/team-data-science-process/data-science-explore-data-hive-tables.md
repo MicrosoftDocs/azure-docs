@@ -28,10 +28,10 @@ The following **menu** links to topics that describe how to use tools to explore
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
-* Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](machine-learning-data-science-customize-hadoop-cluster.md).
-* The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow the instructions in [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
-* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
-* If you need instructions on how to submit Hive queries, see [How to Submit Hive Queries](machine-learning-data-science-move-hive-tables.md#submit)
+* Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](data-science-customize-hadoop-cluster.md).
+* The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow the instructions in [Create and load data to Hive tables](data-science-move-hive-tables.md) to upload data to Hive tables first.
+* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](data-science-customize-hadoop-cluster.md#headnode).
+* If you need instructions on how to submit Hive queries, see [How to Submit Hive Queries](data-science-move-hive-tables.md#submit)
 
 ## Example Hive query scripts for data exploration
 1. Get the count of observations per partition

@@ -21,7 +21,7 @@ ms.author: v-donglo
 ## Retraining overview
 When you deploy a predictive experiment as a scoring web service it is a static model. As new data becomes available or when the consumer of the API has their own data, the model needs to be retrained. 
 
-For a complete walkthrough of the retraining process of a Classic Web service, see [Retrain Machine Learning Models Programmatically](machine-learning-retrain-models-programmatically.md).
+For a complete walkthrough of the retraining process of a Classic Web service, see [Retrain Machine Learning Models Programmatically](retrain-models-programmatically.md).
 
 ## Retraining process
 When you need to retrain the Web service, you must add some additional pieces:

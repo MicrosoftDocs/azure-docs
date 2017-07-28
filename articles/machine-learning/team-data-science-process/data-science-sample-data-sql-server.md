@@ -23,7 +23,7 @@ This document shows how to sample data stored in SQL Server on Azure using eithe
 The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC library to connect to SQL Server on Azure and the [Pandas](http://pandas.pydata.org/) library to do the sampling.
 
 > [!NOTE]
-> The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it is not, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic for instructions on how to move your data to SQL Server on Azure.
+> The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it is not, please refer to [Move data to SQL Server on Azure](data-science-move-sql-server-virtual-machine.md) topic for instructions on how to move your data to SQL Server on Azure.
 > 
 > 
 
@@ -114,7 +114,7 @@ You can use the following sample code to save the down-sampled data to a file an
 ![reader blob][2]
 
 ## The Team Data Science Process in Action example
-For an end-to-end walkthrough example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Sever](data-science-process-sql-walkthrough.md).
 
 [1]: ../media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ../media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png

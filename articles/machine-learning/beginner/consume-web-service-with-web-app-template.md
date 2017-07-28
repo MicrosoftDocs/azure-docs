@@ -117,9 +117,9 @@ When the job has completed you'll be given the location of the results in Azure 
 ## For more information
 To learn more about...
 
-* creating a machine learning experiment with Machine Learning Studio, see [Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md)
-* how to deploy your machine learning experiment as a web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
-* other ways to access your web service, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md)
+* creating a machine learning experiment with Machine Learning Studio, see [Create your first experiment in Azure Machine Learning Studio](create-experiment.md)
+* how to deploy your machine learning experiment as a web service, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md)
+* other ways to access your web service, see [How to consume an Azure Machine Learning Web service](consume-web-services.md)
 
 [image1]: media/machine-learning-consume-web-service-with-web-app-template/rrs-web-template-flow.png
 [image2]: media/machine-learning-consume-web-service-with-web-app-template/bes-web-template-flow.png

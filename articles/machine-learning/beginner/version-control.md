@@ -43,7 +43,7 @@ The run history snapshots keep an immutable version of the experiment in Azure M
 The JSON file is a textual representation of the experiment graph, which might include a reference to assets in the workspace such as a dataset or a trained model. It doesn't contain a serialized version of the asset. If you attempt to import the JSON document back into the workspace, the referenced assets must already exist with the same asset IDs that are referenced in the experiment. Otherwise you will not be able to access the imported experiment.
 
 ## Versioning trained model
-A trained model in Azure Machine Learning is serialized into a format known as an .iLearner file, and is stored in the Azure Blob storage account associated with the workspace. One way to get a copy of the .iLearner file is through the retraining API. [This article](machine-learning-retrain-models-programmatically.md) explains how the retraining API works. The high-level steps:
+A trained model in Azure Machine Learning is serialized into a format known as an .iLearner file, and is stored in the Azure Blob storage account associated with the workspace. One way to get a copy of the .iLearner file is through the retraining API. [This article](retrain-models-programmatically.md) explains how the retraining API works. The high-level steps:
 
 1. Set up your training experiment.
 2. Add a web service output port to the Train Model module, or the module that produces the trained model, such as Tune Model Hyperparameter or Create R Model.
@@ -72,7 +72,7 @@ To version a classic web service, you can take advantage of the web service endp
 
 Over time, you might have many endpoints created in the same web service. Each endpoint represents a point-in-time copy of the experiment containing the point-in-time version of the trained model. You can then use external logic to determine which endpoint to call, which effectively means selecting a version of the trained model for the scoring run.
 
-You can also create many identical web service endpoints, and then patch different versions of the .iLearner file to the endpoint to achieve similar effect. [This article](machine-learning-create-models-and-endpoints-with-powershell.md) explains in more detail how to accomplish that.
+You can also create many identical web service endpoints, and then patch different versions of the .iLearner file to the endpoint to achieve similar effect. [This article](create-models-and-endpoints-with-powershell.md) explains in more detail how to accomplish that.
 
 ### New web service
 If you create a new Azure Resource Manager-based web service, the endpoint construct is no longer available. Instead, you can generate web service definition (WSD) files, in JSON format, from your predictive experiment by using the [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet, or by using the [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell commandlet from a deployed Resource Manager-based web service.
@@ -95,5 +95,5 @@ An important aspect of ALM is to be able to automate the execution and deploymen
 
 ## Next steps
 * Download the [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) module and start to automate your ALM tasks.
-* Learn how to [create and manage large number of ML models by using just a single experiment](machine-learning-create-models-and-endpoints-with-powershell.md) through PowerShell and retraining API.
-* Learn more about [deploying Azure Machine Learning web services](machine-learning-publish-a-machine-learning-web-service.md).
+* Learn how to [create and manage large number of ML models by using just a single experiment](create-models-and-endpoints-with-powershell.md) through PowerShell and retraining API.
+* Learn more about [deploying Azure Machine Learning web services](publish-a-machine-learning-web-service.md).

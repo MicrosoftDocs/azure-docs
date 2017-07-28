@@ -59,8 +59,8 @@ Once the workspace is deployed, you can open it in Machine Learning Studio.
 
     ![Open experiments](../media/machine-learning-create-workspace/my-experiments.png)
 
-For information about managing your workspace, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
-If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning workspace](machine-learning-troubleshooting-creating-ml-workspace.md).
+For information about managing your workspace, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
+If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning workspace](troubleshooting-creating-ml-workspace.md).
 
 
 ## Sharing an Azure Machine Learning workspace

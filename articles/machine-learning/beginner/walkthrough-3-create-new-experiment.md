@@ -18,14 +18,14 @@ ms.author: garye
 
 ---
 # Walkthrough Step 3: Create a new Azure Machine Learning experiment
-This is the third step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+This is the third step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
-2. [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
+1. [Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md)
+2. [Upload existing data](walkthrough-2-upload-data.md)
 3. **Create a new experiment**
-4. [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Deploy the Web service](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Access the Web service](machine-learning-walkthrough-6-access-web-service.md)
+4. [Train and evaluate the models](walkthrough-4-train-and-evaluate-models.md)
+5. [Deploy the Web service](walkthrough-5-publish-web-service.md)
+6. [Access the Web service](walkthrough-6-access-web-service.md)
 
 - - -
 The next step in this walkthrough is to create an experiment in Machine Learning Studio that uses the dataset we uploaded.  
@@ -117,7 +117,7 @@ To do this, we use the [Split Data][split] module.
 
 We can use the outputs of the [Split Data][split] module however we like, but let's choose to use the left output as training data and the right output as testing data.  
 
-As mentioned in the [previous step](machine-learning-walkthrough-2-upload-data.md), the cost of misclassifying a high credit risk as low is five times higher than the cost of misclassifying a low credit risk as high. To account for this, we generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
+As mentioned in the [previous step](walkthrough-2-upload-data.md), the cost of misclassifying a high credit risk as low is five times higher than the cost of misclassifying a low credit risk as high. To account for this, we generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
 
 We can do this replication using R code:  
 
@@ -156,9 +156,9 @@ Our experiment now looks something like this:
 
 ![Adding Split module and R scripts][4]
 
-For more information on using R scripts in your experiments, see [Extend your experiment with R](machine-learning-extend-your-experiment-with-r.md).
+For more information on using R scripts in your experiments, see [Extend your experiment with R](extend-your-experiment-with-r.md).
 
-**Next: [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
+**Next: [Train and evaluate the models](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ../media/machine-learning-walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ../media/machine-learning-walkthrough-3-create-new-experiment/rename-experiment.png

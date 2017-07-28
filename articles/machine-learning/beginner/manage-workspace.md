@@ -20,7 +20,7 @@ ms.author: garye
 # Manage an Azure Machine Learning workspace
 
 > [!NOTE]
-> For information on managing Web services in the Machine Learning Web Services portal, see [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md).
+> For information on managing Web services in the Machine Learning Web Services portal, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
 > 
 > 
 
@@ -41,7 +41,7 @@ In addition to the standard resource management information and options availabl
 - View **Properties** - This page displays the workspace and resource information, and you can change the subscription and resource group that this workspace is connected with.
 - **Resync Storage Keys** - The workspace maintains keys to the storage account. If the storage account changes keys, then you can click **Resync keys** to synchronize the keys with the workspace.
 
-To manage the web services associated with this workspace, use the Machine Learning Web Services portal. See [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md) for complete information.
+To manage the web services associated with this workspace, use the Machine Learning Web Services portal. See [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) for complete information.
 
 > [!NOTE]
 > To deploy or manage New web services you must be assigned a contributor or administrator role on the subscription to which the web service is deployed. If you invite another user to a machine learning workspace, you must assign them to a contributor or administrator role on the subscription before they can deploy or manage web services. 
@@ -130,6 +130,6 @@ From the dashboard, you can view overall usage of your Web service over a period
 From the Configure page, you can update the following properties:
 
 * **Description** allows you to enter a description for the Web service. Description is a required field.
-* **Logging** allows you to enable or disable error logging on the endpoint. For more information on Logging, see Enable [logging for Machine Learning web services](machine-learning-web-services-logging.md).
+* **Logging** allows you to enable or disable error logging on the endpoint. For more information on Logging, see Enable [logging for Machine Learning web services](web-services-logging.md).
 * **Enable Sample data** allows you to provide sample data that you can use to test the Request-Response service. If you created the web service in Machine Learning Studio, the sample data is taken from the data your used to train your model. If you created the service programmatically, the data is taken from the example data you provided as part of the JSON package.
 

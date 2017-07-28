@@ -22,12 +22,12 @@ In this walkthrough, you will learn how to programmatically retrain an Azure Mac
 
 Once you have retrained the model, the following walkthroughs show how to update the model in your predictive web service:
 
-* If you deployed a Classic web service in the Machine Learning Web Services portal, see [Retrain a Classic web service](machine-learning-retrain-a-classic-web-service.md). 
-* If you deployed a New web service, see [Retrain a New web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
+* If you deployed a Classic web service in the Machine Learning Web Services portal, see [Retrain a Classic web service](retrain-a-classic-web-service.md). 
+* If you deployed a New web service, see [Retrain a New web service using the Machine Learning Management cmdlets](retrain-new-web-service-using-powershell.md).
 
-For an overview of the retraining process, see [Retrain a Machine Learning Model](machine-learning-retrain-machine-learning-model.md).
+For an overview of the retraining process, see [Retrain a Machine Learning Model](retrain-machine-learning-model.md).
 
-If you want to start with your existing New Azure Resource Manager based web service, see [Retrain an existing Predictive web service](machine-learning-retrain-existing-resource-manager-based-web-service.md).
+If you want to start with your existing New Azure Resource Manager based web service, see [Retrain an existing Predictive web service](retrain-existing-resource-manager-based-web-service.md).
 
 ## Create a training experiment
 For this example, you will use "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" from the Microsoft Azure Machine Learning samples. 
@@ -55,7 +55,7 @@ Next you create a Predicative Experiment.
 3. After the experiment has finished running, click **Deploy Web Service [Classic]** or **Deploy Web Service [New]**.
 
 > [!NOTE] 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
 
 ## Deploy the training experiment as a Training web service
 To retrain the trained model, you must deploy the training experiment that you created as a Retraining web service. This web service needs a *Web Service Output* module connected to the *[Train Model][train-model]* module, to be able to produce new trained models.
@@ -165,9 +165,9 @@ Examine the results to determine whether the newly trained model performs well e
 Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results, you will use them during the retraining process.
 
 ## Next steps
-If you deployed the predictive web service by clicking **Deploy Web Service [Classic]**, see [Retrain a Classic web service](machine-learning-retrain-a-classic-web-service.md).
+If you deployed the predictive web service by clicking **Deploy Web Service [Classic]**, see [Retrain a Classic web service](retrain-a-classic-web-service.md).
 
-If you deployed the predictive web service by clicking **Deploy Web Service [New]**, see [Retrain a New web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
+If you deployed the predictive web service by clicking **Deploy Web Service [New]**, see [Retrain a New web service using the Machine Learning Management cmdlets](retrain-new-web-service-using-powershell.md).
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 

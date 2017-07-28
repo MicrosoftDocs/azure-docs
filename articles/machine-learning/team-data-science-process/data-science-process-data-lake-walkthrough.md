@@ -679,8 +679,8 @@ By completing this walkthrough you have created a data science environment for b
 The learning path for the
 [Team Data Science Process (TDSP)](http://aka.ms/datascienceprocess) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
 
-* [The Team Data Science Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-* [The Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
-* [The Team Data Science Process: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-* [Overview of the Data Science Process using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md)
+* [The Team Data Science Process in action: using SQL Data Warehouse](data-science-process-sqldw-walkthrough.md)
+* [The Team Data Science Process in action: using HDInsight Hadoop clusters](data-science-process-hive-walkthrough.md)
+* [The Team Data Science Process: using SQL Server](data-science-process-sql-walkthrough.md)
+* [Overview of the Data Science Process using Spark on Azure HDInsight](data-science-spark-overview.md)
 
