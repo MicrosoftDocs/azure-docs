@@ -155,4 +155,5 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=site-recovery)

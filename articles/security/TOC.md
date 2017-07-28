@@ -79,6 +79,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure security MVP program](azure-security-mvp.md)
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Security videos on Channel 9](security-channel-nine.md)
