@@ -102,9 +102,9 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Cosm
       ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/documentdb-dotnet-application/image21.png)
    
     The **Manage NuGet Packages** dialog box appears.
-2. In the NuGet **Browse** box, type ***Azure Cosmos DB***.
+2. In the NuGet **Browse** box, type ***Azure DocumentDB***.
    
-    From the results, install the **Microsoft Azure Cosmos DB Client Library** package. This will download and install the Azure Cosmos DB package as well as all dependencies, like Newtonsoft.Json. Click **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the install.
+    From the results, install the **Microsoft.Azure.DocumentDB by Microsoft** package. This will download and install the Azure Cosmos DB package as well as all dependencies, like Newtonsoft.Json. Click **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the install.
    
       ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure Cosmos DB Client Library highlighted](./media/documentdb-dotnet-application/nuget.png)
    
