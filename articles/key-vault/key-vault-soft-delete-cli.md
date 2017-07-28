@@ -43,7 +43,7 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
->[NOTE!]
+>[!NOTE]
 >Currently you'll need to use ARM’s resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
 
 ```azurecli
