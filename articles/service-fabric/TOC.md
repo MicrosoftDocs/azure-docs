@@ -329,6 +329,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Support options](service-fabric-support.md)
 ## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
