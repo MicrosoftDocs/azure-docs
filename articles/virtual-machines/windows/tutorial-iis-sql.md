@@ -199,15 +199,13 @@ $scriptURL = (Get-AzureStorageBlob -Container $ContainerName -Context $context).
 Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) to install the Custom Script Extension. The extension runs the script on the VM to configure the VM and the application settings.
 
 ```powershell
-for ($i=1; $i -le 3; $i++)
-{
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
-    -VMName myVM$i `
+    -VMName $vmName `
     -Location $location `
     -FileUri $scriptURL `
     -Run musicstore.ps1 `
     -Name MusicStoreExtension
-}
+
 ```
 
 ## Test load balancer
