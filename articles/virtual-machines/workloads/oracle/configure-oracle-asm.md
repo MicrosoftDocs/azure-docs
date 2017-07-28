@@ -366,25 +366,18 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
 4. Unzip the files. (Install the Linux unzip tool if it's not already installed.)
    
    ```bash
-   yum install unzip
-   unzip linuxamd64_12102_grid_1of2.zip
-   unzip linuxamd64_12102_grid_2of2.zip
+   sudo yum install unzip
+   sudo unzip linuxamd64_12102_grid_1of2.zip
+   sudo unzip linuxamd64_12102_grid_2of2.zip
    ```
 
 5. Change permission:
    
    ```bash
-   chown -R grid:oinstall /opt/grid
+   sudo chown -R grid:oinstall /opt/grid
    ```
 
-6. Turn off the firewall:
-   
-   ```bash
-   service iptables status
-   service iptables stop
-   ```
-
-7. Update configured swap space. Oracle Grid components need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You will need to increase `ResourceDisk.SwapSizeMB` in the `/etc/waagent.conf` file and restart the WALinuxAgent service in order for the updated settings to take effect. Because it is a read only file, you will also need to change file permissions to enable write access. 
+6. Update configured swap space. Oracle Grid components need at least 6.8 GB of swap space to install Grid. The default swap file size for Oracle Linux images in Azure is only 2048MB. You will need to increase `ResourceDisk.SwapSizeMB` in the `/etc/waagent.conf` file and restart the WALinuxAgent service in order for the updated settings to take effect. Because it is a read only file, you will also need to change file permissions to enable write access.
 
    ```bash
    sudo chmod 777 /etc/waagent.conf  
@@ -393,7 +386,8 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    
    Search for `ResourceDisk.SwapSizeMB` and change the value to **8192**. You will need to press `insert` to enter insert mode, type in the value of **8192** and then press `esc` to return to command mode. To write the changes and quit the file, type `:wq` and press `enter`.
    
-   We highly recommend that you always use `WALinuxAgent` to configure swap space so that it's always created on the local ephemeral disk (temporary disk) for best performance. For more information on, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
+   > [!NOTE]
+   > We highly recommend that you always use `WALinuxAgent` to configure swap space so that it's always created on the local ephemeral disk (temporary disk) for best performance. For more information on, see [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
 
 ## Prepare your local client and VM to run x11
 Configuring Oracle ASM requires a graphical interface to complete the install and configuration. We will be using the x11 protocol to facilitate this installation. If you are using a client system (Mac or Linux) that already has X11 capabilities enabled and configured - you can skip this configuration and setup exclusive to Windows machines. 
@@ -441,14 +435,14 @@ Configuring Oracle ASM requires a graphical interface to complete the install an
 
 To install Oracle Grid Infrastructure, complete the following steps:
 
-1. Sign in as grid. (You should be able to sign in without being prompted for a password.) 
+1. Sign in as **grid**. (You should be able to sign in without being prompted for a password.) 
 
    > [!NOTE]
-   > Make sure that Xming is running before you begin the installation.
+   > If you are running Windows, make sure you have started Xming before you begin the installation.
 
    ```bash
-   $ cd /opt/grid
-   $ ./runInstaller
+   cd /opt/grid
+   ./runInstaller
    ```
 
    Oracle Grid Infrastructure 12c Release 1 Installer opens. (It might take a few minutes for the  installer to start.)
