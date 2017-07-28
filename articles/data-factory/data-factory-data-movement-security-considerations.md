@@ -3,7 +3,7 @@ title: Security considerations for data movement in Azure Data Factory  | Micros
 description: 'Learn about securing data movement in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: abnarain
+author: nabhishek
 manager: jhubbard
 editor: monicar
 
@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-ms.author: jingwang
+ms.date: 07/27/2017
+ms.author: abnarain
 
 ---
 
