@@ -27,7 +27,7 @@ The Batch Rendering service currently supports the following rendering engines:
 
 To use the Batch Rendering service, you need:
 
-- **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md)]. 
+- **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md). 
 - **An Azure Storage account.** You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. To learn more about Storage accounts, see [How to create, manage, or delete a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
 ## Load the Batch plug-in in Maya
