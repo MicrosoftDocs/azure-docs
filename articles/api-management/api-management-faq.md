@@ -133,7 +133,7 @@ API Management uses the [performance traffic routing method](../traffic-manager/
 Yes. See the [Azure API Management Service](http://aka.ms/apimtemplate) QuickStart templates.
 
 ### Can I use a self-signed SSL certificate for a back end?
-Yes. You can use the [`Set-AzureRmApiManagementBackend` PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) and set the `-SkipCertificateChainValidation` parameter to `True`. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
+Yes. You can use the [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (for new back end) or [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
 
 ### Why do I get an authentication failure when I try to clone a Git repository?
 If you use Git Credential Manager, or if you're trying to clone a Git repository by using Visual Studio, you might run into a known issue with the Windows credentials dialog box. The dialog box limits password length to 127 characters, and it truncates the Microsoft-generated password. We are working on shortening the password. For now, please use Git Bash to clone your Git repository.
