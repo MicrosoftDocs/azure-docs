@@ -3,7 +3,7 @@ title: Service Fabric and deploying containers | Microsoft Docs
 description: Service Fabric and the use of containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Windows container image into a cluster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/16/2017
-ms.author: msfussell
+ms.author: ryanwi
 
 ---
 # Deploy a Windows container to Service Fabric
