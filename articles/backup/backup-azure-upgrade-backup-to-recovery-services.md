@@ -33,7 +33,7 @@ When upgrading a Backup vault to a Recovery Services vault, there is no impact t
 ## Changes to your automation and tool after upgrading
 
 While preparing your infrastructure for the vault upgrade, you must update your existing automation or tooling to ensure that it continues to work after the upgrade.
-Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md)
+Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md).
 
 
 ## Before you upgrade
@@ -67,12 +67,11 @@ Use the following script to upgrade your vaults. The following sample script has
 
 RecoveryServicesVaultUpgrade.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
-
-SubscriptionID - The subscription ID number of the vault that is being upgraded.
-VaultName - The name of the Backup vault that is being upgraded.
-Location - Location of the vault being upgraded.
-ResourceType - Use BackupVault.
-TargetResourceGroupName - Since you are upgrading the vault to a Resource Manager-based deployment, specify a Resource Group. You can use an existing Resource Group, or create one by providing a new name. If you misspell the name of a Resource Group, you may create a new Resource Group. To learn more about Resource Groups, read this [overview about Resource Groups](../azure-resource-manager/resource-group-overview.md#resource-groups).
+**SubscriptionID** - The subscription ID number of the vault that is being upgraded.<br/>
+**VaultName** - The name of the Backup vault that is being upgraded.<br/>
+**Location** - Location of the vault being upgraded.<br/>
+**ResourceType** - Use BackupVault.<br/>
+**TargetResourceGroupName** - Since you are upgrading the vault to a Resource Manager-based deployment, specify a Resource Group. You can use an existing Resource Group, or create one by providing a new name. If you misspell the name of a Resource Group, you may create a new Resource Group. To learn more about Resource Groups, read this [overview about Resource Groups](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
 > Resource Group names have constraints. Be sure to follow the guidance; failure to do so could cause vault upgrades to fail.
