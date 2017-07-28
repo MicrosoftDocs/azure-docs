@@ -131,9 +131,9 @@ You can specify the license servers you wish to use on the **Env** tab. Options 
 
 ### Manage persistent pools
 
-You can manage an existing persistent pool on the **Pools** tab. Selecting a pool from the list displays the current state of the pool, including how many nodes are running, the selected VM image, the VM type and the licenses that are deployed to that pool.
+You can manage an existing persistent pool on the **Pools** tab. Selecting a pool from the list displays the current state of the pool, including how many nodes are running, the selected VM image, the VM type, and the licenses that are deployed to that pool.
 
-From the **Pools** tab, you can also delete the pool and resize the number of VMs in the pool. You can resize a pool to 0 nodes to avoid incurring costs inbetween workloads.
+From the **Pools** tab, you can also delete the pool and resize the number of VMs in the pool. You can resize a pool to 0 nodes to avoid incurring costs in between workloads.
 
 ![View, resize, and delete pools](./media/batch-rendering-service/pools.png)
 
@@ -143,7 +143,7 @@ Once you have specified the parameters for the pool that will run the render job
 
 ### Specify scene parameters
 
-The Batch plug-in detects which rendering engine you're currently using in Maya, and displays the appropriate render settings on the **Submit** tab based on the settings found in the scene file. These settings include the start frame, end frame, output prefix,and frame step. You can override the scene file render settings by specifying different settings in the plug-in. Changes you make to the plug-in settings are not persisted back to the scene file render settings, so you can make changes on a job-by-job basis without needing to re-upload the scene file.
+The Batch plug-in detects which rendering engine you're currently using in Maya, and displays the appropriate render settings on the **Submit** tab based on the settings found in the scene file. These settings include the start frame, end frame, output prefix, and frame step. You can override the scene file render settings by specifying different settings in the plug-in. Changes you make to the plug-in settings are not persisted back to the scene file render settings, so you can make changes on a job-by-job basis without needing to reupload the scene file.
 
 The plug-in warns you if the render engine that you selected in Maya is not supported.
 
@@ -155,7 +155,7 @@ When you load the plug-in, it scans the scene file for any external file referen
 
 ![Missing assets are displayed with a warning icon](./media/batch-rendering-service/missing_assets.png)
 
-If you know the location of an unresolved file references, you can click the warning icon to be prompted to add a search path. The plug-in then uses this search path to attempt to resolve any missing assets. You can add any number of additional search paths.
+If you know the location of an unresolved file reference, you can click the warning icon to be prompted to add a search path. The plug-in then uses this search path to attempt to resolve any missing assets. You can add any number of additional search paths.
 
 ![Resolved assets show a green light icon](./media/batch-rendering-service/found_assets.png)
 
@@ -165,7 +165,7 @@ If you are aware of asset references that the plug-in has not detected, you can 
 
 When you submit a render job, the referenced files displayed in the **Assets** tab are automatically uploaded to a container in Azure Storage. You can also upload the asset files independently of a render job, using the **Upload** button on the **Assets** tab. The destination container name is specified in the **Project** field, and is named after the current Maya project by default. When asset files are uploaded to the container, the file structure of the project is preserved. 
 
-Once uploaded, assets can be referenced by any number of render jobs. All uploaded assets are available to a job that references the container, regardless of whether a particular asset was explicitly referenced by that scene. To change the destination container referenced by your next job, change the name in the **Project** field in the **Assets** tab. If there are referenced files that you wish to exclude from uploading, unselect them using the green button beside the listing.
+Once uploaded, assets can be referenced by any number of render jobs. All uploaded assets are available to any job that references the container, regardless of whether a particular asset was referenced by the scene. To change the destination container referenced by your next job, change the name in the **Project** field in the **Assets** tab. If there are referenced files that you wish to exclude from uploading, unselect them using the green button beside the listing.
 
 ### Submit and monitor the render job
 
