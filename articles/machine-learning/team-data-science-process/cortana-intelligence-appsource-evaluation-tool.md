@@ -30,16 +30,16 @@ Prerequisites:
 ## Identifying your app
 After installation completes, open the tool and begin your first evaluation.
 
-![Open evaluation tool](./media/cortana-intelligence-appsource-evaluation-tool/1-open-evaluation-tool.png)
+![Open evaluation tool](../media/cortana-intelligence-appsource-evaluation-tool/1-open-evaluation-tool.png)
 
 Provide identifying information about your solution.
 
-![Connect Azure subscription](./media/cortana-intelligence-appsource-evaluation-tool/2-connect-azure-subscription.png)
+![Connect Azure subscription](../media/cortana-intelligence-appsource-evaluation-tool/2-connect-azure-subscription.png)
 
 Connect to your Azure subscription and provide the Resource Group
 containing your app.
 
-![Select resources](./media/cortana-intelligence-appsource-evaluation-tool/3-select-resources.png)
+![Select resources](../media/cortana-intelligence-appsource-evaluation-tool/3-select-resources.png)
 
 Once the resource group has been loaded, please select the resources that are included in your solution and identify the accessibility of any data resources as either:
 - Ingestion
@@ -64,16 +64,16 @@ Use internal for any data resources that are used only in internal application p
 
 Next, you will be prompted to provide valid credentials for any databases specified in the prior step:
 
-![Set test prerequisites](./media/cortana-intelligence-appsource-evaluation-tool/4-set-test-prerequisites.png)
+![Set test prerequisites](../media/cortana-intelligence-appsource-evaluation-tool/4-set-test-prerequisites.png)
 
 ## Solution test cases
 The solution tool will perform a collection of automated tests on your solution.
 
-![Set test execution](./media/cortana-intelligence-appsource-evaluation-tool/5-set-test-execution.png)
+![Set test execution](../media/cortana-intelligence-appsource-evaluation-tool/5-set-test-execution.png)
 
 After the tests complete, you will be asked to provide an explanation or justification for why your solution does not comply with the requirement.
 
-![Provide business justification](./media/cortana-intelligence-appsource-evaluation-tool/6-provide-business-justification.png)
+![Provide business justification](../media/cortana-intelligence-appsource-evaluation-tool/6-provide-business-justification.png)
 
 For example, if your solution publishes to Azure SQL DW, the evaluation tests require you to also publish to Azure Analysis Services. 
 
@@ -83,7 +83,7 @@ After completing the test cases, your evaluation package will be exported to a z
 
 You need to share this test results zip file with Microsoft for your solution to be evaluated before getting approval to be added to AppSource
 
-![Grade evaluation tool](./media/cortana-intelligence-appsource-evaluation-tool/7-grade-evaluation-tool.png)
+![Grade evaluation tool](../media/cortana-intelligence-appsource-evaluation-tool/7-grade-evaluation-tool.png)
 
 Above section of this article covers various features of the tool, now let us review types of best practices that this tool evaluates.
 

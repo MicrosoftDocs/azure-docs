@@ -24,4 +24,4 @@ You can download a full-size version of the diagram here: [Architecture diagram:
 
 ![Microsoft Cortana Intelligence Solution Template architecture diagram for predictive maintenance][image]
 
-[image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
+[image]: ../media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png

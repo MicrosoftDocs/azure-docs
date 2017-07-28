@@ -209,5 +209,5 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 
 [SQL Server on Azure Virtual Machines overview](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
-[1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
-[2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
+[1]: ../media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
+[2]: ../media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png

@@ -38,7 +38,7 @@ The solution is implemented as a [lambda architecture pattern](https://en.wikipe
 * gives this solution a rich dashboard for real-time data and predictive analytics visualizations using Power BI
 
 ## Architecture
-![Solution architecture diagram](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
+![Solution architecture diagram](../media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 *Figure 1 – Vehicle Telemetry Analytics Solution Architecture*
 
 This solution includes the following **Cortana Intelligence components** and showcases their end to end integration:

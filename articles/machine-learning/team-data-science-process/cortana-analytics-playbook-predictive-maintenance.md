@@ -392,7 +392,7 @@ recorded for an asset for each unit of time with the blue lines and mark
 the rolling average feature calculation for W=3 for the records at t<sub>1</sub>
 and t<sub>2</sub> which are indicated by orange and green groupings respectively.
 
-![Figure 1. Rolling aggregate features](media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+![Figure 1. Rolling aggregate features](../media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
 
 Figure 1. Rolling aggregate features
 
@@ -410,7 +410,7 @@ degradation patterns or a small number to capture short-term effects. We
 then use k tumbling windows W-<sub>k</sub> , W-<sub>(k-1)</sub>, …, W-<sub>2</sub> , W-<sub>1</sub> to create aggregate features for the periods before the record date and time (see Figure 2). These are also rolling windows at the record level for a time unit which is not captured in Figure 2 but the idea is the same as in Figure 1 where t<sub>2</sub> is also used to demonstrate the rolling
 effect.
 
-![Figure 2. Tumbling aggregate features](media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+![Figure 2. Tumbling aggregate features](../media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
 
 Figure 2. Tumbling aggregate features
 
@@ -443,7 +443,7 @@ In order to use binary classification, we need to identify two types of examples
 #### Label construction
 In order to create a predictive model to answer the question "What is the probability that the asset fails in the next X units of time?", labeling is done by taking X records prior to the failure of an asset and labeling them as "about to fail" (label = 1) while labeling all other records as "normal" (label =0). In this method, labels are categorical variables (see Figure 3).
 
-![Figure 3. Labeling for binary classification](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+![Figure 3. Labeling for binary classification](../media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
 
 Figure 3. Labeling for binary classification
 
@@ -464,7 +464,7 @@ record prior to the failure and labeling them by calculating how many
 units of time remain before the next failure. In this method, labels are
 continuous variables (See Figure 4).
 
-![Figure 4. Labeling for regression](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+![Figure 4. Labeling for regression](../media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
 
 Figure 4. Labeling for regression
 
@@ -502,7 +502,7 @@ the failure of an asset and labeling them using buckets of time (3Z, 2Z,
 Z) as their labels while labeling all other records as "normal" (label
 =0). In this method, label is categorical variable (See Figure 5).
 
-![Figure 5. Labeling for multiclass classification for failure time prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+![Figure 5. Labeling for multiclass classification for failure time prediction](../media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
 
 Figure 5. Labeling for multiclass classification for failure time
 prediction
@@ -513,7 +513,7 @@ problem P<sub>i</sub>" (label = P<sub>i</sub>) while labeling all other records 
 "normal" (label =0). In this method, labels are categorical variables
 (See Figure 6).
 
-![Figure 6. Labeling for multiclass classification for root cause prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+![Figure 6. Labeling for multiclass classification for root cause prediction](../media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
 Figure 6. Labeling for multiclass classification for root cause
 prediction
@@ -599,7 +599,7 @@ method described above. Given that, the figure shows the records that
 should go into training and testing sets when implementing
 time-dependent split for X=2 and W=3:
 
-![Figure 7. Time-dependent split for binary classification](media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+![Figure 7. Time-dependent split for binary classification](../media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
 
 Figure 7. Time-dependent split for binary classification
 
@@ -763,7 +763,7 @@ Same data warehouses can be used for batch scoring of the examples and
 storing of the results which can again be used to provide predictive
 reports on the dashboard.
 
-![Figure 8. Example solution architecture for predictive maintenance](media/cortana-analytics-playbook-predictive-maintenance/example-solution-architecture-for-predictive-maintenance.png)
+![Figure 8. Example solution architecture for predictive maintenance](../media/cortana-analytics-playbook-predictive-maintenance/example-solution-architecture-for-predictive-maintenance.png)
 
 Figure 8. Example solution architecture for predictive maintenance
 

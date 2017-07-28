@@ -102,12 +102,12 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
                 val conf = new SparkConf().setAppName("MyClusterApp")
                 val sc = new SparkContext(conf)
 
-                val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+                val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
                 //find the rows that have only one digit in the seventh column in the CSV file
                 val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 
-                rdd1.saveAsTextFile("wasbs:///HVACOut")
+                rdd1.saveAsTextFile("wasb:///HVACOut")
               }
 
             }
@@ -152,12 +152,12 @@ You can perform various operations by using Azure Toolkit for IntelliJ.
        ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Click the name of the application for which you want to see more details.
        ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
-3. Hover on job graph, it displays basic running job info. Click on job graph, you can see the stages graph and info which every job generate.
+3. Hover on job graph, it displays basic running job info. Click on job graph, you can see the stages graph and info which every job generates.
        ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
 4. Frequently-used log including Driver Stderr, Driver Stdout, Directory Info are listed in **Log** tab.
        ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
-5. You can also open the Spark history UI and the YARN UI (at the application level) by clicking the respective hyplink at the top of the window.
+5. You can also open the Spark history UI and the YARN UI (at the application level) by clicking the respective hyperlink at the top of the window.
 
 ### Access the Spark history server
 1. In Azure Explorer, expand **HDInsight**, right-click your Spark cluster name, and then select **Open Spark History UI**. When you're prompted, enter the admin credentials for the cluster. You must have specified these while provisioning the cluster.

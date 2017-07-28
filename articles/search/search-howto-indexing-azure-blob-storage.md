@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/20/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
 ---
 
@@ -30,7 +30,7 @@ The blob indexer can extract text from the following document formats:
 * ZIP
 * EML
 * RTF
-* Plain text files (see [Indexing plain text](#IndexingPlainText))
+* Plain text files (see also [Indexing plain text](#IndexingPlainText))
 * JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md))
 * CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
 
@@ -84,8 +84,10 @@ For more on the Create Datasource API, see [Create Datasource](https://docs.micr
 You can provide the credentials for the blob container in one of these ways:
 
 - **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
-- **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. The SAS should have the list and read permissions on containers and objects (blobs in this case).
--  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. The SAS should have the list and read permissions on the container.
+- **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`
+ The SAS should have the list and read permissions on containers and objects (blobs in this case).
+-  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`
+ The SAS should have the list and read permissions on the container.
 
 For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -335,6 +337,8 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 - Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
 
+- One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md).
+
 ## Indexing documents along with related data
 
 You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts. 
@@ -344,7 +348,7 @@ For this to work, all indexers and other components need to agree on the documen
 <a name="IndexingPlainText"></a>
 ## Indexing plain text 
 
-If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using the **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
+If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -355,7 +359,7 @@ If all your blobs contain plain text in the same encoding, you can significantly
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
 
-By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration parameter: 
+By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property: 
 
 	{
       ... other parts of indexer definition
