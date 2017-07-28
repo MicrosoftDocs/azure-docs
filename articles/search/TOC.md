@@ -79,6 +79,7 @@
 ## [API versions](search-api-versions.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
 ## Courseware & tutorials
