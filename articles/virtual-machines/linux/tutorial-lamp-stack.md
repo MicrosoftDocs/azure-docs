@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 07/27/2017
 ms.author: danlep
 
 ---
@@ -68,8 +68,8 @@ Run the following commands to update Ubuntu package sources and install Apache, 
 
 
 ```bash
-sudo apt-get update
-sudo apt-get install apache2 mysql-server php libapache2-mod-php php-mysql
+sudo apt update
+sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql
 ```
 
 
@@ -94,7 +94,7 @@ Check the version of Apache with the following command:
 apache2 -v
 ```
 
-With Apache installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the Apache2 Ubuntu Default Page, open a web browser, and enter the public IP address of the VM. Be sure to use the public IP address you used to SSH to the virtual machine:
+With Apache installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the Apache2 Ubuntu Default Page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
 
 ![][3]
 
@@ -126,7 +126,11 @@ Enter your password, and at the myql prompt type:
 ```mysql
 CREATE DATABASE myfirstdatabase;
 ```
+If you no longer need the database, delete it:
 
+```mysql
+DROP DATABASE myfirstdatabase;
+```
 To exit the mysql prompt, type:
 
 ```mysql
@@ -140,7 +144,7 @@ Check the version of PHP with the following command:
 ```bash
 php -v
 ```
-If you would like to test further, create a quick PHP info page to view in a browser. The following command creates the PHP info page:
+If you want to test further, create a quick PHP info page to view in a browser. The following command creates the PHP info page:
 
 ```
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
@@ -157,11 +161,70 @@ Now you can check the PHP info page you created. Open a browser and go to `http:
 ![][2]
 
 
+## Install WordPress
+
+If you want to test your LAMP stack, you can install the WordPress platform to create websites and blogs. Here are brief steps. For more information and steps for production installion, see the [Ubuntu documenation](https://help.ubuntu.com/lts/serverguide/wordpress.html).
 
 
 
+### Install the WordPress package
 
+Run the following command:
 
+```bash
+sudo apt install wordpress
+```
+
+### Configure WordPress
+
+Open a text editor and create the file `/etc/wordpress/config-localhost.php`:
+
+```bash
+sudo nano /etc/wordpress/config-localhost.php
+```
+Copy the following lines to the file, substituting your database password (leave other values unchanged):
+
+```
+<?php
+define('DB_NAME', 'wordpress');
+define('DB_USER', 'wordpress');
+define('DB_PASSWORD', 'yourPassword');
+define('DB_HOST', 'localhost');
+define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
+?>
+```
+
+Create a temporary text file `wordpress.sql` with the following commands to create the WordPress database. Substitute your database password:
+
+```
+CREATE DATABASE wordpress;
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
+ON wordpress.*
+TO wordpress@localhost
+IDENTIFIED BY 'yourPassword';
+FLUSH PRIVILEGES;
+```
+
+Run the following command to create the database:
+
+```bash
+cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
+```
+
+Move the WordPress installation to the Apache document root:
+
+```bash
+sudo ln -s /usr/share/wordpress /var/www/html/wordpress
+
+sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
+```
+
+Restart Apache:
+
+```
+sudo service apache2 restart
+```
+Now you can continue the Wordpress installation. Open a browser and go to `http://yourPublicIPAddress/wordpress`. Substitute the public IP address of your VM. It should look similar to this image.
 
 ## Next steps
 
