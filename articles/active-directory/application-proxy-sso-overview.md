@@ -65,7 +65,7 @@ For information about setting up Integrated Windows Authentication, see [Kerbero
 
 ## Header-based sign-on 
 
-If your applications use headers for authentication, choose **Header-based authentication**. With this option, your users only need to authentication the Azure Active Directory. Microsoft partners with a third-party authentication service called PingAccess, which translated the Azure Active Directory access token into a header format for the application. 
+If your applications use headers for authentication, choose **Header-based sign-on**. With this option, your users only need to authentication the Azure Active Directory. Microsoft partners with a third-party authentication service called PingAccess, which translated the Azure Active Directory access token into a header format for the application. 
 
 For information about setting up header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](application-proxy-ping-access.md).
 
