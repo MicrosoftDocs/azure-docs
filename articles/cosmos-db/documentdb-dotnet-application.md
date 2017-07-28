@@ -64,12 +64,12 @@ We will now walk through how to create a new ASP.NET MVC application from the gr
 ## <a name="_Toc395637762"></a>Step 2: Create a new ASP.NET MVC application
 Now that you have an account, let's create our new ASP.NET project.
 
-1. In Visual Studio, on the **File** menu, point to **New**, and then click **Project**.
-   
-       The **New Project** dialog box appears.
+1. In Visual Studio, on the **File** menu, point to **New**, and then click **Project**. The **New Project** dialog box appears.
+
 2. In the **Project types** pane, expand **Templates**, **Visual C#**, **Web**, and then select **ASP.NET Web Application**.
    
       ![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
+      
 3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, you need to adjust the provided code samples to use whatever you named your application. 
 4. Click **Browse** to navigate to the folder where you would like to create the project, and then click **OK**.
    
