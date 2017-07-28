@@ -1,5 +1,5 @@
 
-The Ls-series is optimized for workloads that require low latency local storage, like NoSQL databases including Cassandra, MongoDB, Cloudera, and Redis. The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). The Ls-series gets the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.  
+The Ls-series is optimized for workloads that require low latency temporary storage, like NoSQL databases including Cassandra, MongoDB, Cloudera, and Redis. The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). The Ls-series gets the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.  
 
 ## Ls-series
 

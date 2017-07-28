@@ -8,7 +8,7 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 ## NV instances
 
-| Size | vCPU | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |380 | 1 | 8 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 |
@@ -18,7 +18,7 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 ## NC instances
 
-| Size | vCPU | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 380 | 1 | 8 |
 | Standard_NC12 |12 |112 | 680 | 2 | 16 |
