@@ -49,7 +49,7 @@ sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql
 
 
 > [!TIP]
-> You can alternatively install Apache, MySQL, and PHP on Ubuntu using `sudo apt-get install lampserver^` (including the caret (^) character at the end).
+> You can alternatively install Apache, MySQL, and PHP on Ubuntu using `sudo apt install lamp-server^` (including the caret (^) character at the end).
 >
 
 
