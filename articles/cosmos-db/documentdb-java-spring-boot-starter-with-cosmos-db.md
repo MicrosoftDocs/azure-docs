@@ -107,7 +107,7 @@ The following prerequisites are required in order to follow the steps in this ar
    <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-documentdb-spring-boot-starter</artifactId>
-      <version>0.1.3</version>
+      <version>0.1.4</version>
    </dependency>
    ```
 
