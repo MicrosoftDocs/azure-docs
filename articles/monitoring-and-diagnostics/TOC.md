@@ -75,5 +75,6 @@
 ## [Azure CLI 1.0 samples](insights-cli-samples.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell samples](insights-powershell-samples.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
