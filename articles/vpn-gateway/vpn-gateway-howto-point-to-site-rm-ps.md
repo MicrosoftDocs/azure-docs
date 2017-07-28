@@ -33,14 +33,16 @@ A Point-to-Site (P2S) configuration lets you create a secure connection from an 
 
 ![Connect a computer to an Azure VNet - Point-to-Site connection diagram](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
-Point-to-Site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over SSTP (Secure Socket Tunneling Protocol). On the server side, we support SSTP versions 1.0, 1.1, and 1.2. The client decides which version to use. For Windows 8.1 and above, SSTP uses 1.2 by default. For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
+Point-to-Site certificate authentication connections require the following:
 
-P2S connections require the following:
-
-* A RouteBased VPN gateway.
-* The public key (.cer file) for a root certificate, uploaded to Azure. This is considered a trusted certificate and is used for authentication.
+* A Dynamic VPN gateway.
+* The public key (.cer file) for a root certificate, which is uploaded to Azure. This is considered a trusted certificate and is used for authentication.
 * A client certificate generated from the root certificate, and installed on each client computer that will connect. This certificate is used for client authentication.
 * A VPN client configuration package must be generated and installed on every client computer that connects. The client configuration package configures the native VPN client that is already on the operating system with the necessary information to connect to the VNet.
+
+Point-to-Site connections do not require a VPN device or an on-premises public-facing IP address. The VPN connection is created over SSTP (Secure Socket Tunneling Protocol). On the server side, we support SSTP versions 1.0, 1.1, and 1.2. The client decides which version to use. For Windows 8.1 and above, SSTP uses 1.2 by default. 
+
+For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
 
 ## Before beginning
 
