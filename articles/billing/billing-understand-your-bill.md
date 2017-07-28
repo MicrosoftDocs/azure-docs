@@ -1,6 +1,6 @@
 ---
-title: Understanding your bill for Azure | Microsoft Docs
-description: Learn how to read and understand the usage and bill for your Azure subscription
+title: Understand your bill for Azure | Microsoft Docs
+description: Learn how to read and understand your usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''
 author: tonguyen10
@@ -19,11 +19,11 @@ ms.author: tonguyen
 
 ---
 # Understand your bill for Microsoft Azure
-To understand your Azure bill, compare your invoice with the detailed daily usage file, and the cost management reports in the Azure portal.
+To understand your Azure bill, compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal.
 
-For invoice PDF and detailed daily usage file CSV download, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
+To obtain a PDF of your invoice and a copy of your detailed daily usage file CSV download, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
 
-For detailed terms and descriptions of your invoice and detailed daily usage file, see [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) and [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md).
+For a list of detailed terms, description of your invoice, and to obtain a detailed daily usage file, see [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) and [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md).
 
 For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
@@ -33,12 +33,12 @@ on, there are a couple of options:
 
 ### Review your invoice and compare the usage and costs with the detailed usage CSV file
 
-The detailed usage CSV file provides your charges by billing
+The detailed usage CSV file shows your charges by billing
 period and daily usage. To get your detailed usage CSV file, see
-[How to get your Azure billing invoice and daily usage
+[Get your Azure billing invoice and daily usage
 data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
-Your usage charges are displayed at the meter level. The following list of terms mean the same thing between the invoice and the detailed usage file. For example, the billing cycle on the invoice is equivalent to the billing period shown on the detailed usage file.
+Your usage charges are displayed at the meter level. The following list of terms mean the same thing in both the invoice and the detailed usage file. For example, the billing cycle on the invoice is equivalent to the billing period shown in the detailed usage file.
 
  | Invoice (PDF) | Detailed usage (CSV)|
  | --- | --- |
@@ -66,37 +66,37 @@ file. The section has line items for each day that the meter was
 consumed. These line items should add up to the consumed quantity for
 the meter during the billing period.
 
-For detailed sections, terms and descriptions of the invoice. See
-[here](billing-understand-your-invoice.md).
+For detailed sections, terms, and descriptions of your invoice, see
+[Understand your invoice](billing-understand-your-invoice.md).
 
-For detailed sections, terms and descriptions of the detailed daily
-usage file, see [here](billing-understand-your-usage.md).
+For detailed sections, terms, and descriptions of your detailed daily
+usage file, see [Understand your usage](billing-understand-your-usage.md).
 
-### Review your invoice and compare with the usage and costs in the Azure portal
+### Review your invoice and compare it with the usage and costs in the Azure portal
 
 The Azure portal can also help you verify your charges. The Azure
-portal provides cost management charts for quick overviews of your
+portal provides cost management charts for a quick overview of your
 usage and charges on your invoice.
 
-Some examples of cost management tools available in the Azure
+Here are some examples of the cost management tools available in the Azure
 portal:
 
 ![Cost by resource in the Azure portal](./media/billing-understand-your-bill/3.png)
 
-This chart provides current costs by resource.
+This chart provides the current costs by resource.
 
 ![Spending rate and forecast in the Azure portal](./media/billing-understand-your-bill/4.png)
 
-This chart shows the current costs on this subscription and forecasts cost for the rest of the billing period.
+This chart shows the current costs on this subscription and forecasts the cost for the rest of the billing period.
 
 ![Cost analysis view in Azure portal](./media/billing-understand-your-bill/5.png)
 
-The cost analysis provides resource and meter level usage for various billing periods.
+The cost analysis provides resource and meter-level usage for various billing periods.
 
 To learn more, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs).
 
 ## <a name="external"></a>What about external service charges?
-External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
+External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't show up on your Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="payment"></a>How do I make a payment?
 If you set up a credit card or a debit card as your payment method, the payment is made automatically. On your credit card statement, the line item would say **MSFT Azure**.
@@ -107,9 +107,9 @@ If you use an [invoice method of payment](https://azure.microsoft.com/pricing/in
 [Create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to ask for the status of your payment. 
 
 ## Tips for cost management
-- Estimate costs using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/), [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and when you add a service
+- Estimate costs using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/), [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and the cost when you add a service
 - [Set up billing alerts](billing-set-up-alerts.md)
-- [Review your usage and costs regularly in Azure portal](billing-getting-started.md#costs)
+- [Review your usage and costs regularly in the Azure portal](billing-getting-started.md#costs)
 
 ## Need help? Contact support. 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
