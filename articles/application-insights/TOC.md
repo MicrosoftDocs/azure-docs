@@ -42,7 +42,7 @@
 ## Configure
 ### Azure
 #### [Profiler](app-insights-profiler.md)
-#### [Enabling the Profiler Walkthrough](enable-profiler-cloud-services.md)
+#### [Enable the Profiler](enable-profiler-cloud-services.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
 #### [Previews](app-insights-previews.md)
 
