@@ -198,7 +198,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Run the sample application by running the following command:
 
    ```bash
-   sudo node index.js '<your Azure IoT hub device connection string>'
+   sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'
    ```
 
    > [!NOTE] 
