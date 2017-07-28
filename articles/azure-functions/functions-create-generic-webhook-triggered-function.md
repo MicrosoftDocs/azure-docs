@@ -62,43 +62,51 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
 
     ![Monitor](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png)
 
-2. use the settings as specified in the table, and click **OK**:
+2. Use the settings as specified in the table:
 
     ![Add-Alert-New-Action-Group](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Activity log alert name** | FunctionAppError | Name of the activity log alert that is unique in the resource group. |
-    | **Description** | Some description | Description that is shown in the alert payload. |
+    | **Activity log alert name** | FunctionAppAlert | Name of the activity log alert that is unique in the resource group. |
     | **Subscription** | Auto-filled | The subscription you are using. | 
     |  **Resource Group** | myResourceGroup | The resource group the alert is deployed to and that is being monitored. Use for both **Resource group** fields.|
-    |  **Event Category** | | |
-    |  **Event Category** | | |
-    |  **Event Category** | | |
+    | **Event category** | Administrative | This category includes changes made to Azure resources.  |
+    |  **Resource type** | App Services (Microsoft.Web/sites) | Filters alerts only to App Service instances, which includes function apps. |
+    |  **Resource** | Your function app | Select the function app you created. |
+    |  **Operation name** | Apply Web App Configuration (sites) | Filters alerts to only app configuration changes. |
+    | Level | Informational | Include informational level alerts. | 
+    | **Action group** | New | Create a new action group, which defines the action takes when an alert is raised. |
+    | **Action group name** | function-alerts | A name to identify the action group.  | 
+    | **Short name** | FuncAppAlert | A short name for the action group. |  
+
+3. In **Actions**, add an action using the settings as specified in the table: 
+
+    | Setting      |  Suggested value   | Description                              |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Name** | FuncAppWebhook | A name for the action. |
+    | **Action type** | Webhook | The response to the alert is that a Webhook URL is called. |
+    | **Details** | Webhook URL | Paste in the webhook URL that you copied earlier. |
+
+4. Click **OK** to create the alert and action group.  
+
+## Update the function code
 
 
-3. 
-
-
-9.	Create a **New** Action Group by giving it **Name** and **Short Name**; the Short Name will be referenced in the notifications sent when this alert is activated.
-
-10.	Then, define a list of receivers by providing the receiver’s
-
-    a. **Name:** Receiver’s name, alias or identifier.
-
-    b. **Action Type:** Choose to contact the receiver via SMS, Email, or Webhook
-
-    c. **Details:** Based on the action type chosen, provide a phone number, email address or webhook URI.
-
-11.	Select **OK** when done to create the alert.
 
 
 ## Test the function
 
+1. Click your function app, then **Application settings**. 
+    
+    ![Select function app settings.](./media/functions-create-generic-webhook-triggered-function/function-app-settings.png)
 
+2. Scroll down to **App settings** and add a new **Key**-**Value** pair and click **Save**. This write an update to the activity logs that generates an alert. 
 
-3. Go back to the portal and view the logs. You should see a trace entry with the new comment text. 
+    ![Add a test application setting.](./media/functions-create-generic-webhook-triggered-function/function-app-add-test-setting.png)
+
+3. Go back to your function and expand the logs. You should see a trace entry with the new comment text. 
     
      ![View the comment text in the logs.](./media/functions-create-generic-webhook-triggered-function/function-app-view-logs.png)
  
