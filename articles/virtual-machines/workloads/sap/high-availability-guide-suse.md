@@ -516,7 +516,7 @@ The Service Principal does not have permissions to access your Azure resources b
 1. Enter the name of the application you created above
 1. Click OK
 
-1. **[1]** Create the STONITH devices
+#### **[1]** Create the STONITH devices
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
@@ -537,7 +537,7 @@ crm(live)configure# commit
 crm(live)configure# exit
 </code></pre>
 
-1. **[1]** Enable the use of a STONITH device
+#### **[1]** Enable the use of a STONITH device
 
 <pre><code>
 sudo crm configure property stonith-enabled=true 
@@ -1251,6 +1251,8 @@ The Service Principal does not have permissions to access your Azure resources b
 1. Enter the name of the application you created above
 1. Click OK
 
+#### **[1]** Create the STONITH devices
+
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
 <pre><code>
@@ -1269,6 +1271,8 @@ crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st
 crm(live)configure# commit
 crm(live)configure# exit
 </code></pre>
+
+#### **[1]** Enable the use of a STONITH device
 
 Enable the use of a STONITH device
 
