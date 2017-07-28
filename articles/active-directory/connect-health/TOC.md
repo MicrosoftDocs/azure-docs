@@ -12,6 +12,7 @@
 ## [Errors during synchronization](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 
 # Related

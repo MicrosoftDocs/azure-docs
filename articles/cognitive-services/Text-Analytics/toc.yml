@@ -10,16 +10,16 @@
   items:
   - name: Interactive demo
     href: text-analytics-quickstart-demo.md
-  - name: Sign up
+  - name: Signup
     href: text-analytics-quickstart-signup.md
-  - name: REST API
+  - name: REST API quickstart
     href: text-analytics-quickstart-rest-api.md
-  - name: Windows SDK
+  - name: Windows SDK quickstart
     href: text-analytics-quickstart-sdk.md
 - name: Concepts
   items:
-   - name: Models and algorithms
-     href: text-analytics-concept-algorithms.md
+   - name: Algorithms
+     href: text-analytics-concept-aAlgorithms.md
    - name: Data privacy and retention
      href: text-analytics-concept-data-privacy.md
 - name: How-to guides
@@ -28,9 +28,9 @@
      href: text-analytics-howto-data-ingestion.md
    - name: Sentiment analysis 
      href: text-analytics-howto-sentiment-analysis.md
-   - name: Keyword detection for searh optimization
+   - name: Keyword detection as search optimization
      href: text-analytics-howto-keywords-search.md
-   - name: Language detection and Translator API
+   - name: Language detection and translation
      href: text-analytics-howto-language-detection-translator-api.md
 - name: Reference
   items: 
@@ -40,7 +40,7 @@
     href: https://github.com/adgroc/Cognitive-TextAnalytics-Windows
 - name: Resources
   items:
-  - name: FAQ
+  - name: Frequently asked questions (FAQ)
     href: text-analytics-resource-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/

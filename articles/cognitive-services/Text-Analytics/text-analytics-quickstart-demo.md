@@ -2,57 +2,35 @@
 title: Azure Text Analytics API | Microsoft Docs
 description: Use the Text Analytics API for sentiment analysis, key phrase extraction for English text, and language detection.
 services: cognitive-services
-author: LuisCabrer
-manager: mwinkle
+author: HeidiSteen
+manager: jhubbard
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
 ms.date: 07/24/2017
-ms.author: luisca
+ms.author: heidist
 ---
 
-# Text Analytics API
+# Try the interactive demo for Text Analytics API (Azure Cognitive Services)
 
-Use a few lines of code to easily analyze sentiment, extract key phrases, and detect language for any kind of text.
+Each service in Azure Cognitive Services includes an interactive demo so that you can exercise the API and get results before writing any code.
+For Text Analytics, you can input text of up to 5,000 characters and get an analysis of sentiment, key phrases, and which language the content is expressed. No signup or subscription is required.
 
-## Sentiment Analysis
+1. Go to the Text Analytics interactive demo.
+2. Input up to 5,000 of text.
+3. Click XXX
+4. Review results
 
-Find out what users think of your brand or topic by analyzing any text using sentiment analysis. You are now easily able to monitor the perception of your brand or topic over time.
-
-Sentiment score is generated using classification techniques, and returns a score between 0 and 1. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
-
-## Key Phrase Extraction
-
-Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
-
-For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
-
-## Language Detection
-
-The service can be used to detect which language the input text is written in. 120 languages are supported.
-
-## Supported Languages
-
-| Language    | Language code | Sentiment | Key phrases |
-|:----------- |:----:|:----:|:----:|
-| Danish      | `da` | ✔ \* |  |
-| German       | `de` | ✔ \* | ✔ |
-| Greek       | `el` | ✔ \* |  |
-| English     | `en` | ✔ | ✔ | 
-| Spanish     | `es` | ✔ | ✔ | 
-| Finnish     | `fi` | ✔ \* |  | 
-| French      | `fr` | ✔ | ✔ \* | 
-| Japanese    | `ja` |  | ✔ |   |
-| Italian     | `it` | ✔ \* |  | 
-| Dutch       | `nl` | ✔ \* |  | 
-| Norwegian   | `no` | ✔ \* |  | 
-| Polish      | `pl` | ✔ \* |  | 
-| Portuguese  | `pt` | ✔ |  | 
-| Russian     | `ru` | ✔ \* |  | 
-| Swedish     | `sv` | ✔ \* |  | 
-| Turkish     | `tr` | ✔ \* |  | 
-
-\* indicates language support in preview
+## Analyze text 
 
 ## Next steps
+
+Find articles about the same topic in various online news sites to compare sentiment ratings.
+
+Self-driving cars are zooming at breakneck speed toward America’s roadways, and Washington is finally reaching for its seatbelt.
+For years, the race to create fully autonomous vehicles went mostly unnoticed by federal lawmakers, who tended to speak of self-driving cars (if they spoke of them at all) as something out of “The Jetsons.” It was an odd blind spot, given how close companies in Silicon Valley and Detroit were to creating mass-market autonomous vehicles, and how many important industries — taxi driving, long-haul trucking and shipping among them — stood to be drastically transformed as a result.
+But now, lawmakers are taking cautious steps toward the driverless future.
+On Wednesday, a House Energy and Commerce subcommittee voted to advance a bill that would speed up the development of self-driving cars and establish a federal framework for their regulation. The bill, known as the Highly Automated Vehicle Testing and Deployment Act of 2017, is the first major federal effort to regulate autonomous vehicles, and would give the National Highway Traffic Safety Administration broad oversight of the self-driving car industry. A full committee vote on the measure is expected next week, and the bill could go before the entire House this fall.
+
+## See also

@@ -74,6 +74,7 @@
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossary
 ### [Types of applications](active-directory-b2c-apps.md)
 ### [Authentication protocols](active-directory-b2c-reference-protocols.md)

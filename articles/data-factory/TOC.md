@@ -93,6 +93,7 @@
 ### [Troubleshoot issues with using Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)

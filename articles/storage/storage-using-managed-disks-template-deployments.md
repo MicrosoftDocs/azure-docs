@@ -70,7 +70,7 @@ Within the virtual machine object, we need a dependency on the storage account t
             "dataDisks": [
                 {
                     "name": "datadisk1",
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "vhd": {
                         "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'vhds/datadisk1.vhd')]"
@@ -118,7 +118,7 @@ To create a VM with managed disks, you no longer need to create the storage acco
             },
             "dataDisks": [
                 {
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "createOption": "Empty"
                 }
@@ -204,8 +204,8 @@ To create managed availability sets with VMs using managed disks, add the `sku` 
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
-        "PlatformUpdateDomainCount": "3",
-        "PlatformFaultDomainCount": "2"
+        "PlatformUpdateDomainCount": 3,
+        "PlatformFaultDomainCount": 2
     },
     "sku": {
         "name": "Aligned"

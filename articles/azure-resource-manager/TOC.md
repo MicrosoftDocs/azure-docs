@@ -11,6 +11,7 @@
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Deploy template](resource-manager-samples-powershell-deploy.md)
 
