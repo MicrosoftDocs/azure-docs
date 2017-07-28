@@ -71,7 +71,7 @@ After your redis cache has been created, it will be displayed in the Azure Explo
 
    ![Azure Explorer context menu to display properties for a redis cache][SP01]
 
-1. The Azure Explorer will display the properties for your redis cache.
+1. The Azure Explorer displays the properties for your redis cache.
 
    ![Redis cache properties][SP02]
 
