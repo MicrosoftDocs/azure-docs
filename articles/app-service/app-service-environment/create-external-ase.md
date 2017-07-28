@@ -111,7 +111,7 @@ If you create an ASE standalone, it has nothing in it. An empty ASE still incurs
 
         * If you select an **External** VIP type, you can select how many external IP addresses the system is created with for IP-based SSL purposes. 
     
-        * If you select an Internal VIP type, you must specify the domain that your ASE uses. You can deploy an ASE into an Azure virtual network that uses public or private address ranges. To use a virtual network with a public address range, you need to create the virtual network ahead of time. 
+        * If you select an **Internal** VIP type, you must specify the domain that your ASE uses. You can deploy an ASE into an Azure virtual network that uses public or private address ranges. To use a virtual network with a public address range, you need to create the virtual network ahead of time. 
     
     * If you select an existing virtual network, a new subnet is created when the ASE is created. *You can't use a pre-created subnet in the portal. You can create an ASE with an existing subnet if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service Environment from a template][MakeASEfromTemplate].
 

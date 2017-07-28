@@ -78,7 +78,7 @@ To create an ILB ASE:
 	- abcd.def.contoso.com
 	- abcd.contoso.com
 
-   If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE as that won't conflict with custom domain names that end in *.contoso.com*.
+   If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE because that won't conflict with custom domain names that end in *.contoso.com*.
 
 8. Select **OK**, and then select **Create**.
 

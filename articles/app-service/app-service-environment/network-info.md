@@ -186,7 +186,7 @@ To create a UDR, follow these steps:
 
 3. From within your route table UI, select **Routes** > **Add**.
 
-4. Set the **Next hop type** to **Internet** and the **Address prefix** to _0.0.0.0/0_. Select **Save**.
+4. Set the **Next hop type** to **Internet** and the **Address prefix** to **0.0.0.0/0**. Select **Save**.
 
     You then see something like the following:
 
