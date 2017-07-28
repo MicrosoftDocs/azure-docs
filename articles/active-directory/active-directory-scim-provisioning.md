@@ -69,8 +69,8 @@ Applications that support the SCIM profile described in this article can be conn
 9. If the attempts to connect to the application succeed, then click **Save** to save the admin credentials.
 10. In the **Mappings** section, there are two selectable sets of attribute mappings: one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select the Save button to commit any changes.
 
->[!NOTE]
->You can optionally disable syncing of group objects by disabling the "groups" mapping. 
+    >[!NOTE]
+    >You can optionally disable syncing of group objects by disabling the "groups" mapping. 
 
 11. Under **Settings**, the **Scope** field defines which users and or groups are synchronized. Selecting "Sync only assigned users and groups" (recommended) will only sync users and groups assigned in the **Users and groups** tab.
 12. Once your configuration is complete, change the **Provisioning Status** to **On**.
