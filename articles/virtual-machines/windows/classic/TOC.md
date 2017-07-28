@@ -81,7 +81,8 @@
 ### [Access to an application](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Classic deployment issues with creating a new VM](troubleshoot-deployment-new-vm.md)
 ### [Classic deployment issues with restarting or resizing an existing VM](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Reset RDP password](reset-rdp.md)
+### [Reset RDP password](reset-rdp.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](/powershell/azure/overview)
@@ -95,7 +96,7 @@
 ## [Storage REST](/rest/api/storageservices)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

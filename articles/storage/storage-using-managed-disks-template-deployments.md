@@ -70,7 +70,7 @@ Within the virtual machine object, we need a dependency on the storage account t
             "dataDisks": [
                 {
                     "name": "datadisk1",
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "vhd": {
                         "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'vhds/datadisk1.vhd')]"
@@ -87,15 +87,20 @@ Within the virtual machine object, we need a dependency on the storage account t
 
 ## Managed disks template formatting
 
-With Azure Managed Disks, the disk becomes a top-level resource and no longer requires a storage account to be created by the user. Managed disks are exposed in the `2016-04-30-preview` API version, and are now the default disk type. The following sections walk through the default settings and detail how to further customize your disks.
+With Azure Managed Disks, the disk becomes a top-level resource and no longer requires a storage account to be created by the user. Managed disks were first exposed in the `2016-04-30-preview` API version, they are available in all subsequent API versions and are now the default disk type. The following sections walk through the default settings and detail how to further customize your disks.
+
+> [!NOTE]
+> It is recommended to use an API version later than `2016-04-30-preview` as there were breaking changes between `2016-04-30-preview` and `2017-03-30`.
+>
+>
 
 ### Default managed disk settings
 
-To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use [Standard LRS storage](storage-redundancy.md). If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
+To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2017-03-30` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use [Standard LRS storage](storage-redundancy.md). If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
@@ -118,7 +123,7 @@ To create a VM with managed disks, you no longer need to create the storage acco
             },
             "dataDisks": [
                 {
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "createOption": "Empty"
                 }
@@ -138,23 +143,25 @@ As an alternative to specifying the disk configuration in the virtual machine ob
 {
     "type": "Microsoft.Compute/disks",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "Standard_LRS"
+    },
     "properties": {
         "creationData": {
             "createOption": "Empty"
         },
-        "accountType": "Standard_LRS",
         "diskSizeGB": 1023
     }
 }
 ```
 
-Within the VM object, we can then reference this disk object to be attached. Specifying the resource ID of the managed disk we created in the `managedDisk` property allows the attachment of the disk as the VM is created. The `apiVersion` for the VM resource must be `2016-04-30-preview` to use this functionality. Also note that we've created a dependency on the disk resource to ensure it's successfully created before VM creation. 
+Within the VM object, we can then reference this disk object to be attached. Specifying the resource ID of the managed disk we created in the `managedDisk` property allows the attachment of the disk as the VM is created. Note that the `apiVersion` for the VM resource is set to `2017-03-30`. Also note that we've created a dependency on the disk resource to ensure it's successfully created before VM creation. 
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
@@ -195,17 +202,17 @@ Within the VM object, we can then reference this disk object to be attached. Spe
 
 ### Create managed availability sets with VMs using managed disks
 
-To create managed availability sets with VMs using managed disks, add the `sku` object to the availability set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. The `apiVersion` for the availability set resource must also be `2016-04-30-preview` to use this functionality.
+To create managed availability sets with VMs using managed disks, add the `sku` object to the availability set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. Also note that the `apiVersion` for the availability set resource is set to `2017-03-30`.
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
-        "PlatformUpdateDomainCount": "3",
-        "PlatformFaultDomainCount": "2"
+        "PlatformUpdateDomainCount": 3,
+        "PlatformFaultDomainCount": 2
     },
     "sku": {
         "name": "Aligned"

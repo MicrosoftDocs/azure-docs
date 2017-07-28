@@ -140,6 +140,7 @@
 ### [Cannot delete virtual networks](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [PowerShell (Classic)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
@@ -158,7 +159,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Resources
-## [Azure roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)

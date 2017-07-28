@@ -13,18 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/20/2017
 ms.author: johnkem
 
 ---
 # Overview of the Azure Activity Log
-The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model.
+The **Azure Activity Log** is a log that provides insight into subscription-level events that have occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since the Administrative category reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model.
 
 ![Activity Logs vs other types of logs ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
 Figure 1: Activity Logs vs other types of logs
 
-The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource.
+The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside (the "control plane"). Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the "data plane").
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
@@ -38,6 +38,15 @@ View the following video introducing the Activity Log.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 > 
 >
+
+## Categories in the Activity Log
+The Activity Log contains several categories of data. For full details on the schemata of these categories, [please see this article](monitoring-activity-log-schema.md). These include:
+* **Administrative** - This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
+* **Service Health** - This category contains the record of any service health incidents that have occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Assisted Recovery, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
+* **Alert** - This category contains the record of all activations of Azure alerts. An example of the type of event you would see in this category is "CPU % on myVM has been over 80 for the past 5 minutes." A variety of Azure systems have an alerting concept -- you can define a rule of some sort and receive a notification when conditions match that rule. Each time a supported Azure alert type 'activates,' or the conditions are met to generate a notification, a record of the activation is also pushed to this category of the Activity Log.
+* **Autoscale** - This category contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of the type of event you would see in this category is "Autoscale scale up action failed." Using autoscale, you can automatically scale out or scale in the number of instances in a supported resource type based on time of day and/or load (metric) data using an autoscale setting. When the conditions are met to scale up or down, the start and succeeded or failed events will be recorded in this category.
+* **Recommendation** - This category contains recommendation events from certain resource types, such as web sites and SQL servers. These events offer recommendations for how to better utilize your resources. You will only receive events of this type if you have resources that emit recommendations.
+* **Policy, Security, and Resource Health** - These categories do not contain any events; they are reserved for future use.
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
@@ -140,113 +149,8 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 azure insights logprofile delete --name my_log_profile
 ```
 
-## Event schema
-Each event in the Activity Log has a JSON blob similar to this example:
-
-```
-{
-  "value": [ {
-    "authorization": {
-      "action": "microsoft.support/supporttickets/write",
-      "role": "Subscription Admin",
-      "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-    },
-    "caller": "admin@contoso.com",
-    "channels": "Operation",
-    "claims": {
-      "aud": "https://management.core.windows.net/",
-      "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-      "iat": "1421876371",
-      "nbf": "1421876371",
-      "exp": "1421880271",
-      "ver": "1.0",
-      "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-      "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-      "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-      "puid": "20030000801A118C",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-      "name": "John Smith",
-      "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-      "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-      "appidacr": "2",
-      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-      "http://schemas.microsoft.com/claims/authnclassreference": "1"
-    },
-    "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-    "description": "",
-    "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-    "eventName": {
-      "value": "EndRequest",
-      "localizedValue": "End request"
-    },
-    "eventSource": {
-      "value": "Microsoft.Resources",
-      "localizedValue": "Microsoft Resources"
-    },
-    "httpRequest": {
-      "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-      "clientIpAddress": "192.168.35.115",
-      "method": "PUT"
-    },
-    "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-    "level": "Informational",
-    "resourceGroupName": "MSSupportGroup",
-    "resourceProviderName": {
-      "value": "microsoft.support",
-      "localizedValue": "microsoft.support"
-    },
-    "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-    "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-    "operationName": {
-      "value": "microsoft.support/supporttickets/write",
-      "localizedValue": "microsoft.support/supporttickets/write"
-    },
-    "properties": {
-      "statusCode": "Created"
-    },
-    "status": {
-      "value": "Succeeded",
-      "localizedValue": "Succeeded"
-    },
-    "subStatus": {
-      "value": "Created",
-      "localizedValue": "Created (HTTP Status Code: 201)"
-    },
-    "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-    "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-    "subscriptionId": "s1"
-  } ],
-"nextLink": "https://management.azure.com/########-####-####-####-############$skiptoken=######"
-}
-```
-
-| Element Name | Description |
-| --- | --- |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| caller |Email address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| channels |One of the following values: “Admin”, “Operation” |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| description |Static text description of an event. |
-| eventDataId |Unique identifier of an event. |
-| eventSource |Name of the Azure service or infrastructure that has generated this event. |
-| httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method. For example, PUT). |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose” |
-| resourceGroupName |Name of the resource group for the impacted resource. |
-| resourceProviderName |Name of the resource provider for the impacted resource |
-| resourceUri |Resource id of the impacted resource. |
-| operationId |A GUID shared among the events that correspond to a single operation. |
-| operationName |Name of the operation. |
-| properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event. |
-| status |String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved. |
-| subStatus |Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
-| eventTimestamp |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| submissionTimestamp |Timestamp when the event became available for querying. |
-| subscriptionId |Azure Subscription Id. |
-| nextLink |Continuation token to fetch the next set of results when they are broken up into multiple responses. Typically needed when there are more than 200 records. |
+## Event schema per category
+[Please see this article to understand the Activity Log event schema per category.](monitoring-activity-log-schema.md)
 
 ## Next Steps
 * [Learn more about the Activity Log (formerly Audit Logs)](../azure-resource-manager/resource-group-audit.md)
