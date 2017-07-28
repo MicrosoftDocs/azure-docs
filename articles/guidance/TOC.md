@@ -99,3 +99,4 @@
 #### [Deploying virtual appliances in high availability](guidance-nva-ha.md)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

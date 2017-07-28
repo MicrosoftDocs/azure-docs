@@ -59,5 +59,6 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cache/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Redis cache samples](cache-redis-samples.md)
 

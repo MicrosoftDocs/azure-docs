@@ -39,5 +39,6 @@
 ## [JavaScript Git repo](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Power BI C# Git repo](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Sample application](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
