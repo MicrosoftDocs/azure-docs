@@ -188,6 +188,7 @@ Upload the file to your storage account.
 $StorageAccountName = "musicstoreiissql"
 $ContainerName = "musicstore"
 $ScriptToUpload = "C:\musicstore\musicstore.ps1"
+$fileName = "musicstore.ps1"
 New-AzureRMStorageAccount –StorageAccountName $StorageAccountName -SkuName "Standard_LRS" -Kind "Storage" -ResourceGroupName $resourceGroup -Location $Location
 $key = Get-AzureRmStorageAccountKey -Name $StorageAccountName -ResourceGroupName $resourceGroup
 $context = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $key[0].Value;
@@ -203,7 +204,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
     -VMName $vmName `
     -Location $location `
     -FileUri $scriptURL `
-    -Run musicstore.ps1 `
+    -Run $fileName `
     -Name MusicStoreExtension
 
 ```
