@@ -23,11 +23,11 @@ ms.author: rclaus
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment combined with the installation and configuration of Oracle Automated Storage Management (ASM).  You learn how to:
 
 > [!div class="checklist"]
-> * Create and connect to a VM
-> * Select and use VM images
-> * View and use specific VM sizes
-> * Resize a VM
-> * View and understand VM state
+> * Create and connect to an Oracle Database VM
+> * Install and configure Oracle Automated Storage Management
+> * Install and configure Oracle Grid infrastructure
+> * Initialize an Oracle ASM installation
+> * Create an Oracle DB managed by ASM
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
@@ -48,7 +48,7 @@ az group create --name myResourceGroup --location eastus
 
 To create a virtual machine based on the Oracle Database image and configure it to use Oracle ASM, use the [az vm create](/cli/azure/vm#create) command. 
 
-The following example creates a VM named myVM that is a Standard_DS2_v2 size with four attached data disks of 50 GB each. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+The following example creates a VM named myVM that is a Standard_DS2_v2 size with four attached data disks of 50 GB each. If they do not already exist in the default key location, it also creates SSH keys.  To use a specific set of keys, use the `--ssh-key-value` option.  
 
    ```azurecli-interactive
    az vm create --resource-group myResourceGroup \
@@ -59,7 +59,7 @@ The following example creates a VM named myVM that is a Standard_DS2_v2 size wit
     --data-disk-sizes-gb 50 50 50 50
    ```
 
-After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You will use this address to access the VM.
+After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You use this address to access the VM.
 
    ```azurecli
    {
@@ -196,7 +196,13 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    11       0       1152 sr0
    ```
 
-3. Format disk */dev/sdc* by running the following command and answering the prompts with *n* for new partition, *p* for primary partition, *1* to select the first partition, press `enter` for the default first cylinder, press `enter` for the default last cylinder and finally press *w* to write the changes to the partition table.  
+3. Format disk */dev/sdc* by running the following command and answering the prompts with:
+   - *n* for new partition
+   - *p* for primary partition
+   - *1* to select the first partition
+   - press `enter` for the default first cylinder
+   - press `enter` for the default last cylinder
+   - press *w* to write the changes to the partition table  
 
    ```bash
    fdisk /dev/sdc
@@ -246,7 +252,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    cat /proc/partitions
    ```
 
-   The output of the command should look like the following;
+   The output of the command should look like the following:
 
    ```bash
    major minor  #blocks  name
@@ -573,8 +579,8 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[Tutorial: Configure Oracle Dataguard](configure-oracle-dataguard.md)
+[Tutorial: Configure Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Tutorial: Configure Oralce GoldenGate](Configure-oracle-golden-gate.md)
+[Tutorial: Configure Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Review [Architect an Oracle DB](oracle-design.md)
