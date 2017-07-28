@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/28/2017
 ms.author: denlee
 
 ---
@@ -50,7 +50,7 @@ Now let's clone a Graph API app from github, set the connection string, and run 
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. Then open the solution file in Visual Studio. 
+3. Then open Visual Studio and open the solution file. 
 
 ## Review the code
 
@@ -99,17 +99,13 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the Azure portal, in your Azure Cosmos DB account, click **Overview** in the left navigation. You'll copy the **Gremlin URI** value into the App.config file in the next step. 
-
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-dotnet/gremlin-uri.png)
-
-    If the **Gremlin URI** value is blank, you can generate the value from the **Keys** page in the portal, using the **URI** value, removing https://, and changing documents to graphs. 
+1. In the Azure portal, in your Azure Cosmos DB account, click **Overview** in the left navigation. You'll copy the **.NET SDK URI** value into the App.config file in the next step. 
 
 2. In Visual Studio 2017, open the App.config file. 
 
-3. Copy your **Gremlin URI** value from the portal and make it the value of the Endpoint key in App.config. 
+3. Copy your **.NET SDK URI** value from the portal and make it the value of the Endpoint key in App.config. 
 
-    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
 
 4. Back in the Azure portal, click **Keys** on the left navigation menu, copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
 
