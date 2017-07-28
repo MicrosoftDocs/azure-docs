@@ -3096,11 +3096,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/oms-security-web-baseline.md",
-            "redirect_url": "https://www.microsoft.com/cloud-platform/security-and-compliance",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/remoteapp/index.md",
             "redirect_url": "/azure/remoteapp/remoteapp-whatis",
             "redirect_document_id": false
