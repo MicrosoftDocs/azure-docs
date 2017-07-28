@@ -112,7 +112,7 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Monitore and diagnose
+## Monitor and diagnose
 ### [Overview](service-fabric-diagnostics-overview.md)
 ### [Health model](service-fabric-health-introduction.md)
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
