@@ -29,18 +29,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!Note]
 > If you already signed up for Cognitive Services to use another API, you need to repeat the sign up for Text Analytics. Policies and release cycles vary for each API, so we ask you to sign up for each one individually. 
 
-## 1. Set up a request for keyword extraction
+## Set up a request for keyword extraction
 
 Text Analytics APIs invoke operations against models and algorithms running in Azure data centers. You need your own key to the Text Analytics API for operation access. 
 
 Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment** , **keyPhrase extraction**, and **language detection**. We list them in full below.
 
-1. In the [Azure portal](https://portal.azure.com) and find the Text Analysis API you signed up for. Leave the page open so that you can copy a key and endpoint in the next step.
+1. In the [Azure portal](https://portal.azure.com) and find the Text Analysis API you signed up for. Leave the page open so that you can copy a key and endpoint, starting in the next step.
 
 2. In Postman or another tool, set up the request:
 
    + Choose **Post** as the request type.
-   + Paste in the endpoint.
+   + Paste in the endpoint you copied from the portal page.
    + Append a resource. In this exercise, start with **/keyPhrases**.
 
   Endpoints for each available resource are as follows (your data center may vary):
@@ -156,7 +156,7 @@ The keyPhrases algorithm iterates over the entire collection and picks up on com
 }
 ```
 
-## 2. Detect sentiment
+## Detect sentiment
 
 Using the same documents, you can edit the existing request to call the sentiment analysis algorithm and return sentiment scores.
 
@@ -198,7 +198,7 @@ The response includes a sentiment score between 0.0 (negative) and 0.9999999 (po
 > 
 >
 
-## 3. Detect language
+## Detect language
 
 Again, using same documents, you can edit the existing request to call the language detection algorithm.
 
