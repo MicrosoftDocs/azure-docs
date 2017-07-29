@@ -14,22 +14,17 @@ ms.date: 07/28/2017
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
 ## Step 1: Obtain SSL Certificate
-   - Option 1: Go to https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html. Then copy the certificate section (shown in the redbox below) and paste it in a text editor. Save the file as MySQLCertificate.pem in your local drive.
-   ![save cert](./media/howto-configure-ssl/baltimoreCert.png)
-   - Option 2: Download the ssl certificate (.crt file) [here](https://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt) and use [OpenSSL](https://www.openssl.org/) to convert it into .pem format. You can use the following command to do the converstion.
-```
-OpenSSL> x509 -inform DER -in <filepath>BaltimoreCyberTrustRoot.crt -out <filepath>MySQLCertificate.pem
-```
+The certificate needed to communicate over SSL with your Azure Database for MySQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). Download the certificate file to your local drive (with this tutorial, we use c:\ssl).
 
 ## Step 2: Bind SSL
 ### Connecting to server using the MySQL Workbench over SSL
-Configure MySQL Workbench to connect securely over SSL. Navigate to the **SSL** tab in the MySQL Workbench on the Setup New Connection dialogue. Enter the file location of the **MySQLCertificate.pem** in the **SSL CA File:** field.
+Configure MySQL Workbench to connect securely over SSL. Navigate to the **SSL** tab in the MySQL Workbench on the Setup New Connection dialogue. Enter the file location of the **BaltimoreCyberTrustRoot.crt.cer** in the **SSL CA File:** field.
 ![save customized tile](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
 ### Connecting to server using the MySQL CLI over SSL
 Using the MySQL command-line interface, execute the following command:
 ```dos
-mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\MySQLCertificate.pem
+mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.cer
 ```
 
 ## Step 3:  Enforcing SSL connections in Azure 
@@ -54,7 +49,7 @@ You should see **Cipher in use is AES256-SHA** under SSL
 ### PHP
 ```
 $conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/MySQLCertificate.pem", NULL, NULL) ; 
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.cer", NULL, NULL) ; 
 mysqli_real_connect($conn, 'myserver4demo.mysql.database.azure.com', 'myadmin@myserver4demo', 'yourpassword', 'quickstartdb', 3306);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
@@ -63,7 +58,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 ### Python
 ```
 try:
-conn = mysql.connector.connect(user='myadmin@myserver4demo',password='yourpassword',database='quickstartdb',host='myserver4demo.mysql.database.azure.com',ssl_ca='/var/www/html/MySQLCertificate.pem')
+conn = mysql.connector.connect(user='myadmin@myserver4demo',password='yourpassword',database='quickstartdb',host='myserver4demo.mysql.database.azure.com',ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.cer')
 except mysql.connector.Error as err:
  print(err)
 ```
