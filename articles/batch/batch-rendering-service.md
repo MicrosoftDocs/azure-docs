@@ -101,7 +101,7 @@ After you have authenticated your Batch and Storage accounts, set up a pool for 
 To specify a pool on which to run the render job, select the **Submit** tab. This tab offers options for creating a pool or selecting an existing pool:
 
 - You can **auto provision a pool for this job** (the default option). When you choose this option, Batch creates the pool exclusively for the current job, and automatically deletes the pool when the render job is complete. This option is best when you have a single render job to complete.
-- You can **reuse an existing persistent pool**. If you already have a pool that is idle, you can specify that pool for running the render job by selecting the pool ID from the dropdown. Reusing an existing persistent pool saves the time required to provision the pool. Use this option when you have a continuous need to run render jobs. 
+- You can **reuse an existing persistent pool**. If you have an existing pool that is idle, you can specify that pool for running the render job by selecting it from the dropdown. Reusing an existing persistent pool saves the time required to provision the pool. Use this option when you have a continuous need to run render jobs. 
 - You can **create a new persistent pool**. Choosing this option creates a new pool for running the job. It does not delete the pool when the job is complete, so that you can reuse it for future jobs.
 
 You can also create a pool using the Azure portal. 
@@ -172,13 +172,13 @@ When a reference is resolved, it is listed with a green light icon:
 
 ![Resolved assets show a green light icon](./media/batch-rendering-service/found_assets.png)
 
-If you are aware of asset references that the plug-in has not detected, you can add additional files or directories with the **Add Files** and **Add Directory** buttons. If you load a new scene while the plug-in is open, be sure to click **Refresh** to update the scene's references.
+If the plug-in has not detected other references, you can add additional files or directories with the **Add Files** and **Add Directory** buttons. If you load a new scene while the plug-in is open, be sure to click **Refresh** to update the scene's references.
 
 #### Upload assets to a container in Azure Storage
 
-When you submit a render job, the referenced files displayed in the **Assets** tab are automatically uploaded to a container in Azure Storage. You can also upload the asset files independently of a render job, using the **Upload** button on the **Assets** tab. The destination container name is specified in the **Project** field, and is named after the current Maya project by default. When asset files are uploaded to the container, the file structure of the project is preserved. 
+When you submit a render job, the referenced files displayed in the **Assets** tab are automatically uploaded to a container in Azure Storage. You can also upload the asset files independently of a render job, using the **Upload** button on the **Assets** tab. The destination container name is specified in the **Project** field. It is named after the current Maya project by default. When asset files are uploaded to the container, the file structure of the project is preserved. 
 
-Once uploaded, assets can be referenced by any number of render jobs. All uploaded assets are available to any job that references the container, regardless of whether a particular asset was referenced by the scene. To change the destination container referenced by your next job, change the name in the **Project** field in the **Assets** tab. If there are referenced files that you wish to exclude from uploading, unselect them using the green button beside the listing.
+Once uploaded, assets can be referenced by any number of render jobs. All uploaded assets are available to any job that references the container, whether or not they are included in the scene. To change the destination container referenced by your next job, change the name in the **Project** field in the **Assets** tab. If there are referenced files that you wish to exclude from uploading, unselect them using the green button beside the listing.
 
 #### Submit and monitor the render job
 
@@ -194,7 +194,7 @@ You can close Maya without disrupting the download process.
 
 ## Use the Azure portal to manage and monitor the Batch Rendering service
 
-You can use the [Azure Portal](https://portal.azure.com) to:
+You can use the [Azure portal](https://portal.azure.com) to:
 
 - Create pools of virtual machines that are pre-configured with Maya and Arnold.
 - Monitor jobs and diagnose failed tasks by downloading application logs.
