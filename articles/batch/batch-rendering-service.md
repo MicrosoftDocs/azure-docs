@@ -1,6 +1,6 @@
 ---
-title: Render on Maya or Arnold in the cloud with the Azure Batch Rendering service | Microsoft Docs
-description: Render jobs with the Maya or Arnold rendering engines on a pay-per-use basis with a simple plug-in for Maya.
+title: Use the Azure Batch Rendering service to render in the cloud | Microsoft Docs
+description: Render jobs on Azure virtual machines directly from Maya and on a pay-per-use basis.
 services: batch
 author: tamram
 manager: timlt
