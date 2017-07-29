@@ -3,7 +3,7 @@ title: Set up Oracle ASM on an Azure Linux virtual machine | Microsoft Docs
 description: Quickly get Oracle ASM up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rickstercdn
+author: RicksterCDN
 manager: timlt
 editor: 
 tags: azure-resource-manager
