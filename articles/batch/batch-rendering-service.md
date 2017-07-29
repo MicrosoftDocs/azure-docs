@@ -54,7 +54,11 @@ A Batch **job** is a collection of tasks that run on the compute nodes in a pool
 
 For more information about Batch jobs, see the [Job](batch-api-basics.md#job) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
 
-## Load the Batch plug-in in Maya
+## Use the Batch plug-in for Maya to submit a render job
+
+With the Batch plug-in for Maya, you can submit a job to the Batch Rendering service right from Maya. The following sections describe how to configure the job from the plug-in and then submit it. 
+
+### Load the Batch plug-in in Maya
 
 The Batch plug-in is available on [GitHub](https://github.com/Azure/azure-batch-maya). Clone the repository to a directory of your choice. You can load the plug-in directly from the *azure_batch_maya* directory.
 
@@ -65,7 +69,7 @@ To load the plug-in in Maya:
 3. Click **Browse**.
 4. Navigate to and select *azure_batch_maya/plug-in/AzureBatch.py*.
 
-## Authenticate access to your Batch and Storage accounts
+### Authenticate access to your Batch and Storage accounts
 
 To use the plug-in, you need to authenticate using your Azure Batch and Azure Storage account keys. To retrieve your account keys:
 
@@ -88,11 +92,11 @@ Once you have successfully authenticated, the plug-in sets the status field to *
 
 ![Authenticate your Batch and Storage accounts](./media/batch-rendering-service/authentication.png)
 
-## Configure a pool for a render job
+### Configure a pool for a render job
 
 After you have authenticated your Batch and Storage accounts, set up a pool for your rendering job. The following sections walk you through the available options:
 
-### Specify a new or existing pool
+#### Specify a new or existing pool
 
 To specify a pool on which to run the render job, select the **Submit** tab. This tab offers options for creating a pool or selecting an existing pool:
 
@@ -102,7 +106,7 @@ To specify a pool on which to run the render job, select the **Submit** tab. Thi
 
 You can also create a pool using the Azure portal. 
 
-### Specify the OS image to provision
+#### Specify the OS image to provision
 
 You can specify the type of OS image to use to provision compute nodes in the pool on the **Env** (Environment) tab. Batch currently supports the following image options for rendering jobs:
 
@@ -111,7 +115,7 @@ You can specify the type of OS image to use to provision compute nodes in the po
 |Linux     |Batch CentOS Preview ???Names are different in portal Offer field vs plugin - does this matter?         |
 |Windows     |???What text will appear in plug-in for Windows? I only have the screenshot....         |
 
-### Choose a VM size
+#### Choose a VM size
 
 You can specify the VM size on the **Env** tab. Azure now supports [GPU](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) VMs for both Linux and Windows, which may be a good choice for rendering jobs. For more information about all available VM sizes, see [Linux VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) and [Windows VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). 
 
@@ -122,7 +126,7 @@ You can specify the VM size on the **Env** tab. Azure now supports [GPU](https:/
 
 ![Specify the VM OS image and size on the Env tab](./media/batch-rendering-service/environment.png)
 
-### Specify licensing options
+#### Specify licensing options
 
 You can specify the license servers you wish to use on the **Env** tab. Options include:
 
@@ -136,7 +140,7 @@ You can specify the license servers you wish to use on the **Env** tab. Options 
 >
 >
 
-### Manage persistent pools
+#### Manage persistent pools
 
 You can manage an existing persistent pool on the **Pools** tab. Selecting a pool from the list displays the current state of the pool, including how many nodes are running, the selected VM image, the VM type, and the licenses that are deployed to that pool.
 
@@ -144,11 +148,11 @@ From the **Pools** tab, you can also delete the pool and resize the number of VM
 
 ![View, resize, and delete pools](./media/batch-rendering-service/pools.png)
 
-## Configure a render job for submission
+### Configure a render job for submission
 
 Once you have specified the parameters for the pool that will run the render job, configure the job itself. 
 
-### Specify scene parameters
+#### Specify scene parameters
 
 The Batch plug-in detects which rendering engine you're currently using in Maya, and displays the appropriate render settings on the **Submit** tab based on the settings found in the scene file. These settings include the start frame, end frame, output prefix, and frame step. You can override the scene file render settings by specifying different settings in the plug-in. Changes you make to the plug-in settings are not persisted back to the scene file render settings, so you can make changes on a job-by-job basis without needing to reupload the scene file.
 
@@ -156,7 +160,7 @@ The plug-in warns you if the render engine that you selected in Maya is not supp
 
 If you load a new scene while the plug-in is open, click the **Refresh** button to make sure the settings are updated.
 
-### Resolve asset paths
+#### Resolve asset paths
 
 When you load the plug-in, it scans the scene file for any external file references. These references are displayed in the **Assets** tab. If a referenced path cannot be resolved, the plug-in attempts to locate the file in a few default locations, including the scene file location, the current project's _sourceimages_ directory, and the current working directory. If the asset still cannot be located, it is listed with a warning icon:
 
@@ -170,13 +174,13 @@ When a reference is resolved, it is listed with a green light icon:
 
 If you are aware of asset references that the plug-in has not detected, you can add additional files or directories with the **Add Files** and **Add Directory** buttons. If you load a new scene while the plug-in is open, be sure to click **Refresh** to update the scene's references.
 
-### Upload assets to a container in Azure Storage
+#### Upload assets to a container in Azure Storage
 
 When you submit a render job, the referenced files displayed in the **Assets** tab are automatically uploaded to a container in Azure Storage. You can also upload the asset files independently of a render job, using the **Upload** button on the **Assets** tab. The destination container name is specified in the **Project** field, and is named after the current Maya project by default. When asset files are uploaded to the container, the file structure of the project is preserved. 
 
 Once uploaded, assets can be referenced by any number of render jobs. All uploaded assets are available to any job that references the container, regardless of whether a particular asset was referenced by the scene. To change the destination container referenced by your next job, change the name in the **Project** field in the **Assets** tab. If there are referenced files that you wish to exclude from uploading, unselect them using the green button beside the listing.
 
-### Submit and monitor the render job
+#### Submit and monitor the render job
 
 After you have configured the render job in the plug-in, click the **Submit Job** button on the **Submit** tab to submit the job to Batch. 
 
@@ -188,7 +192,18 @@ To download outputs, modify the **Outputs** field to set the desired destination
 
 You can close Maya without disrupting the download process.
 
-You can also monitor the progress of a job from the Azure portal.
+## Use the Azure portal to manage and monitor the Batch Rendering service
+
+You can use the [Azure Portal](https://portal.azure.com) to:
+
+- Create pools of virtual machines that are pre-configured with Maya and Arnold.
+- Monitor jobs and diagnose failed tasks by downloading application logs.
+- Remotely connecting to individual VMs using RDP or SSH.
+
+### Create pools of VMs for rendering
+
+
+
 
 ## Troubleshooting
 
