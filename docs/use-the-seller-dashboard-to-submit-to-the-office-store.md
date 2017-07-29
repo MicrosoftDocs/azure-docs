@@ -22,7 +22,9 @@ Choose **Add a new app**. On the **Listing type** page, choose the type of solut
 - Azure AD web app
 - Office add-in
 - Outlook add-in
+- Power BI custom visual
 - SharePoint add-in
+- Teams app
 
 ### Overview page
 
