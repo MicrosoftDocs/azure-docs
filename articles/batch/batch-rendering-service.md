@@ -13,7 +13,7 @@ ms.author: tamram
 
 # Get started with the Batch Rendering service
 
-The Azure Batch Rendering service offers powerful rendering capabilities on a pay-per-use basis. You can submit rendering jobs on demand via a plug-in for Autodesk Maya, and render on Azure virtual machines (VMs) running the Maya or Arnold rendering engines. By rendering on Batch, you can use Maya and Arnold without having to manage licenses or infrastructure. 
+The Azure Batch Rendering service offers cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service handles job scheduling and queueing, managing failures and retries, and auto-scaling according to the needs of your job. The Batch Rendering service supports the Autodesk Maya and Autodesk Arnold rendering engines. You can use Maya and Arnold without having to manage licenses or infrastructure. The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop. 
 
 ## Supported rendering engines
 
@@ -27,8 +27,32 @@ The Batch Rendering service currently supports the following rendering engines:
 
 To use the Batch Rendering service, you need:
 
-- **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md). 
+- An [Azure account](https://azure.microsoft.com/en-us/free/). 
+- **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md). Create your Batch account with its pool allocation mode set to Batch Service.
 - **An Azure Storage account.** You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. To learn more about Storage accounts, see [How to create, manage, or delete a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+
+To use the Batch plug-in for Maya, you need:
+
+- **Maya 2017**
+- **Arnold for Maya**
+
+You can also use the [Azure portal](https://portal.azure.com) to create pools of virtual machines that are pre-configured with Maya and Arnold. You can use the portal to monitor jobs and diagnose failed tasks by downloading application logs and by remotely connecting to individual VMs using RDP or SSH.
+
+## Basic Batch concepts
+
+Before you begin using the Batch Rendering service, it's helpful to be familiar with a few Batch concepts, including compute nodes, pools, and jobs. To learn more about Azure Batch in general, see [Run intrinsically parallel workloads with Batch](batch-technical-overview.md).
+
+### Pools
+
+Batch is a platform service for running compute-intensive work, like rendering, on a managed collection, or **pool**, of **compute nodes**. Each compute node in a pool is an Azure virtual machine (VM) running either Linux or Windows. 
+
+For more information about Batch pools and compute nodes, see the [Pool](batch-api-basics.md#pool) and [Compute node](batch-api-basics.md#compute-node) sections in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+
+### Jobs
+
+A Batch **job** is a collection of tasks that run on the compute nodes in a pool. When you submit a rendering job, Batch divides the job into tasks and distributes the tasks to the compute nodes in the pool to run (???is this an accurate description?).
+
+For more information about Batch jobs, see the [Job](batch-api-basics.md#job) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
 
 ## Load the Batch plug-in in Maya
 
@@ -50,35 +74,19 @@ To use the plug-in, you need to authenticate using your Azure Batch and Azure St
 3. Select **Batch Accounts** from the left-hand menu. If necessary, click **More Services** and filter on _Batch_.
 4. Locate the desired Batch account in the list.
 5. Select the **Keys** menu item to display your account name, account URL, and access keys:
-    a. Paste the Batch account URL into the **Service** field in the Batch plug-in. 
-    b. Paste the account name into the **Batch Account** field.
-    c. Paste the primary account key into the **Batch Key** field.
-5. Select Storage Accounts from the left-hand menu. If necessary, click **More Services** and filter on _Storage_.
-6. Locate the desired Storage account in the list. 
-7. Select the **Access Keys** menu item to display the storage account name and keys.
-    a. Paste the Storage account name into the **Storage Account** field in the Batch plug-in.
-    b. Paste the primary account key into the **Storage Key** field.
-9. Click **Authenticate** to ensure that the plug-in can access both accounts.
+    - Paste the Batch account URL into the **Service** field in the Batch plug-in.
+    - Paste the account name into the **Batch Account** field.
+    - Paste the primary account key into the **Batch Key** field.
+7. Select Storage Accounts from the left-hand menu. If necessary, click **More Services** and filter on _Storage_.
+8. Locate the desired Storage account in the list.
+9. Select the **Access Keys** menu item to display the storage account name and keys.
+    - Paste the Storage account name into the **Storage Account** field in the Batch plug-in.
+    - Paste the primary account key into the **Storage Key** field.
+10. Click **Authenticate** to ensure that the plug-in can access both accounts.
 
 Once you have successfully authenticated, the plug-in sets the status field to **Authenticated**: 
 
 ![Authenticate your Batch and Storage accounts](./media/batch-rendering-service/authentication.png)
-
-## Basic Batch concepts
-
-Before you begin using the Batch plug-in for Maya, it's helpful to be familiar with a few Batch concepts, including compute nodes, pools, and jobs. To learn more about Azure Batch, see [Run intrinsically parallel workloads with Batch](batch-technical-overview.md).
-
-### Pools
-
-Batch is a platform service for running compute-intensive work, like rendering, on a managed collection, or **pool**, of **compute nodes**. Each compute node in a pool is an Azure virtual machine (VM) running either Linux or Windows. 
-
-For more information about Batch pools and compute nodes, see the [Pool](batch-api-basics.md#pool) and [Compute node](batch-api-basics.md#compute-node) sections in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
-
-### Jobs
-
-A Batch **job** is a collection of tasks that run on the compute nodes in a pool. When you submit a rendering job, Batch divides the job into tasks and distributes the tasks to the compute nodes in the pool to run (???is this an accurate description?).
-
-For more information about Batch jobs, see the [Job](batch-api-basics.md#job) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
 
 ## Configure a pool for a render job
 
@@ -86,14 +94,13 @@ After you have authenticated your Batch and Storage accounts, set up a pool for 
 
 ### Specify a new or existing pool
 
-To specify a pool, select the **Submit** tab. This tab offers options for specifying a pool for running the render job:
+To specify a pool on which to run the render job, select the **Submit** tab. This tab offers options for creating a pool or selecting an existing pool:
 
-- You can **auto provision a pool for this job** (the default option). When you choose this option, Batch creates the pool exclusively for the current job, and automatically shuts down (???deletes the pool?) when the render job is complete. This option is best when you have a single render job to complete.
+- You can **auto provision a pool for this job** (the default option). When you choose this option, Batch creates the pool exclusively for the current job, and automatically deletes the pool when the render job is complete. This option is best when you have a single render job to complete.
 - You can **reuse an existing persistent pool**. If you already have a pool that is idle, you can specify that pool for running the render job by selecting the pool ID from the dropdown. Reusing an existing persistent pool saves the time required to provision the pool. Use this option when you have a continuous need to run render jobs. 
 - You can **create a new persistent pool**. Choosing this option creates a new pool for running the job. It does not delete the pool when the job is complete, so that you can reuse it for future jobs.
 
 You can also create a pool using the Azure portal. 
-
 
 ### Specify the OS image to provision
 
@@ -101,15 +108,15 @@ You can specify the type of OS image to use to provision compute nodes in the po
 
 |Operating System  |Image  |
 |---------|---------|
-|Linux     |Batch CentOS Preview ???Names are different in portal Offer field vs plugin?         |
-|Windows     |???What text will appear in plug-in? I only have the screenshot....         |
+|Linux     |Batch CentOS Preview ???Names are different in portal Offer field vs plugin - does this matter?         |
+|Windows     |???What text will appear in plug-in for Windows? I only have the screenshot....         |
 
 ### Choose a VM size
 
-You can specify the VM size on the **Env** tab. Azure now supports [GPU](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) VMs for both Linux and Windows, which may be a good choice for rendering jobs. For more information about available VM sizes, see [Linux VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) and [Windows VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). 
+You can specify the VM size on the **Env** tab. Azure now supports [GPU](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) VMs for both Linux and Windows, which may be a good choice for rendering jobs. For more information about all available VM sizes, see [Linux VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) and [Windows VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). 
 
 
-???What is default OS and size?
+???What is default OS and size selected by plug-in?
 ???Are all sizes supported, or only a subset? From portal, it looks like A, Av2, D, Dv2 series?
 ???Any other guidance for choosing the right one? Cost/performance tradeoffs?
 
@@ -156,6 +163,8 @@ When you load the plug-in, it scans the scene file for any external file referen
 ![Missing assets are displayed with a warning icon](./media/batch-rendering-service/missing_assets.png)
 
 If you know the location of an unresolved file reference, you can click the warning icon to be prompted to add a search path. The plug-in then uses this search path to attempt to resolve any missing assets. You can add any number of additional search paths.
+
+When a reference is resolved, it is listed with a green light icon:
 
 ![Resolved assets show a green light icon](./media/batch-rendering-service/found_assets.png)
 
