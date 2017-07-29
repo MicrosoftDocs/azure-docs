@@ -22,9 +22,12 @@ In this Quickstart, learn how to call the Text Analytics REST APIs to perform se
 
 ## Before you begin
 
-To use Microsoft Cognitive Service APIs, you first need to [create a Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. Policies and release cycles vary for each API, so we ask you to sign up for each API individually. 
+To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. 
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+> [!Note]
+> If you already signed up for Cognitive Services to use another API, you need to repeat the sign up for Text Analytics. Policies and release cycles vary for each API, so we ask you to sign up for each API individually. 
 
 ## 1. Set up a request for keyword extraction
 

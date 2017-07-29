@@ -8,7 +8,7 @@
     href: text-analytics-overview-how.md
 - name: Quickstarts
   items:
-  - name: REST API quickstart
+  - name: Analyze text (REST API)
     href: text-analytics-quickstart-rest-api.md
   - name: Windows SDK quickstart
     href: text-analytics-quickstart-sdk.md
