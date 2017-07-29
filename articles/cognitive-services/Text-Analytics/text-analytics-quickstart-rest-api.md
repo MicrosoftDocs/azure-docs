@@ -12,11 +12,13 @@ ms.date: 07/24/2017
 ms.author: heidist
 ---
 
-# Text analysis in 10 minutes (REST API)
+# Analyze text for sentiment, keywords, and language in 10 minutes (REST API)
 
 In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text uploaded to Azure Cognitive Services.
 
-We recommend using a Web API testing tool to follow along. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
+> [!Tip]
+> We recommend using a Web API testing tool for this exercise. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
+>
 
 ## Before you begin
 
@@ -24,21 +26,21 @@ To use Microsoft Cognitive Service APIs, you first need to [create a Cognitive S
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Extract key phrases
+## 1. Set up a request for keyword extraction
 
-Text Analytics APIs invoke operations against hosted machine learning models in Azure data centers. You will need your key to the Text Analytics API for access to the operations. 
+Text Analytics APIs invoke operations against models and algorithms running in Azure data centers. You need an access key to the Text Analytics API for operation access. 
 
 Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: sentiment analysis, key phrase extraction, language detection. We list them in full below.
 
 1. In the [Azure portal](https://portal.azure.com) and find the Text Analysis API you signed up for. Leave the page open so that you can copy a key and endpoint in the next step.
 
-2. In Postman or other tool, set up the request:
+2. In Postman or another tool, set up the request:
 
    + Choose **Post** as the request type.
    + Paste in the endpoint.
    + Append a resource. In this exercise, start with **/keyPhrases**.
 
-  Endpoints for each resource are as follows:
+  Endpoints for each available resource are as follows (your data center may vary):
 
    + https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
    + https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
@@ -149,7 +151,7 @@ The keyPhrases algorithm iterates over the entire collection and picks up on com
 }
 ```
 
-## Detect sentiment
+## 2. Detect sentiment
 
 Using the same documents, you can edit the existing request to call the sentiment analysis algorithm and return sentiment scores.
 
@@ -191,7 +193,7 @@ The response includes a sentiment score between 0.0 (negative) and 0.9999999 (po
 > 
 >
 
-## Detect language
+## 3. Detect language
 
 Again, using same documents, you can edit the existing request to call the language detection algorithm.
 
