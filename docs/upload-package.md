@@ -54,12 +54,8 @@ For more details about submitting Power BI custom visuals, see [Publish custom v
 
 ## Upload a Microsoft Teams app
 
-Choose the tile under **App package**, and upload the manifest file for your add-in.
-
-When you upload your manifest file, you might get the following message: Errors exist.
+Choose the tile under **App package**, and upload the manifest file for your add-in. When you upload your manifest file, you might get the following message: Errors exist.
 
 If your package contains errors, the Seller Dashboard will report those errors and you will have to resolve them before you can submit your add-in. 
 
-For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://msdn.microsoft.com/en-us/microsoft-teams/createpackage).
-
-For a step-by-step guide that describes how to submit a Microsoft Teams app, see [Submitting your Microsoft Teams app in the Seller Dashboard](https://msdn.microsoft.com/en-us/microsoft-teams/submissionguidance).
+For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://msdn.microsoft.com/en-us/microsoft-teams/createpackage). For a step-by-step guide that describes how to submit a Microsoft Teams app, see [Submitting your Microsoft Teams app in the Seller Dashboard](https://msdn.microsoft.com/en-us/microsoft-teams/submissionguidance).
