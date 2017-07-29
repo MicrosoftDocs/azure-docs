@@ -1,5 +1,5 @@
 ---
-title: Using System for Cross-Domain Identity Management automatic provisioning apps from Azure Active Directory to applications | Microsoft Docs
+title: Using System for Cross-Domain Identity Management automatically provision users and groups from Azure Active Directory to applications | Microsoft Docs
 description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the SCIM protocol specification
 services: active-directory
 documentationcenter: ''
@@ -44,7 +44,7 @@ There are two use cases for using SCIM in Azure Active Directory:
 * **Build your own provisioning solution for applications that support other API-based provisioning**
   For non-SCIM applications, you can create a SCIM endpoint to translate between the Azure AD SCIM endpoint and any API the application supports for user provisioning. To help you develop a SCIM endpoint, we provide Common Language Infrastructure (CLI) libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
 
-## Provisioning Users and Groups To Applications That Support SCIM
+## Provisioning users and groups to applications that support SCIM
 Azure AD can be configured to automatically provision assigned users and groups to applications that implement a [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) web service and accept OAuth bearer tokens for authentication. Within the SCIM 2.0 specification, applications must meet these requirements:
 
 * Supports creating users and/or groups, as per section 3.3 of the SCIM protocol.  
@@ -349,8 +349,10 @@ Developers using the CLA libraries provided by Microsoft for building a SCIM ser
       applicationBuilder.UseWindowsAzureActiveDirectoryBearerAuthentication(authenticationOptions);
     }
   ````
-## User and Group Schema
-Azure Active Directory can provision two types of resources to SCIM Web Services.  Those types of resources are users and groups.  
+
+
+## User and group schema
+Azure Active Directory can provision two types of resources to SCIM web services.  Those types of resources are users and groups.  
 
 User resources are identified by the schema identifier, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, which is included in this protocol specification: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  The default mapping of the attributes of users in Azure Active Directory to the attributes of urn:ietf:params:scim:schemas:extension:enterprise:2.0:User resources is provided in table 1, below.  
 
