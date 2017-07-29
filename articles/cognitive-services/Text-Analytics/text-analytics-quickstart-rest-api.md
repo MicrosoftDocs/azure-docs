@@ -27,13 +27,13 @@ To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive S
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 > [!Note]
-> If you already signed up for Cognitive Services to use another API, you need to repeat the sign up for Text Analytics. Policies and release cycles vary for each API, so we ask you to sign up for each API individually. 
+> If you already signed up for Cognitive Services to use another API, you need to repeat the sign up for Text Analytics. Policies and release cycles vary for each API, so we ask you to sign up for each one individually. 
 
 ## 1. Set up a request for keyword extraction
 
-Text Analytics APIs invoke operations against models and algorithms running in Azure data centers. You need an access key to the Text Analytics API for operation access. 
+Text Analytics APIs invoke operations against models and algorithms running in Azure data centers. You need your own key to the Text Analytics API for operation access. 
 
-Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: sentiment analysis, key phrase extraction, language detection. We list them in full below.
+Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment** , **keyPhrase extraction**, and **language detection**. We list them in full below.
 
 1. In the [Azure portal](https://portal.azure.com) and find the Text Analysis API you signed up for. Leave the page open so that you can copy a key and endpoint in the next step.
 
@@ -59,9 +59,9 @@ Endpoints for each operation include the resource providing the underlying algor
 
    ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
 
-4. Provide text for analysis. Click **Body** and paste in the JSON documents below. Choose **raw** for the format. Click **Send** to submit the request.
+4. Provide text for analysis. Click **Body** and paste in the JSON documents below. 
 
-```
+   ```
         {
             "documents": [
                 {
@@ -93,16 +93,18 @@ Endpoints for each operation include the resource providing the underlying algor
         }
 ```
 
+5. Choose **raw** for the format. Click **Send** to submit the request.
+
 ### Formatting the request body
 
- Input rows must be JSON. XML is not supported. For sentiment, key phrases and language, the format is the same:
+Input rows must be JSON. XML is not supported. For sentiment, key phrases and language, the format is the same:
  
  + Each ID should be unique and is the ID returned by the system. 
  + Language is an optional parameter that should be specified if analyzing non-English text. Refer to the [Text Analytics Overview](overview.md#supported-languages) for a list of supported languages.
  
- The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. 
+The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. 
  
- Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. 
+Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. 
 
 ### Parsing the response payload
 

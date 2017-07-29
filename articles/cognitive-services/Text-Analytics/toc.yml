@@ -16,6 +16,8 @@
     href: https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/
 - name: How-to guides
   items:
+   - name: Migrate to a higher API version
+     href: ../cognitive-services-text-analytics-api-migration.md
    - name: Data submission
      href: text-analytics-howto-data-ingestion.md
    - name: Sentiment analysis 
