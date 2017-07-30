@@ -58,7 +58,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 Click the button to launch Raspberry Pi online simulator.
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">Start Raspberry Pi Simulator</a>
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Start Raspberry Pi Simulator</a>
 
 There are three areas in the web simulator.
 1. Assembly area - The default circuit is that a Pi connects with a BME280 sensor and an LED. The area is locked in preview version so currently you cannot do customization.
