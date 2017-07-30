@@ -29,6 +29,9 @@
 
 5. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and make a note of the **Connection string** of your IoT hub. For more information, see [Control access to IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md).
 
+> [!NOTE] 
+You will not need this iothubowner connection string for this set-up tutorial. However, you may need it for some of the tutorials on different IoT scenarios after you complete this set-up.
+
    ![Get your IoT hub connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
 
 ## Register a device in the IoT hub for your device
