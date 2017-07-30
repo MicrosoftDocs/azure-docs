@@ -61,9 +61,9 @@ Click the button to launch Raspberry Pi online simulator.
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">Start Raspberry Pi Simulator</a>
 
 There are three areas in the web simulator.
-* Assembly area - The default circuit is that a Pi connects with a BME280 sensor and an LED. The area is locked in preview version so currently you cannot do customization.
-* Coding area - An online code editor for you to code with Raspberry Pi. The default sample application helps to collect sensor data from BME280 sensor and sends to your Azure IoT Hub. The application is fully compatible with real Pi devices. 
-* Integrated console window - It shows the output of your code. At the top of this window, there are three buttons.
+1. Assembly area - The default circuit is that a Pi connects with a BME280 sensor and an LED. The area is locked in preview version so currently you cannot do customization.
+2. Coding area - An online code editor for you to code with Raspberry Pi. The default sample application helps to collect sensor data from BME280 sensor and sends to your Azure IoT Hub. The application is fully compatible with real Pi devices. 
+3. Integrated console window - It shows the output of your code. At the top of this window, there are three buttons.
    * **Run** - Run the application in the coding area.
    * **Reset** - Reset the coding area to the default sample application.
    * **Fold/Expand** - On the right side there is a button for you to fold/expand the console window.
