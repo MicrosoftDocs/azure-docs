@@ -14,7 +14,7 @@ ms.author: heidist
 
 # Analyze text for sentiment, keywords, and language in 10 minutes (REST API)
 
-In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text uploaded to Azure Cognitive Services.
+In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in reqeusts to Azure Cognitive Services.
 
 > [!Tip]
 > We recommend using a Web API testing tool for this exercise. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
@@ -45,9 +45,9 @@ Endpoints for each operation include the resource providing the underlying algor
 
   Endpoints for each available resource are as follows (your data center may vary):
 
-   + https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
-   + https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
-   + https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
 3. Set three request headers:
 
@@ -223,4 +223,4 @@ The response includes language codes for each document and a score indicating ce
 ## See also 
 
  [What is Text Analytics in Azure Cognitive Services](overview.md)  
- [Frequently asked queestions (FAQ)](text-analytics-resource-faq.md)
+ [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)

@@ -14,50 +14,33 @@ ms.author: heidist
 
 # What is the Text Analytics API (Azure Cognitive Services)
 
-Azure Cognitive Services is ...
+Azure Cognitive Services is Microsoft's cloud service for providing artificial intelligence and machine learning to your development projects.
 
-**Text Analytics** is a platform for analyzing text with a clear focus on language detection, key phrase extraction, and sentiment analysis. 
+**Text Analytics** is a platform within Cognitive Services for analyzing text with a clear focus on *sentiment analysis*, *key phrase extraction*, and *language detection*. 
 
-As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine it with other services to cover a broader range of analytical scenario. For ideas on multi-service use cases, see [How to use Text Analytics](text-analytics-overview-how.md).
-
-Use cases for this platform include
+As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine Text Analytics with other services to support more complex scenarios. For ideas on multi-service use cases, see [How to use Text Analytics](text-analytics-overview-how.md).
 
 ## Resources provided by Text Analytics API
 
-You can 
+Text analysis can mean different things, but in Azure Cognitives Services, Text Analytics APIs support the following three workloads.
+
+| Workloads | Description |
+|-----------|-------------|
+|Sentiment Analysis | Sentiment analysis helps you find out what customers think of your brand or topic by analyzing any text for clues about sentiment. A sentiment score is generated using classification techniques, and returns a score between 0 and 1. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. |
+|Key Phrase Extraction | Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit. For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.|
+|Language Detection | The service can detect which language the input text is written in (120 languages are supported). A single language code is provided for every document submitted on the request, along with a score indicating a level of certainty for the analysis. For example, if text includes a combination of languages, the service gives you the predominant language, but with a score reflecting the mixed results. |
+
++ Sentiment analysis returns a sentiment score between 0 and 1, generated using classification techniques. Inputs are JSON documents, that typically include n-grams, text generated from part-of-speech tags, and embedded words. 
++ Keyphrase extraction
++ Language detection 
 
 ## Typical workflow
 
-The Text Analytics API is used to access an analytics engine in the Azure cloud. You submit text data in JSON, and then make API calls to analyze the input and return results.
+The Text Analytics API is used to access an analytics engine in the Azure cloud. Your applicaion code submits the request and handles the results.
 
-Text analysis can mean different things, but in Azure Cognitives Services, it performs three functions:
+You submit text data in JSON as part of a request for sentiment analysis, keyword extraction, or language detection. Inputs are analyzed, and outputs are in the form of JSON documents, typically a one-to-one result for each document you provided.
 
-interpretation
-expression
-
-The API is very specific in what it returns. Output consists of ...
-
-Other phases of text analysis -- such as text parsing, cleansing, summarization, and visualization -- are not supported.
-
-or several phases of the text analysis process, including text collection, text parsing and cleaning, text summary and analysis methods, and text visualization.
-
-## Technology
-
-### Sentiment Analysis
-
-Find out what users think of your brand or topic by analyzing any text using sentiment analysis. You are now easily able to monitor the perception of your brand or topic over time.
-
-Sentiment score is generated using classification techniques, and returns a score between 0 and 1. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
-
-### Key Phrase Extraction
-
-Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
-
-For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
-
-### Language Detection
-
-The service can detect which language the input text is written in (120 languages are supported). A single language code is provided for every document submitted on the request, along with a score indicating a level of certainty for the analysis. For example, if text includes a combination of languages, the service gives you the predominant language, but with a score reflecting the mixed results.
+Data is not stored but Microsoft might capture it for testin purposes as we evolve the algorithms used for various Cognitive Services platforms. 
 
 ## Supported Languages for sentiment analysis and key phrase extraction
 
@@ -84,16 +67,38 @@ Analyzing sentiment and phrases is a complex operation requiring access to lingu
 
 \* indicates language support in preview
 
+## Sign up and billing
+
+Although Cognivitive Services has multiple APIs, we ask you to sign up for them individually so that you can control cost and availability for each workload:
+
++ [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
++ [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
+
+You are charged only for the requests you submit, where a request is either sentiment, keyword, or language detection (they can't be combined into one request). We don't store data, nor charge by the size of the payload. A request with 1 megabyte of data costs the same as one with 1 kilobyte of data.
+
+At the Free tier, there is a maximum number of requests per month, where the counter is reset one month plus one day ahead of the first request.
+
+**How to change tiers**
+
+Standard billing is in tiers. You can switch up or down easily in the portal. You do not have to repeat the sign up process when changing the tier, which means you can adjust limits and still keep the same endpoint and access keys.
+
+1. Sign in to Azure portal and find your Text Analytics API dashboard.
+2. Click **Price Tier**.
+   ![Price tier command in left navigation menu](../media/text-analytics/portal-pricing-tier.png)
+3. Choose the tier you want and click **Select**.  The new limits take effect as soon as the selection is processed. 
+   ![Tiles and Select button in tier selction page](../media/text-analytics/portal-choose-tier.png)
+
 ## Next steps
 
-As a first step, use the [interactive demo]() to submit text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or exract key phrases.
+First, try the [interactive demo]() to submit text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases.
 
-Step through the [quickstart REST API tutorial]() to learn the basic workflow using the REST API.
+Next, step through the [quickstart REST API tutorial](text-analytics-quickstart-rest-api.md) to learn the basic workflow using the REST API and a Web API testing tool.
 
-Learn about the [Windows SDK](), a .NET alternative for writing text analysis apps in managed code.
+For .NET developers, we recommend the [Cognitive Services Text Analytics .NET SDK](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet), for developing text analysis apps in managed code.
 
 ## See also
 
- [Azure Cognitive Services]()   
+ [Azure Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)   
+ [Azure Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
 
 

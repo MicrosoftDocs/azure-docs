@@ -16,6 +16,8 @@ ms.author: luisca
 
 TBD...
 
+Other phases of text analysis -- such as text collecting parsing, cleansing, summarization, classification, and visualization -- are not built into the Text Analytics API but can be implemented using ...
+
 ## Next steps
 
 ## See also

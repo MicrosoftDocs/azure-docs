@@ -1,6 +1,6 @@
 ---
-title: 'Text Analytics Windows SDK Quickstart (Azure Cognitive Services) | Microsoft Docs'
-description: Use the Windows SDK and Text Analytics API for sentiment analysis, key phrase extraction for English text, and language detection.
+title: 'Analyze text in .NET Quickstart (Azure Cognitive Services) | Microsoft Docs'
+description: Use the .NET SDK and Text Analytics API for sentiment analysis, key phrase extraction for English text, and language detection in Microsoft's cloud service for machine learning, Azure Cognitive Services.
 services: cognitive-services
 author: LuisCabrer
 manager: mwinkle
@@ -12,9 +12,9 @@ ms.date: 07/24/2017
 ms.author: luisca
 ---
 
-# Text analysis in 10 minutes (Windows SDK)
+# Analyze text in 10 minutes (.NET SDK)
 
-In this Quickstart, learn how the Windows SDK can help you use Text Analytics APIs to perform sentiment analysis, keyword extraction, and language detection on text uploaded to Azure Cognitive Services.
+In this Quickstart for Text Analytics in Azure Cognitive Services, learn how to submit requests for sentiment analysis, keyword extraction, and language detection using the .NET client library for managed code.
 
 Remaining content TBD...
 
