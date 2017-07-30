@@ -12,7 +12,7 @@ ms.date: 07/24/2017
 ms.author: heidist
 ---
 
-# Analyze text for sentiment, keywords, and language in 10 minutes (REST API)
+# Analyze sentiment, keywords, and language in 10 minutes (REST API)
 
 In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in reqeusts to Azure Cognitive Services.
 

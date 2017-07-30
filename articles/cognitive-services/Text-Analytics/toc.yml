@@ -10,7 +10,7 @@
   items:
   - name: Analyze text (REST API)
     href: text-analytics-quickstart-rest-api.md
-  - name: Windows SDK quickstart
+  - name: Analyze text (.NET SDK)
     href: text-analytics-quickstart-sdk.md
   - name: Text Analytics API in PowerApps
     href: https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/
@@ -18,7 +18,7 @@
   items:
    - name: Migrate to a higher API version
      href: ../cognitive-services-text-analytics-api-migration.md
-   - name: Data submission
+   - name: Data formation
      href: text-analytics-howto-data-ingestion.md
    - name: Sentiment analysis 
      href: text-analytics-howto-sentiment-analysis.md
@@ -28,13 +28,13 @@
      href: text-analytics-howto-language-detection-translator-api.md
 - name: Reference
   items: 
-  - name: API Reference content
+  - name: REST API Reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
-  - name: Windows SDK
+  - name: .NET SDK Reference
     href: https://github.com/adgroc/Cognitive-TextAnalytics-Windows
 - name: Resources
   items:
-  - name: Data privacy and retention
+  - name: Data usage and retention
     href: text-analytics-concept-data-privacy.md
   - name: Frequently asked questions (FAQ)
     href: text-analytics-resource-faq.md
