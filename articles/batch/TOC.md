@@ -3,12 +3,12 @@
 ## [Feature overview](batch-api-basics.md)
 ## [APIs and tools](batch-apis-tools.md)
 ## [Quotas and limits](batch-quota-limit.md)
-## [Batch Rendering service](batch-rendering-service.md)
 # Get Started
 ## [Create a Batch account](batch-account-create-portal.md)
 ## [Batch .NET tutorial](batch-dotnet-get-started.md)
 ## [Batch Python tutorial](batch-python-tutorial.md)
 ## [Batch Node.js tutorial](batch-nodejs-get-started.md)
+## [Batch Rendering service](batch-rendering-service.md)
 # How To
 ## Develop
 ### [Application packages](batch-application-packages.md)

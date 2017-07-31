@@ -6,8 +6,8 @@ author: tamram
 manager: timlt
 
 ms.service: batch
-ms.topic: article
-ms.date: 07/25/2017
+ms.topic: hero-article
+ms.date: 07/31/2017
 ms.author: tamram
 ---
 
