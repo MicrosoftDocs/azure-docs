@@ -338,8 +338,6 @@
       href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
-    - name: Deploy LAMP stack
-      href: create-lamp-stack.md
     - name: Deploy a 3-node Deis cluster
       href: deis-cluster.md
     - name: Deploy Node.js application
