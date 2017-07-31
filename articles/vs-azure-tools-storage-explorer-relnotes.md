@@ -21,7 +21,7 @@ ms.author: cawa
 
 This article contains the release notes for Azure Storage Explorer 0.8.15 (Preview) release, as well as release notes for previous versions.
 
-[Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
+[Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
 ## Version 0.8.15 (Preview)
 7/13/2017
