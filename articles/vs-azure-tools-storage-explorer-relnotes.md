@@ -54,24 +54,22 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine: 
     * sudo apt-get install libgconf-2-4
 
-## Previous versions
-
-### Version 0.8.14 (Preview)
+## Version 0.8.14 (Preview)
 06/22/2017
 
-#### Download Azure Storage Explorer 0.8.14 (Preview)
+### Download Azure Storage Explorer 0.8.14 (Preview)
 * [Download Azure Storage Explorer 0.8.14 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
 * [Download Azure Storage Explorer 0.8.14 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
 * [Download Azure Storage Explorer 0.8.14 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
-#### New
+### New
 
 * Updated Electron version to 1.7.2 in order to take advantage of several critical security updates
 * You can now quickly access the online troubleshooting guide from the help menu
 * Storage Explorer Troubleshooting [Guide][2]
 * [Instructions][3] on connecting to an Azure Stack subscription
 
-#### Known Issues
+### Known Issues
 
 * Buttons on the delete folder confirmation dialog don't register with the mouse clicks on Linux. Workaround is to use the Enter key
 * If you choose the wrong PIN/Smartcard certificate then you will need to restart in order to have Storage Explorer forget the decision
@@ -84,6 +82,8 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
     * sudo apt-get update
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
+
+## Previous versions
 
 ### Version 0.8.13
 05/12/2017
