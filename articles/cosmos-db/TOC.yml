@@ -205,6 +205,7 @@
         - name: Retire S1, S2, S3
           href: performance-levels.md
     - name: MongoDB API
+      href: mongodb-index.md
       items:
       - name: Connect to your MongoDB account
         href: connect-mongodb-account.md

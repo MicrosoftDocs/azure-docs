@@ -88,6 +88,20 @@ This tutorial walks you throught the creation of a mobile todo list using Xamari
 - [DateTimes](working-with-dates.md). Learn how to store, index, and query DateTime values with the DocumentDB API.
 - [Modeling document data](modeling-data.md). Learn how to model document data by knowing when to embed, reference, and use hybrid relationships between documents.  
 
+## SDKs & Reference content
+
+Azure Cosmos DB provides a number of SDKs to enable client side application development.
+
+- [Java](documentdb-sdk-java.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [.NET Change feed](documentdb-sdk-dotnet-changefeed.md)
+- [.NET Core](documentdb-sdk-dotnet-core.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](/rest/api/documentdb/)
+- [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+- [SQL query reference](documentdb-sql-query-reference.md)
+
 ## Samples
 
 These sample pages provide links to sample code and API reference content for the most common DocumentDB API tasks.
