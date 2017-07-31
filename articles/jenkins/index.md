@@ -11,6 +11,7 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/20/2017
 ms.author: mlearned
+ms.custom: Jenkins
 ---
 <div class="content">
     <h1>Jenkins on Azure</h1>
