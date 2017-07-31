@@ -192,14 +192,6 @@ To download outputs, modify the **Outputs** field to set the desired destination
 
 You can close Maya without disrupting the download process.
 
-## Use the Azure portal to manage and monitor the Batch Rendering service
-
-You can use the [Azure portal](https://portal.azure.com) to:
-
-- Create pools of virtual machines that are pre-configured with Maya and Arnold.
-- Monitor jobs and diagnose failed tasks by downloading application logs.
-- Remotely connecting to individual VMs using RDP or SSH.
-
 ## Next steps
 
 To learn more about Batch, see [Run intrinsically parallel workloads with Batch](batch-technical-overview.md).
