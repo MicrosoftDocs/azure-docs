@@ -421,7 +421,7 @@ Use **LAG** to peek into the input stream one event back and get the **Make** va
 ````
 
 **Explanation**:
-Use the **LAST** function to retrieve the last **TIME** value when the event type was **Start**. Note that the **LAST** function uses **PARTITION BY [user]** to indicate that the result will be computed per unique user. The query has a 1-hour maximum threshold for the time difference between **Start** and **Stop** events, but is configurable as needed **(LIMIT DURATION(hour, 1)**.
+Use the **LAST** function to retrieve the last **TIME** value when the event type was **Start**. The **LAST** function uses **PARTITION BY [user]** to indicate that the result is computed per unique user. The query has a 1-hour maximum threshold for the time difference between **Start** and **Stop** events, but is configurable as needed **(LIMIT DURATION(hour, 1)**.
 
 ## Query example: Detect the duration of a condition
 **Description**: Find out how long a condition occurred.
