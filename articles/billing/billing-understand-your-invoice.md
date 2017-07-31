@@ -122,7 +122,7 @@ your Invoice.
 | Grand Total |The sum of all your charges after tax for this billing period |
 
 ## How do I make sure that the charges in my invoice are correct?
-If there is a charge on your invoice that you want more details
+If there is a charge on your invoice that you would like more details
 on, see [Understand your bill for Microsoft Azure.](billing-understand-your-bill.md)
 
 ## Need help? Contact support.
