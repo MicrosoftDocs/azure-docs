@@ -26,7 +26,7 @@ The Batch Rendering service currently supports the following rendering engines:
 
 To use the Batch Rendering service, you need:
 
-- An [Azure account](https://azure.microsoft.com/en-us/free/). 
+- An [Azure account](https://azure.microsoft.com/free/). 
 - **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md). Create your Batch account with its pool allocation mode set to Batch Service.
 - **An Azure Storage account.** The assets used for your rendering job are stored in Azure Storage. You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. To learn more about Storage accounts, see [How to create, manage, or delete a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
