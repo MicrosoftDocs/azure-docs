@@ -136,8 +136,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Container orchestration with Kubernetes</a></li>
                                                         <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Container orchestration with Kubernetes</a></li>
                                                         <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
                                                     </ul>
                                                 </div>
@@ -350,6 +350,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Containers</h3>
                                     <ul>
                                         <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Azure Container Service</p>
@@ -359,12 +365,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
                                                 <p>Azure Container Registry</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/container-instances/">
-                                                <img src="media/index/ContainerInstances.svg" alt="" />
-                                                <p>Azure Container Instances</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1890,7 +1890,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/cosmosdb.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
