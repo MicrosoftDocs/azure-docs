@@ -330,4 +330,4 @@ In this tutorial, you learned basic database tasks such as create a database and
 Advance to the next tutorial to learn about designing a database using Visual Studio and C#.
 
 > [!div class="nextstepaction"]
->[Design an Azure SQL database and connect with C# and ADO.NET](ssql-database-design-first-database-csharp.md)
+>[Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
