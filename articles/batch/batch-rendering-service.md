@@ -97,8 +97,6 @@ After you have authenticated your Batch and Storage accounts, set up a pool for 
 
 The following sections walk you through the available options, available on the **Submit** tab:
 
-![Specify pool, OS image, VM size, and license](./media/batch-rendering-service/submit.png)
-
 #### Specify a new or existing pool
 
 To specify a pool on which to run the render job, select the **Submit** tab. This tab offers options for creating a pool or selecting an existing pool:
@@ -106,6 +104,8 @@ To specify a pool on which to run the render job, select the **Submit** tab. Thi
 - You can **auto provision a pool for this job** (the default option). When you choose this option, Batch creates the pool exclusively for the current job, and automatically deletes the pool when the render job is complete. This option is best when you have a single render job to complete.
 - You can **reuse an existing persistent pool**. If you have an existing pool that is idle, you can specify that pool for running the render job by selecting it from the dropdown. Reusing an existing persistent pool saves the time required to provision the pool.  
 - You can **create a new persistent pool**. Choosing this option creates a new pool for running the job. It does not delete the pool when the job is complete, so that you can reuse it for future jobs. Select this option when you have a continuous need to run render jobs. On subsequent jobs, you can select **reuse an existing persistent pool** to use the persistent pool that you created for the first job.
+
+![Specify pool, OS image, VM size, and license](./media/batch-rendering-service/submit.png)
 
 For more information on how charges accrue for Azure VMs, see the [Linux Pricing FAQ](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#faq) and [Windows Pricing FAQ](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#faq).
 
