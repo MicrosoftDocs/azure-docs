@@ -27,7 +27,7 @@ Update 5 includes device software, Storport and Spaceport, OS security updates a
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure  portal.
-> * We recommend that you install the software and other regular updates via the Azure portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must also be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
+> * We recommend that you install the software and other regular updates via the Azure portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device.
 > * If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 5 prior to updating the device.
 
 
@@ -41,7 +41,7 @@ Perform the following steps to update your device to [Update 5](storsimple-updat
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17840)**. The **Last updated date** should also be modified.
+Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17840)**. The **Last updated date** should be modified.
 
 * You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
 
@@ -78,7 +78,7 @@ You must download and install the following hotfixes in the prescribed order and
 | 2B. |KB4037266  |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
 | 2C. |KB4037267 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
 
-You do not need to install USM and LSI driver and firmware updates if you are updating from a device running Update 4.
+If you are updating from a device running Update 4, you do not need to install USM and LSI driver and firmware updates.
 
 You may also need to install disk firmware updates on top of all the updates shown in the preceding tables. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, then you do not need to install these updates.
 
