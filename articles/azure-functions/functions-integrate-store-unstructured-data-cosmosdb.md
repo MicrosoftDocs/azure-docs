@@ -37,11 +37,11 @@ To complete this tutorial:
 
 1. Expand both your function app and your function.
 
-1. Select **Integrate** and **+ New Output**,  link located at the top right of the page. Then choose **Azure Cosmos DB** and click **Select**.
+1. Select **Integrate** and **+ New Output**, which is at the top right of the page. Choose **Azure Cosmos DB**, and click **Select**.
 
     ![Add a Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-3. Use the settings as specified in the table: 
+3. Use the **Azure Cosmos DB output** settings as specified in the table: 
 
     ![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
@@ -52,9 +52,9 @@ To complete this tutorial:
     | **Collection name** | TaskCollection | Name of collection of Cosmos DB databases. |
     | **If true, creates the Cosmos DB database and collection** | Checked | The collection doesn't already exist, so create it. |
 
-4. Select **New** next to the **Cosmos DB document connection** label, then **+ Create new**. 
+4. Select **New** next to the **Cosmos DB document connection** label, and select **+ Create new**. 
 
-5. Use the settings as specified in the table: 
+5. Use the **New account** settings as specified in the table: 
 
     ![Configure Cosmos DB connection](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
@@ -66,9 +66,9 @@ To complete this tutorial:
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
 
-6. Click **OK** to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Cosmos DB account connection**.
+6. Click **OK** to create the database. It may take a few minutes to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Cosmos DB account connection**. 
  
-8. Select the **Save** button to create the binding.
+8. After the connection string is set, select **Save** to create the binding.
 
 ## Update the function code
 
