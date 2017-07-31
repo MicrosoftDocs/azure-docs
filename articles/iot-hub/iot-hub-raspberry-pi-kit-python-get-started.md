@@ -168,7 +168,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    nano config.py
    ```
 
-   There are 5 macros in this file you can configurate. The first one is `MESSAGE_TIMESPAN`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not. `I2C_ADDRESS` is the I2C address which your BME280 sensor is connected. `GPIO_PIN_ADDRESS` is the GPIO address for your LED. The last one is `BLINK_TIMESPAN`, which defined the timespan when your LED is turned on in milliseconds.
+   There are 5 macros in this file you can configurate. The first one is `MESSAGE_TIMESPAN`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `SIMULATED_DATA`, which is a Boolean value for whether to use simulated sensor data or not. `I2C_ADDRESS` is the I2C address which your BME280 sensor is connected. `GPIO_PIN_ADDRESS` is the GPIO address for your LED. The last one is `BLINK_TIMESPAN`, which defined the timespan when your LED is turned on in milliseconds.
 
    If you **don't have the sensor**, set the `SIMULATED_DATA` value to `True` to make the sample application create and use simulated sensor data.
 
@@ -184,7 +184,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    You can also specify the version you want by running `./setup.sh [--python-version|-p] [2.7|3.4|3.5]`. If you run script without parameter, the script will automatically detect the version of python installed (Search sequence 2.7->3.4->3.5). Make sure your Python version keeps consistent during building and running.
    
 
-   On building the Python client library (iothub_client.so) on Linux devices that have less than 1GB RAM, you may see build getting stuck at 98% while building iothub_client_python.cpp as shown below `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`. If you run into this issue, check the memory consumption of the device using `free -m command` in another terminal window during that time. If you are running out of memory while compiling iothub_client_python.cpp file, you may have to temporarily increase the swap space to get more available memory to successfully build the Python client side device SDK library.
+   On building the Python client library (iothub_client.so) on Linux devices that have less than 1GB RAM, you may see build getting stuck at 98% while building iothub_client_python.cpp as shown below `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`. If you run into this issue, check the memory consumption of the device using `free -m command` in another terminal window during that time. If you are running out of memory while compiling iothub_client_python.cpp file, you may have to temporarily increase the swap space to get more available memory to successfully build the Python client-side device SDK library.
    
 1. Run the sample application by running the following command:
 
