@@ -29,7 +29,7 @@ Connections require a web socket handshake. To begin this handshake, the client 
 service and includes standard web socket upgrade headers along with other headers that are specific to speech. 
 
 ```HTTP
-GET /speech/recognize/interactive/cognitiveservices/v1 HTTP/1.1
+GET /speech/recognition/interactive/cognitiveservices/v1 HTTP/1.1
 Host: speech.platform.bing.com
 Upgrade: websocket
 Connection: Upgrade
