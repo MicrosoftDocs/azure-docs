@@ -47,7 +47,7 @@ Note that:
 - You can also enable protection for virtual machines in the VMM console. Click **Enable Protection** on the toolbar in the virtual machine properties > **Azure Site Recovery** tab.
 - After you've enabled replication, you can view properties for the VM in **Replicated Items**. On the **Essentials** dashboard, you can see information about the replication policy for the VM and its status. Click **Properties** for more details.
 
-## Onboard existing virtual machines
+## Onboard existing VMs
 
 If you have existing virtual machines in VMM that are replicating with Hyper-V Replica, you can onboard them for Azure Site Recovery replication as follows:
 
