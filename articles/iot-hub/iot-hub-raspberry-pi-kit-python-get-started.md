@@ -144,7 +144,6 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
    1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
    
-   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
    **Mac and Ubuntu Users**
    
