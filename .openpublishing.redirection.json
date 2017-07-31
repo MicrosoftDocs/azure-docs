@@ -3096,11 +3096,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/oms-security-web-baseline.md",
-            "redirect_url": "https://www.microsoft.com/cloud-platform/security-and-compliance",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/remoteapp/index.md",
             "redirect_url": "/azure/remoteapp/remoteapp-whatis",
             "redirect_document_id": false
@@ -8352,6 +8347,11 @@
 		{
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-quickstart-deploy.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
             "redirect_document_id": false
         }
 
