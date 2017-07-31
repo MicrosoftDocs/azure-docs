@@ -13,13 +13,14 @@ ms.author: tamram
 
 # Get started with the Batch Rendering service
 
-The Azure Batch Rendering service offers cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service handles job scheduling and queueing, managing failures and retries, and auto-scaling according to the needs of your job. The Batch Rendering service supports the Autodesk Maya and Autodesk Arnold rendering engines. You can use Maya and Arnold without having to manage licenses or infrastructure. The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop. 
+The Azure Batch Rendering service offers cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service handles job scheduling and queueing, managing failures and retries, and auto-scaling according to the needs of your job. The Batch Rendering service supports Autodesk Maya, 3ds Max, and Arnold, with support for other applications coming soon. The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop. 
 
-## Supported rendering engines
+## Supported applications
 
-The Batch Rendering service currently supports the following rendering engines:
+The Batch Rendering service currently supports the following applications:
 
 - Autodesk Maya
+- Autodesk 3ds Max
 - Autodesk Arnold
 
 ## Prerequisites
@@ -27,7 +28,7 @@ The Batch Rendering service currently supports the following rendering engines:
 To use the Batch Rendering service, you need:
 
 - An [Azure account](https://azure.microsoft.com/free/). 
-- **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md). Create your Batch account with its pool allocation mode set to Batch Service.
+- **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md).
 - **An Azure Storage account.** The assets used for your rendering job are stored in Azure Storage. You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. To learn more about Storage accounts, see [How to create, manage, or delete a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
 To use the Batch plug-in for Maya, you need:
@@ -35,7 +36,7 @@ To use the Batch plug-in for Maya, you need:
 - **Maya 2017**
 - **Arnold for Maya**
 
-You can also use the [Azure portal](https://portal.azure.com) to create pools of virtual machines that are pre-configured with Maya and Arnold. You can use the portal to monitor jobs and diagnose failed tasks by downloading application logs and by remotely connecting to individual VMs using RDP or SSH.
+You can also use the [Azure portal](https://portal.azure.com) to create pools of virtual machines that are pre-configured with Maya, 3ds Max, and Arnold. You can use the portal to monitor jobs and diagnose failed tasks by downloading application logs and by remotely connecting to individual VMs using RDP or SSH.
 
 ## Basic Batch concepts
 
@@ -43,7 +44,7 @@ Before you begin using the Batch Rendering service, it's helpful to be familiar 
 
 ### Pools
 
-Batch is a platform service for running compute-intensive work, like rendering, on a managed collection, or **pool**, of **compute nodes**. Each compute node in a pool is an Azure virtual machine (VM) running either Linux or Windows. 
+Batch is a platform service for running compute-intensive work, like rendering, on a **pool** of **compute nodes**. Each compute node in a pool is an Azure virtual machine (VM) running either Linux or Windows. 
 
 For more information about Batch pools and compute nodes, see the [Pool](batch-api-basics.md#pool) and [Compute node](batch-api-basics.md#compute-node) sections in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
 
