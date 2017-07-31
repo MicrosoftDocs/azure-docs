@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 07/31/2017
 ms.author: mimig
 
 ---
@@ -167,18 +167,9 @@ Yes, the [Windows Azure Storage premium table (Preview) SDK](https://www.nuget.o
 
 ### How does Azure Cosmos DB support the columnar data model?
 
-The database engine of Azure Cosmos DB is designed with the following building blocks:
-1. An atom-record-sequence (ARS) model which consists of the following: 
-    - Atoms: Primitive values including Booleans, strings, and numbers. 
-    - Records: Objects or recursive composites of "named" values. 
-    - Sequences: Arrays or ordered sequences of values.
-    
-    Atoms, records, and sequences can be easily mapped and projected to various data models. For the columnar data model, every column is simply an atom in a record. 
-2. A schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, or tree) which decouple the storage layout from the index and query processing subsystems.
-3. A log structured storage engine capable of ingesting sustained volumes of updates and synchronously and automatically indexing all of the ingested content without requiring any schema. A latch free, highly concurrent btree which is layered on top of the storage engine to support low latency queries.
-4. Ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2). 
+Graphs, documents, columnar, and key-value (table) data models are all natively supported because of the ARS (atoms, records and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (DocumentDB, MongoDB, Table, and Graph APIs) and others specific to the columnar data model and others will be available in the future.
 
-Graphs, documents, column-family, key-value (and a subset of relational) are all natively supported because of these building blocks. We have exposed the APIs for a subset of models right now and will continue to add more models in the future. 
+Azure Cosmos DB has a schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, tree) which decouple the storage layout from the index and query processing subsystems. Cosmos DB also has the ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2) making it uniquely capable of supporting multiple data models natively.
 
 ### How do I provide feedback about the SDK or bugs?
 You can share your feedback in any of the following ways:
