@@ -83,7 +83,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
 
-## Previous versions
+## Previous releases
 
 ### Version 0.8.13
 05/12/2017
