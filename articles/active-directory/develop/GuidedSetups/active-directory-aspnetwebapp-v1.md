@@ -23,10 +23,10 @@ ms.author: andret
 
 This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
 
-At the end of this guide, your application will be able to accept sign ins of work and school accounts from organizations that has integrated with Azure Active Directory. 
+At the end of this guide, your application will be able to accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory. 
 
 > [!NOTE]
-> This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). Please see [this ASP.NET guided setup for the v2 endpoint](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
+> This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). See [this ASP.NET guided setup for the v2 endpoint](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
 <br/><br/>
 
 > This guide requires Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it?  [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
@@ -63,7 +63,7 @@ This section shows the steps to install and configure the authentication pipelin
 1. In Visual Studio: `File` > `New` > `Project`<br/>
 2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
 3. Name your application and click *OK*
-4. Select `Empty` and select the checkbox to add `MVC` references
+4. Select `Empty` and then select the checkbox to add `MVC` references
 
 ## Add authentication components
 
@@ -82,10 +82,10 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
-The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class will be executed automatically when your IIS process starts.
+The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class is executed automatically when your IIS process starts.
 
 > If your project doesn't have a `Startup.cs` file in the root folder:<br/>
-> 1. Right click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
+> 1. Right-click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. Name it `Startup.cs`<br/>
 
 > Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
@@ -175,7 +175,7 @@ public class Startup
 <!--start-collapse-->
 > ### More Information
 
-> The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
+> The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the preceding code shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
 <!--end-collapse-->
 
 <!--end-setup-->
@@ -186,7 +186,7 @@ public class Startup
 
 This step shows how to create a new controller to expose sign-in and sign-out methods.
 
-1.	Right click the `Controllers` folder and select `Add` > `Controller`
+1.	Right-click the `Controllers` folder and select `Add` > `Controller`
 2.	Select `MVC (.NET version) Controller – Empty`.
 3.	Click *Add*
 4.	Name it `HomeController` and click *Add*
@@ -234,7 +234,7 @@ public void SignOut()
 
 In Visual Studio, create a new view to add the sign-in button and display user information after authentication:
 
-1.	Right click the `Views\Home` folder and select `Add View`
+1.	Right-click the `Views\Home` folder and select `Add View`
 2.	Name it `Index`.
 3.	Add the following HTML, which includes the sign-in button, to the file:
 
@@ -277,17 +277,17 @@ else
 ```
 <!--start-collapse-->
 ### More Information
-> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
-## Add a controller to display user's claims
+## Display user's claims by adding a controller
 This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.
 
-1.	Right click the `Controllers` folder: `Add` > `Controller`
+1.	Right-click the `Controllers` folder: `Add` > `Controller`
 2.	Select `MVC {version} Controller – Empty`.
 3.	Click *Add*
 4.	Name it `ClaimsController`
-5.	Replace the code of your controller class with the code below - this adds the `[Authorize]` attribute to the class:
+5.	Replace the code of your controller class with the following code - this adds the `[Authorize]` attribute to the class:
 
 ```csharp
 [Authorize]
@@ -326,7 +326,7 @@ public class ClaimsController : Controller
 
 In Visual Studio, create a new view to display the user's claims in a web page:
 
-1.	Right click the `Views\Claims` folder and: `Add View`
+1.	Right-click the `Views\Claims` folder and: `Add View`
 2.	Name it `Index`.
 3.	Add the following HTML to the file:
 
@@ -382,7 +382,7 @@ In Solution Explorer, select the project and look at the <i>Properties</i> windo
 Change SSL Enabled to <code>True</code>
 </li>
 <li>
-Copy the project's SSL URL to the clipoboard:<br/><br/>
+Copy the project's SSL URL to the clipboard:<br/><br/>
 </li>
 </ol>
 
@@ -400,29 +400,29 @@ In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> wit
 1. Go to the [Microsoft Azure Portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to register an application
 2. Select `New application registration`
 3. Enter a name for your application
-4. Paste the *SSL URL* for your Visual Studio project in `Sing-on URL` (This URL will also be added automatically to the list of Reply URLs for your new application)
-5. Click `Create` to register the application. This action will take you back to the list of applications
+4. Paste the Visual Studio project's *SSL URL* in `Sing-on URL` (This URL is also added automatically to the list of Reply URLs for the application you are registering)
+5. Click `Create` to register the application. This action takes you back to the list of applications
 6. Now, search and/or select the application you just created to open its properties
 7. Copy the guid under `Application ID` to the clipboard
 8. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you just registered
 
 ## Configure sign-in options
 
-You can configure your application to either accept sign-ins from any company or organization that has integrated with Azure Active Directory, or you can also restrict it to allow sign-ins from users that belong to only one company/ organization's Azure Active Directory instance. Please follow the instructions of one of choices below:
+You can configure your application to allow only users that belong to one organization's Azure Active Directory instance to sign-in, or accept sign-ins from users that belong to any organization. Please follow the instructions of one of choices below:
 
 ### Configure your application to allow sign ins of work and school accounts from any company or organization (multi-tenant)
 
-Follow the steps below if you want to accept sign ins of work and school accounts from any company or organization that has integrated with Azure Active Directory. This is a common scenario for *SaaS applications*:
+Follow the following steps if you want to accept sign ins of work and school accounts from any company or organization that has integrated with Azure Active Directory. This is a common scenario for *SaaS applications*:
 
 1. Go back to [Microsoft Azure Portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and locate the application you just registered
-2. Under `All Settings` select `Properties'
+2. Under `All Settings` select `Properties`
 3. Change `Multi-tenanted` property to `Yes` and click `Save`
 
 For more information about this setting and the concept of multi-tenant applications, please see [this article](../active-directory-devhowto-multi-tenant-overview.md#update-registration-to-be-multitenant "Multi-tenant overview").
 
 ### Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
 
-This option is a common scenario for *LOB applications*: If you want your application to accept sign-ins only from accounts that belong to a specific Azure Active Directory instance (including guest accounts of that instance), replace the `Tenant` parameter in *web.config* from `Common` to the tenant name of the organization – example, *contoso.onmicrosoft.com*. After that, change the `ValidateIssuer` argument in your [*OWIN Startup class*](#configure-the-authentication-pipeline) to `true`.
+This option is a common scenario for *LOB applications*: If you want your application to accept sign-ins only from accounts that belong to a specific Azure Active Directory instance (including *guest accounts* of that instance), replace the `Tenant` parameter in *web.config* from `Common` to the tenant name of the organization – example, *contoso.onmicrosoft.com*. After that, change the `ValidateIssuer` argument in your [*OWIN Startup class*](#configure-the-authentication-pipeline) to `true`.
 
 To allow users from only a list of specific organizations, set `ValidateIssuer` to true and use the `ValidIssuers` parameter to specify a list of organizations.
 
@@ -452,19 +452,19 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## Test your code
 
-Press `F5` to run your project in Visual Studio. The browser will open and direct you to *http://localhost:{port}* where you’ll see the *Sign in with Microsoft* button. Go ahead and click it to sign in.
+Press `F5` to run your project in Visual Studio. The browser opens and directs you to *http://localhost:{port}* where you see the *Sign in with Microsoft* button. Go ahead and click it to sign in.
 
 When you're ready to test, use a work account (Azure Active Directory) to sign in. 
 
-![Sign-in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
+![Sign in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
 
-![Sign-in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
+![Sign in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
 
 #### Expected results
-After sign-in, the user is redirected to the home page of your web site which is the HTTPS URL specified in your application registration information in the Microsoft Application Registration Portal. This page now shows *Hello {User}* and a link to sign-out, and a link to see the user’s claims – which is a link to the Authorize controller created earlier.
+After sign-in, the user is redirected to the home page of your web site, which is the HTTPS URL specified in your application's registration information in the Microsoft Application Registration Portal. This page now shows *Hello {User}* and a link to sign out, and a link to see the user’s claims – which is a link to the Authorize controller created earlier.
 
 ### See user's claims
-Select the hyperlink to see the user's claims. This leads you to the controller and view that is only available to users that are authenticated.
+Select the hyperlink to see the user's claims. This action leads you to the controller and view that is only available to users that are authenticated.
 
 #### Expected results
  You should see a table containing the basic properties of the logged user:
@@ -476,11 +476,11 @@ Select the hyperlink to see the user's claims. This leads you to the controller 
 | Subject| {Subject}|A string to uniquely identify the user logon across the web|
 | Tenant ID| {Guid}| A *guid* to uniquely represent the user’s Azure Active Directory organization.|
 
-In addition, you will see a table including all user claims included in authentication request. For a list of all claims in an Id Token and explanation please see this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "List of Claims in Id Token").
+In addition, you see a table including all user claims included in authentication request. For a list of all claims in an ID Token and their explanation, see this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "List of Claims in ID Token").
 
 
 ### Test accessing a method that has an *[Authorize]* attribute (Optional)
-In this step, you will test accessing the Claims controller as an anonymous user:<br/>
+In this step, you test accessing the Claims controller as an anonymous user:<br/>
 Select the link to sign-out the user and complete the sign-out process.<br/>
 Now in your browser, type http://localhost:{port}/claims to access your controller that is protected with the `[Authorize]` attribute
 
