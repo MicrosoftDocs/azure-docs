@@ -32,7 +32,7 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-tour/001.png)
 
-## [Take](app-insights-analytics-reference.md#take-operator): show me n rows
+## [Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): show me n rows
 Data points that log user operations (typically HTTP requests received by your web app) are stored in a table called `requests`. Each row is a telemetry data point received from the Application Insights SDK in your app.
 
 Let's start by examining a few sample rows of the table:
@@ -57,7 +57,7 @@ Expand any item to see the detail:
 >
 >
 
-## [Top](app-insights-analytics-reference.md#top-operator) and [sort](app-insights-analytics-reference.md#sort-operator)
+## [Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) and [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
 
 Show me the first n rows, ordered by a particular column:
@@ -83,7 +83,7 @@ The result would be the same, but it would run a bit more slowly. (You could als
 
 The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
 
-## [Where](app-insights-analytics-reference.md#where-operator): filtering on a condition
+## [Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtering on a condition
 
 Let's see just requests that returned a particular result code:
 
@@ -102,7 +102,7 @@ The `where` operator takes a Boolean expression. Here are some key points about 
 * `==`, `<>`, `!=` : equal and not equal
 * `=~`, `!~` : case-insensitive string equal and not equal. There are lots more string comparison operators.
 
-Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
+<!---Read all about [scalar expressions]().--->
 
 ### Getting the right type
 Find unsuccessful requests:
@@ -112,10 +112,11 @@ Find unsuccessful requests:
     requests
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
+<!---
+`resultCode` has type string, so we must cast it app-insights-analytics-reference.md#casts for a numeric comparison.
+--->
 
-`resultCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
-
-## Time range
+## Time
 
 By default, your queries are restricted to the last 24 hours. But you can change this range:
 
@@ -157,11 +158,11 @@ Other examples:
 
 ```
 
-[Dates and times reference](app-insights-analytics-reference.md#date-and-time).
+[Dates and times reference](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
 
 
-## [Project](app-insights-analytics-reference.md#project-operator): select, rename, and compute columns
-Use [`project`](app-insights-analytics-reference.md#project-operator) to pick out just the columns you want:
+## [Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): select, rename, and compute columns
+Use [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) to pick out just the columns you want:
 
 ```AIQL
 

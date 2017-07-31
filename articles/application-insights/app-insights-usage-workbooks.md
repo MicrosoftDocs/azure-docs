@@ -85,7 +85,7 @@ Analytics query sections let you add arbitrary queries over your Application Ins
 * What was the distribution of page load times for users viewing some page?
 * How many users viewed some set of pages on your site, but not some other set of pages? This can be useful to understand if you have clusters of users who use different subsets of your site's functionality (use the `join` operator with the `kind=leftanti` modifier in the Log Analytics query language).
 
-Use the [Log Analytics query language reference](app-insights-analytics-reference.md) to learn more about writing queries.
+Use the [Log Analytics query language reference](https://docs.loganalytics.io/) to learn more about writing queries.
 
 ## Adding text and Markdown sections
 
