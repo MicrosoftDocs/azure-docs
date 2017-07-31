@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/13/2017
 ms.author: banders
 
 ---
@@ -420,7 +420,10 @@ That shows the list of performance metrics that are collected for an individual 
 ## Example log search queries
 It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **Notable Queries** blade to help you build more advanced queries.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![Containers queries](./media/log-analytics-containers/containers-queries.png)
+
 
 ## Saving log search queries
 Saving queries is a standard feature in Log Analytics. By saving them, you'll have those that you've found useful handy for future use.

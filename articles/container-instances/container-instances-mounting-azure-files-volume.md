@@ -46,7 +46,7 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 
 ## Acquire storage account access details
 
-The mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key. 
+To mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key. 
 
 If you used the script above, the storage account name was created with a random value at the end. To query the final string (including the random portion), use the following commands:
 
