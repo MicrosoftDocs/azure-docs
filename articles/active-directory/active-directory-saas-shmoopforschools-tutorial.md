@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/01/2017
 ms.author: jeedes
 
 ---
@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. From the **Value** list, type the attribute value shown for that row.
 
-	d. Leave the **Namespace** textbox empty.
+	d. Leave the **Namespace** textbox as empty.
 	
 	e. Click **Ok**.
 
