@@ -1,5 +1,5 @@
 ---
-title: 'Configure route filters for Microsoft peering: PowerShell | Microsoft Docs'
+title: 'Configure route filters for Azure ExpressRoute Microsoft peering: PowerShell | Microsoft Docs'
 description: This article describes how to configure route filters for Microsoft Peering using PowerShell
 documentationcenter: na
 services: expressroute

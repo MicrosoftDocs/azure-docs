@@ -332,7 +332,7 @@ Yes. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operati
 
 You will not see any routes. You have to attach a route filter to your circuit to start prefix advertisements. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
 
-### I turned on Microsoft peering and now I am trying to select Exchange Online, but it is giving me error that I am not authorized to do it.
+### I turned on Microsoft peering and now I am trying to select Exchange Online, but it is giving me an error that I am not authorized to do it.
 
 When using route filters, any customer can turn on Microsoft peering. However, for consuming Office 365 services, you still need to get authorized by Office 365.
 
