@@ -38,17 +38,12 @@ Here's what you need for replicating Hyper-V VMs to a secondary VMM site.
 
 ### Replication process
 
-1. You set up the Azure account.
-2. You create a Replication Services vault for Site Recovery, and configure vault settings, including:
+1. You set up the Azure account, create a Recovery Services vault, and specify what you want to replicate.
+2. You configure the source and target replication settings, which includes installing the Azure Site Recovery Provider aon VMM servers, and the Microsoft Azure Recovery Services agent on each Hyper-V host.
+3. You create a replication policy for the source VMM cloud. The policy is applied to all VMs located on hosts in the cloud.
+4. You enable replication for each VMM, and initial replication pf a V< occurs in accordance with the settings you choose.
+5. After initial replication, replication of delta changes begins. Tracked changes for an item are held in a .hrl file.
 
-    - The replication source and target (primary and secondary sites).
-    - Installation of the Azure Site Recovery Provider and the Microsoft Azure Recovery Services agent. The Provider is installed on VMM servers, and the agent on each Hyper-V host.
-    - You create a replication policy for the source VMM cloud. The policy is applied to all VMs located on hosts in the cloud.
-    - You enable replication for Hyper-V VMs. Initial replication occurs in accordance with the replication policy settings.
-4. Data changes are tracked, and replication of delta changes to begins after the initial replication finishes. Tracked changes for an item are held in a .hrl file.
-5. You run a test failover to make sure everything's working.
-
-**Figure 1: VMM to VMM replication**
 
 ![On-premises to on-premises](./media/vmm-to-vmm-walkthrough-architecture/arch-onprem-onprem.png)
 
