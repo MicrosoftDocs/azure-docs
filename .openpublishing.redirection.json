@@ -8353,6 +8353,11 @@
             "source_path": "articles/application-insights/app-insights-analytics-reference.md",
             "redirect_url": "https://docs.loganalytics.io/",
             "redirect_document_id": false
+        },
+    {
+            "source_path": "articles/azure-resource-manager/resource-manager-quickstart-deploy.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template
+            "redirect_document_id": false
         }
 
     ]
