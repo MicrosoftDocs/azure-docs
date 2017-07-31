@@ -95,7 +95,7 @@
 ##### [DMZ with firewall, UDR, and NSGs](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Sample application](virtual-networks-sample-app.md)
 
-### [Classic]
+### Classic
 #### [Virtual network](create-virtual-network-classic.md)
 ##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
 ##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
