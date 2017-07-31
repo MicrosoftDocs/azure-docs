@@ -2,35 +2,27 @@
   href: ../index.md
 - name: Overview
   items:
-  - name: What is Text Analytics
+  - name: Learn about Text Analytics API
     href: text-analytics-overview-what.md
-  - name: How to use the API
+  - name: How to use Text Analytics
     href: text-analytics-overview-how.md
 - name: Quickstarts
   items:
   - name: Analyze text (REST API)
     href: text-analytics-quickstart-rest-api.md
-  - name: Analyze text (.NET SDK)
-    href: text-analytics-quickstart-sdk.md
-  - name: Text Analytics API in PowerApps
-    href: https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/
+- name: Concepts
+  items:
+   - name: Sentiment analysis 
+     href: text-analytics-concept-sentiment-analysis.md
 - name: How-to guides
   items:
-   - name: Migrate to a higher API version
-     href: ../cognitive-services-text-analytics-api-migration.md
-   - name: Data formation
-     href: text-analytics-howto-data-ingestion.md
-   - name: Sentiment analysis 
-     href: text-analytics-howto-sentiment-analysis.md
-   - name: Keyword detection as search optimization
-     href: text-analytics-howto-keywords-search.md
-   - name: Language detection and translation
-     href: text-analytics-howto-language-detection-translator-api.md
+   - name: Aggregate and analyze results
+     href: text-analytics-howto-aggregate.md
 - name: Reference
   items: 
-  - name: REST API Reference
+  - name: REST API Documentation
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
-  - name: .NET SDK Reference
+  - name: .NET SDK Documentation
     href: https://github.com/adgroc/Cognitive-TextAnalytics-Windows
 - name: Resources
   items:

@@ -14,15 +14,16 @@ ms.author: heidist
 
 # What is the Text Analytics API (Azure Cognitive Services)
 
-Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the functionality you create through your development projects.
+Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps.
 
-**Text Analytics** is a platform within Cognitive Services for performing text analysis -- delivered with a clear focus on *sentiment analysis*, *key phrase extraction*, and *language detection*. 
+**Text Analytics** is a collection of APIs within Cognitive Services for performing text analysis, delivered with a clear focus on **sentiment analysis**, **key phrase extraction**, and **language detection***. 
 
-As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine Text Analytics with other services to support more complex scenarios. For ideas on multi-service use case scenarios, see [How to use Text Analytics](text-analytics-overview-how.md).
+> [!Note]
+> As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine Text Analytics with other services to support more complex scenarios. For ideas on multi-service use case scenarios, see [How to use Text Analytics](text-analytics-overview-how.md).
 
-## Resources provided by Text Analytics API
+## Workloads supported through Text Analytics APIs
 
-Text analysis can mean different things, but in Azure Cognitives Services, APIs support these workloads.
+Text analysis can mean different things, but in Azure Cognitives Services, APIs are exposed through three resource types.
 
 | Workloads | APIs | Description |
 |-----------|------|-------------|
@@ -32,13 +33,15 @@ Text analysis can mean different things, but in Azure Cognitives Services, APIs 
 
 ## Typical workflow
 
-The Text Analytics API is used to access an analytics engine in the Azure cloud, hosting machine learning algorithms and models for handing requests and returning results to a calling application.
+The Text Analytics API is used to access an analytics engine in the Azure cloud, which hosts machine learning algorithms and models for handling requests and returning results to a calling application.
 
-To use our analytical services, you submit text data in JSON as part of a request for sentiment analysis, key phrase extraction, or language detection. Inputs are analyzed, and outputs are returned in the form of JSON documents, typically a one-to-one result set for each document you provide.
+To use our analytical services, you submit raw text data in JSON as part of a request for sentiment analysis, key phrase extraction, or language detection. Inputs are analyzed, and outputs are returned in the form of JSON documents, typically a one-to-one result set for each document you provide as input.
 
 Data is not stored, but on occassion Microsoft might capture and use it temporarily for testing various Cognitive Services algorithms and platforms. 
 
-## Supported Languages for sentiment analysis and key phrase extraction
+Generally, the documents you provide can be used as-is for all three workloads. For example, given a single JSON documents collection, your code can invoke a series of operations (language detection, keyword extraction, sentiment analysis) over the same data.
+
+## Supported languages for sentiment and key phrase extraction
 
 Analyzing sentiment and phrases is a complex operation requiring access to linguistic rules specific to each language. Support for several languages has graduated from preview to generally available (GA) status. Others are still in preview, even though the Text Analytics API itself has GA status.
 
@@ -63,6 +66,20 @@ Analyzing sentiment and phrases is a complex operation requiring access to lingu
 
 \* indicates language support in preview
 
+<a name="data-limits"></a>
+
+## Data limits
+
+Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. While this number might seem low, the vast majority of text submitted for analysis falls well below this limit. If you require a higher limit, please contact us so that we can explore options.
+
+|Limits | |
+|------------------------|---------------|
+| Maxium size of a single document | 10 KB |
+| Maximum size of entire request | 1 MB |
+| Maximum number of documents in a request | 1,000 documents |
+
+Rate limiting exists at a rate of 100 calls per minute. We therefore recommend that you submit large quantities of documents in a single call. 
+
 ## Sign up and billing
 
 Although Cognivitive Services has multiple APIs, we ask you to sign up for them individually so that you can control cost and availability for each workload:
@@ -70,7 +87,7 @@ Although Cognivitive Services has multiple APIs, we ask you to sign up for them 
 + [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
 + [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
 
-You are charged only for the requests you submit, where a request is either sentiment, keyword, or language detection (they can't be combined into one request). We don't store data, nor charge by the size of the payload. A request with 1 megabyte of data costs the same as one with 1 kilobyte of data.
+You are charged only for the requests you submit, where a request is either sentiment, keyword, or language detection (they can't be combined into one request). We don't store data so there is no storage component to billing, but there are [limits on the size and struture of the payload](#data-limits).
 
 At the Free tier, there is a maximum number of requests per month, where the counter is reset one month plus one day ahead of the first request.
 
@@ -98,7 +115,7 @@ First, try the [interactive demo](https://azure.microsoft.com/services/cognitive
 
 Next, step through the [quickstart REST API tutorial](text-analytics-quickstart-rest-api.md) to learn the basic workflow using the REST API and a Web API testing tool.
 
-For .NET developers, we recommend the [Cognitive Services Text Analytics .NET SDK](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet), for developing text analysis apps in managed code.
+For .NET developers, we recommend the [Cognitive Services Text Analytics .NET SDK](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) for developing text analysis apps in managed code.
 
 ## See also
 

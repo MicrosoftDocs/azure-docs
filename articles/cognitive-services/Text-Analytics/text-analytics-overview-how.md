@@ -18,6 +18,17 @@ TBD...
 
 Other phases of text analysis -- such as text collecting parsing, cleansing, summarization, classification, and visualization -- are not built into the Text Analytics API but can be implemented using ...
 
+
+ART -- TA -> aggregate and analyze using Power BI
+
+ART -- Data Consolidation + Linguistic Analysis + Text Analytics
+
+ART -- Standalone app, as shown in PowerApps
+
+Text Analytics API in PowerApps
+    href: https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/
+
+
 ## Next steps
 
 ## See also

@@ -59,7 +59,9 @@ Endpoints for each operation include the resource providing the underlying algor
 
    ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
 
-4. Provide text for analysis. Click **Body** and paste in the JSON documents below. 
+4. Provide text for analysis. Each document can have a maximum of 10 KB of raw text. Specifying `language` is not required, but providing it bypasses an implicit language detection check, which is more efficient.
+
+  Click **Body** and paste in the JSON documents below. 
 
    ```
         {
@@ -97,20 +99,20 @@ Endpoints for each operation include the resource providing the underlying algor
 
 ### Formatting the request body
 
-Input rows must be JSON. XML is not supported. For sentiment, key phrases and language, the format is the same:
+Input rows must be JSON in raw text. XML is not supported. For sentiment, key phrases and language, the format is the same:
  
  + Each ID should be unique and is the ID returned by the system. 
  + Language is an optional parameter that should be specified if analyzing non-English text. Refer to the [Text Analytics Overview](overview.md#supported-languages) for a list of supported languages.
  
 The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. 
  
-Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. 
+Rate limiting exists at a rate of 100 calls per minute. We therefore recommend that you submit large quantities of documents in a single call. 
 
 ### Parsing the response payload
 
 This call returns a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below.
 
-The keyPhrases algorithm iterates over the entire collection and picks up on common phrases(?).
+The keyPhrases algorithm iterates over the entire collection and extracts common phrases(?).
 
 ```
 {
