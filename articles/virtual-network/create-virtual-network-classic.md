@@ -33,7 +33,7 @@ To learn more about all virtual network and subnet settings, see [Manage virtual
 
 ## Create a virtual network
 
-You can create a virtual network (classic) by completing the steps on any of the following tabs:
+You can create a virtual network (classic) by using the Azure portal, the Azure command-line interface (CLI) 1.0, or PowerShell. Complete the steps on one of the following tabs:
 
 # [Portal](#tab/azure-portal)
 
