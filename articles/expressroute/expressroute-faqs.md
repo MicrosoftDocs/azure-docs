@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 07/31/2017
 ms.author: cherylmc
 
 ---
@@ -46,9 +46,15 @@ No. You can purchase a VPN connection of any speed from your service provider. H
 ### If I pay for an ExpressRoute circuit of a given bandwidth, do I have the ability to burst up to higher speeds if necessary?
 
 Yes. ExpressRoute circuits are configured to allow you to burst up to two times the bandwidth limit you procured for no additional cost. Check with your service provider to see if they support this capability.
+<<<<<<< HEAD
 
 ### Can I use the same private network connection with virtual network and other Azure services simultaneously?
 
+=======
+
+### Can I use the same private network connection with virtual network and other Azure services simultaneously?
+
+>>>>>>> 41abeaccf58ba023290a8f5867495e0bb31b58d1
 Yes. An ExpressRoute circuit, once set up, allows you to access services within a virtual network and other Azure services simultaneously. You connect to virtual networks over the private peering path, and to other services over the public peering path.
 
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
@@ -61,7 +67,11 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 ### Private peering
 
+<<<<<<< HEAD
+* Virtual networks, including all virtual machines and cloud services
+=======
 * virtual networks, including all virtual machines and cloud services
+>>>>>>> 41abeaccf58ba023290a8f5867495e0bb31b58d1
 
 ### Public peering
 
@@ -169,9 +179,15 @@ Yes. You can link a single virtual network with up to four ExpressRoute circuits
 ### Can I access the Internet from my virtual networks connected to ExpressRoute circuits?
 
 Yes. If you have not advertised default routes (0.0.0.0/0) or Internet route prefixes through the BGP session, you can connect to the Internet from a virtual network linked to an ExpressRoute circuit.
+<<<<<<< HEAD
 
 ### Can I block Internet connectivity to virtual networks connected to ExpressRoute circuits?
 
+=======
+
+### Can I block Internet connectivity to virtual networks connected to ExpressRoute circuits?
+
+>>>>>>> 41abeaccf58ba023290a8f5867495e0bb31b58d1
 Yes. You can advertise default routes (0.0.0.0/0) to block all Internet connectivity to virtual machines deployed within a virtual network and route all traffic out through the ExpressRoute circuit.
 
 If you advertise default routes, we force traffic to services offered over public peering (such as Azure storage and SQL DB) back to your premises. You will have to configure your routers to return traffic to Azure through the public peering path or over the Internet.
@@ -250,11 +266,19 @@ ExpressRoute premium is a collection of the following features:
 
     *  You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
     *  On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
+<<<<<<< HEAD
 
 ### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 
 The following tables show the ExpressRoute limits and the number of VNets per ExpressRoute circuit:
 
+=======
+
+### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
+
+The following tables show the ExpressRoute limits and the number of VNets per ExpressRoute circuit:
+
+>>>>>>> 41abeaccf58ba023290a8f5867495e0bb31b58d1
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
 ### How do I enable ExpressRoute premium?
@@ -323,3 +347,27 @@ Yes. Office 365 GCC service endpoints are reachable through the Azure US Governm
 ### Can Dynamics 365 for Operations (formerly known as Dynamics AX Online) be accessed over an ExpressRoute connection?
 
 Yes. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) is hosted on Azure. You can enable Azure public peering on your ExpressRoute circuit to connect to it.
+
+## Route filters for Microsoft peering
+
+### I am turning on Microsoft peering for the first time, what routes will I see?
+
+You will not see any routes. You have to attach a route filter to your circuit to start prefix advertisements. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+
+### I turned on Microsoft peering and now I am trying to select Exchange Online, but it is giving me error that I am not authorized to do it.
+
+When using route filters, any customer can turn on Microsoft peering. However, for consuming Office 365 services, you still need to get authorized by Office 365.
+
+### Do I need to get authorization for turning on Dynamics 365 over Microsoft peering?
+
+No, you do not need authorization for Dynamics 365. You can create a rule and select Dynamics 365 community without authorization.
+
+### I already have Microsoft peering, how can I take advantage of route filters?
+
+You can create a route filter, select the services you want to use, and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+
+### I have Microsoft peering at one location, now I am trying to enable it at another location and I am not seeing any prefixes.
+
+* Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined.
+
+* Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. You will see no prefixes by default.
