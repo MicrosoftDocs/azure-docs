@@ -45,7 +45,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?
 
-**A:** Yes, you can do that through the SCM site, check the following article for more information [SSH support for Web App on Linux](./app-service-linux-ssh-support.md)
+**A:** Yes, you can do that through the SCM site.
 
 ## Continuous integration/deployment
 
