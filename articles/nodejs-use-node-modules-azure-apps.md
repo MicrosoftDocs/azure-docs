@@ -4,7 +4,7 @@ description: Learn how to work with Node.js modules when using Azure App Service
 services: ''
 documentationcenter: nodejs
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 07/31/2017
 ms.author: robmcm
 
 ---
