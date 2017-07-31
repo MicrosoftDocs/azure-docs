@@ -132,6 +132,7 @@
   - name: Develop
     items:
     - name: DocumentDB API
+      href: documentdb-index.md
       items:
       - name: Resources
         href: documentdb-resources.md
