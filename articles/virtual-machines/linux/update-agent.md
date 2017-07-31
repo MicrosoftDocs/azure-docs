@@ -29,238 +29,325 @@ You should always check for a package in the Linux Distro repository first. It i
 
 # Upgrading the Azure Linux Agent
 
-
 ## Ubuntu
+
 #### Check your current package version
+
 Look for 'walinuxagent'
-```
+
+```bash
 apt list --installed
 ```
+
 #### Update package cache
-```
+
+```bash
 sudo apt-get -qq update
 ```
+
 #### Install the latest package version
-```
+
+```bash
 sudo apt-get install walinuxagent
 ```
+
 #### Enable Agent Auto Update
+
 First Check to see if it is enabled:
-```
+
+```bash
 cat /etc/waagent.conf
 ```
+
 Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
-```
-# AutoUpdate.Enabled=y
+
+```bash
 AutoUpdate.Enabled=y
 ```
+
 To enable run:
 
-```
+```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
+
 #### Restart Agent for 14.04
-```
+
+```bash
 initctl restart walinuxagent
 ```
+
 #### Restart Agent for 16.04 / 17.04
-```
+
+```bash
 systemctl restart walinuxagent.service
 ```
 
-
 ## Debian
+
 ### Debian 7 “Wheezy”
+
 #### Check your current package version
+
 Look for 'waagent'
-```
+
+```bash
 dpkg -l
 ```
+
 #### Update package cache
-```
+
+```bash
 sudo apt-get -qq update
 ```
+
 #### Install the latest package version
-```
+
+```bash
 sudo apt-get install waagent
 ```
+
 #### Enable Agent Auto Update
 This version of Debian does not have a version >= 2.0.16, therefore AutoUpdate is not available to it. The output from the above command will show you if the package is up-to-date.
 
-
-
 ### Debian 8 “Jessie” / Debian 9 “Stretch”
+
 #### Check your current package version
+
 Look for 'waagent'
-```
+
+```bash
 apt list --installed
 ```
+
 #### Update package cache
-```
+
+```bash
 sudo apt-get -qq update
 ```
+
 #### Install the latest package version
-```
+
+```bash
 sudo apt-get install waagent
 ```
 #### Enable Agent Auto Update
+
 First Check to see if it is enabled:
-```
+
+```bash
 cat /etc/waagent.conf
 ```
+
 Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
-```
-# AutoUpdate.Enabled=y
+
+```bash
 AutoUpdate.Enabled=y
 ```
+
 To enable run:
-```
+
+```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
+
 #### Restart Agent
+
 ```
 sudo systemctl restart walinuxagent.service
 ```
 
-
 ## Redhat / CentOS
 
-## RHEL/CentOS 6
+### RHEL/CentOS 6
+
 #### Check your current package version
+
 Look for 'WALinuxAgent'
-```
+
+```bash
 sudo yum list WALinuxAgent
 ```
+
 #### Check available updates
-```
+
+```bash
 sudo yum check-update WALinuxAgent
 ```
+
 #### Install the latest package version
-```
+
+```bash
 sudo yum install WALinuxAgent
 ```
+
 #### Enable Agent Auto Update
+
 First Check to see if it is enabled:
-```
+
+```bash
 cat /etc/waagent.conf
 ```
+
 Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
-```
-# AutoUpdate.Enabled=y
+
+```bash
 AutoUpdate.Enabled=y
 ```
+
 To enable run:
-```
+
+```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
+
 #### Restart Agent
+
 ```
 sudo service waagent restart
 ```
 
+### RHEL/CentOS 7
 
-## RHEL/CentOS 7
 #### Check your current package version
+
 Look for 'WALinuxAgent'
-```
+
+```bash
 sudo yum list WALinuxAgent
 ```
+
 #### Check available updates
-```
+
+```bash
 sudo yum check-update WALinuxAgent
 ```
+
 #### Install the latest package version
-```
+
+```bash
 sudo yum install WALinuxAgent  
 ```
+
 #### Enable Agent Auto Update
+
 First Check to see if it is enabled:
-```
+
+```bash
 cat /etc/waagent.conf
 ```
+
 Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
-```
-# AutoUpdate.Enabled=y
+
+```bash
 AutoUpdate.Enabled=y
 ```
+
 To enable run:
-```
+
+```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
+
 #### Restart Agent
-```
+
+```bash
 sudo systemctl restart waagent.service
 ```
 
+## SUSE SLES
 
+### SUSE SLES 11 SP4
 
-## SUSE SLES 11 SP4
 #### Check your current package version
+
 Look for 'python-azure-agent'
-```
+
+```bash
 zypper info python-azure-agent
 ```
+
 #### Check available updates
+
 In the output from the above, this will show you if the package is upto date.
 
 #### Install the latest package version
-```
+
+```bash
 sudo zypper install python-azure-agent
 ```
+
 #### Enable Agent Auto Update
+
 First Check to see if it is enabled:
-```
+
+```bash
 cat /etc/waagent.conf
 ```
+
 Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
-```
-# AutoUpdate.Enabled=y
+
+```bash
 AutoUpdate.Enabled=y
 ```
+
 To enable run:
-```
+
+```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
+
 #### Restart Agent
-```
+
+```bash
 sudo /etc/init.d/waagent restart
 ```
 
+### SUSE SLES 12 SP2
 
-
-## SUSE SLES 12 SP2
 #### Check your current package version
+
 Look for 'python-azure-agent'
-```
+
+```bash
 zypper info python-azure-agent
 ```
-#### Check available updates**
+
+#### Check available updates
+
 In the output from the above, this will show you if the package is upto date.
 
 #### Install the latest package version
-```
+
+```bash
 sudo zypper install python-azure-agent
 ```
+
 #### Enable Agent Auto Update
+
 First Check to see if it is enabled:
-```
+
+```bash
 cat /etc/waagent.conf
 ```
+
 Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
-```
-# AutoUpdate.Enabled=y
+
+```bash
 AutoUpdate.Enabled=y
 ```
+
 To enable run:
 
-```
+```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
+
 #### Restart Agent
-```
+
+```bash
 sudo systemctl restart waagent.service
 ```
-
 
 ## Oracle 6 & 7
 
