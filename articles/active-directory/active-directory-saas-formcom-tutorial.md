@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 07/31/2017
 ms.author: jeedes
 
 ---
@@ -106,12 +106,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Form.com Domain and URLs single sign-on information](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.form.com/`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.wa-form.com`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.form.com`
 
-	c. b. In the **Reply URL** textbox, type a URL using the following pattern: `https://worldapp.com/<instancename>`
-
+	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
+	| `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
+	
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Reply URL, and Identifier. Contact [Form.com Client support team](https://form.com/about/company/contact-us/) to get these values. 
  
