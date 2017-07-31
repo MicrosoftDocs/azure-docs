@@ -32,7 +32,7 @@ If you are already familiar with using Node.js modules, **package.json** and **n
 > 
 
 ## Node.js Modules
-Modules are loadable JavaScript packages that provide specific functionality for your application. A module is usually installed using the **npm** command-line tool, however some modules (such as the http module) are provided as part of the core Node.js package.
+Modules are loadable JavaScript packages that provide specific functionality for your application. Modules are usually installed using the **npm** command-line tool, however some modules (such as the http module) are provided as part of the core Node.js package.
 
 When modules are installed, they are stored in the **node\_modules** directory at the root of your application directory structure. Each module within the **node\_modules** directory maintains its own **node\_modules** directory that contains any modules that it depends on, and this behavior repeats for every module all the way down the dependency chain. This environment allows each module installed to have its own version requirements for the modules it depends on, however it can result in quite a large directory structure.
 
@@ -57,7 +57,7 @@ During development, you can use the **--save**, **--save-dev**, or **--save-opti
 One potential problem with the **package.json** file is that it only specifies the version for top-level dependencies. Each module installed may or may not specify the version of the modules it depends on, and so it is possible that you may end up with a different dependency chain than the one used in development.
 
 > [!NOTE]
-> When deploying to Azure App Service, if your <b>package.json</b> file references a native module you will see an error similar to the following example when publishing the application using Git:
+> When deploying to Azure App Service, if your <b>package.json</b> file references a native module you might see an error similar to the following example when publishing the application using Git:
 > 
 > npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 > 
@@ -71,7 +71,7 @@ The **npm-shrinkwrap.json** file is an attempt to address the module versioning 
 When your application is ready for production, you can lock down version requirements and create an **npm-shrinkwrap.json** file by using the **npm shrinkwrap** command. This command will use the versions currently installed in the **node\_modules** folder, and record these versions to the **npm-shrinkwrap.json** file. After the application has been deployed to the hosting environment, the **npm install** command is used to parse the **npm-shrinkwrap.json** file and install all the dependencies listed. For more information, see [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
 
 > [!NOTE]
-> When deploying to Azure App Service, if your <b>npm-shrinkwrap.json</b> file references a native module you will see an error similar to the following example when publishing the application using Git:
+> When deploying to Azure App Service, if your <b>npm-shrinkwrap.json</b> file references a native module you might see an error similar to the following example when publishing the application using Git:
 > 
 > npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 > 
