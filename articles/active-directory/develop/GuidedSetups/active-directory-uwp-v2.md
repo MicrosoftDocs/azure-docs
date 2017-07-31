@@ -360,9 +360,9 @@ You  should also see basic information about the token acquired via `AcquireToke
 
 ### Decoding the user's tokens (optional)
 
-When requesting access to a resource, MSAL requires two tokens: the *ID Token* - which is obtained during sign-in, contains basic information about the user, such as the user display name and other basic attributes, and the *Access Token* - which contains information used to access a resource, in this case, *https://graph.microsoft.com*.
+When requesting access to a resource, MSAL requires two tokens: the *ID Token* - which is obtained during sign-in, contains basic information about the user, such as the user's display name and other basic attributes, and the *Access Token* - which contains information used to access a resource, in this case, *https://graph.microsoft.com*.
 
-You can decode these tokens to help you understand its contents: for the *access token*, just copy the string in the *Access token* field in the results screen and then paste it in [https://jwt.ms](https://jwt.ms/). To decode the *ID token*, set a breakpoint under *DisplayBasicTokenInfo*, run the application then click *Call Graph API* button. After breakpoint hits, obtain the results of the `authResult.IdToken` and paste it in [https://jwt.ms](https://jwt.ms/).
+You can decode these tokens to understand what they contain: for the *access token*, just copy the string in the *Access token* field in the results screen and then paste it in [https://jwt.ms](https://jwt.ms/). To decode the *ID token*, set a breakpoint under *DisplayBasicTokenInfo*, run the application then click *Call Graph API* button. After breakpoint hits, obtain the results of the `authResult.IdToken` and paste it in [https://jwt.ms](https://jwt.ms/).
 
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
