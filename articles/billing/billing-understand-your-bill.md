@@ -45,7 +45,7 @@ Your usage charges are displayed at the meter level. The following terms mean th
  |Billing cycle | Billing Period |
  |Name |Meter Category |
  |Type |Meter Sub-category |
- |Resource |Meter Name |
+the  |Resource |Meter Name |
  |Region |Meter Region |
  |Consumed |Consumed Quantity |
  |Included |Included Quantity |
@@ -76,7 +76,7 @@ usage file, see [Understand your usage](billing-understand-your-usage.md).
 
 The Azure portal can also help you verify your charges. The Azure
 portal provides cost management charts for a quick overview of your
-usage and charges on your invoice.
+usage and the charges on your invoice.
 
 Here are some examples of the cost management tools available in the Azure
 portal.
