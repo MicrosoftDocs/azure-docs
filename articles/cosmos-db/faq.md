@@ -232,7 +232,11 @@ You can use the Table API (Preview) **Metrics** pane to monitor requests and sto
 You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner). In general, you can represent your entity as JSON and provide the numbers for your operations. 
 
 ### Can I use the new Table API (Preview) SDK locally with the emulator?
-Yes, you can use the Table API (Preview) with the local emulator when you use the new SDK. To download new emulator, go to [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md). The StorageConnectionString value in app.config needs to be `DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
+Yes, you can use the Table API (Preview) with the local emulator when you use the new SDK. To download new emulator, go to [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md). The StorageConnectionString value in app.config needs to be:
+
+```
+DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
+```
 
 ### Can my existing application work with the Table API (Preview)? 
 The surface area of the new Table API (Preview) is compatible with the existing Azure standard table SDK across the create, delete, update, and query operations in the .NET API. Ensure that you have a row key, because the Table API (Preview) requires both a partition key and a row key. We also plan to add more SDK support as we proceed toward GA of this service offering.
