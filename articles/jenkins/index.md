@@ -29,8 +29,9 @@ ms.custom: Jenkins
 <ol>
     <li><a href="https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins">CI/CD with Jenkins and Visual Studio Team Services</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes</a></li>
-    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy to Azure App Service</a></li>
+    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Execute Azure CLI with Jenkins</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, GitHub, and Jenkins</a></li>
+    <li><a href="/azure/jenkins/deploy-Jenkins-app-service-plugin">Deploy to App Service with Jenkins Plugin</a></li>
 </ol>
 <h2 style="margin-top: 36px">Resources and Tools</h2>
 <p>See the following links for additional reference materials and tools for working with Jenkins on Azure.</p>
