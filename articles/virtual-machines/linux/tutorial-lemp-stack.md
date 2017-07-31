@@ -36,7 +36,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Install NGINX, MySQL, and PHP
 
-Run the following commands to update Ubuntu package sources and install Apache, MySQL, and PHP. 
+Run the following commands to update Ubuntu package sources and install NGINX, MySQL, and PHP. 
 
 
 ```bash
@@ -55,12 +55,12 @@ You are prompted to install these packages and other dependencies. When prompted
 
 ### NGINX
 
-Check the version of Apache with the following command:
+Check the version of NGINX with the following command:
 ```bash
 nginx -v
 ```
 
-With Apache installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the Apache2 Ubuntu Default Page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
+With NGINX installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the NGINX welcome page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
 
 ![NGINX default page][3]
 
@@ -238,7 +238,7 @@ cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 
 After the command completes, delete the file `wordpress.sql`.
 
-Move the WordPress installation to the Apache document root:
+Move the WordPress installation to the NGINX document root:
 
 ```bash
 sudo ln -s /usr/share/wordpress /var/www/html/wordpress
