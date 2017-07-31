@@ -75,8 +75,10 @@ You must download and install the following hotfixes in the prescribed order and
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Software update |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |LSI driver and firmware updates <br> USM firmware update (version 3.38) |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB4037266  |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
-| 2C. |KB4037267 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2B. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2C. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2D. |KB4025336 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+
 
 If you are updating from a device running Update 4, you do not need to install USM and LSI driver and firmware updates.
 
