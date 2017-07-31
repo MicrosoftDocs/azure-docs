@@ -101,7 +101,7 @@ You find quick access to my apps on your Managed Browser homepage and in your bo
 
 It is available in the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
 
-![Mananged browser for my apps][4]    
+![Mananged browser for my apps][5]    
 
 
 
