@@ -297,7 +297,7 @@ Remove-AzureRmResourceGroup -Name examplegroup
 For Azure CLI, use:
 
 ```azurecli
-az group delete --name examplegroup2
+az group delete --name examplegroup
 ```
 
 ## Next steps
