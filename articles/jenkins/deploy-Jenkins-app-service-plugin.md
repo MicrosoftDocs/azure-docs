@@ -87,7 +87,7 @@ az webapp config set \
 
 ### Set up the Jenkins job
 * Create a new **freestyle** project in Jenkins Dashboard
-* Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For Camplate: http://github.com/\<yourID\>/javawebappsample.
+* Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/\<yourID\>/javawebappsample.
 * Add a Build step to build the project using Maven. Do so by adding an **Execute shell**. For this example, we need an additional step to rename the *.war file in target folder to ROOT.war.
 
 ```bash
