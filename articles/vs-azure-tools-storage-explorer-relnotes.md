@@ -23,13 +23,14 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Download Azure Storage Explorer 0.8.15
+### Download Azure Storage Explorer 0.8.15
 - [Azure Storage Explorer 0.8.15 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
 - [Azure Storage Explorer 0.8.15 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer 0.8.15 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-﻿7/13/2017
+﻿
 ## Version 0.8.15
+7/13/2017
 
 ### New
 
@@ -54,8 +55,9 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine: 
     * sudo apt-get install libgconf-2-4
 
-06/22/2017
+
 ## Version 0.8.14
+06/22/2017
 
 ### New
 
@@ -78,8 +80,8 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
 
-05/12/2017
 ## Version 0.8.13
+05/12/2017
 
 ### New
 
@@ -109,8 +111,8 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
 
-04/07/2017
 ## Version 0.8.12 / 0.8.11 / 0.8.10
+04/07/2017
 
 ### New
 
@@ -148,8 +150,8 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
 
-02/23/2017
 ## Version 0.8.9 / 0.8.8
+02/23/2017
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
 
