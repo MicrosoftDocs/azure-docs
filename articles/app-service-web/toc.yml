@@ -127,8 +127,6 @@
         href: app-service-linux-using-dotnetcore.md
       - name: Custom Docker Web App on Linux
         href: app-service-linux-using-custom-docker-image.md
-      - name: Connect via SSH
-        href: app-service-linux-ssh-support.md
       - name: Continuous Deployment
         href: app-service-linux-ci-cd.md
       - name: Web App on Linux FAQ
