@@ -85,6 +85,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
 
 ## Previous releases
 
+* [Version 0.8.13](#version-0813)
 * [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
 * [Version 0.8.9 / 0.8.8](#version-089--088)
 * [Version 0.8.7](#version-087)
