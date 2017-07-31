@@ -198,7 +198,8 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
-![Output - sensor data sent from Raspberry Pi to your IoT hub](media/iot-hub-raspberry-pi-kit-c-get-started/9_run-python_output.png)
+![Output - sensor data sent from Raspberry Pi to your IoT hub](media/iot-hub-raspberry-pi-kit-c-get-started/success.png
+)
 
 ## Next steps
 
