@@ -26,15 +26,14 @@ This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET
 At the end of this guide, your application will be able to accept sign ins of work and school accounts from organizations that has integrated with Azure Active Directory. 
 
 > [!NOTE]
-> This guided setup helps you to enable sign-ins from work and school accounts. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). Please see [this ASP.NET guided setup](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
-<br/>
+> This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). Please see [this ASP.NET guided setup for the v2 endpoint](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
+<br/><br/>
 
 > This guide requires Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it?  [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
 
 ## How this guide works
 
 ![How this guide works](media/active-directory-aspnetwebapp-v1/aspnet-intro.png)
-
 
 This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
 
@@ -58,7 +57,7 @@ This guide uses the following libraries:
 
 This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect. 
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#configure-your-webconfig-and-register-an-application) to configure the code sample before executing.
 
 ## Create your ASP.NET project
 1. In Visual Studio: `File` > `New` > `Project`<br/>
@@ -401,15 +400,15 @@ In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> wit
 1. Go to the [Microsoft Azure Portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to register an application
 2. Select `New application registration`
 3. Enter a name for your application
-4. Paste the *SSL URL* for your Visual Studio project in `Sing-on URL` (This URL will also be added automatically to the list of Reply URLs for your new application).
-5. Click `Create` to register the application. This action will take you back to the list of applications.
-6. Now, search and/or select the application you just created to open its properties. 
-7. Copy the guid under `Application ID` to the clipboard.
-8. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you just registered.
+4. Paste the *SSL URL* for your Visual Studio project in `Sing-on URL` (This URL will also be added automatically to the list of Reply URLs for your new application)
+5. Click `Create` to register the application. This action will take you back to the list of applications
+6. Now, search and/or select the application you just created to open its properties
+7. Copy the guid under `Application ID` to the clipboard
+8. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you just registered
 
 ## Configure sign-in options
 
-You can configure your application to either accept sign-ins from any company or organization that has integrated with Azure Active Directory, or you can also restrict it to allow sign-ins from users of only one company/ organization. Please follow the instructions of one of choices below:
+You can configure your application to either accept sign-ins from any company or organization that has integrated with Azure Active Directory, or you can also restrict it to allow sign-ins from users that belong to only one company/ organization's Azure Active Directory instance. Please follow the instructions of one of choices below:
 
 ### Configure your application to allow sign ins of work and school accounts from any company or organization (multi-tenant)
 
@@ -419,15 +418,15 @@ Follow the steps below if you want to accept sign ins of work and school account
 2. Under `All Settings` select `Properties'
 3. Change `Multi-tenanted` property to `Yes` and click `Save`
 
-For more information about this setting and the concept of multi-tenant applications, please see [this article](../active-directory-devhowto-multi-tenant-overview.md#update-registration-to-be-multitenant).
+For more information about this setting and the concept of multi-tenant applications, please see [this article](../active-directory-devhowto-multi-tenant-overview.md#update-registration-to-be-multitenant "Multi-tenant overview").
 
-### Restrict users from only one organization to sign in to your application (single-tenant)
+### Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
 
-If you want your application to accept sign-ins from accounts that belont to only one Azure Active Directory organization, replace the `Tenant` parameter in *web.config* from `Common` to the tenant name of the organization – example, *contoso.onmicrosoft.com*. After that, change the `ValidateIssuer` argument in your [*OWIN Startup class*](#configure-the-authentication-pipeline) to `true`.
+This option is a common scenario for *LOB applications*: If you want your application to accept sign-ins only from accounts that belong to a specific Azure Active Directory instance (including guest accounts of that instance), replace the `Tenant` parameter in *web.config* from `Common` to the tenant name of the organization – example, *contoso.onmicrosoft.com*. After that, change the `ValidateIssuer` argument in your [*OWIN Startup class*](#configure-the-authentication-pipeline) to `true`.
 
 To allow users from only a list of specific organizations, set `ValidateIssuer` to true and use the `ValidIssuers` parameter to specify a list of organizations.
 
-Another option is to implement a custom method to validate the issuers using IssuerValidator parameter. For more information about `TokenValidationParameters`, please see [this](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN article") MSDN article.
+Another option is to implement a custom method to validate the issuers using *IssuerValidator* parameter. For more information about `TokenValidationParameters`, please see [this MSDN article](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN article").
 
 <!--end-configure-->
 
