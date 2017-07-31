@@ -3,7 +3,7 @@ title: Design your first Azure SQL database | Microsoft Docs
 description: Learn to design your first Azure SQL database.
 services: sql-database
 documentationcenter: ''
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 tags: ''
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 06/20/2017
-ms.author: janeng
+ms.date: 07/31/2017
+ms.author: carlrab
 
 ---
 
@@ -327,7 +327,7 @@ In this tutorial, you learned basic database tasks such as create a database and
 > * Bulk load data
 > * Query that data
 > * Restore the database to a previous point in time using SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities
-Advance to the next tutorial to learn about migrating your data.
+Advance to the next tutorial to learn about designing a database using Visual Studio and C#.
 
 > [!div class="nextstepaction"]
->[Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+>[Design an Azure SQL database and connect with C# and ADO.NET](ssql-database-design-first-database-csharp.md)
