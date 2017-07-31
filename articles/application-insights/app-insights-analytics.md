@@ -60,9 +60,9 @@ There are also powerful statistical operations:
 The language has many attractive features:
 
 
-* [Filter](app-insights-analytics-reference.md#where-operator) your raw app telemetry by any fields, including your custom properties and metrics.
-* [Join](app-insights-analytics-reference.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
-* Powerful statistical [aggregations](app-insights-analytics-reference.md#aggregations).
+* [Filter](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) your raw app telemetry by any fields, including your custom properties and metrics.
+* [Join](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* Powerful statistical [aggregations](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
 * Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
 * Immediate and powerful visualizations.
 * [Pin charts to Azure dashboards](app-insights-analytics-using.md#pin-to-dashboard).

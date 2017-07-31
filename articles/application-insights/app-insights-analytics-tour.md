@@ -187,15 +187,15 @@ You can also rename columns and define new ones:
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-* [Column names](app-insights-analytics-reference.md#names) can include spaces or symbols if they are bracketed like this: `['...']` or `["..."]`
+* Column names can include spaces or symbols if they are bracketed like this: `['...']` or `["..."]`
 * `%` is the usual modulo operator.
 * `1d` (that's a digit one, then a 'd') is a timespan literal meaning one day. Here are some more timespan literals: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) rounds a value down to the nearest multiple of the base value you provide. So `floor(aTime, 1s)` rounds a time down to the nearest second.
 
-[Expressions](app-insights-analytics-reference.md#scalars) can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
+Expressions can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
 
-## [Extend](app-insights-analytics-reference.md#extend-operator): compute columns
-If you just want to add columns to the existing ones, use [`extend`](app-insights-analytics-reference.md#extend-operator):
+## Extend
+If you just want to add columns to the existing ones, use [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
 
 ```AIQL
 
@@ -204,7 +204,7 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Using [`extend`](app-insights-analytics-reference.md#extend-operator) is less verbose than [`project`](app-insights-analytics-reference.md#project-operator) if you want to keep all the existing columns.
+Using [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) is less verbose than [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) if you want to keep all the existing columns.
 
 ### Convert to local time
 
@@ -218,7 +218,7 @@ Timestamps are always in UTC. So if you're on the US Pacific coast and it's wint
 ```
 
 
-## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregate groups of rows
+## [Summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): aggregate groups of rows
 `Summarize` applies a specified *aggregation function* over groups of rows.
 
 For example, the time your web app takes to respond to a request is reported in the field `duration`. Let's see the average response time to all requests:
@@ -256,7 +256,7 @@ Summing up itemCount therefore gives a good estimate of the original number of e
 
 There's also a `count()` aggregation (and a count operation), for cases where you really do want to count the number of rows in a group.
 
-There's a range of [aggregation functions](app-insights-analytics-reference.md#aggregations).
+There's a range of [aggregation functions](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
 
 ## Charting the results
 ```AIQL
@@ -397,7 +397,7 @@ The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the 
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## [Percentiles](app-insights-analytics-reference.md#percentiles)
+## [Percentiles](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
 What ranges of durations cover different percentages of sessions?
 
 Use the above query, but replace the last line:
@@ -458,7 +458,7 @@ To find the exceptions related to a request that returned a failure response, we
 It's good practice to use `project` to select just the columns we need before performing the join.
 In the same clauses, we rename the timestamp column.
 
-## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
+## [Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): Assign a result to a variable
 
 Use `let` to separate out the parts of the previous expression. The results are unchanged:
 
@@ -518,7 +518,7 @@ You can flatten it by choosing the properties you're interested in:
     | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
 
-Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
+Note that you need to cast the result to the appropriate type.
 
 
 ## Custom properties and measurements
