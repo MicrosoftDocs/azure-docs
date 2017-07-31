@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Azure Storage Explorer release notes| Microsoft Docs
 description: Release notes for Microsoft Azure Storage Explorer
 services: storage
@@ -19,7 +19,7 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer release notes
 
-This article contains the release notes for Azure Storage Explorer 0.8.15 release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 0.8.15 (Preview) release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
@@ -56,22 +56,22 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 ## Previous versions
 
-### Version 0.8.14
+### Version 0.8.14 (Preview)
 06/22/2017
 
-#### Download Azure Storage Explorer 0.8.14
-* [Download Azure Storage Explorer 0.8.14 for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download Azure Storage Explorer 0.8.14 for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Download Azure Storage Explorer 0.8.14 for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+#### Download Azure Storage Explorer 0.8.14 (Preview)
+* [Download Azure Storage Explorer 0.8.14 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download Azure Storage Explorer 0.8.14 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Download Azure Storage Explorer 0.8.14 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
-### New
+#### New
 
 * Updated Electron version to 1.7.2 in order to take advantage of several critical security updates
 * You can now quickly access the online troubleshooting guide from the help menu
 * Storage Explorer Troubleshooting [Guide][2]
 * [Instructions][3] on connecting to an Azure Stack subscription
 
-### Known Issues
+#### Known Issues
 
 * Buttons on the delete folder confirmation dialog don't register with the mouse clicks on Linux. Workaround is to use the Enter key
 * If you choose the wrong PIN/Smartcard certificate then you will need to restart in order to have Storage Explorer forget the decision
@@ -88,12 +88,12 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 ### Version 0.8.13
 05/12/2017
 
-### New
+#### New
 
 * Storage Explorer Troubleshooting [Guide][2]
 * [Instructions][3] on connecting to an Azure Stack subscription
 
-### Fixes
+#### Fixes
 
 * Fixed: File upload had a high chance of causing an out of memory error
 * Fixed: You can now sign in with PIN/Smartcard
@@ -102,7 +102,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Fixed: Select all was disabled while managing snapshots
 * Fixed: The metadata of the base blob might get overwritten after viewing the properties of its snapshots
 
-### Known Issues
+#### Known Issues
 
 * If you choose the wrong PIN/Smartcard certificate then you will need to restart in order to have Storage Explorer forget the decision
 * While zoomed in or out, the zoom level may momentarily reset to the default level
@@ -119,7 +119,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 ### Version 0.8.12 / 0.8.11 / 0.8.10
 04/07/2017
 
-### New
+#### New
 
 * Storage Explorer will now automatically close when you install an update from the update notification
 * In-place quick access provides an enhanced experience for working with your frequently accessed resources
@@ -132,7 +132,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Improved accessibility support
 * You can now add trusted Base-64 encoded X.509 SSL certificates by going to Edit -&gt; SSL Certificates -&gt; Import Certificates
 
-### Fixes
+#### Fixes
 
 * Fixed: after refreshing an account's credentials, the tree view would sometimes not automatically refresh
 * Fixed: generating a SAS for emulator queues and tables would result in an invalid URL
@@ -141,7 +141,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Fixed: uploading blobs that require conflict resolutions may fail - fixed in 0.8.11 
 * Fixed: sending feedback was broken in 0.8.11 - fixed in 0.8.12 
 
-### Known Issues
+#### Known Issues
 
 * After upgrading to 0.8.10, you will need to refresh all of your credentials.
 * While zoomed in or out, the zoom level may momentarily reset to the default level.
@@ -163,7 +163,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 
-### New
+#### New
 
 * Storage Explorer 0.8.9 will automatically download the latest version for updates.
 * Hotfix: using a portal generated SAS URI to attach a storage account would result in an error.
@@ -174,14 +174,14 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Accessibility improvements.
 * The next version's release notes can be viewed from the update notification. You can also view the current release notes from the Help menu.
 
-### Fixes
+#### Fixes
 
 * Fixed: the version number is now correctly displayed in Control Panel on Windows
 * Fixed: search is no longer limited to 50,000 nodes
 * Fixed: upload to a file share spun forever if the destination directory did not already exist
 * Fixed: improved stability for long uploads and downloads
 
-### Known Issues
+#### Known Issues
 
 * While zoomed in or out, the zoom level may momentarily reset to the default level.
 * Quick Access only works with subscription based items. Local resources or resources attached via key or SAS token are not supported in this release.
@@ -193,13 +193,13 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-### New
+#### New
 
 * You can choose how to resolve conflicts at the beginning of an update, download or copy session in the Activities window
 * Hover over a tab to see the full path of the storage resource
 * When you click on a tab, it synchronizes with its location in the left side navigation pane
 
-### Fixes
+#### Fixes
 
 * Fixed: Storage Explorer is now a trusted app on Mac
 * Fixed: Ubuntu 14.04 is again supported
@@ -209,7 +209,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Fixed: The window size from the last closed session is now retained
 * Fixed: You can open multiple tabs for the same resource using the context menu
 
-### Known Issues
+#### Known Issues
 
 * Quick Access only works with subscription based items. Local resources or resources attached via key or SAS token are not supported in this release
 * It may take Quick Access a few seconds to navigate to the target resource, depending on how many resources you have
@@ -220,7 +220,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 11/18/2016
 ### Version 0.8.6
 
-### New
+#### New
 
 * You can now pin most frequently used services to the Quick Access for easy navigation
 * You can now open multiple editors in different tabs. Single click to open a temporary tab; double click to open a permanent tab. You can also click on the temporary tab to make it a permanent tab
@@ -235,7 +235,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * On Linux, a 64-bit OS is now required. For this release we only support 64-bit Ubuntu 16.04.1 LTS
 * We have updated our logo!
 
-### Fixes
+#### Fixes
 
 * Fixed: Screen freezing problems
 * Fixed: Enhanced security
@@ -246,7 +246,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Fixed: Increased the number of resources loaded from 50 to 100 when clicking "Load More"
 * Fixed: On first run, if an account is signed into, we now select all subscriptions for that account by default 
 
-### Known Issues
+#### Known Issues
 
 * This release of the Storage Explorer does not run on Ubuntu 14.04
 * To open multiple tabs for the same resource, do not continuously click on the same resource. Click on another resource and then go back and then click on the original resource to open it again in another tab 
@@ -258,11 +258,11 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 10/03/2016
 ### Version 0.8.5
 
-### New
+#### New
 
 * Can now use Portal-generated SAS keys to attach to Storage Accounts and resources
 
-### Fixes
+#### Fixes
 
 * Fixed: race condition during search sometimes caused nodes to become non-expandable
 * Fixed: "Use HTTP" doesn't work when connecting to Storage Accounts with account name and key
@@ -271,7 +271,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
     * Sometimes partition key and row key were reversed
     * Unable to read "null" Partition Keys
 
-### Known Issues
+#### Known Issues
 
 * Search handles searching across roughly 50,000 nodes - after this, performance may be impacted
 * Azure Stack doesn't currently support Files, so trying to expand Files will show an error
@@ -281,7 +281,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-### New
+#### New
 
 * Generate direct links to storage accounts, containers, queues, tables, or file shares for sharing and easy access to your resources - Windows and Mac OS support
 * Search for your blob containers, tables, queues, file shares, or storage accounts from the search box
@@ -289,11 +289,11 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Rename and copy/paste blob containers, file shares, tables, blobs, blob folders, files and directories from within SAS-attached accounts and containers
 * Renaming and copying blob containers and file shares now preserve properties and metadata
 
-### Fixes
+#### Fixes
 
 * Fixed: cannot edit table entities if they contain boolean or binary properties
 
-### Known Issues
+#### Known Issues
 
 * Search handles searching across roughly 50,000 nodes - after this, performance may be impacted
 
@@ -302,7 +302,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-### New
+#### New
 
 * Rename containers, tables, file shares
 * Improved Query builder experience
@@ -310,11 +310,11 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Direct links to storage accounts or containers, queues, tables, or file shares for sharing and easily accessing your resources (Windows-only - macOS support coming soon!)
 * Ability to manage and configure CORS rules
 
-### Fixes
+#### Fixes
 
 * Fixed: Microsoft Accounts require re-authentication every 8-12 hours
 
-### Known Issues
+#### Known Issues
 
 * Sometimes the UI might appear frozen - maximizing the window helps resolve this issue
 * macOS install may require elevated permissions
@@ -328,7 +328,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-### New
+#### New
 
 * Storage Accounts are grouped by subscriptions; development storage and resources attached via key or SAS are shown under (Local and Attached) node
 * Sign off from accounts in "Azure Account Settings" panel
@@ -336,13 +336,13 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Create and break blob leases
 * Open blob containers, queues, tables, and files with single-click
 
-### Fixes
+#### Fixes
 
 * Fixed: queue messages inserted with .NET or Java libraries are not properly decoded from base64
 * Fixed: $metrics tables are not shown for Blob Storage accounts
 * Fixed: tables node does not work for local (Development) storage
 
-### Known Issues
+#### Known Issues
 
 * macOS install may require elevated permissions
 
@@ -355,7 +355,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-### New
+#### New
 
 * File share support: viewing, uploading, downloading, copying files and directories, SAS URIs (create and connect)
 * Improved user experience for connecting to Storage with SAS URIs or account keys
@@ -364,13 +364,13 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Viewing $logs blob containers and $metrics tables for Storage Accounts with enabled metrics
 * Improved export and import behavior, now includes property value type
 
-### Fixes
+#### Fixes
 
 * Fixed: uploading or downloading large blobs can result in incomplete uploads/downloads
 * Fixed: editing, adding, or importing an entity with a numeric string value ("1") will convert it to double
 * Fixed: Unable to expand the table node in the local development environment
 
-### Known Issues
+#### Known Issues
 
 * $metrics tables are not visible for Blob Storage accounts
 * Queue messages added programmatically may not be displayed correctly if the messages are encoded using Base64 encoding
@@ -378,15 +378,15 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 05/17/2016
 ### Version 0.7.20160509.0
 
-### New
+#### New
 
 * Better error handling for app crashes
 
-### Fixes
+#### Fixes
 
 * Fixed bug where InfoBar messages sometimes don't show up when sign-in credentials were required
 
-### Known Issues
+#### Known Issues
 
 * Tables: Adding, editing, or importing an entity that has a property with an ambiguously numeric value, such as "1" or "1.0", and the user tries to send it as an `Edm.String`, the value will come back through the client API as an Edm.Double
 
@@ -399,7 +399,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 
-### New
+#### New
 
 * Table support: viewing, querying, export, import, and CRUD operations for entities
 * Queue support: viewing, adding, dequeueing messages
@@ -408,7 +408,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Update notifications for future updates to Storage Explorer
 * Updated look and feel
 
-### Fixes
+#### Fixes
 
 * Performance and reliability improvements
 
@@ -423,7 +423,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 ### Version 0.7.20160129.1
 
-### Fixes
+#### Fixes
 
 * Improved overall performance when uploading, downloading and copying blobs
 
@@ -431,7 +431,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 ### Version 0.7.20160105.0
 
-### New
+#### New
 
 * Linux support (parity features to OSX)
 * Add blob containers with Shared Access Signatures (SAS) key
@@ -440,7 +440,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Open and view the contents text and picture blobs
 * View and edit blob properties and metadata
 
-### Fixes
+#### Fixes
 
 * Fixed: uploading or download a large number of blobs (500+) may sometimes cause the app to have a white screen 
 * Fixed: when setting blob container public access level, the new value is not updated until you re-set the focus on the container. Also, the dialog always defaults to "No public access", and not the actual current value.
@@ -450,7 +450,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Local storage continues to be available even if user credentials have expired
 * When an opened blob container is deleted, the blob explorer on the right side is closed
 
-### Known Issues
+#### Known Issues
 
 * Linux install needs gcc version updated or upgraded – steps to upgrade are below: 
     * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
@@ -461,7 +461,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 11/18/2015
 ### Version 0.7.20151116.0
 
-### New
+#### New
 
 * macOS, and Windows versions
 * Sign in to view your Storage Accounts – use your Org Account, Microsoft Account, 2FA, etc.
@@ -478,7 +478,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Search for blobs by prefix
 * Drag 'n drop files to upload or download
 
-### Known Issues
+#### Known Issues
 
 * When setting blob container public access level, the new value is not updated until you re-set the focus on the container
 * When you open the dialog to set the public access level, it always shows "No public access" as the default, and not the actual current value
