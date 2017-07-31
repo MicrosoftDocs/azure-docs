@@ -12,21 +12,25 @@ ms.date: 07/31/2017
 ms.author: luisca
 ---
 
-# How to use Azure Cognitive Services > Text Analytics API with other technologies
+# How to use Text Analytics API with other technologies
 
-TBD...
+This article explains three problems a customer will want to solve:
 
-Other phases of text analysis -- such as text collecting parsing, cleansing, summarization, classification, and visualization -- are not built into the Text Analytics API but can be implemented using ...
+Problem #1: How to use the output Text Analytics API produces?  APis return a list of JSON documents. Document composition includes an ID, sentiment score, language type or phrases that you presumably want to do something with.
 
+Problem #2: How to use other technology to create inputs used by the API? Assume Azure Data Lake, or Azure Cosmos DB, or (anything) that provides raw text data output in some form. This might be a minor use case, but it is also very common.
 
-ART -- TA -> aggregate and analyze using Power BI
+Problem #3: (hybrid scenario) How do you implement sophisticated text analysis that performs tasks not currently supported by the API as it exists today?  Examples include collection, parsing, cleansing, summarization, classification, and visualization.  
 
-ART -- Data Consolidation + Linguistic Analysis + Text Analytics
+What is possible, and what is not possible, for each of these focus areas?
 
-ART -- Standalone app, as shown in PowerApps
+Other ways of framing this material: 
 
-Text Analytics API in PowerApps
-    href: https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/
++ Aggregate and analyze API results using Power BI
+
++ Data Consolidation + Linguistic Analysis + Text Analytics
+
++ Ad hoc or on-demand analysis (see the [Text Analytics API in PowerApps](https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/) example for the whole story).
 
 
 ## Next steps

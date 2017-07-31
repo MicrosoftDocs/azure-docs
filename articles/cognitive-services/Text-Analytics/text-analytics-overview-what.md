@@ -14,14 +14,14 @@ ms.author: heidist
 
 # Text Analytics API in Azure Cognitive Services
 
-Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps. **Text Analytics** is a collection of APIs within Cognitive Services used for performing text analysis, delivered with a clear focus on sentiment analysis, key phrase extraction, and language detection. 
+Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps. **Text Analytics** is a collection of APIs within Cognitive Services - presented with a clear focus on sentiment analysis, key phrase extraction, and language detection. 
 
 > [!Note]
-> As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine Text Analytics with other services to support more complex development projects. For ideas on multi-technology use case scenarios, see [How to use Text Analytics](text-analytics-overview-how.md).
+> As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine Text Analytics with other services to support complex development projects. For ideas on multi-technology scenarios, see [How to use Text Analytics](text-analytics-overview-how.md).
 
 ## Workloads supported through Text Analytics APIs
 
-Text analysis can mean different things, but in Azure Cognitives Services, APIs are exposed through three resource types.
+Text analysis can mean different things, but in Azure Cognitive Services, APIs are exposed through three resource types. Each resource is backed by leading edge algorithms, models, and natural language processing capabilites from Microsoft.
 
 | Workloads | APIs | Description |
 |-----------|------|-------------|
@@ -35,7 +35,7 @@ The Text Analytics API is used to access an analytics engine in the Azure cloud,
 
 To use our analytical services, you submit raw text data in JSON as part of a request for sentiment analysis, key phrase extraction, or language detection. Inputs are analyzed, and outputs are returned in the form of JSON documents, typically a one-to-one result set for each document you provide as input.
 
-Data is not stored, but on occassion Microsoft might capture and use it temporarily for testing various Cognitive Services algorithms and platforms. 
+Data is not stored, but on occasion Microsoft might capture and use it temporarily for testing various Cognitive Services algorithms and platforms. 
 
 Generally, the documents you provide can be used as-is for all three workloads. For example, given a single JSON documents collection, your code can invoke a series of operations (language detection, keyword extraction, sentiment analysis) over the same data.
 
@@ -72,7 +72,7 @@ Text Analytics accepts raw text data. The service currently sets a limit of 10 K
 
 |Limits | |
 |------------------------|---------------|
-| Maxium size of a single document | 10 KB |
+| Maximum size of a single document | 10 KB |
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
@@ -80,12 +80,12 @@ Rate limiting exists at a rate of 100 calls per minute. We therefore recommend t
 
 ## Sign up and billing
 
-Although Cognivitive Services has multiple APIs, we ask you to sign up for them individually to control cost and availability for each workload:
+Although Cognitive Services has multiple APIs, we ask you to sign up for them individually to control cost and availability for each workload:
 
 + [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
 + [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
 
-You are charged only for the transactions you submit. A transaction is defined as a POST specifying one of the following resources:  sentiment, keyword, or language detection. You cannot combine multiple analyses into one request. There is no storage component to billing. However, there are [limits on the size and struture of the payload](#data-limits).
+You are charged only for the transactions you submit. A transaction is defined as a POST specifying one of the following resources:  sentiment, keyword, or language detection. You cannot combine multiple analyses into one request. There is no storage component to billing. However, there are [limits on the size and structure of the payload](#data-limits).
 
 At the Free tier, there is a maximum number of requests per month. The counter is reset one month plus one day ahead of the first request.
 
@@ -105,7 +105,7 @@ Standard billing is offers at graduated levels of transactions. You can switch t
 
 3. Choose the tier you want and click **Select**.  The new limits take effect as soon as the selection is processed. 
 
-   ![Tiles and Select button in tier selction page](../media/text-analytics/portal-choose-tier.png)
+   ![Tiles and Select button in tier selection page](../media/text-analytics/portal-choose-tier.png)
 
 ## Next steps
 

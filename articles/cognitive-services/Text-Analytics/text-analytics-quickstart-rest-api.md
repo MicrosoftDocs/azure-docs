@@ -14,7 +14,7 @@ ms.author: heidist
 
 # Analyze sentiment, keywords, and language in ten minutes (REST API)
 
-In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in reqeusts to Azure Cognitive Services.
+In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in requests to Azure Cognitive Services.
 
 > [!Tip]
 > We recommend using a Web API testing tool for this exercise. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
@@ -101,7 +101,7 @@ Endpoints for each operation include the resource providing the underlying algor
 
 Input rows must be JSON in raw text. XML is not supported. For sentiment, key phrases and language, the input is th
  
-+ Language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. If you know the language, inlude it in the request. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
++ Language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. If you know the language, include it in the request. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
 
 + Each ID should be unique. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
 
@@ -194,7 +194,7 @@ The response includes a sentiment score between 0.0 (negative) and 0.9999999 (po
 }
 ```
 
-The API returns a score and ID, but not the input string. The following table shows the original strings so that you can evaluate the score with your own interpretation of positve or negative sentiment.
+The API returns a score and ID, but not the input string. The following table shows the original strings so that you can evaluate the score with your own interpretation of positive or negative sentiment.
 
 | ID | Score | Bias | String |
 |----|-------|------|--------|
@@ -214,7 +214,7 @@ Again, using same documents, you can edit the existing request to call the langu
 
 The language code input, which was useful for other analyses, is ignored for language detection.
 
-Response output for each document ncludes a longer name, language code, and a score indicating certainty of the analysis.
+Response output for each document includes a longer name, language code, and a score indicating certainty of the analysis.
 
 > [!Tip] 
 > Use an online translator to translate some of the existing phrases from English to another language. Re-send the request to detect the various languages (120 languages are supported for language detection).
@@ -226,7 +226,7 @@ Response output for each document ncludes a longer name, language code, and a sc
 
 + [Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
 
-+ [Visit API refrence documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [Visit API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
 
 + Learn how to call the [Text Analytics API from PowerApps](https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/), an application development platform that does not require in-depth programming knowledge to use.
 

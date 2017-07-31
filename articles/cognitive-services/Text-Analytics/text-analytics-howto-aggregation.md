@@ -14,7 +14,7 @@ ms.date: 07/24/2017
 ms.author: luisca
 
 ---
-# How to aggregate and analyze results from Text Analytics (Azure Cognitive Services)
+# How to aggregate and analyze output (Azure Cognitive Services > Text Analytics API)
 
 TBD...
 

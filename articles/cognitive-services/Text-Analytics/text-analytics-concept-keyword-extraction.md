@@ -14,7 +14,7 @@ ms.date: 07/24/2017
 ms.author: luisca
 
 ---
-# Keyword extraction in Text Analytics (Azure Cognitive Services)
+# Keyword extraction (Azure Cognitive Services > Text Analytics API)
 
 TBD...
 

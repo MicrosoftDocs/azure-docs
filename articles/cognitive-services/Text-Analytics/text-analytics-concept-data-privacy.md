@@ -14,6 +14,6 @@ ms.date: 07/24/2017
 ms.author: luisca
 
 ---
-# Data privacy and retention
+# Data privacy and retention (Azure Cognitive Services > Text Analytics API)
 
 Microsoft will use data you send to the Cognitive Services to improve Microsoft products and services. Where you send personal data to the Cognitive Services, you are responsible for obtaining sufficient consent from the data subjects. The General Privacy and Security Terms in the Online Services Terms do not apply to the Cognitive Services. Please refer to the Microsoft Cognitive Services section in the Online Services Terms for details. Microsoft offers policy controls that may be used to disable new Cognitive Services deployments.

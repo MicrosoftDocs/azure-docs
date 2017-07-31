@@ -14,7 +14,7 @@ ms.date: 07/24/2017
 ms.author: luisca
 
 ---
-# Sentiment analysis in Text Analytics (Azure Cognitive Services)
+# Sentiment analysis (Azure Cognitive Services > Text Analytics API)
 
 TBD...
 
