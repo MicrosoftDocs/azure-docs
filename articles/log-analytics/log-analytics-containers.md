@@ -33,15 +33,15 @@ Before starting, review the following details to verify you meet the prerequisit
 
 ### Supported containers deployed on top of VMware vSphere 
 
-| | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log | 
+| | Source | 
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Kubernetes | Yes | Yes | | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Mesosphere<>DC/OS | Yes | Yes | | Yes | Yes | Yes | Yes| Yes | Yes | Yes | 
-| Docker<br>Swarm | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | | Yes |
-| Service<br>Fabric | | | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Red Hat Open<br>Shift (A10) | | Yes | | Yes | Yes| Yes | Yes | Yes | | Yes | 
-| Windows Server<br>(standalone) | | | Yes | Yes | Yes | Yes | Yes | Yes | | Yes |
-| Linux Server<br>(standalone) | | Yes | | Yes | Yes | Yes | Yes | Yes | | Yes |
+| Kubernetes | ACS, Linux, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, Event Log, and Container Log | 
+| Mesosphere<br>DC/OS | ACS, Linux, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, Event Log, and Container Log | 
+| Docker<br>Swarm | ACS, Linux, Windows, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, and Container Log |
+| Service<br>Fabric | Windows, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, Event Log, and Container Log | 
+| Red Hat Open<br>Shift (A10) | Linux, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, and Container Log | 
+| Windows Server<br>(standalone) | Windows, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, and Container Log |
+| Linux Server<br>(standalone) | Linux, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, and Container Log  |
 
 ### Supported Linux operating system
 
