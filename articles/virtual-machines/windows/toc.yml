@@ -41,6 +41,8 @@
     href: tutorial-vsts-iis-cicd.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=virtual-machines
   - name: PowerShell
     href: powershell-samples.md
   - name: Azure CLI
@@ -352,6 +354,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Supportability of adding Azure VM to an existing availability set
+      href: ../virtual-machines-availability-set-supportability.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
     - name: Remote Desktop connections

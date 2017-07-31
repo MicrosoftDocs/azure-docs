@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 07/30/2017
 ms.author: tomfitz
 
 ---
@@ -47,7 +47,7 @@ az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 The deployment can take a few minutes to complete. When it finishes, you see a message that includes the result:
@@ -67,7 +67,7 @@ az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template should not include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you do not want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
@@ -163,7 +163,7 @@ az group deployment create \
     --mode Complete \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 ## Sample template

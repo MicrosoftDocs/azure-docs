@@ -23,12 +23,13 @@
 ### [Storage snapshot backups](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
 ### [SAP IDES on Windows/SQL Server SAP CAL deployment guide](cal-ides-erp6-erp7-sp3-sql.md)
-### [Overview and architecture](suse-quickstart.md)
-### [Plan and implement](planning-guide.md)
+### [SAP NetWeaver on Azure Linux VMs](suse-quickstart.md)
+### [Plan and implement SAP NetWeaver on Azure](planning-guide.md)
 ### [High availability on Windows](high-availability-guide.md)
 ### [High availability on SUSE Linux](high-availability-guide-suse.md)
 ### [Multi-SID configurations](high-availability-multi-sid.md)
 ### [Deployment guide](deployment-guide.md)
 ### [DBMS deployment guide](dbms-guide.md)
+### [Azure Site Recovery for SAP Disaster Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

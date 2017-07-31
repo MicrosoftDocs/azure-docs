@@ -249,6 +249,8 @@ Use the following table to find the IP addresses for the region you are using:
 | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 | Inbound |
 | Japan | Japan East | 13.78.125.90</br>13.78.89.60 | 443 | Inbound |
 | &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | 443 | Inbound |
+| Korea | Korea Central | 52.231.39.142</br>52.231.36.209 | 433 | Inbound |
+| &nbsp; | Korea South | 52.231.203.16</br>52.231.205.214 | 443 | Inbound
 | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 | Inbound |
 | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 | Inbound |
 | United States | Central US | 13.67.223.215</br>40.86.83.253 | 443 | Inbound |

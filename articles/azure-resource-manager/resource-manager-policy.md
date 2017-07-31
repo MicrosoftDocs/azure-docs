@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 07/25/2017
 ms.author: tomfitz
 
 ---
@@ -190,7 +190,7 @@ The condition evaluates whether a **field** meets certain criteria. The supporte
 
 When using the **like** condition, you can provide a wildcard (*) in the value.
 
-When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Set naming convention](#set-naming-convention).
+When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Apply resource policies for names and text](resource-manager-policy-naming-convention.md).
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  

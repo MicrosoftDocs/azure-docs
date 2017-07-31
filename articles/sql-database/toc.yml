@@ -51,6 +51,8 @@
     href: sql-database-implement-geo-distributed-database.md 
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=sql-database
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
