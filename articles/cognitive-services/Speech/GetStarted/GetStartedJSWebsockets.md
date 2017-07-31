@@ -18,7 +18,15 @@ Bing Speech Recognition API allows you to develop applications using [Web socket
 ## Prerequisites
 
 #### Subscribe to Speech API and get a free trial subscription key
-To work with Bing Speech API, you must have a subscription key. If you don't have a subscription key already, get one here: [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). 
+To work with Bing Speech API, you must have a subscription key. If you don't have a subscription key already, get one here: [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).  After getting a subscription key you can either pass it in directly into the speech endpoint or use authentication endpoint as shown below to get a token and pass that in to speech endpoint using the SDK. 
+
+```
+POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
+Ocp-Apim-Subscription-Key: <GUID>
+Host: api.cognitive.microsoft.com
+Content-Length: 0
+Connection: Keep-Alive
+```
 
 ## Get started
 To get started with Bing Speech Recognition API using web socket, we have created a working HTML/JS sample ready for you to try. The steps below will walk you through how to get the source code and how to run the sample.
