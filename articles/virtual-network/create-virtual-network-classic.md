@@ -110,13 +110,13 @@ You can create a virtual network (classic) by completing the steps on any of the
 1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
 3. In PowerShell, log in to Azure by entering the `Add-AzureAccount` command.
-4. Export your existing network configuration file with the following command (changing the path and file name to whatever you choose):
+4. Change the following path and filename, as appropriate, then export your existing network configuration file:
 
     ```powershell
     Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
     ```
 
-5. To create a virtual network with public and private subnets, add the following **VirtualNetworkSite** element (review full [network configuration file schema](https://msdn.microsoft.com/library/azure/jj157100.aspx)) to the network configuration file using any text editor:
+5. To create a virtual network with public and private subnets, use any text editor to add the **VirtualNetworkSite** element that follows to the network configuration file.
 
     ```xml
     <VirtualNetworkSite name="myVnet" Location="East US">
@@ -133,6 +133,8 @@ You can create a virtual network (classic) by completing the steps on any of the
         </Subnets>
       </VirtualNetworkSite>
     ```
+
+    Review the full [network configuration file schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 6. Import the network configuration file:
 
@@ -160,6 +162,6 @@ You can create a virtual network (classic) by completing the steps on any of the
 
 - To learn about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual network subnets](virtual-network-manage-subnet.md). You have various options for using virtual networks and subnets in a production environment to meet different requirements.
 - To filter inbound and outbound subnet traffic, create and apply [network security groups](virtual-networks-nsg.md) to subnets.
-- Create a [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/classic/createportal?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and then connect it to an existing virtual network.
+- Create a [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and then connect it to an existing virtual network.
 - To connect two virtual networks in the same Azure location, create a  [virtual network peering](create-peering-different-deployment-models.md) between the virtual networks. You can peer a virtual network (Resource Manager) to a virtual network (classic), but you cannot create a peering between two virtual networks (classic).
 - Connect the virtual network to an on-premises network by using a [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.
