@@ -264,7 +264,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Fixed: SAS keys (specially Portal-generated ones) return a "trailing slash" error
 * Fixed: table import issues
     * Sometimes partition key and row key were reversed
-    * Uable to read "null" Partition Keys
+    * Unable to read "null" Partition Keys
 
 ### Known Issues
 
@@ -286,7 +286,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 ### Fixes
 
-* Fixed: cannot edit table entities if they contain booleans or binary properties
+* Fixed: cannot edit table entities if they contain boolean or binary properties
 
 ### Known Issues
 
@@ -383,7 +383,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 ### Known Issues
 
-* Tables: Adding, editing, or importing an entity that has a property with an ambiguously numeric value, such as "1" or "1.0", and the user tries to send it as an Edm.String, the value will come back through the client API as an Edm.Double
+* Tables: Adding, editing, or importing an entity that has a property with an ambiguously numeric value, such as "1" or "1.0", and the user tries to send it as an `Edm.String`, the value will come back through the client API as an Edm.Double
 
 03/31/2016
 
@@ -411,7 +411,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 * Download of large blob files does not work correctly - we recommend using AzCopy while we address this issue 
 * Account credentials will not be retrieved nor cached if the home folder cannot be found or cannot be written to
-* If we are adding, editing, or importing an entity that has a property with an ambiguously numeric value, such as "1" or "1.0", and the user tries to send it as an Edm.String, the value will come back through the client API as an Edm.Double
+* If we are adding, editing, or importing an entity that has a property with an ambiguously numeric value, such as "1" or "1.0", and the user tries to send it as an `Edm.String`, the value will come back through the client API as an Edm.Double
 * When importing CSV files with multiline records, the data may get chopped or scrambled
 
 02/03/2016
@@ -442,16 +442,16 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Better overall keyboard/accessibility and UI support
 * Breadcrumbs history text wraps when it's long with white space
 * SAS dialog supports input validation
-* Local storage continues to be available even if user credentials has expired
+* Local storage continues to be available even if user credentials have expired
 * When an opened blob container is deleted, the blob explorer on the right side is closed
 
 ### Known Issues
 
 * Linux install needs gcc version updated or upgraded – steps to upgrade are below: 
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+    * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
+    * `sudo apt-get update`
+    * `sudo apt-get upgrade`
+    * `sudo apt-get dist-upgrade`
 
 11/18/2015
 ## Version 0.7.20151116.0
@@ -459,9 +459,9 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 ### New
 
 * macOS, and Windows versions
-* Sign in to view your Storage Accounts – use your Org Account, Microsoft Account, 2FA, etc
+* Sign in to view your Storage Accounts – use your Org Account, Microsoft Account, 2FA, etc.
 * Local development storage (use storage emulator, Windows-only)
-* ARM and Classic resource support
+* Azure Resource Manager and Classic resource support
 * Create and delete blobs, queues, or tables
 * Search for specific blobs, queues, or tables
 * Explore the contents of blob containers
@@ -481,7 +481,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Activity log entries will sometimes get "stuck" in an in progress state when an error occurs, and the error is not displayed
 * Sometimes crashes or turns completely white when trying to upload or download a large number of blobs
 * Sometimes canceling a copy operation does not work
-* During creating a container (blob/queue/table), if you input an invalid name and proceed to create another under a different container type you cannot get focus on the new type
+* During creating a container (blob/queue/table), if you input an invalid name and proceed to create another under a different container type you cannot set focus on the new type
 * Can't create new folder or rename folder
 
 
