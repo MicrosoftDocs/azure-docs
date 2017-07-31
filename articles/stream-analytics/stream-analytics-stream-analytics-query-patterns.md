@@ -22,7 +22,7 @@ ms.author: jeffstok
 ## Introduction
 Queries in Azure Stream Analytics are expressed in a SQL-like query language. These queries are documented in the [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. This article outlines solutions to several common query patterns, based on real-world scenarios. It is a work in progress and continues to be updated with new patterns on an ongoing basis.
 
-## Query example: Convert data type
+## Query example: Convert data types
 **Description**: Define the types of properties on the input stream.
 For example, the car weight is coming on the input stream as strings and needs to be converted to **INT** to perform **SUM** it up.
 
@@ -161,7 +161,7 @@ For example, analyze data for a threshold-based alert and archive all events to 
 
     SELECT
         Make,
-        System.TimeStamp/ AS Time,
+        System.TimeStamp AS Time,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
