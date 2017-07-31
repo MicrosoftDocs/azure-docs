@@ -245,7 +245,7 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 
   ![IR complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 The following questions and answers provide supplementary information.
 
