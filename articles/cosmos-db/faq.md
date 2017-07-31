@@ -179,7 +179,11 @@ You can share your feedback in any of the following ways:
 * [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
 
 ### What is the connection string that I need to use to connect to the Table API (Preview)?
-The connection string is `DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com`. You can get the connection string from the Keys page in the Azure portal. 
+The connection string is:
+```
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com
+```
+You can get the connection string from the Keys page in the Azure portal. 
 
 ### How do I override the config settings for the request options in the new Table API (Preview)?
 For information about config settings, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You can change the settings by adding them to app.config in the appSettings section in the client application.
