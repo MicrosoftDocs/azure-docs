@@ -138,7 +138,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
 ### Install the prerequisite packages
 
-1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
+Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
    
    **Windows Users**
    1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
@@ -180,10 +180,8 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    ```bash
    ./setup.sh
    ```
-   You can also specify the version you want by running `./setup.sh [--python-version|-p] [2.7|3.4|3.5]`. If you run script without parameter, the script will automatically detect the version of python installed (Search sequence 2.7->3.4->3.5). Make sure your Python version keeps consistent during building and running.
-   
-
-   On building the Python client library (iothub_client.so) on Linux devices that have less than 1GB RAM, you may see build getting stuck at 98% while building iothub_client_python.cpp as shown below `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`. If you run into this issue, check the memory consumption of the device using `free -m command` in another terminal window during that time. If you are running out of memory while compiling iothub_client_python.cpp file, you may have to temporarily increase the swap space to get more available memory to successfully build the Python client-side device SDK library.
+   > [!NOTE] 
+   You can also specify the version you want by running `./setup.sh [--python-version|-p] [2.7|3.4|3.5]`. If you run script without parameter, the script will automatically detect the version of python installed (Search sequence 2.7->3.4->3.5). Make sure your Python version keeps consistent during building and running. On building the Python client library (iothub_client.so) on Linux devices that have less than 1GB RAM, you may see build getting stuck at 98% while building iothub_client_python.cpp as shown below `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`. If you run into this issue, check the memory consumption of the device using `free -m command` in another terminal window during that time. If you are running out of memory while compiling iothub_client_python.cpp file, you may have to temporarily increase the swap space to get more available memory to successfully build the Python client-side device SDK library.
    
 1. Run the sample application by running the following command:
 
@@ -195,9 +193,9 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    Make sure you copy-paste the device connection string into the single quotes. And if you use the python 3, then you can use the command `python3 app.py '<your Azure IoT hub device connection string>'`.
 
 
-You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
+   You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
-![Output - sensor data sent from Raspberry Pi to your IoT hub](media/iot-hub-raspberry-pi-kit-c-get-started/success.png
+   ![Output - sensor data sent from Raspberry Pi to your IoT hub](media/iot-hub-raspberry-pi-kit-c-get-started/success.png
 )
 
 ## Next steps
