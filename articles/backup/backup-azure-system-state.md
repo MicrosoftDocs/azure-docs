@@ -176,15 +176,18 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
   ```
   PS C:\> Net stop obengine
   ```
+
 2. Open the Windows Registry.
 
   ```
   PS C:\> regedit.exe
   ```
+
 3. Add the following registry key with the specified DWord Value.
 
-  |Registry path|Registry key| DWord value|
-  |HKEY_LOCAL_MACHINE\SOFTWARE|Microsoft\Windows Azure Backup\Config\CloudBackupProvider|TurnOffSSBFeature|2|
+  | Registry path | Registry key | DWord value |
+  |---------------|--------------|-------------|
+  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
 
 4. Restart the Backup engine by executing the following command in an elevated command prompt.
 
@@ -262,7 +265,8 @@ The Staging Volume is located in the cache folder by default.
 2. Then update the following registry entries with the path to the new Staging Volume folder.
 
   |Registry path|Registry key|Value|
-  |HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config\CloudBackupProvider|SSBStagingPath|new staging volume location|
+  |-------------|------------|-----|
+  |HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | new staging volume location |
 
 The Staging Path is case sensitive and must be the exact same casing as what exists on the server. 
 
@@ -288,6 +292,7 @@ To change the default Backup and Retention Policy for System State:
 2. Add or update the following registry key entries in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
 
   |Registry Name|Description|Value|
+  |-------------|-----------|-----|
   |SSBScheduleTime|Used to configure the time of the backup. Default is 9PM local time.|DWord: Format HHMM (Decimal) for example 2130 for 9:30PM local time|
   |SSBScheduleDays|Used to configure the days when System State Backup must be performed at the specified time. Individual digits specify days of the week. 0 represents Sunday, 1 is Monday, and so on. Default day for backup is Sunday.|DWord: days of the week to run backup (decimal) for example 1230 schedules backups on Monday, Tuesday, Wednesday, and Sunday.|
   |SSBRetentionDays|Used to configure the days to retain backup. Default value is 60. Maximum allowed value is 180.|DWord: Days to retain backup (decimal).|
