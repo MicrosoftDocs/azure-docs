@@ -13,7 +13,7 @@ ms.author: tamram
 
 # Get started with the Batch Rendering service
 
-The Azure Batch Rendering service offers cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service handles job scheduling and queueing, managing failures and retries, and auto-scaling according to the needs of your job. The Batch Rendering service supports Autodesk Maya, 3ds Max, and Arnold, with support for other applications coming soon. The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop. 
+The Azure Batch Rendering service offers cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service handles job scheduling and queueing, managing failures and retries, and auto-scaling for your render job. The Batch Rendering service supports Autodesk Maya, 3ds Max, and Arnold, with support for other applications coming soon. The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop. 
 
 ## Supported applications
 
@@ -132,16 +132,16 @@ You can specify the licenses you wish to use on the **Env** tab. Options include
 - **Maya**, which is enabled by default.
 - **Arnold**, which is enabled if Arnold is detected as the active render engine in Maya.
 
- If you wish to render using your own license, you can deselect these license options and configure your license end point by adding the appropriate environment variables to the table. 
+ If you wish to render using your own license, you can configure your license end point by adding the appropriate environment variables to the table. Be sure to deselect the default licensing options if you do so.
 
 > [!IMPORTANT]
-> You are billed for use of the licenses as long as VMs are running in the pool, regardless of whether they are being used for rendering. 
+> You are billed for use of the licenses while VMs are running in the pool, even if the VMs are not currently being used for rendering. To avoid extra charges, navigate to the **Pools** tab and resize the pool to 0 nodes until you are ready to run another render job. 
 >
 >
 
 #### Manage persistent pools
 
-You can manage an existing persistent pool on the **Pools** tab. Selecting a pool from the list displays the current state of the pool, including how many nodes are running, the selected VM image, the VM type, and the licenses that are deployed to that pool.
+You can manage an existing persistent pool on the **Pools** tab. Selecting a pool from the list displays the current state of the pool.
 
 From the **Pools** tab, you can also delete the pool and resize the number of VMs in the pool. You can resize a pool to 0 nodes to avoid incurring costs in between workloads.
 
@@ -153,7 +153,7 @@ Once you have specified the parameters for the pool that will run the render job
 
 #### Specify scene parameters
 
-The Batch plug-in detects which rendering engine you're currently using in Maya, and displays the appropriate render settings on the **Submit** tab based on the settings found in the scene file. These settings include the start frame, end frame, output prefix, and frame step. You can override the scene file render settings by specifying different settings in the plug-in. Changes you make to the plug-in settings are not persisted back to the scene file render settings, so you can make changes on a job-by-job basis without needing to reupload the scene file.
+The Batch plug-in detects which rendering engine you're currently using in Maya, and displays the appropriate render settings on the **Submit** tab. These settings include the start frame, end frame, output prefix, and frame step. You can override the scene file render settings by specifying different settings in the plug-in. Changes you make to the plug-in settings are not persisted back to the scene file render settings, so you can make changes on a job-by-job basis without needing to reupload the scene file.
 
 The plug-in warns you if the render engine that you selected in Maya is not supported.
 
@@ -161,7 +161,13 @@ If you load a new scene while the plug-in is open, click the **Refresh** button 
 
 #### Resolve asset paths
 
-When you load the plug-in, it scans the scene file for any external file references. These references are displayed in the **Assets** tab. If a referenced path cannot be resolved, the plug-in attempts to locate the file in a few default locations, including the scene file location, the current project's _sourceimages_ directory, and the current working directory. If the asset still cannot be located, it is listed with a warning icon:
+When you load the plug-in, it scans the scene file for any external file references. These references are displayed in the **Assets** tab. If a referenced path cannot be resolved, the plug-in attempts to locate the file in a few default locations, including:
+
+- The location of the scene file 
+- The current project's _sourceimages_ directory
+- The current working directory. 
+
+If the asset still cannot be located, it is listed with a warning icon:
 
 ![Missing assets are displayed with a warning icon](./media/batch-rendering-service/missing_assets.png)
 
@@ -171,7 +177,7 @@ When a reference is resolved, it is listed with a green light icon:
 
 ![Resolved assets show a green light icon](./media/batch-rendering-service/found_assets.png)
 
-If your scene requires other files which the plug-in has not detected, you can add additional files or directories with the **Add Files** and **Add Directory** buttons. If you load a new scene while the plug-in is open, be sure to click **Refresh** to update the scene's references.
+If your scene requires other files that the plug-in has not detected, you can add additional files or directories. Use the **Add Files** and **Add Directory** buttons. If you load a new scene while the plug-in is open, be sure to click **Refresh** to update the scene's references.
 
 #### Upload assets to an asset project
 
