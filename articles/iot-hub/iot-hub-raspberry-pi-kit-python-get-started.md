@@ -69,7 +69,7 @@ These items are optional because the code sample support simulated sensor data.
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## Setup Raspberry Pi
+## Set up Raspberry Pi
 
 ### Install the Raspbian operating system for Pi
 
