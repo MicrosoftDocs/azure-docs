@@ -79,7 +79,7 @@ Read the following SAP Notes and papers first
 
 ## Overview
 
-To achieve high availability, SAP NetWeaver requires an NFS server. The NFS server is configured in a seperate cluster and can be used by multiple SAP systems.
+To achieve high availability, SAP NetWeaver requires an NFS server. The NFS server is configured in a separate cluster and can be used by multiple SAP systems.
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/img_001.png)
 
@@ -345,7 +345,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo drbdadm up <b>NWS</b>_nfs
    </code></pre>
 
-1. **[1]** Skip initial syncronization
+1. **[1]** Skip initial synchronization
 
    <pre><code>
    sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_nfs
@@ -830,7 +830,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo drbdadm up <b>NWS</b>_ers
    </code></pre>
 
-1. **[1]** Skip initial syncronization
+1. **[1]** Skip initial synchronization
 
    <pre><code>
    sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_ascs
@@ -1138,7 +1138,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure Keep Alive
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Please read [SAP Note 1410736][1410736] for more information.
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Please read [SAP Note 1410736][1410736] for more information.
    
    The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
 
