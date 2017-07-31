@@ -16,6 +16,8 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 
+ms.reviewer: asteen
+
 ---
 # What's new in Enterprise Application management in Azure Active Directory 
 

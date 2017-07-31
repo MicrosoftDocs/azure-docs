@@ -84,6 +84,7 @@
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +104,7 @@
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Manage
 ### Create an IoT hub 
 #### [Use the portal](iot-hub-create-through-portal.md)
