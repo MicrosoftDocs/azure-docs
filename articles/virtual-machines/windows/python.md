@@ -528,7 +528,7 @@ Virtual machines can have one or more [data disks](../../storage/storage-about-d
             vm)
 
         return add_result.result()
-        ```
+    ```
 
 2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
 
