@@ -58,6 +58,7 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 	|Location|Yes|Must exist in the same [location](https://azure.microsoft.com/regions), also referred to as region, as the resource you want to associate the public IP address to.|
 
 **Commands**
+
 Though the portal provides the option to create two public IP address resources (one IPv4 and one IPv6), the following CLI and PowerShell commands create one resource with an address for one IP version or the other. If you want two public IP address resources, one for each IP version, you must run the command twice, specifying different names and versions for the public IP address resources. 
 
 |Tool|Command|
