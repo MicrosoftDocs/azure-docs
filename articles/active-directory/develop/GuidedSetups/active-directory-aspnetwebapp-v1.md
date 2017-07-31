@@ -29,6 +29,8 @@ At the end of this guide, your application will be able to accept sign ins of wo
 > This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). See [this ASP.NET guided setup for the v2 endpoint](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
 <br/><br/>
 
+<!--separator-->
+
 > This guide requires Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it?  [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
 
 ## How this guide works
