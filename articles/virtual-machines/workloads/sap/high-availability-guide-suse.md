@@ -869,7 +869,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ### Configure Cluster Framework
 
-1. **[1]** Change the default settings
+**[1]** Change the default settings
 
    <pre><code>
    sudo crm configure
