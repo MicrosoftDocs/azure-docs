@@ -66,16 +66,39 @@ Snapshot collection is available for:
 
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
-3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor.
+3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor. The code you should add depends on the referenced version of the Microsoft.ApplicationInsights.ASPNETCore NuGet package.
+
+   For Microsoft.ApplicationInsights.AspNetCore 2.1.0 add:
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...
    class Startup
    {
-       // This method gets called by the runtime. Use this method to add services to the container.
+       // This method is called by the runtime. Use it to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
            services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
+           // TODO: Add any other services your application needs here.
+       }
+   }
+   ```
+
+   For Microsoft.ApplicationInsights.AspNetCore 2.1.1 add:
+   ```C#
+   using Microsoft.ApplicationInsights.SnapshotCollector;
+   ...
+   class Startup
+   {
+       private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
+       {
+           public ITelemetryProcessor Create(ITelemetryProcessor next) =>
+               new SnapshotCollectorTelemetryProcessor(next);
+       }
+
+       // This method is called by the runtime. Use it to add services to the container.
+       public void ConfigureServices(IServiceCollection services)
+       {
+            services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
            // TODO: Add any other services your application needs here.
        }
    }
@@ -112,11 +135,14 @@ Owners of the Azure subscription can inspect snapshots. Other users must be gran
 
 To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
-1. On the Application Insights navigation menu, select **Access Control (IAM)**.
-2. Click **Roles** > **Application Insights Snapshot Debugger**.
-3. Click **Add**, and then select a user or group.
+1. Open the Access Control (IAM) blade.
+1. Click the +Add button.
+1. Select Application Insights Snapshot Debugger from the Roles drop-down list.
+1. Search for and enter a name for the user to add.
+1. Click the Save button to add the user to the role.
 
-    >[!IMPORTANT] 
+
+[!IMPORTANT]
     Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
 
 ## Debug snapshots in the Application Insights portal

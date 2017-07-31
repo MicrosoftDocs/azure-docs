@@ -25,7 +25,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 | |  |
 |---|---|
 |**Create Azure Cosmos DB account, database, and containers**||
-|[Create a DocumentDB, Graph, or Table API account](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Creates a single Azure Cosmos DB API account, database, and container for use with the DocumentDB, Graph, or Table APIs. |
+|[Create a DocumentDB API, Graph, or Table API account](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Creates a single Azure Cosmos DB API account, database, and container for use with the DocumentDB, Graph, or Table APIs. |
 | [Create a MongoDB API account](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB MongoDB API account, database, and collection. |
 |**Scale Azure Cosmos DB**||
 | [Scale container throughput](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Changes the provisioned througput on a container.|

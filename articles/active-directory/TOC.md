@@ -1,9 +1,9 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
-## [Choose an edition](active-directory-editions.md)
 ## [About Azure identity management](identity-fundamentals.md)
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
+## [FAQs](active-directory-faq.md)
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -18,22 +18,18 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
-## [FAQs](active-directory-faq.md)
 ## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-
-
 
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
-### [Secure email policies and configurations](secure-email-introduction.md)
-#### [Recommended policies](secure-email-recommended-policies.md)
-#### [Deploy policies and configurations](secure-email-deploy-recommended-policies.md)
-#### [EMS and Office 365 service descriptions](secure-email-ems-office365-service-descriptions.md)
+### [Recommended security policies and configurations](secure-email-introduction.md)
+#### [Secure email recommended policies](secure-email-recommended-policies.md)
+##### [Deploy recommended secure email policies](secure-email-deploy-recommended-policies.md)
+#### [EMS and Office 365 services overview](secure-email-ems-office365-service-descriptions.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
-
 #### Determine requirements
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -105,13 +101,16 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
-### [Retention](active-directory-reporting-retention.md)
-### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### Tasks
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
-#### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)  
+#### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+### Reference
+#### [Retention](active-directory-reporting-retention.md)
+#### [Latencies](active-directory-reporting-latencies-azure-portal.md)
+#### [Notifications](active-directory-reporting-notifications.md)
+#### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -123,23 +122,6 @@
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
-### [Classic portal](active-directory-view-access-usage-reports.md)
-#### [Azure AD reporting](active-directory-reporting-getting-started.md)
-#### [Reporting guide](active-directory-reporting-guide.md)
-#### [Known networks](active-directory-known-networks.md)
-#### [API](active-directory-reporting-api-getting-started.md)
-##### [Prerequisites](active-directory-reporting-api-prerequisites.md)
-#### [Audit events](active-directory-reporting-audit-events.md)
-#### [Latencies](active-directory-reporting-latencies.md)
-#### [Notifications](active-directory-reporting-notifications.md)
-#### Understand reports
-##### [Irregular sign-in](active-directory-reporting-irregular-sign-in-activity.md)
-##### [Multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)
-##### [Suspicious IP addresses](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-##### [Multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-##### [Possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-##### [Unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)
-##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Manage passwords](active-directory-passwords-overview.md)
 ### User documents
@@ -185,7 +167,6 @@
 ## Manage apps
 ### [Overview](active-directory-enable-sso-scenario.md)
 ### [Getting started](active-directory-integrating-applications-getting-started.md)
-
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -196,7 +177,7 @@
 ##### [Enable App Proxy](active-directory-application-proxy-enable.md)
 ##### [Publish apps](application-proxy-publish-azure-portal.md)
 ##### [Custom domains](active-directory-application-proxy-custom-domains.md)
-#### [SSO access](active-directory-appssoaccess-whatis.md)
+#### [Single sign-on](application-proxy-sso-overview.md)
 ##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
 ##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
@@ -219,6 +200,7 @@
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Teams](application-proxy-teams.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 #### Use the classic portal
 ##### [Download connectors](application-proxy-enable-classic-portal.md)
@@ -236,6 +218,7 @@
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
+#### [SSO access](active-directory-appssoaccess-whatis.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
 #### [Use SCIM provision users](active-directory-scim-provisioning.md)
@@ -387,6 +370,7 @@
 
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -401,9 +385,10 @@
 
 # Resources
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

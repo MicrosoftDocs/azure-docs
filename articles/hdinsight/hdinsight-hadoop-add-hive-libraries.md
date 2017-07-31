@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -53,7 +53,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
 * The storage account containing the library of jar files **must** be linked to the HDInsight cluster during creation. It must either be the default storage account, or an account added through __optional configuration__.
 
-* The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named **libs** on a storage account named **mystorage**, the parameter would be **wasbs://libs@mystorage.blob.core.windows.net/**.
+* The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named **libs** on a storage account named **mystorage**, the parameter would be **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
   > This document assumes that you have already create a storage account, blob container, and uploaded the files to it.
@@ -81,7 +81,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
    * **ZOOKEEPER**: Leave this blank.
 
-   * **PARAMETERS**: Enter the WASB address to the container and storage account that contains the jars. For example, **wasbs://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMETERS**: Enter the WASB address to the container and storage account that contains the jars. For example, **wasb://libs@mystorage.blob.core.windows.net/**.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration.
 

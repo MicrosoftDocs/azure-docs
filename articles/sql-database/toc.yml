@@ -51,6 +51,8 @@
     href: sql-database-implement-geo-distributed-database.md 
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=sql-database
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
@@ -227,16 +229,6 @@
       href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: How-to guides
   items:
-  - name: Databases & servers
-    items:
-    - name: Elastic pools - Portal
-      href: sql-database-elastic-pool-manage-portal.md
-    - name: Elastic pools - PowerShell
-      href: sql-database-elastic-pool-manage-powershell.md
-    - name: Elastic pools - T-SQL
-      href: sql-database-elastic-pool-manage-tsql.md
-    - name: Elastic pools - C#
-      href: sql-database-elastic-pool-manage-csharp.md
   - name: Security
     items:
     - name: Configure Azure AD auth
@@ -339,8 +331,6 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-    - name: Create DB with C#
-      href: sql-database-get-started-csharp.md
 - name: Reference
   items:
   - name: PowerShell

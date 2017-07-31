@@ -3,7 +3,7 @@ title: Create an Azure IoT Edge Module with Node.js | Microsoft Docs
 description: This tutorial showcases how to write a BLE data converter module using the latest Azure IoT Edge NPM packages and Yeoman generator.
 services: iot-hub
 author: sushi
-manager: xiaozha
+manager: timlt
 
 ms.service: iot-hub
 ms.workload: na

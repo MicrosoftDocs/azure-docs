@@ -14,7 +14,7 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/28/2017
+ms.date: 07/13/2017
 ms.author: bradsev
 
 ---
@@ -369,7 +369,7 @@ Note also that the newly added users do not have root privileges in Linux system
 
 4. You can also use the WASB style addressing.
 
-	rxHadoopListFiles("wasbs:///")
+	rxHadoopListFiles("wasb:///")
 
 
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
@@ -644,10 +644,17 @@ First, ssh into the Edge node. For example,
 
 	ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-After using ssh, change directory to the following directory and sudo the dotnet dll:
+After using ssh, change directory for the relevant version and sudo the dotnet dll: 
 
-	cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
-	sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+- For Microsoft R Server 9.1:
+
+	cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
+	sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+
+- For Microsoft R Server 9.0:
+
+	cd /usr/lib64/microsoft-deployr/9.0.1
+	sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
 To configure Microsoft R Server operationalization with a One-box configuration do the following:
 

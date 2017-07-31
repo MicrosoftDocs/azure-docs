@@ -60,10 +60,11 @@
 
 # Resources
 ## [Author templates](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Community templates](https://azure.microsoft.com/resources/templates/)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Pricing](https://azure.microsoft.com/pricing)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)

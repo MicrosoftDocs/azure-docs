@@ -59,6 +59,39 @@ Ensure that the Issuer attribute in the SAML request it’s matching the Identif
 
 After you have updated the Identifier value in Azure AD and it’s matching the value sends by the application in the SAML request, you should be able to sign in to the application.
 
+## The reply address does not match the reply addresses configured for the application.
+
+*Error AADSTS50011: The reply address ‘https://contoso.com’ does not match the reply addresses configured for the application*
+
+**Possible cause**
+
+The AssertionConsumerServiceURL value in the SAML request doesn't match the Reply URL value or pattern configured in Azure AD. The AssertionConsumerServiceURL value in the SAML request is the URL you see in the error.
+
+**Resolution**
+
+Ensure that the AssertionConsumerServiceURL value in the SAML request it's matching the Reply URL value configured in Azure AD.
+
+1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+
+2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+
+3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+
+4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+
+5.  click **All Applications** to view a list of all your applications.
+
+  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+
+6.  Select the application you want to configure single sign-on
+
+7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+
+8.  Go to **Domain and URLs** section. Verify or update the value in the Reply URL textbox to match the AssertionConsumerServiceURL value in the SAML request. 	
+	* If you don't see the Reply URL textbox, select the **Show advanced URL settings** checkbox.
+
+After you have updated the Reply URL value in Azure AD and it’s matching the value sends by the application in the SAML request, you should be able to sign in to the application.
+
 ## User not assigned a role
 
 *Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application*.

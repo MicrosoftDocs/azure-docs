@@ -2,7 +2,7 @@
 title: Azure Monitor partner integrations | Microsoft Docs
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
