@@ -15,7 +15,7 @@ ms.author: luisca
 
 ---
 
-# How to structure and manage data inputs to Azure Cognitive Services > Text Analytics
+# How to structure and manage data inputs to Text Analytics (Azure Cognitive Services)
 
 TBD...
 

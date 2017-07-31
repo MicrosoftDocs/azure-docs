@@ -21,7 +21,7 @@
    - name: Structure data inputs
      href: text-analytics-howto-input-data.md
    - name: Aggregate and analyze results
-     href: text-analytics-howto-aggregate.md
+     href: text-analytics-howto-aggregation.md
 - name: Reference
   items: 
   - name: REST API Documentation

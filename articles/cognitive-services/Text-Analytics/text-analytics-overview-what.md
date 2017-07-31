@@ -12,9 +12,9 @@ ms.date: 07/31/2017
 ms.author: heidist
 ---
 
-# Azure Cognitive Services > Text Analytics API 
+# Text Analytics API in Azure Cognitive Services
 
-Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps. **Text Analytics** is a collection of APIs within Cognitive Services used for performing text analysis, delivered with a clear focus on **sentiment analysis**, **key phrase extraction**, and **language detection**. 
+Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps. **Text Analytics** is a collection of APIs within Cognitive Services used for performing text analysis, delivered with a clear focus on sentiment analysis, key phrase extraction, and language detection. 
 
 > [!Note]
 > As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine Text Analytics with other services to support more complex development projects. For ideas on multi-technology use case scenarios, see [How to use Text Analytics](text-analytics-overview-how.md).
@@ -68,7 +68,7 @@ Analyzing sentiment and phrases is a complex operation requiring access to lingu
 
 ## Data limits
 
-Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. While this number might seem low, the vast majority of text submitted for analysis falls well below this limit. If you require a higher limit, please contact us so that we can discuss your requirements.
+Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. While this number might seem low, the vast majority of text submitted for analysis is below this limit. If you require a higher limit, contact us so that we can discuss your requirements.
 
 |Limits | |
 |------------------------|---------------|
@@ -80,14 +80,14 @@ Rate limiting exists at a rate of 100 calls per minute. We therefore recommend t
 
 ## Sign up and billing
 
-Although Cognivitive Services has multiple APIs, we ask you to sign up for them individually so that you can control cost and availability for each workload:
+Although Cognivitive Services has multiple APIs, we ask you to sign up for them individually to control cost and availability for each workload:
 
 + [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
 + [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
 
-You are charged only for the requests you submit, where a request is either sentiment, keyword, or language detection (they can't be combined into one request). We don't store data so there is no storage component to billing, but there are [limits on the size and struture of the payload](#data-limits).
+You are charged only for the transactions you submit. A transaction is defined as a POST specifying one of the following resources:  sentiment, keyword, or language detection. You cannot combine multiple analyses into one request. There is no storage component to billing. However, there are [limits on the size and struture of the payload](#data-limits).
 
-At the Free tier, there is a maximum number of requests per month, where the counter is reset one month plus one day ahead of the first request.
+At the Free tier, there is a maximum number of requests per month. The counter is reset one month plus one day ahead of the first request.
 
 **How to sign up**
 
@@ -95,7 +95,7 @@ Sign in to the Azure portal, create a [Cognitive Services API account](https://d
 
 **How to change tiers**
 
-Standard billing is offers at graduated levels of transactions. You can easily switch up or down, without having to repeat the sign up process, which means you can adjust limits and still keep the same endpoint and access keys.
+Standard billing is offers at graduated levels of transactions. You can switch tiers and still keep the same endpoint and access keys.
 
 1. Sign in to [Azure portal](https://portal.azure.com) and find your Text Analytics API dashboard.
 
@@ -109,7 +109,7 @@ Standard billing is offers at graduated levels of transactions. You can easily s
 
 ## Next steps
 
-First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to submit text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases.
+First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can submit text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases.
 
 Next, step through the [quickstart REST API tutorial](text-analytics-quickstart-rest-api.md) to learn the basic workflow using the REST API and a Web API testing tool.
 

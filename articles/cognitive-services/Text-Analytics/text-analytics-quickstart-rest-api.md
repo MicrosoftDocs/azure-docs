@@ -1,6 +1,6 @@
 ---
-title: 'Text Analytics REST API Quickstart (Azure Cognitive Services) | Microsoft Docs'
-description: Learn the Text Analytics API in Azure Cognitive Services.
+title: 'Text Analytics REST API Quickstart (Azure Cognitive Services) in 10 minutes| Microsoft Docs'
+description: Learn the Text Analytics API in Azure Cognitive Services in ten minutes.
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
@@ -12,7 +12,7 @@ ms.date: 07/24/2017
 ms.author: heidist
 ---
 
-# Analyze sentiment, keywords, and language in 10 minutes (REST API)
+# Analyze sentiment, keywords, and language in ten minutes (REST API)
 
 In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in reqeusts to Azure Cognitive Services.
 
@@ -105,7 +105,7 @@ Input rows must be JSON in raw text. XML is not supported. For sentiment, key ph
 
 + Each ID should be unique. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
 
-+ Text strings provide the text to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for a request. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
++ Text strings provide the text to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for a request. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-what.md#data-limits). 
 
 ### Parsing the response payload
 
@@ -199,12 +199,12 @@ The API returns a score and ID, but not the input string. The following table sh
 | ID | Score | Bias | String |
 |----|-------|------|--------|
 | 1 | 0.992584952105894  | positive | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" |
-| 2 | 0.902196155767694  | false positive <sup>*</sup> | "Ok but nothing special. Check out the other trails instead." |
+| 2 | 0.902196155767694  | false positive <sup>1</sup> | "Ok but nothing special. Check out the other trails instead." |
 | 3 | 0.0902095755821843  | negative | "Not recommended for small children or dogs." |
-| 4 | 0.0645565664913637  | false negative <sup>*</sup> | "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!" |
+| 4 | 0.0645565664913637  | false negative <sup>1</sup> | "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!" |
 | 5 | 0.0196635616288255 | negative | "Stunning view but very crowded with small children and dogs. We didn't stay long." |
 
-<sup>*</sup> Sometimes algorithms are off, particularly when sentiment is complex.
+<sup>1</sup> Sometimes algorithms are off, particularly when sentiment is complex.
 
 ## Detect language
 
