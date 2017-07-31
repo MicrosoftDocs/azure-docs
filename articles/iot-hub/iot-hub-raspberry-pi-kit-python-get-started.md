@@ -152,64 +152,53 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    > [!NOTE] 
    The default username is `pi` , and the password is `raspberry`.
 
-1. Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C and Cmake by running the following commands:
-
-   ```bash
-   grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-   sudo apt-get update
-   sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-   git clone git://git.drogon.net/wiringPi
-   cd ./wiringPi
-   ./build
-   ```
-
 
 ### Configure the sample application
 
 1. Clone the sample application by running the following command:
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
+   cd ~
+   git clone https://github.com/Azure-Samples/iot-hub-python-raspberrypi-client-app.git
    ```
 1. Open the config file by running the following commands:
 
    ```bash
-   cd iot-hub-c-raspberrypi-client-app
-   nano config.h
+   cd iot-hub-python-raspberrypi-client-app
+   nano config.py
    ```
 
-   ![Config file](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
+   There are 5 macros in this file you can configurate. The first one is `MESSAGE_TIMESPAN`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not. `I2C_ADDRESS` is the I2C address which your BME280 sensor is connected. `GPIO_PIN_ADDRESS` is the GPIO address for your LED. The last one is `BLINK_TIMESPAN`, which defined the timespan when your LED is turned on in milliseconds.
 
-   There are two macros in this file you can configurate. The first one is `INTERVAL`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not.
-
-   If you **don't have the sensor**, set the `SIMULATED_DATA` value to `1` to make the sample application create and use simulated sensor data.
+   If you **don't have the sensor**, set the `SIMULATED_DATA` value to `True` to make the sample application create and use simulated sensor data.
 
 1. Save and exit by pressing Control-O > Enter > Control-X.
 
 ### Build and run the sample application
 
-1. Build the sample application by running the following command:
+1. Build the sample application by running the following command. Because the Azure IoT SDKs for Python are wrappers on top of the Azure IoT Device C SDK, you will need to compile the C libraries if you want or need to generate the Python libraries from source code.
 
    ```bash
-   cmake . && make
+   ./setup.sh
    ```
-   ![Build output](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
+   You can also specify the version you want by running `./setup.sh [--python-version|-p] [2.7|3.4|3.5]`. If you run script without parameter, the script will automatically detect the version of python installed (Search sequence 2.7->3.4->3.5). Make sure your Python version keeps consistent during building and running.
+   
 
+   On building the Python client library (iothub_client.so) on Linux devices that have less than 1GB RAM, you may see build getting stuck at 98% while building iothub_client_python.cpp as shown below `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`. If you run into this issue, check the memory consumption of the device using `free -m command` in another terminal window during that time. If you are running out of memory while compiling iothub_client_python.cpp file, you may have to temporarily increase the swap space to get more available memory to successfully build the Python client side device SDK library.
+   
 1. Run the sample application by running the following command:
 
    ```bash
-   sudo ./app '<DEVICE CONNECTION STRING>'
+   python app.py '<your Azure IoT hub device connection string>'
    ```
 
    > [!NOTE] 
-   Make sure you copy-paste the device connection string into the single quotes.
+   Make sure you copy-paste the device connection string into the single quotes. And if you use the python 3, then you can use the command `python3 app.py '<your Azure IoT hub device connection string>'`.
 
 
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
-![Output - sensor data sent from Raspberry Pi to your IoT hub](media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
+![Output - sensor data sent from Raspberry Pi to your IoT hub](media/iot-hub-raspberry-pi-kit-c-get-started/9_run-python_output.png)
 
 ## Next steps
 
