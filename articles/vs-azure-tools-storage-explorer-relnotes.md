@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Storage Explorer release notes| Microsoft Docs
-description: Release notes for Microsoft Azure Storage Explorer
+title: Microsoft Azure Storage Explorer (Preview) release notes | Microsoft Docs
+description: Release notes for Microsoft Azure Storage Explorer (Preview)
 services: storage
 documentationcenter: na
 author: cawa
@@ -17,7 +17,7 @@ ms.date: 07/31/2017
 ms.author: cawa
 
 ---
-# Microsoft Azure Storage Explorer release notes
+# Microsoft Azure Storage Explorer (Preview) release notes
 
 This article contains the release notes for Azure Storage Explorer 0.8.15 (Preview) release, as well as release notes for previous versions.
 
