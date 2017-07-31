@@ -189,6 +189,8 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 ## Version 0.8.7
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+
 ### New
 
 * You can choose how to resolve conflicts at the beginning of an update, download or copy session in the Activities window
@@ -278,6 +280,8 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 ## Version 0.8.4
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+
 ### New
 
 * Generate direct links to storage accounts, containers, queues, tables, or file shares for sharing and easy access to your resources - Windows and Mac OS support
@@ -297,6 +301,8 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 08/03/2016
 
 ## Version 0.8.3
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 ### New
 
@@ -323,6 +329,8 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 ## Version 0.8.2
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+
 ### New
 
 * Storage Accounts are grouped by subscriptions; development storage and resources attached via key or SAS are shown under (Local and Attached) node
@@ -344,6 +352,12 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 06/15/2016
 
 ## Version 0.8.0
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 ### New
 
@@ -384,6 +398,11 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 03/31/2016
 
 ## Version 0.7.20160325.0
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
+
 
 ### New
 
