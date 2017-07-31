@@ -81,8 +81,8 @@ When your application is ready for production, you can lock-down version require
 ## Next Steps
 Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js web app](app-service-web/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux].
 
-For more information, see the [Node.js Developer Center](/develop/nodejs/).
+For more information, see the [Node.js Developer Center](/nodejs/azure/).
 
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
-[Custom Website Deployment Scripts with Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
+[Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
