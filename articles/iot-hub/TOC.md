@@ -104,7 +104,8 @@
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)## Manage
+#### [Java](iot-hub-java-java-schedule-jobs.md)
+## Manage
 ### Create an IoT hub 
 #### [Use the portal](iot-hub-create-through-portal.md)
 #### [Use PowerShell](iot-hub-create-using-powershell.md)
