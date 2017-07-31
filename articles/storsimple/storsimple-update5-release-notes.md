@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/27/2017
+ms.date: 07/31/2017
 ms.author: alkohli
 
 ---
@@ -21,14 +21,14 @@ ms.author: alkohli
 
 ## Overview
 
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 5. They also contain a list of the StorSimple software updates included in this release. 
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 5. They also contain a list of the StorSimple software updates included in this release.
 
-Update 5 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 3.1. The device version associated with Update 5 is 6.3.9600.17820.
+Update 5 can be applied to any StorSimple device running Update 0.1 through Update 4. The device version associated with Update 5 is 6.3.9600.17840.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
-> * Update 5 has device software, USM firmware, LSI driver and firmware, disk firmware, Storport and Spaceport, security, and other OS updates. It takes approximately 4 hours to install this update. Disk firmware update is a disruptive update and results in a downtime for your device. We recommend that you apply Update 5 to keep your device up-to-date. 
+> * Update 5 has device software, disk firmware, OS security, and other OS updates. It takes approximately 4 hours to install this update. Disk firmware update is a disruptive update and results in a downtime for your device. We recommend that you apply Update 5 to keep your device up-to-date. 
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 ## What's new in Update 5
@@ -52,7 +52,7 @@ The following table provides a summary of issues that were fixed in Update 5.
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
-| 1 |Diagnostics  |In the earlier release, after the failover, there was an issue related to cleanup observed at the customer site. This issue is fixed in this release. |Yes |Yes |
+| 1 |Diagnostics  |In this release, Performance test for the StorSimple Diagnostics tool allows for the verbose logging. |Yes |Yes |
 | 2 |Windows PowerShell remoting |In the previous release, a user would receive an error while trying to establish a remote connection to the StorSimple Cloud Appliance via Windows PowerShell. This issue was root-caused and fixed in this release. |Yes |No |
 | 3 |Support package |In previous release, there was an issue that resulted in longer times to gather a Support package using Jarvis. This issue is fixed in this release. |Yes |Yes |
 
