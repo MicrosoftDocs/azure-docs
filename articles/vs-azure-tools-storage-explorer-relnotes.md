@@ -1,4 +1,4 @@
----
+﻿---
 title: Microsoft Azure Storage Explorer release notes| Microsoft Docs
 description: Release notes for Microsoft Azure Storage Explorer
 services: storage
@@ -23,14 +23,13 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-### Download Azure Storage Explorer 0.8.15
-- [Azure Storage Explorer 0.8.15 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.8.15 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.8.15 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
-
-﻿
-## Version 0.8.15
+## Version 0.8.15 (Preview)
 7/13/2017
+
+### Download Azure Storage Explorer 0.8.15 (Preview)
+- [Azure Storage Explorer 0.8.15 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.8.15 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.8.15 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 
@@ -55,9 +54,15 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine: 
     * sudo apt-get install libgconf-2-4
 
+## Previous versions
 
-## Version 0.8.14
+### Version 0.8.14
 06/22/2017
+
+#### Download Azure Storage Explorer 0.8.14
+* [Download Azure Storage Explorer 0.8.14 for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download Azure Storage Explorer 0.8.14 for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Download Azure Storage Explorer 0.8.14 for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### New
 
@@ -80,7 +85,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
 
-## Version 0.8.13
+### Version 0.8.13
 05/12/2017
 
 ### New
@@ -111,7 +116,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
 
-## Version 0.8.12 / 0.8.11 / 0.8.10
+### Version 0.8.12 / 0.8.11 / 0.8.10
 04/07/2017
 
 ### New
@@ -150,7 +155,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
 
-## Version 0.8.9 / 0.8.8
+### Version 0.8.9 / 0.8.8
 02/23/2017
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
@@ -184,7 +189,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Having more than 3 groups of blobs or files uploading at the same time may cause errors.
 
 12/16/2016
-## Version 0.8.7
+### Version 0.8.7
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -213,7 +218,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * For the first time using the Storage Explorer on macOS, you might see multiple prompts asking for user's permission to access keychain. We suggest you select Always Allow so the prompt won't show up again
 
 11/18/2016
-## Version 0.8.6
+### Version 0.8.6
 
 ### New
 
@@ -251,7 +256,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Search handles searching across roughly 50,000 nodes - after this, performance may be impacted or may cause unhandled exception
 
 10/03/2016
-## Version 0.8.5
+### Version 0.8.5
 
 ### New
 
@@ -272,7 +277,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Azure Stack doesn't currently support Files, so trying to expand Files will show an error
 
 09/12/2016
-## Version 0.8.4
+### Version 0.8.4
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -293,7 +298,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Search handles searching across roughly 50,000 nodes - after this, performance may be impacted
 
 08/03/2016
-## Version 0.8.3
+### Version 0.8.3
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -319,7 +324,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Copying or renaming resources does not work within SAS-attached accounts
 
 07/07/2016
-## Version 0.8.2
+### Version 0.8.2
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -342,7 +347,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * macOS install may require elevated permissions
 
 06/15/2016
-## Version 0.8.0
+### Version 0.8.0
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -371,7 +376,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 * Queue messages added programmatically may not be displayed correctly if the messages are encoded using Base64 encoding
 
 05/17/2016
-## Version 0.7.20160509.0
+### Version 0.7.20160509.0
 
 ### New
 
@@ -387,7 +392,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 03/31/2016
 
-## Version 0.7.20160325.0
+### Version 0.7.20160325.0
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -416,7 +421,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 02/03/2016
 
-## Version 0.7.20160129.1
+### Version 0.7.20160129.1
 
 ### Fixes
 
@@ -424,7 +429,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
 
 01/14/2016
 
-## Version 0.7.20160105.0
+### Version 0.7.20160105.0
 
 ### New
 
@@ -454,7 +459,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 releas
     * `sudo apt-get dist-upgrade`
 
 11/18/2015
-## Version 0.7.20151116.0
+### Version 0.7.20151116.0
 
 ### New
 
