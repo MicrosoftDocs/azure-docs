@@ -1,5 +1,5 @@
 ---
-title: ServiceFabric diagnostics and monitoring | Microsoft Docs
+title: Azure ServiceFabric diagnostics and monitoring | Microsoft Docs
 description: This article describes the performance monitoring features in the Service Fabric Reliable ServiceRemoting runtime, like  performance counters emitted by it.
 services: service-fabric
 documentationcenter: .net
@@ -22,19 +22,19 @@ The Reliable ServiceRemoting runtime emits  [performance counters](https://msdn.
 
 
 ## Performance counters
-The Reliable ServiceRemoting runtime defines the following performance counter categories.
+The Reliable ServiceRemoting runtime defines the following performance counter categories:
 
 | Category | Description |
 | --- | --- |
-| Service Fabric Service |Counters specific to Azure Service Fabric Service Remoting , e.g. average time taken to process request |
-| Service Fabric Service Method |Counters specific to methods implemented by Service Fabric Remoting Service, e.g. how often an service method is invoked |
+| Service Fabric Service |Counters specific to Azure Service Fabric Service Remoting , for example, average time taken to process request |
+| Service Fabric Service Method |Counters specific to methods implemented by Service Fabric Remoting Service, for example, how often a service method is invoked |
 
-Each of the above categories has one or more counters.
+Each of the preceding categories has one or more counters.
 
 The [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
 
 ### Performance counter instance names
-A cluster that has a large number of  ServiceRemoting services or partitions will have a large number of  performance counter instances. The performance counter instance names can help in identifying the specific partition and Service method (if applicable) that the performance counter instance is associated with.
+A cluster that has a large number of  ServiceRemoting services or partitions have a large number of  performance counter instances. The performance counter instance names can help in identifying the specific partition and Service method (if applicable) that the performance counter instance is associated with.
 
 #### Service Fabric Service category
 For the category `Service Fabric Service`, the counter instance names are in the following format:
@@ -51,7 +51,7 @@ The following is an example of a counter instance name for a counter that belong
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046_5008379932`
 
-In the example above, `2740af29-78aa-44bc-a20b-7e60fb783264` is the string representation of the Service Fabric partition ID, `635650083799324046` is string representation of Replica/InstanceId and `5008379932` is the 64-bit ID that is generated for the runtime's internal use.
+In the preceding example, `2740af29-78aa-44bc-a20b-7e60fb783264` is the string representation of the Service Fabric partition ID, `635650083799324046` is string representation of Replica/InstanceId and `5008379932` is the 64-bit ID that is generated for the runtime's internal use.
 
 #### Service Fabric Service Method category
 For the category `Service Fabric Service Method`, the counter instance names are in the following format:
@@ -72,7 +72,7 @@ The following is an example of a counter instance name for a counter that belong
 
 `ivoicemailboxservice.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486_5008380`
 
-In the example above, `ivoicemailboxservice.leavemessageasync` is the method name, `2` is the 32-bit ID generated for the runtime's internal use, `89383d32-e57e-4a9b-a6ad-57c6792aa521` is the string representation of the Service Fabric partition ID,`635650083804480486` is the string representation of the Service Fabric Replica/Instance ID and `5008380` is the 64-bit ID generated for the runtime's internal use.
+In the preceding example, `ivoicemailboxservice.leavemessageasync` is the method name, `2` is the 32-bit ID generated for the runtime's internal use, `89383d32-e57e-4a9b-a6ad-57c6792aa521` is the string representation of the Service Fabric partition ID,`635650083804480486` is the string representation of the Service Fabric Replica/Instance ID and `5008380` is the 64-bit ID generated for the runtime's internal use.
 
 ## List of Performance counters
 ### Service method performance counters
@@ -86,7 +86,7 @@ The Reliable Service runtime publishes the following performance counters relate
 | Service Fabric Service Method |Exceptions thrown/Sec |Number of times that the service method threw an exception per second |
 
 ### Service request processing performance counters
-When a client invokes a method via an service proxy object, it results in a request message being sent over the network to the remoting service. The service processes the request message and sends a response back to the client. The Reliable ServiceRemoting runtime publishes the following performance counters related to service request processing.
+When a client invokes a method via a service proxy object, it results in a request message being sent over the network to the remoting service. The service processes the request message and sends a response back to the client. The Reliable ServiceRemoting runtime publishes the following performance counters related to service request processing.
 
 | Category name | Counter name | Description |
 | --- | --- | --- |
