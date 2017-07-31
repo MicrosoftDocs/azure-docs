@@ -53,7 +53,7 @@ For example, the car weight is coming on the input stream as strings and needs t
 **Explanation**:
 Use a **CAST** statement in the **Weight** field to specify its data type. See the list of supported data types in [Data types (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
 
-## Query example: Using Like/Not like to do pattern matching
+## Query example: Use Like/Not like to do pattern matching
 **Description**: Check that a field value on the event matches a certain pattern.
 For example, check that the result returns license plates that start with A and end with 9.
 
