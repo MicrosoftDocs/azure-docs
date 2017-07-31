@@ -106,7 +106,7 @@ The terminology used in these steps includes:
 
 7. On the Select Recovery Mode pane, choose System State and click **Next**. 
 
-    ![Search](./media/backup-azure-restore-system-state/recovery-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. On the Calendar in the **Select Volume and Date** pane, select a recovery point. You can restore from any recovery point in time. Dates in **bold** indicate the availability of at least one recovery point. Once  you select a date, if multiple recovery points are available, choose the specific recovery point from the **TIme** drop-down menu. 
 
