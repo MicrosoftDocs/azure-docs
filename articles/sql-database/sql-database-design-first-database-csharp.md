@@ -20,12 +20,12 @@ ms.author: genemi;carlrab
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
-Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud ("Azure"). In this tutorial, you learn how to to use the Azure portal and ADO.NET to: 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud ("Azure"). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to: 
 
 > [!div class="checklist"]
 > * Create a database in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
-> * Connect to the database with ADO.NET
+> * Connect to the database with ADO.NET and Visual Studio
 > * Create tables with ADO.NET
 > * Insert, update, and delete data with ADO.NET 
 > * Query data ADO.NET
