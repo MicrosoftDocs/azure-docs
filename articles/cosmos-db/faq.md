@@ -41,6 +41,12 @@ A [request unit](request-units.md) (RU) is the measure of throughput in Azure Co
 
 You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to refers to a DocumentDB API collection, Graph API graph, MongoDB API collection, and Table API table. 
 
+### How does Azure Cosmos DB support various data models ranging from key/value, columnar, document and graph?
+
+Graphs, documents, columnar, and key-value (table) data models are all natively supported because of the ARS (atoms, records and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (DocumentDB, MongoDB, Table, and Graph APIs) and others specific to additional data models will be available in the future.
+
+Azure Cosmos DB has a schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, tree) which decouple the storage layout from the index and query processing subsystems. Cosmos DB also has the ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2) making it uniquely capable of supporting multiple data models natively.
+
 ### Is Azure Cosmos DB HIPAA compliant?
 Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
@@ -164,12 +170,6 @@ During the preview period, when [SDKs](../cosmos-db/table-sdk-dotnet.md) are ava
 
 ### Do I need a new SDK to use the Table API (Preview)? 
 Yes, the [Windows Azure Storage premium table (Preview) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) is available on NuGet. Additional information is available on the [Azure Cosmos DB Table .NET API: Download and release notes](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md) page. 
-
-### How does Azure Cosmos DB support the columnar data model?
-
-Graphs, documents, columnar, and key-value (table) data models are all natively supported because of the ARS (atoms, records and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (DocumentDB, MongoDB, Table, and Graph APIs) and others specific to the columnar data model and others will be available in the future.
-
-Azure Cosmos DB has a schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, tree) which decouple the storage layout from the index and query processing subsystems. Cosmos DB also has the ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2) making it uniquely capable of supporting multiple data models natively.
 
 ### How do I provide feedback about the SDK or bugs?
 You can share your feedback in any of the following ways:
