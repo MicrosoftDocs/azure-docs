@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/28/2017
+ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -43,6 +43,7 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 | Outlook |![Check][1] |
 | Yammer |![Check][1] |
 | Skype for Business |![Check][1] |
+| Microsoft Information Protection app |![Check][1] |
 | Microsoft Teams |![Check][1] |
 
 ## Requirements 
