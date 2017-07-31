@@ -46,15 +46,9 @@ No. You can purchase a VPN connection of any speed from your service provider. H
 ### If I pay for an ExpressRoute circuit of a given bandwidth, do I have the ability to burst up to higher speeds if necessary?
 
 Yes. ExpressRoute circuits are configured to allow you to burst up to two times the bandwidth limit you procured for no additional cost. Check with your service provider to see if they support this capability.
-<<<<<<< HEAD
 
 ### Can I use the same private network connection with virtual network and other Azure services simultaneously?
 
-=======
-
-### Can I use the same private network connection with virtual network and other Azure services simultaneously?
-
->>>>>>> 41abeaccf58ba023290a8f5867495e0bb31b58d1
 Yes. An ExpressRoute circuit, once set up, allows you to access services within a virtual network and other Azure services simultaneously. You connect to virtual networks over the private peering path, and to other services over the public peering path.
 
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
@@ -67,11 +61,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 ### Private peering
 
-<<<<<<< HEAD
 * Virtual networks, including all virtual machines and cloud services
-=======
-* virtual networks, including all virtual machines and cloud services
->>>>>>> 41abeaccf58ba023290a8f5867495e0bb31b58d1
 
 ### Public peering
 
@@ -179,15 +169,9 @@ Yes. You can link a single virtual network with up to four ExpressRoute circuits
 ### Can I access the Internet from my virtual networks connected to ExpressRoute circuits?
 
 Yes. If you have not advertised default routes (0.0.0.0/0) or Internet route prefixes through the BGP session, you can connect to the Internet from a virtual network linked to an ExpressRoute circuit.
-<<<<<<< HEAD
 
 ### Can I block Internet connectivity to virtual networks connected to ExpressRoute circuits?
 
-=======
-
-### Can I block Internet connectivity to virtual networks connected to ExpressRoute circuits?
-
->>>>>>> 41abeaccf58ba023290a8f5867495e0bb31b58d1
 Yes. You can advertise default routes (0.0.0.0/0) to block all Internet connectivity to virtual machines deployed within a virtual network and route all traffic out through the ExpressRoute circuit.
 
 If you advertise default routes, we force traffic to services offered over public peering (such as Azure storage and SQL DB) back to your premises. You will have to configure your routers to return traffic to Azure through the public peering path or over the Internet.
@@ -266,19 +250,12 @@ ExpressRoute premium is a collection of the following features:
 
     *  You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
     *  On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
-<<<<<<< HEAD
+
 
 ### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 
 The following tables show the ExpressRoute limits and the number of VNets per ExpressRoute circuit:
 
-=======
-
-### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
-
-The following tables show the ExpressRoute limits and the number of VNets per ExpressRoute circuit:
-
->>>>>>> 41abeaccf58ba023290a8f5867495e0bb31b58d1
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
 ### How do I enable ExpressRoute premium?
@@ -342,6 +319,7 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for informa
 Yes. Office 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
 
 ### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
+
 Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on the Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
 ### Can Dynamics 365 for Operations (formerly known as Dynamics AX Online) be accessed over an ExpressRoute connection?
