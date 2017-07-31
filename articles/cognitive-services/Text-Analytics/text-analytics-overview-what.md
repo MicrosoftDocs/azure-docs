@@ -8,11 +8,11 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 07/31/2017
 ms.author: heidist
 ---
 
-# Text Analytics API (Azure Cognitive Services)
+# Azure Cognitive Services > Text Analytics API 
 
 Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps. **Text Analytics** is a collection of APIs within Cognitive Services used for performing text analysis, delivered with a clear focus on **sentiment analysis**, **key phrase extraction**, and **language detection**. 
 

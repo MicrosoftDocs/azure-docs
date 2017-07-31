@@ -14,7 +14,7 @@ ms.date: 07/24/2017
 ms.author: luisca
 
 ---
-# How to extract keyword phrases in text data using Azure Text Analytics API
+# Keyword extraction in Azure Cognitive Services > Text Analytics
 
 TBD...
 

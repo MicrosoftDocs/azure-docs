@@ -8,11 +8,11 @@ manager: mwinkle
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 07/31/2017
 ms.author: luisca
 ---
 
-# How to use Text Analytics API with other technologies (Azure Cognitive Services)
+# How to use Azure Cognitive Services > Text Analytics API with other technologies
 
 TBD...
 

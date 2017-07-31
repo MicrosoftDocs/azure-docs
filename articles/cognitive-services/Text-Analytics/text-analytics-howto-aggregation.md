@@ -14,7 +14,7 @@ ms.date: 07/24/2017
 ms.author: luisca
 
 ---
-# How to analyze sentiment in text using Azure Text Analytics API
+# How to aggregate and analyze results from Azure Cognitive Services > Text Analytics
 
 TBD...
 

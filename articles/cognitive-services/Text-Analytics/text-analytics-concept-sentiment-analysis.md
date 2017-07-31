@@ -14,9 +14,13 @@ ms.date: 07/24/2017
 ms.author: luisca
 
 ---
-# How to analyze sentiment in text using Azure Text Analytics API
+# Sentiment analysis in Azure Cognitive Services > Text Analytics
 
 TBD...
+
+> [!TIP]
+> For sentiment analysis, we recommend spliting text into sentences. This generally leads to higher precision in sentiment predictions.
+> 
 
 ## Next steps
 

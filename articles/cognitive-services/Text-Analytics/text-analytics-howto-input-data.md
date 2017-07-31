@@ -15,7 +15,9 @@ ms.author: luisca
 
 ---
 
-# Upload text data for analysis (Azure Cognitive Services > Text Analysis API)
+# How to structure and manage data inputs to Azure Cognitive Services > Text Analytics
+
+TBD...
 
 ## Scoring large number of records
 

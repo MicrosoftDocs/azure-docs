@@ -27,13 +27,13 @@ To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive S
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 > [!Note]
-> If you already signed up for Cognitive Services to use another API, you need to repeat the sign up for Text Analytics. Policies and release cycles vary for each API, so we ask you to sign up for each one individually. 
+> If you already signed up for Cognitive Services to use another API, you need to retrace your steps for Text Analytics. Billing, policies, and release cycles vary for each API, so we ask you to sign up for each one individually. 
 
 ## Set up a request for keyword extraction
 
-Text Analytics APIs invoke operations against models and algorithms running in Azure data centers. You need your own key to the Text Analytics API for operation access. 
+Text Analytics APIs invoke operations against models and algorithms running in Azure data centers. You need your own key to access the operations. 
 
-Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment** , **keyPhrase extraction**, and **language detection**. We list them in full below.
+Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis** , **key phrase extraction**, and **language detection**. We list them in full below.
 
 1. In the [Azure portal](https://portal.azure.com) and find the Text Analysis API you signed up for. Leave the page open so that you can copy a key and endpoint, starting in the next step.
 
@@ -43,7 +43,7 @@ Endpoints for each operation include the resource providing the underlying algor
    + Paste in the endpoint you copied from the portal page.
    + Append a resource. In this exercise, start with **/keyPhrases**.
 
-  Endpoints for each available resource are as follows (your data center may vary):
+  Endpoints for each available resource are as follows (your region may vary):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -64,55 +64,54 @@ Endpoints for each operation include the resource providing the underlying algor
   Click **Body** and paste in the JSON documents below. 
 
    ```
-        {
-            "documents": [
-                {
-                    "language": "en",
-                    "id": "1",
-                    "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
-                },
-                {
-                    "language": "en",
-                    "id": "2",
-                    "text": "Ok but nothing special. Check out the other trails instead."
-                },
-                {
-                    "language": "en",
-                    "id": "3",
-                    "text": "Not recommended for small children or dogs."
-                },
-                {
-                    "language": "en",
-                    "id": "4",
-                    "text": "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!"
-                },                
-                {
-                    "language": "en",
-                    "id": "5",
-                    "text": "Stunning view but very crowded with small children and dogs."
-                }
-            ]
-        }
+    {
+        "documents": [
+            {
+                "language": "en",
+                "id": "1",
+                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
+            },
+            {
+                "language": "en",
+                "id": "2",
+                "text": "Ok but nothing special. Check out the other trails instead."
+            },
+            {
+                "language": "en",
+                "id": "3",
+                "text": "Not recommended for small children or dogs."
+            },
+            {
+                "language": "en",
+                "id": "4",
+                "text": "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!"
+            },                
+            {
+                "language": "en",
+                "id": "5",
+                "text": "Stunning view but very crowded with small children and dogs. We didn't stay long."
+            }
+        ]
+    }
 ```
 
 5. Choose **raw** for the format. Click **Send** to submit the request.
 
 ### Formatting the request body
 
-Input rows must be JSON in raw text. XML is not supported. For sentiment, key phrases and language, the format is the same:
+Input rows must be JSON in raw text. XML is not supported. For sentiment, key phrases and language, the input is th
  
- + Each ID should be unique and is the ID returned by the system. 
- + Language is an optional parameter that should be specified if analyzing non-English text. Refer to the [Text Analytics Overview](overview.md#supported-languages) for a list of supported languages.
- 
-The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. 
- 
-Rate limiting exists at a rate of 100 calls per minute. We therefore recommend that you submit large quantities of documents in a single call. 
++ Language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. If you know the language, inlude it in the request. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
+
++ Each ID should be unique. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
+
++ Text strings provide the text to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for a request. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
 
 ### Parsing the response payload
 
 This call returns a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below.
 
-The keyPhrases algorithm iterates over the entire collection and extracts common phrases(?).
+The keyPhrases algorithm iterates over the entire collection before extracting phrases, using the context of all strings to determine which ones to extract.
 
 ```
 {
@@ -162,7 +161,7 @@ The keyPhrases algorithm iterates over the entire collection and extracts common
 
 Using the same documents, you can edit the existing request to call the sentiment analysis algorithm and return sentiment scores.
 
-+ Replace `/keyPhrases` with `/sentiment` in the endpoint and then click **Send** to submit the same documents collection.
++ Replace `/keyPhrases` with `/sentiment` in the endpoint and then click **Send**.
 
 The response includes a sentiment score between 0.0 (negative) and 0.9999999 (positive) to indicate relative sentiment.
 
@@ -187,7 +186,7 @@ The response includes a sentiment score between 0.0 (negative) and 0.9999999 (po
             "id": "4"
         },
         {
-            "score": 0.0565953372622392,
+            "score": 0.0196635616288255,
             "id": "5"
         }
     ],
@@ -195,24 +194,35 @@ The response includes a sentiment score between 0.0 (negative) and 0.9999999 (po
 }
 ```
 
-> [!TIP]
-> For sentiment analysis, we recommend spliting text into sentences. This generally leads to higher precision in sentiment predictions.
-> 
->
+The API returns a score and ID, but not the input string. The following table shows the original strings so that you can evaluate the score with your own interpretation of positve or negative sentiment.
+
+| ID | Score | Bias | String |
+|----|-------|------|--------|
+| 1 | 0.992584952105894  | positive | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" |
+| 2 | 0.902196155767694  | false positive <sup>*</sup> | "Ok but nothing special. Check out the other trails instead." |
+| 3 | 0.0902095755821843  | negative | "Not recommended for small children or dogs." |
+| 4 | 0.0645565664913637  | false negative <sup>*</sup> | "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!" |
+| 5 | 0.0196635616288255 | negative | "Stunning view but very crowded with small children and dogs. We didn't stay long." |
+
+<sup>*</sup> Sometimes algorithms are off, particularly when sentiment is complex.
 
 ## Detect language
 
 Again, using same documents, you can edit the existing request to call the language detection algorithm.
 
-+ Replace `/sentiment` with `/languages` in the endpoint and then click **Send** to submit the same documents collection.
-+ Optionally, use an online translator to translate some of the existing phrases from English to another language. Re-send the request to detect the non-English languages (120 languages are supported for language detection).
++ Replace `/sentiment` with `/languages` in the endpoint and then click **Send**.
 
-The response includes language codes for each document and a score indicating certainty of the analysis.
+The language code input, which was useful for other analyses, is ignored for language detection.
+
+Response output for each document ncludes a longer name, language code, and a score indicating certainty of the analysis.
+
+> [!Tip] 
+> Use an online translator to translate some of the existing phrases from English to another language. Re-send the request to detect the various languages (120 languages are supported for language detection).
 
 
 ## Next steps
 
-+ Sign up for the [Translate API]() and submit the documents collection for translation. Copy the strings to create a language-specific version of the documents, then run language detection to confirm the results.
++ Sign up for the [Translate API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) and submit the documents collection for translation. Copy the strings to create a language-specific version of the documents, then run language detection to confirm the results.
 
 + [Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
 

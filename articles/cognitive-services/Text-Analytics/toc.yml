@@ -19,7 +19,7 @@
 - name: How-to guides
   items:
    - name: Structure data inputs
-     href: text-analytics-howto-input0data.md
+     href: text-analytics-howto-input-data.md
    - name: Aggregate and analyze results
      href: text-analytics-howto-aggregate.md
 - name: Reference
