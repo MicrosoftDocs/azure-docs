@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Storage Explorer 0.8.7 (Preview)| Microsoft Docs
-description: Release notes for Microsoft Azure Storage Explorer 0.8.7 (Preview)
+title: Microsoft Azure Storage Explorer release notes| Microsoft Docs
+description: Release notes for Microsoft Azure Storage Explorer
 services: storage
 documentationcenter: na
 author: cawa
@@ -17,25 +17,18 @@ ms.date: 07/31/2017
 ms.author: cawa
 
 ---
-# Microsoft Azure Storage Explorer 0.8.7 (Preview)
-## Overview
-This article contains the release notes for Azure Storage Explorer 0.8.7 preview release.
+# Microsoft Azure Storage Explorer release notes
 
-[Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
+This article contains the release notes for Azure Storage Explorer 0.8.15 release, as well as release notes for previous versions.
 
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-
-[Source](http://storageexplorer.com/releasenotes.html "Permalink to Microsoft Azure Storage Explorer")
-
-# Microsoft Azure Storage Explorer
+## Download Azure Storage Explorer 0.8.15
+- [Azure Storage Explorer 0.8.15 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.8.15 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.8.15 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ﻿ 
-
-Microsoft Azure Storage Explorer
-
-07/13/2017
-
 ## Version 0.8.15
 
 ### New
@@ -161,6 +154,11 @@ Microsoft Azure Storage Explorer
 02/23/2017
 
 ## Version 0.8.9 / 0.8.8
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+
 
 ### New
 
