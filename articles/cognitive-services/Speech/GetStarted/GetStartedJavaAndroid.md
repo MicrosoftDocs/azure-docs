@@ -160,4 +160,4 @@ Run the application with the chosen clients, recognition modes and event handler
 ## Related Topics
 * [Get Started with Bing Speech Recognition in C Sharp for Windows in .NET](GetStartedCSharpDesktop.md)
 * [Get Started with Bing Speech Recognition and/or intent in Objective C on iOS](Get-Started-ObjectiveC-iOS.md)
-* [Get Started with Bing Speech API in JavaScript](GetStartedJS.md)
+* [Get Started with Bing Speech API in JavaScript(Web Sockets)](GetStartedJSWebsockets.md)

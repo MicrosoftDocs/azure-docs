@@ -185,6 +185,6 @@ Run the application with the chosen clients, recognition modes and event handler
 ## Related Topics
 
  * [Get started with Bing Speech Recognition and/or intent in Java on Android](GetStartedJavaAndroid.md)
- * [Get started with Bing Speech API in JavaScript](GetStartedJS.md)
+ * [Get started with Bing Speech API in JavaScript(Web Sockets)](GetStartedJSWebsockets.md)
  * [Get started with Bing Speech API in cURL](GetStarted-cURL.md)
 
