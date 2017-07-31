@@ -172,33 +172,44 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 ### To enable System State backup using the Azure Backup agent
 
 1. In a PowerShell session, run the following command to stop the Azure Backup engine.
+
   ```
   PS C:\> Net stop obengine
   ```
 2. Open the Windows Registry.
+
   ```
   PS C:\> regedit.exe
   ```
 3. Add the following registry key with the specified DWord Value.
+
   |Registry path|Registry key| DWord value|
   |HKEY_LOCAL_MACHINE\SOFTWARE|Microsoft\Windows Azure Backup\Config\CloudBackupProvider|TurnOffSSBFeature|2|
 
 4. Restart the Backup engine by executing the following command in an elevated command prompt.
+
   ```
   PS C:\> Net start obengine
   ```
 
 ### To schedule the backup job
+
 1. Open the Microsoft Azure Recovery Services agent. You can find it by searching your machine for **Microsoft Azure Backup**.
 
     ![Launch the Azure Recovery Services agent](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
+
 2. In the Recovery Services agent, click **Schedule Backup**.
 
     ![Schedule a Windows Server back up](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
+
 3. On the Getting started page of the Schedule Backup Wizard, click **Next**.
+
 4. On the Select Items to Backup page, click **Add Items**.
+
 5. Select **System State** and then click **OK**.
+
 6. Click **Next**.
+
 7. The System State Backup and Retention schedule is automatically set to back up every Sunday at 9:00 PM local time, and the retention period is set to 60 days.
 
    > [!NOTE]
@@ -206,6 +217,7 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
    >
 
 8. On the Confirmation page, review the information, and then click **Finish**.
+
 9. After the wizard finishes creating the backup schedule, click **Close**.
 
 ### To back up Windows Server System State for the first time
@@ -215,16 +227,20 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 2. In the Recovery Services agent, click **Back Up Now** to complete the initial seeding over the network.
 
     ![Windows Server back up now](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
+
 3. On the Confirmation page, review the settings that the Back Up Now Wizard will use to back up the machine. Then click **Back Up**.
+
 4. Click **Close** to close the wizard. If you close the wizard before the backup process finishes, the wizard continues to run in the background.
+
 5. If you back up Files and Folders on your server, in addition to the Windows Server System State, the Backup Now wizard will only back up files. To perform an ad hoc System State back up, use the following PowerShell command:
-  ```
-  PS C:\> Start -OBSystemStateBackup
-  ```
 
-After the initial backup is completed, the **Job completed** status appears in the Backup console.
+    ```
+    PS C:\> Start -OBSystemStateBackup
+    ```
 
-![IR complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
+  After the initial backup is completed, the **Job completed** status appears in the Backup console.
+
+  ![IR complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## Frequently Asked Questions
 
@@ -264,20 +280,27 @@ The useful life of a system state backup is the same as the "tombstone lifetime"
 
 To change the default Backup and Retention Policy for System State:
 1. Stop the Backup engine. Run the following command from an elevated command prompt.
+
   ```
   PS C:\> Net stop obengine
   ```
+
 2. Add or update the following registry key entries in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
+
   |Registry Name|Description|Value|
   |SSBScheduleTime|Used to configure the time of the backup. Default is 9PM local time.|DWord: Format HHMM (Decimal) for example 2130 for 9:30PM local time|
   |SSBScheduleDays|Used to configure the days when System State Backup must be performed at the specified time. Individual digits specify days of the week. 0 represents Sunday, 1 is Monday, and so on. Default day for backup is Sunday.|DWord: days of the week to run backup (decimal) for example 1230 schedules backups on Monday, Tuesday, Wednesday, and Sunday.|
   |SSBRetentionDays|Used to configure the days to retain backup. Default value is 60. Maximum allowed value is 180.|DWord: Days to retain backup (decimal).|
+
 3. Use the following command to restart the backup engine.
-  ```
-  PS C:\> Net start obengine
-  ```
+    ```
+    PS C:\> Net start obengine
+    ```
+
 4. Open the Microsoft Recovery Services agent.
+
 5. Click **Schedule Backup** and then click **Next** until you see the changes reflected.
+
 6. Click **Finish** to apply the changes.
 
 
