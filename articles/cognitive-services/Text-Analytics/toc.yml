@@ -14,8 +14,12 @@
   items:
    - name: Sentiment analysis 
      href: text-analytics-concept-sentiment-analysis.md
+   - name: Keyword extraction
+     href: text-analytics-concept-keyword-extraction.md
 - name: How-to guides
   items:
+   - name: Structure data inputs
+     href: text-analytics-howto-input0data.md
    - name: Aggregate and analyze results
      href: text-analytics-howto-aggregate.md
 - name: Reference

@@ -12,14 +12,12 @@ ms.date: 07/24/2017
 ms.author: heidist
 ---
 
-# What is the Text Analytics API (Azure Cognitive Services)
+# Text Analytics API (Azure Cognitive Services)
 
-Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps.
-
-**Text Analytics** is a collection of APIs within Cognitive Services for performing text analysis, delivered with a clear focus on **sentiment analysis**, **key phrase extraction**, and **language detection***. 
+Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps. **Text Analytics** is a collection of APIs within Cognitive Services used for performing text analysis, delivered with a clear focus on **sentiment analysis**, **key phrase extraction**, and **language detection**. 
 
 > [!Note]
-> As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine Text Analytics with other services to support more complex scenarios. For ideas on multi-service use case scenarios, see [How to use Text Analytics](text-analytics-overview-how.md).
+> As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can combine Text Analytics with other services to support more complex development projects. For ideas on multi-technology use case scenarios, see [How to use Text Analytics](text-analytics-overview-how.md).
 
 ## Workloads supported through Text Analytics APIs
 
@@ -70,7 +68,7 @@ Analyzing sentiment and phrases is a complex operation requiring access to lingu
 
 ## Data limits
 
-Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. While this number might seem low, the vast majority of text submitted for analysis falls well below this limit. If you require a higher limit, please contact us so that we can explore options.
+Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. While this number might seem low, the vast majority of text submitted for analysis falls well below this limit. If you require a higher limit, please contact us so that we can discuss your requirements.
 
 |Limits | |
 |------------------------|---------------|
