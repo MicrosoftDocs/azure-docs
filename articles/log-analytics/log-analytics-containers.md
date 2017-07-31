@@ -31,7 +31,7 @@ The following diagram shows the relationships between various container hosts an
 ## System requirements
 Before starting, review the following details to verify you meet the prerequisites.
 
-### VMware containers
+### Supported containers deployed on top of VMware vSphere 
 
 | | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log | 
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
