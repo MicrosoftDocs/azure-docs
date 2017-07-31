@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2017
+ms.date: 07/31/2017
 ms.author: gwallace
 
 ---
