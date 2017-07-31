@@ -39,7 +39,7 @@ A route filter lets you identify services you want to consume through your Expre
 To be able to attach route filters with Office 365 services on them, you must have authorization to consume Office 365 services through ExpressRoute. If you are not authorized to consume Office 365 services through ExpressRoute, the operation to attach route filters fails. For more information about the authorization process, see [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). Connectivity to Dynamics 365 services does NOT require any prior authorization.
 
 > [!IMPORTANT]
-> Microsoft peering of ExpressRoute circuits that were configured prior to July 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured after July 2017 will not have any prefixes advertised until a route filter is attached to the circuit.
+> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit.
 > 
 > 
 
