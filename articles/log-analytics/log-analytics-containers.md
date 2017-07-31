@@ -33,7 +33,7 @@ Before starting, review the following details to verify you meet the prerequisit
 
 ### Supported containers deployed on top of VMware vSphere 
 
-| | Source | 
+| Cluster | Source | 
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | ACS, Linux, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, Event Log, and Container Log | 
 | Mesosphere<br>DC/OS | ACS, Linux, Container Inventory, Image Inventory, Node Inventory, Container Performance, Container Event, Event Log, and Container Log | 
