@@ -115,7 +115,7 @@ Here's what happens when you set up network mapping during Site Recovery deploym
 - - When mapping is configured correctly and replication is enabled, a source VM will be connected to its source VM network, and its replica at the target location will be connected to its mapped VM network.
 - If the target network has multiple subnets, and one of those subnets has the same name as the subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the VM will be connected to the first subnet in the network.
 
-## Connecting to VMs after failover
+## Connect to VMs after failover
 
 When planning your replication and failover strategy, one of the key questions is how to connect to the replica after failover. There are a couple of choices: 
 

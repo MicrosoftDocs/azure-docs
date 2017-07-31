@@ -27,7 +27,7 @@ After reading this article, post any comments at the bottom, or on the [Azure Re
 
 
 
-## Step 6: Set up source and target settings
+## Set up the source environment
 
 Install the Azure Site Recovery Provider on VMM servers, and discover and register servers in the vault.
 
