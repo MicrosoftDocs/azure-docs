@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
+Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md).
 
 This article walks you through the steps to create, configure, start, and delete an application gateway.
 
@@ -96,22 +96,22 @@ $vnet = New-AzureRmVirtualNetwork -Name ContosoVNET -ResourceGroupName ContosoRG
 # Retrieve the newly created subnet
 $subnet=$vnet.Subnets[0]
 
-# Create a public ip that is used to connect to the application gateway. Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
+# Create a public IP address that is used to connect to the application gateway. Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -name publicIP01 -location "East US" -AllocationMethod Dynamic
 
-# Create a gateway IP configuration. The gateway picks up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
+# Create a gateway IP configuration. The gateway picks up an IP addressfrom the configured subnet and routes network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-# Configure a backend pool with the addresses of your web servers. These backend pool members are all validated to be healthy by probes whether they are basic probes or custom probes.  Traffic is then routed to them when requests come into the application gateway. Backend pools can be used by multiple rules within the application gateway, which means one backend pool could be used for multiple web applications that reside on the same host.
+# Configure a backend pool with the addresses of your web servers. These backend pool members are all validated to be healthy by probes, whether they are basic probes or custom probes.  Traffic is then routed to them when requests come into the application gateway. Backend pools can be used by multiple rules within the application gateway, which means one backend pool could be used for multiple web applications that reside on the same host.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
 
-# Configure backend http settings to determine the portocol and port that is used when sending traffic to the backend servers. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity sends traffic to the same backend as previous requests for each packet.
+# Configure backend http settings to determine the protocol and port that is used when sending traffic to the backend servers. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity sends traffic to the same backend as previous requests for each packet.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 
 # Configure a frontend port that is used to connect to the application gateway through the public IP address
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
-# Configure the frontend ip configuration with the public IP address created earlier.
+# Configure the frontend IP configuration with the public IP address created earlier.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 # Configure the listener.  The listener is a combination of the front end IP configuration, protocol, and port and is used to receive incoming network traffic. 
