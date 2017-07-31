@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 07/31/2017
 ms.author: anzaman,cherylmc
 
 ---
@@ -44,7 +44,7 @@ You can configure one, two, or all three peerings (Azure private, Azure public, 
 
 ## Azure private peering
 
-This section provides instructions on how to create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
+This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
 
 ### To create Azure private peering
 
@@ -62,7 +62,7 @@ This section provides instructions on how to create, get, update, and delete the
 2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider.
 
   If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
-3. Check the ExpressRoute circuit to ensure it is provisioned and also enabled. Use the following example:
+3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
 
   ```azurecli
   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
@@ -113,7 +113,7 @@ This section provides instructions on how to create, get, update, and delete the
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
   ```
 
-  If you choose to use an MD5 hash, you can use the following example:
+  If you choose to use an MD5 hash, use the following example:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
@@ -183,7 +183,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 ## Azure public peering
 
-This section provides instructions on how to create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
+This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
 
 ### To create Azure public peering
 
@@ -246,13 +246,13 @@ This section provides instructions on how to create, get, update, and delete the
   * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
   * **Optional -** An MD5 hash if you choose to use one.
 
-  You can run the following example to configure Azure public peering for your circuit
+  Run the following example to configure Azure public peering for your circuit:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
   ```
 
-  If you choose to use an MD5 hash, you can use the following example:
+  If you choose to use an MD5 hash, use the following example:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
@@ -314,7 +314,12 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 ## Microsoft peering
 
-This section provides instructions on how to create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit.
+This section helps you create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit.
+
+> [!IMPORTANT]
+> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit.
+> 
+>
 
 ### To create Microsoft peering
 
@@ -333,7 +338,7 @@ This section provides instructions on how to create, get, update, and delete the
 
   If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
-3. Check the ExpressRoute circuit to ensure it is provisioned and also enabled. Use the following example:
+3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
 
   ```azurecli
   az network express-route list
@@ -381,7 +386,7 @@ This section provides instructions on how to create, get, update, and delete the
   * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
   * **Optional -** An MD5 hash if you choose to use one.
 
-   You can run the following example to configure Microsoft peering for your circuit
+   Run the following example to configure Microsoft peering for your circuit:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
