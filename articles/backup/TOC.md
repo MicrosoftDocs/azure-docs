@@ -34,6 +34,7 @@
 ### [Back up Windows Server files and folders](backup-configure-vault.md)
 ### [Back up Windows Server System State](backup-azure-system-state.md)
 ### [Recover files from Azure to Windows Server](backup-azure-restore-windows-server.md)
+### [Restore Windows Server System State](backup-azure-restore-system-state.md)
 ### [Monitor and manage Recovery Services vaults](backup-azure-manage-windows-server.md)
 ### Back up and restore using the classic portal
 #### [Windows Server using the classic deployment model](backup-configure-vault-classic.md)
