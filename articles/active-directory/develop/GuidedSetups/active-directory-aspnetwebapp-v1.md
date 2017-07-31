@@ -418,7 +418,7 @@ Follow the following steps if you want to accept sign ins of work and school acc
 2. Under `All Settings` select `Properties`
 3. Change `Multi-tenanted` property to `Yes` and click `Save`
 
-For more information about this setting and the concept of multi-tenant applications, please see [this article](../active-directory-devhowto-multi-tenant-overview.md#update-registration-to-be-multitenant "Multi-tenant overview").
+For more information about this setting and the concept of multi-tenant applications, see [this article](../active-directory-devhowto-multi-tenant-overview.md "Multi-tenant overview").
 
 ### Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
 
