@@ -20,7 +20,7 @@ ms.author: gwallace
 ---
 # Create an application gateway with the portal
 
-[Application Gateway](application-gateway-introduction) is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application. This article takes you through the steps to create an Application Gateway using the Azure portal and adding an existing server as a backend member.
+[Application Gateway](application-gateway-introduction.md) is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application. This article takes you through the steps to create an Application Gateway using the Azure portal and adding an existing server as a backend member.
 
 ## Log in to Azure
 
