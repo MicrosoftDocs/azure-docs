@@ -3,8 +3,8 @@
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 
 # Get started
-## [Backup Azure VMs](backup-azure-vms-first-look-arm.md)
-## [Back up files and folders](backup-try-azure-backup-in-10-mins.md)
+## [Back up Azure VMs](backup-azure-vms-first-look-arm.md)
+## [Back up Windows Server or Windows computers](backup-try-azure-backup-in-10-mins.md)
 ## [Back up VMware servers](backup-azure-backup-server-vmware.md)
 
 # How to
