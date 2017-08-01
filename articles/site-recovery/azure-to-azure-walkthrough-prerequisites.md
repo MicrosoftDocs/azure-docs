@@ -29,23 +29,14 @@ After you've reviewed the [architecture](azure-to-azure-walkthrough-architecture
 >
 > Azure VM replication is currently in preview.
 
-## Prerequisites
-
-Read the prerequisites summarized in the following table.
 
 
-**Prerequisite** | **Details**
---- | ---
-**Azure account** | You need a [Microsoft Azure](http://azure.microsoft.com/) account.
-**Azure VMs** | Azure VMs you want to replicate should be running a [supported operating system](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)
-
-## Recommendations and limitations
+## Support prerequisites
 
 Review the table below.
 
-**Component** | **Details**
+**Component** | **Requirement**
 --- | ---
-
 **Recovery Services vault** | We recommend that you create a Recovery Services vault in the target Azure region that you want to use for disaster recovery. For example, if you want to replicate source VMs in East US to Central US, create the vault in Central US.
 **Azure subscription** | Your Azure subscription should be enabled to create VMs, in the target location that you want to use as the disaster recovery region. Contact support to enable the required quota.
 **Target region capacity** | In the target Azure region, the subscription should have enough capacity for VMs, storage accounts, and network components.
@@ -53,13 +44,6 @@ Review the table below.
 **Networking** | You need to allow outbound connectivity from Azure VMs, for specific URLs/IP ranges.br/><br/> Network accounts must be in the same region as the vault.<br/><br/> If you use a premium storage account, you need an additional standard storage account, to store replication logs<br/><br/> You can't replicate to premium accounts in Central and South India.
 **Azure VM** | Make sure all of the latest root certificates are on the Windows/Linux Azure VM. If they're not, you won't be able to register the VM in Site Recovery, because of security constraints.
 **Azure user account** | Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of an Azure virtual machine.
-
-
-
-## Create an Azure account
-
-1. If you don't have an Azure account, you need to [create one](http://azure.microsoft.com/).<br/><br/> You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-2. Learn about [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 
 ## Set permissions on the account
@@ -81,11 +65,6 @@ Review the table below.
     - Install all the latest Windows updates on the VM so that all the trusted root certificates are on the machine.
     - In a disconnected environment, follow the standard Windows Update process/certificate update process in your organization, to get the latest root certificates, and updated CRL, on the VMs.
 3. For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and the latest certificate revocation list on the VM. Learn more about [troubleshooting](site-recovery-azure-to-azure-troubleshoot-errors.md#trusted-root-certificates-error-code-151066) trusted root issues.
-
-
-## Allow traffic from Azure VMs
-
-Make sure you've followed the instructions in this [article](azure-to-azure-walkthrough-network.md), to allow specific URLs or IP ranges for outbound connectivity from your Azure VM.
 
 
 ## Next steps
