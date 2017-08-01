@@ -57,14 +57,9 @@ The following steps explain how to roll back your Windows Server configuration t
 
     Azure Backup mounts the local recovery point, and uses it as a recovery volume.
 
-7. On the next pane, specify the destination for the recovered System State files and click **Browse** to open Windows Explorer and find the files and folders you want.
+7. On the next pane, specify the destination for the recovered System State files and click **Browse** to open Windows Explorer and find the files and folders you want. The option, **Create copies so that you have both versions**, creates copies of individual files in an existing System State file archive instead of creating the copy of the entire System State archive.
 
     ![Recovery options](./media/backup-azure-restore-system-state/recover-as-files.png)
-
-
-    > [!NOTE]
-    > The option, **Create copies so that you have both versions**, creates copies of individual files in an existing System State file archive instead of creating the copy of the entire System State archive.
-    >
 
 8. Verify the details of recovery on the **Confirmation** pane and click **Recover**.
 
