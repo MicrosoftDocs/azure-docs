@@ -49,9 +49,9 @@ sudo apt-get -qq update
 sudo apt-get install walinuxagent
 ```
 
-#### Enable Agent Auto Update
+#### Ensure Auto Update is Enabled
 
-First Check to see if it is enabled:
+First, check to see if it is enabled:
 
 ```bash
 cat /etc/waagent.conf
@@ -69,6 +69,8 @@ To enable run:
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
+
+### Restart the waagent service
 
 #### Restart Agent for 14.04
 
@@ -126,9 +128,9 @@ sudo apt-get -qq update
 ```bash
 sudo apt-get install waagent
 ```
-#### Enable Agent Auto Update
+#### Ensure Auto Update is Enabled 
 
-First Check to see if it is enabled:
+First, check to see if it is enabled:
 
 ```bash
 cat /etc/waagent.conf
@@ -147,7 +149,7 @@ To enable run:
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-#### Restart Agent
+### Restart the waagent service
 
 ```
 sudo systemctl restart walinuxagent.service
@@ -175,9 +177,9 @@ sudo yum check-update WALinuxAgent
 sudo yum install WALinuxAgent
 ```
 
-#### Enable Agent Auto Update
+#### Ensure Auto Update is Enabled 
 
-First Check to see if it is enabled:
+First, check to see if it is enabled:
 
 ```bash
 cat /etc/waagent.conf
@@ -196,7 +198,7 @@ To enable run:
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-#### Restart Agent
+### Restart the waagent service
 
 ```
 sudo service waagent restart
@@ -222,9 +224,9 @@ sudo yum check-update WALinuxAgent
 sudo yum install WALinuxAgent  
 ```
 
-#### Enable Agent Auto Update
+#### Ensure Auto Update is Enabled 
 
-First Check to see if it is enabled:
+First, check to see if it is enabled:
 
 ```bash
 cat /etc/waagent.conf
@@ -243,7 +245,7 @@ To enable run:
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-#### Restart Agent
+### Restart the waagent service
 
 ```bash
 sudo systemctl restart waagent.service
@@ -269,9 +271,9 @@ In the output from the above, this will show you if the package is upto date.
 sudo zypper install python-azure-agent
 ```
 
-#### Enable Agent Auto Update
+#### Ensure Auto Update is Enabled 
 
-First Check to see if it is enabled:
+First, check to see if it is enabled:
 
 ```bash
 cat /etc/waagent.conf
@@ -290,7 +292,7 @@ To enable run:
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-#### Restart Agent
+### Restart the waagent service
 
 ```bash
 sudo /etc/init.d/waagent restart
@@ -314,9 +316,9 @@ In the output from the above, this will show you if the package is upto date.
 sudo zypper install python-azure-agent
 ```
 
-#### Enable Agent Auto Update
+#### Ensure Auto Update is Enabled 
 
-First Check to see if it is enabled:
+First, check to see if it is enabled:
 
 ```bash
 cat /etc/waagent.conf
@@ -335,7 +337,7 @@ To enable run:
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-#### Restart Agent
+### Restart the waagent service
 
 ```bash
 sudo systemctl restart waagent.service
