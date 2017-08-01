@@ -1,6 +1,6 @@
 ---
-title: Create an Azure App Service Environment by using a Resource Manager template
-description: Explains how to create an External or ILB Azure App Service Environment by using a Resource Manager template
+title: Create an Azure App Service environment by using a Resource Manager template
+description: Explains how to create an External or ILB Azure App Service environment by using a Resource Manager template
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -18,7 +18,7 @@ ms.author: ccompy
 # Create an ASE by using an Azure Resource Manager template
 
 ## Overview
-Azure App Service Environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in the Azure Virtual Network (VNet). When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
+Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure virtual network (VNet). When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
 
 An ASE can be created by using the Azure portal or an Azure Resource Manager template. This article walks through the steps and syntax you need to create an External ASE or ILB ASE with Resource Manager templates. To learn how to create an ASE in the Azure portal, see [Make an External ASE][MakeExternalASE] or [Make an ILB ASE][MakeILBASE].
 
@@ -142,7 +142,7 @@ After the template finishes, apps on the ILB ASE can be accessed over HTTPS. The
 However, just like apps that run on the public multitenant service, developers can configure custom host names for individual apps. They also can configure unique SNI SSL certificate bindings for individual apps.
 
 ## App Service Environment v1 ##
-The App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2.
+App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2.
 
 In ASEv1, you manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you must scale out the worker pool that you want to host it.
 

@@ -1,6 +1,6 @@
 ---
-title: Use an Azure App Service Environment
-description: How to create, publish, and scale apps in an Azure App Service Environment
+title: Use an Azure App Service environment
+description: How to create, publish, and scale apps in an Azure App Service environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ---
-# Use an App Service Environment #
+# Use an App Service environment #
 
 ## Overview ##
 
-An Azure App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in a customer’s Azure Virtual Network. It consists of:
+Azure App Service Environment is a deployment of Azure App Service into a subnet in a customer’s Azure virtual network. It consists of:
 
-- **Front ends**: The front ends are where HTTP/HTTPS terminate in an ASE.
+- **Front ends**: The front ends are where HTTP/HTTPS terminates in an App Service environment (ASE).
 - **Workers**: The workers are the resources that host your apps.
 - **Database**: The database holds information that defines the environment.
 - **Storage**: The storage is used to host the customer-published apps.
 
 > [!NOTE]
-> There are two versions of the App Service Environment: ASEv1 and ASEv2. In ASEv1, you must manage the resources before you can use them. To learn how to configure and manage an ASEv1, see [Configure an App Service Environment v1][ConfigureASEv1]. The rest of this article focuses on ASEv2.
+> There are two versions of App Service Environment: ASEv1 and ASEv2. In ASEv1, you must manage the resources before you can use them. To learn how to configure and manage ASEv1, see [Configure an App Service environment v1][ConfigureASEv1]. The rest of this article focuses on ASEv2.
 >
 >
 
@@ -40,7 +40,7 @@ To create a web app in an ASE, you use the same process as when you create it no
 - Instead of choosing a geographic location in which to deploy your app, you choose an ASE as your location.
 - All App Service plans created in an ASE must be in an Isolated pricing tier.
 
-If you don't have an ASE, you can create one by following the instructions in [Create an App Service Environment][MakeExternalASE].
+If you don't have an ASE, you can create one by following the instructions in [Create an App Service environment][MakeExternalASE].
 
 To create a web app in an ASE:
 
@@ -74,7 +74,7 @@ To create a web app in an ASE:
 
 Every App Service app runs in an App Service plan. The container model is environments hold App Service plans, and App Service plans hold apps. When you scale an app, you scale the App Service plan and thus scale all the apps in the same plan.
 
-In an ASEv2, when you scale an App Service plan, the needed infrastructure is automatically added. There is a time delay to scale operations while the infrastructure is added. In an ASEv1, the needed infrastructure must be added before you can create or scale out your App Service plan. 
+In ASEv2, when you scale an App Service plan, the needed infrastructure is automatically added. There is a time delay to scale operations while the infrastructure is added. In ASEv1, the needed infrastructure must be added before you can create or scale out your App Service plan. 
 
 In the multitenant App Service, scaling is usually immediate because a pool of resources is readily available to support it. In an ASE, there is no such buffer, and resources are allocated upon need.
 
@@ -84,19 +84,19 @@ In an ASE, you can scale up to 100 instances. Those 100 instances can be all in 
 
 App Service has the ability to allocate a dedicated IP address to an app. This capability is available after you configure an IP-based SSL, as described in [Bind an existing custom SSL certificate to Azure web apps][ConfigureSSL]. However, in an ASE, there is a notable exception. You can't add additional IP addresses to be used for an IP-based SSL in an ILB ASE.
 
-In an ASEv1, you need to allocate the IP addresses as resources before you can use them. In an ASEv2, you use them from your app just as you do in the multitenant App Service. There is always one spare address in an ASEv2 up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available for use. A time delay is required to allocate another IP address, which prevents adding IP addresses in quick succession.
+In ASEv1, you need to allocate the IP addresses as resources before you can use them. In ASEv2, you use them from your app just as you do in the multitenant App Service. There is always one spare address in ASEv2 up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available for use. A time delay is required to allocate another IP address, which prevents adding IP addresses in quick succession.
 
 ## Front-end scaling ##
 
-In an ASEv2, when you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. In addition, the front ends automatically scale out at a rate of one front end for every 15 instances in your App Service plans. For example, if you have 15 instances, then you have three front ends. If you scale to 30 instances, then you have four front ends, and so on.
+In ASEv2, when you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. In addition, the front ends automatically scale out at a rate of one front end for every 15 instances in your App Service plans. For example, if you have 15 instances, then you have three front ends. If you scale to 30 instances, then you have four front ends, and so on.
 
 This number of front ends should be more than enough for most scenarios. However, you can scale out at a faster rate. You can change the ratio to as low as one front end for every five instances. There is a charge for changing the ratio. For more information, see [Azure App Service pricing][Pricing].
 
-Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default Front-end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
+Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default front-end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
 
 ## App access ##
 
-In an External ASE, the domain that's used when you create apps is different from the multitenant App Service. It includes the name of the ASE. For more information on how to create an External ASE, see [Create an App Service Environment][MakeExternalASE]. The domain name in an External ASE looks like *.&lt;asename&gt;.p.azurewebsites.net*. For example, if your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
+In an External ASE, the domain that's used when you create apps is different from the multitenant App Service. It includes the name of the ASE. For more information on how to create an External ASE, see [Create an App Service environment][MakeExternalASE]. The domain name in an External ASE looks like *.&lt;asename&gt;.p.azurewebsites.net*. For example, if your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
@@ -128,7 +128,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 ## Pricing ##
 
-With ASEv2, a new pricing SKU called **Isolated** is used only with ASEv2. All App Service plans that are hosted in and ASEv2 are in the Isolated pricing SKU. In addition to the price for your App Service plans, there is a flat fee for ASE itself. This price doesn't change with the size of your ASE. 
+With ASEv2, a new pricing SKU called **Isolated** is used only with ASEv2. All App Service plans that are hosted in ASEv2 are in the Isolated pricing SKU. In addition to the price for your App Service plans, there is a flat fee for ASE itself. This price doesn't change with the size of your ASE. 
 
 The other potential fees are for adjusting the front-end scale ratio or front-end size. You can adjust the scale ratio to add front ends more quickly. However, you pay for any additional cores that aren't automatically added to the system. Likewise, if you select a larger size for the front ends, you pay for any cores that aren't automatically allocated. For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 ASP instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
 

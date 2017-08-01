@@ -1,6 +1,6 @@
 ---
 title: Azure App Service Environment readme
-description: Lists the documentation that describes the Azure App Service Environment
+description: Lists the documentation that describes Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -16,10 +16,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ---
 
-# App Service Environment documentation
-The Azure App Service Environment (ASE) is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIApps], and [Functions][Functions].
+# App Service environment documentation
+ Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIApps], and [Functions][Functions].
 
-ASEs are ideal for application workloads that require:
+App Service environments (ASEs) are ideal for application workloads that require:
 
 * Very high scale.
 * Isolation and secure network access.
@@ -30,12 +30,12 @@ ASEs are isolated to running only a single customer's applications and are alway
 
 Apps frequently need to access corporate resources, such as internal databases and web services. Apps that run on ASEs can access resources via [site-to-site][SiteToSite] VPN and [Azure ExpressRoute][ExpressRoute] connections.
 
-* [What is an App Service Environment?][Intro]
-* [Create an App Service Environment][MakeExternalASE]
-* [Create an internal load balancer App Service Environment][MakeILBASE]
-* [Use an App Service Environment][UsingASE]
-* [Networking considerations and the App Service Environment][ASENetwork]
-* [Create an App Service Environment from a template][MakeASEfromTemplate]
+* [What is an App Service environment?][Intro]
+* [Create an App Service environment][MakeExternalASE]
+* [Create an internal load balancer App Service environment][MakeILBASE]
+* [Use an App Service environment][UsingASE]
+* [Networking considerations and the App Service environment][ASENetwork]
+* [Create an App Service environment from a template][MakeASEfromTemplate]
 
 
 ## Videos
@@ -49,7 +49,7 @@ Running Enterprise Web and Mobile Apps on Azure App Service
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
 
 ## App Service Environment v1 ##
-There are two versions of the App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [App Service Environment v1 documentation][ASEv1README].
+There are two versions of App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [App Service Environment v1 documentation][ASEv1README].
 
 
 <!--Links-->

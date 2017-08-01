@@ -1,5 +1,5 @@
 ---
-title: Networking considerations with an Azure App Service Environment
+title: Networking considerations with an Azure App Service environment
 description: Explains the ASE network traffic and how to set NSGs and UDRs with your ASE
 services: app-service
 documentationcenter: na
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ---
-# Networking considerations for an App Service Environment #
+# Networking considerations for an App Service environment #
 
 ## Overview ##
 
-The Azure [App Service Environment][Intro] (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet). There are two deployment types for the App Service Environment:
+ Azure [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network (VNet). There are two deployment types for an App Service environment (ASE):
 
 - **External ASE**: Exposes the ASE-hosted apps on an internet-accessible IP address. For more information, see [Create an External ASE][MakeExternalASE].
 - **ILB ASE**: Exposes the ASE-hosted apps on an IP address inside your VNet. The internal endpoint is an internal load balancer (ILB), which is why it's called an ILB ASE. For more information, see [Create and use an ILB ASE][MakeILBASE].
 
-There are now two versions of the App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [Introduction to the App Service Environment v1][ASEv1Intro]. An ASEv1 can be deployed in a classic or Resource Manager VNet. An ASEv2 can only be deployed into a Resource Manager VNet.
+There are now two versions of App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [Introduction to App Service Environment v1][ASEv1Intro]. ASEv1 can be deployed in a classic or Resource Manager VNet. ASEv2 can only be deployed into a Resource Manager VNet.
 
 All calls from an ASE that go to the internet leave the VNet through a VIP assigned for the ASE. The public IP of this VIP is then the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there. You don't need to configure the ASE or your app any further.
 
@@ -49,7 +49,7 @@ The normal app access ports are:
 |  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
 |  Visual Studio remote debugging  |  User configurable |  4016, 4018, 4020, 4022 |
 
-This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an impact to some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
+This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
 
 ## ASE dependencies ##
 
@@ -88,7 +88,7 @@ If the VNet is configured with a customer DNS on the other side of a VPN, the DN
 
 ## Portal dependencies ##
 
-In addition to the ASE functional dependencies, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in the Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Some of the features that use the SCM site include:
+In addition to the ASE functional dependencies, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Some of the features that use the SCM site include:
 
 -   Web jobs
 -   Functions
@@ -159,9 +159,9 @@ Routes become problematic most commonly when you configure your VNet with Azure 
 -   BGP routes
 -   User-defined routes (UDRs)
 
-BGP routes override System routes. UDRs override BGP routes. For more information about routes in Azure virtual networks, see [User-defined routes overview][UDRs].
+BGP routes override system routes. UDRs override BGP routes. For more information about routes in Azure virtual networks, see [User-defined routes overview][UDRs].
 
-The Azure SQL Database that the ASE uses to manage the system has a firewall. It requires communication to originate from the ASE public VIP. Connections to Azure SQL from the ASE will be denied if they are sent down the ExpressRoute connection and out another IP address.
+The Azure SQL database that the ASE uses to manage the system has a firewall. It requires communication to originate from the ASE public VIP. Connections to the SQL database from the ASE will be denied if they are sent down the ExpressRoute connection and out another IP address.
 
 If replies to incoming management requests are sent down the ExpressRoute, the reply address is different than the original destination. This mismatch breaks the TCP communication.
 

@@ -1,6 +1,6 @@
 ---
-title: Create and use an internal load balancer with an Azure App Service Environment
-description: Details on how to create and use an internet-isolated Azure App Service Environment
+title: Create and use an internal load balancer with an Azure App Service environment
+description: Details on how to create and use an internet-isolated Azure App Service environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ---
-# Create and use an internal load balancer with an App Service Environment #
+# Create and use an internal load balancer with an App Service environment #
 
-The Azure App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in Azure Virtual Network (VNet). There are two ways to deploy an ASE: 
+ Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service environment (ASE): 
 
 - With a VIP on an external IP address, often called an External ASE.
 - With a VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB). 
 
-This article shows you how to create an ILB ASE. For an overview on the ASE, see [Introduction to App Service Environments][Intro]. To learn how to create an External ASE, see [Create an External ASE][MakeExternalASE].
+This article shows you how to create an ILB ASE. For an overview on the ASE, see [Introduction to App Service environments][Intro]. To learn how to create an External ASE, see [Create an External ASE][MakeExternalASE].
 
 ## Overview ##
 
-You can deploy an ASE with an internet-accessible endpoint or with an IP address in your virtual network. To set the IP address to a virtual network address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide:
+You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide:
 
 -   Your own domain that you use when you create your apps.
 -   The certificate used for HTTPS.
@@ -56,27 +56,33 @@ To create an ILB ASE:
 
 3. Select or create a resource group.
 
-4. Select or create a virtual network.
+4. Select or create a VNet.
 
-5. If you select an existing virtual network, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of /25, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a /28. After infrastructure needs, this size can be scaled to a maximum of 11 instances.
+5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can be scaled to a maximum of 11 instances.
 
-	* Go beyond the default maximum of 100 instances in your App Service plans.
-	* Scale near 100 but with more rapid front-end scaling.
+	a. Go beyond the default maximum of 100 instances in your App Service plans.
+
+	b. Scale near 100 but with more rapid front-end scaling.
 
 6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
 7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
-	- net
-    - azurewebsites.net
-    - p.azurewebsites.net
-    - &lt;asename&gt;.p.azurewebsites.net
+	a. net	
+
+	b. azurewebsites.net
+
+	c. p.azurewebsites.net
+
+	d. &lt;asename&gt;.p.azurewebsites.net
 
    The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
-	- www.contoso.com
-	- abcd.def.contoso.com
-	- abcd.contoso.com
+	a. www.contoso.com
+
+	b. abcd.def.contoso.com
+
+	c. abcd.contoso.com
 
    If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE because that won't conflict with custom domain names that end in *.contoso.com*.
 
@@ -84,11 +90,11 @@ To create an ILB ASE:
 
 	![ASE creation][1]
 
-On the **Virtual Network** blade, there is a **Virtual Network Configuration** option. You can use it to select between an External VIP or an Internal VIP. The default is **External**. If you select **External**, your ASE uses an internet-accessible VIP. If you select **Internal**, your ASE is configured with an ILB on an IP address within your virtual network.
+On the **Virtual Network** blade, there is a **Virtual Network Configuration** option. You can use it to select an External VIP or an Internal VIP. The default is **External**. If you select **External**, your ASE uses an internet-accessible VIP. If you select **Internal**, your ASE is configured with an ILB on an IP address within your VNet.
 
 After you select **Internal**, the ability to add more IP addresses to your ASE is removed. Instead, you need to provide the domain of the ASE. In an ASE with an External VIP, the name of the ASE is used in the domain for apps created in that ASE.
 
-If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is *contoso.corp.net* and you create an app in that ASE named *timereporting*, the URL for that app is *timereporting.contoso.corp.net*.
+If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is *contoso.corp.net* and you create an app in that ASE named *timereporting*, the URL for that app is timereporting.contoso.corp.net.
 
 
 ## Create an app in an ILB ASE ##
@@ -144,13 +150,13 @@ To upload your own certificates and test access:
 
 1. After the ASE is created, go to the ASE UI. Select **ASE** > **Settings** > **ILB Certificate**.
 
-2. To set the ILB certificate, select the certificate .pfx file and enter the password. This step takes some time to process. A message displays stating that an upload operation is in progress.
+2. To set the ILB certificate, select the certificate .pfx file and enter the password. This step takes some time to process. A message appears stating that an upload operation is in progress.
 
 3. Get the ILB address for your ASE. Select **ASE** > **Properties** > **Virtual IP Address**.
 
 4. Create a web app in your ASE after the ASE is created.
 
-5. Create a VM if you don't have one in that virtual network.
+5. Create a VM if you don't have one in that VNet.
 
 	> [!NOTE] 
 	> Don't try to create this VM in the same subnet as the ASE because it will fail or cause problems.
@@ -159,8 +165,9 @@ To upload your own certificates and test access:
 
 6. Set the DNS for your ASE domain. You can use a wildcard with your domain in your DNS. To do some simple tests, edit the hosts file on your VM to set the web app name to the VIP IP address:
 
-	* If your ASE has the domain name _.ilbase.com_ and you create the web app named _mytestapp_, it's addressed at _mytestapp.ilbase.com_. You then set _mytestapp.ilbase.com_ to resolve to the ILB address. (On Windows, the hosts file is at _C:\Windows\System32\drivers\etc\_.) 
-	* To test web deployment publishing or access to the advanced console, create a record for _mytestapp.scm.ilbase.com_.
+	a. If your ASE has the domain name _.ilbase.com_ and you create the web app named _mytestapp_, it's addressed at _mytestapp.ilbase.com_. You then set _mytestapp.ilbase.com_ to resolve to the ILB address. (On Windows, the hosts file is at _C:\Windows\System32\drivers\etc\_.)
+
+	b. To test web deployment publishing or access to the advanced console, create a record for _mytestapp.scm.ilbase.com_.
 
 7. Use a browser on that VM and go to http://mytestapp.ilbase.com. (Or go to whatever your web app name is with your domain.)
 
@@ -172,10 +179,10 @@ To upload your own certificates and test access:
 
 ### Functions and the ILB ASE
 
-When you use Functions on an ILB ASE, you might get an error message that says "We are not able to retrieve your functions right now. Please try again later." This error occurs because the Functions UI leverages the scm site over HTTPS. If you use an HTTP certificate for your ASE that doesn't have a root certificate that's in the browser, you might encounter this situation. In addition, the Internet Explorer\Edge browsers don’t share the *accept-invalid-cert* setting between tabs. So you can either:
+When you use Functions on an ILB ASE, you might get an error message that says "We are not able to retrieve your functions right now. Please try again later." This error occurs because the Functions UI leverages the scm site over HTTPS. If you use an HTTP certificate for your ASE that doesn't have a root certificate that's in the browser, you might encounter this situation. In addition, the Internet Explorer\Edge browsers don’t share the *accept-invalid-cert* setting between tabs. So you can do one of two things:
 
 - Add the certificate to your trusted certificate store. 
-- Or use Chrome. But you need to go to the scm site first and accept the untrusted certificate. Then go to the portal.
+- Use Chrome. But you need to go to the scm site first and accept the untrusted certificate. Then go to the portal.
 
 ## DNS configuration ##
 
@@ -194,22 +201,22 @@ The SCM site name takes you to the Kudu console, called the **Advanced portal**,
 
 In the multitenant App Service and in an External ASE, there's single sign-on between the Azure portal and the Kudu console. For the ILB ASE, however, you need to use your publishing credentials to sign into the Kudu console.
 
-Internet-based CI systems, such as GitHub and VSTS, don't work with an ILB ASE because the publishing endpoint isn't internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
+Internet-based CI systems, such as GitHub and Visual Studio Team Services, don't work with an ILB ASE because the publishing endpoint isn't internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the subdomain *contoso.net* and an app named *mytest*, use *mytest.contoso.net* for FTP and *mytest.scm.contoso.net* for web deployment.
 
 ## Couple an ILB ASE with a WAF device ##
 
-Azure App Service provides many security measures that protect the system. They also help to determine whether an app is hacked. The best protection for a web application is to couple a hosting platform, such as the Azure App Service, with a web application firewall (WAF). Because the ILB ASE has a network-isolated application endpoint, it's appropriate for such a use.
+Azure App Service provides many security measures that protect the system. They also help to determine whether an app was hacked. The best protection for a web application is to couple a hosting platform, such as Azure App Service, with a web application firewall (WAF). Because the ILB ASE has a network-isolated application endpoint, it's appropriate for such a use.
 
-To learn more about how to configure your ILB ASE with a WAF device, see [Configure a web application firewall with your App Service Environment][ASEWAF]. This article shows how to use a Barracuda virtual appliance with your ASE. Another option is to use the Azure Application Gateway. The Application Gateway uses the OWASP core rules to secure any applications placed behind it. For more information about the Application Gateway, see [Introduction to the Azure Web Application Firewall][AppGW].
+To learn more about how to configure your ILB ASE with a WAF device, see [Configure a web application firewall with your App Service environment][ASEWAF]. This article shows how to use a Barracuda virtual appliance with your ASE. Another option is to use the Azure Application Gateway. The Application Gateway uses the OWASP core rules to secure any applications placed behind it. For more information about the Application Gateway, see [Introduction to the Azure web application firewall][AppGW].
 
 ## Get started ##
 
 All articles and how-to instructions for ASEs are available in
-the [README for Application Service Environments][ASEReadme].
+the [README for App Service environments][ASEReadme].
 
-* To get started with ASEs, see [Introduction to App Service Environments][Intro].
+* To get started with ASEs, see [Introduction to App Service environments][Intro].
 * For more information about the Azure App Service platform, see [Azure App Service](http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/).
  
 <!--Image references-->
