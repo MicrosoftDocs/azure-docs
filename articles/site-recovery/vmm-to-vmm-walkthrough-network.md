@@ -212,6 +212,6 @@ Let us look at the scenario where you are planning to use different IPs across t
 
 ## Next steps
 
-Go to [Step 4: Prepare VMM and Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v).
+Go to [Step 4: Prepare VMM and Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v.md).
 
 
