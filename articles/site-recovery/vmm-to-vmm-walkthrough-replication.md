@@ -26,14 +26,12 @@ After reading this article, post any comments at the bottom, or on the [Azure Re
 
 ## Before you start
 
-- When you create a replication policy, all host using the policy must have the same operating system. The VMM cloud can contain Hyper-V hosts running different versions of Windows Server, but in this case, you need multiple replication policies.
+- When you create a replication policy, all hosts using the policy must have the same operating system. The VMM cloud can contain Hyper-V hosts running different versions of Windows Server, but in this case, you need multiple replication policies.
 - You can perform the initial replication offline.
-- 
-- 
 
 ## Configure replication settings
 
-1. To create a new replication policy click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
+1. To create a new replication policy, click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
 
     ![Network](./media/vmm-to-vmm-walkthrough-replication/gs-replication.png)
 2. In **Create and associate policy**, specify a policy name. The source and target type should be **Hyper-V**.
