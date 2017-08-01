@@ -55,7 +55,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 Whether you are using a new key vault or an existing one, ensure that the user deploying the template can access the secret. The user deploying a template that references a secret must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. The [Owner](../active-directory/role-based-access-built-in-roles.md#owner) and [Contributor](../active-directory/role-based-access-built-in-roles.md#contributor) roles both grant this access. You can also create a [custom role](../active-directory/role-based-access-control-custom-roles.md) that grants this permission and add the user to that role. For information about adding a user to a role, see [Assign a user to administrator roles in Azure Active Directory](../active-directory/active-directory-users-assign-role-azure-portal.md).
 
 
-## Reference a secret with static id
+## Reference a secret with static ID
 
 The template that receives a key vault secret is like any other template. That's because **you reference the key vault in the parameter file, not the template.** For example, the following template deploys a SQL database that includes an administrator password. The password parameter is set to a secure string. But, the template does not specify where that value comes from.
 
@@ -189,7 +189,7 @@ Now, create a parameter file for the preceding template. In the parameter file, 
 }
 ```
 
-## Reference a secret with dynamic id
+## Reference a secret with dynamic ID
 
 The previous section showed how to pass a static resource ID for the key vault secret. However, in some scenarios, you need to reference a key vault secret that varies based on the current deployment. In that case, you cannot hard-code the resource ID in the parameters file. Unfortunately, you cannot dynamically generate the resource ID in the parameters file because template expressions are not permitted in the parameters file.
 
