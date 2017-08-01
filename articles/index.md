@@ -105,7 +105,7 @@ description: Learn how to build and manage powerful applications using Microsoft
 													<div>
 														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
 															<img src="media/index/logo_NET.svg" alt="">
-															ASP.NET</a>
+															.NET</a>
 													</div>
 													<div>
 														<a class="barLink" href="/python/azure/">
