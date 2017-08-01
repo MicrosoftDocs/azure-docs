@@ -32,7 +32,7 @@ After setting up a [Recovery Services vault](azure-to-azure-walkthrough-vault.md
 > Azure VM replication is currently in preview.
 
 
-## Select the source settings
+## Select the source 
 
 1. In Recovery Services vaults, click the vault name > **+Replicate**.
 2. In **Source**, select **Azure - PREVIEW**.
@@ -53,7 +53,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
     ![Select VMs](./media/azure-to-azure-walkthrough-enable-replication/vms.png)
 
 
-## Select and provision target settings
+## Configure settings
 
 Site Recovery provisions default settings for the target region (based on the source region settings), and the replication policy:
 
@@ -64,16 +64,23 @@ Site Recovery provisions default settings for the target region (based on the so
    - **Target storage accounts**: By default, Site Recovery creates a new storage account in the target region, to mirror the source VM storage account.
    -  **Target availability sets**: By default, Site Recovery creates a new availability set in the target region, with the "asr" suffix. 
    - **Replication policy name**: Policy name.
-   - **Recovery point retention**: By default Site Recovery keeps recovery points for 24 hours.
-   - **App-consistent snapshot frequency**: By default Site Recovery takes an app-consistent snapshot every 60 minutes.
+   - **Recovery point retention**: By default Site Recovery keeps recovery points for 24 hours. You can configure a value between 1 and 72 hours.
+   - **App-consistent snapshot frequency**: By default Site Recovery takes an app-consistent snapshot every 4 hours. You can configure any value between 1 and 12 hours. Data is replicated continuously:
+    - Crash-consistent recovery points maintain consistent data write-order when created. This type of recovery point is usually sufficient if your app is designed to recover from a crash without data inconsistencies
+    - Crash-consistent recovery points are generated every few minutes. Using these recovery points to fail over and recover your VMs provides a Recovery Point Objective (RPO) in the order of minutes.
+    - App-consistent recovery points (in addition to write-order consistency) ensure that running apps complete all operations and flush buffers to disk (application quiescing). We recommend you use these recovery points for database apps such as SQL Server, Oracle, and Exchange.
         
     ![Configure settings](./media/azure-to-azure-walkthrough-enable-replication/settings.png)
 
->[!NOTE]
+Note the following issues:
+
+- The data is replicated continuously:
+    
+
 >
 > Ongoing replication frequency is in the order of seconds, and can't be modified. Exact numbers will be available after general availability (GA).
 
-### Modify and provision settings
+### Modify settings
 
 If you want to modify target and replication policy settings, do the following:
 
