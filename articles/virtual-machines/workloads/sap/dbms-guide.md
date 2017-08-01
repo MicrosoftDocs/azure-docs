@@ -1466,7 +1466,7 @@ For additional information and updates about SAP on DB2 for LUW on Azure, see SA
 ### IBM DB2 for Linux, UNIX, and Windows Version Support
 SAP on IBM DB2 for LUW on Microsoft Azure Virtual Machine Services is supported as of DB2 version 10.5.
 
-For information about supported SAP products and Azure VM types, please refer to SAP Note [1928533].
+For information about supported SAP products and Azure VM types, refer to SAP Note [1928533].
 
 ### IBM DB2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
 #### Storage Configuration
@@ -1484,7 +1484,7 @@ As long as the current IOPS quota per disk is sufficient, it is possible to stor
 
 For performance considerations also refer to chapter “Data Safety and Performance Considerations for Database Directories” in SAP installation guides.
 
-Alternatively, you can use LVM (Logical Volume Manager) or MDADM as described in chapter [Software RAID][dbms-guide-2.2] of this document to create one big logical device over multiple disks.
+Alternatively, you can use LVM (Logical Volume Manager) or MDADM as described in chapter [Software RAID][dbms-guide-2.2] of this document to create one large logical device over multiple disks.
 For the disks containing the DB2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB.
 
 #### Backup/Restore
@@ -1492,7 +1492,7 @@ The backup/restore functionality for IBM DB2 for LUW is supported in the same wa
 
 You must make sure that you have a valid database backup strategy in place.
 
-As in bare-metal deployments, backup/restore performance depends on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with just up to 8 CPU threads. Therefore, one can assume:
+As in bare-metal deployments, backup/restore performance depends on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with just up to eight CPU threads. Therefore, one can assume:
 
 * The fewer the number of disks used to store the database devices, the smaller the overall throughput in reading
 * The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
