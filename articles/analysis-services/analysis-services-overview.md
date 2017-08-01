@@ -23,7 +23,7 @@ ms.author: owend
 
 Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), integrated with Azure data platform services. 
 
-With Analysis Services, you can mashup and combine data from multiple sources, define metrics, and secure your data in a single, trusted semantic data model. The data model provides an easier and faster way for your business users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services, and many third-party and custom applications.
+With Analysis Services, you can mashup and combine data from multiple sources, define metrics, and secure your data in a single, trusted semantic data model. The data model provides an easier and faster way for your users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services,  third-party, and custom apps.
 
 ![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -112,7 +112,7 @@ To learn more about Azure Security, see the [Microsoft Trust Center](https://www
 ## Supports the latest client tools
 ![Data visualizations](./media/analysis-services-overview/aas-overview-clients.png)
 
-Modern data exploration and visualization tools like Power BI, Excel, and  third-party tools provide end-users with highly interactive and visually rich insights into your model data.
+Modern data exploration and visualization tools like Power BI, Excel, and  third-party tools provide users with highly interactive and visually rich insights into your model data.
 
 Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-providers.md) to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop and Excel install all three client libraries. But keep in mind, depending on the version or frequency of updates, client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications typically require manually installing the libraries as part of a package.
 

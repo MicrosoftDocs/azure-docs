@@ -34,7 +34,7 @@ To get started, you need:
 * **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [User authentication](analysis-services-overview.md#secure).
 
 ## Import AzureRm.AnalysisServices module
-To create a server in your subscription, you will use the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  component module. Load the AzureRm.AnalysisServices module into your PowerShell session.
+To create a server in your subscription, you use the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  component module. Load the AzureRm.AnalysisServices module into your PowerShell session.
 
 ```powershell
 Import-Module AzureRM.AnalysisServices
@@ -58,7 +58,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
 
 ## Create a server
 
-Create a new server by using the [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in the myResourceGroup resource group, in the West US region, at the D1 sku, and specifies philipc@adventureworks.com as a server administrator.
+Create a new server by using the [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in myResourceGroup, in the West US region, at the D1 tier, and specifies philipc@adventureworks.com as a server administrator.
 
 ```powershell
 New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location West US -Sku D1 -Administrator "philipc@adventureworks.com"
@@ -66,7 +66,7 @@ New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "my
 
 ## Clean up resources
 
-You can remove the server from your subscription by using the [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. If you will continue with other quickstarts and tutorials in this collection, do not remove your server. The following example removes the server created in the previous step.
+You can remove the server from your subscription by using the [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. If you continue with other quickstarts and tutorials in this collection, do not remove your server. The following example removes the server created in the previous step.
 
 
 ```powershell
