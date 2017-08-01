@@ -23,7 +23,7 @@ ms.author: andret
 
 This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
 
-At the end of this guide, your application will be able to accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory. 
+At the end of this guide, your application will accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory.
 
 > [!NOTE]
 > This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). See [this ASP.NET guided setup for the v2 endpoint](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
@@ -37,11 +37,11 @@ At the end of this guide, your application will be able to accept sign ins of wo
 
 ![How this guide works](media/active-directory-aspnetwebapp-v1/aspnet-intro.png)
 
-This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
+This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to create the web page displayed in the browser occurs on the server side.
 
 ## Libraries
 
-This guide uses the following libraries:
+This guide uses the following packages:
 
 |Library|Description|
 |---|---|
@@ -58,7 +58,9 @@ This guide uses the following libraries:
 ## Set up your project
 
 This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect. 
-
+********
+https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options
+***********
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#configure-your-webconfig-and-register-an-application) to configure the code sample before executing.
 
 ## Create your ASP.NET project
@@ -79,7 +81,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 <!--start-collapse-->
-> ### About these libraries
+> ### About these packages
 >The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype their password, and no additional verification is needed.
 <!--end-collapse-->
 
@@ -114,10 +116,10 @@ Replace Startup class with the code below:
 ```csharp
 public class Startup
 {        
-    // The Client ID is used by the application to uniquely identify itself to Azure AD.
+    // The Client ID (a.k.a. Application ID) is used by the application to uniquely identify itself to Azure AD
     string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
-    // RedirectUri is the URL where the user will be redirected to after they sign in.
+    // RedirectUri is the URL where the user will be redirected to after they sign in
     string redirectUri = System.Configuration.ConfigurationManager.AppSettings["RedirectUri"];
 
     // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
@@ -135,7 +137,7 @@ public class Startup
         app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
         app.UseCookieAuthentication(new CookieAuthenticationOptions());
-            app.UseOpenIdConnectAuthentication(
+        app.UseOpenIdConnectAuthentication(
             new OpenIdConnectAuthenticationOptions
             {
                 // Sets the ClientId, authority, RedirectUri as obtained from web.config
@@ -253,12 +255,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
     <a href="@Url.Action("SignIn", "Home")" style="text-decoration: none;">
         <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="300px" height="50px" viewBox="0 0 3278 522" class="SignInButton">
         <style type="text/css">.fil0:hover {fill: #4B4B4B;} .fnt0 {font-size: 260px;font-family: 'Segoe UI Semibold', 'Segoe UI'; text-decoration: none;}</style>
-        <rect class="fil0" x="2" y="2" width="3174" height="517" fill="black" />
-        <rect x="150" y="129" width="122" height="122" fill="#F35325" />
-        <rect x="284" y="129" width="122" height="122" fill="#81BC06" />
-        <rect x="150" y="263" width="122" height="122" fill="#05A6F0" />
-        <rect x="284" y="263" width="122" height="122" fill="#FFBA08" />
-        <text x="470" y="357" fill="white" class="fnt0">Sign in with Microsoft</text>
+        <rect class="fil0" x="2" y="2" width="3174" height="517" fill="black" /><rect x="150" y="129" width="122" height="122" fill="#F35325" /><rect x="284" y="129" width="122" height="122" fill="#81BC06" /><rect x="150" y="263" width="122" height="122" fill="#05A6F0" /><rect x="284" y="263" width="122" height="122" fill="#FFBA08" /><text x="470" y="357" fill="white" class="fnt0">Sign in with Microsoft</text>
         </svg>
     </a>
 }
@@ -301,18 +298,19 @@ public class ClaimsController : Controller
     /// <returns></returns>
     public ActionResult Index()
     {
-        var claimsPrincipalCurrent = System.Security.Claims.ClaimsPrincipal.Current;
+        var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
+
         //You get the user’s first and last name below:
-        ViewBag.Name = claimsPrincipalCurrent.FindFirst("name")?.Value;
+        ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
         // The 'Name' claim can be used for showing the username
-        ViewBag.Username = claimsPrincipalCurrent.FindFirst(ClaimTypes.Name)?.Value;
+        ViewBag.Username = userClaims?.FindFirst(System.IdentityModel.Claims.ClaimTypes.Name)?.Value;
 
         // The subject/ NameIdentifier claim can be used to uniquely identify the user across the web
-        ViewBag.Subject = claimsPrincipalCurrent.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        ViewBag.Subject = userClaims?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
         // TenantId is the unique Tenant Id - which represents an organization in Azure AD
-        ViewBag.TenantId = claimsPrincipalCurrent.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
+        ViewBag.TenantId = userClaims?.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
 
         return View();
     }
@@ -321,7 +319,7 @@ public class ClaimsController : Controller
 
 <!--start-collapse-->
 ### More Information
-> Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN will initiate an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the `ClaimsPrincipal.Current` instance for specific user attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
+> Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN will initiate an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
 <!--end-collapse-->
 
 ## Create a view to display the user's claims
@@ -350,7 +348,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
     <br />
     <h3>All Claims:</h3>
     <table class="table table-striped table-bordered table-hover table-condensed">
-    @foreach (var claim in System.Security.Claims.ClaimsPrincipal.Current.Claims)
+    @foreach (var claim in ((System.Security.Claims.ClaimsIdentity) User.Identity).Claims)
     {
         <tr><td>@claim.Type</td><td>@claim.Value</td></tr>
     }
@@ -402,7 +400,7 @@ In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> wit
 1. Go to the [Microsoft Azure Portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to register an application
 2. Select `New application registration`
 3. Enter a name for your application
-4. Paste the Visual Studio project's *SSL URL* in `Sing-on URL` (This URL is also added automatically to the list of Reply URLs for the application you are registering)
+4. Paste the Visual Studio project's *SSL URL* in `Sign-on URL` (This URL is also added automatically to the list of Reply URLs for the application you are registering)
 5. Click `Create` to register the application. This action takes you back to the list of applications
 6. Now, search and/or select the application you just created to open its properties
 7. Copy the guid under `Application ID` to the clipboard
