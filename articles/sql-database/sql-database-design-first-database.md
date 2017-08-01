@@ -327,6 +327,7 @@ In this tutorial, you learned basic database tasks such as create a database and
 > * Bulk load data
 > * Query that data
 > * Restore the database to a previous point in time using SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities
+
 Advance to the next tutorial to learn about designing a database using Visual Studio and C#.
 
 > [!div class="nextstepaction"]
