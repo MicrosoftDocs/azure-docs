@@ -21,10 +21,9 @@ ms.custom: Jenkins
 # Deploy to Azure App Service with Jenkins plugin 
 To deploy a Java web app to Azure, you can use Azure CLI in [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) or you can make use of the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). In this tutorial, you learn how to:
 
-[!div class="checklist"]
-
-* Configure Jenkins to deploy to Azure App Service through FTP 
-* Configure Jenkins to deploy to Azure App Service on Linux through Docker 
+> [!div class="checklist"]
+> * Configure Jenkins to deploy to Azure App Service through FTP 
+> * Configure Jenkins to deploy to Azure App Service on Linux through Docker 
 
 ## Create and Configure Jenkins instance
 If you do not already have a Jenkins master, start with the [Solution Template](install-jenkins-solution-template.md), which includes JDK8 and the following required plugins:
@@ -74,14 +73,12 @@ Before setting up the job in Jenkins, you need an Azure App Service plan and a W
 <li>Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.</li>  
 <li>Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:</li>
 
-
 ```azurecli-interactive
 az webapp create \
     --name <myAppName> \ 
     --resource-group <myResourceGroup> \
     --plan <myAppServicePlan>
 ```
-
 <li>Make sure you set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.</li>
 </ol>
 
@@ -93,7 +90,6 @@ az webapp config set \
     --java-container Tomcat \
     --java-container-version 8.0
 ```
-
 
 ### Set up the Jenkins job
 
@@ -221,7 +217,7 @@ azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resource
 <li>Click **Save** and run the job</li>
 </ol>
 
-## Verify your web app
+### Verify your web app
 <ol>
 <li>To verify the WAR file is deployed successfully to your web app. Open a web browser.</li>
 <li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
@@ -262,7 +258,6 @@ In this tutorial, you use the Azure App Service plugin to deploy to Azure.
 
 You learned how to:
 
-[!div class="checklist"]
-
-* Configure Jenkins to deploy Azure App Service through FTP 
-* Configure Jenkins to deploy to Azure App Service on Linux through Docker 
+> [!div class="checklist"]
+> * Configure Jenkins to deploy Azure App Service through FTP 
+> * Configure Jenkins to deploy to Azure App Service on Linux through Docker 
