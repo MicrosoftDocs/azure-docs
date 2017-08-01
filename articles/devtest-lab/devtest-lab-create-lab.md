@@ -59,5 +59,5 @@ Once you've created your lab, here are some next steps to consider:
 * [Set lab policies](devtest-lab-set-lab-policy.md).
 * [Create a lab template](devtest-lab-create-template.md).
 * [Create custom artifacts for your VMs](devtest-lab-artifact-author.md).
-* [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md).
+* [Add a VM with artifacts to a lab](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
 

@@ -53,10 +53,11 @@
 ## [Analysis Services code samples on GitHub](https://github.com/Microsoft/Analysis-Services)
 ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure status](https://azure.microsoft.com/status/)
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Pricing](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

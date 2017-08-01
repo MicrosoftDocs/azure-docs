@@ -61,7 +61,7 @@ var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSett
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
--AccountName msak01 -Name blobsas1 -Protocol HttpsOrHttp -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+-AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
 //Get SAS token from Key Vault
 

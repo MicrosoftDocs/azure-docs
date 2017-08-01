@@ -37,7 +37,7 @@ Custom policies are configuration files that define the behavior of your Azure A
 | Attribute customization | Standard and custom attributes | Same |
 |Token and session management | Custom token and multiple session options | Same |
 |Identity Providers| **Today**: predefined local, social provider<br><br>**Future**: Standards-based OIDC, SAML, OAuth | **Today**: Standards-based OIDC, OAUTH, SAML<br><br>**Future**: WsFed |
-|Identity Tasks (examples) | Signup or SignIn with local and many social accounts<br><br>Password Reset<br><br>Profile Edit<br><br>Multi-Factor Auth scenarios<br><br>Customize Tokens and sessions<br><br>Access Token flows | Complete the same tasks as built-in policies using custom identity providers or use custom scopes<br><br>Provision user in another system at the time of registration<br><br>Send a welcome email using your own email service provider<br><br>Use a user store outside B2C<br><br>Validate user provided information with a trusted system via API |
+|Identity Tasks (examples) | Signup or SignIn with local and many social accounts<br><br>Self-Service Password Reset<br><br>Profile Edit<br><br>Multi-Factor Auth scenarios<br><br>Customize Tokens and sessions<br><br>Access Token flows | Complete the same tasks as built-in policies using custom identity providers or use custom scopes<br><br>Provision user in another system at the time of registration<br><br>Send a welcome email using your own email service provider<br><br>Use a user store outside B2C<br><br>Validate user provided information with a trusted system via API |
 
 ## Policy files
 
@@ -93,7 +93,7 @@ A custom policy is represented as one or several XML-formatted files which refer
 |---------------------|--------------------|-----------------|---------------|
 | BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Includes the core claims schema, claims transformations, claims providers, and user journeys configured by Microsoft<br><br>Make minimal changes to this file | None |
 | Extension (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Consolidate your changes to the BASE file here<br><br>Modified claims providers<br><br>Modified user journeys<br><br>Your own custom schema definitions | BASE file |
-| Relying Party (RP) | | | Extensions file |
+| Relying Party (RP) | B2C_1A_sign_up_sign_in.xml| Change token shape and session settings here| Extensions(EXT) file |
 
 ### Inheritance model
 

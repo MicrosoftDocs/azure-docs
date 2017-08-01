@@ -409,6 +409,24 @@ $jobs = Get-AdlJob -Account $adla -Top 10
 $jobs = $jobs | %{ annotate_job( $_ ) }
 ```
 
+## Get information about pipelines and recurrences
+
+Use the `Get-AdlJobPipeline` cmdlet to see the pipeline information previously submitted jobs.
+
+```powershell
+$pipelines = Get-AdlJobPipeline -Account $adla
+
+$pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
+```
+
+Use the `Get-AdlJobRecurrence` cmdlet to see the recurrence information for previously submitted jobs.
+
+```powershell
+$recurrences = Get-AdlJobRecurrence -Account $adla
+
+$recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>"
+```
+
 ## Get information about a job
 
 ### Get job status
@@ -419,7 +437,6 @@ Get the status of a specific job.
 Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
-
 ### Examine the job outputs
 
 After the job has ended, check if the output file exists by listing the files in a folder.
@@ -428,7 +445,7 @@ After the job has ended, check if the output file exists by listing the files in
 Get-AdlStoreChildItem -Account $adls -Path "/"
 ```
 
-## Managing running jobs
+## Manage running jobs
 
 ### Cancel a job
 
@@ -436,7 +453,7 @@ Get-AdlStoreChildItem -Account $adls -Path "/"
 Stop-AdlJob -Account $adls -JobID $jobID
 ```
 
-### Waiting for a job to finish
+### Wait for a job to finish
 
 Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the `Wait-AdlJob` cmdlet to wait for the job to end.
 
@@ -444,6 +461,25 @@ Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
+## Manage compute policies
+
+### List existing compute policies
+
+The `Get-AdlAnalyticsComputePolicy` cmdlet retrieves info about compute policies for a Data Lake Analytics account.
+
+```powershell
+$policies = Get-AdlAnalyticsComputePolicy -Account $adla
+```
+
+### Create a compute policy
+
+The `New-AdlAnalyticsComputePolicy` cmdlet creates a new compute policy for a Data Lake Analytics account. This example sets  the maximum AUs available to the specified user to 50, and the minimum job priority to 250.
+
+```powershell
+$userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
+
+New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
+```
 
 ## Check for the existence of a file.
 
@@ -564,6 +600,7 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+
 ## Working with Azure
 
 ### Get details of AzureRm errors
