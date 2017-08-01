@@ -22,8 +22,8 @@ ms.author: jdial
 
 Learn how to add, change, or delete a virtual network subnet. 
 
-If you're not familiar with virtual networks, before you add, change, or delete a subnet, we recommend that you read [Azure Virtual Network overview](virtual-networks-overview.md) and [Create, change, or delete a virtual network](virtual-network-manage-network.md). All Azure resources that can connect to a virtual network are connected to a subnet in a virtual network. Usually, multiple subnets are created within a virtual network to:
-- **Filter traffic between subnets**. You can apply network security groups to subnets to filter inbound and outbound network traffic for all resources (like virtual machines) that are connected to the virtual network. To learn more about how to create a network security group, see [Create network security groups](virtual-networks-create-nsg-arm-pportal.md).
+If you're not familiar with virtual networks, before you add, change, or delete a subnet, we recommend that you read [Azure Virtual Network overview](virtual-networks-overview.md) and [Create, change, or delete a virtual network](virtual-network-manage-network.md). All Azure resources deployed into a virtual network are deployed into a subnet within a virtual network. Usually, multiple subnets are created within a virtual network to:
+- **Filter traffic between subnets**. You can apply network security groups to subnets to filter inbound and outbound network traffic for all resources (like virtual machines) that are in the virtual network. To learn more about how to create a network security group, see [Create network security groups](virtual-networks-create-nsg-arm-pportal.md).
 - **Control routing between subnets**. Azure creates default routes so that traffic is automatically routed between subnets. You can override Azure default routes by creating user-defined routes. To learn more about user-defined routes, see [Create user-defined routes](virtual-network-create-udr-arm-ps.md). 
 
 This article explains how to add, change, and delete a subnet for virtual networks that were created by using the Azure Resource Manager deployment model.
@@ -67,7 +67,7 @@ To add a subnet:
 
 ## <a name="change-subnet"></a>Change subnet settings
 
-You can change network security groups, route tables, and user access to a subnet by managing resources that are connected to a subnet. To learn about these settings, in [Add a subnet](#create-subnet), see step 6. If you want to change the address space of a subnet, you must first delete any resources that are connected to the subnet. The steps you take to delete a resource vary depending on the resource. To learn how to delete resources that are connected to subnets, read the documentation for each resource type that you want to delete. To change the address range for a subnet:
+You can change network security groups, route tables, and user access to a subnet by managing resources that are in a subnet. To learn about these settings, in [Add a subnet](#create-subnet), see step 6. If you want to change the address space of a subnet, you must first delete any resources that are in the subnet. The steps you take to delete a resource vary depending on the resource. To learn how to delete resources that are in subnets, read the documentation for each resource type that you want to delete. To change the address range for a subnet:
 
 1. Sign in to the [portal](https://portal.azure.com) with an account that is assigned permissions for the Network Contributor role (at a minimum) for your subscription. To learn more about assigning roles and permissions to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. In the portal search box, enter **virtual networks**. In the search results, click **Virtual networks**.
@@ -86,7 +86,7 @@ You can change network security groups, route tables, and user access to a subne
 
 ## <a name="delete-subnet"></a>Delete a subnet
 
-You can delete a subnet only if there are no resources connected to it. If there are resources connected to the subnet, you must delete the resources that are connected to the subnet before you can delete the subnet. The steps you take to delete a resource vary depending on the resource. To learn how to delete resources that are connected to subnets, read the documentation for each resource type that you want to delete. To delete a subnet:
+You can delete a subnet only if there are no resources in the subnet. If there are resources in the subnet, you must delete the resources that are in the subnet before you can delete the subnet. The steps you take to delete a resource vary depending on the resource. To learn how to delete resources that are in subnets, read the documentation for each resource type that you want to delete. To delete a subnet:
 
 1. Sign in to the [portal](https://portal.azure.com) with an account that is assigned permissions for the Network Contributor role (at a minimum) for your subscription. To learn more about assigning roles and permissions to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. In the portal search box, enter **virtual networks**. In the search results, click **Virtual networks**.
@@ -103,4 +103,4 @@ You can delete a subnet only if there are no resources connected to it. If there
 
 ## <a name="next-steps"></a>Next steps
 
-To create a VM and then connect it to a subnet, see [Create a virtual network and connect VMs](virtual-network-get-started-vnet-subnet.md#create-vms).
+To create a virtual machine in a subnet, see [Create a virtual network and deploy VMs in the subnet](virtual-network-get-started-vnet-subnet.md#create-vms).
