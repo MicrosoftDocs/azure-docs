@@ -144,7 +144,7 @@ Exclude disk | Not supported|	Temporary disk is excluded by default.
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
-ZRS | Supported |  
+ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 
 >[!IMPORTANT]

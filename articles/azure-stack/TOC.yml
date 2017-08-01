@@ -177,6 +177,8 @@
         href: azure-stack-storage-connect-se.md
     - name: Network
       items:
+      - name: Networking considerations
+        href: azure-stack-network-differences.md
       - name: iDNS for Azure Stack
         href: azure-stack-understanding-dns.md
       - name: DNS in Azure Stack
