@@ -25,7 +25,7 @@ Post any comments at the bottom of this article, or in the [Azure Recovery Servi
 
 
 
-### Architectural components
+## Architectural components
 
 Here's what you need for replicating Hyper-V VMs to a secondary VMM site.
 
@@ -36,7 +36,7 @@ Here's what you need for replicating Hyper-V VMs to a secondary VMM site.
 **Hyper-V server** |  One or more Hyper-V host servers in the primary and secondary VMM clouds. | Data is replicated between the primary and secondary Hyper-V host servers over the LAN or VPN, using Kerberos or certificate authentication.  
 **Hyper-V VMs** | On Hyper-V host server. | The source host server should have at least one VM that you want to replicate.
 
-### Replication process
+## Replication process
 
 1. You set up the Azure account, create a Recovery Services vault, and specify what you want to replicate.
 2. You configure the source and target replication settings, which includes installing the Azure Site Recovery Provider aon VMM servers, and the Microsoft Azure Recovery Services agent on each Hyper-V host.
@@ -47,7 +47,7 @@ Here's what you need for replicating Hyper-V VMs to a secondary VMM site.
 
 ![On-premises to on-premises](./media/vmm-to-vmm-walkthrough-architecture/arch-onprem-onprem.png)
 
-### Failover and failback process
+## Failover and failback process
 
 1. You can run a planned or unplanned [failover](site-recovery-failover.md) between on-premises sites. If you run a planned failover, then source VMs are shut down to ensure no data loss.
 2. You can fail over a single machine, or create [recovery plans](site-recovery-create-recovery-plans.md) to orchestrate failover of multiple machines.
