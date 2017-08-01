@@ -49,8 +49,6 @@ This scenario will:
 * Create a virtual network named ContosoVNET with a reserved CIDR block of 10.0.0.0/16.
 * Create a subnet called subnet01 that uses 10.0.0.0/28 as its CIDR block.
 
-![Scenario example][scenario]
-
 > [!NOTE]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
 
