@@ -116,11 +116,11 @@ This code sample reads the HTTP Request query strings and assigns them to fields
     + `task`
     + `duedate`
 
-2. Click **Run** and verify that 200 status is returned.
+2. Click **Run** and verify that a 200 status is returned.
 
     ![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-1. On the left side of the Azure portal, expand the icon bar, type **cosmos** in the search field, and select **Azure Cosmos DB**.
+1. On the left side of the Azure portal, expand the icon bar, type `cosmos` in the search field, and select **Azure Cosmos DB**.
 
     ![Search for the Cosmos DB service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
