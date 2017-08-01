@@ -59,17 +59,21 @@ The following list outlines the common workflow for cloud connectivity:
 ## Design
 ### <a name="topologies"></a>Connection topologies
 
-Start by looking at the diagrams in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article. The article contains basic diagrams, the deployment models for each topology (Resource Manager or classic), and which deployment tools you can use to deploy your configuration.   
+Start by looking at the diagrams in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article. The article contains basic diagrams, the deployment models for each topology, and the available deployment tools you can use to deploy your configuration.
 
 ### <a name="designbasics"></a>Design basics
 
-The following sections discuss the VPN gateway basics. Also, consider [networking services limitations](../azure-subscription-service-limits.md#networking-limits).
+The following sections discuss the VPN gateway basics. 
+
+#### Networking services limits
+
+Scroll through the tables to view [networking services limits](../azure-subscription-service-limits.md#networking-limits). The limits listed may impact your design.
 
 #### <a name="subnets"></a>About subnets
 
 When you are creating connections, you must consider your subnet ranges. You cannot have overlapping subnet address ranges. An overlapping subnet is when one virtual network or on-premises location contains the same address space that the other location contains. This means that you need your network engineers for your local on-premises networks to carve out a range for you to use for your Azure IP addressing space/subnets. You need address space that is not being used on the local on-premises network.
 
-Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. If your subnets overlap and an IP address exists in both the sending and destination VNets, VNet-to-VNet connections fail. Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
+Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. If your subnets overlap and an IP address exists in both the sending and destination VNets, VNet-to-VNet connections fail. Azure can't route the data to the other VNet because the destination address is part of the sending VNet.
 
 VPN Gateways require a specific subnet called a gateway subnet. All gateway subnets must be named GatewaySubnet to work properly. Be sure not to name your gateway subnet a different name, and don't deploy VMs or anything else to the gateway subnet. See [Gateway Subnets](vpn-gateway-about-vpn-gateway-settings.md#gwsub).
 
