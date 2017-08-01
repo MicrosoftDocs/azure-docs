@@ -10,11 +10,11 @@
 # SAP HANA on Azure Virtual Machines
 ## [Single instance SAP HANA](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)
-## [High Availability in VMs](sap-hana-high-availability.md)
-## [Backup overview](sap-hana-backup-guide.md)
-## [File level backup](sap-hana-backup-file-level.md)
-## [Storage snapshot backups](sap-hana-backup-storage-snapshots.md)
-# SAP Netweaver on Azure Virtual Machines
+## [SAP HANA High Availability in Azure VMs](sap-hana-high-availability.md)
+## [SAP HANA backup overview](sap-hana-backup-guide.md)
+## [SAP HANA file level backup](sap-hana-backup-file-level.md)
+## [SAP HANA storage snapshot backups](sap-hana-backup-storage-snapshots.md)
+# SAP NetWeaver on Azure Virtual Machines
 ## [SAP IDES on Windows/SQL Server SAP CAL deployment guide](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver on Azure Linux VMs](suse-quickstart.md)
 ## [Plan and implement SAP NetWeaver on Azure](planning-guide.md)
@@ -26,8 +26,8 @@
 # AAD SAP Identity Integration and Single-Sign-On
 ## [Integration with SAP Cloud](../../../active-directory/active-directory-saas-sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD Integration with SAP Cloud Platform Identity Authentication](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [Setup Single-Signon with SAP Cloud Platform](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD Integration with SAP Netweaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [Set up Single-Sign-On with SAP Cloud Platform](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD Integration with SAP NetWeaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD Integration with SAP Business ByDesign](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD Integration with SAP HANA DBMS](../../../active-directory/active-directory-saas-saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ##[SAP Fiori Launchpad SAML Single Sign-On with Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
