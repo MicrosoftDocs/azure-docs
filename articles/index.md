@@ -101,43 +101,40 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
-                                                <div class="ico48Link">
-                                                    <a href="/dotnet/azure/?view=azure-dotnet">
-                                                        <img src="media/index/logo_NET.svg" alt="">
-                                                        <span>.NET</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">
-                                                        <img src="media/index/logo_nodejs.svg" alt="">
-                                                        <span>Node.js</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-php">
-                                                        <img src="media/index/logo_PHP.svg" alt="">
-                                                        <span>PHP</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/java/azure/">
-                                                        <img src="media/index/logo_java.svg" alt="">
-                                                        <span>Java</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/python/azure/">
-                                                        <img src="media/index/logo_python.svg" alt="">
-                                                        <span>Python</span>
-                                                    </a>
-                                                </div>
+												<div class="cols cols2">
+													<div>
+														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
+															<img src="media/index/logo_NET.svg" alt="">
+															ASP.NET</a>
+													</div>
+													<div>
+														<a class="barLink" href="/python/azure/">
+															<img src="media/index/logo_python.svg" alt="">
+															Python</a>
+													</div>
+													<div>
+														<a class="barLink" href="/java/azure/">
+															<img src="media/index/logo_java.svg" alt="">
+															Java</a>
+													</div>
+													<div>
+														<a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
+															<img src="media/index/logo_PHP.svg" alt="">
+															PHP</a>
+													</div>
+													<div>
+														<a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+															<img src="media/index/logo_nodejs.svg" alt="">
+															Node.js</a>
+													</div>
+												</div>
                                                 <div>
                                                     <h4>App Models</h4>
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
                                                         <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Container orchestration with Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
                                                         <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
                                                     </ul>
                                                 </div>
@@ -178,18 +175,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
-                                                <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
-                                                        <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>Azure<br />CLI</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/powershell/azure/overview">
-                                                        <img src="media/index/azure_dev-8.svg" alt="">
-                                                        <span>Azure<br />PowerShell</span>
-                                                    </a>
-                                                </div>
+												<div class="cols">
+													<div>
+														<a class="barLink" href="/cli/azure/overview">
+															<img src="media/index/azure_dev-7.svg" alt="">
+															Azure CLI</a>
+													</div>
+													<div>
+														<a class="barLink" href="/powershell/azure/overview">
+															<img src="media/index/azure_dev-8.svg" alt="">
+															Azure PowerShell</a>
+													</div>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -201,18 +198,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
-                                                <div class="ico48Link">
-                                                    <a href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
-                                                        <img src="/media/logos/logo_visual-studio.svg" alt="">
-                                                        <span>Visual Studio<br />Team Services</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
-                                                        <img src="/media/logos/logo_jenkins.svg" alt="">
-                                                        <span>Jenkins on<br />Azure VMs</span>
-                                                    </a>
-                                                </div>
+												<div class="cols">
+													<div>
+														<a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
+															<img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt="">
+															Visual Studio Team Services</a>
+													</div>
+													<div>
+														<a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
+															<img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">
+															Jenkins on Azure VMs</a>
+													</div>
+												</div>
                                             </div>
                                         </div>
                                     </div>
