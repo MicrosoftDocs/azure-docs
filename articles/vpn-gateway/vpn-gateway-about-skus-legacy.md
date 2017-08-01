@@ -39,7 +39,7 @@ This article contains information about the legacy virtual network gateway SKUs.
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## Migrating to the new gateway SKUs
+## Migrate to the new gateway SKUs
 
 If you are working with the Resource Manager deployment model, you can migrate to the new gateway SKUS. If you are working with the classic deployment model, you can't migrate to the new SKUs and must instead continue to use the legacy SKUs.
 
