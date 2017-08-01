@@ -53,6 +53,6 @@ If you are working with the Resource Manager deployment model, you can migrate t
 
 [!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
 
-Next steps
+## Next steps
 
 For more information about the new Gateway SKUs, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku).
