@@ -612,7 +612,7 @@ In April 2015, Microsoft introduced Azure Premium Storage. Premium Storage got i
 * Better throughput.
 * Less variability in I/O latency.
 
-For that purpose, a lot of changes were introduced of which the two most significant are:
+For that purpose, many changes were introduced of which the two most significant are:
 
 * Usage of SSD disks in the Azure Storage nodes
 * A new read cache that is backed by the local SSD of an Azure compute node
@@ -683,7 +683,7 @@ More details can be found in [this article][resource-groups-networking] and on [
 >
 >
 
-The MAC address of the virtual network card may change, for example after re-size and the Windows or Linux guest OS picks up the new network card and automatically uses DHCP to assign the IP and DNS addresses in this case.
+The MAC address of the virtual network card may change, for example after resize and the Windows or Linux guest OS picks up the new network card and automatically uses DHCP to assign the IP and DNS addresses in this case.
 
 ##### Static IP Assignment
 It is possible to assign fixed or reserved IP addresses to VMs within an Azure Virtual Network. Running the VMs in an Azure Virtual Network opens a great possibility to leverage this functionality if needed or required for some scenarios. The IP assignment remains valid throughout the existence of the VM, independent of whether the VM is running or shutdown. As a result, you need to take the overall number of VMs (running and stopped VMS) into account when defining the range of IP addresses for the Virtual Network. The IP address remains assigned either until the VM and its Network Interface is deleted or until the IP address gets de-assigned again. For more information, read [this article][virtual-networks-static-private-ip-arm-pportal].
@@ -760,7 +760,7 @@ This chapter contained many important points about Azure Networking. Here is a s
 * Once a virtual machine has been deployed, it is no longer possible to change the Virtual Network assigned to the VM
 
 ### Quotas in Azure Virtual Machine Services
-We need to be clear about the fact that the storage and network infrastructure is shared between VMs running a variety of services in the Azure infrastructure. And just as in the customer’s own data centers, over-provisioning of some of the infrastructure resources does take place to a degree. The Microsoft Azure Platform uses disk, CPU, network, and other quotas to limit the resource consumption and to preserve consistent and deterministic performance.  The different VM types (A5, A6, etc.) have different quotas for the number of disks, CPU, RAM and Network.
+We need to be clear about the fact that the storage and network infrastructure is shared between VMs running a variety of services in the Azure infrastructure. And just as in the customer’s own data centers, over-provisioning of some of the infrastructure resources does take place to a degree. The Microsoft Azure Platform uses disk, CPU, network, and other quotas to limit the resource consumption and to preserve consistent and deterministic performance.  The different VM types (A5, A6, etc.) have different quotas for the number of disks, CPU, RAM, and Network.
 
 > [!NOTE]
 > CPU and memory resources of the VM types supported by SAP are pre-allocated on the host nodes. This means that once the VM is deployed, the resources on the host are available as defined by the VM type.
