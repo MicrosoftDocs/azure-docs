@@ -136,7 +136,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Container orchestration with Kubernetes</a></li>
                                                         <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
                                                     </ul>
                                                 </div>
@@ -348,6 +349,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </ul>
                                     <h3>Containers</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
@@ -1739,18 +1746,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/">
+                                <a href="/azure/container-instances/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>Easily run containers with a single command</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1789,6 +1796,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
                                                     <p>Run compute jobs using containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1864,7 +1890,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/cosmosdb.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

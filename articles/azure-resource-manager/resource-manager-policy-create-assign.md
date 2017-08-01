@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 07/26/2017
 ms.author: tomfitz
 
 ---
@@ -165,7 +165,7 @@ Before proceeding to create a policy definition, look at the built-in policies. 
 You can create a policy definition using the `New-AzureRmPolicyDefinition` cmdlet.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
   "if": {
     "allOf": [
       {
@@ -190,12 +190,49 @@ $policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy 
 }'
 ```            
 
-The output is stored in a `$policy` object, which is used during policy assignment. 
+The output is stored in a `$definition` object, which is used during policy assignment. 
 
 Rather than specifying the JSON as a parameter, you can provide the path to a .json file containing the policy rule.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+```
+
+The following example creates a policy definition that includes parameters:
+
+```powershell
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}' 
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters 
 ```
 
 ### Assign policy
@@ -204,17 +241,17 @@ You apply the policy at the desired scope by using the `New-AzureRmPolicyAssignm
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $policy
+New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 To assign a policy that requires parameters, create and object with those values. The following example retrieves a built-in policy and passes in parameters values:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-$policy = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
+$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
 $array = @("West US", "West US 2")
 $param = @{"listOfAllowedLocations"=$array}
-New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
+New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $definition -PolicyParameterObject $param
 ```
 
 ### View policy assignment
@@ -254,7 +291,21 @@ It returns all available policy definitions, including built-in policies. Each p
 ```azurecli
 {                                                            
   "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
-  "displayName": "Allowed locations",                                                                                                                "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                 "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                                                                    "policyRule": {                                                                                                                                      "if": {                                                                                                                                              "not": {                                                                                                                                             "field": "location",                                                                                                                               "in": "[parameters('listOfAllowedLocations')]"                                                                                                   }                                                                                                                                                },                                                                                                                                                 "then": {                                                                                                                                            "effect": "Deny"                                                                                                                                 }                                                                                                                                                },                                                                                                                                                 "policyType": "BuiltIn"
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
 }
 ```
 
