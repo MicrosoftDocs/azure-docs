@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell: Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
+title: Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
 description: Learn how to create an Azure Analysis Services server by using PowerShell
 services: analysis-services
 documentationcenter: ''
@@ -9,17 +9,19 @@ editor: ''
 
 ms.assetid: 
 ms.service: analysis-services
-ms.custom: mvc, intelligence & analytics
+ms.workload: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/01/2017
 ms.author: owend
+ms.custom: mvc
 
 ---
 
-# Create an Analysis Services server by using PowerShell
+# Create an Azure Analysis Services server by using PowerShell
 
-This article describes using PowerShell from the command line to create an Azure Analysis Services server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+This quickstart describes using PowerShell from the command line to create an Azure Analysis Services server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in your Azure subscription.
 
 This task requires Azure PowerShell module version 4.0 or later. To find the version, run ` Get-Module -ListAvailable AzureRM`. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
