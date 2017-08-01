@@ -182,7 +182,6 @@ mvn clean package
 </ol>
 
 ### Deploy to Web App on Linux through Docker using Jenkins pipeline
- 
 <ol>
 <li>In GitHub web UI, open **Jenkinsfile_container_plugin** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 11 and 12 respectively.</li>
 
@@ -199,11 +198,12 @@ def registryServer = '<registryURL>'
 ```
 
 <li>Change line 16 to update credential ID in your Jenkins instance</li>
+</ol>
 
 ```java
 azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
 ```
-</ol>
+
 
 ### Create Jenkins pipeline
 <ol>
@@ -217,7 +217,7 @@ azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resource
 <li>Click **Save** and run the job</li>
 </ol>
 
-### Verify your web app
+## Verify your web app
 <ol>
 <li>To verify the WAR file is deployed successfully to your web app. Open a web browser.</li>
 <li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
