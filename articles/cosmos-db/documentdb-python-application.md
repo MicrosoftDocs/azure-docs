@@ -4,7 +4,7 @@ description: Review a database tutorial on using Azure Cosmos DB to store and ac
 keywords: Application development, python flask, python web application, python web development
 services: cosmos-db
 documentationcenter: python
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: syamk
+ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
 ---
