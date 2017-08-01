@@ -8348,6 +8348,11 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vs-azure-tools-storage-explorer-relnotes-0-8-7.md",
+            "redirect_url": "/azure/vs-azure-tools-storage-explorer-relnotes",
+            "redirect_document_id": false
         }
 
     ]
