@@ -52,7 +52,7 @@ A: Media Services uses the value of the IAssetFile.Name property when building U
 
 Q: How to connect using REST?
 
-A: After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. For more information, see [Connecting to Media Services using REST API](media-services-rest-connect-with-aad.md).
+A: For information on how to connect to AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. 
 
 Q: How can I rotate a video during the encoding process.
 
