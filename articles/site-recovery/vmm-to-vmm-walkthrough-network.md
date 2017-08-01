@@ -193,7 +193,7 @@ In this scenario, the IP addresses of VMs that fail over are changed. The drawba
     
 ### Example 
 
-Let us look at the scenario where you are planning to use different IPs across the primary and the recovery sites.In this example we have different IP addresses across primary and secondary sites, and there;s a third site from which applications hosted on the primary or recovery site can be accessed.
+Let's look at a scenario in which you're planning to use different IP addresses across the primary and the recovery sites.In this example we have different IP addresses across primary and secondary sites, and there;s a third site from which applications hosted on the primary or recovery site can be accessed.
 
 - Before failover, apps are hosted subnet 192.168.1.0/24 on the primary site, and are configured to be in subnet 172.16.1.0/24 on the secondary site after a failover.
 - VPN connections/network routes have been configured appropriately so that all three sites can access each other.
