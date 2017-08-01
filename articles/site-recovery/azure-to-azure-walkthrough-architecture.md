@@ -3,7 +3,7 @@ title: Review the architecture for replication of Azure VMs between Azure region
 description: This article provides an overview of components and architecture used when replicating Azure VMs between Azure regions using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
-author: raynew
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 
