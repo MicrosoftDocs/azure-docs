@@ -1,5 +1,5 @@
 ---
-title: Planned maintenance for Liunx VMs in Azure | Microsoft Docs
+title: Planned maintenance for Linux VMs in Azure | Microsoft Docs
 description: Understand what Azure planned maintenance is and how it affects your Windows virtual machines running in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
