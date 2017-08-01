@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2017
+ms.date: 08/01/2017
 ms.author: cherylmc
 
 ---
-# Working with virtual network gateway SKUs (old SKUs)
+# Working with virtual network gateway SKUs (legacy SKUs)
 
-This article contains information about the old virtual network gateway SKUs. For information on the current SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+This article contains information about the legacy virtual network gateway SKUs. For information on the current SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+
+> [!NOTE]
+> You can't create, upgrade, or migrate a classic virtual network gateway to the new gateway SKUs.
+>
+>
 
 ## Gateway SKUs
 
@@ -36,7 +41,8 @@ This article contains information about the old virtual network gateway SKUs. Fo
 
 ## Migrating to the new gateway SKUs
 
+If you are working with the Resource Manager deployment model, you can migrate to the new gateway SKUS. If you are working with the classic deployment model, you can't migrate to the new SKUs and must instead continue to use the legacy SKUs.
+
 [!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
 
 For more information about the new Gateway SKUs, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku).
-
