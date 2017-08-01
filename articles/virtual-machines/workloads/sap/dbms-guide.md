@@ -877,27 +877,27 @@ General information on running SAP Business Suite on SAP ASE can be found in the
 #### Structure of the SAP ASE Deployment
 In accordance with the general description, SAP ASE executables should be located or installed into the system drive of the VM’s OS disk (drive c:\). Typically, most of the SAP ASE system and tools databases are not really leveraged hard by SAP NetWeaver workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the C:\ drive as well. 
 
-An exception could be the temporary database containing all work tables and temporary tables created by SAP ASE, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume which can’t fit into the original VM’s OS disk (drive c:\).
+An exception could be the temporary database containing all work tables and temporary tables created by SAP ASE, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume, which can’t fit into the original VM’s OS disk (drive c:\).
 
 Depending on the version of SAPInst/SWPM used to install the system, the database might contain:
 
-* A single SAP ASE tempdb which is created when installing SAP ASE
+* A single SAP ASE tempdb, which is created when installing SAP ASE
 * An SAP ASE tempdb created by installing SAP ASE and an additional saptempdb created by the SAP installation routine
 * An SAP ASE tempdb created by installing SAP ASE and an additional tempdb that has been created manually (for example following SAP Note [1752266]) to meet ERP/BW specific tempdb requirements
 
-In case of specific ERP or all BW workloads it makes sense, in regard to performance, to keep the tempdb devices of the additionally created tempdb (by SWPM or manually) on a drive other than C:\. If no additional tempdb exists it is recommended to create one (SAP Note [1752266]).
+In case of specific ERP or all BW workloads, it makes sense, in regard to performance, to keep the tempdb devices of the additionally created tempdb (by SWPM or manually) on a drive other than C:\. If no additional tempdb exists, it is recommended to create one (SAP Note [1752266]).
 
 For such systems the following steps should be performed for the additionally created tempdb:
 
 * Move the first tempdb device to the first device of the SAP database
 * Add tempdb devices to each of the VHDs containing a device of the SAP database
 
-This configuration enables tempdb to either consume more space than the system drive is able to provide. As a reference one can check the tempdb device sizes on existing systems which run on-premises. Or such a configuration would enable IOPS numbers against tempdb which cannot be provided with the system drive. Again systems that are running on-premises can be used to monitor I/O workload against tempdb.
+This configuration enables tempdb to either consume more space than the system drive is able to provide. As a reference one can check the tempdb device sizes on existing systems, which run on-premises. Or such a configuration would enable IOPS numbers against tempdb, which cannot be provided with the system drive. Again systems that are running on-premises can be used to monitor I/O workload against tempdb.
 
 Never put any SAP ASE devices onto the D:\ drive of the VM. This also applies to the tempdb, even if the objects kept in the tempdb are only temporary.
 
 #### Impact of Database Compression
-In configurations where I/O bandwidth can become a limiting factor, every measure which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is strongly recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
+In configurations where I/O bandwidth can become a limiting factor, every measure, which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is strongly recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
 
 The recommendation to perform compression before uploading to Azure if it is not already implemented is given out of several reasons:
 
@@ -905,12 +905,12 @@ The recommendation to perform compression before uploading to Azure if it is not
 * The duration of the compression execution is shorter assuming that one can use stronger hardware with more CPUs or higher I/O bandwidth or less I/O latency on-premises
 * Smaller database sizes might lead to less costs for disk allocation
 
-Data- and LOB-Compression work in a VM hosted in Azure Virtual Machines as it does on-premises. For more details on how to check if compression is already in use in an existing SAP ASE database please check SAP Note [1750510].
+Data- and LOB-Compression work in a VM hosted in Azure Virtual Machines as it does on-premises. For more details on how to check if compression is already in use in an existing SAP ASE database, check SAP Note [1750510].
 
 #### Using DBACockpit to monitor Database Instances
-For SAP systems which are using SAP ASE as database platform, the DBACockpit is accessible as embedded browser windows in transaction DBACockpit or as Webdynpro. However the full functionality for monitoring and administering the database is available in the Webdynpro implementation of the DBACockpit only.
+For SAP systems, which are using SAP ASE as database platform, the DBACockpit is accessible as embedded browser windows in transaction DBACockpit or as Webdynpro. However the full functionality for monitoring and administering the database is available in the Webdynpro implementation of the DBACockpit only.
 
-As with on-premises systems several steps are required to enable all SAP NetWeaver functionality used by the Webdynpro implementation of the DBACockpit. Please follow SAP Note [1245200] to enable the usage of webdynpros and generate the required ones. When following the instructions in the above notes you will also configure the Internet Communication Manager (icm) along with the ports to be used for http and https connections. The default setting for http looks like this:
+As with on-premises systems several steps are required to enable all SAP NetWeaver functionality used by the Webdynpro implementation of the DBACockpit. Follow SAP Note [1245200] to enable the usage of webdynpros and generate the required ones. When following the instructions in the above notes, you also configure the Internet Communication Manager (icm) along with the ports to be used for http and https connections. The default setting for http looks like this:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
@@ -926,9 +926,9 @@ and the links generated in transaction DBACockpit will look similar to this:
 > 
 > 
 
-Depending on if and how the Azure Virtual Machine hosting the SAP system is connected via site-to-site, multi-site or ExpressRoute (Cross-Premises deployment) you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are trying to open the DBACockpit from. Please see SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if required.
+Depending on if and how the Azure Virtual Machine hosting the SAP system is connected via site-to-site, multi-site or ExpressRoute (Cross-Premises deployment) you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are trying to open the DBACockpit from. See SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if required.
 
-If you deployed the VM in a Cloud-Only scenario without cross-premises connectivity between on-premises and Azure, you need to define a public IP address and a domainlabel. The format of the public DNS name of the VM will then look like this:
+If you deployed the VM in a Cloud-Only scenario without cross-premises connectivity between on-premises and Azure, you need to define a public IP address and a domainlabel. The format of the public DNS name of the VM looks like this:
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
@@ -969,30 +969,30 @@ Further information about DBA Cockpit for SAP ASE can be found in the following 
 #### Backup/Recovery Considerations for SAP ASE
 When deploying SAP ASE into Azure your backup methodology must be reviewed. Even if the system is not a productive system, the SAP database hosted by SAP ASE must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The primary reason for maintaining a proper backup and restore plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. For example, you could transfer from a 2-Tier SAP configuration to a 3-Tier system setup of the same system by restoring a backup.
 
-Backing up and restoring a database in Azure works the same way as it does on-premises. Please see SAP Notes:
+Backing up and restoring a database in Azure works the same way as it does on-premises. See SAP Notes:
 
 * [1588316]
 * [1585981]
 
-for details on creating dump configurations and scheduling backups. Depending on your strategy and needs you can configure database and log dumps to disk onto one of the existing disks or add an additional disk for the backup. To reduce the danger of data loss in case of an error it is recommended to use a disk where no database device is located.
+for details on creating dump configurations and scheduling backups. Depending on your strategy and needs you can configure database and log dumps to disk onto one of the existing disks or add an additional disk for the backup. To reduce the danger of data loss in case of an error, it is recommended to use a disk where no database device is located.
 
-Besides data- and LOB compression SAP ASE also offers backup compression. To occupy less space with the database and log dumps it is recommended to use backup compression. Please see SAP Note [1588316] for more information. Compressing the backup is also crucial to reduce the amount of data to be transferred if you plan to download backups or VHDs containing backup dumps from the Azure Virtual Machine to on-premises.
+Besides data- and LOB compression SAP ASE also offers backup compression. To occupy less space with the database and log dumps it is recommended to use backup compression. For more information, see SAP Note [1588316]. Compressing the backup is also crucial to reduce the amount of data to be transferred if you plan to download backups or VHDs containing backup dumps from the Azure Virtual Machine to on-premises.
 
 Do not use drive D:\ as database or log dump destination.
 
 #### Performance Considerations for Backups/Restores
-As in bare-metal deployments, backup/restore performance is dependent on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with just up to 8 CPU threads. Therefore, one can assume:
+As in bare-metal deployments, backup/restore performance is dependent on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with just up to eight CPU threads. Therefore, one can assume:
 
 * The fewer the number of disks used to store the database devices, the smaller the overall throughput in reading
 * The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
 * The fewer targets (Stripe Directories, disks) to write the backup to, the lesser the throughput
 
-To increase the number of targets to write to there are two options which can be used/combined depending on your needs:
+To increase the number of targets to write to there are two options, which can be used/combined depending on your needs:
 
 * Striping the backup target volume over multiple mounted disks in order to improve the IOPS throughput on that striped volume
-* Creating a dump configuration on SAP ASE level which uses more than one target directory to write the dump to
+* Creating a dump configuration on SAP ASE level, which uses more than one target directory to write the dump to
 
-Striping a volume over multiple mounted disks has been discussed earlier in this guide. For more information on using multiple directories in the SAP ASE dump configuration please refer to the documentation on Stored Procedure sp_config_dump which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
+Striping a volume over multiple mounted disks has been discussed earlier in this guide. For more information on using multiple directories in the SAP ASE dump configuration, refer to the documentation on Stored Procedure sp_config_dump, which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
 
 ### Disaster Recovery with Azure VMs
 #### Data Replication with SAP Sybase Replication Server
@@ -1003,11 +1003,11 @@ The installation and operation of SRS works as well functionally in a VM hosted 
 ASE HADR via SAP Replication Server is planned with a future release. It will be tested with and released for Microsoft Azure platforms as soon as it is available.
 
 ## Specifics to SAP ASE on Linux
-Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
+Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management, and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
 
-For deploying Azure VMs it's important to know the official SLAs which can be found here: <https://azure.microsoft.com/support/legal/sla>
+For deploying Azure VMs it's important to know the official SLAs, which can be found here: <https://azure.microsoft.com/support/legal/sla>
 
-SAP sizing information and a list of SAP certified VM SKUs will be provided in SAP Note [1928533]. Additional SAP sizing
+SAP sizing information and a list of SAP certified VM SKUs is provided in SAP Note [1928533]. Additional SAP sizing
 documents for Azure Virtual machines can be found here <http://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> and here <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 Statements and recommendations in regard to the usage of Azure Storage, Deployment of SAP VMs or SAP Monitoring apply to deployments of SAP ASE in conjunction with SAP applications as stated throughout the first four chapters of this document.
@@ -1020,7 +1020,7 @@ The following two SAP Notes include general information about ASE on Linux and A
 ### SAP ASE Version Support
 SAP currently supports SAP ASE version 16.0 for use with SAP Business Suite products. All updates for SAP ASE server, or JDBC and ODBC drivers to be used with SAP Business Suite products are provided solely through the SAP Service Marketplace at: <https://support.sap.com/swdc>.
 
-As for installations on-premises, do not download updates for the SAP ASE server, or for the JDBC and ODBC drivers directly from Sybase websites. For detailed information on patches which are supported for use with SAP Business Suite products on-premises and in Azure Virtual Machines see the following SAP Notes:
+As for installations on-premises, do not download updates for the SAP ASE server, or for the JDBC and ODBC drivers directly from Sybase websites. For detailed information on patches, which are supported for use with SAP Business Suite products on-premises and in Azure Virtual Machines see the following SAP Notes:
 
 * [1590719]
 * [1973241]
@@ -1031,27 +1031,27 @@ General information on running SAP Business Suite on SAP ASE can be found in the
 #### Structure of the SAP ASE Deployment
 In accordance with the general description, SAP ASE executables should be located or installed into the root file system of the VM ( /sybase ). Typically, most of the SAP ASE system and tools databases are not really leveraged hard by SAP NetWeaver workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the root file system as well. 
 
-An exception could be the temporary database containing all work tables and temporary tables created by SAP ASE, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume which can’t fit into the original VM’s OS disk.
+An exception could be the temporary database containing all work tables and temporary tables created by SAP ASE, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations, volume which can’t fit into the original VM’s OS disk.
 
 Depending on the version of SAPInst/SWPM used to install the system, the database might contain:
 
-* A single SAP ASE tempdb which is created when installing SAP ASE
+* A single SAP ASE tempdb, which is created when installing SAP ASE
 * An SAP ASE tempdb created by installing SAP ASE and an additional saptempdb created by the SAP installation routine
 * An SAP ASE tempdb created by installing SAP ASE and an additional tempdb that has been created manually (for example following SAP Note [1752266]) to meet ERP/BW specific tempdb requirements
 
-In case of specific ERP or all BW workloads it makes sense, in regard to performance, to keep the tempdb devices of the additionally created tempdb (by SWPM or manually) on a separate file system which can be represented by a single Azure data disk or a Linux RAID spanning multiple Azure data disks. If no additional tempdb exists it is recommended to create one (SAP Note [1752266]).
+In case of specific ERP or all BW workloads, it makes sense, in regard to performance, to keep the tempdb devices of the additionally created tempdb (by SWPM or manually) on a separate file system, which can be represented by a single Azure data disk or a Linux RAID spanning multiple Azure data disks. If no additional tempdb exists, it is recommended to create one (SAP Note [1752266]).
 
 For such systems the following steps should be performed for the additionally created tempdb:
 
 * Move the first tempdb directory to the first file system of the SAP database
 * Add tempdb directories to each of the disks containing a filesystem of the SAP database
 
-This configuration enables tempdb to either consume more space than the system drive is able to provide. As a reference one can check the tempdb directory sizes on existing systems which run on-premises. Or such a configuration would enable IOPS numbers against tempdb which cannot be provided with the system drive. Again systems that are running on-premises can be used to monitor I/O workload against tempdb.
+This configuration enables tempdb to either consume more space than the system drive is able to provide. As a reference one can check the tempdb directory sizes on existing systems, which run on-premises. Or such a configuration would enable IOPS numbers against tempdb, which cannot be provided with the system drive. Again systems that are running on-premises can be used to monitor I/O workload against tempdb.
 
-Never put any SAP ASE directories onto /mnt or /mnt/resource of the VM. This also applies to the tempdb, even if the objects kept in the tempdb are only temporary because /mnt or /mnt/resource is a default Azure VM temp space which is not persistent. More details about the Azure VM temp space can be found in [this article][virtual-machines-linux-how-to-attach-disk]
+Never put any SAP ASE directories onto /mnt or /mnt/resource of the VM. This also applies to the tempdb, even if the objects kept in the tempdb are only temporary because /mnt or /mnt/resource is a default Azure VM temp space, which is not persistent. More details about the Azure VM temp space can be found in [this article][virtual-machines-linux-how-to-attach-disk]
 
 #### Impact of Database Compression
-In configurations where I/O bandwidth can become a limiting factor, every measure which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is strongly recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
+In configurations where I/O bandwidth can become a limiting factor, every measure, which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is strongly recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
 
 The recommendation to perform compression before uploading to Azure if it is not already implemented is given out of several reasons:
 
@@ -1059,12 +1059,12 @@ The recommendation to perform compression before uploading to Azure if it is not
 * The duration of the compression execution is shorter assuming that one can use stronger hardware with more CPUs or higher I/O bandwidth or less I/O latency on-premises
 * Smaller database sizes might lead to less costs for disk allocation
 
-Data- and LOB-Compression work in a VM hosted in Azure Virtual Machines as it does on-premises. For more details on how to check if compression is already in use in an existing SAP ASE database please check SAP Note [1750510]. Also see SAP Note [2121797] for additional information regarding database compression.
+Data- and LOB-Compression work in a VM hosted in Azure Virtual Machines as it does on-premises. For more details on how to check if compression is already in use in an existing SAP ASE database, check SAP Note [1750510]. For additional information regarding database compression, see SAP Note [2121797].
 
 #### Using DBACockpit to monitor Database Instances
-For SAP systems which are using SAP ASE as database platform, the DBACockpit is accessible as embedded browser windows in transaction DBACockpit or as Webdynpro. However the full functionality for monitoring and administering the database is available in the Webdynpro implementation of the DBACockpit only.
+For SAP systems, which are using SAP ASE as database platform, the DBACockpit is accessible as embedded browser windows in transaction DBACockpit or as Webdynpro. However the full functionality for monitoring and administering the database is available in the Webdynpro implementation of the DBACockpit only.
 
-As with on-premises systems several steps are required to enable all SAP NetWeaver functionality used by the Webdynpro implementation of the DBACockpit. Please follow SAP Note [1245200] to enable the usage of webdynpros and generate the required ones. When following the instructions in the above notes you will also configure the Internet Communication Manager (icm) along with the ports to be used for http and https connections. The default setting for http looks like this:
+As with on-premises systems several steps are required to enable all SAP NetWeaver functionality used by the Webdynpro implementation of the DBACockpit. Follow SAP Note [1245200] to enable the usage of webdynpros and generate the required ones. When following the instructions in the above notes, you also configure the Internet Communication Manager (icm) along with the ports to be used for http and https connections. The default setting for http looks like this:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
@@ -1080,10 +1080,10 @@ and the links generated in transaction DBACockpit will look similar to this:
 > 
 > 
 
-Depending on if and how the Azure Virtual Machine hosting the SAP system is connected via site-to-site, multi-site or ExpressRoute (Cross-Premises deployment) you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are trying to open the DBACockpit from. Please see SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if required.
+Depending on if and how the Azure Virtual Machine hosting the SAP system is connected via site-to-site, multi-site or ExpressRoute (Cross-Premises deployment) you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are trying to open the DBACockpit from. See SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if required.
 
 If you deployed the VM in a Cloud-Only scenario without cross-premises connectivity between on-premises and Azure, you need 
-to define a public IP address and a domainlabel. The format of the public DNS name of the VM will then look like this:
+to define a public IP address and a domainlabel. The format of the public DNS name of the VM looks like this:
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
@@ -1124,30 +1124,30 @@ Further information about DBA Cockpit for SAP ASE can be found in the following 
 #### Backup/Recovery Considerations for SAP ASE
 When deploying SAP ASE into Azure your backup methodology must be reviewed. Even if the system is not a productive system, the SAP database hosted by SAP ASE must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The primary reason for maintaining a proper backup and restore plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. For example, you could transfer from a 2-Tier SAP configuration to a 3-Tier system setup of the same system by restoring a backup.
 
-Backing up and restoring a database in Azure works the same way as it does on-premises. Please see SAP Notes:
+Backing up and restoring a database in Azure works the same way as it does on-premises. See SAP Notes:
 
 * [1588316]
 * [1585981]
 
 for details on creating dump configurations and scheduling backups. Depending on your strategy and needs you can configure database and log dumps to disk onto one of the existing disks or add an additional disk for the backup. To reduce the danger of data loss in case of an error it is recommended to use a disk where no database directory/file is located.
 
-Besides data- and LOB compression SAP ASE also offers backup compression. To occupy less space with the database and log dumps it is recommended to use backup compression. Please see SAP Note [1588316] for more information. Compressing the backup is also crucial to reduce the amount of data to be transferred if you plan to download backups or VHDs containing backup dumps from the Azure Virtual Machine to on-premises.
+Besides data- and LOB compression SAP ASE also offers backup compression. To occupy less space with the database and log dumps it is recommended to use backup compression. For more information, see SAP Note [1588316]. Compressing the backup is also crucial to reduce the amount of data to be transferred if you plan to download backups or VHDs containing backup dumps from the Azure Virtual Machine to on-premises.
 
 Do not use the Azure VM temp space /mnt or /mnt/resource as database or log dump destination.
 
 #### Performance Considerations for Backups/Restores
-As in bare-metal deployments, backup/restore performance is dependent on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with just up to 8 CPU threads. Therefore, one can assume:
+As in bare-metal deployments, backup/restore performance is dependent on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with just up to eight CPU threads. Therefore, one can assume:
 
 * The fewer the number of disks used to store the database devices, the smaller the overall throughput in reading
 * The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
 * The fewer targets (Linux software RAID, disks) to write the backup to, the lesser the throughput
 
-To increase the number of targets to write to there are two options which can be used/combined depending on your needs:
+To increase the number of targets to write to there are two options, which can be used/combined depending on your needs:
 
 * Striping the backup target volume over multiple mounted disks in order to improve the IOPS throughput on that striped volume
-* Creating a dump configuration on SAP ASE level which uses more than one target directory to write the dump to
+* Creating a dump configuration on SAP ASE level, which uses more than one target directory to write the dump to
 
-Striping a volume over multiple mounted disks has been discussed earlier in this guide. For more information on using multiple directories in the SAP ASE dump configuration please refer to the documentation on Stored Procedure sp_config_dump which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
+Striping a volume over multiple mounted disks has been discussed earlier in this guide. For more information on using multiple directories in the SAP ASE dump configuration, refer to the documentation on Stored Procedure sp_config_dump, which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
 
 ### Disaster Recovery with Azure VMs
 #### Data Replication with SAP Sybase Replication Server
@@ -1163,7 +1163,7 @@ Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and A
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 
 ### Oracle Version Support
-Oracle versions and corresponding OS versions which are supported for running SAP on Oracle on Azure Virtual Machines can be found in SAP Note [2039619].
+Oracle versions and corresponding OS versions, which are supported for running SAP on Oracle on Azure Virtual Machines can be found in SAP Note [2039619].
 
 General information about running SAP Business Suite on Oracle can be found in 1DX: <https://www.sap.com/community/topic/oracle.html>
 
@@ -1181,11 +1181,11 @@ Using disks based on Azure Page BLOB Storage or Managed Disks, the statements ma
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
-To identify the supported Azure VM types, please refer to SAP note [1928533].
+To identify the supported Azure VM types, refer to SAP note [1928533].
 
 As long as the current IOPS quota per disk satisfies the requirements, it is possible to store all the DB files on one single mounted disk. 
 
-If more IOPS are required, it is strongly recommended to use Window Storage Pools (only available in Windows Server 2012 and higher) or Windows striping for Windows 2008 R2 to create one big logical device over multiple mounted disks (see also chapter [Software RAID][dbms-guide-2.2] of this document). This approach simplifies the administration overhead to manage the disk space and avoids the effort to manually distribute files across multiple mounted disks.
+If more IOPS are required, it is strongly recommended to use Window Storage Pools (only available in Windows Server 2012 and higher) or Windows striping for Windows 2008 R2 to create one large logical device over multiple mounted disks (see also chapter [Software RAID][dbms-guide-2.2] of this document). This approach simplifies the administration overhead to manage the disk space and avoids the effort to manually distribute files across multiple mounted disks.
 
 #### Backup / Restore
 For backup / restore functionality, the SAP BR*Tools for Oracle are supported in the same way as on standard Windows Server Operating Systems and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restore from disk.
@@ -1203,13 +1203,13 @@ Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and A
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 
 ### Oracle Version Support
-Oracle versions and corresponding OS versions which are supported for running SAP on Oracle on Azure Virtual Machines can be found in SAP Note [2039619].
+Oracle versions and corresponding OS versions, which are supported for running SAP on Oracle on Azure Virtual Machines can be found in SAP Note [2039619].
 
 General information about running SAP Business Suite on Oracle can be found in 1DX: <https://www.sap.com/community/topic/oracle.html>
 
 ### Oracle Configuration Guidelines for SAP Installations in Azure VMs
 #### Storage configuration
-Only single instance Oracle using ext3, ext4 and xfs formatted disks is supported. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). 
+Only single instance Oracle using ext3, ext4, and xfs formatted disks is supported. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). 
 Any kind of network drives or remote shares like Azure file services:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
@@ -1221,11 +1221,11 @@ Using disks based on Azure Page BLOB Storage or Managed Disks, the statements ma
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
-To identify the supported Azure VM types, please refer to SAP note [1928533]
+To identify the supported Azure VM types, refer to SAP note [1928533]
 
 As long as the current IOPS quota per disk satisfies the requirements, it is possible to store all the DB files on one single mounted disk. 
 
-If more IOPS are required, it is strongly recommended to use LVM (Logical Volume Manager) or MDADM to create one big logical volume over multiple mounted disks. See also chapter [Software RAID][dbms-guide-2.2] of this document. This approach simplifies the administration overhead to manage the disk space and avoids the effort to manually distribute files across multiple mounted disks.
+If more IOPS are required, it is strongly recommended to use LVM (Logical Volume Manager) or MDADM to create one large logical volume over multiple mounted disks. See also chapter [Software RAID][dbms-guide-2.2] of this document. This approach simplifies the administration overhead to manage the disk space and avoids the effort to manually distribute files across multiple mounted disks.
 
 #### Backup / Restore
 For backup / restore functionality, the SAP BR*Tools for Oracle are supported in the same way as on bare metal and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restore from disk.
@@ -1279,7 +1279,7 @@ When deploying SAP MaxDB into Azure, you must review your backup methodology. Ev
 Backing up and restoring a database in Azure works the same way as it does for on-premises systems, so you can use standard SAP MaxDB backup/restore tools, which are described in one of the SAP MaxDB documentation documents listed in SAP Note [767598]. 
 
 #### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Performance Considerations for Backup and Restore
-As in bare-metal deployments, backup and restore performance is dependent on how many volumes can be read in parallel and the throughput of those volumes. In addition, the CPU consumption used by backup compression can play a significant role on VMs with up to 8 CPU threads. Therefore, one can assume:
+As in bare-metal deployments, backup and restore performance is dependent on how many volumes can be read in parallel and the throughput of those volumes. In addition, the CPU consumption used by backup compression can play a significant role on VMs with up to eight CPU threads. Therefore, one can assume:
 
 * The fewer the number of disks used to store the database devices, the lower the overall read throughput
 * The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
@@ -1322,9 +1322,9 @@ As SAP liveCache is an application that performs huge calculations, the amount a
 
 For the Azure VM types supported by SAP (SAP Note [1928533]), all virtual CPU resources allocated to the VM are backed by dedicated physical CPU resources of the hypervisor. No overprovisioning (and therefore no competition for CPU resources) takes place.
 
-Similarly, for all Azure VM instance types supported by SAP, the VM memory is 100 % mapped to the physical memory – overprovisioning (over-commitment), for example, is not used.
+Similarly, for all Azure VM instance types supported by SAP, the VM memory is 100% mapped to the physical memory – overprovisioning (over-commitment), for example, is not used.
 
-From this perspective it is highly recommended to use the new D- series or DS-series (in combination with Azure Premium Storage) Azure VM type, as they have 60 % faster processors than the A-series. For the highest RAM and CPU load, you can use G-series and GS-series (in combination with Azure Premium Storage) VMs with the latest Intel® Xeon® processor E5 v3 family, which have twice the memory and four times the solid state drive storage (SSDs) of the D/DS-series.
+From this perspective, it is highly recommended to use the new D- series or DS-series (in combination with Azure Premium Storage) Azure VM type, as they have 60% faster processors than the A-series. For the highest RAM and CPU load, you can use G-series and GS-series (in combination with Azure Premium Storage) VMs with the latest Intel® Xeon® processor E5 v3 family, which have twice the memory and four times the solid state drive storage (SSDs) of the D/DS-series.
 
 #### Storage Configuration
 As SAP liveCache is based on SAP MaxDB technology, all the Azure storage best practice recommendations mentioned for SAP MaxDB in chapter [Storage configuration][dbms-guide-8.4.1] are also valid for SAP liveCache. 
@@ -1400,7 +1400,7 @@ Other SAP Content Server specific settings are transparent to Azure VMs and are 
 * SAP Note [1619726]  
 
 ## Specifics to IBM DB2 for LUW on Windows
-With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools which are available on-premises.
+With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools, which are available on-premises.
 General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
 For additional information and updates about SAP on DB2 for LUW on Azure, see SAP Note [2233094]. 
@@ -1408,7 +1408,7 @@ For additional information and updates about SAP on DB2 for LUW on Azure, see SA
 ### IBM DB2 for Linux, UNIX, and Windows Version Support
 SAP on IBM DB2 for LUW on Microsoft Azure Virtual Machine Services is supported as of DB2 version 10.5.
 
-For information about supported SAP products and Azure VM types, please refer to SAP Note [1928533].
+For information about supported SAP products and Azure VM types, refer to SAP Note [1928533].
 
 ### IBM DB2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
 #### Storage Configuration
@@ -1426,15 +1426,15 @@ As long as the current IOPS quota per disk is sufficient, it is possible to stor
 
 For performance considerations also refer to chapter “Data Safety and Performance Considerations for Database Directories” in SAP installation guides.
 
-Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher) or Windows striping for Windows 2008 R2 as described in chapter [Software RAID][dbms-guide-2.2] of this document to create one big logical device over multiple disks.
-For the disks containing the DB2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter „-LogicalSectorSizeDefault“. For details see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher) or Windows striping for Windows 2008 R2 as described in chapter [Software RAID][dbms-guide-2.2] of this document to create one large logical device over multiple disks.
+For the disks containing the DB2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter „-LogicalSectorSizeDefault“. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 #### Backup/Restore
 The backup/restore functionality for IBM DB2 for LUW is supported in the same way as on standard Windows Server Operating Systems and Hyper-V.
 
 You must make sure that you have a valid database backup strategy in place. 
 
-As in bare-metal deployments, backup/restore performance depends on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with just up to 8 CPU threads. Therefore, one can assume:
+As in bare-metal deployments, backup/restore performance depends on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with just up to eight CPU threads. Therefore, one can assume:
 
 * The fewer the number of disks used to store the database devices, the smaller the overall throughput in reading
 * The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
@@ -1448,9 +1448,9 @@ To increase the number of targets to write to, two options can be used/combined 
 #### High Availability and Disaster Recovery
 Microsoft Cluster Server (MSCS) is not supported.
 
-DB2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure will not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
+DB2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure does not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
 
-Do not use Geo-Replication for the storage accounts that store the database disks. For further information, refer to chapter [Microsoft Azure Storage][dbms-guide-2.3] and chapter [High Availability and Disaster Recovery with Azure VMs][dbms-guide-3].
+Do not use Geo-Replication for the storage accounts that store the database disks. For more information, refer to chapter [Microsoft Azure Storage][dbms-guide-2.3] and chapter [High Availability and Disaster Recovery with Azure VMs][dbms-guide-3].
 
 #### Other
 All other general topics like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with IBM DB2 for LUW as well. 
@@ -1458,7 +1458,7 @@ All other general topics like Azure Availability Sets or SAP monitoring apply as
 Also refer to chapter [General SQL Server for SAP on Azure Summary][dbms-guide-5.8].
 
 ## Specifics to IBM DB2 for LUW on Linux
-With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools which are available on-premises. 
+With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools, which are available on-premises. 
 General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
 For additional information and updates about SAP on DB2 for LUW on Azure, see SAP Note [2233094].
@@ -1504,9 +1504,9 @@ To increase the number of targets to write to, two options can be used/combined 
 * Using more than one target directory to write the backup to
 
 #### High Availability and Disaster Recovery
-DB2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure will not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
+DB2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure does not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
 
-Do not use Geo-Replication for the storage accounts that store the database disks. For further information, refer to chapter [Microsoft Azure Storage][dbms-guide-2.3] and chapter [High Availability and Disaster Recovery with Azure VMs][dbms-guide-3].
+Do not use Geo-Replication for the storage accounts that store the database disks. For more information, refer to chapter [Microsoft Azure Storage][dbms-guide-2.3] and chapter [High Availability and Disaster Recovery with Azure VMs][dbms-guide-3].
 
 #### Other
 All other general topics like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with IBM DB2 for LUW as well.
