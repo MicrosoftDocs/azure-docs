@@ -25,7 +25,7 @@ In this tutorial, learn how to create a basic Azure virtual network that has sep
 
 The following sections include steps that you can take to create a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), and an [Azure Resource Manager template](#resource-manager-template). The result is the same, regardless of which tool you use to create the virtual network. Click a tool link to go to that section of the tutorial. Learn more about all [virtual network](virtual-network-manage-network.md) and [subnet](virtual-network-manage-subnet.md) settings.
 
-This article provides steps to create a virtual network through the Resource Manager deployment model, which is the deployment model we recommend using when creating new virtual networks. If you need to create a virtual network (classic), see [Create a virtual network (classic)](create-virtual-network-classic). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+This article provides steps to create a virtual network through the Resource Manager deployment model, which is the deployment model we recommend using when creating new virtual networks. If you need to create a virtual network (classic), see [Create a virtual network (classic)](create-virtual-network-classic.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="portal"></a>Azure portal
 
