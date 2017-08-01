@@ -1,9 +1,9 @@
 ---
-title: Back up Windows system state to Azure (Resource Manager) | Microsoft Docs
-description: Learn to back up Windows system state to Azure in a Resource Manager deployment.
+title: Back up Windows system state to Azure | Microsoft Docs
+description: Learn to back up the system state of Windows Server and/or Windows computers to Azure.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: saurabhsensharma
 manager: carmonm
 editor: ''
 keywords: how to backup; how to back up; backup files and folders
@@ -13,9 +13,9 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 07/31/2017
-ms.author: markgal;
+ms.author: saurse;markgal
 
 ---
 # Back up Windows system state in Resource Manager deployment
