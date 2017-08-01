@@ -166,7 +166,7 @@ Make sure that the following settings are configured correctly for remote deskto
 7. Limit the number of concurrent connections：
     
     ```PowerShell
-    Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash"
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" 4294967295 -Type DWord
     ```
 8. If there are any self-signed certificates tied to the RDP listener, remove them:
     
@@ -299,7 +299,7 @@ Make sure that the following settings are configured correctly for remote deskto
 
     Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 
-7. Check the following polices to make sure that you are not blocking your RDP access through RDP nor from the network:
+7. Check the following AD polices to make sure that you are not blocking your RDP access through RDP nor from the network:
 
     - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny access to this computer from the network
 
