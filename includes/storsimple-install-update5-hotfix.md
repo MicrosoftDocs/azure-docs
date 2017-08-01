@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/10/17-->
+<!--author=alkohli last changed: 08/02/17-->
 
 #### To download hotfixes
 
@@ -13,7 +13,7 @@ Perform the following steps to download the software update from the Microsoft U
    
     The hotfix listing appears, for example, **Cumulative Software Bundle Update 5.0 for StorSimple 8000 Series**.
    
-    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
+    ![Search catalog](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
 4. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. Click the files to download to the specified location and folder. The folder can also be copied to a network share that is reachable from the device.
 5. Search for any additional hotfixes listed in the table above (**4037266**), and download the corresponding files to the specific folders as listed in the preceding table.
@@ -39,7 +39,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     Supply the password when prompted.
    
-    A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
+    A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file. **You should install the HcsSoftwareUpdate.exe first and then install the CisMdsAgent.exe.**
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -88,14 +88,14 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     You should see the following versions:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17840`
+   *  `HcsSoftwareVersion: 6.3.9600.17838`
    
-    If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
+    If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) for further assistance.
      
     > [!IMPORTANT]
     > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
      
-7. Repeat steps 3-5 to install the Cis/MDS agent downloaded to your _FirstOrderUpdate_ folder. 
+7. Repeat steps 3-5 to install the Cis/MDS agent downloaded to your _FirstOrderUpdate_ folder.
 8. Repeat steps 3-5 to install the second order updates. **For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update.
 
 After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
@@ -166,7 +166,7 @@ To install the disk firmware updates, follow the instructions below.
        -----------------------MAINTENANCE MODE------------------------
        Microsoft Azure StorSimple Appliance Model 8600
        Name: Update4-8600-mystorsimple
-       Software Version: 6.3.9600.17840
+       Software Version: 6.3.9600.17838
        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
        You are connected to Controller1
        ---------------------------------------------------------------
@@ -248,5 +248,5 @@ To install the disk firmware updates, follow the instructions below.
    
    `Exit-HcsMaintenanceMode`
 
-5. The controllers restart when you exit maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
+5. The controllers restart when you exit maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
 

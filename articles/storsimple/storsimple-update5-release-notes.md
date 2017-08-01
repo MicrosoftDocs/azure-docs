@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/31/2017
+ms.date: 08/01/2017
 ms.author: alkohli
 
 ---
@@ -23,12 +23,12 @@ ms.author: alkohli
 
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 5. They also contain a list of the StorSimple software updates included in this release.
 
-Update 5 can be applied to any StorSimple device running Update 0.1 through Update 4. The device version associated with Update 5 is 6.3.9600.17840.
+Update 5 can be applied to any StorSimple device running Update 0.1 through Update 4. The device version associated with Update 5 is 6.3.9600.17838.
 
 Review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
-> * Update 5 has device software, disk firmware, OS security, and other OS updates. It takes approximately 4 hours to install this update. Disk firmware update is a disruptive update and results in a downtime for your device. We recommend that you apply Update 5 to keep your device up-to-date. 
+> * Update 5 has device software, disk firmware, OS security, and other OS updates. It takes approximately 4 hours to install this update. Disk firmware update is a disruptive update and results in a downtime for your device. We recommend that you apply Update 5 to keep your device up-to-date.
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these updates will become available soon.
 
 ## What's new in Update 5
@@ -42,7 +42,6 @@ The following key improvements and bug fixes have been made in Update 5.
 * **Changes to StorSimple Diagnostics tool** – In Update 5, verbose logging is allowed for the performance test using the StorSimple Diagnostics tool. For more information, go to [troubleshoot using StorSimple Diagnostics tool](storsimple-8000-diagnostics.md).
 
 * **StorSimple Snapshot Manager changes** - A new version of StorSimple Snapshot Manager is released with Update 5. This version is compatible if you are running Update 3 or later on your StorSimple device. For more information, go to [Install StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
-
 
 
 

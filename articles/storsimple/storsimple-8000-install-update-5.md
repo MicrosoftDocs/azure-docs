@@ -41,7 +41,7 @@ Perform the following steps to update your device to [Update 5](storsimple-updat
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17840)**. The **Last updated date** should be modified.
+Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17838)**. The **Last updated date** should be modified.
 
 * You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
 
@@ -74,13 +74,17 @@ You must download and install the following hotfixes in the prescribed order and
 | Order | KB | Description | Update type | Install time |Install in folder|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Software update |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |LSI driver and firmware updates <br> USM firmware update (version 3.38) |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
-| 2C. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
-| 2D. |KB4025336 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
 
+If updating from a device running Update 4, you only need to install the OS cumulative updates.
 
-If you are updating from a device running Update 4, you do not need to install USM and LSI driver and firmware updates.
+| 2A. |KB4025336 |OS cumulative updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+
+If installing from a device running Update 3 or earlier, install the following in addition to the cumulative updates.
+
+| 2B. |KB4011841 <br> KB4011842 |LSI driver and firmware updates <br> USM firmware update (version 3.38) |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+
 
 You may also need to install disk firmware updates on top of all the updates shown in the preceding tables. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, then you do not need to install these updates.
 
