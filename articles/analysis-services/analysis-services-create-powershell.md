@@ -1,7 +1,7 @@
 ﻿---
-title: Azure PowerShell: Create an Analysis Services server | Microsoft Docs
-description: Learn how to create an Azure Analysis Services server instance in by using PowerShell
-services: sql-database
+title: Azure PowerShell: Create an Analysis Services server by using PowerShell | Microsoft Docs
+description: Learn how to create an Azure Analysis Services server  by using PowerShell
+services: analysis-services
 documentationcenter: ''
 author: minewiskan
 manager: erikre
@@ -14,94 +14,66 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 07/25/2017
+ms.date: 08/01/2017
 ms.author: owend
 ---
 
 # Create an Analysis Services server by using PowerShell
 
-PowerShell is used to create and manage Azure resources from the command line or in scripts. This guide details using PowerShell to create an Analysis Services server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+This article describes using PowerShell from the command line to create an Azure Analysis Services server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
-This tutorial requires the Azure PowerShell module version 4.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+This task requires Azure PowerShell module version 4.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
-## Log in to Azure
+> [!NOTE]
+> Creating a server might result in a new billable service. To learn more, see [Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-Log in to your Azure subscription using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command and follow the on-screen directions.
+## Prerequisites
+To get started, you need:
+
+* **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
+* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [User authentication](analysis-services-overview.md#secure).
+
+## Import AzureRm.AnalysisServices module
+To create a server in your subscription, you will use the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  component module. Load the AzureRm.AnalysisServices module into your PowerShell session.
+
+```powershell
+Import-Module AzureRM.AnalysisServices
+```
+
+## Sign in to Azure
+
+Sign in to your Azure subscription by using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command. Follow the on-screen directions.
 
 ```powershell
 Add-AzureRmAccount
 ```
 
-## Create variables
-
-Define variables for use in the scripts in this quick start.
-
-```powershell
-# The data center and resource name for your resources
-$resourcegroupname = "myResourceGroup"
-$name = "myServerName
-$location = "WestUS"
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
-$servername = "server-$(Get-Random)"
-# Set an admin login and password for your database
-# The login information for the server
-$adminlogin = "ServerAdmin"
-$password = "ChangeYourAdminPassword1"
-# The ip address range that you want to allow to access your server - change as appropriate
-$startip = "0.0.0.0"
-$endip = "0.0.0.0"
-# The database name
-$databasename = "mySampleDatabase"
-```
-
 ## Create a resource group
-
-If you do not already have a resource group in which you want to create your server, you can create a new resource group.
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+ 
+An [Azure resource group](../azure-resource-manager/resource-group-overview.md) is a logical container where Azure resources are deployed and managed as a group. When you create your server, you must specify a resource group in your subscription. If you do not already have a resource group, you can create a new one by using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. The following example creates a resource group named `myResourceGroup` in the West US region.
 
 ```powershell
-New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
 ```
 
 ## Create a server
 
-Create a new server by using the [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. 
+Create a new server by using the [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in the myResourceGroup resource group, in the West US region, at the D1 sku, and specifies philipc@adventureworks.com as a server administrator.
 
 ```powershell
-New-AzureRmAnalysisServicesServer
-   [-ResourceGroupName] <String>
-   [-Name] <String>
-   [-Location] <String>
-   [-Sku] <String>
-   [[-Administrator] <String>]
-   [[-Tag] <Hashtable>]
-   [-Confirm]
-   [-WhatIf]
-   [<CommonParameters>]
+New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location West US -Sku D1 -Administrator "philipc@adventureworks.com"
 ```
-
 
 ## Clean up resources
 
-Other quickstarts in this collection build upon this quickstart. 
+You can remove the server from your subscription by using the [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. If you will continue with other quickstarts and tutorials in this collection, do not remove your server. The following example removes the server created in the previous step.
 
-Remove-AzureRmAnalysisServicesServer
-
-> [!TIP]
-> If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
->
 
 ```powershell
-Remove-AzureRmAnalysisServicesServer
-      [-Name] <String>
-      [[-ResourceGroupName] <String>]
-      [-PassThru]
-      [-Confirm]
-      [-WhatIf]
-      [<CommonParameters>]
+Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myResourceGroup"
 ```
 
 ## Next steps
-
-
-
+[Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)   
+[Deploy a model from SSDT](analysis-services-deploy.md)   
+[Create a model in Azure portal](analysis-services-create-model-portal.md)
