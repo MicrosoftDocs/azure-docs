@@ -419,6 +419,27 @@ You may need to install the package `setuptools` first--see [here](https://pypi.
 sudo python setup.py install
 ```
 
+#### Ensure Auto Update is Enabled
+
+First, check to see if it is enabled:
+
+```bash
+cat /etc/waagent.conf
+```
+
+Find 'AutoUpdate.Enabled', if you see this output, it is enabled:
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+To enable run:
+
+```bash
+sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
 ### Restart the waagent service
 For most of linux Distros:
 
