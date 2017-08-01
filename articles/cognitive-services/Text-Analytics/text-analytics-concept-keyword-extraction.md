@@ -18,6 +18,10 @@ ms.author: luisca
 
 TBD...
 
+Based on n-grams...
+
+N-grams denote all occurrences of n consecutive words in the input text. The precise value of n may vary across scenarios, but it’s common to pick n=2 or n=3. With n=2, for the text “the quick brown fox”, the following n-grams would be generated – [ “the quick”, “quick brown”, “brown fox”]
+
 ## Next steps
 
 

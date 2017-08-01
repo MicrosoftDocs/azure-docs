@@ -8,7 +8,7 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/01/2017
 ms.author: heidist
 ---
 
@@ -97,21 +97,19 @@ Endpoints for each operation include the resource providing the underlying algor
 
 5. Choose **raw** for the format. Click **Send** to submit the request.
 
-### Formatting the request body
+### Drillldown: Formatting the request body
 
-Input rows must be JSON in raw text. XML is not supported. For sentiment, key phrases and language, the input is th
+Input rows must be JSON in raw text. XML is not supported. The schema is extremely simple, which means the same documents collection can be used in all requests.
  
-+ Language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. If you know the language, include it in the request. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
++ Language is used only in sentiment analysis and keyphrase extraction. It is ignored in language detection. For both sentiment analysis and keyphrase extraction, languuage is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
 
-+ Each ID should be unique. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
++ Document ID is required. Each ID should be a unique integer. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
 
-+ Text strings provide the text to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for a request. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-what.md#data-limits). 
++ Text provdes the strings to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-what.md#data-limits). 
 
-### Parsing the response payload
+### Drilldown: Parsing the response
 
-This call returns a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below.
-
-The keyPhrases algorithm iterates over the entire collection before extracting phrases, using the context of all strings to determine which ones to extract.
+All POST requests return a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below. The keyPhrases algorithm iterates over the entire collection before extracting phrases, using the context of all strings to determine which ones to extract.
 
 ```
 {
@@ -157,7 +155,22 @@ The keyPhrases algorithm iterates over the entire collection before extracting p
 }
 ```
 
-## Detect sentiment
+### Drilldown: Observations about keyPhrase extraction
+
+Presenting inputs and outputs side by side helps us see how the keyPhrase extraction algorithm operates. 
+
+The algorithm finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentenece.
+
+| ID | Input | keyPhrase output | 
+|----|-------|------|
+| 1 | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" | views", "hike", "trail" |
+| 2 | "Ok but nothing special. Check out the other trails instead." | "trails" |
+| 3 | "Not recommended for small children or dogs." | "dogs", "small children" |
+| 4 | "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!" | "trail", "spectacular views", "dog"|
+| 5 | "Stunning view but very crowded with small children and dogs. We didn't stay long." | "small children", "Stunning view"|
+
+
+## Analyze sentiment
 
 Using the same documents, you can edit the existing request to call the sentiment analysis algorithm and return sentiment scores.
 

@@ -14,6 +14,8 @@ ms.author: luisca
 
 # How to use Text Analytics API with other technologies
 
+Text Analytics is used in conjunction with other technologies. 
+
 This article explains three problems a customer will want to solve:
 
 Problem #1: How to use the output Text Analytics API produces?  APis return a list of JSON documents. Document composition includes an ID, sentiment score, language type or phrases that you presumably want to do something with.
