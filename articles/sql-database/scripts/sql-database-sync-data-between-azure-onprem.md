@@ -26,8 +26,6 @@ This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-
  
 Run `Login-AzureRmAccount` to create a connection with Azure. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 ## Sample script
 
 ```powershell
