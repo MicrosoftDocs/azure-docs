@@ -99,7 +99,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 
 ## <a name="vm-remove-nic"></a> Remove a network interface from a VM
 
-The VM you want to remove a network interface from must be in the stopped (deallocated) state and must currently have at least two network interfaces attached to it. You can remove any network interface, but the VM must always have at least one network interface attached to it. If you remove a primary network interface, Azure assigns the primary attribute to the network interface that's been attached to the VM the longest. You can designate any network interface as the primary yourself. You cannot remove network interfaces from a VM, nor set the primary attribute for a network interface using the Azure portal, though you can accomplish both operations using the CLI or PowerShell. 
+The VM you want to remove a network interface from must be in the stopped (deallocated) state and must currently have at least two network interfaces attached to it. You can remove any network interface, but the VM must always have at least one network interface attached to it. If you remove a primary network interface, Azure assigns the primary attribute to the network interface that's been attached to the VM the longest. You can designate any network interface as the primary yourself. You may detach/remove network interfaces from a VM using the Azure Portal, but you may not set the primary attribute for a network interface using the Azure portal, though you can accomplish both operations using the CLI or PowerShell. 
 
 **Commands**
 
