@@ -32,7 +32,7 @@ The following diagram shows the relationships between various container hosts an
 Before starting, review the following details to verify you meet the prerequisites.
 
 ### Container monitoring solution support for Docker Orchestrator and OS platform 
-The following table outlines the Docker Orchestration operating system platform monitor support of container inventory, performance, and logs with Log Analytics.   
+The following table outlines the Docker orchestration and operating system monitoring support of container inventory, performance, and logs with Log Analytics.   
 
 | | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log | 
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
