@@ -154,7 +154,7 @@ The following graphics show the subnets before and after failover:
 
 ![After Failover](./media/vmm-to-vmm-walkthrough-network/network-design3.png)
 
-After failover here's what happens:
+After failover, here's what happens:
 
 - Site Recovery allocates an IP address for each network interface on the VM, from the static IP address pool in the relevant network, for each VMM instance.
 - If the IP address pool in the secondary site is the same as that on the source site, Site Recovery allocates the same IP address (of the source VM) to the replica VM. The IP address is reserved in VMM, but it isn't set as the failover IP address on the Hyper-V host. The failover IP address on a Hyper-v host is set just before the failover.
@@ -164,13 +164,14 @@ After failover here's what happens:
 ### Validate the IP address
 
 After you enable protection for a VM, you can use following sample script to verify the address assigned to the VM. The same IP address will be set as the failover IP address, and assigned to the VM at the time of failover:
+
     ```
     $vm = Get-SCVirtualMachine -Name <VM_NAME>
     $na = $vm[0].VirtualNetworkAdapters>
     $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
     $ip.address 
     ```
->
+
 ## Changing IP addresses
 
 In this scenario, the IP addresses of VMs that fail over are changed. The drawback of this solution is the maintenance required. Typically, DNS will be updated after replica VMs start. DNS entries might need to be changed or fluster in thenetwork, and cached entries updated. This can result in downtime. Downtime can be mitigated as follows:
