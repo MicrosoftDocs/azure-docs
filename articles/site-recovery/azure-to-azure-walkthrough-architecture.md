@@ -21,7 +21,7 @@ ms.author: raynew
 # Step 1: Review the architecture for Azure VM replication between Azure regions
 
 
-After reviewing the [overview steps](azure-to-azure-walkthrough-overview.md) for this deplyoment, read this articles to understand the components and processes used when replicating and recovering Azure virtual machines (VMs) from one Azure region to another, using [Azure Site Recovery](site-recovery-overview.md).
+After reviewing the [overview steps](azure-to-azure-walkthrough-overview.md) for this deployment, read this article to understand the components and processes used when replicating and recovering Azure virtual machines (VMs) from one Azure region to another, using [Azure Site Recovery](site-recovery-overview.md).
 
 - When you finish the article, you should have a clear understanding of how Azure VM replication to another region works.
 - Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
