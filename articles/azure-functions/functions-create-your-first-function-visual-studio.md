@@ -16,7 +16,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
-ms.author: rachelap, glenga
+ms.author: glenga
 
 ---
 # Create your first function using Visual Studio
