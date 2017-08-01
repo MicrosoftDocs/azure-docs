@@ -7,7 +7,7 @@
 
 # Get started
 ## [Export template](resource-manager-export-template.md)
-## [Create your first template](resource-manager-create-first-template.md)
+## [Create and deploy template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
