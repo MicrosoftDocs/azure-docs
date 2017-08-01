@@ -24,12 +24,24 @@ ms.custom: aaddev
 To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the [OpenID Connect](./active-directory-protocols-openid-connect-code.md) or [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocols. SAML protocol is not accepted.
 
 ## Guides and code samples
-For code samples and guides for your platform that uses Open ID Connect protocol, see the [Azure Active Directory developer's guide](./active-directory-developers-guide.md#get-started "Get Started with Azure AD for developers").
+If you want to learn about how to integrate with your Azure Active Directory using Open ID connect, please follow our guides and code samples in the [Azure Active Directory developer's guide](./active-directory-developers-guide.md#get-started "Get Started with Azure AD for developers").
 
 ## Multi-tenant applications
+
 An application that accepts sign-ins from users from any company or organization that have Azure Active Directory without requiring a separate instance, configuration, or deployment is known as a *multi-tenant application*. AppSource recommends that applications implement multi-tenancy to enable the *single-click* free trial experience.
 
+In order to enable multi-tenancy on your application:
+- Set `Multi-Tenanted` property to `Yes` on your application registration's information in the [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (by default, applications created in the Azure Portal are configured as *single-tenant*)
+- Update your code to send requests to the `common` endpoint (update the endpoint from *https://login.microsoftonline.com/{yourtenant}* to *https://login.microsoftonline.com/common*)
+- For some platforms, like ASP.NET, you need also to update your code to handle multiple issuer values
+
 For more information about multi-tenancy, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](./active-directory-devhowto-multi-tenant-overview.md).
+
+### Single-tenant applications
+A *single-tenant application* requires all users to belong to a defined Azure Active Directory instance. You can enable external users (including Work or School accounts, or personal account) to sign-in to your single-tenant application if you add each user as *guest account* to your Azure Active Directory instance. You can add users as guest accounts to an Azure Active Directory via [*Azure AD B2B collaboration*](../active-directory-b2b-what-is-azure-ad-b2b.md) - and it can be done [programatically](../active-directory-b2b-code-samples.md). Adding a user as guest account generates an email that is sent to the user, who has to accept the invitation using the redemption link in the invitation email. Invitations that are sent by a user in the inviting organization who is also a member of the partner organization do not require redemption by the B2B user.
+
+If you want to enable the single-click/ free trial experience that AppSource recommends, enable multi-tenancy on your application instead.
+
 
 ## AppSource trial experiences
 
@@ -49,12 +61,12 @@ The *customer-led trial* is the experience that AppSource recommends as it offer
 </tr>
 </table>
 
-### Request Trial (Partner-led trial experience)
+### Contact Me (Partner-led trial experience)
 The *partner trial experience* can be used when a manual or a long-term operation needs to happen to provision the user/ company: for example, your application needs to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the *'Request Trial'* button and fills out a form, AppSource sends you the user's contact information. After receiving this information, you provision the environment and send the instructions to the user on how to access the trial experience:<br/><br/>
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>User finds your application in AppSource web site</li><li>Selects ‘Request trial’ or ‘Contact Me’ option</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>User finds your application in AppSource web site</li><li>Selects ‘Contact Me’ option</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Fills out a form with contact information</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
