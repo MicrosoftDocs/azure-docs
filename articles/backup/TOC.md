@@ -27,16 +27,18 @@
 #### [Restore Resource Manager-deployed VMs in Azure portal](backup-azure-arm-restore-vms.md)
 #### [Restore encrypted virtual machines](backup-azure-vms-encryption.md)
 #### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
-#### [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md)
+#### [Restore Key Vault key and secret for encrypted VMs](backup-azure-restore-key-secret.md)
 
 
-## Windows files and folders
-### [Windows Server using the Resource Manager deployment model](backup-configure-vault.md)
-### [Windows Server using the classic deployment model](backup-configure-vault-classic.md)
+## Windows Server
+### [Back up Windows Server files and folders](backup-configure-vault.md)
+### [Back up Windows Server System State](backup-azure-system-state.md)
+### [Recover files from Azure to Windows Server](backup-azure-restore-windows-server.md)
 ### [Monitor and manage Recovery Services vaults](backup-azure-manage-windows-server.md)
-### [Manage Backup vaults using the classic deployment model](backup-azure-manage-windows-server-classic.md)
-### [Recover files to a Windows Server using Resource Manager deployment model](backup-azure-restore-windows-server.md)
-### [Recover files to a Windows Server using the classic deployment model](backup-azure-restore-windows-server-classic.md)
+### Back up and restore using the classic portal
+#### [Windows Server using the classic deployment model](backup-configure-vault-classic.md)
+#### [Manage Backup vaults using the classic deployment model](backup-azure-manage-windows-server-classic.md)
+#### [Recover files to a Windows Server using the classic deployment model](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup Server
 ### [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md)
@@ -108,5 +110,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=backup)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)

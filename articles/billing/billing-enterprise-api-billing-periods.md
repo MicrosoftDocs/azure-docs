@@ -18,7 +18,7 @@ ms.date: 04/25/2017
 ms.author: aedwin
 
 ---
-# Reporting APIs for Enterprise customers - Billing Periods (Preview)
+# Reporting APIs for Enterprise customers - Billing Periods
 
 The Billing Periods API returns a list of billing periods that have consumption data for the specified Enrollment in reverse chronological order. Each Period contains a property pointing to the API route for the four sets of data - BalanceSummary, UsageDetails, Marktplace Charges, and PriceSheet. If the period does not have data, the corresponding property is null. 
 
@@ -28,8 +28,11 @@ Common header properties that need to be added are specified [here](billing-ente
 
 |Method | Request URI|
 |-|-|
-|GET| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingperiods|
+|GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods|
 
+> [!Note]
+> To use the preview version of API, replace v2 with v1 in the above URL.
+>
 
 ## Response
  
@@ -62,7 +65,8 @@ Common header properties that need to be added are specified [here](billing-ente
 |priceSheet| string| The URL path that routes to the PriceSheet data for this period|
 
 <br/>
-## See Also
+## See also
+
 * [Balance and Summary API](billing-enterprise-api-balance-summary.md)
 
 * [Usage Detail API](billing-enterprise-api-usage-detail.md) 

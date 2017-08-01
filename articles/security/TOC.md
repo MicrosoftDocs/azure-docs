@@ -35,6 +35,8 @@
 ### [Best practices for IaaS workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Disk encryption for IaaS VMs](azure-security-disk-encryption.md)
+#### [Disk encryption FAQ](azure-security-disk-encryption-faq.md)
+#### [Disk encryption troubleshooting](azure-security-disk-encryption-tsg.md)
 ### [Encrypt an Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Security management and monitoring
@@ -79,6 +81,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure security MVP program](azure-security-mvp.md)
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Security videos on Channel 9](security-channel-nine.md)
