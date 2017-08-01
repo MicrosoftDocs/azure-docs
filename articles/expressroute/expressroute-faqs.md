@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 07/31/2017
 ms.author: cherylmc
 
 ---
@@ -61,7 +61,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 ### Private peering
 
-* virtual networks, including all virtual machines and cloud services
+* Virtual networks, including all virtual machines and cloud services
 
 ### Public peering
 
@@ -210,7 +210,7 @@ BGP sessions will be dropped. They will be reset once the prefix count goes belo
 
 ### What is the ExpressRoute BGP hold time? Can it be adjusted?
 
-The hold time is 180. The keep-alive messages are sent every 60 seconds. These are fixed settings on the Microsoft side that cannot be changed.
+The hold time is 180. The keep-alive messages are sent every 60 seconds. These are fixed settings on the Microsoft side that cannot be changed. It is possible for you to configure different timers, and the BGP session parameters will be negotiated accordingly.
 
 ### After I advertise the default route (0.0.0.0/0) to my virtual networks, I can't activate Windows running on my Azure VMs. How to I fix this?
 
@@ -250,6 +250,7 @@ ExpressRoute premium is a collection of the following features:
 
     *  You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
     *  On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
+
 
 ### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 
@@ -318,8 +319,33 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for informa
 Yes. Office 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
 
 ### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
+
 Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on the Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
 ### Can Dynamics 365 for Operations (formerly known as Dynamics AX Online) be accessed over an ExpressRoute connection?
 
 Yes. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) is hosted on Azure. You can enable Azure public peering on your ExpressRoute circuit to connect to it.
+
+## Route filters for Microsoft peering
+
+### I am turning on Microsoft peering for the first time, what routes will I see?
+
+You will not see any routes. You have to attach a route filter to your circuit to start prefix advertisements. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+
+### I turned on Microsoft peering and now I am trying to select Exchange Online, but it is giving me an error that I am not authorized to do it.
+
+When using route filters, any customer can turn on Microsoft peering. However, for consuming Office 365 services, you still need to get authorized by Office 365.
+
+### Do I need to get authorization for turning on Dynamics 365 over Microsoft peering?
+
+No, you do not need authorization for Dynamics 365. You can create a rule and select Dynamics 365 community without authorization.
+
+### I already have Microsoft peering, how can I take advantage of route filters?
+
+You can create a route filter, select the services you want to use, and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+
+### I have Microsoft peering at one location, now I am trying to enable it at another location and I am not seeing any prefixes.
+
+* Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined.
+
+* Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. You will see no prefixes by default.

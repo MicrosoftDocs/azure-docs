@@ -99,7 +99,6 @@
 #### [Process events with Java topologies](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Use Power BI with a topology](hdinsight-storm-power-bi-topology.md)
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
-#### [Process vehicle sensor data](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
 ## Use domain-joined HDInsight (Preview)
@@ -242,4 +241,5 @@
 ## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Windows tools for HDInsight](hdinsight-hadoop-windows-tools.md)

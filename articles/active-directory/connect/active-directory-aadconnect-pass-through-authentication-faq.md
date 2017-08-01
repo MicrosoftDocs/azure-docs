@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
 ---
 
@@ -46,7 +46,7 @@ No, Password Hash Synchronization is not a generic fallback to Pass-through Auth
 
 ## Can I install an [Azure AD Application Proxy](../active-directory-application-proxy-get-started.md) connector on the same server as a Pass-through Authentication Agent?
 
-No, this configuration is _not_ supported.
+Yes, this configuration is supported with the rebranded versions of the Pass-through Authentication Agent (versions 1.5.193.0 or later).
 
 ## What versions of Azure AD Connect and Pass-through Authentication Agent do you need?
 
