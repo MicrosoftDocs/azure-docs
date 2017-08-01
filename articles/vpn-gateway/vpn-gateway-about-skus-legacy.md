@@ -22,11 +22,6 @@ ms.author: cherylmc
 
 This article contains information about the legacy virtual network gateway SKUs. For information on the current SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
-> [!NOTE]
-> You can't create, upgrade, or migrate a classic virtual network gateway to the new gateway SKUs.
->
->
-
 ## Gateway SKUs
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
