@@ -33,9 +33,9 @@ To learn more about all virtual network and subnet settings, see [Manage virtual
 
 ## Create a virtual network
 
-You can create a virtual network (classic) by using the Azure portal, the Azure command-line interface (CLI) 1.0, or PowerShell. Complete the steps on one of the following tabs:
+You can create a virtual network (classic) by using the [Azure portal](#portal), the [Azure command-line interface (CLI) 1.0](#azure-cli), or [PowerShell](#powershell).
 
-# [Portal](#tab/azure-portal)
+## Portal
 
 1. In an Internet browser, go to the [Azure portal](https://portal.azure.com). Log in using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. Click **+New** in the portal.
@@ -63,7 +63,7 @@ You can create a virtual network (classic) by using the Azure portal, the Azure 
     - Click the **Delete** icon on the **myVnet** blade.
     - To confirm the deletion, click **Yes** in the **Delete virtual network** box.
 
-# [Azure CLI](#tab/azure-cli)
+## Azure CLI
 
 1. You can either [install and configure the Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), or use the CLI within the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. To get help for CLI commands, type `azure <command> --help`. 
 2. In a CLI session, log in to Azure with the command that follows. If you click **Try it** in the box below, a Cloud Shell opens. You can log in to your Azure subscription, without entering the following command:
@@ -105,7 +105,7 @@ You can create a virtual network (classic) by using the Azure portal, the Azure 
 > [!NOTE]
 > Though you can't specify a resource group to create a virtual network (classic) in using the CLI, Azure creates the virtual network in a resource group named *Default-Networking*.
 
-# [PowerShell](#tab/azure-powershell)
+## PowerShell
 
 1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
