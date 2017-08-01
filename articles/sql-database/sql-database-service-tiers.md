@@ -1,6 +1,6 @@
 ---
-title: 'Azure SQL Database service and performance tiers | Microsoft Docs'
-description: Compare SQL Database service tiers and performance levels for single databases, and introduce SQL elastic pools
+title: 'Azure SQL Database service and resource limits | Microsoft Docs'
+description: Compare SQL Database service tiers and resource limits for single databases, and introduce SQL elastic pools
 keywords: database options,database performance
 services: sql-database
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/20/2017
+ms.date: 08/20/2017
 ms.author: carlrab
 
 ---
