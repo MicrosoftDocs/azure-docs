@@ -32,7 +32,7 @@ The following diagram shows the relationships between various container hosts an
 Before starting, review the following details to verify you meet the prerequisites.
 
 ### Container monitoring solution support for Docker Orchestrator and OS platform 
-The following table outlines the Azure Container Service DC/OS cluster monitor support of container inventory, performance, and logs with Operations Management Suite.   
+The following table outlines the Azure Container Service DC/OS cluster monitor support of container inventory, performance, and logs with Log Analytics.   
 
 | Cluster | Source | 
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
