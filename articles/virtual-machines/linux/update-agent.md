@@ -33,10 +33,8 @@ You should always check for a package in the Linux Distro repository first. It i
 
 #### Check your current package version
 
-Look for 'walinuxagent'
-
 ```bash
-apt list --installed
+apt list --installed | grep walinuxagent
 ```
 
 #### Update package cache
@@ -59,9 +57,10 @@ First Check to see if it is enabled:
 cat /etc/waagent.conf
 ```
 
-Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
+Find 'AutoUpdate.Enabled', if you see this output, it is enabled:
 
 ```bash
+# AutoUpdate.Enabled=y
 AutoUpdate.Enabled=y
 ```
 
@@ -89,10 +88,8 @@ systemctl restart walinuxagent.service
 
 #### Check your current package version
 
-Look for 'waagent'
-
 ```bash
-dpkg -l
+dpkg -l | grep waagent
 ```
 
 #### Update package cache
@@ -114,10 +111,8 @@ This version of Debian does not have a version >= 2.0.16, therefore AutoUpdate i
 
 #### Check your current package version
 
-Look for 'waagent'
-
 ```bash
-apt list --installed
+apt list --installed | grep walinuxagent
 ```
 
 #### Update package cache
@@ -139,9 +134,10 @@ First Check to see if it is enabled:
 cat /etc/waagent.conf
 ```
 
-Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
+Find 'AutoUpdate.Enabled', if you see this output, it is enabled:
 
 ```bash
+# AutoUpdate.Enabled=y
 AutoUpdate.Enabled=y
 ```
 
@@ -162,8 +158,6 @@ sudo systemctl restart walinuxagent.service
 ### RHEL/CentOS 6
 
 #### Check your current package version
-
-Look for 'WALinuxAgent'
 
 ```bash
 sudo yum list WALinuxAgent
@@ -189,9 +183,10 @@ First Check to see if it is enabled:
 cat /etc/waagent.conf
 ```
 
-Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
+Find 'AutoUpdate.Enabled', if you see this output, it is enabled:
 
 ```bash
+# AutoUpdate.Enabled=y
 AutoUpdate.Enabled=y
 ```
 
@@ -210,8 +205,6 @@ sudo service waagent restart
 ### RHEL/CentOS 7
 
 #### Check your current package version
-
-Look for 'WALinuxAgent'
 
 ```bash
 sudo yum list WALinuxAgent
@@ -237,9 +230,10 @@ First Check to see if it is enabled:
 cat /etc/waagent.conf
 ```
 
-Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
+Find 'AutoUpdate.Enabled', if you see this output, it is enabled:
 
 ```bash
+# AutoUpdate.Enabled=y
 AutoUpdate.Enabled=y
 ```
 
@@ -261,8 +255,6 @@ sudo systemctl restart waagent.service
 
 #### Check your current package version
 
-Look for 'python-azure-agent'
-
 ```bash
 zypper info python-azure-agent
 ```
@@ -285,9 +277,10 @@ First Check to see if it is enabled:
 cat /etc/waagent.conf
 ```
 
-Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
+Find 'AutoUpdate.Enabled', if you see this output, it is enabled:
 
 ```bash
+# AutoUpdate.Enabled=y
 AutoUpdate.Enabled=y
 ```
 
@@ -307,8 +300,6 @@ sudo /etc/init.d/waagent restart
 
 #### Check your current package version
 
-Look for 'python-azure-agent'
-
 ```bash
 zypper info python-azure-agent
 ```
@@ -331,9 +322,10 @@ First Check to see if it is enabled:
 cat /etc/waagent.conf
 ```
 
-Find 'AutoUpdate.Enabled', if this is the below, it is enabled:
+Find 'AutoUpdate.Enabled', if you see this output, it is enabled:
 
 ```bash
+# AutoUpdate.Enabled=y
 AutoUpdate.Enabled=y
 ```
 
@@ -396,29 +388,29 @@ Typically this is all you need, but if for some reason you need to install it fr
 
 Login to your VM using SSH.
 
-Install wget (there are some distros that don't install it by default such as Redhat, CentOS, and Oracle Linux versions 6.4 and 6.5) by typing `#sudo yum install wget` on the command line.
+Install wget (there are some distros that don't install it by default such as Redhat, CentOS, and Oracle Linux versions 6.4 and 6.5) by typing `sudo yum install wget` on the command line.
 
 ### Download the latest version
-Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALinuxAgent/releases) in a web page, and find out the latest version number. (You can locate your current version by typing `#waagent --version`.)
+Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALinuxAgent/releases) in a web page, and find out the latest version number. (You can locate your current version by typing `waagent --version`.)
 
-#### For version 2.1.x or later, type:
+#### For version 2.2.x or later, type:
 ```bash
-wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
-unzip WALinuxAgent-[version].zip
-cd WALinuxAgent-[version]
+wget https://github.com/Azure/WALinuxAgent/archive/v2.2.x.zip
+unzip v2.2.x.zip.zip
+cd WALinuxAgent-2.2.x
 ```
 
-The following line uses version 2.1.0 as an example:
+The following line uses version 2.2.0 as an example:
 
 ```bash
-wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
-unzip WALinuxAgent-2.1.0.zip  
-cd WALinuxAgent-2.1.0
+wget https://github.com/Azure/WALinuxAgent/archive/v2.2.14.zip
+unzip v2.2.14.zip  
+cd WALinuxAgent-2.2.14
 ```
 
 ### Install the Azure Linux Agent
 
-#### For version 2.1.x, use:
+#### For version 2.2.x, use:
 You may need to install the package `setuptools` first--see [here](https://pypi.python.org/pypi/setuptools). Then run:
 
 ```bash
