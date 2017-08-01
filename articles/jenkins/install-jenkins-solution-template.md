@@ -61,7 +61,7 @@ In the **Configure basic settings** tab:
 * Authentication type: create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, it must satisfy 3 of the following requirements: one lower case character, one upper case character, one number, and one special character.
 * Keep Jenkins release type as **LTS**
 * Select a subscription.
-* Create a resource group or use an existing one.
+* Create a resource group or use an existing one that is emplty. 
 * Select a location.
 
 In the **Configure additional options** tab:

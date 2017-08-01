@@ -15,10 +15,10 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 06/30/2017
+  ms.date: 07/26/2017
   ms.author: curtand
-  ms.reviewer: piotrci
 
+  ms.reviewer: piotrci
   ms.custom: H1Hack27Feb2017;it-pro
 
 ---

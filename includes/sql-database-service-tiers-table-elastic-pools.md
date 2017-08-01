@@ -105,4 +105,3 @@ sql-database-elastic-pool.md
 >\*\* Min/max eDTUs per database starting at 200 eDTUs and higher in **Standard** pools are in preview.
 >
 >\*\*\* **Premium** pools with more than 1 TB of storage is currently in public preview in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The max storage per pool for all other regions is currently limited to 1 TB.
->
