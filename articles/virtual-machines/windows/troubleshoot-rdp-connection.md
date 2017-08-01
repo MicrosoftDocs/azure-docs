@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 06/14/2017
+ms.date: 07/25/2017
 ms.author: genli
 
 ---
@@ -62,25 +62,8 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Reset password** button. Set the **Mode** to **Reset configuration only** and then click the **Update** button:
    
     ![Reset the RDP configuration in the Azure portal](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Verify Network Security Group rules**. This troubleshooting step verifies that you have a rule in your Network Security Group to permit RDP traffic. The default port for RDP is TCP port 3389. A rule to permit RDP traffic may not be created automatically when you create your VM.
-   
-    Select your VM in the Azure portal. Click the **Network interfaces** from the settings pane.
-   
-    ![View network interfaces for a VM in Azure portal](./media/troubleshoot-rdp-connection/select-network-interfaces.png)
-   
-    Select your network interface from the list (there is typically only one):
-   
-    ![Select network interface in the Azure portal](./media/troubleshoot-rdp-connection/select-interface.png)
-   
-    Select **Network security group** to view the Network Security Group associated with your network interface:
-   
-    ![Select Network Security Group in the Azure portal](./media/troubleshoot-rdp-connection/select-nsg.png)
-   
-    Verify that an inbound rule exists that allows RDP traffic on TCP port 3389. The following example shows a valid security rule that permits RDP traffic. You can see `Service` and `Action` are configured correctly:
-   
-    ![Verify RDP NSG rule in the Azure portal](./media/troubleshoot-rdp-connection/verify-nsg-rules.png)
-   
-    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
+2. **Verify Network Security Group rules**. Use [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) to confirm if a rule in a Network Security Group is blocking traffic to or from a virtual machine. You can also review effective security group rules to ensure inbound "Allow" NSG rule exists and is prioritized for RDP port(default 3389). For more information, see [Using Effective Security Rules to troubleshoot VM traffic flow](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
 3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
    
     Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](boot-diagnostics.md).
