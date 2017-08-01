@@ -21,8 +21,9 @@ ms.custom: mvc
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
-Watch the video to see this quickstart in action and then follow the steps yourself to publish your first .NET app on Azure!
+Watch the video to see this quickstart in action and then follow the steps yourself to publish your first .NET app on Azure.
 
+<p><!--spacing--></p>
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 ## Prerequisites
