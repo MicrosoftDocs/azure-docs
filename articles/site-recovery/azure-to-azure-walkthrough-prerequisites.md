@@ -65,7 +65,7 @@ Review the table below.
 ## Set permissions on the account
 
 1. Read about the [permissions](site-recovery-role-based-linked-access-control.md) you need for replication.
-2. Follow these [instructions](../active-directory/role-based-access-control-configure#add-access) to add permissions.
+2. Follow these [instructions](../active-directory/role-based-access-control-configure.md#add-access) to add permissions.
 
 
 ## Verify target resources
