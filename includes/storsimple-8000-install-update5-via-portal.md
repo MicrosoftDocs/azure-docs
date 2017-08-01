@@ -1,22 +1,22 @@
-<!--author=alkohli last changed: 07/07/17-->
+<!--author=alkohli last changed: 08/04/17-->
 
 #### To install an update from the Azure portal
 
 1. On the StorSimple service page, select your device.
 
-    ![Select device](./media/storsimple-8000-install-update4-via-portal/update1.png)
+    ![Select device](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
 2. Navigate to **Device settings** > **Device updates**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update4-via-portal/update2.png)
+    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
 2. A notification appears if new updates are available. Alternatively, in the **Device updates** blade, click **Scan Updates**. A job is created to scan for available updates. You are notified when the job completes successfully.
 
-    ![Click Device updates](./media/storsimple-8000-install-update4-via-portal/update3.png)
+    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
 3. We recommend that you review the release notes before you apply an update on your device. To apply updates, click **Install updates**. In the **Confirm regular updates** blade, review the prerequisites to complete before you apply updates. Select the checkbox to indicate that you are ready to update the device and then click **Install**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update4-via-portal/update4.png)
+    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
 6. A set of prerequisite checks starts. These checks include:
    
@@ -28,19 +28,19 @@
 
 7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
    
-    ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update6.png)
+    ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update6.png)
    
     The update is then applied on your device.
 
 9. The update takes a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
 
-    ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update8.png)
+    ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
      You can also monitor the progress of the update job from **Device settings > Jobs**. On the **Jobs** blade, you can see the update progress.
 
-     ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update7.png)
+     ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
 10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
 
-    ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update9.png)
+    ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update9.png)
 

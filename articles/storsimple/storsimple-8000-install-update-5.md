@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/31/2017
+ms.date: 08/04/2017
 ms.author: alkohli
 
 ---
@@ -39,7 +39,7 @@ Perform the following steps to update your device to [Update 5](storsimple-updat
 > [!NOTE]
 > Microsoft pulls additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues.
 
-[!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
+[!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
 Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17838)**. The **Last updated date** should be modified.
 
