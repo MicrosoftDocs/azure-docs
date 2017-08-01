@@ -39,6 +39,7 @@ Before you begin the tasks that are described in this article, complete the foll
 - If you plan to use Azure CLI commands to complete the tasks described in this article, you must either:
 	- [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of Azure CLI installed.
 	- Use the Azure Cloud Shell. Instead of installing the CLI and its dependencies, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. To use the Cloud Shell, click the Cloud Shell (**>_**) icon at the top of the Azure portal. 
+
 	To get help with Azure CLI commands, enter `az <command> --help`.
 
 ## <a name="create-subnet"></a>Add a subnet
