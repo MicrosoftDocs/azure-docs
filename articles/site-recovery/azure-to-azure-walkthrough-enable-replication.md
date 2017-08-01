@@ -3,7 +3,7 @@ title: Enable replication for Azure VMs to another Azure region with Azure Site 
 description: Summarizes the steps you need to enable replication to another Azure region for Azure VMs, using the Azure Site Recovery service
 services: site-recovery
 documentationcenter: ''
-author: raynew
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 
@@ -24,44 +24,13 @@ ms.author: raynew
 
 After setting up a [Recovery Services vault](azure-to-azure-walkthrough-vault.md), use this article to enable replication of virtual machines (VMs), to another Azure region, with [Azure Site Recovery](site-recovery-overview.md). To enable replication, you set up source and target settings, verify the replication policy, and select VMs you want to replicate.
 
-- When you finish the article, your Azure VMs should have started their initial replication to the secondary Azure region.
+- When you finish the article, your Azure VMs should be replicating to the secondary Azure region.
 - Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
 >[!NOTE]
 >
 > Azure VM replication is currently in preview.
 
-## Select the source region and VMs
-
-In **Recovery Services vaults**, click the vault name. In the vault, click the **+Replicate** button.
-
-
-
-
-# Step 6: Set up the target region and replication policy for Azure VM replication
-
-This article describes how to configure settings for the target location, and a replication policy, for replicating Azure virtual machines (VMs) between Azure regions, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
-
-- When you finish the article, you should have your target Azure region set up, and a replication policy in place.
-- If you haven't already [set up your source region](azure-to-azure-walkthrough-vault-source.md), do that before you perform the steps in this article.
-- Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
->[!NOTE]
->
-> Azure VM replication is currently in preview.
-
-
-# Step 6: Set up the target region and replication policy for Azure VM replication
-
-This article describes how to configure settings for the target location, and a replication policy, for replicating Azure virtual machines (VMs) between Azure regions, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
-
-- When you finish the article, you should have your target Azure region set up, and a replication policy in place.
-- If you haven't already [set up your source region](azure-to-azure-walkthrough-vault-source.md), do that before you perform the steps in this article.
-- Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
->[!NOTE]
->
-> Azure VM replication is currently in preview.
 
 ## Select the source settings
 
@@ -78,7 +47,8 @@ This article describes how to configure settings for the target location, and a 
 
 Site Recovery retrieves a list of the VMs associated with the subscription and resource group/cloud service.
 
-5. In **Virtual Machines**, select the VMs you want to replicate, and then click **OK**.
+1. In **Virtual Machines**, select the VMs you want to replicate.
+2. Click **OK**.
 
     ![Select VMs](./media/azure-to-azure-walkthrough-enable-replication/vms.png)
 
