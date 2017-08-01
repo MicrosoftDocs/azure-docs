@@ -47,7 +47,6 @@ The nozzle also runs with a CF user who is authorized to access the loggregator 
 > Note you need to install Rubygems first to install UAA command Line Client.
 
 ### 3. Create an OMS Workspace in Azure
-#### Create the OMS workspace manually
 You can create the OMS workspace manually, and load the pre-configured OMS views and alerts after you finished the nozzle deployment.
 1.	In the Azure portal, search the list of services in the Marketplace for Log Analytics, and then select Log Analytics.
 2.	Click Create, then select choices for the following items:
@@ -59,11 +58,8 @@ You can create the OMS workspace manually, and load the pre-configured OMS views
 Click OK to complete. 
 For additional details, see [Get started with Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started)
 
-#### Create the OMS workspace through the OMS for CF template
-You can create the OMS workspace, load the Pre-configured OMS views and alerts, all through the [OMS for CF template](TBD Link)
 
 # Deploy 
-
 ### Deploy the Nozzle as a PCF Ops Manager tile
 * If you've deployed PCF via Ops Manager, follow these steps to [Install and Configure Microsoft Azure Log Analytics Nozzle for PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html), the nozzle will be installed as a tile with Ops manager.
 
@@ -128,14 +124,12 @@ cf apps
 Make sure the OMS nozzle application is running.
 
 # View the data in OMS Portal
-* If you did not use the OMS for CF template, you will need to manually import the default views and create the alerts.
-
 ### 1. Import OMS View
 From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, select one of the omsview files, e.g. Cloud Foundry.omsview, and save the view. Now a **Tile** will be displayed on the main OMS Overview page. Click the **Tile**, it will show visualized metrics.
 
 Operators could customize these views or create new views through **View Designer**.
 
-> Please note the "Cloud Foundry.omsview" is a preview version of Cloud Foundry OMS view template, a fully configured default template is in progress, please send your suggestions and feedback to the [Issue Section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
+* Please note the "Cloud Foundry.omsview" is a preview version of Cloud Foundry OMS view template, a fully configured default template is in progress, please send your suggestions and feedback to the [Issue Section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
 ### 2. <a name="alert">Create Alert rules</a>
 For the process of creating alert rules in OMS Log Analytics, please refer to this [article](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts).
