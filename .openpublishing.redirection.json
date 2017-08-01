@@ -8363,6 +8363,26 @@
             "source_path": "articles/vs-azure-tools-storage-explorer-relnotes-0-8-7.md",
             "redirect_url": "/azure/vs-azure-tools-storage-explorer-relnotes",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/secure-email-introduction.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/microsoft-365-policies-configurations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/secure-email-recommended-policies.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/secure-email-recommended-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/secure-email-deploy-recommended-policies.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/secure-email-deploy-recommended-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/secure-email-ems-office365-service-descriptions.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise",
+            "redirect_document_id": false
         }
     ]
 }
