@@ -152,7 +152,7 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 * You can follow the steps [here](/azure/app-service-web/app-service-linux-how-to-create-web-app) to create a Web App on Linux 
 * Azure Container Registry is a managed [Docker registry] (https://docs.docker.com/registry/) service based on the open-source Docker Registry 2.0. Follow the steps [here] (/azure/container-registry/container-registry-get-started-azure-cli) for more guidance on how to do so. You can also use DockerHub.
 
-**To deploy using docker:**
+###To deploy using docker:
 <ol>
 <li>Create a new freestyle project in Jenkins Dashboard</li>
 <li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/\<yourid\>/javawebappsample.
@@ -229,7 +229,7 @@ You see:</li>
 <li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y
 </ol>
 </li>
-![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+	![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### For App service on Linux
 * To verify, in Azure CLI, run:
