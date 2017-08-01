@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako;
 
 ---
@@ -310,8 +310,7 @@ Set up your development environment and populate the app.config file with connec
 	    }
 	}
 
-## Next step
-Review Media Services learning paths.
+## Next steps
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
