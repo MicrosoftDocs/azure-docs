@@ -52,7 +52,7 @@ If the Azure Multi-Factor Authentication Web Service SDK is not already installe
 1. Click the Web Service SDK icon.
 2. Click **Install Web Service SDK** and follow the instructions presented.
 
-The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server. This action allows the "Trusted Root Clarification Authorities" to trust that certificate when initiating the SSL connection.
+The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server. 
 
 ![Setup](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)
 
