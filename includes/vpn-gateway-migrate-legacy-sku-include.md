@@ -1,5 +1,5 @@
 > [!NOTE]
-> * The VPN Gateway Public IP address will change when migrating from an old SKU to a new SKU.
+> * The VPN gateway Public IP address will change when migrating from an old SKU to a new SKU.
 > * You can't migrate classic VPN gateways to the new SKUs. Classic VPN gateways can only use the legacy (old) SKUs.
 > 
 
