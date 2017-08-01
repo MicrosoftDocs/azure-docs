@@ -142,8 +142,6 @@ async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
 }
 ```
 
-Once the keys have been set, the following function will return the user to the OCR Select Page.
-
 
 ### OCR Select Page
 The OCR Select Page has two important roles.  First, it is where the user determines what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally cumbersome in a cross-platform application as different logic has to be written for photo capture and import per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
@@ -183,6 +181,10 @@ async Task<byte[]> TakePhoto()
     return photoByteArray;
 }
 ```
+The photo import utility works in a similar way, and can be found in `OcrSelectPage.xaml.cs`.  
+> [!NOTE]
+> The downscaling done by setting `PhotoSize = PhotoSize.Medium` on the *StoreCameraMediaOptions* object.  At the moment, the Handwritten OCR endpoint can only handle photos that are smaller than 4 MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all file-size related issues.  If your device takes exceptionally high-quality photos and you are getting errors, you might try setting `PhotoSize = PhotoSize.Small` on this object.  
+
 
 And here's the utility function used to convert a *MediaFile* into a byte array: 
 
@@ -197,9 +199,6 @@ byte[] MediaFileToByteArray(MediaFile photoMediaFile)
 }
 ```
 
-The photo import utility works in a similar way, and can be found in `OcrSelectPage.xaml.cs`.  
-> [!NOTE]
-> The downscaling done by setting `PhotoSize = PhotoSize.Medium` on the *StoreCameraMediaOptions* object.  At the moment, the Handwritten OCR endpoint can only handle photos that are smaller than 4 MB.  This setting downscales the photo to 50% of its original size, which helps us avoid almost all file-size related issues.  If your device takes exceptionally high-quality photos and you are getting errors, you might try setting `PhotoSize = PhotoSize.Small` on this object.  
 
 ### OCR Results Page
 The OCR Results Page is where we extract text from the selected OCR endpoint and pull text from the endpoint response using the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to discus each of them.  
