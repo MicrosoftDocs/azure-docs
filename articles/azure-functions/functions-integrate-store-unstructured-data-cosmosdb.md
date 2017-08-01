@@ -110,7 +110,11 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 ## Test the function and database
 
-1. Expand the right window and select **Test**. Under **Query**, click **+ Add parameter** to add several parameters to the query string.
+1. Expand the right window and select **Test**. Under **Query**, click **+ Add parameter** and add the following parameters to the query string:
+
+    + `name`
+    + `task`
+    + `duedate`
 
 2. Click **Run** and verify that 200 status is returned.
 
@@ -122,11 +126,9 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 2. Select the database you created, then select **Data Explorer**.
 
-3. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values. 
+3. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata. 
 
     ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
-
-    The document also contains additional metadata.
 
 You have successfully added a binding to your HTTP trigger that stores unstructured data in a Cosmos DB database.
 
