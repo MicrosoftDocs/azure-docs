@@ -28,7 +28,7 @@ This article provides an overview of the unique considerations for Networking an
 | |DNS zones per subscription|100 (default)<br>Can be increased on request.|100|
 | |DNS record sets per zone|5000 (default)<br>Can be increased on request.|5000|
 | Virtual network|Virtual network peering|Connect two virtual networks in the same region through the Azure backbone network.|Not yet supported|
-| |IPv6 addresses|You can assign an IPv6 address as part of the Network Interface Configuration.|Only IPv4 is supported|
+| |IPv6 addresses|You can assign an IPv6 address as part of the [Network Interface Configuration](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Only IPv4 is supported|
 |VPN gateways|Point-to-Site VPN Gateway|Supported|Not yet supported|
 | |Vnet-to-Vnet Gateway|Supported|Not yet supported|
 | |VPN Gateway SKUs|Support for Basic, GW1, GW2, GW3, Standard High Performance, Ultra-High Performance. |Support for Basic, Standard and High-Performance SKUs.|
