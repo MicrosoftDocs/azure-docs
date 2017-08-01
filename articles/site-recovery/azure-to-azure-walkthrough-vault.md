@@ -45,4 +45,4 @@ After [planning networks](azure-to-azure-walkthrough-network.md), use this artic
 
 ## Next steps
 
-Go to [Step 5: Enable replication](azure-to-azure-enable-replication.md)
+Go to [Step 5: Enable replication](azure-to-azure-walkthrough-enable-replication.md)
