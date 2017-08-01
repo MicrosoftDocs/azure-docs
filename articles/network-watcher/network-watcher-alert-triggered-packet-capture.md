@@ -368,8 +368,6 @@ After your capture has been downloaded, you can view it by using any tool that c
 ## Next steps
 
 Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-deep-packet-inspection.md).
-<!---Loc Comment: [Packet capture analysis with Wireshark] link leads to the top of the page. Is this correct?--->
-
 
 
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png
