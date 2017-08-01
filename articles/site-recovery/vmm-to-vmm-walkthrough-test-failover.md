@@ -17,7 +17,7 @@ ms.date: 07/30/2017
 ms.author: raynew
 
 ---
-# Run a test failover for Hyper-V replication to a secondary site
+# Step 10: Run a test failover for Hyper-V replication to a secondary site
 
 
 After you enable replication for Hyper-V virtual machines (VMs) with [Azure Site Recovery](site-recovery-overview.md), use this article to run a test failover. A test failover verifies that replication is working, without impacting your production environment. 
@@ -42,7 +42,7 @@ After reading this article, post any comments at the bottom, or on the [Azure Re
 ## Run a test failover for a VM
 
 1. To fail over a single VM, in **Replicated Items**, click the VM > **Test Failover**.
-2. In**Test Failover**, specify how test VMs will be connected to networks after the test failover. 
+2. In **Test Failover**, specify how test VMs will be connected to networks after the test failover. 
 3. Click **OK** to begin the failover. Track progress on the **Jobs** tab.
 5. After failover is complete, verify that the test VMs start successfully.
 6. When you're done, click **Cleanup test failover** on the recovery plan.
