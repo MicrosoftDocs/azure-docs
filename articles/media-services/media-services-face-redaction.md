@@ -55,7 +55,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 | Output asset |foo_annotations.json |Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
 | Output asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |A cropped jpg of each detected face, where the number indicates the labelId of the face |
 
-#### Output Example:
+#### Output example:
 
 	{
 	  "version": 1,
@@ -104,7 +104,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 
     … truncated
 
-### Redact Mode
+### Redact mode
 The second pass of the workflow takes a larger number of inputs that must be combined into a single asset.
 
 This includes a list of IDs to blur, the original video, and the annotations JSON. This mode uses the annotations to apply blurring on the input video.
@@ -119,7 +119,7 @@ The output from the Analyze pass does not include the original video. The video 
 | Input config |Job configuration preset |{'version':'1.0', 'options': {'mode':'redact'}} |
 | Output asset |foo_redacted.mp4 |Video with blurring applied based on annotations |
 
-#### Example Output
+#### Example output
 This is the output from an IDList with one ID selected.
 
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
