@@ -1,5 +1,5 @@
 ---
-title: Run a test failover for Azure VM replication with Azure Site Recovery | Microsoft Docs'
+title: Run a test failover for Azure VM replication with Azure Site Recovery | Microsoft Docs
 description: Summarizes the steps you need for running a test failover for Azure VMs replicating to another Azure region using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
