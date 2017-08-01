@@ -20,7 +20,7 @@ ms.author: raynew
 # Step 2: Review the prerequisites and limitations for Hyper-V VM replication to a secondary VMM site
 
 
-After you've reviewed the [scenario architecture](vmm-to-vmm-walkthrough-architecture.md), read this articles to make sure you understand the deployment prerequisites, when replicating on-premises Hyper-V virtual machines (VMs) managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal.
+After you've reviewed the [scenario architecture](vmm-to-vmm-walkthrough-architecture.md), read this article to make sure you understand the deployment prerequisites, when replicating on-premises Hyper-V virtual machines (VMs) managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal.
 
 After reading this article, post any comments at the bottom, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
