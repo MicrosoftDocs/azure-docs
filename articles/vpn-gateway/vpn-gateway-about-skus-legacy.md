@@ -39,10 +39,20 @@ This article contains information about the legacy virtual network gateway SKUs.
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## Migrate to the new gateway SKUs
+## <a name="resize"></a>Resize a gateway (change a gateway SKU)
+
+You can't resize your VPN gateways directly between the old SKUs and the new SKU families. However, you can resize within the same SKU family. For example, if you have a Standard SKU, you can resize to a HighPerformance SKU using the following command:
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
+
+## <a name="migrate"></a>Migrate to the new gateway SKUs
 
 If you are working with the Resource Manager deployment model, you can migrate to the new gateway SKUS. If you are working with the classic deployment model, you can't migrate to the new SKUs and must instead continue to use the legacy SKUs.
 
 [!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+
+Next steps
 
 For more information about the new Gateway SKUs, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku).
