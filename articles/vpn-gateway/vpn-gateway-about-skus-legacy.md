@@ -60,3 +60,5 @@ If you are working with the Resource Manager deployment model, you can migrate t
 ## Next steps
 
 For more information about the new Gateway SKUs, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku).
+
+For more information about configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
