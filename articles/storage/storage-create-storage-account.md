@@ -30,6 +30,7 @@ An Azure storage account provides a unique namespace to store and access your Az
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
 ## Storage account billing
+
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -58,7 +59,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ## Create a storage account
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **New** -> **Storage** -> **Storage account**.
+2. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to Storage, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
    
    > [!NOTE]
