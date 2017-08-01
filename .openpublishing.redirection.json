@@ -8358,7 +8358,11 @@
             "source_path": "articles/azure-resource-manager/resource-manager-quickstart-deploy.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vs-azure-tools-storage-explorer-relnotes-0-8-7.md",
+            "redirect_url": "/azure/vs-azure-tools-storage-explorer-relnotes",
+            "redirect_document_id": false
         }
-
     ]
 }
