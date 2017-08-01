@@ -33,7 +33,7 @@ This sample makes use of the following NuGet Packages:
 * [Xamarin Media Plugin](https://github.com/jamesmontemagno/MediaPlugin)
 * [Json.NET](https://github.com/JamesNK/Newtonsoft.Json)
 
-### Cognivite Services
+### Cognitive Services
 This sample utilizes the following Cognitive Services APIs:
 * [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) 
 * [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/)
@@ -201,9 +201,9 @@ byte[] MediaFileToByteArray(MediaFile photoMediaFile)
 
 
 ### OCR Results Page
-The OCR Results Page is where we extract text from the selected OCR endpoint and pull text from the endpoint response using the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to discus each of them.  
+The OCR Results Page is where we extract text from the selected OCR endpoint and pull text from the endpoint response using the **Json.NET** [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to discuss each of them.  
 
-Because the Computer Vision API is only hosted in a few server locations, its URI endpoint must be constructed dynamically at runtime.  This is the function that sets the location of the URI endpoint.  It is part of the static *AppConstants* class found in `AppConstants.cs`. It either responds to user choice from the Add Keys Page or recieves a hardcoded value set in `App.xaml.cs`. 
+Because the Computer Vision API is only hosted in a few server locations, its URI endpoint must be constructed dynamically at runtime.  This is the function that sets the location of the URI endpoint.  It is part of the static *AppConstants* class found in `AppConstants.cs`. It either responds to user choice from the Add Keys Page or receives a hardcoded value set in `App.xaml.cs`. 
 
 ```csharp
 public static void SetOcrLocation(string location)
@@ -380,7 +380,7 @@ async Task<WebResultsList> GetQueryResults()
 }
 ```
 
-It's important to acknowledge here that the Web Search API functions best when a maximal number of headers and parameters are used to personalize and optimize your call.  A few highly value and simple parameters are **mkt** and  **setLang**.
+It's important to acknowledge here that the Web Search API functions best when a maximal number of headers and parameters are used to personalize and optimize your call.  A few value and simple parameters are **mkt** and  **setLang**.
 
 
 > [!NOTE]
