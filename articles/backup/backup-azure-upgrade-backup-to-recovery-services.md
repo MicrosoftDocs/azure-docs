@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/28/2017
+ms.date: 08/01/2017
 ms.author: markgal;arunak
 
 ---
@@ -23,8 +23,6 @@ This article explains how to upgrade a Backup vault to a Recovery Services vault
 - Recovery Services vaults have more features than Backup vaults, including: better security, integrated monitoring, faster restores and item-level restores.
 - Manage backup items from an improved, simplified portal.
 - New features will only apply to Recovery Services vaults.
-
-For more information about the upgrade process, see the Azure Backup [blog](http://azure.microsoft.com/blog/upgrade-classic-backup-and-siterecovery-vault-to-arm-recovery-services-vault).
 
 ## Impact to operations during upgrade
 
@@ -49,7 +47,7 @@ Check the following issues before you upgrade your Backup vaults to Recovery Ser
 You can use PowerShell scripts to upgrade your Backup vaults to Recovery Services vaults. Check that you have the required PowerShell components to trigger the vault upgrade. PowerShell scripts for Backup vaults do not work for Recovery Services vaults. Prepare your environment to upgrade the vaults:
 
 1. Install or upgrade [Windows Management Framework (WMF) to version 5](https://www.microsoft.com/download/details.aspx?id=50395) or above.
-2. Download and [install Azure PowerShell 3.7.0](https://github.com/Azure/azure-powershell/releases/download/v3.7.0-March2017/azure-powershell.3.7.0.msi).
+2. [Install Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases/download/v3.8.0-April2017/azure-powershell.3.8.0.msi).
 3. Update the PowerShell modules:
   - For Windows Server:
     - Install-Module -Name Azure -RequiredVersion 3.8.0
@@ -114,7 +112,7 @@ The second screen shows the help links available to help you get started using t
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **If I don’t plan on upgrading soon, what happens to my vaults?**</br>
-Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Eventually Microsoft will deprecate the classic portal. On November 1, 2017, Microsoft will automatically upgrade any remaining Backup vaults to Recovery Services vaults. Until then, customers control when to upgrade their vaults.
+Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Eventually Microsoft will deprecate the classic portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. By November 1, 2017, Microsoft will complete the upgrade process. Your vault can be automatically upgraded any time during September or October. Microsoft recommends you upgrade your vault as soon as possible.
 
 **What does this upgrade mean for my existing tooling?**</br>
 You should update your tooling to the Resource Manager deployment model. Recovery Services vaults were created for use in the Resource Manager deployment model. Planning for the Resource Manager deployment model, and accounting for the difference in your vaults is important. 
